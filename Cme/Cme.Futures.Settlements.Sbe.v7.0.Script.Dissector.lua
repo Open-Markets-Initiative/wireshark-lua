@@ -58,7 +58,7 @@ cme_futures_settlements_sbe_v7_0.fields.message_sequence_number = ProtoField.new
 cme_futures_settlements_sbe_v7_0.fields.message_size = ProtoField.new("Message Size", "cme.futures.settlements.sbe.v7.0.messagesize", ftypes.UINT16)
 cme_futures_settlements_sbe_v7_0.fields.month = ProtoField.new("Month", "cme.futures.settlements.sbe.v7.0.month", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.null_value = ProtoField.new("Null Value", "cme.futures.settlements.sbe.v7.0.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_futures_settlements_sbe_v7_0.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.settlements.sbe.v7.0.numingroup", ftypes.UINT8)
+cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.settlements.sbe.v7.0.numingroupuint8", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.settlements.sbe.v7.0.openclosesettlflag", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.settlements.sbe.v7.0.openinterestqty", ftypes.UINT32)
 cme_futures_settlements_sbe_v7_0.fields.packet = ProtoField.new("Packet", "cme.futures.settlements.sbe.v7.0.packet", ftypes.STRING)
@@ -251,7 +251,7 @@ size_of.trading_reference_date = 2
 display.trading_reference_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trading Reference Date: No Value ("..value..")"
+    return "Trading Reference Date: No Value"
   end
 
   return "Trading Reference Date: "..value
@@ -291,7 +291,7 @@ end
 dissect.high_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.high_px_ind
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.high_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px_ind, range, value, display)
@@ -306,7 +306,7 @@ size_of.exponent = 1
 display.exponent = function(value)
   -- Check if field has value
   if value == -128 then
-    return "Exponent: No Value ("..value..")"
+    return "Exponent: No Value"
   end
 
   return "Exponent: "..value
@@ -330,8 +330,8 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == -9223372036854775808 then
-    return "Mantissa: No Value ("..value..")"
+  if value == Int64(0x80000000, 0x0000000) then
+    return "Mantissa: No Value"
   end
 
   return "Mantissa: "..value
@@ -413,7 +413,7 @@ end
 dissect.low_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.low_px_ind
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.low_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px_ind, range, value, display)
@@ -470,7 +470,7 @@ size_of.security_id = 4
 display.security_id = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Security Id: No Value ("..value..")"
+    return "Security Id: No Value"
   end
 
   return "Security Id: "..value
@@ -494,8 +494,8 @@ size_of.instrument_guid = 8
 -- Display: Instrument Guid
 display.instrument_guid = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Instrument Guid: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Instrument Guid: No Value"
   end
 
   return "Instrument Guid: "..value
@@ -530,7 +530,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.symbol, range, value, display)
@@ -545,7 +556,7 @@ size_of.week = 1
 display.week = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Week: No Value ("..value..")"
+    return "Week: No Value"
   end
 
   return "Week: "..value
@@ -570,7 +581,7 @@ size_of.day = 1
 display.day = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Day: No Value ("..value..")"
+    return "Day: No Value"
   end
 
   return "Day: "..value
@@ -595,7 +606,7 @@ size_of.month = 1
 display.month = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Month: No Value ("..value..")"
+    return "Month: No Value"
   end
 
   return "Month: "..value
@@ -620,7 +631,7 @@ size_of.year = 2
 display.year = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Year: No Value ("..value..")"
+    return "Year: No Value"
   end
 
   return "Year: "..value
@@ -707,7 +718,18 @@ end
 dissect.underlying_security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.underlying_security_exchange
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.underlying_security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_exchange, range, value, display)
@@ -732,7 +754,18 @@ end
 dissect.underlying_security_type = function(buffer, offset, packet, parent)
   local length = size_of.underlying_security_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.underlying_security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_security_type, range, value, display)
@@ -757,7 +790,18 @@ end
 dissect.underlying_clearing_product_code = function(buffer, offset, packet, parent)
   local length = size_of.underlying_clearing_product_code
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.underlying_clearing_product_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.underlying_clearing_product_code, range, value, display)
@@ -771,8 +815,8 @@ size_of.underlying_product_guid = 8
 -- Display: Underlying Product Guid
 display.underlying_product_guid = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Underlying Product Guid: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Underlying Product Guid: No Value"
   end
 
   return "Underlying Product Guid: "..value
@@ -931,7 +975,18 @@ end
 dissect.security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.security_exchange
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.security_exchange, range, value, display)
@@ -956,7 +1011,18 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.security_type, range, value, display)
@@ -981,7 +1047,18 @@ end
 dissect.clearing_product_code = function(buffer, offset, packet, parent)
   local length = size_of.clearing_product_code
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.clearing_product_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.clearing_product_code, range, value, display)
@@ -995,8 +1072,8 @@ size_of.product_guid = 8
 -- Display: Product Guid
 display.product_guid = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Product Guid: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Product Guid: No Value"
   end
 
   return "Product Guid: "..value
@@ -1146,22 +1223,22 @@ dissect.m_d_incremental_refresh_high_low_group = function(buffer, offset, packet
   return dissect.m_d_incremental_refresh_high_low_group_fields(buffer, offset, packet, parent)
 end
 
--- Size: Num In Group
-size_of.num_in_group = 1
+-- Size: Num In Group uint 8
+size_of.num_in_group_uint_8 = 1
 
--- Display: Num In Group
-display.num_in_group = function(value)
-  return "Num In Group: "..value
+-- Display: Num In Group uint 8
+display.num_in_group_uint_8 = function(value)
+  return "Num In Group uint 8: "..value
 end
 
--- Dissect: Num In Group
-dissect.num_in_group = function(buffer, offset, packet, parent)
-  local length = size_of.num_in_group
+-- Dissect: Num In Group uint 8
+dissect.num_in_group_uint_8 = function(buffer, offset, packet, parent)
+  local length = size_of.num_in_group_uint_8
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_in_group(value, buffer, offset, packet, parent)
+  local display = display.num_in_group_uint_8(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_settlements_sbe_v7_0.fields.num_in_group, range, value, display)
+  parent:add(cme_futures_settlements_sbe_v7_0.fields.num_in_group_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -1192,7 +1269,7 @@ size_of.group_size = function(buffer, offset)
 
   index = index + size_of.block_length
 
-  index = index + size_of.num_in_group
+  index = index + size_of.num_in_group_uint_8
 
   return index
 end
@@ -1209,8 +1286,8 @@ dissect.group_size_fields = function(buffer, offset, packet, parent)
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
+  -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
+  index, num_in_group_uint_8 = dissect.num_in_group_uint_8(buffer, index, packet, parent)
 
   return index
 end
@@ -1253,11 +1330,11 @@ dissect.m_d_incremental_refresh_high_low_groups_fields = function(buffer, offset
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh High Low Group: Struct of 20 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_high_low_group(buffer, index, packet, parent)
   end
 
@@ -1373,7 +1450,7 @@ size_of.open_interest_qty = 4
 display.open_interest_qty = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Open Interest Qty: No Value ("..value..")"
+    return "Open Interest Qty: No Value"
   end
 
   return "Open Interest Qty: "..value
@@ -1398,7 +1475,7 @@ size_of.cleared_volume = 4
 display.cleared_volume = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Cleared Volume: No Value ("..value..")"
+    return "Cleared Volume: No Value"
   end
 
   return "Cleared Volume: "..value
@@ -1568,11 +1645,11 @@ dissect.m_d_incremental_refresh_voi_groups_fields = function(buffer, offset, pac
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Voi Group: Struct of 19 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_voi_group(buffer, index, packet, parent)
   end
 
@@ -1651,7 +1728,18 @@ end
 dissect.md_statistic_desc = function(buffer, offset, packet, parent)
   local length = size_of.md_statistic_desc
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.md_statistic_desc(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc, range, value, display)
@@ -1740,7 +1828,7 @@ size_of.md_entry_px = 8
 display.md_entry_px = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Md Entry Px: No Value ("..value..")"
+    return "Md Entry Px: No Value"
   end
   return "Md Entry Px: "..value:tonumber()/1000000000
 end
@@ -1804,6 +1892,11 @@ size_of.md_entry_type = 1
 
 -- Display: Md Entry Type
 display.md_entry_type = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Entry Type: No Value"
+  end
+
   return "Md Entry Type: "..value
 end
 
@@ -1811,7 +1904,17 @@ end
 dissect.md_entry_type = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.md_entry_type, range, value, display)
@@ -2016,11 +2119,11 @@ dissect.m_d_incremental_refresh_settle_groups_fields = function(buffer, offset, 
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Settle Group: Struct of 22 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_settle_group(buffer, index, packet, parent)
   end
 

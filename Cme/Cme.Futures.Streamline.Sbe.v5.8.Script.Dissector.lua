@@ -27,19 +27,19 @@ cme_futures_streamline_sbe_v5_8.fields.admin_login_315 = ProtoField.new("Admin L
 cme_futures_streamline_sbe_v5_8.fields.admin_logout_316 = ProtoField.new("Admin Logout 316", "cme.futures.streamline.sbe.v5.8.adminlogout316", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.aggressor_side = ProtoField.new("Aggressor Side", "cme.futures.streamline.sbe.v5.8.aggressorside", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.appl_id = ProtoField.new("Appl Id", "cme.futures.streamline.sbe.v5.8.applid", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.batch_total_messages = ProtoField.new("Batch Total Messages", "cme.futures.streamline.sbe.v5.8.batchtotalmessages", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_8.fields.batch_total_messages_u_int_16 = ProtoField.new("Batch Total Messages u Int 16", "cme.futures.streamline.sbe.v5.8.batchtotalmessagesuint16", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_8.fields.batch_total_messages_u_int_16_null = ProtoField.new("Batch Total Messages u Int 16 Null", "cme.futures.streamline.sbe.v5.8.batchtotalmessagesuint16null", ftypes.UINT16)
 cme_futures_streamline_sbe_v5_8.fields.binary_packet_header = ProtoField.new("Binary Packet Header", "cme.futures.streamline.sbe.v5.8.binarypacketheader", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.block_length = ProtoField.new("Block Length", "cme.futures.streamline.sbe.v5.8.blocklength", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.futures.streamline.sbe.v5.8.calfutpx", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.streamline.sbe.v5.8.couponrate", ftypes.INT32)
+cme_futures_streamline_sbe_v5_8.fields.coupon_rate_decimal_32 = ProtoField.new("Coupon Rate Decimal 32", "cme.futures.streamline.sbe.v5.8.couponratedecimal32", ftypes.INT32)
 cme_futures_streamline_sbe_v5_8.fields.currency = ProtoField.new("Currency", "cme.futures.streamline.sbe.v5.8.currency", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.d_v_01 = ProtoField.new("D V 01", "cme.futures.streamline.sbe.v5.8.dv01", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.daily_incremental_eris_pai = ProtoField.new("Daily Incremental Eris Pai", "cme.futures.streamline.sbe.v5.8.dailyincrementalerispai", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.day = ProtoField.new("Day", "cme.futures.streamline.sbe.v5.8.day", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.end_of_event = ProtoField.new("End Of Event", "cme.futures.streamline.sbe.v5.8.endofevent", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cme_futures_streamline_sbe_v5_8.fields.eris_pai = ProtoField.new("Eris Pai", "cme.futures.streamline.sbe.v5.8.erispai", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.event_time = ProtoField.new("Event Time", "cme.futures.streamline.sbe.v5.8.eventtime", ftypes.UINT64)
-cme_futures_streamline_sbe_v5_8.fields.event_type = ProtoField.new("Event Type", "cme.futures.streamline.sbe.v5.8.eventtype", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_8.fields.event_time_u_int_64 = ProtoField.new("Event Time u Int 64", "cme.futures.streamline.sbe.v5.8.eventtimeuint64", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_8.fields.event_type_event_type_indices = ProtoField.new("Event Type Event Type Indices", "cme.futures.streamline.sbe.v5.8.eventtypeeventtypeindices", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.events_group = ProtoField.new("Events Group", "cme.futures.streamline.sbe.v5.8.eventsgroup", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.events_groups = ProtoField.new("Events Groups", "cme.futures.streamline.sbe.v5.8.eventsgroups", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.exponent = ProtoField.new("Exponent", "cme.futures.streamline.sbe.v5.8.exponent", ftypes.INT8)
@@ -95,7 +95,6 @@ cme_futures_streamline_sbe_v5_8.fields.m_d_incremental_refresh_trade_blocks_grou
 cme_futures_streamline_sbe_v5_8.fields.m_d_incremental_refresh_trade_blocks_groups = ProtoField.new("M D Incremental Refresh Trade Blocks Groups", "cme.futures.streamline.sbe.v5.8.mdincrementalrefreshtradeblocksgroups", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.m_d_instrument_definition_eris_leg_group = ProtoField.new("M D Instrument Definition Eris Leg Group", "cme.futures.streamline.sbe.v5.8.mdinstrumentdefinitionerisleggroup", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.m_d_instrument_definition_eris_leg_groups = ProtoField.new("M D Instrument Definition Eris Leg Groups", "cme.futures.streamline.sbe.v5.8.mdinstrumentdefinitionerisleggroups", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.futures.streamline.sbe.v5.8.mantissa32", ftypes.INT32)
 cme_futures_streamline_sbe_v5_8.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.futures.streamline.sbe.v5.8.mantissa64", ftypes.INT64)
 cme_futures_streamline_sbe_v5_8.fields.market_depth = ProtoField.new("Market Depth", "cme.futures.streamline.sbe.v5.8.marketdepth", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.market_sector = ProtoField.new("Market Sector", "cme.futures.streamline.sbe.v5.8.marketsector", ftypes.STRING)
@@ -106,11 +105,13 @@ cme_futures_streamline_sbe_v5_8.fields.md_entry_code = ProtoField.new("Md Entry 
 cme_futures_streamline_sbe_v5_8.fields.md_entry_date = ProtoField.new("Md Entry Date", "cme.futures.streamline.sbe.v5.8.mdentrydate", ftypes.INT32)
 cme_futures_streamline_sbe_v5_8.fields.md_entry_id = ProtoField.new("Md Entry Id", "cme.futures.streamline.sbe.v5.8.mdentryid", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "cme.futures.streamline.sbe.v5.8.mdentrypositionno", ftypes.INT32)
-cme_futures_streamline_sbe_v5_8.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.streamline.sbe.v5.8.mdentrypx", ftypes.INT64)
-cme_futures_streamline_sbe_v5_8.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.streamline.sbe.v5.8.mdentrysize", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_8.fields.md_entry_px_pricenull = ProtoField.new("Md Entry Px Pricenull", "cme.futures.streamline.sbe.v5.8.mdentrypxpricenull", ftypes.INT64)
+cme_futures_streamline_sbe_v5_8.fields.md_entry_size_u_int_64_null = ProtoField.new("Md Entry Size u Int 64 Null", "cme.futures.streamline.sbe.v5.8.mdentrysizeuint64null", ftypes.UINT64)
 cme_futures_streamline_sbe_v5_8.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.streamline.sbe.v5.8.mdentrytime", ftypes.INT32)
-cme_futures_streamline_sbe_v5_8.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.streamline.sbe.v5.8.mdentrytype", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.md_feed_type = ProtoField.new("Md Feed Type", "cme.futures.streamline.sbe.v5.8.mdfeedtype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.md_entry_type_char = ProtoField.new("Md Entry Type Char", "cme.futures.streamline.sbe.v5.8.mdentrytypechar", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.md_entry_type_md_entry_type_indices = ProtoField.new("Md Entry Type Md Entry Type Indices", "cme.futures.streamline.sbe.v5.8.mdentrytypemdentrytypeindices", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.md_feed_type_string_len_3 = ProtoField.new("Md Feed Type String Len 3", "cme.futures.streamline.sbe.v5.8.mdfeedtypestringlen3", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.md_feed_type_string_length_2 = ProtoField.new("Md Feed Type String Length 2", "cme.futures.streamline.sbe.v5.8.mdfeedtypestringlength2", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_incremental_refresh_eris_351 = ProtoField.new("Md Incremental Refresh Eris 351", "cme.futures.streamline.sbe.v5.8.mdincrementalrefresheris351", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_incremental_refresh_eris_353 = ProtoField.new("Md Incremental Refresh Eris 353", "cme.futures.streamline.sbe.v5.8.mdincrementalrefresheris353", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = ProtoField.new("Md Incremental Refresh Eris Reference Data And Daily Statistics 333", "cme.futures.streamline.sbe.v5.8.mdincrementalrefresherisreferencedataanddailystatistics333", ftypes.STRING)
@@ -121,12 +122,12 @@ cme_futures_streamline_sbe_v5_8.fields.md_incremental_refresh_trade_blocks_349 =
 cme_futures_streamline_sbe_v5_8.fields.md_instrument_definition_eris_363 = ProtoField.new("Md Instrument Definition Eris 363", "cme.futures.streamline.sbe.v5.8.mdinstrumentdefinitioneris363", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_instrument_definition_indices_347 = ProtoField.new("Md Instrument Definition Indices 347", "cme.futures.streamline.sbe.v5.8.mdinstrumentdefinitionindices347", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.md_news_indices_339 = ProtoField.new("Md News Indices 339", "cme.futures.streamline.sbe.v5.8.mdnewsindices339", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.streamline.sbe.v5.8.mdupdateaction", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_8.fields.md_update_action_char = ProtoField.new("Md Update Action Char", "cme.futures.streamline.sbe.v5.8.mdupdateactionchar", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.md_update_action_md_update_action = ProtoField.new("Md Update Action Md Update Action", "cme.futures.streamline.sbe.v5.8.mdupdateactionmdupdateaction", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.message = ProtoField.new("Message", "cme.futures.streamline.sbe.v5.8.message", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.message_header = ProtoField.new("Message Header", "cme.futures.streamline.sbe.v5.8.messageheader", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.streamline.sbe.v5.8.messagesequencenumber", ftypes.UINT32)
 cme_futures_streamline_sbe_v5_8.fields.message_size = ProtoField.new("Message Size", "cme.futures.streamline.sbe.v5.8.messagesize", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.streamline.sbe.v5.8.minpriceincrement", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.month = ProtoField.new("Month", "cme.futures.streamline.sbe.v5.8.month", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.net_chg_prev_day = ProtoField.new("Net Chg Prev Day", "cme.futures.streamline.sbe.v5.8.netchgprevday", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.net_pct_chg = ProtoField.new("Net Pct Chg", "cme.futures.streamline.sbe.v5.8.netpctchg", ftypes.STRING)
@@ -138,9 +139,11 @@ cme_futures_streamline_sbe_v5_8.fields.nominal = ProtoField.new("Nominal", "cme.
 cme_futures_streamline_sbe_v5_8.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.futures.streamline.sbe.v5.8.notionalpercentageoutstanding", ftypes.INT32)
 cme_futures_streamline_sbe_v5_8.fields.npv = ProtoField.new("Npv", "cme.futures.streamline.sbe.v5.8.npv", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.null_value = ProtoField.new("Null Value", "cme.futures.streamline.sbe.v5.8.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-cme_futures_streamline_sbe_v5_8.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.streamline.sbe.v5.8.numingroup", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_8.fields.num_in_group_uint_16 = ProtoField.new("Num In Group uint 16", "cme.futures.streamline.sbe.v5.8.numingroupuint16", ftypes.UINT16)
+cme_futures_streamline_sbe_v5_8.fields.num_in_group_uint_8 = ProtoField.new("Num In Group uint 8", "cme.futures.streamline.sbe.v5.8.numingroupuint8", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.futures.streamline.sbe.v5.8.numberoforders", ftypes.INT32)
-cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.streamline.sbe.v5.8.openclosesettlflag", ftypes.UINT8)
+cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag_int_8_null = ProtoField.new("Open Close Settl Flag Int 8 Null", "cme.futures.streamline.sbe.v5.8.openclosesettlflagint8null", ftypes.INT8)
+cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag_u_int_8_null = ProtoField.new("Open Close Settl Flag u Int 8 Null", "cme.futures.streamline.sbe.v5.8.openclosesettlflaguint8null", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.orig_time = ProtoField.new("Orig Time", "cme.futures.streamline.sbe.v5.8.origtime", ftypes.UINT64)
 cme_futures_streamline_sbe_v5_8.fields.p_v_01 = ProtoField.new("P V 01", "cme.futures.streamline.sbe.v5.8.pv01", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.packet = ProtoField.new("Packet", "cme.futures.streamline.sbe.v5.8.packet", ftypes.STRING)
@@ -150,8 +153,9 @@ cme_futures_streamline_sbe_v5_8.fields.previous_eris_pai = ProtoField.new("Previ
 cme_futures_streamline_sbe_v5_8.fields.previous_fixing_date = ProtoField.new("Previous Fixing Date", "cme.futures.streamline.sbe.v5.8.previousfixingdate", ftypes.UINT16)
 cme_futures_streamline_sbe_v5_8.fields.previous_fixing_rate = ProtoField.new("Previous Fixing Rate", "cme.futures.streamline.sbe.v5.8.previousfixingrate", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.price_type = ProtoField.new("Price Type", "cme.futures.streamline.sbe.v5.8.pricetype", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.product = ProtoField.new("Product", "cme.futures.streamline.sbe.v5.8.product", ftypes.INT8)
 cme_futures_streamline_sbe_v5_8.fields.product_complex = ProtoField.new("Product Complex", "cme.futures.streamline.sbe.v5.8.productcomplex", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.product_int_8 = ProtoField.new("Product Int 8", "cme.futures.streamline.sbe.v5.8.productint8", ftypes.INT8)
+cme_futures_streamline_sbe_v5_8.fields.product_u_int_8_null = ProtoField.new("Product u Int 8 Null", "cme.futures.streamline.sbe.v5.8.productuint8null", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.streamline.sbe.v5.8.putorcall", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.quote_condition = ProtoField.new("Quote Condition", "cme.futures.streamline.sbe.v5.8.quotecondition", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.streamline.sbe.v5.8.quotereqid", ftypes.STRING)
@@ -159,7 +163,8 @@ cme_futures_streamline_sbe_v5_8.fields.quote_request_345 = ProtoField.new("Quote
 cme_futures_streamline_sbe_v5_8.fields.rate_descriptor = ProtoField.new("Rate Descriptor", "cme.futures.streamline.sbe.v5.8.ratedescriptor", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.rate_type = ProtoField.new("Rate Type", "cme.futures.streamline.sbe.v5.8.ratetype", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.recovery_msg = ProtoField.new("Recovery Msg", "cme.futures.streamline.sbe.v5.8.recoverymsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cme_futures_streamline_sbe_v5_8.fields.reference_id = ProtoField.new("Reference Id", "cme.futures.streamline.sbe.v5.8.referenceid", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.reference_i_d_string_100 = ProtoField.new("Reference I D String 100", "cme.futures.streamline.sbe.v5.8.referenceidstring100", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.reference_i_d_string_length_50 = ProtoField.new("Reference I D String Length 50", "cme.futures.streamline.sbe.v5.8.referenceidstringlength50", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.related_sym_group = ProtoField.new("Related Sym Group", "cme.futures.streamline.sbe.v5.8.relatedsymgroup", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.related_sym_groups = ProtoField.new("Related Sym Groups", "cme.futures.streamline.sbe.v5.8.relatedsymgroups", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.reserved = ProtoField.new("Reserved", "cme.futures.streamline.sbe.v5.8.reserved", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
@@ -175,11 +180,14 @@ cme_futures_streamline_sbe_v5_8.fields.security_alt_id_group = ProtoField.new("S
 cme_futures_streamline_sbe_v5_8.fields.security_alt_id_groups = ProtoField.new("Security Alt Id Groups", "cme.futures.streamline.sbe.v5.8.securityaltidgroups", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.security_alt_id_source = ProtoField.new("Security Alt Id Source", "cme.futures.streamline.sbe.v5.8.securityaltidsource", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.security_description = ProtoField.new("Security Description", "cme.futures.streamline.sbe.v5.8.securitydescription", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.streamline.sbe.v5.8.securityexchange", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.security_group = ProtoField.new("Security Group", "cme.futures.streamline.sbe.v5.8.securitygroup", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_exchange_security_exchange = ProtoField.new("Security Exchange Security Exchange", "cme.futures.streamline.sbe.v5.8.securityexchangesecurityexchange", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_exchange_string_4 = ProtoField.new("Security Exchange String 4", "cme.futures.streamline.sbe.v5.8.securityexchangestring4", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_group_string_12 = ProtoField.new("Security Group String 12", "cme.futures.streamline.sbe.v5.8.securitygroupstring12", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_group_string_length_26 = ProtoField.new("Security Group String Length 26", "cme.futures.streamline.sbe.v5.8.securitygroupstringlength26", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.security_id = ProtoField.new("Security Id", "cme.futures.streamline.sbe.v5.8.securityid", ftypes.UINT64)
 cme_futures_streamline_sbe_v5_8.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.streamline.sbe.v5.8.securitysubtype", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.security_type = ProtoField.new("Security Type", "cme.futures.streamline.sbe.v5.8.securitytype", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_type_string_4 = ProtoField.new("Security Type String 4", "cme.futures.streamline.sbe.v5.8.securitytypestring4", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.security_type_string_length_9 = ProtoField.new("Security Type String Length 9", "cme.futures.streamline.sbe.v5.8.securitytypestringlength9", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.security_update_action = ProtoField.new("Security Update Action", "cme.futures.streamline.sbe.v5.8.securityupdateaction", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.sending_time = ProtoField.new("Sending Time", "cme.futures.streamline.sbe.v5.8.sendingtime", ftypes.UINT64)
 cme_futures_streamline_sbe_v5_8.fields.seniority = ProtoField.new("Seniority", "cme.futures.streamline.sbe.v5.8.seniority", ftypes.STRING)
@@ -187,18 +195,21 @@ cme_futures_streamline_sbe_v5_8.fields.settl_date = ProtoField.new("Settl Date",
 cme_futures_streamline_sbe_v5_8.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.streamline.sbe.v5.8.settlpricetype", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.futures.streamline.sbe.v5.8.settlementnpv", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.futures.streamline.sbe.v5.8.strategylinkid", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.streamline.sbe.v5.8.strikeprice", ftypes.INT64)
+cme_futures_streamline_sbe_v5_8.fields.strike_price_pricenull = ProtoField.new("Strike Price Pricenull", "cme.futures.streamline.sbe.v5.8.strikepricepricenull", ftypes.INT64)
 cme_futures_streamline_sbe_v5_8.fields.symbol = ProtoField.new("Symbol", "cme.futures.streamline.sbe.v5.8.symbol", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.template_id = ProtoField.new("Template Id", "cme.futures.streamline.sbe.v5.8.templateid", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.text = ProtoField.new("Text", "cme.futures.streamline.sbe.v5.8.text", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.text_string_length_500 = ProtoField.new("Text String Length 500", "cme.futures.streamline.sbe.v5.8.textstringlength500", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.text_text = ProtoField.new("Text Text", "cme.futures.streamline.sbe.v5.8.texttext", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.streamline.sbe.v5.8.tradedate", ftypes.UINT16)
 cme_futures_streamline_sbe_v5_8.fields.trade_id = ProtoField.new("Trade Id", "cme.futures.streamline.sbe.v5.8.tradeid", ftypes.INT32)
 cme_futures_streamline_sbe_v5_8.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.streamline.sbe.v5.8.tradingreferencedate", ftypes.UINT16)
-cme_futures_streamline_sbe_v5_8.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.streamline.sbe.v5.8.transacttime", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_8.fields.transact_time_u_int_64 = ProtoField.new("Transact Time u Int 64", "cme.futures.streamline.sbe.v5.8.transacttimeuint64", ftypes.UINT64)
+cme_futures_streamline_sbe_v5_8.fields.transact_time_u_int_64_null = ProtoField.new("Transact Time u Int 64 Null", "cme.futures.streamline.sbe.v5.8.transacttimeuint64null", ftypes.UINT64)
 cme_futures_streamline_sbe_v5_8.fields.trd_type = ProtoField.new("Trd Type", "cme.futures.streamline.sbe.v5.8.trdtype", ftypes.UINT8)
 cme_futures_streamline_sbe_v5_8.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.streamline.sbe.v5.8.unitofmeasure", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency = ProtoField.new("Unit Of Measure Currency", "cme.futures.streamline.sbe.v5.8.unitofmeasurecurrency", ftypes.STRING)
-cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.streamline.sbe.v5.8.unitofmeasureqty", ftypes.INT64)
+cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency_currency = ProtoField.new("Unit Of Measure Currency Currency", "cme.futures.streamline.sbe.v5.8.unitofmeasurecurrencycurrency", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency_string_len_3 = ProtoField.new("Unit Of Measure Currency String Len 3", "cme.futures.streamline.sbe.v5.8.unitofmeasurecurrencystringlen3", ftypes.STRING)
+cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty_pricenull = ProtoField.new("Unit Of Measure Qty Pricenull", "cme.futures.streamline.sbe.v5.8.unitofmeasureqtypricenull", ftypes.INT64)
 cme_futures_streamline_sbe_v5_8.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.streamline.sbe.v5.8.userdefinedinstrument", ftypes.STRING)
 cme_futures_streamline_sbe_v5_8.fields.version = ProtoField.new("Version", "cme.futures.streamline.sbe.v5.8.version", ftypes.UINT16)
 cme_futures_streamline_sbe_v5_8.fields.vol_type = ProtoField.new("Vol Type", "cme.futures.streamline.sbe.v5.8.voltype", ftypes.UINT16)
@@ -216,8 +227,6 @@ show.accrued_coupons = true
 show.admin_login_315 = true
 show.admin_logout_316 = true
 show.binary_packet_header = true
-show.cal_fut_px = true
-show.coupon_rate = true
 show.d_v_01 = true
 show.daily_incremental_eris_pai = true
 show.eris_pai = true
@@ -255,8 +264,6 @@ show.m_d_instrument_definition_eris_leg_group = true
 show.m_d_instrument_definition_eris_leg_groups = true
 show.match_event_indicator = true
 show.maturity_month_year = true
-show.md_entry_px = true
-show.md_entry_size = true
 show.md_incremental_refresh_eris_351 = true
 show.md_incremental_refresh_eris_353 = true
 show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = true
@@ -269,7 +276,6 @@ show.md_instrument_definition_indices_347 = true
 show.md_news_indices_339 = true
 show.message = true
 show.message_header = true
-show.min_price_increment = true
 show.net_chg_prev_day = true
 show.net_pct_chg = true
 show.next_fixed_payment_amount = true
@@ -287,8 +293,6 @@ show.security_alt_id_group = true
 show.security_alt_id_groups = true
 show.settl_price_type = true
 show.settlement_npv = true
-show.strike_price = true
-show.unit_of_measure_qty = true
 show.yield = true
 show.payload = false
 
@@ -297,8 +301,6 @@ cme_futures_streamline_sbe_v5_8.prefs.show_accrued_coupons = Pref.bool("Show Acc
 cme_futures_streamline_sbe_v5_8.prefs.show_admin_login_315 = Pref.bool("Show Admin Login 315", show.admin_login_315, "Parse and add Admin Login 315 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_admin_logout_316 = Pref.bool("Show Admin Logout 316", show.admin_logout_316, "Parse and add Admin Logout 316 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_binary_packet_header = Pref.bool("Show Binary Packet Header", show.binary_packet_header, "Parse and add Binary Packet Header to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_cal_fut_px = Pref.bool("Show Cal Fut Px", show.cal_fut_px, "Parse and add Cal Fut Px to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_coupon_rate = Pref.bool("Show Coupon Rate", show.coupon_rate, "Parse and add Coupon Rate to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_d_v_01 = Pref.bool("Show D V 01", show.d_v_01, "Parse and add D V 01 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_daily_incremental_eris_pai = Pref.bool("Show Daily Incremental Eris Pai", show.daily_incremental_eris_pai, "Parse and add Daily Incremental Eris Pai to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_eris_pai = Pref.bool("Show Eris Pai", show.eris_pai, "Parse and add Eris Pai to protocol tree")
@@ -336,8 +338,6 @@ cme_futures_streamline_sbe_v5_8.prefs.show_m_d_instrument_definition_eris_leg_gr
 cme_futures_streamline_sbe_v5_8.prefs.show_m_d_instrument_definition_eris_leg_groups = Pref.bool("Show M D Instrument Definition Eris Leg Groups", show.m_d_instrument_definition_eris_leg_groups, "Parse and add M D Instrument Definition Eris Leg Groups to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_match_event_indicator = Pref.bool("Show Match Event Indicator", show.match_event_indicator, "Parse and add Match Event Indicator to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_px = Pref.bool("Show Md Entry Px", show.md_entry_px, "Parse and add Md Entry Px to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_size = Pref.bool("Show Md Entry Size", show.md_entry_size, "Parse and add Md Entry Size to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351 = Pref.bool("Show Md Incremental Refresh Eris 351", show.md_incremental_refresh_eris_351, "Parse and add Md Incremental Refresh Eris 351 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_md_incremental_refresh_eris_353 = Pref.bool("Show Md Incremental Refresh Eris 353", show.md_incremental_refresh_eris_353, "Parse and add Md Incremental Refresh Eris 353 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics 333", show.md_incremental_refresh_eris_reference_data_and_daily_statistics_333, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics 333 to protocol tree")
@@ -350,7 +350,6 @@ cme_futures_streamline_sbe_v5_8.prefs.show_md_instrument_definition_indices_347 
 cme_futures_streamline_sbe_v5_8.prefs.show_md_news_indices_339 = Pref.bool("Show Md News Indices 339", show.md_news_indices_339, "Parse and add Md News Indices 339 to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_min_price_increment = Pref.bool("Show Min Price Increment", show.min_price_increment, "Parse and add Min Price Increment to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_net_chg_prev_day = Pref.bool("Show Net Chg Prev Day", show.net_chg_prev_day, "Parse and add Net Chg Prev Day to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_net_pct_chg = Pref.bool("Show Net Pct Chg", show.net_pct_chg, "Parse and add Net Pct Chg to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_next_fixed_payment_amount = Pref.bool("Show Next Fixed Payment Amount", show.next_fixed_payment_amount, "Parse and add Next Fixed Payment Amount to protocol tree")
@@ -368,8 +367,6 @@ cme_futures_streamline_sbe_v5_8.prefs.show_security_alt_id_group = Pref.bool("Sh
 cme_futures_streamline_sbe_v5_8.prefs.show_security_alt_id_groups = Pref.bool("Show Security Alt Id Groups", show.security_alt_id_groups, "Parse and add Security Alt Id Groups to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_settl_price_type = Pref.bool("Show Settl Price Type", show.settl_price_type, "Parse and add Settl Price Type to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_settlement_npv = Pref.bool("Show Settlement Npv", show.settlement_npv, "Parse and add Settlement Npv to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_strike_price = Pref.bool("Show Strike Price", show.strike_price, "Parse and add Strike Price to protocol tree")
-cme_futures_streamline_sbe_v5_8.prefs.show_unit_of_measure_qty = Pref.bool("Show Unit Of Measure Qty", show.unit_of_measure_qty, "Parse and add Unit Of Measure Qty to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_yield = Pref.bool("Show Yield", show.yield, "Parse and add Yield to protocol tree")
 cme_futures_streamline_sbe_v5_8.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
@@ -392,14 +389,6 @@ function cme_futures_streamline_sbe_v5_8.prefs_changed()
   end
   if show.binary_packet_header ~= cme_futures_streamline_sbe_v5_8.prefs.show_binary_packet_header then
     show.binary_packet_header = cme_futures_streamline_sbe_v5_8.prefs.show_binary_packet_header
-    changed = true
-  end
-  if show.cal_fut_px ~= cme_futures_streamline_sbe_v5_8.prefs.show_cal_fut_px then
-    show.cal_fut_px = cme_futures_streamline_sbe_v5_8.prefs.show_cal_fut_px
-    changed = true
-  end
-  if show.coupon_rate ~= cme_futures_streamline_sbe_v5_8.prefs.show_coupon_rate then
-    show.coupon_rate = cme_futures_streamline_sbe_v5_8.prefs.show_coupon_rate
     changed = true
   end
   if show.d_v_01 ~= cme_futures_streamline_sbe_v5_8.prefs.show_d_v_01 then
@@ -550,14 +539,6 @@ function cme_futures_streamline_sbe_v5_8.prefs_changed()
     show.maturity_month_year = cme_futures_streamline_sbe_v5_8.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_entry_px ~= cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_px then
-    show.md_entry_px = cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_px
-    changed = true
-  end
-  if show.md_entry_size ~= cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_size then
-    show.md_entry_size = cme_futures_streamline_sbe_v5_8.prefs.show_md_entry_size
-    changed = true
-  end
   if show.md_incremental_refresh_eris_351 ~= cme_futures_streamline_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351 then
     show.md_incremental_refresh_eris_351 = cme_futures_streamline_sbe_v5_8.prefs.show_md_incremental_refresh_eris_351
     changed = true
@@ -604,10 +585,6 @@ function cme_futures_streamline_sbe_v5_8.prefs_changed()
   end
   if show.message_header ~= cme_futures_streamline_sbe_v5_8.prefs.show_message_header then
     show.message_header = cme_futures_streamline_sbe_v5_8.prefs.show_message_header
-    changed = true
-  end
-  if show.min_price_increment ~= cme_futures_streamline_sbe_v5_8.prefs.show_min_price_increment then
-    show.min_price_increment = cme_futures_streamline_sbe_v5_8.prefs.show_min_price_increment
     changed = true
   end
   if show.net_chg_prev_day ~= cme_futures_streamline_sbe_v5_8.prefs.show_net_chg_prev_day then
@@ -678,14 +655,6 @@ function cme_futures_streamline_sbe_v5_8.prefs_changed()
     show.settlement_npv = cme_futures_streamline_sbe_v5_8.prefs.show_settlement_npv
     changed = true
   end
-  if show.strike_price ~= cme_futures_streamline_sbe_v5_8.prefs.show_strike_price then
-    show.strike_price = cme_futures_streamline_sbe_v5_8.prefs.show_strike_price
-    changed = true
-  end
-  if show.unit_of_measure_qty ~= cme_futures_streamline_sbe_v5_8.prefs.show_unit_of_measure_qty then
-    show.unit_of_measure_qty = cme_futures_streamline_sbe_v5_8.prefs.show_unit_of_measure_qty
-    changed = true
-  end
   if show.yield ~= cme_futures_streamline_sbe_v5_8.prefs.show_yield then
     show.yield = cme_futures_streamline_sbe_v5_8.prefs.show_yield
     changed = true
@@ -713,7 +682,7 @@ size_of.exponent = 1
 display.exponent = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Exponent: No Value ("..value..")"
+    return "Exponent: No Value"
   end
 
   return "Exponent: "..value
@@ -737,8 +706,8 @@ size_of.mantissa64 = 8
 -- Display: Mantissa64
 display.mantissa64 = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
-    return "Mantissa64: No Value ("..value..")"
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Mantissa64: No Value"
   end
 
   return "Mantissa64: "..value
@@ -805,7 +774,7 @@ size_of.leg_date_offset = 1
 display.leg_date_offset = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Leg Date Offset: No Value ("..value..")"
+    return "Leg Date Offset: No Value"
   end
 
   return "Leg Date Offset: "..value
@@ -840,7 +809,18 @@ end
 dissect.leg_security_group = function(buffer, offset, packet, parent)
   local length = size_of.leg_security_group
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_security_group, range, value, display)
@@ -865,7 +845,18 @@ end
 dissect.leg_security_type = function(buffer, offset, packet, parent)
   local length = size_of.leg_security_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_security_type, range, value, display)
@@ -890,7 +881,18 @@ end
 dissect.leg_currency = function(buffer, offset, packet, parent)
   local length = size_of.leg_currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_currency, range, value, display)
@@ -905,7 +907,7 @@ size_of.leg_side = 1
 display.leg_side = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Leg Side: No Value ("..value..")"
+    return "Leg Side: No Value"
   end
 
   return "Leg Side: "..value
@@ -930,7 +932,7 @@ size_of.leg_ratio_qty = 4
 display.leg_ratio_qty = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Leg Ratio Qty: No Value ("..value..")"
+    return "Leg Ratio Qty: No Value"
   end
 
   return "Leg Ratio Qty: "..value
@@ -965,7 +967,18 @@ end
 dissect.leg_symbol = function(buffer, offset, packet, parent)
   local length = size_of.leg_symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_symbol, range, value, display)
@@ -1032,7 +1045,18 @@ end
 dissect.leg_pay_frequencey = function(buffer, offset, packet, parent)
   local length = size_of.leg_pay_frequencey
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_pay_frequencey(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_pay_frequencey, range, value, display)
@@ -1047,7 +1071,7 @@ size_of.previous_fixing_date = 2
 display.previous_fixing_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Previous Fixing Date: No Value ("..value..")"
+    return "Previous Fixing Date: No Value"
   end
 
   return "Previous Fixing Date: "..value
@@ -1082,7 +1106,18 @@ end
 dissect.rate_descriptor = function(buffer, offset, packet, parent)
   local length = size_of.rate_descriptor
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.rate_descriptor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.rate_descriptor, range, value, display)
@@ -1107,7 +1142,18 @@ end
 dissect.leg_benchmark_curve_name = function(buffer, offset, packet, parent)
   local length = size_of.leg_benchmark_curve_name
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_benchmark_curve_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_benchmark_curve_name, range, value, display)
@@ -1212,22 +1258,22 @@ dissect.m_d_instrument_definition_eris_leg_group = function(buffer, offset, pack
   return dissect.m_d_instrument_definition_eris_leg_group_fields(buffer, offset, packet, parent)
 end
 
--- Size: Num In Group
-size_of.num_in_group = 1
+-- Size: Num In Group uint 8
+size_of.num_in_group_uint_8 = 1
 
--- Display: Num In Group
-display.num_in_group = function(value)
-  return "Num In Group: "..value
+-- Display: Num In Group uint 8
+display.num_in_group_uint_8 = function(value)
+  return "Num In Group uint 8: "..value
 end
 
--- Dissect: Num In Group
-dissect.num_in_group = function(buffer, offset, packet, parent)
-  local length = size_of.num_in_group
+-- Dissect: Num In Group uint 8
+dissect.num_in_group_uint_8 = function(buffer, offset, packet, parent)
+  local length = size_of.num_in_group_uint_8
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_in_group(value, buffer, offset, packet, parent)
+  local display = display.num_in_group_uint_8(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.num_in_group, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.num_in_group_uint_8, range, value, display)
 
   return offset + length, value
 end
@@ -1258,7 +1304,7 @@ size_of.group_size = function(buffer, offset)
 
   index = index + size_of.block_length
 
-  index = index + size_of.num_in_group
+  index = index + size_of.num_in_group_uint_8
 
   return index
 end
@@ -1275,8 +1321,8 @@ dissect.group_size_fields = function(buffer, offset, packet, parent)
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
+  -- Num In Group uint 8: 1 Byte Unsigned Fixed Width Integer
+  index, num_in_group_uint_8 = dissect.num_in_group_uint_8(buffer, index, packet, parent)
 
   return index
 end
@@ -1319,11 +1365,11 @@ dissect.m_d_instrument_definition_eris_leg_groups_fields = function(buffer, offs
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Instrument Definition Eris Leg Group: Struct of 13 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_instrument_definition_eris_leg_group(buffer, index, packet, parent)
   end
 
@@ -1348,6 +1394,11 @@ size_of.security_alt_id_source = 1
 
 -- Display: Security Alt Id Source
 display.security_alt_id_source = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Alt Id Source: No Value"
+  end
+
   return "Security Alt Id Source: "..value
 end
 
@@ -1355,7 +1406,17 @@ end
 dissect.security_alt_id_source = function(buffer, offset, packet, parent)
   local length = size_of.security_alt_id_source
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.security_alt_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.security_alt_id_source, range, value, display)
@@ -1380,7 +1441,18 @@ end
 dissect.security_alt_id = function(buffer, offset, packet, parent)
   local length = size_of.security_alt_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_alt_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.security_alt_id, range, value, display)
@@ -1455,11 +1527,11 @@ dissect.security_alt_id_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Security Alt Id Group: Struct of 2 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.security_alt_id_group(buffer, index, packet, parent)
   end
 
@@ -1479,60 +1551,52 @@ dissect.security_alt_id_groups = function(buffer, offset, packet, parent)
   return dissect.security_alt_id_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Event Time
-size_of.event_time = 8
+-- Size: Event Time u Int 64
+size_of.event_time_u_int_64 = 8
 
--- Display: Event Time
-display.event_time = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Event Time: No Value ("..value..")"
-  end
-
-  return "Event Time: "..value
+-- Display: Event Time u Int 64
+display.event_time_u_int_64 = function(value)
+  return "Event Time u Int 64: "..value
 end
 
--- Dissect: Event Time
-dissect.event_time = function(buffer, offset, packet, parent)
-  local length = size_of.event_time
+-- Dissect: Event Time u Int 64
+dissect.event_time_u_int_64 = function(buffer, offset, packet, parent)
+  local length = size_of.event_time_u_int_64
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.event_time(value, buffer, offset, packet, parent)
+  local display = display.event_time_u_int_64(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.event_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.event_time_u_int_64, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Event Type
-size_of.event_type = 1
+-- Size: Event Type Event Type Indices
+size_of.event_type_event_type_indices = 1
 
--- Display: Event Type
-display.event_type = function(value)
+-- Display: Event Type Event Type Indices
+display.event_type_event_type_indices = function(value)
   if value == 5 then
-    return "Event Type: Activation (5)"
+    return "Event Type Event Type Indices: Activation (5)"
   end
   if value == 6 then
-    return "Event Type: Deletion (6)"
+    return "Event Type Event Type Indices: Deletion (6)"
   end
   if value == 120 then
-    return "Event Type: Modification (120)"
-  end
-  if value == 255 then
-    return "Event Type: No Value (255)"
+    return "Event Type Event Type Indices: Modification (120)"
   end
 
-  return "Event Type: Unknown("..value..")"
+  return "Event Type Event Type Indices: Unknown("..value..")"
 end
 
--- Dissect: Event Type
-dissect.event_type = function(buffer, offset, packet, parent)
-  local length = size_of.event_type
+-- Dissect: Event Type Event Type Indices
+dissect.event_type_event_type_indices = function(buffer, offset, packet, parent)
+  local length = size_of.event_type_event_type_indices
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.event_type(value, buffer, offset, packet, parent)
+  local display = display.event_type_event_type_indices(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.event_type, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.event_type_event_type_indices, range, value, display)
 
   return offset + length, value
 end
@@ -1541,9 +1605,9 @@ end
 size_of.events_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.event_type
+  index = index + size_of.event_type_event_type_indices
 
-  index = index + size_of.event_time
+  index = index + size_of.event_time_u_int_64
 
   return index
 end
@@ -1557,11 +1621,11 @@ end
 dissect.events_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Event Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, event_type = dissect.event_type(buffer, index, packet, parent)
+  -- Event Type Event Type Indices: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, event_type_event_type_indices = dissect.event_type_event_type_indices(buffer, index, packet, parent)
 
-  -- Event Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  -- Event Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, event_time_u_int_64 = dissect.event_time_u_int_64(buffer, index, packet, parent)
 
   return index
 end
@@ -1579,13 +1643,33 @@ dissect.events_group = function(buffer, offset, packet, parent)
   return dissect.events_group_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Num In Group uint 16
+size_of.num_in_group_uint_16 = 2
+
+-- Display: Num In Group uint 16
+display.num_in_group_uint_16 = function(value)
+  return "Num In Group uint 16: "..value
+end
+
+-- Dissect: Num In Group uint 16
+dissect.num_in_group_uint_16 = function(buffer, offset, packet, parent)
+  local length = size_of.num_in_group_uint_16
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.num_in_group_uint_16(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.num_in_group_uint_16, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Group Size Encoding
 size_of.group_size_encoding = function(buffer, offset)
   local index = 0
 
   index = index + size_of.block_length
 
-  index = index + size_of.num_in_group
+  index = index + size_of.num_in_group_uint_16
 
   return index
 end
@@ -1602,8 +1686,8 @@ dissect.group_size_encoding_fields = function(buffer, offset, packet, parent)
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
 
-  -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
+  -- Num In Group uint 16: 2 Byte Unsigned Fixed Width Integer
+  index, num_in_group_uint_16 = dissect.num_in_group_uint_16(buffer, index, packet, parent)
 
   return index
 end
@@ -1628,7 +1712,7 @@ size_of.events_groups = function(buffer, offset)
   index = index + size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
-  local events_group_count = buffer(offset + index - 1, 1):le_uint()
+  local events_group_count = buffer(offset + index - 2, 2):le_uint()
   index = index + events_group_count * 9
 
   return index
@@ -1646,11 +1730,11 @@ dissect.events_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size Encoding: Struct of 2 fields
   index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 16
+  local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
   -- Events Group: Struct of 2 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_16 do
     index = dissect.events_group(buffer, index, packet, parent)
   end
 
@@ -1677,7 +1761,7 @@ size_of.market_depth = 1
 display.market_depth = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Market Depth: No Value ("..value..")"
+    return "Market Depth: No Value"
   end
 
   return "Market Depth: "..value
@@ -1695,27 +1779,38 @@ dissect.market_depth = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Md Feed Type
-size_of.md_feed_type = 2
+-- Size: Md Feed Type String Len 3
+size_of.md_feed_type_string_len_3 = 3
 
--- Display: Md Feed Type
-display.md_feed_type = function(value)
+-- Display: Md Feed Type String Len 3
+display.md_feed_type_string_len_3 = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Md Feed Type: No Value"
+    return "Md Feed Type String Len 3: No Value"
   end
 
-  return "Md Feed Type: "..value
+  return "Md Feed Type String Len 3: "..value
 end
 
--- Dissect: Md Feed Type
-dissect.md_feed_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_feed_type
+-- Dissect: Md Feed Type String Len 3
+dissect.md_feed_type_string_len_3 = function(buffer, offset, packet, parent)
+  local length = size_of.md_feed_type_string_len_3
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_feed_type, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.md_feed_type_string_len_3(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_feed_type_string_len_3, range, value, display)
 
   return offset + length, value
 end
@@ -1724,7 +1819,7 @@ end
 size_of.m_d_feed_types_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_feed_type
+  index = index + size_of.md_feed_type_string_len_3
 
   index = index + size_of.market_depth
 
@@ -1740,8 +1835,8 @@ end
 dissect.m_d_feed_types_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Feed Type: 2 Byte Ascii String Nullable
-  index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
+  -- Md Feed Type String Len 3: 3 Byte Ascii String Nullable
+  index, md_feed_type_string_len_3 = dissect.md_feed_type_string_len_3(buffer, index, packet, parent)
 
   -- Market Depth: 1 Byte Unsigned Fixed Width Integer Nullable
   index, market_depth = dissect.market_depth(buffer, index, packet, parent)
@@ -1770,7 +1865,7 @@ size_of.m_d_feed_types_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_feed_types_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_feed_types_group_count * 3
+  index = index + m_d_feed_types_group_count * 4
 
   return index
 end
@@ -1787,11 +1882,11 @@ dissect.m_d_feed_types_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Feed Types Group: Struct of 2 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_feed_types_group(buffer, index, packet, parent)
   end
 
@@ -1818,7 +1913,7 @@ size_of.appl_id = 2
 display.appl_id = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Appl Id: No Value ("..value..")"
+    return "Appl Id: No Value"
   end
 
   return "Appl Id: "..value
@@ -1842,8 +1937,8 @@ size_of.user_defined_instrument = 1
 -- Display: User Defined Instrument
 display.user_defined_instrument = function(value)
   -- Check if field has value
-  if value == "zeroed" then
-    return "User Defined Instrument: No Value ("..value..")"
+  if value == nil or value == '' then
+    return "User Defined Instrument: No Value"
   end
 
   return "User Defined Instrument: "..value
@@ -1853,7 +1948,17 @@ end
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local length = size_of.user_defined_instrument
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.user_defined_instrument, range, value, display)
@@ -1861,71 +1966,28 @@ dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mantissa32
-size_of.mantissa32 = 4
+-- Size: Coupon Rate Decimal 32
+size_of.coupon_rate_decimal_32 = 4
 
--- Display: Mantissa32
-display.mantissa32 = function(value)
+-- Display: Coupon Rate Decimal 32
+display.coupon_rate_decimal_32 = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Mantissa32: No Value ("..value..")"
+    return "Coupon Rate Decimal 32: No Value"
   end
-
-  return "Mantissa32: "..value
+  return "Coupon Rate Decimal 32: "..value/10000
 end
 
--- Dissect: Mantissa32
-dissect.mantissa32 = function(buffer, offset, packet, parent)
-  local length = size_of.mantissa32
+-- Dissect: Coupon Rate Decimal 32
+dissect.coupon_rate_decimal_32 = function(buffer, offset, packet, parent)
+  local length = size_of.coupon_rate_decimal_32
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.mantissa32(value, buffer, offset, packet, parent)
+  local display = display.coupon_rate_decimal_32(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.mantissa32, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.coupon_rate_decimal_32, range, value, display)
 
   return offset + length, value
-end
-
--- Calculate size of: Coupon Rate
-size_of.coupon_rate = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.mantissa32
-
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Coupon Rate
-display.coupon_rate = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Coupon Rate
-dissect.coupon_rate_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa32, exponent
-end
-
--- Dissect: Coupon Rate
-dissect.coupon_rate = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.coupon_rate then
-    local length = size_of.coupon_rate(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.coupon_rate(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.coupon_rate, range, display)
-  end
-
-  return dissect.coupon_rate_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Rate Type
@@ -1945,7 +2007,18 @@ end
 dissect.rate_type = function(buffer, offset, packet, parent)
   local length = size_of.rate_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.rate_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.rate_type, range, value, display)
@@ -1975,54 +2048,12 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.security_update_action, range, value, display)
 
   return offset + length, value
-end
-
--- Calculate size of: Min Price Increment
-size_of.min_price_increment = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.mantissa64
-
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Min Price Increment
-display.min_price_increment = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Min Price Increment
-dissect.min_price_increment_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Min Price Increment
-dissect.min_price_increment = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.min_price_increment then
-    local length = size_of.min_price_increment(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.min_price_increment(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.min_price_increment, range, display)
-  end
-
-  return dissect.min_price_increment_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
@@ -2042,7 +2073,18 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.currency, range, value, display)
@@ -2057,7 +2099,7 @@ size_of.maturity_date = 2
 display.maturity_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Maturity Date: No Value ("..value..")"
+    return "Maturity Date: No Value"
   end
 
   return "Maturity Date: "..value
@@ -2075,77 +2117,99 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Security Exchange
-size_of.security_exchange = 4
+-- Size: Security Exchange Security Exchange
+size_of.security_exchange_security_exchange = 4
 
--- Display: Security Exchange
-display.security_exchange = function(value)
+-- Display: Security Exchange Security Exchange
+display.security_exchange_security_exchange = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Security Exchange: No Value"
+    return "Security Exchange Security Exchange: No Value"
   end
 
-  return "Security Exchange: "..value
+  return "Security Exchange Security Exchange: "..value
 end
 
--- Dissect: Security Exchange
-dissect.security_exchange = function(buffer, offset, packet, parent)
-  local length = size_of.security_exchange
+-- Dissect: Security Exchange Security Exchange
+dissect.security_exchange_security_exchange = function(buffer, offset, packet, parent)
+  local length = size_of.security_exchange_security_exchange
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.security_exchange(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_exchange, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.security_exchange_security_exchange(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_exchange_security_exchange, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Product
-size_of.product = 1
+-- Size: Product u Int 8 Null
+size_of.product_u_int_8_null = 1
 
--- Display: Product
-display.product = function(value)
+-- Display: Product u Int 8 Null
+display.product_u_int_8_null = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Product: No Value ("..value..")"
+    return "Product u Int 8 Null: No Value"
   end
 
-  return "Product: "..value
+  return "Product u Int 8 Null: "..value
 end
 
--- Dissect: Product
-dissect.product = function(buffer, offset, packet, parent)
-  local length = size_of.product
+-- Dissect: Product u Int 8 Null
+dissect.product_u_int_8_null = function(buffer, offset, packet, parent)
+  local length = size_of.product_u_int_8_null
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.product(value, buffer, offset, packet, parent)
+  local value = range:le_uint()
+  local display = display.product_u_int_8_null(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.product, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.product_u_int_8_null, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Security Type
-size_of.security_type = 4
+-- Size: Security Type String 4
+size_of.security_type_string_4 = 4
 
--- Display: Security Type
-display.security_type = function(value)
+-- Display: Security Type String 4
+display.security_type_string_4 = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Security Type: No Value"
+    return "Security Type String 4: No Value"
   end
 
-  return "Security Type: "..value
+  return "Security Type String 4: "..value
 end
 
--- Dissect: Security Type
-dissect.security_type = function(buffer, offset, packet, parent)
-  local length = size_of.security_type
+-- Dissect: Security Type String 4
+dissect.security_type_string_4 = function(buffer, offset, packet, parent)
+  local length = size_of.security_type_string_4
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_type, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.security_type_string_4(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_type_string_4, range, value, display)
 
   return offset + length, value
 end
@@ -2167,7 +2231,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.symbol, range, value, display)
@@ -2175,27 +2250,38 @@ dissect.symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Security Group
-size_of.security_group = 12
+-- Size: Security Group String 12
+size_of.security_group_string_12 = 12
 
--- Display: Security Group
-display.security_group = function(value)
+-- Display: Security Group String 12
+display.security_group_string_12 = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Security Group: No Value"
+    return "Security Group String 12: No Value"
   end
 
-  return "Security Group: "..value
+  return "Security Group String 12: "..value
 end
 
--- Dissect: Security Group
-dissect.security_group = function(buffer, offset, packet, parent)
-  local length = size_of.security_group
+-- Dissect: Security Group String 12
+dissect.security_group_string_12 = function(buffer, offset, packet, parent)
+  local length = size_of.security_group_string_12
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.security_group(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_group, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.security_group_string_12(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_group_string_12, range, value, display)
 
   return offset + length, value
 end
@@ -2204,27 +2290,27 @@ end
 size_of.md_instrument_definition_eris_363 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.security_group
+  index = index + size_of.security_group_string_12
 
   index = index + size_of.symbol
 
-  index = index + size_of.security_type
+  index = index + size_of.security_type_string_4
 
-  index = index + size_of.product
+  index = index + size_of.product_u_int_8_null
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_security_exchange
 
   index = index + size_of.maturity_date
 
   index = index + size_of.currency
 
-  index = index + size_of.min_price_increment(buffer, offset + index)
+  index = index + size_of.min_price_increment_decimal_64
 
   index = index + size_of.security_update_action
 
   index = index + size_of.rate_type
 
-  index = index + size_of.coupon_rate(buffer, offset + index)
+  index = index + size_of.coupon_rate_decimal_32
 
   index = index + size_of.user_defined_instrument
 
@@ -2250,20 +2336,20 @@ end
 dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Group: 12 Byte Ascii String Nullable
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
+  -- Security Group String 12: 12 Byte Ascii String Nullable
+  index, security_group_string_12 = dissect.security_group_string_12(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String Nullable
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  -- Security Type String 4: 4 Byte Ascii String Nullable
+  index, security_type_string_4 = dissect.security_type_string_4(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer Nullable
-  index, product = dissect.product(buffer, index, packet, parent)
+  -- Product u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, product_u_int_8_null = dissect.product_u_int_8_null(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange Security Exchange: 4 Byte Ascii String
+  index, security_exchange_security_exchange = dissect.security_exchange_security_exchange(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
@@ -2271,8 +2357,8 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Min Price Increment: Struct of 2 fields
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Decimal 64
+  index, min_price_increment_decimal_64 = dissect.min_price_increment_decimal_64(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -2280,8 +2366,8 @@ dissect.md_instrument_definition_eris_363_fields = function(buffer, offset, pack
   -- Rate Type: 2 Byte Ascii String Nullable
   index, rate_type = dissect.rate_type(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
+  -- Coupon Rate Decimal 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, coupon_rate_decimal_32 = dissect.coupon_rate_decimal_32(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String Nullable
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
@@ -2317,27 +2403,38 @@ dissect.md_instrument_definition_eris_363 = function(buffer, offset, packet, par
   return dissect.md_instrument_definition_eris_363_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reference Id
-size_of.reference_id = 50
+-- Size: Reference I D String 100
+size_of.reference_i_d_string_100 = 100
 
--- Display: Reference Id
-display.reference_id = function(value)
+-- Display: Reference I D String 100
+display.reference_i_d_string_100 = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Reference Id: No Value"
+    return "Reference I D String 100: No Value"
   end
 
-  return "Reference Id: "..value
+  return "Reference I D String 100: "..value
 end
 
--- Dissect: Reference Id
-dissect.reference_id = function(buffer, offset, packet, parent)
-  local length = size_of.reference_id
+-- Dissect: Reference I D String 100
+dissect.reference_i_d_string_100 = function(buffer, offset, packet, parent)
+  local length = size_of.reference_i_d_string_100
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.reference_id(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.reference_id, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.reference_i_d_string_100(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.reference_i_d_string_100, range, value, display)
 
   return offset + length, value
 end
@@ -2349,7 +2446,7 @@ size_of.vol_type = 2
 display.vol_type = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Vol Type: No Value ("..value..")"
+    return "Vol Type: No Value"
   end
 
   return "Vol Type: "..value
@@ -2384,7 +2481,18 @@ end
 dissect.security_sub_type = function(buffer, offset, packet, parent)
   local length = size_of.security_sub_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.security_sub_type, range, value, display)
@@ -2409,7 +2517,18 @@ end
 dissect.product_complex = function(buffer, offset, packet, parent)
   local length = size_of.product_complex
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.product_complex(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.product_complex, range, value, display)
@@ -2434,7 +2553,18 @@ end
 dissect.sector_sub_group = function(buffer, offset, packet, parent)
   local length = size_of.sector_sub_group
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.sector_sub_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.sector_sub_group, range, value, display)
@@ -2459,7 +2589,18 @@ end
 dissect.sector_group = function(buffer, offset, packet, parent)
   local length = size_of.sector_group
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.sector_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.sector_group, range, value, display)
@@ -2484,7 +2625,18 @@ end
 dissect.market_sector = function(buffer, offset, packet, parent)
   local length = size_of.market_sector
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.market_sector(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.market_sector, range, value, display)
@@ -2497,6 +2649,11 @@ size_of.quote_condition = 1
 
 -- Display: Quote Condition
 display.quote_condition = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Quote Condition: No Value"
+  end
+
   return "Quote Condition: "..value
 end
 
@@ -2504,7 +2661,17 @@ end
 dissect.quote_condition = function(buffer, offset, packet, parent)
   local length = size_of.quote_condition
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.quote_condition, range, value, display)
@@ -2519,7 +2686,7 @@ size_of.settl_date = 2
 display.settl_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Settl Date: No Value ("..value..")"
+    return "Settl Date: No Value"
   end
 
   return "Settl Date: "..value
@@ -2544,7 +2711,7 @@ size_of.price_type = 2
 display.price_type = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Price Type: No Value ("..value..")"
+    return "Price Type: No Value"
   end
 
   return "Price Type: "..value
@@ -2562,27 +2729,27 @@ dissect.price_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Open Close Settl Flag
-size_of.open_close_settl_flag = 1
+-- Size: Open Close Settl Flag u Int 8 Null
+size_of.open_close_settl_flag_u_int_8_null = 1
 
--- Display: Open Close Settl Flag
-display.open_close_settl_flag = function(value)
+-- Display: Open Close Settl Flag u Int 8 Null
+display.open_close_settl_flag_u_int_8_null = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Open Close Settl Flag: No Value ("..value..")"
+    return "Open Close Settl Flag u Int 8 Null: No Value"
   end
 
-  return "Open Close Settl Flag: "..value
+  return "Open Close Settl Flag u Int 8 Null: "..value
 end
 
--- Dissect: Open Close Settl Flag
-dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
-  local length = size_of.open_close_settl_flag
+-- Dissect: Open Close Settl Flag u Int 8 Null
+dissect.open_close_settl_flag_u_int_8_null = function(buffer, offset, packet, parent)
+  local length = size_of.open_close_settl_flag_u_int_8_null
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.open_close_settl_flag(value, buffer, offset, packet, parent)
+  local display = display.open_close_settl_flag_u_int_8_null(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag_u_int_8_null, range, value, display)
 
   return offset + length, value
 end
@@ -2594,7 +2761,7 @@ size_of.md_entry_date = 4
 display.md_entry_date = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Md Entry Date: No Value ("..value..")"
+    return "Md Entry Date: No Value"
   end
 
   return "Md Entry Date: "..value
@@ -2612,69 +2779,38 @@ dissect.md_entry_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Unit Of Measure Qty
-size_of.unit_of_measure_qty = function(buffer, offset)
-  local index = 0
+-- Size: Unit Of Measure Currency Currency
+size_of.unit_of_measure_currency_currency = 3
 
-  index = index + size_of.mantissa64
-
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Unit Of Measure Qty
-display.unit_of_measure_qty = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Unit Of Measure Qty
-dissect.unit_of_measure_qty_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Unit Of Measure Qty
-dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.unit_of_measure_qty then
-    local length = size_of.unit_of_measure_qty(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.unit_of_measure_qty(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty, range, display)
-  end
-
-  return dissect.unit_of_measure_qty_fields(buffer, offset, packet, parent)
-end
-
--- Size: Unit Of Measure Currency
-size_of.unit_of_measure_currency = 3
-
--- Display: Unit Of Measure Currency
-display.unit_of_measure_currency = function(value)
+-- Display: Unit Of Measure Currency Currency
+display.unit_of_measure_currency_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Unit Of Measure Currency: No Value"
+    return "Unit Of Measure Currency Currency: No Value"
   end
 
-  return "Unit Of Measure Currency: "..value
+  return "Unit Of Measure Currency Currency: "..value
 end
 
--- Dissect: Unit Of Measure Currency
-dissect.unit_of_measure_currency = function(buffer, offset, packet, parent)
-  local length = size_of.unit_of_measure_currency
+-- Dissect: Unit Of Measure Currency Currency
+dissect.unit_of_measure_currency_currency = function(buffer, offset, packet, parent)
+  local length = size_of.unit_of_measure_currency_currency
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.unit_of_measure_currency(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.unit_of_measure_currency_currency(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency_currency, range, value, display)
 
   return offset + length, value
 end
@@ -2696,54 +2832,23 @@ end
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure, range, value, display)
 
   return offset + length, value
-end
-
--- Calculate size of: Strike Price
-size_of.strike_price = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.mantissa64
-
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Strike Price
-display.strike_price = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Strike Price
-dissect.strike_price_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.strike_price then
-    local length = size_of.strike_price(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.strike_price(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.strike_price, range, display)
-  end
-
-  return dissect.strike_price_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Put Or Call
@@ -2753,7 +2858,7 @@ size_of.put_or_call = 1
 display.put_or_call = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Put Or Call: No Value ("..value..")"
+    return "Put Or Call: No Value"
   end
 
   return "Put Or Call: "..value
@@ -2778,7 +2883,7 @@ size_of.notional_percentage_outstanding = 4
 display.notional_percentage_outstanding = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Notional Percentage Outstanding: No Value ("..value..")"
+    return "Notional Percentage Outstanding: No Value"
   end
   return "Notional Percentage Outstanding: "..value/10000
 end
@@ -2812,7 +2917,18 @@ end
 dissect.seniority = function(buffer, offset, packet, parent)
   local length = size_of.seniority
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.seniority(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.seniority, range, value, display)
@@ -2837,7 +2953,18 @@ end
 dissect.restructuring_type = function(buffer, offset, packet, parent)
   local length = size_of.restructuring_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.restructuring_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.restructuring_type, range, value, display)
@@ -2852,7 +2979,7 @@ size_of.week = 1
 display.week = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Week: No Value ("..value..")"
+    return "Week: No Value"
   end
 
   return "Week: "..value
@@ -2877,7 +3004,7 @@ size_of.day = 1
 display.day = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Day: No Value ("..value..")"
+    return "Day: No Value"
   end
 
   return "Day: "..value
@@ -2902,7 +3029,7 @@ size_of.month = 1
 display.month = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Month: No Value ("..value..")"
+    return "Month: No Value"
   end
 
   return "Month: "..value
@@ -2927,7 +3054,7 @@ size_of.year = 2
 display.year = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Year: No Value ("..value..")"
+    return "Year: No Value"
   end
 
   return "Year: "..value
@@ -2997,88 +3124,64 @@ dissect.maturity_month_year = function(buffer, offset, packet, parent)
   return dissect.maturity_month_year_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Md Entry Size
-size_of.md_entry_size = function(buffer, offset)
-  local index = 0
+-- Size: Security Type String Length 9
+size_of.security_type_string_length_9 = 9
 
-  index = index + size_of.mantissa64
-
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Md Entry Size
-display.md_entry_size = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Md Entry Size
-dissect.md_entry_size_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Md Entry Size
-dissect.md_entry_size = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.md_entry_size then
-    local length = size_of.md_entry_size(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.md_entry_size(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_size, range, display)
+-- Display: Security Type String Length 9
+display.security_type_string_length_9 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Type String Length 9: No Value"
   end
 
-  return dissect.md_entry_size_fields(buffer, offset, packet, parent)
+  return "Security Type String Length 9: "..value
 end
 
--- Calculate size of: Md Entry Px
-size_of.md_entry_px = function(buffer, offset)
-  local index = 0
+-- Dissect: Security Type String Length 9
+dissect.security_type_string_length_9 = function(buffer, offset, packet, parent)
+  local length = size_of.security_type_string_length_9
+  local range = buffer(offset, length)
 
-  index = index + size_of.mantissa64
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
 
-  index = index + size_of.exponent
-
-  return index
-end
-
--- Display: Md Entry Px
-display.md_entry_px = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Md Entry Px
-dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Md Entry Px
-dissect.md_entry_px = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.md_entry_px then
-    local length = size_of.md_entry_px(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.md_entry_px(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_px, range, display)
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
   end
 
-  return dissect.md_entry_px_fields(buffer, offset, packet, parent)
+  local display = display.security_type_string_length_9(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_type_string_length_9, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Md Entry Px Pricenull
+size_of.md_entry_px_pricenull = 8
+
+-- Display: Md Entry Px Pricenull
+display.md_entry_px_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Md Entry Px Pricenull: No Value"
+  end
+  return "Md Entry Px Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Md Entry Px Pricenull
+dissect.md_entry_px_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_px_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.md_entry_px_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_px_pricenull, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Rpt Seq
@@ -3101,53 +3204,37 @@ dissect.rpt_seq = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Md Entry Type
-size_of.md_entry_type = 1
+-- Size: Md Entry Type Char
+size_of.md_entry_type_char = 1
 
--- Display: Md Entry Type
-display.md_entry_type = function(value)
-  if value == "0" then
-    return "Md Entry Type: Bid (0)"
-  end
-  if value == "1" then
-    return "Md Entry Type: Offer (1)"
-  end
-  if value == "2" then
-    return "Md Entry Type: Trade (2)"
-  end
-  if value == "3" then
-    return "Md Entry Type: Index Value (3)"
-  end
-  if value == "4" then
-    return "Md Entry Type: Opening Value (4)"
-  end
-  if value == "5" then
-    return "Md Entry Type: Closing Price (5)"
-  end
-  if value == "6" then
-    return "Md Entry Type: Settlement Price (6)"
-  end
-  if value == "7" then
-    return "Md Entry Type: Session High Price (7)"
-  end
-  if value == "8" then
-    return "Md Entry Type: Session Low Price (8)"
-  end
-  if value == "e" then
-    return "Md Entry Type: Trade Volume (e)"
+-- Display: Md Entry Type Char
+display.md_entry_type_char = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Entry Type Char: No Value"
   end
 
-  return "Md Entry Type: Unknown("..value..")"
+  return "Md Entry Type Char: "..value
 end
 
--- Dissect: Md Entry Type
-dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_type
+-- Dissect: Md Entry Type Char
+dissect.md_entry_type_char = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_char
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.md_entry_type(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_type, range, value, display)
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
+  local display = display.md_entry_type_char(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_type_char, range, value, display)
 
   return offset + length, value
 end
@@ -3156,29 +3243,29 @@ end
 size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_char
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + size_of.md_entry_px_pricenull
 
-  index = index + size_of.md_entry_size(buffer, offset + index)
+  index = index + size_of.md_entry_size_decimal_64
 
   index = index + size_of.symbol
 
-  index = index + size_of.security_group
+  index = index + size_of.security_group_string_12
 
-  index = index + size_of.security_type
+  index = index + size_of.security_type_string_length_9
 
   index = index + size_of.maturity_month_year(buffer, offset + index)
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_security_exchange
 
-  index = index + size_of.product
+  index = index + size_of.product_u_int_8_null
 
   index = index + size_of.maturity_date
 
-  index = index + size_of.coupon_rate(buffer, offset + index)
+  index = index + size_of.coupon_rate_decimal_32
 
   index = index + size_of.restructuring_type
 
@@ -3188,17 +3275,17 @@ size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
 
   index = index + size_of.put_or_call
 
-  index = index + size_of.strike_price(buffer, offset + index)
+  index = index + size_of.strike_price_decimal_64
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_currency
+  index = index + size_of.unit_of_measure_currency_currency
 
-  index = index + size_of.unit_of_measure_qty(buffer, offset + index)
+  index = index + size_of.unit_of_measure_qty_decimal_64
 
   index = index + size_of.md_entry_date
 
-  index = index + size_of.open_close_settl_flag
+  index = index + size_of.open_close_settl_flag_u_int_8_null
 
   index = index + size_of.price_type
 
@@ -3218,7 +3305,7 @@ size_of.m_d_incremental_refresh_otc_group = function(buffer, offset)
 
   index = index + size_of.vol_type
 
-  index = index + size_of.reference_id
+  index = index + size_of.reference_i_d_string_100
 
   return index
 end
@@ -3232,41 +3319,41 @@ end
 dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Char: 1 Byte Ascii String
+  index, md_entry_type_char = dissect.md_entry_type_char(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_pricenull = dissect.md_entry_px_pricenull(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size Decimal 64
+  index, md_entry_size_decimal_64 = dissect.md_entry_size_decimal_64(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String Nullable
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
+  -- Security Group String 12: 12 Byte Ascii String Nullable
+  index, security_group_string_12 = dissect.security_group_string_12(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String Nullable
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  -- Security Type String Length 9: 9 Byte Ascii String Nullable
+  index, security_type_string_length_9 = dissect.security_type_string_length_9(buffer, index, packet, parent)
 
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange Security Exchange: 4 Byte Ascii String
+  index, security_exchange_security_exchange = dissect.security_exchange_security_exchange(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer Nullable
-  index, product = dissect.product(buffer, index, packet, parent)
+  -- Product u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, product_u_int_8_null = dissect.product_u_int_8_null(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
+  -- Coupon Rate Decimal 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, coupon_rate_decimal_32 = dissect.coupon_rate_decimal_32(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String Nullable
   index, restructuring_type = dissect.restructuring_type(buffer, index, packet, parent)
@@ -3280,23 +3367,23 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  -- Strike Price Decimal 64
+  index, strike_price_decimal_64 = dissect.strike_price_decimal_64(buffer, index, packet, parent)
 
   -- Unit Of Measure: 5 Byte Ascii String Nullable
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency: 3 Byte Ascii String Nullable
-  index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
+  -- Unit Of Measure Currency Currency: 3 Byte Ascii String
+  index, unit_of_measure_currency_currency = dissect.unit_of_measure_currency_currency(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Decimal 64
+  index, unit_of_measure_qty_decimal_64 = dissect.unit_of_measure_qty_decimal_64(buffer, index, packet, parent)
 
   -- Md Entry Date: 4 Byte Signed Fixed Width Integer Nullable
   index, md_entry_date = dissect.md_entry_date(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
+  -- Open Close Settl Flag u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, open_close_settl_flag_u_int_8_null = dissect.open_close_settl_flag_u_int_8_null(buffer, index, packet, parent)
 
   -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
   index, price_type = dissect.price_type(buffer, index, packet, parent)
@@ -3325,8 +3412,8 @@ dissect.m_d_incremental_refresh_otc_group_fields = function(buffer, offset, pack
   -- Vol Type: 2 Byte Unsigned Fixed Width Integer Nullable
   index, vol_type = dissect.vol_type(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String Nullable
-  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
+  -- Reference I D String 100: 100 Byte Ascii String Nullable
+  index, reference_i_d_string_100 = dissect.reference_i_d_string_100(buffer, index, packet, parent)
 
   return index
 end
@@ -3352,7 +3439,7 @@ size_of.m_d_incremental_refresh_otc_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_otc_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_otc_group_count * 285
+  index = index + m_d_incremental_refresh_otc_group_count * 311
 
   return index
 end
@@ -3369,11 +3456,11 @@ dissect.m_d_incremental_refresh_otc_groups_fields = function(buffer, offset, pac
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Otc Group: Struct of 32 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_otc_group(buffer, index, packet, parent)
   end
 
@@ -3393,27 +3480,27 @@ dissect.m_d_incremental_refresh_otc_groups = function(buffer, offset, packet, pa
   return dissect.m_d_incremental_refresh_otc_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Batch Total Messages
-size_of.batch_total_messages = 2
+-- Size: Batch Total Messages u Int 16 Null
+size_of.batch_total_messages_u_int_16_null = 2
 
--- Display: Batch Total Messages
-display.batch_total_messages = function(value)
+-- Display: Batch Total Messages u Int 16 Null
+display.batch_total_messages_u_int_16_null = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Batch Total Messages: No Value ("..value..")"
+    return "Batch Total Messages u Int 16 Null: No Value"
   end
 
-  return "Batch Total Messages: "..value
+  return "Batch Total Messages u Int 16 Null: "..value
 end
 
--- Dissect: Batch Total Messages
-dissect.batch_total_messages = function(buffer, offset, packet, parent)
-  local length = size_of.batch_total_messages
+-- Dissect: Batch Total Messages u Int 16 Null
+dissect.batch_total_messages_u_int_16_null = function(buffer, offset, packet, parent)
+  local length = size_of.batch_total_messages_u_int_16_null
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.batch_total_messages(value, buffer, offset, packet, parent)
+  local display = display.batch_total_messages_u_int_16_null(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.batch_total_messages, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.batch_total_messages_u_int_16_null, range, value, display)
 
   return offset + length, value
 end
@@ -3510,7 +3597,7 @@ size_of.trade_date = 2
 display.trade_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trade Date: No Value ("..value..")"
+    return "Trade Date: No Value"
   end
 
   return "Trade Date: "..value
@@ -3528,27 +3615,22 @@ dissect.trade_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Transact Time
-size_of.transact_time = 8
+-- Size: Transact Time u Int 64
+size_of.transact_time_u_int_64 = 8
 
--- Display: Transact Time
-display.transact_time = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Transact Time: No Value ("..value..")"
-  end
-
-  return "Transact Time: "..value
+-- Display: Transact Time u Int 64
+display.transact_time_u_int_64 = function(value)
+  return "Transact Time u Int 64: "..value
 end
 
--- Dissect: Transact Time
-dissect.transact_time = function(buffer, offset, packet, parent)
-  local length = size_of.transact_time
+-- Dissect: Transact Time u Int 64
+dissect.transact_time_u_int_64 = function(buffer, offset, packet, parent)
+  local length = size_of.transact_time_u_int_64
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.transact_time(value, buffer, offset, packet, parent)
+  local display = display.transact_time_u_int_64(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.transact_time, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.transact_time_u_int_64, range, value, display)
 
   return offset + length, value
 end
@@ -3557,13 +3639,13 @@ end
 size_of.md_incremental_refresh_ot_c_356 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.trade_date
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16_null
 
   index = index + size_of.m_d_incremental_refresh_otc_groups(buffer, offset + index)
 
@@ -3579,8 +3661,8 @@ end
 dissect.md_incremental_refresh_ot_c_356_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -3588,8 +3670,8 @@ dissect.md_incremental_refresh_ot_c_356_fields = function(buffer, offset, packet
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, batch_total_messages_u_int_16_null = dissect.batch_total_messages_u_int_16_null(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Otc Groups: Struct of 2 fields
   index, m_d_incremental_refresh_otc_groups = dissect.m_d_incremental_refresh_otc_groups(buffer, index, packet, parent)
@@ -3608,6 +3690,78 @@ dissect.md_incremental_refresh_ot_c_356 = function(buffer, offset, packet, paren
   end
 
   return dissect.md_incremental_refresh_ot_c_356_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reference I D String Length 50
+size_of.reference_i_d_string_length_50 = 50
+
+-- Display: Reference I D String Length 50
+display.reference_i_d_string_length_50 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reference I D String Length 50: No Value"
+  end
+
+  return "Reference I D String Length 50: "..value
+end
+
+-- Dissect: Reference I D String Length 50
+dissect.reference_i_d_string_length_50 = function(buffer, offset, packet, parent)
+  local length = size_of.reference_i_d_string_length_50
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.reference_i_d_string_length_50(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.reference_i_d_string_length_50, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Security Group String Length 26
+size_of.security_group_string_length_26 = 26
+
+-- Display: Security Group String Length 26
+display.security_group_string_length_26 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Group String Length 26: No Value"
+  end
+
+  return "Security Group String Length 26: "..value
+end
+
+-- Dissect: Security Group String Length 26
+dissect.security_group_string_length_26 = function(buffer, offset, packet, parent)
+  local length = size_of.security_group_string_length_26
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.security_group_string_length_26(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_group_string_length_26, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Aggressor Side
@@ -3670,7 +3824,7 @@ size_of.number_of_orders = 4
 display.number_of_orders = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Number Of Orders: No Value ("..value..")"
+    return "Number Of Orders: No Value"
   end
 
   return "Number Of Orders: "..value
@@ -3695,7 +3849,7 @@ size_of.md_entry_position_no = 4
 display.md_entry_position_no = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Md Entry Position No: No Value ("..value..")"
+    return "Md Entry Position No: No Value"
   end
 
   return "Md Entry Position No: "..value
@@ -3713,83 +3867,62 @@ dissect.md_entry_position_no = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Cal Fut Px
-size_of.cal_fut_px = function(buffer, offset)
-  local index = 0
+-- Size: Md Entry Size u Int 64 Null
+size_of.md_entry_size_u_int_64_null = 8
 
-  index = index + size_of.mantissa64
+-- Display: Md Entry Size u Int 64 Null
+display.md_entry_size_u_int_64_null = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Md Entry Size u Int 64 Null: No Value"
+  end
 
-  index = index + size_of.exponent
-
-  return index
+  return "Md Entry Size u Int 64 Null: "..value
 end
 
--- Display: Cal Fut Px
-display.cal_fut_px = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Cal Fut Px
-dissect.cal_fut_px_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
-
-  -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
-  index, exponent = dissect.exponent(buffer, index, packet, parent)
-
-  return index, mantissa64, exponent
-end
-
--- Dissect: Cal Fut Px
-dissect.cal_fut_px = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.cal_fut_px then
-    local length = size_of.cal_fut_px(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.cal_fut_px(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamline_sbe_v5_8.fields.cal_fut_px, range, display)
-  end
-
-  return dissect.cal_fut_px_fields(buffer, offset, packet, parent)
-end
-
--- Size: Md Update Action
-size_of.md_update_action = 1
-
--- Display: Md Update Action
-display.md_update_action = function(value)
-  if value == 0 then
-    return "Md Update Action: New (0)"
-  end
-  if value == 1 then
-    return "Md Update Action: Change (1)"
-  end
-  if value == 2 then
-    return "Md Update Action: Delete (2)"
-  end
-  if value == 3 then
-    return "Md Update Action: Delete Thru (3)"
-  end
-  if value == 4 then
-    return "Md Update Action: Delete From (4)"
-  end
-  if value == 5 then
-    return "Md Update Action: Overlay (5)"
-  end
-
-  return "Md Update Action: Unknown("..value..")"
-end
-
--- Dissect: Md Update Action
-dissect.md_update_action = function(buffer, offset, packet, parent)
-  local length = size_of.md_update_action
+-- Dissect: Md Entry Size u Int 64 Null
+dissect.md_entry_size_u_int_64_null = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_size_u_int_64_null
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.md_update_action(value, buffer, offset, packet, parent)
+  local value = range:le_uint64()
+  local display = display.md_entry_size_u_int_64_null(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_update_action, range, value, display)
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_size_u_int_64_null, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Md Update Action Char
+size_of.md_update_action_char = 1
+
+-- Display: Md Update Action Char
+display.md_update_action_char = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Update Action Char: No Value"
+  end
+
+  return "Md Update Action Char: "..value
+end
+
+-- Dissect: Md Update Action Char
+dissect.md_update_action_char = function(buffer, offset, packet, parent)
+  local length = size_of.md_update_action_char
+  local range = buffer(offset, length)
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
+  local display = display.md_update_action_char(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_update_action_char, range, value, display)
 
   return offset + length, value
 end
@@ -3798,17 +3931,17 @@ end
 size_of.m_d_incremental_refresh_eris_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_update_action
+  index = index + size_of.md_update_action_char
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_char
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + size_of.md_entry_px_decimal_64
 
-  index = index + size_of.md_entry_size(buffer, offset + index)
+  index = index + size_of.md_entry_size_u_int_64_null
 
-  index = index + size_of.cal_fut_px(buffer, offset + index)
+  index = index + size_of.cal_fut_px_decimal_64
 
   index = index + size_of.md_entry_position_no
 
@@ -3820,17 +3953,17 @@ size_of.m_d_incremental_refresh_eris_group = function(buffer, offset)
 
   index = index + size_of.symbol
 
-  index = index + size_of.security_group
+  index = index + size_of.security_group_string_length_26
 
-  index = index + size_of.security_type
+  index = index + size_of.security_type_string_length_9
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_security_exchange
 
-  index = index + size_of.product
+  index = index + size_of.product_u_int_8_null
 
   index = index + size_of.maturity_date
 
-  index = index + size_of.reference_id
+  index = index + size_of.reference_i_d_string_length_50
 
   return index
 end
@@ -3844,23 +3977,23 @@ end
 dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
+  -- Md Update Action Char: 1 Byte Ascii String
+  index, md_update_action_char = dissect.md_update_action_char(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Char: 1 Byte Ascii String
+  index, md_entry_type_char = dissect.md_entry_type_char(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Decimal 64
+  index, md_entry_px_decimal_64 = dissect.md_entry_px_decimal_64(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size u Int 64 Null: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_size_u_int_64_null = dissect.md_entry_size_u_int_64_null(buffer, index, packet, parent)
 
-  -- Cal Fut Px: Struct of 2 fields
-  index, cal_fut_px = dissect.cal_fut_px(buffer, index, packet, parent)
+  -- Cal Fut Px Decimal 64
+  index, cal_fut_px_decimal_64 = dissect.cal_fut_px_decimal_64(buffer, index, packet, parent)
 
   -- Md Entry Position No: 4 Byte Signed Fixed Width Integer Nullable
   index, md_entry_position_no = dissect.md_entry_position_no(buffer, index, packet, parent)
@@ -3877,23 +4010,23 @@ dissect.m_d_incremental_refresh_eris_group_fields = function(buffer, offset, pac
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String Nullable
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
+  -- Security Group String Length 26: 26 Byte Ascii String Nullable
+  index, security_group_string_length_26 = dissect.security_group_string_length_26(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String Nullable
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  -- Security Type String Length 9: 9 Byte Ascii String Nullable
+  index, security_type_string_length_9 = dissect.security_type_string_length_9(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange Security Exchange: 4 Byte Ascii String
+  index, security_exchange_security_exchange = dissect.security_exchange_security_exchange(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer Nullable
-  index, product = dissect.product(buffer, index, packet, parent)
+  -- Product u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, product_u_int_8_null = dissect.product_u_int_8_null(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String Nullable
-  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
+  -- Reference I D String Length 50: 50 Byte Ascii String Nullable
+  index, reference_i_d_string_length_50 = dissect.reference_i_d_string_length_50(buffer, index, packet, parent)
 
   return index
 end
@@ -3936,11 +4069,11 @@ dissect.m_d_incremental_refresh_eris_groups_fields = function(buffer, offset, pa
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Eris Group: Struct of 17 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_eris_group(buffer, index, packet, parent)
   end
 
@@ -3964,11 +4097,11 @@ end
 size_of.md_incremental_refresh_eris_353 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16_null
 
   index = index + size_of.m_d_incremental_refresh_eris_groups(buffer, offset + index)
 
@@ -3984,14 +4117,14 @@ end
 dissect.md_incremental_refresh_eris_353_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, batch_total_messages_u_int_16_null = dissect.batch_total_messages_u_int_16_null(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Eris Groups: Struct of 2 fields
   index, m_d_incremental_refresh_eris_groups = dissect.m_d_incremental_refresh_eris_groups(buffer, index, packet, parent)
@@ -4016,11 +4149,11 @@ end
 size_of.md_incremental_refresh_eris_351 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16_null
 
   index = index + size_of.m_d_incremental_refresh_eris_groups(buffer, offset + index)
 
@@ -4036,14 +4169,14 @@ end
 dissect.md_incremental_refresh_eris_351_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, batch_total_messages_u_int_16_null = dissect.batch_total_messages_u_int_16_null(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Eris Groups: Struct of 2 fields
   index, m_d_incremental_refresh_eris_groups = dissect.m_d_incremental_refresh_eris_groups(buffer, index, packet, parent)
@@ -4081,7 +4214,18 @@ end
 dissect.leg_ref_id = function(buffer, offset, packet, parent)
   local length = size_of.leg_ref_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_ref_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_ref_id, range, value, display)
@@ -4106,10 +4250,45 @@ end
 dissect.strategy_link_id = function(buffer, offset, packet, parent)
   local length = size_of.strategy_link_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.strategy_link_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.strategy_link_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Strike Price Pricenull
+size_of.strike_price_pricenull = 8
+
+-- Display: Strike Price Pricenull
+display.strike_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Strike Price Pricenull: No Value"
+  end
+  return "Strike Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Strike Price Pricenull
+dissect.strike_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.strike_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.strike_price_pricenull, range, value, display)
 
   return offset + length, value
 end
@@ -4131,7 +4310,18 @@ end
 dissect.md_entry_id = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_id, range, value, display)
@@ -4146,7 +4336,7 @@ size_of.trd_type = 1
 display.trd_type = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Trd Type: No Value ("..value..")"
+    return "Trd Type: No Value"
   end
 
   return "Trd Type: "..value
@@ -4164,14 +4354,110 @@ dissect.trd_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Unit Of Measure Qty Pricenull
+size_of.unit_of_measure_qty_pricenull = 8
+
+-- Display: Unit Of Measure Qty Pricenull
+display.unit_of_measure_qty_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Unit Of Measure Qty Pricenull: No Value"
+  end
+  return "Unit Of Measure Qty Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Unit Of Measure Qty Pricenull
+dissect.unit_of_measure_qty_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.unit_of_measure_qty_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.unit_of_measure_qty_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_qty_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Unit Of Measure Currency String Len 3
+size_of.unit_of_measure_currency_string_len_3 = 3
+
+-- Display: Unit Of Measure Currency String Len 3
+display.unit_of_measure_currency_string_len_3 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Unit Of Measure Currency String Len 3: No Value"
+  end
+
+  return "Unit Of Measure Currency String Len 3: "..value
+end
+
+-- Dissect: Unit Of Measure Currency String Len 3
+dissect.unit_of_measure_currency_string_len_3 = function(buffer, offset, packet, parent)
+  local length = size_of.unit_of_measure_currency_string_len_3
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.unit_of_measure_currency_string_len_3(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.unit_of_measure_currency_string_len_3, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Security Exchange String 4
+size_of.security_exchange_string_4 = 4
+
+-- Display: Security Exchange String 4
+display.security_exchange_string_4 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Security Exchange String 4: No Value"
+  end
+
+  return "Security Exchange String 4: "..value
+end
+
+-- Dissect: Security Exchange String 4
+dissect.security_exchange_string_4 = function(buffer, offset, packet, parent)
+  local length = size_of.security_exchange_string_4
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.security_exchange_string_4(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.security_exchange_string_4, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Security Id
 size_of.security_id = 8
 
 -- Display: Security Id
 display.security_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Security Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Security Id: No Value"
   end
 
   return "Security Id: "..value
@@ -4189,19 +4475,58 @@ dissect.security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Md Update Action Md Update Action
+size_of.md_update_action_md_update_action = 1
+
+-- Display: Md Update Action Md Update Action
+display.md_update_action_md_update_action = function(value)
+  if value == 0 then
+    return "Md Update Action Md Update Action: New (0)"
+  end
+  if value == 1 then
+    return "Md Update Action Md Update Action: Change (1)"
+  end
+  if value == 2 then
+    return "Md Update Action Md Update Action: Delete (2)"
+  end
+  if value == 3 then
+    return "Md Update Action Md Update Action: Delete Thru (3)"
+  end
+  if value == 4 then
+    return "Md Update Action Md Update Action: Delete From (4)"
+  end
+  if value == 5 then
+    return "Md Update Action Md Update Action: Overlay (5)"
+  end
+
+  return "Md Update Action Md Update Action: Unknown("..value..")"
+end
+
+-- Dissect: Md Update Action Md Update Action
+dissect.md_update_action_md_update_action = function(buffer, offset, packet, parent)
+  local length = size_of.md_update_action_md_update_action
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.md_update_action_md_update_action(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_update_action_md_update_action, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Trade Blocks Group
 size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_update_action
+  index = index + size_of.md_update_action_md_update_action
 
   index = index + size_of.security_id
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + size_of.md_entry_px_pricenull
 
-  index = index + size_of.md_entry_size(buffer, offset + index)
+  index = index + size_of.md_entry_size_u_int_64_null
 
   index = index + size_of.number_of_orders
 
@@ -4211,25 +4536,25 @@ size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
 
   index = index + size_of.symbol
 
-  index = index + size_of.security_group
+  index = index + size_of.security_group_string_12
 
-  index = index + size_of.security_type
+  index = index + size_of.security_type_string_length_9
 
   index = index + size_of.security_sub_type
 
   index = index + size_of.maturity_month_year(buffer, offset + index)
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_string_4
 
   index = index + size_of.maturity_date
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_currency
+  index = index + size_of.unit_of_measure_currency_string_len_3
 
-  index = index + size_of.unit_of_measure_qty(buffer, offset + index)
+  index = index + size_of.unit_of_measure_qty_pricenull
 
-  index = index + size_of.coupon_rate(buffer, offset + index)
+  index = index + size_of.coupon_rate_decimal_32
 
   index = index + size_of.price_type
 
@@ -4239,13 +4564,13 @@ size_of.m_d_incremental_refresh_trade_blocks_group = function(buffer, offset)
 
   index = index + size_of.put_or_call
 
-  index = index + size_of.strike_price(buffer, offset + index)
+  index = index + size_of.strike_price_pricenull
 
   index = index + size_of.restructuring_type
 
   index = index + size_of.seniority
 
-  index = index + size_of.reference_id
+  index = index + size_of.reference_i_d_string_100
 
   index = index + size_of.strategy_link_id
 
@@ -4263,8 +4588,8 @@ end
 dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
+  -- Md Update Action Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  index, md_update_action_md_update_action = dissect.md_update_action_md_update_action(buffer, index, packet, parent)
 
   -- Security Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, security_id = dissect.security_id(buffer, index, packet, parent)
@@ -4272,11 +4597,11 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_pricenull = dissect.md_entry_px_pricenull(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size u Int 64 Null: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_size_u_int_64_null = dissect.md_entry_size_u_int_64_null(buffer, index, packet, parent)
 
   -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
   index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
@@ -4290,11 +4615,11 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String Nullable
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
+  -- Security Group String 12: 12 Byte Ascii String Nullable
+  index, security_group_string_12 = dissect.security_group_string_12(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String Nullable
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  -- Security Type String Length 9: 9 Byte Ascii String Nullable
+  index, security_type_string_length_9 = dissect.security_type_string_length_9(buffer, index, packet, parent)
 
   -- Security Sub Type: 2 Byte Ascii String Nullable
   index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
@@ -4302,8 +4627,8 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Maturity Month Year: Struct of 4 fields
   index, maturity_month_year = dissect.maturity_month_year(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange String 4: 4 Byte Ascii String Nullable
+  index, security_exchange_string_4 = dissect.security_exchange_string_4(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
@@ -4311,14 +4636,14 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Unit Of Measure: 5 Byte Ascii String Nullable
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Currency: 3 Byte Ascii String Nullable
-  index, unit_of_measure_currency = dissect.unit_of_measure_currency(buffer, index, packet, parent)
+  -- Unit Of Measure Currency String Len 3: 3 Byte Ascii String Nullable
+  index, unit_of_measure_currency_string_len_3 = dissect.unit_of_measure_currency_string_len_3(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, unit_of_measure_qty_pricenull = dissect.unit_of_measure_qty_pricenull(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
+  -- Coupon Rate Decimal 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, coupon_rate_decimal_32 = dissect.coupon_rate_decimal_32(buffer, index, packet, parent)
 
   -- Price Type: 2 Byte Unsigned Fixed Width Integer Nullable
   index, price_type = dissect.price_type(buffer, index, packet, parent)
@@ -4332,8 +4657,8 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Nullable
   index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  -- Strike Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, strike_price_pricenull = dissect.strike_price_pricenull(buffer, index, packet, parent)
 
   -- Restructuring Type: 2 Byte Ascii String Nullable
   index, restructuring_type = dissect.restructuring_type(buffer, index, packet, parent)
@@ -4341,8 +4666,8 @@ dissect.m_d_incremental_refresh_trade_blocks_group_fields = function(buffer, off
   -- Seniority: 2 Byte Ascii String Nullable
   index, seniority = dissect.seniority(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String Nullable
-  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
+  -- Reference I D String 100: 100 Byte Ascii String Nullable
+  index, reference_i_d_string_100 = dissect.reference_i_d_string_100(buffer, index, packet, parent)
 
   -- Strategy Link Id: 26 Byte Ascii String Nullable
   index, strategy_link_id = dissect.strategy_link_id(buffer, index, packet, parent)
@@ -4374,7 +4699,7 @@ size_of.m_d_incremental_refresh_trade_blocks_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_trade_blocks_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_trade_blocks_group_count * 277
+  index = index + m_d_incremental_refresh_trade_blocks_group_count * 327
 
   return index
 end
@@ -4391,11 +4716,11 @@ dissect.m_d_incremental_refresh_trade_blocks_groups_fields = function(buffer, of
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Trade Blocks Group: Struct of 29 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_trade_blocks_group(buffer, index, packet, parent)
   end
 
@@ -4415,15 +4740,60 @@ dissect.m_d_incremental_refresh_trade_blocks_groups = function(buffer, offset, p
   return dissect.m_d_incremental_refresh_trade_blocks_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Batch Total Messages u Int 16
+size_of.batch_total_messages_u_int_16 = 2
+
+-- Display: Batch Total Messages u Int 16
+display.batch_total_messages_u_int_16 = function(value)
+  return "Batch Total Messages u Int 16: "..value
+end
+
+-- Dissect: Batch Total Messages u Int 16
+dissect.batch_total_messages_u_int_16 = function(buffer, offset, packet, parent)
+  local length = size_of.batch_total_messages_u_int_16
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.batch_total_messages_u_int_16(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.batch_total_messages_u_int_16, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Transact Time u Int 64 Null
+size_of.transact_time_u_int_64_null = 8
+
+-- Display: Transact Time u Int 64 Null
+display.transact_time_u_int_64_null = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Transact Time u Int 64 Null: No Value"
+  end
+
+  return "Transact Time u Int 64 Null: "..value
+end
+
+-- Dissect: Transact Time u Int 64 Null
+dissect.transact_time_u_int_64_null = function(buffer, offset, packet, parent)
+  local length = size_of.transact_time_u_int_64_null
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.transact_time_u_int_64_null(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.transact_time_u_int_64_null, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Incremental Refresh Trade Blocks 349
 size_of.md_incremental_refresh_trade_blocks_349 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64_null
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16
 
   index = index + size_of.trade_date
 
@@ -4441,14 +4811,14 @@ end
 dissect.md_incremental_refresh_trade_blocks_349_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64 Null: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, transact_time_u_int_64_null = dissect.transact_time_u_int_64_null(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16: 2 Byte Unsigned Fixed Width Integer
+  index, batch_total_messages_u_int_16 = dissect.batch_total_messages_u_int_16(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -4479,7 +4849,7 @@ size_of.md_entry_time = 4
 display.md_entry_time = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Md Entry Time: No Value ("..value..")"
+    return "Md Entry Time: No Value"
   end
 
   return "Md Entry Time: "..value
@@ -4721,10 +5091,97 @@ end
 dissect.yield_type = function(buffer, offset, packet, parent)
   local length = size_of.yield_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.yield_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.yield_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Open Close Settl Flag Int 8 Null
+size_of.open_close_settl_flag_int_8_null = 1
+
+-- Display: Open Close Settl Flag Int 8 Null
+display.open_close_settl_flag_int_8_null = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Open Close Settl Flag Int 8 Null: No Value"
+  end
+
+  return "Open Close Settl Flag Int 8 Null: "..value
+end
+
+-- Dissect: Open Close Settl Flag Int 8 Null
+dissect.open_close_settl_flag_int_8_null = function(buffer, offset, packet, parent)
+  local length = size_of.open_close_settl_flag_int_8_null
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.open_close_settl_flag_int_8_null(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.open_close_settl_flag_int_8_null, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Md Entry Type Md Entry Type Indices
+size_of.md_entry_type_md_entry_type_indices = 1
+
+-- Display: Md Entry Type Md Entry Type Indices
+display.md_entry_type_md_entry_type_indices = function(value)
+  if value == "0" then
+    return "Md Entry Type Md Entry Type Indices: Bid (0)"
+  end
+  if value == "1" then
+    return "Md Entry Type Md Entry Type Indices: Offer (1)"
+  end
+  if value == "2" then
+    return "Md Entry Type Md Entry Type Indices: Trade (2)"
+  end
+  if value == "3" then
+    return "Md Entry Type Md Entry Type Indices: Index Value (3)"
+  end
+  if value == "4" then
+    return "Md Entry Type Md Entry Type Indices: Opening Value (4)"
+  end
+  if value == "5" then
+    return "Md Entry Type Md Entry Type Indices: Closing Price (5)"
+  end
+  if value == "6" then
+    return "Md Entry Type Md Entry Type Indices: Settlement Price (6)"
+  end
+  if value == "7" then
+    return "Md Entry Type Md Entry Type Indices: Session High Price (7)"
+  end
+  if value == "8" then
+    return "Md Entry Type Md Entry Type Indices: Session Low Price (8)"
+  end
+  if value == "e" then
+    return "Md Entry Type Md Entry Type Indices: Trade Volume (e)"
+  end
+
+  return "Md Entry Type Md Entry Type Indices: Unknown("..value..")"
+end
+
+-- Dissect: Md Entry Type Md Entry Type Indices
+dissect.md_entry_type_md_entry_type_indices = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_md_entry_type_indices
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.md_entry_type_md_entry_type_indices(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_entry_type_md_entry_type_indices, range, value, display)
 
   return offset + length, value
 end
@@ -4733,17 +5190,17 @@ end
 size_of.m_d_incremental_refresh_indices_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_md_entry_type_indices
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + size_of.md_entry_px_decimal_64
 
-  index = index + size_of.md_entry_size(buffer, offset + index)
+  index = index + size_of.md_entry_size_u_int_64_null
 
   index = index + size_of.symbol
 
-  index = index + size_of.open_close_settl_flag
+  index = index + size_of.open_close_settl_flag_int_8_null
 
   index = index + size_of.yield_type
 
@@ -4761,7 +5218,7 @@ size_of.m_d_incremental_refresh_indices_group = function(buffer, offset)
 
   index = index + size_of.md_entry_time
 
-  index = index + size_of.reference_id
+  index = index + size_of.reference_i_d_string_length_50
 
   return index
 end
@@ -4775,23 +5232,23 @@ end
 dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Md Entry Type Indices: 1 Byte Ascii String Enum with 10 values
+  index, md_entry_type_md_entry_type_indices = dissect.md_entry_type_md_entry_type_indices(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Decimal 64
+  index, md_entry_px_decimal_64 = dissect.md_entry_px_decimal_64(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size u Int 64 Null: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_size_u_int_64_null = dissect.md_entry_size_u_int_64_null(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
+  -- Open Close Settl Flag Int 8 Null: 1 Byte Signed Fixed Width Integer Nullable
+  index, open_close_settl_flag_int_8_null = dissect.open_close_settl_flag_int_8_null(buffer, index, packet, parent)
 
   -- Yield Type: 8 Byte Ascii String Nullable
   index, yield_type = dissect.yield_type(buffer, index, packet, parent)
@@ -4817,8 +5274,8 @@ dissect.m_d_incremental_refresh_indices_group_fields = function(buffer, offset, 
   -- Md Entry Time: 4 Byte Signed Fixed Width Integer Nullable
   index, md_entry_time = dissect.md_entry_time(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String Nullable
-  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
+  -- Reference I D String Length 50: 50 Byte Ascii String Nullable
+  index, reference_i_d_string_length_50 = dissect.reference_i_d_string_length_50(buffer, index, packet, parent)
 
   return index
 end
@@ -4844,7 +5301,7 @@ size_of.m_d_incremental_refresh_indices_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local m_d_incremental_refresh_indices_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_indices_group_count * 177
+  index = index + m_d_incremental_refresh_indices_group_count * 167
 
   return index
 end
@@ -4861,11 +5318,11 @@ dissect.m_d_incremental_refresh_indices_groups_fields = function(buffer, offset,
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Indices Group: Struct of 15 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_indices_group(buffer, index, packet, parent)
   end
 
@@ -4885,17 +5342,53 @@ dissect.m_d_incremental_refresh_indices_groups = function(buffer, offset, packet
   return dissect.m_d_incremental_refresh_indices_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Md Feed Type String Length 2
+size_of.md_feed_type_string_length_2 = 2
+
+-- Display: Md Feed Type String Length 2
+display.md_feed_type_string_length_2 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Md Feed Type String Length 2: No Value"
+  end
+
+  return "Md Feed Type String Length 2: "..value
+end
+
+-- Dissect: Md Feed Type String Length 2
+dissect.md_feed_type_string_length_2 = function(buffer, offset, packet, parent)
+  local length = size_of.md_feed_type_string_length_2
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.md_feed_type_string_length_2(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.md_feed_type_string_length_2, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Incremental Refresh Indices 348
 size_of.md_incremental_refresh_indices_348 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
-  index = index + size_of.md_feed_type
+  index = index + size_of.md_feed_type_string_length_2
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16_null
 
   index = index + size_of.m_d_incremental_refresh_indices_groups(buffer, offset + index)
 
@@ -4911,17 +5404,17 @@ end
 dissect.md_incremental_refresh_indices_348_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String Nullable
-  index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
+  -- Md Feed Type String Length 2: 2 Byte Ascii String Nullable
+  index, md_feed_type_string_length_2 = dissect.md_feed_type_string_length_2(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, batch_total_messages_u_int_16_null = dissect.batch_total_messages_u_int_16_null(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Indices Groups: Struct of 2 fields
   index, m_d_incremental_refresh_indices_groups = dissect.m_d_incremental_refresh_indices_groups(buffer, index, packet, parent)
@@ -4959,7 +5452,18 @@ end
 dissect.inst_attrib_value = function(buffer, offset, packet, parent)
   local length = size_of.inst_attrib_value
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.inst_attrib_value(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.inst_attrib_value, range, value, display)
@@ -5036,7 +5540,7 @@ size_of.inst_attrib_groups = function(buffer, offset)
   index = index + size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
-  local inst_attrib_group_count = buffer(offset + index - 1, 1):le_uint()
+  local inst_attrib_group_count = buffer(offset + index - 2, 2):le_uint()
   index = index + inst_attrib_group_count * 101
 
   return index
@@ -5054,11 +5558,11 @@ dissect.inst_attrib_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size Encoding: Struct of 2 fields
   index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 16
+  local num_in_group_uint_16 = buffer(index - 2, 2):le_uint()
 
   -- Inst Attrib Group: Struct of 2 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_16 do
     index = dissect.inst_attrib_group(buffer, index, packet, parent)
   end
 
@@ -5078,21 +5582,41 @@ dissect.inst_attrib_groups = function(buffer, offset, packet, parent)
   return dissect.inst_attrib_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Product Int 8
+size_of.product_int_8 = 1
+
+-- Display: Product Int 8
+display.product_int_8 = function(value)
+  return "Product Int 8: "..value
+end
+
+-- Dissect: Product Int 8
+dissect.product_int_8 = function(buffer, offset, packet, parent)
+  local length = size_of.product_int_8
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.product_int_8(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.product_int_8, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Instrument Definition Indices 347
 size_of.md_instrument_definition_indices_347 = function(buffer, offset)
   local index = 0
 
   index = index + size_of.symbol
 
-  index = index + size_of.product
+  index = index + size_of.product_int_8
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_security_exchange
 
   index = index + size_of.currency
 
   index = index + size_of.security_update_action
 
-  index = index + size_of.md_feed_type
+  index = index + size_of.md_feed_type_string_length_2
 
   index = index + size_of.appl_id
 
@@ -5115,11 +5639,11 @@ dissect.md_instrument_definition_indices_347_fields = function(buffer, offset, p
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer Nullable
-  index, product = dissect.product(buffer, index, packet, parent)
+  -- Product Int 8: 1 Byte Signed Fixed Width Integer
+  index, product_int_8 = dissect.product_int_8(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange Security Exchange: 4 Byte Ascii String
+  index, security_exchange_security_exchange = dissect.security_exchange_security_exchange(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
@@ -5127,8 +5651,8 @@ dissect.md_instrument_definition_indices_347_fields = function(buffer, offset, p
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String Nullable
-  index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
+  -- Md Feed Type String Length 2: 2 Byte Ascii String Nullable
+  index, md_feed_type_string_length_2 = dissect.md_feed_type_string_length_2(buffer, index, packet, parent)
 
   -- Appl Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, appl_id = dissect.appl_id(buffer, index, packet, parent)
@@ -5217,11 +5741,11 @@ dissect.related_sym_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Related Sym Group: Struct of 1 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.related_sym_group(buffer, index, packet, parent)
   end
 
@@ -5258,7 +5782,18 @@ end
 dissect.quote_req_id = function(buffer, offset, packet, parent)
   local length = size_of.quote_req_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.quote_req_id, range, value, display)
@@ -5270,7 +5805,7 @@ end
 size_of.quote_request_345 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.match_event_indicator
 
@@ -5290,8 +5825,8 @@ end
 dissect.quote_request_345_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
@@ -5322,11 +5857,11 @@ end
 size_of.md_incremental_refresh_trade_blocks_340 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16
 
   index = index + size_of.m_d_incremental_refresh_trade_blocks_groups(buffer, offset + index)
 
@@ -5342,14 +5877,14 @@ end
 dissect.md_incremental_refresh_trade_blocks_340_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16: 2 Byte Unsigned Fixed Width Integer
+  index, batch_total_messages_u_int_16 = dissect.batch_total_messages_u_int_16(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Trade Blocks Groups: Struct of 2 fields
   index, m_d_incremental_refresh_trade_blocks_groups = dissect.m_d_incremental_refresh_trade_blocks_groups(buffer, index, packet, parent)
@@ -5370,27 +5905,38 @@ dissect.md_incremental_refresh_trade_blocks_340 = function(buffer, offset, packe
   return dissect.md_incremental_refresh_trade_blocks_340_fields(buffer, offset, packet, parent)
 end
 
--- Size: Text
-size_of.text = 180
+-- Size: Text String Length 500
+size_of.text_string_length_500 = 500
 
--- Display: Text
-display.text = function(value)
+-- Display: Text String Length 500
+display.text_string_length_500 = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Text: No Value"
+    return "Text String Length 500: No Value"
   end
 
-  return "Text: "..value
+  return "Text String Length 500: "..value
 end
 
--- Dissect: Text
-dissect.text = function(buffer, offset, packet, parent)
-  local length = size_of.text
+-- Dissect: Text String Length 500
+dissect.text_string_length_500 = function(buffer, offset, packet, parent)
+  local length = size_of.text_string_length_500
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.text(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_streamline_sbe_v5_8.fields.text, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.text_string_length_500(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.text_string_length_500, range, value, display)
 
   return offset + length, value
 end
@@ -5399,7 +5945,7 @@ end
 size_of.lines_of_text_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.text
+  index = index + size_of.text_string_length_500
 
   return index
 end
@@ -5413,8 +5959,8 @@ end
 dissect.lines_of_text_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 180 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  -- Text String Length 500: 500 Byte Ascii String
+  index, text_string_length_500 = dissect.text_string_length_500(buffer, index, packet, parent)
 
   return index
 end
@@ -5440,7 +5986,7 @@ size_of.lines_of_text_groups = function(buffer, offset)
 
   -- Calculate field size from count
   local lines_of_text_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + lines_of_text_group_count * 180
+  index = index + lines_of_text_group_count * 500
 
   return index
 end
@@ -5457,11 +6003,11 @@ dissect.lines_of_text_groups_fields = function(buffer, offset, packet, parent)
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- Lines Of Text Group: Struct of 1 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.lines_of_text_group(buffer, index, packet, parent)
   end
 
@@ -5487,8 +6033,8 @@ size_of.orig_time = 8
 -- Display: Orig Time
 display.orig_time = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Orig Time: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Orig Time: No Value"
   end
 
   return "Orig Time: "..value
@@ -5523,7 +6069,18 @@ end
 dissect.headline = function(buffer, offset, packet, parent)
   local length = size_of.headline
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.headline(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.headline, range, value, display)
@@ -5539,7 +6096,7 @@ size_of.md_news_indices_339 = function(buffer, offset)
 
   index = index + size_of.orig_time
 
-  index = index + size_of.md_feed_type
+  index = index + size_of.md_feed_type_string_length_2
 
   index = index + size_of.related_sym_groups(buffer, offset + index)
 
@@ -5563,8 +6120,8 @@ dissect.md_news_indices_339_fields = function(buffer, offset, packet, parent)
   -- Orig Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_time = dissect.orig_time(buffer, index, packet, parent)
 
-  -- Md Feed Type: 2 Byte Ascii String Nullable
-  index, md_feed_type = dissect.md_feed_type(buffer, index, packet, parent)
+  -- Md Feed Type String Length 2: 2 Byte Ascii String Nullable
+  index, md_feed_type_string_length_2 = dissect.md_feed_type_string_length_2(buffer, index, packet, parent)
 
   -- Related Sym Groups: Struct of 2 fields
   index, related_sym_groups = dissect.related_sym_groups(buffer, index, packet, parent)
@@ -5605,7 +6162,18 @@ end
 dissect.security_description = function(buffer, offset, packet, parent)
   local length = size_of.security_description
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_description(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.security_description, range, value, display)
@@ -5788,7 +6356,7 @@ size_of.next_floating_payment_date = 2
 display.next_floating_payment_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Next Floating Payment Date: No Value ("..value..")"
+    return "Next Floating Payment Date: No Value"
   end
 
   return "Next Floating Payment Date: "..value
@@ -5865,7 +6433,18 @@ end
 dissect.leg_credit_rating = function(buffer, offset, packet, parent)
   local length = size_of.leg_credit_rating
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.leg_credit_rating(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamline_sbe_v5_8.fields.leg_credit_rating, range, value, display)
@@ -5879,8 +6458,8 @@ size_of.nominal = 8
 -- Display: Nominal
 display.nominal = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Nominal: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Nominal: No Value"
   end
 
   return "Nominal: "..value
@@ -5905,7 +6484,7 @@ size_of.accrual_days = 4
 display.accrual_days = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Accrual Days: No Value ("..value..")"
+    return "Accrual Days: No Value"
   end
 
   return "Accrual Days: "..value
@@ -5930,7 +6509,7 @@ size_of.fed_funds_date = 2
 display.fed_funds_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Fed Funds Date: No Value ("..value..")"
+    return "Fed Funds Date: No Value"
   end
 
   return "Fed Funds Date: "..value
@@ -5997,7 +6576,7 @@ size_of.trading_reference_date = 2
 display.trading_reference_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trading Reference Date: No Value ("..value..")"
+    return "Trading Reference Date: No Value"
   end
 
   return "Trading Reference Date: "..value
@@ -6106,7 +6685,7 @@ size_of.next_fixed_payment_date = 2
 display.next_fixed_payment_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Next Fixed Payment Date: No Value ("..value..")"
+    return "Next Fixed Payment Date: No Value"
   end
 
   return "Next Fixed Payment Date: "..value
@@ -6650,37 +7229,37 @@ end
 size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_update_action
+  index = index + size_of.md_update_action_char
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_char
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + size_of.md_entry_px_decimal_64_null
 
-  index = index + size_of.open_close_settl_flag
+  index = index + size_of.open_close_settl_flag_u_int_8_null
 
   index = index + size_of.settl_price_type
 
-  index = index + size_of.cal_fut_px(buffer, offset + index)
+  index = index + size_of.cal_fut_px_decimal_64_null
 
-  index = index + size_of.reference_id
+  index = index + size_of.reference_i_d_string_length_50
 
-  index = index + size_of.md_entry_size(buffer, offset + index)
+  index = index + size_of.md_entry_size_u_int_64_null
 
   index = index + size_of.symbol
 
-  index = index + size_of.security_group
+  index = index + size_of.security_group_string_length_26
 
-  index = index + size_of.product
+  index = index + size_of.product_u_int_8_null
 
-  index = index + size_of.security_type
+  index = index + size_of.security_type_string_length_9
 
-  index = index + size_of.security_exchange
+  index = index + size_of.security_exchange_security_exchange
 
   index = index + size_of.maturity_date
 
-  index = index + size_of.coupon_rate(buffer, offset + index)
+  index = index + size_of.coupon_rate_decimal_32_null
 
   index = index + size_of.trade_date
 
@@ -6702,7 +7281,7 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group =
 
   index = index + size_of.fed_funds_rate(buffer, offset + index)
 
-  index = index + size_of.min_price_increment(buffer, offset + index)
+  index = index + size_of.min_price_increment_decimal_64_null
 
   index = index + size_of.fixed_payment(buffer, offset + index)
 
@@ -6752,53 +7331,53 @@ end
 dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, md_update_action = dissect.md_update_action(buffer, index, packet, parent)
+  -- Md Update Action Char: 1 Byte Ascii String
+  index, md_update_action_char = dissect.md_update_action_char(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 10 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type Char: 1 Byte Ascii String
+  index, md_entry_type_char = dissect.md_entry_type_char(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Decimal 64 Null
+  index, md_entry_px_decimal_64_null = dissect.md_entry_px_decimal_64_null(buffer, index, packet, parent)
 
-  -- Open Close Settl Flag: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, open_close_settl_flag = dissect.open_close_settl_flag(buffer, index, packet, parent)
+  -- Open Close Settl Flag u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, open_close_settl_flag_u_int_8_null = dissect.open_close_settl_flag_u_int_8_null(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 5 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Cal Fut Px: Struct of 2 fields
-  index, cal_fut_px = dissect.cal_fut_px(buffer, index, packet, parent)
+  -- Cal Fut Px Decimal 64 Null
+  index, cal_fut_px_decimal_64_null = dissect.cal_fut_px_decimal_64_null(buffer, index, packet, parent)
 
-  -- Reference Id: 50 Byte Ascii String Nullable
-  index, reference_id = dissect.reference_id(buffer, index, packet, parent)
+  -- Reference I D String Length 50: 50 Byte Ascii String Nullable
+  index, reference_i_d_string_length_50 = dissect.reference_i_d_string_length_50(buffer, index, packet, parent)
 
-  -- Md Entry Size: 8 Byte Unsigned Fixed Width Integer Nullable: Struct of 2 fields
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size u Int 64 Null: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, md_entry_size_u_int_64_null = dissect.md_entry_size_u_int_64_null(buffer, index, packet, parent)
 
   -- Symbol: 50 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Group: 12 Byte Ascii String Nullable
-  index, security_group = dissect.security_group(buffer, index, packet, parent)
+  -- Security Group String Length 26: 26 Byte Ascii String Nullable
+  index, security_group_string_length_26 = dissect.security_group_string_length_26(buffer, index, packet, parent)
 
-  -- Product: 1 Byte Signed Fixed Width Integer Nullable
-  index, product = dissect.product(buffer, index, packet, parent)
+  -- Product u Int 8 Null: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, product_u_int_8_null = dissect.product_u_int_8_null(buffer, index, packet, parent)
 
-  -- Security Type: 4 Byte Ascii String Nullable
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  -- Security Type String Length 9: 9 Byte Ascii String Nullable
+  index, security_type_string_length_9 = dissect.security_type_string_length_9(buffer, index, packet, parent)
 
-  -- Security Exchange: 4 Byte Ascii String Nullable
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  -- Security Exchange Security Exchange: 4 Byte Ascii String
+  index, security_exchange_security_exchange = dissect.security_exchange_security_exchange(buffer, index, packet, parent)
 
   -- Maturity Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
 
-  -- Coupon Rate: 4 Byte Signed Fixed Width Integer Nullable: Struct of 2 fields
-  index, coupon_rate = dissect.coupon_rate(buffer, index, packet, parent)
+  -- Coupon Rate Decimal 32 Null
+  index, coupon_rate_decimal_32_null = dissect.coupon_rate_decimal_32_null(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -6830,8 +7409,8 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_f
   -- Fed Funds Rate: Struct of 2 fields
   index, fed_funds_rate = dissect.fed_funds_rate(buffer, index, packet, parent)
 
-  -- Min Price Increment: Struct of 2 fields
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Decimal 64 Null
+  index, min_price_increment_decimal_64_null = dissect.min_price_increment_decimal_64_null(buffer, index, packet, parent)
 
   -- Fixed Payment: Struct of 2 fields
   index, fixed_payment = dissect.fixed_payment(buffer, index, packet, parent)
@@ -6911,7 +7490,7 @@ size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups 
 
   -- Calculate field size from count
   local m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 401
+  index = index + m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group_count * 387
 
   return index
 end
@@ -6928,11 +7507,11 @@ dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups_
   -- Group Size: Struct of 2 fields
   index, group_size = dissect.group_size(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
+  -- Dependency element: Num In Group uint 8
+  local num_in_group_uint_8 = buffer(index - 1, 1):le_uint()
 
   -- M D Incremental Refresh Eris Reference Data And Daily Statistics Group: Struct of 45 fields
-  for i = 1, num_in_group do
+  for i = 1, num_in_group_uint_8 do
     index = dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_group(buffer, index, packet, parent)
   end
 
@@ -6956,11 +7535,11 @@ end
 size_of.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transact_time
+  index = index + size_of.transact_time_u_int_64
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.batch_total_messages
+  index = index + size_of.batch_total_messages_u_int_16_null
 
   index = index + size_of.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups(buffer, offset + index)
 
@@ -6976,14 +7555,14 @@ end
 dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Transact Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  -- Transact Time u Int 64: 8 Byte Unsigned Fixed Width Integer
+  index, transact_time_u_int_64 = dissect.transact_time_u_int_64(buffer, index, packet, parent)
 
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Batch Total Messages: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, batch_total_messages = dissect.batch_total_messages(buffer, index, packet, parent)
+  -- Batch Total Messages u Int 16 Null: 2 Byte Unsigned Fixed Width Integer Nullable
+  index, batch_total_messages_u_int_16_null = dissect.batch_total_messages_u_int_16_null(buffer, index, packet, parent)
 
   -- M D Incremental Refresh Eris Reference Data And Daily Statistics Groups: Struct of 2 fields
   index, m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups = dissect.m_d_incremental_refresh_eris_reference_data_and_daily_statistics_groups(buffer, index, packet, parent)
@@ -7004,11 +7583,47 @@ dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333 = fu
   return dissect.md_incremental_refresh_eris_reference_data_and_daily_statistics_333_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Text Text
+size_of.text_text = 180
+
+-- Display: Text Text
+display.text_text = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Text Text: No Value"
+  end
+
+  return "Text Text: "..value
+end
+
+-- Dissect: Text Text
+dissect.text_text = function(buffer, offset, packet, parent)
+  local length = size_of.text_text
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.text_text(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_streamline_sbe_v5_8.fields.text_text, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Admin Logout 316
 size_of.admin_logout_316 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.text
+  index = index + size_of.text_text
 
   return index
 end
@@ -7022,8 +7637,8 @@ end
 dissect.admin_logout_316_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Text: 180 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  -- Text Text: 180 Byte Ascii String
+  index, text_text = dissect.text_text(buffer, index, packet, parent)
 
   return index
 end

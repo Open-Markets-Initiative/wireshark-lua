@@ -42,6 +42,7 @@ cme_futures_ilink3_sbe_v8_2.fields.clordid = ProtoField.new("ClOrdId", "cme.futu
 cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd = ProtoField.new("Cmta Giveup Cd", "cme.futures.ilink3.sbe.v8.2.cmtagiveupcd", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.credentials = ProtoField.new("Credentials", "cme.futures.ilink3.sbe.v8.2.credentials", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.cross_id = ProtoField.new("Cross Id", "cme.futures.ilink3.sbe.v8.2.crossid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.cross_id_optional = ProtoField.new("Cross Id Optional", "cme.futures.ilink3.sbe.v8.2.crossidoptional", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.cross_type = ProtoField.new("Cross Type", "cme.futures.ilink3.sbe.v8.2.crosstype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.cum_qty = ProtoField.new("Cum Qty", "cme.futures.ilink3.sbe.v8.2.cumqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.currency = ProtoField.new("Currency", "cme.futures.ilink3.sbe.v8.2.currency", ftypes.STRING)
@@ -49,6 +50,7 @@ cme_futures_ilink3_sbe_v8_2.fields.cust_order_capacity = ProtoField.new("Cust Or
 cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cme.futures.ilink3.sbe.v8.2.custorderhandlinginst", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.cxl_quantity = ProtoField.new("Cxl Quantity", "cme.futures.ilink3.sbe.v8.2.cxlquantity", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.cxl_rej_reason = ProtoField.new("Cxl Rej Reason", "cme.futures.ilink3.sbe.v8.2.cxlrejreason", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.data_length = ProtoField.new("Data Length", "cme.futures.ilink3.sbe.v8.2.datalength", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.day = ProtoField.new("Day", "cme.futures.ilink3.sbe.v8.2.day", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.delay_duration = ProtoField.new("Delay Duration", "cme.futures.ilink3.sbe.v8.2.delayduration", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.display_qty = ProtoField.new("Display Qty", "cme.futures.ilink3.sbe.v8.2.displayqty", ftypes.UINT32)
@@ -110,7 +112,7 @@ cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name = ProtoField.n
 cme_futures_ilink3_sbe_v8_2.fields.firm = ProtoField.new("Firm", "cme.futures.ilink3.sbe.v8.2.firm", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.from_seq_no = ProtoField.new("From Seq No", "cme.futures.ilink3.sbe.v8.2.fromseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.group_size = ProtoField.new("Group Size", "cme.futures.ilink3.sbe.v8.2.groupsize", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_2.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.2.hmacsignature", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.hmac_signature = ProtoField.new("Hmac Signature", "cme.futures.ilink3.sbe.v8.2.hmacsignature", ftypes.BYTES)
 cme_futures_ilink3_sbe_v8_2.fields.host_cross_id = ProtoField.new("Host Cross Id", "cme.futures.ilink3.sbe.v8.2.hostcrossid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.idm_short_code = ProtoField.new("Idm Short Code", "cme.futures.ilink3.sbe.v8.2.idmshortcode", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.keep_alive_interval = ProtoField.new("Keep Alive Interval", "cme.futures.ilink3.sbe.v8.2.keepaliveinterval", ftypes.UINT16)
@@ -132,15 +134,17 @@ cme_futures_ilink3_sbe_v8_2.fields.leg_security_id = ProtoField.new("Leg Securit
 cme_futures_ilink3_sbe_v8_2.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.2.legside", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.leg_trade_id = ProtoField.new("Leg Trade Id", "cme.futures.ilink3.sbe.v8.2.legtradeid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.leg_trade_ref_id = ProtoField.new("Leg Trade Ref Id", "cme.futures.ilink3.sbe.v8.2.legtraderefid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_2.fields.length = ProtoField.new("Length", "cme.futures.ilink3.sbe.v8.2.length", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.liquidity_flag = ProtoField.new("Liquidity Flag", "cme.futures.ilink3.sbe.v8.2.liquidityflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.list_update_action = ProtoField.new("List Update Action", "cme.futures.ilink3.sbe.v8.2.listupdateaction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.location = ProtoField.new("Location", "cme.futures.ilink3.sbe.v8.2.location", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.location_optional = ProtoField.new("Location Optional", "cme.futures.ilink3.sbe.v8.2.locationoptional", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.managed_order = ProtoField.new("Managed Order", "cme.futures.ilink3.sbe.v8.2.managedorder", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_2.fields.mantissa32 = ProtoField.new("Mantissa32", "cme.futures.ilink3.sbe.v8.2.mantissa32", ftypes.INT32)
-cme_futures_ilink3_sbe_v8_2.fields.mantissa64 = ProtoField.new("Mantissa64", "cme.futures.ilink3.sbe.v8.2.mantissa64", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.ilink3.sbe.v8.2.mantissa", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.mantissa_32 = ProtoField.new("Mantissa 32", "cme.futures.ilink3.sbe.v8.2.mantissa32", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator = ProtoField.new("Manual Order Indicator", "cme.futures.ilink3.sbe.v8.2.manualorderindicator", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator_optional = ProtoField.new("Manual Order Indicator Optional", "cme.futures.ilink3.sbe.v8.2.manualorderindicatoroptional", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.market_segment_id = ProtoField.new("Market Segment Id", "cme.futures.ilink3.sbe.v8.2.marketsegmentid", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.mass_action_ord_typ = ProtoField.new("Mass Action Ord Typ", "cme.futures.ilink3.sbe.v8.2.massactionordtyp", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.mass_action_reject_reason = ProtoField.new("Mass Action Reject Reason", "cme.futures.ilink3.sbe.v8.2.massactionrejectreason", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.mass_action_report_id = ProtoField.new("Mass Action Report Id", "cme.futures.ilink3.sbe.v8.2.massactionreportid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.mass_action_response = ProtoField.new("Mass Action Response", "cme.futures.ilink3.sbe.v8.2.massactionresponse", ftypes.UINT8)
@@ -154,6 +158,7 @@ cme_futures_ilink3_sbe_v8_2.fields.mass_quote_ack_entry_groups = ProtoField.new(
 cme_futures_ilink3_sbe_v8_2.fields.mass_quote_entry_group = ProtoField.new("Mass Quote Entry Group", "cme.futures.ilink3.sbe.v8.2.massquoteentrygroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.mass_quote_entry_groups = ProtoField.new("Mass Quote Entry Groups", "cme.futures.ilink3.sbe.v8.2.massquoteentrygroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id = ProtoField.new("Mass Status Req Id", "cme.futures.ilink3.sbe.v8.2.massstatusreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id_optional = ProtoField.new("Mass Status Req Id Optional", "cme.futures.ilink3.sbe.v8.2.massstatusreqidoptional", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_type = ProtoField.new("Mass Status Req Type", "cme.futures.ilink3.sbe.v8.2.massstatusreqtype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.mass_status_tif = ProtoField.new("Mass Status Tif", "cme.futures.ilink3.sbe.v8.2.massstatustif", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.ilink3.sbe.v8.2.maturitymonthyear", ftypes.STRING)
@@ -165,7 +170,8 @@ cme_futures_ilink3_sbe_v8_2.fields.message_length = ProtoField.new("Message Leng
 cme_futures_ilink3_sbe_v8_2.fields.min_qty = ProtoField.new("Min Qty", "cme.futures.ilink3.sbe.v8.2.minqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.mm_protection_reset = ProtoField.new("Mm Protection Reset", "cme.futures.ilink3.sbe.v8.2.mmprotectionreset", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.month = ProtoField.new("Month", "cme.futures.ilink3.sbe.v8.2.month", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_2.fields.msg_count = ProtoField.new("Msg Count", "cme.futures.ilink3.sbe.v8.2.msgcount", ftypes.UINT16)
+cme_futures_ilink3_sbe_v8_2.fields.msg_count = ProtoField.new("Msg Count", "cme.futures.ilink3.sbe.v8.2.msgcount", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.msg_count_16 = ProtoField.new("Msg Count 16", "cme.futures.ilink3.sbe.v8.2.msgcount16", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.negotiate_500 = ProtoField.new("Negotiate 500", "cme.futures.ilink3.sbe.v8.2.negotiate500", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.negotiation_reject_502 = ProtoField.new("Negotiation Reject 502", "cme.futures.ilink3.sbe.v8.2.negotiationreject502", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.negotiation_response_501 = ProtoField.new("Negotiation Response 501", "cme.futures.ilink3.sbe.v8.2.negotiationresponse501", ftypes.STRING)
@@ -184,8 +190,12 @@ cme_futures_ilink3_sbe_v8_2.fields.option_delta = ProtoField.new("Option Delta",
 cme_futures_ilink3_sbe_v8_2.fields.ord_rej_reason = ProtoField.new("Ord Rej Reason", "cme.futures.ilink3.sbe.v8.2.ordrejreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.ord_status = ProtoField.new("Ord Status", "cme.futures.ilink3.sbe.v8.2.ordstatus", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id = ProtoField.new("Ord Status Req Id", "cme.futures.ilink3.sbe.v8.2.ordstatusreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id_optional = ProtoField.new("Ord Status Req Id Optional", "cme.futures.ilink3.sbe.v8.2.ordstatusreqidoptional", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_type = ProtoField.new("Ord Status Req Type", "cme.futures.ilink3.sbe.v8.2.ordstatusreqtype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd = ProtoField.new("Ord Status Trd", "cme.futures.ilink3.sbe.v8.2.ordstatustrd", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd_cxl = ProtoField.new("Ord Status Trd Cxl", "cme.futures.ilink3.sbe.v8.2.ordstatustrdcxl", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ord_type = ProtoField.new("Ord Type", "cme.futures.ilink3.sbe.v8.2.ordtype", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.ord_type_optional = ProtoField.new("Ord Type Optional", "cme.futures.ilink3.sbe.v8.2.ordtypeoptional", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.order_cancel_reject_535 = ProtoField.new("Order Cancel Reject 535", "cme.futures.ilink3.sbe.v8.2.ordercancelreject535", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_reject_536 = ProtoField.new("Order Cancel Replace Reject 536", "cme.futures.ilink3.sbe.v8.2.ordercancelreplacereject536", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.order_cancel_replace_request_515 = ProtoField.new("Order Cancel Replace Request 515", "cme.futures.ilink3.sbe.v8.2.ordercancelreplacerequest515", ftypes.STRING)
@@ -201,6 +211,7 @@ cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_report_558 = ProtoField.new
 cme_futures_ilink3_sbe_v8_2.fields.order_mass_action_request_529 = ProtoField.new("Order Mass Action Request 529", "cme.futures.ilink3.sbe.v8.2.ordermassactionrequest529", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.order_mass_status_request_530 = ProtoField.new("Order Mass Status Request 530", "cme.futures.ilink3.sbe.v8.2.ordermassstatusrequest530", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.ilink3.sbe.v8.2.orderqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_2.fields.order_qty_optional = ProtoField.new("Order Qty Optional", "cme.futures.ilink3.sbe.v8.2.orderqtyoptional", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.order_request_id = ProtoField.new("Order Request Id", "cme.futures.ilink3.sbe.v8.2.orderrequestid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.order_status_request_533 = ProtoField.new("Order Status Request 533", "cme.futures.ilink3.sbe.v8.2.orderstatusrequest533", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.orig_secondary_execution_id = ProtoField.new("Orig Secondary Execution Id", "cme.futures.ilink3.sbe.v8.2.origsecondaryexecutionid", ftypes.UINT64)
@@ -219,6 +230,7 @@ cme_futures_ilink3_sbe_v8_2.fields.party_details_groups = ProtoField.new("Party 
 cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_538 = ProtoField.new("Party Details List Report 538", "cme.futures.ilink3.sbe.v8.2.partydetailslistreport538", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.party_details_list_report_id = ProtoField.new("Party Details List Report Id", "cme.futures.ilink3.sbe.v8.2.partydetailslistreportid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id = ProtoField.new("Party Details List Req Id", "cme.futures.ilink3.sbe.v8.2.partydetailslistreqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id_optional = ProtoField.new("Party Details List Req Id Optional", "cme.futures.ilink3.sbe.v8.2.partydetailslistreqidoptional", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.party_details_list_request_537 = ProtoField.new("Party Details List Request 537", "cme.futures.ilink3.sbe.v8.2.partydetailslistrequest537", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_group = ProtoField.new("Party I Ds Group", "cme.futures.ilink3.sbe.v8.2.partyidsgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.party_i_ds_groups = ProtoField.new("Party I Ds Groups", "cme.futures.ilink3.sbe.v8.2.partyidsgroups", ftypes.STRING)
@@ -230,6 +242,8 @@ cme_futures_ilink3_sbe_v8_2.fields.poss_retrans_flag = ProtoField.new("Poss Retr
 cme_futures_ilink3_sbe_v8_2.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.2.previousseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.2.previousuuid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.2.price", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.price_optional = ProtoField.new("Price Optional", "cme.futures.ilink3.sbe.v8.2.priceoptional", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_2.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "cme.futures.ilink3.sbe.v8.2.quoteackstatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_528 = ProtoField.new("Quote Cancel 528", "cme.futures.ilink3.sbe.v8.2.quotecancel528", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_ack_547 = ProtoField.new("Quote Cancel Ack 547", "cme.futures.ilink3.sbe.v8.2.quotecancelack547", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_ack_entry_group = ProtoField.new("Quote Cancel Ack Entry Group", "cme.futures.ilink3.sbe.v8.2.quotecancelackentrygroup", ftypes.STRING)
@@ -241,14 +255,15 @@ cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_entry_groups = ProtoField.new("Q
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_set_group = ProtoField.new("Quote Cancel Set Group", "cme.futures.ilink3.sbe.v8.2.quotecancelsetgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_set_groups = ProtoField.new("Quote Cancel Set Groups", "cme.futures.ilink3.sbe.v8.2.quotecancelsetgroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.quote_cancel_type = ProtoField.new("Quote Cancel Type", "cme.futures.ilink3.sbe.v8.2.quotecanceltype", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.quote_cxl_status = ProtoField.new("Quote Cxl Status", "cme.futures.ilink3.sbe.v8.2.quotecxlstatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.quote_entry_id = ProtoField.new("Quote Entry Id", "cme.futures.ilink3.sbe.v8.2.quoteentryid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.quote_entry_reject_reason = ProtoField.new("Quote Entry Reject Reason", "cme.futures.ilink3.sbe.v8.2.quoteentryrejectreason", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.quote_error_code = ProtoField.new("Quote Error Code", "cme.futures.ilink3.sbe.v8.2.quoteerrorcode", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.quote_id = ProtoField.new("Quote Id", "cme.futures.ilink3.sbe.v8.2.quoteid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.quote_reject_reason = ProtoField.new("Quote Reject Reason", "cme.futures.ilink3.sbe.v8.2.quoterejectreason", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.ilink3.sbe.v8.2.quotereqid", ftypes.UINT64)
+cme_futures_ilink3_sbe_v8_2.fields.quote_req_id_optional = ProtoField.new("Quote Req Id Optional", "cme.futures.ilink3.sbe.v8.2.quotereqidoptional", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.quote_set_id = ProtoField.new("Quote Set Id", "cme.futures.ilink3.sbe.v8.2.quotesetid", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_2.fields.quote_status = ProtoField.new("Quote Status", "cme.futures.ilink3.sbe.v8.2.quotestatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.quote_type = ProtoField.new("Quote Type", "cme.futures.ilink3.sbe.v8.2.quotetype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.reason = ProtoField.new("Reason", "cme.futures.ilink3.sbe.v8.2.reason", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type = ProtoField.new("Ref Msg Type", "cme.futures.ilink3.sbe.v8.2.refmsgtype", ftypes.STRING)
@@ -274,6 +289,7 @@ cme_futures_ilink3_sbe_v8_2.fields.reserved_5 = ProtoField.new("Reserved 5", "cm
 cme_futures_ilink3_sbe_v8_2.fields.retransmission_509 = ProtoField.new("Retransmission 509", "cme.futures.ilink3.sbe.v8.2.retransmission509", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.retransmit_reject_510 = ProtoField.new("Retransmit Reject 510", "cme.futures.ilink3.sbe.v8.2.retransmitreject510", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.retransmit_request_508 = ProtoField.new("Retransmit Request 508", "cme.futures.ilink3.sbe.v8.2.retransmitrequest508", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.rfq_side = ProtoField.new("Rfq Side", "cme.futures.ilink3.sbe.v8.2.rfqside", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.risk_free_rate = ProtoField.new("Risk Free Rate", "cme.futures.ilink3.sbe.v8.2.riskfreerate", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.schema_id = ProtoField.new("Schema Id", "cme.futures.ilink3.sbe.v8.2.schemaid", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.sec_exec_id = ProtoField.new("Sec Exec Id", "cme.futures.ilink3.sbe.v8.2.secexecid", ftypes.UINT64)
@@ -286,6 +302,7 @@ cme_futures_ilink3_sbe_v8_2.fields.security_definition_response_leg_group = Prot
 cme_futures_ilink3_sbe_v8_2.fields.security_definition_response_leg_groups = ProtoField.new("Security Definition Response Leg Groups", "cme.futures.ilink3.sbe.v8.2.securitydefinitionresponseleggroups", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.security_group = ProtoField.new("Security Group", "cme.futures.ilink3.sbe.v8.2.securitygroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.security_id = ProtoField.new("Security Id", "cme.futures.ilink3.sbe.v8.2.securityid", ftypes.INT32)
+cme_futures_ilink3_sbe_v8_2.fields.security_id_optional = ProtoField.new("Security Id Optional", "cme.futures.ilink3.sbe.v8.2.securityidoptional", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_2.fields.security_req_id = ProtoField.new("Security Req Id", "cme.futures.ilink3.sbe.v8.2.securityreqid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.security_response_id = ProtoField.new("Security Response Id", "cme.futures.ilink3.sbe.v8.2.securityresponseid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.security_response_type = ProtoField.new("Security Response Type", "cme.futures.ilink3.sbe.v8.2.securityresponsetype", ftypes.UINT8)
@@ -294,12 +311,14 @@ cme_futures_ilink3_sbe_v8_2.fields.security_type = ProtoField.new("Security Type
 cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_id = ProtoField.new("Self Match Prevention Id", "cme.futures.ilink3.sbe.v8.2.selfmatchpreventionid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction = ProtoField.new("Self Match Prevention Instruction", "cme.futures.ilink3.sbe.v8.2.selfmatchpreventioninstruction", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.sender_id = ProtoField.new("Sender Id", "cme.futures.ilink3.sbe.v8.2.senderid", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.sender_id_optional = ProtoField.new("Sender Id Optional", "cme.futures.ilink3.sbe.v8.2.senderidoptional", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.sending_time_epoch = ProtoField.new("Sending Time Epoch", "cme.futures.ilink3.sbe.v8.2.sendingtimeepoch", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_2.fields.seq_num = ProtoField.new("Seq Num", "cme.futures.ilink3.sbe.v8.2.seqnum", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.sequence_506 = ProtoField.new("Sequence 506", "cme.futures.ilink3.sbe.v8.2.sequence506", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.session = ProtoField.new("Session", "cme.futures.ilink3.sbe.v8.2.session", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.short_sale_type = ProtoField.new("Short Sale Type", "cme.futures.ilink3.sbe.v8.2.shortsaletype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.side = ProtoField.new("Side", "cme.futures.ilink3.sbe.v8.2.side", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.side_optional = ProtoField.new("Side Optional", "cme.futures.ilink3.sbe.v8.2.sideoptional", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.side_time_in_force = ProtoField.new("Side Time In Force", "cme.futures.ilink3.sbe.v8.2.sidetimeinforce", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.side_trade_id = ProtoField.new("Side Trade Id", "cme.futures.ilink3.sbe.v8.2.sidetradeid", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_2.fields.sides_group = ProtoField.new("Sides Group", "cme.futures.ilink3.sbe.v8.2.sidesgroup", ftypes.STRING)
@@ -318,6 +337,7 @@ cme_futures_ilink3_sbe_v8_2.fields.text = ProtoField.new("Text", "cme.futures.il
 cme_futures_ilink3_sbe_v8_2.fields.time_in_force = ProtoField.new("Time In Force", "cme.futures.ilink3.sbe.v8.2.timeinforce", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.time_to_expiration = ProtoField.new("Time To Expiration", "cme.futures.ilink3.sbe.v8.2.timetoexpiration", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries = ProtoField.new("Tot No Quote Entries", "cme.futures.ilink3.sbe.v8.2.totnoquoteentries", ftypes.UINT8)
+cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries_optional = ProtoField.new("Tot No Quote Entries Optional", "cme.futures.ilink3.sbe.v8.2.totnoquoteentriesoptional", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.tot_num_parties = ProtoField.new("Tot Num Parties", "cme.futures.ilink3.sbe.v8.2.totnumparties", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.total_affected_orders = ProtoField.new("Total Affected Orders", "cme.futures.ilink3.sbe.v8.2.totalaffectedorders", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.total_num_securities = ProtoField.new("Total Num Securities", "cme.futures.ilink3.sbe.v8.2.totalnumsecurities", ftypes.UINT8)
@@ -337,7 +357,7 @@ cme_futures_ilink3_sbe_v8_2.fields.underlying_px = ProtoField.new("Underlying Px
 cme_futures_ilink3_sbe_v8_2.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.2.underlyingsecurityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.2.unsolicitedcanceltype", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.2.uuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_2.fields.var_data = ProtoField.new("Var Data", "cme.futures.ilink3.sbe.v8.2.vardata", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.var_data = ProtoField.new("Var Data", "cme.futures.ilink3.sbe.v8.2.vardata", ftypes.BYTES)
 cme_futures_ilink3_sbe_v8_2.fields.version = ProtoField.new("Version", "cme.futures.ilink3.sbe.v8.2.version", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_2.fields.volatility = ProtoField.new("Volatility", "cme.futures.ilink3.sbe.v8.2.volatility", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.week = ProtoField.new("Week", "cme.futures.ilink3.sbe.v8.2.week", ftypes.UINT8)
@@ -1035,7 +1055,7 @@ size_of.leg_ratio_qty = 1
 display.leg_ratio_qty = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Leg Ratio Qty: No Value ("..value..")"
+    return "Leg Ratio Qty: No Value"
   end
 
   return "Leg Ratio Qty: "..value
@@ -1107,7 +1127,7 @@ size_of.exponent = 1
 display.exponent = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Exponent: No Value ("..value..")"
+    return "Exponent: No Value"
   end
 
   return "Exponent: "..value
@@ -1125,27 +1145,27 @@ dissect.exponent = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mantissa32
-size_of.mantissa32 = 4
+-- Size: Mantissa 32
+size_of.mantissa_32 = 4
 
--- Display: Mantissa32
-display.mantissa32 = function(value)
+-- Display: Mantissa 32
+display.mantissa_32 = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Mantissa32: No Value ("..value..")"
+    return "Mantissa 32: No Value"
   end
 
-  return "Mantissa32: "..value
+  return "Mantissa 32: "..value
 end
 
--- Dissect: Mantissa32
-dissect.mantissa32 = function(buffer, offset, packet, parent)
-  local length = size_of.mantissa32
+-- Dissect: Mantissa 32
+dissect.mantissa_32 = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa_32
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.mantissa32(value, buffer, offset, packet, parent)
+  local display = display.mantissa_32(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mantissa32, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mantissa_32, range, value, display)
 
   return offset + length, value
 end
@@ -1154,7 +1174,7 @@ end
 size_of.leg_option_delta = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa32
+  index = index + size_of.mantissa_32
 
   index = index + size_of.exponent
 
@@ -1170,13 +1190,13 @@ end
 dissect.leg_option_delta_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
+  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa_32 = dissect.mantissa_32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa32, exponent
+  return index, mantissa_32, exponent
 end
 
 -- Dissect: Leg Option Delta
@@ -1199,7 +1219,7 @@ size_of.leg_price = 8
 display.leg_price = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Leg Price: No Value ("..value..")"
+    return "Leg Price: No Value"
   end
   return "Leg Price: "..value:tonumber()/1000000000
 end
@@ -1502,9 +1522,6 @@ display.manual_order_indicator = function(value)
   if value == 1 then
     return "Manual Order Indicator: Manual (1)"
   end
-  if value == 255 then
-    return "Manual Order Indicator: No Value (255)"
-  end
 
   return "Manual Order Indicator: Unknown("..value..")"
 end
@@ -1598,7 +1615,18 @@ end
 dissect.termination_type = function(buffer, offset, packet, parent)
   local length = size_of.termination_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.termination_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.termination_type, range, value, display)
@@ -1613,7 +1641,7 @@ size_of.source_repo_id = 4
 display.source_repo_id = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Source Repo Id: No Value ("..value..")"
+    return "Source Repo Id: No Value"
   end
 
   return "Source Repo Id: "..value
@@ -1638,7 +1666,7 @@ size_of.max_no_of_substitutions = 1
 display.max_no_of_substitutions = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Max No Of Substitutions: No Value ("..value..")"
+    return "Max No Of Substitutions: No Value"
   end
 
   return "Max No Of Substitutions: "..value
@@ -1663,7 +1691,7 @@ size_of.end_date = 2
 display.end_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "End Date: No Value ("..value..")"
+    return "End Date: No Value"
   end
 
   return "End Date: "..value
@@ -1688,7 +1716,7 @@ size_of.start_date = 2
 display.start_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Start Date: No Value ("..value..")"
+    return "Start Date: No Value"
   end
 
   return "Start Date: "..value
@@ -1713,7 +1741,7 @@ size_of.delay_duration = 2
 display.delay_duration = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Delay Duration: No Value ("..value..")"
+    return "Delay Duration: No Value"
   end
 
   return "Delay Duration: "..value
@@ -1738,7 +1766,7 @@ size_of.week = 1
 display.week = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Week: No Value ("..value..")"
+    return "Week: No Value"
   end
 
   return "Week: "..value
@@ -1763,7 +1791,7 @@ size_of.day = 1
 display.day = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Day: No Value ("..value..")"
+    return "Day: No Value"
   end
 
   return "Day: "..value
@@ -1788,7 +1816,7 @@ size_of.month = 1
 display.month = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Month: No Value ("..value..")"
+    return "Month: No Value"
   end
 
   return "Month: "..value
@@ -1813,7 +1841,7 @@ size_of.year = 2
 display.year = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Year: No Value ("..value..")"
+    return "Year: No Value"
   end
 
   return "Year: "..value
@@ -1900,7 +1928,18 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.currency, range, value, display)
@@ -1908,27 +1947,27 @@ dissect.currency = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Security Id
-size_of.security_id = 4
+-- Size: Security Id Optional
+size_of.security_id_optional = 4
 
--- Display: Security Id
-display.security_id = function(value)
+-- Display: Security Id Optional
+display.security_id_optional = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Security Id: No Value ("..value..")"
+    return "Security Id Optional: No Value"
   end
 
-  return "Security Id: "..value
+  return "Security Id Optional: "..value
 end
 
--- Dissect: Security Id
-dissect.security_id = function(buffer, offset, packet, parent)
-  local length = size_of.security_id
+-- Dissect: Security Id Optional
+dissect.security_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.security_id_optional
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.security_id(value, buffer, offset, packet, parent)
+  local display = display.security_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -1950,7 +1989,18 @@ end
 dissect.location = function(buffer, offset, packet, parent)
   local length = size_of.location
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.location(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.location, range, value, display)
@@ -1975,7 +2025,18 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_type, range, value, display)
@@ -2000,7 +2061,18 @@ end
 dissect.security_group = function(buffer, offset, packet, parent)
   local length = size_of.security_group
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_group, range, value, display)
@@ -2073,11 +2145,6 @@ size_of.party_details_list_req_id = 8
 
 -- Display: Party Details List Req Id
 display.party_details_list_req_id = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Party Details List Req Id: No Value ("..value..")"
-  end
-
   return "Party Details List Req Id: "..value
 end
 
@@ -2110,7 +2177,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.symbol, range, value, display)
@@ -2135,7 +2213,18 @@ end
 dissect.sender_id = function(buffer, offset, packet, parent)
   local length = size_of.sender_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.sender_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.sender_id, range, value, display)
@@ -2160,7 +2249,18 @@ end
 dissect.financial_instrument_full_name = function(buffer, offset, packet, parent)
   local length = size_of.financial_instrument_full_name
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.financial_instrument_full_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.financial_instrument_full_name, range, value, display)
@@ -2185,7 +2285,18 @@ end
 dissect.text = function(buffer, offset, packet, parent)
   local length = size_of.text
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.text, range, value, display)
@@ -2263,7 +2374,7 @@ size_of.security_definition_response_561 = function(buffer, offset)
 
   index = index + size_of.location
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   index = index + size_of.currency
 
@@ -2319,13 +2430,13 @@ dissect.security_definition_response_561_fields = function(buffer, offset, packe
   -- Financial Instrument Full Name: 35 Byte Ascii String Nullable
   index, financial_instrument_full_name = dissect.financial_instrument_full_name(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Symbol: 20 Byte Ascii String Nullable
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
@@ -2343,11 +2454,11 @@ dissect.security_definition_response_561_fields = function(buffer, offset, packe
   -- Security Type: 6 Byte Ascii String Nullable
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String Nullable
   index, currency = dissect.currency(buffer, index, packet, parent)
@@ -2379,7 +2490,7 @@ dissect.security_definition_response_561_fields = function(buffer, offset, packe
   -- Expiration Cycle: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, expiration_cycle = dissect.expiration_cycle(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -2533,10 +2644,57 @@ end
 dissect.security_sub_type = function(buffer, offset, packet, parent)
   local length = size_of.security_sub_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_sub_type, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Sender Id Optional
+size_of.sender_id_optional = 20
+
+-- Display: Sender Id Optional
+display.sender_id_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Sender Id Optional: No Value"
+  end
+
+  return "Sender Id Optional: "..value
+end
+
+-- Dissect: Sender Id Optional
+dissect.sender_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.sender_id_optional
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.sender_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.sender_id_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2553,7 +2711,7 @@ size_of.security_definition_request_560 = function(buffer, offset)
 
   index = index + size_of.seq_num
 
-  index = index + size_of.sender_id
+  index = index + size_of.sender_id_optional
 
   index = index + size_of.sending_time_epoch
 
@@ -2583,20 +2741,20 @@ end
 dissect.security_definition_request_560_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Unsigned Fixed Width Integer
   index, security_req_id = dissect.security_req_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
-  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
+  -- Sender Id Optional: 20 Byte Ascii String Nullable
+  index, sender_id_optional = dissect.sender_id_optional(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
@@ -2604,7 +2762,7 @@ dissect.security_definition_request_560_fields = function(buffer, offset, packet
   -- Security Sub Type: 8 Byte Ascii String
   index, security_sub_type = dissect.security_sub_type(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Start Date: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -2695,7 +2853,18 @@ end
 dissect.origclordid = function(buffer, offset, packet, parent)
   local length = size_of.origclordid
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.origclordid(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.origclordid, range, value, display)
@@ -2843,6 +3012,9 @@ display.mass_cancel_tif = function(value)
   if value == 6 then
     return "Mass Cancel Tif: Good Till Date (6)"
   end
+  if value == 255 then
+    return "Mass Cancel Tif: No Value (255)"
+  end
 
   return "Mass Cancel Tif: Unknown("..value..")"
 end
@@ -2859,77 +3031,62 @@ dissect.mass_cancel_tif = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Ord Type
-size_of.ord_type = 1
+-- Size: Mass Action Ord Typ
+size_of.mass_action_ord_typ = 1
 
--- Display: Ord Type
-display.ord_type = function(value)
-  if value == "1" then
-    return "Ord Type: Marketwith Protection (1)"
-  end
+-- Display: Mass Action Ord Typ
+display.mass_action_ord_typ = function(value)
   if value == "2" then
-    return "Ord Type: Limit (2)"
-  end
-  if value == "3" then
-    return "Ord Type: Stopwith Protection (3)"
+    return "Mass Action Ord Typ: Limit (2)"
   end
   if value == "4" then
-    return "Ord Type: Stop Limit (4)"
-  end
-  if value == "K" then
-    return "Ord Type: Market With Leftover As Limit (K)"
-  end
-  if value == "1" then
-    return "Ord Type: Market With Protection (1)"
+    return "Mass Action Ord Typ: Stop Limit (4)"
   end
   if value == "0" then
-    return "Ord Type: No Value (0)"
+    return "Mass Action Ord Typ: No Value (0)"
   end
 
-  return "Ord Type: Unknown("..value..")"
+  return "Mass Action Ord Typ: Unknown("..value..")"
 end
 
--- Dissect: Ord Type
-dissect.ord_type = function(buffer, offset, packet, parent)
-  local length = size_of.ord_type
+-- Dissect: Mass Action Ord Typ
+dissect.mass_action_ord_typ = function(buffer, offset, packet, parent)
+  local length = size_of.mass_action_ord_typ
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.ord_type(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = display.mass_action_ord_typ(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_type, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_action_ord_typ, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Side
-size_of.side = 1
+-- Size: Side Optional
+size_of.side_optional = 1
 
--- Display: Side
-display.side = function(value)
+-- Display: Side Optional
+display.side_optional = function(value)
   if value == 1 then
-    return "Side: Buy (1)"
+    return "Side Optional: Buy (1)"
   end
   if value == 2 then
-    return "Side: Sell (2)"
-  end
-  if value == 8 then
-    return "Side: Cross (8)"
+    return "Side Optional: Sell (2)"
   end
   if value == 255 then
-    return "Side: No Value (255)"
+    return "Side Optional: No Value (255)"
   end
 
-  return "Side: Unknown("..value..")"
+  return "Side Optional: Unknown("..value..")"
 end
 
--- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+-- Dissect: Side Optional
+dissect.side_optional = function(buffer, offset, packet, parent)
+  local length = size_of.side_optional
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = display.side_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2971,7 +3128,7 @@ size_of.market_segment_id = 1
 display.market_segment_id = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Market Segment Id: No Value ("..value..")"
+    return "Market Segment Id: No Value"
   end
 
   return "Market Segment Id: "..value
@@ -2996,7 +3153,7 @@ size_of.mass_action_reject_reason = 1
 display.mass_action_reject_reason = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Mass Action Reject Reason: No Value ("..value..")"
+    return "Mass Action Reject Reason: No Value"
   end
 
   return "Mass Action Reject Reason: "..value
@@ -3208,7 +3365,7 @@ size_of.order_mass_action_report_558 = function(buffer, offset)
 
   index = index + size_of.location
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   index = index + size_of.delay_duration
 
@@ -3228,9 +3385,9 @@ size_of.order_mass_action_report_558 = function(buffer, offset)
 
   index = index + size_of.mass_cancel_request_type
 
-  index = index + size_of.side
+  index = index + size_of.side_optional
 
-  index = index + size_of.ord_type
+  index = index + size_of.mass_action_ord_typ
 
   index = index + size_of.mass_cancel_tif
 
@@ -3260,10 +3417,10 @@ dissect.order_mass_action_report_558_fields = function(buffer, offset, packet, p
   -- Uuid: 8 Byte Unsigned Fixed Width Integer
   index, uuid = dissect.uuid(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -3281,11 +3438,11 @@ dissect.order_mass_action_report_558_fields = function(buffer, offset, packet, p
   -- Security Group: 6 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
@@ -3293,7 +3450,7 @@ dissect.order_mass_action_report_558_fields = function(buffer, offset, packet, p
   -- Mass Action Response: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, mass_action_response = dissect.mass_action_response(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -3314,13 +3471,13 @@ dissect.order_mass_action_report_558_fields = function(buffer, offset, packet, p
   -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_cancel_request_type = dissect.mass_cancel_request_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_optional = dissect.side_optional(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 3 values
+  index, mass_action_ord_typ = dissect.mass_action_ord_typ(buffer, index, packet, parent)
 
-  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, mass_cancel_tif = dissect.mass_cancel_tif(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -3461,7 +3618,18 @@ end
 dissect.order_event_text = function(buffer, offset, packet, parent)
   local length = size_of.order_event_text
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.order_event_text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_event_text, range, value, display)
@@ -3637,7 +3805,18 @@ end
 dissect.fill_exec_id = function(buffer, offset, packet, parent)
   local length = size_of.fill_exec_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.fill_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.fill_exec_id, range, value, display)
@@ -3805,7 +3984,7 @@ end
 dissect.exec_type = function(buffer, offset, packet, parent)
   local length = size_of.exec_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.exec_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_type, range, value, display)
@@ -3813,53 +3992,29 @@ dissect.exec_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Ord Status
-size_of.ord_status = 1
+-- Size: Ord Status Trd Cxl
+size_of.ord_status_trd_cxl = 1
 
--- Display: Ord Status
-display.ord_status = function(value)
-  if value == "1" then
-    return "Ord Status: Partially Filled (1)"
-  end
-  if value == "2" then
-    return "Ord Status: Filled (2)"
-  end
-  if value == "0" then
-    return "Ord Status: New (0)"
-  end
-  if value == "4" then
-    return "Ord Status: Cancelled (4)"
-  end
-  if value == "5" then
-    return "Ord Status: Replaced (5)"
-  end
-  if value == "8" then
-    return "Ord Status: Rejected (8)"
-  end
-  if value == "C" then
-    return "Ord Status: Expired (C)"
-  end
-  if value == "U" then
-    return "Ord Status: Undefined (U)"
-  end
+-- Display: Ord Status Trd Cxl
+display.ord_status_trd_cxl = function(value)
   if value == "G" then
-    return "Ord Status: Trade Correction (G)"
+    return "Ord Status Trd Cxl: Trade Correction (G)"
   end
   if value == "H" then
-    return "Ord Status: Trade Cancel (H)"
+    return "Ord Status Trd Cxl: Trade Cancel (H)"
   end
 
-  return "Ord Status: Unknown("..value..")"
+  return "Ord Status Trd Cxl: Unknown("..value..")"
 end
 
--- Dissect: Ord Status
-dissect.ord_status = function(buffer, offset, packet, parent)
-  local length = size_of.ord_status
+-- Dissect: Ord Status Trd Cxl
+dissect.ord_status_trd_cxl = function(buffer, offset, packet, parent)
+  local length = size_of.ord_status_trd_cxl
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.ord_status(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = display.ord_status_trd_cxl(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd_cxl, range, value, display)
 
   return offset + length, value
 end
@@ -3871,7 +4026,7 @@ size_of.trade_date = 2
 display.trade_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trade Date: No Value ("..value..")"
+    return "Trade Date: No Value"
   end
 
   return "Trade Date: "..value
@@ -3896,7 +4051,7 @@ size_of.orig_side_trade_id = 4
 display.orig_side_trade_id = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Orig Side Trade Id: No Value ("..value..")"
+    return "Orig Side Trade Id: No Value"
   end
 
   return "Orig Side Trade Id: "..value
@@ -3954,14 +4109,34 @@ dissect.last_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Security Id
+size_of.security_id = 4
+
+-- Display: Security Id
+display.security_id = function(value)
+  return "Security Id: "..value
+end
+
+-- Dissect: Security Id
+dissect.security_id = function(buffer, offset, packet, parent)
+  local length = size_of.security_id
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.security_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.security_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Orig Secondary Execution Id
 size_of.orig_secondary_execution_id = 8
 
 -- Display: Orig Secondary Execution Id
 display.orig_secondary_execution_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Orig Secondary Execution Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Orig Secondary Execution Id: No Value"
   end
 
   return "Orig Secondary Execution Id: "..value
@@ -4056,7 +4231,18 @@ end
 dissect.clordid = function(buffer, offset, packet, parent)
   local length = size_of.clordid
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.clordid(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.clordid, range, value, display)
@@ -4081,7 +4267,18 @@ end
 dissect.exec_id = function(buffer, offset, packet, parent)
   local length = size_of.exec_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.exec_id, range, value, display)
@@ -4129,7 +4326,7 @@ size_of.execution_report_trade_addendum_spread_leg_550 = function(buffer, offset
 
   index = index + size_of.trade_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd_cxl
 
   index = index + size_of.exec_type
 
@@ -4162,13 +4359,13 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -4189,10 +4386,10 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -4207,13 +4404,13 @@ dissect.execution_report_trade_addendum_spread_leg_550_fields = function(buffer,
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  index, ord_status_trd_cxl = dissect.ord_status_trd_cxl(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String Enum with 2 values
   index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -4379,7 +4576,7 @@ size_of.leg_trade_ref_id = 4
 display.leg_trade_ref_id = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Leg Trade Ref Id: No Value ("..value..")"
+    return "Leg Trade Ref Id: No Value"
   end
 
   return "Leg Trade Ref Id: "..value
@@ -4423,8 +4620,8 @@ size_of.leg_exec_ref_id = 8
 -- Display: Leg Exec Ref Id
 display.leg_exec_ref_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Leg Exec Ref Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Leg Exec Ref Id: No Value"
   end
 
   return "Leg Exec Ref Id: "..value
@@ -4691,7 +4888,7 @@ end
 dissect.execution_mode = function(buffer, offset, packet, parent)
   local length = size_of.execution_mode
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.execution_mode(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.execution_mode, range, value, display)
@@ -4804,6 +5001,66 @@ dissect.total_num_securities = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Side
+size_of.side = 1
+
+-- Display: Side
+display.side = function(value)
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+
+  return "Side: Unknown("..value..")"
+end
+
+-- Dissect: Side
+dissect.side = function(buffer, offset, packet, parent)
+  local length = size_of.side
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.side(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Ord Type Optional
+size_of.ord_type_optional = 1
+
+-- Display: Ord Type Optional
+display.ord_type_optional = function(value)
+  if value == "1" then
+    return "Ord Type Optional: Market With Protection (1)"
+  end
+  if value == "2" then
+    return "Ord Type Optional: Limit (2)"
+  end
+  if value == "4" then
+    return "Ord Type Optional: Stop Limit (4)"
+  end
+  if value == "K" then
+    return "Ord Type Optional: Market With Leftover As Limit (K)"
+  end
+
+  return "Ord Type Optional: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type Optional
+dissect.ord_type_optional = function(buffer, offset, packet, parent)
+  local length = size_of.ord_type_optional
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.ord_type_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_type_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Md Trade Entry Id
 size_of.md_trade_entry_id = 4
 
@@ -4866,11 +5123,11 @@ size_of.execution_report_trade_addendum_spread_549 = function(buffer, offset)
 
   index = index + size_of.trade_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd_cxl
 
   index = index + size_of.exec_type
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -4917,13 +5174,13 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -4944,10 +5201,10 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Md Trade Entry Id: 4 Byte Unsigned Fixed Width Integer
@@ -4965,19 +5222,19 @@ dissect.execution_report_trade_addendum_spread_549_fields = function(buffer, off
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  index, ord_status_trd_cxl = dissect.ord_status_trd_cxl(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String Enum with 2 values
   index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -5177,7 +5434,7 @@ size_of.execution_report_trade_addendum_outright_548 = function(buffer, offset)
 
   index = index + size_of.trade_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd_cxl
 
   index = index + size_of.exec_type
 
@@ -5222,13 +5479,13 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -5249,10 +5506,10 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   -- Orig Secondary Execution Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, orig_secondary_execution_id = dissect.orig_secondary_execution_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -5267,16 +5524,16 @@ dissect.execution_report_trade_addendum_outright_548_fields = function(buffer, o
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd Cxl: 1 Byte Ascii String Enum with 2 values
+  index, ord_status_trd_cxl = dissect.ord_status_trd_cxl(buffer, index, packet, parent)
 
   -- Exec Type: 1 Byte Ascii String Enum with 2 values
   index, exec_type = dissect.exec_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -5515,7 +5772,7 @@ dissect.quote_cancel_ack_entry_group_fields = function(buffer, offset, packet, p
   -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
   index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Quote Entry Reject Reason: 1 Byte Unsigned Fixed Width Integer
@@ -5586,27 +5843,27 @@ dissect.quote_cancel_ack_entry_groups = function(buffer, offset, packet, parent)
   return dissect.quote_cancel_ack_entry_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Tot No Quote Entries
-size_of.tot_no_quote_entries = 1
+-- Size: Tot No Quote Entries Optional
+size_of.tot_no_quote_entries_optional = 1
 
--- Display: Tot No Quote Entries
-display.tot_no_quote_entries = function(value)
+-- Display: Tot No Quote Entries Optional
+display.tot_no_quote_entries_optional = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Tot No Quote Entries: No Value ("..value..")"
+    return "Tot No Quote Entries Optional: No Value"
   end
 
-  return "Tot No Quote Entries: "..value
+  return "Tot No Quote Entries Optional: "..value
 end
 
--- Dissect: Tot No Quote Entries
-dissect.tot_no_quote_entries = function(buffer, offset, packet, parent)
-  local length = size_of.tot_no_quote_entries
+-- Dissect: Tot No Quote Entries Optional
+dissect.tot_no_quote_entries_optional = function(buffer, offset, packet, parent)
+  local length = size_of.tot_no_quote_entries_optional
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.tot_no_quote_entries(value, buffer, offset, packet, parent)
+  local display = display.tot_no_quote_entries_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries_optional, range, value, display)
 
   return offset + length, value
 end
@@ -5617,8 +5874,8 @@ size_of.unsolicited_cancel_type = 1
 -- Display: Unsolicited Cancel Type
 display.unsolicited_cancel_type = function(value)
   -- Check if field has value
-  if value == "0" then
-    return "Unsolicited Cancel Type: No Value ("..value..")"
+  if value == nil or value == '' then
+    return "Unsolicited Cancel Type: No Value"
   end
 
   return "Unsolicited Cancel Type: "..value
@@ -5628,7 +5885,17 @@ end
 dissect.unsolicited_cancel_type = function(buffer, offset, packet, parent)
   local length = size_of.unsolicited_cancel_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.unsolicited_cancel_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.unsolicited_cancel_type, range, value, display)
@@ -5683,41 +5950,38 @@ dissect.no_processed_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Quote Status
-size_of.quote_status = 1
+-- Size: Quote Cxl Status
+size_of.quote_cxl_status = 1
 
--- Display: Quote Status
-display.quote_status = function(value)
-  if value == 0 then
-    return "Quote Status: Accepted (0)"
-  end
-  if value == 5 then
-    return "Quote Status: Rejected (5)"
-  end
+-- Display: Quote Cxl Status
+display.quote_cxl_status = function(value)
   if value == 1 then
-    return "Quote Status: Cancelper Instrument (1)"
+    return "Quote Cxl Status: Cancelper Instrument (1)"
   end
   if value == 3 then
-    return "Quote Status: Cancelper Instrumentgroup (3)"
+    return "Quote Cxl Status: Cancelper Instrumentgroup (3)"
   end
   if value == 4 then
-    return "Quote Status: Cancelallquotes (4)"
+    return "Quote Cxl Status: Cancelallquotes (4)"
+  end
+  if value == 5 then
+    return "Quote Cxl Status: Rejected (5)"
   end
   if value == 100 then
-    return "Quote Status: Cancelper Quote Set (100)"
+    return "Quote Cxl Status: Cancelper Quote Set (100)"
   end
 
-  return "Quote Status: Unknown("..value..")"
+  return "Quote Cxl Status: Unknown("..value..")"
 end
 
--- Dissect: Quote Status
-dissect.quote_status = function(buffer, offset, packet, parent)
-  local length = size_of.quote_status
+-- Dissect: Quote Cxl Status
+dissect.quote_cxl_status = function(buffer, offset, packet, parent)
+  local length = size_of.quote_cxl_status
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quote_status(value, buffer, offset, packet, parent)
+  local display = display.quote_cxl_status(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_status, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_cxl_status, range, value, display)
 
   return offset + length, value
 end
@@ -5729,7 +5993,7 @@ size_of.quote_reject_reason = 2
 display.quote_reject_reason = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Quote Reject Reason: No Value ("..value..")"
+    return "Quote Reject Reason: No Value"
   end
 
   return "Quote Reject Reason: "..value
@@ -5784,7 +6048,18 @@ end
 dissect.cancelled_symbol = function(buffer, offset, packet, parent)
   local length = size_of.cancelled_symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.cancelled_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.cancelled_symbol, range, value, display)
@@ -5842,7 +6117,7 @@ size_of.quote_cancel_ack_547 = function(buffer, offset)
 
   index = index + size_of.manual_order_indicator
 
-  index = index + size_of.quote_status
+  index = index + size_of.quote_cxl_status
 
   index = index + size_of.no_processed_entries
 
@@ -5852,7 +6127,7 @@ size_of.quote_cancel_ack_547 = function(buffer, offset)
 
   index = index + size_of.split_msg
 
-  index = index + size_of.tot_no_quote_entries
+  index = index + size_of.tot_no_quote_entries_optional
 
   index = index + size_of.liquidity_flag
 
@@ -5883,10 +6158,10 @@ dissect.quote_cancel_ack_547_fields = function(buffer, offset, packet, parent)
   -- Text: 256 Byte Ascii String Nullable
   index, text = dissect.text(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -5898,7 +6173,7 @@ dissect.quote_cancel_ack_547_fields = function(buffer, offset, packet, parent)
   -- Cancelled Symbol: 6 Byte Ascii String Nullable
   index, cancelled_symbol = dissect.cancelled_symbol(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
@@ -5910,11 +6185,11 @@ dissect.quote_cancel_ack_547_fields = function(buffer, offset, packet, parent)
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
+  -- Quote Cxl Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  index, quote_cxl_status = dissect.quote_cxl_status(buffer, index, packet, parent)
 
   -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
   index, no_processed_entries = dissect.no_processed_entries(buffer, index, packet, parent)
@@ -5928,8 +6203,8 @@ dissect.quote_cancel_ack_547_fields = function(buffer, offset, packet, parent)
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
+  -- Tot No Quote Entries Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_no_quote_entries_optional = dissect.tot_no_quote_entries_optional(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
@@ -5959,16 +6234,38 @@ dissect.quote_cancel_ack_547 = function(buffer, offset, packet, parent)
   return dissect.quote_cancel_ack_547_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Quote Ack Status
+size_of.quote_ack_status = 1
+
+-- Display: Quote Ack Status
+display.quote_ack_status = function(value)
+  if value == 0 then
+    return "Quote Ack Status: Accepted (0)"
+  end
+  if value == 5 then
+    return "Quote Ack Status: Rejected (5)"
+  end
+
+  return "Quote Ack Status: Unknown("..value..")"
+end
+
+-- Dissect: Quote Ack Status
+dissect.quote_ack_status = function(buffer, offset, packet, parent)
+  local length = size_of.quote_ack_status
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.quote_ack_status(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_ack_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Quote Req Id
 size_of.quote_req_id = 8
 
 -- Display: Quote Req Id
 display.quote_req_id = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Quote Req Id: No Value ("..value..")"
-  end
-
   return "Quote Req Id: "..value
 end
 
@@ -6001,7 +6298,18 @@ end
 dissect.exchange_quote_req_id = function(buffer, offset, packet, parent)
   local length = size_of.exchange_quote_req_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.exchange_quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.exchange_quote_req_id, range, value, display)
@@ -6037,7 +6345,7 @@ size_of.request_for_quote_ack_546 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.quote_status
+  index = index + size_of.quote_ack_status
 
   index = index + size_of.manual_order_indicator
 
@@ -6066,13 +6374,13 @@ dissect.request_for_quote_ack_546_fields = function(buffer, offset, packet, pare
   -- Text: 256 Byte Ascii String Nullable
   index, text = dissect.text(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Exchange Quote Req Id: 17 Byte Ascii String Nullable
   index, exchange_quote_req_id = dissect.exchange_quote_req_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -6081,10 +6389,10 @@ dissect.request_for_quote_ack_546_fields = function(buffer, offset, packet, pare
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 2 Byte Unsigned Fixed Width Integer Nullable
@@ -6093,10 +6401,10 @@ dissect.request_for_quote_ack_546_fields = function(buffer, offset, packet, pare
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
+  -- Quote Ack Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, quote_ack_status = dissect.quote_ack_status(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -6148,7 +6456,7 @@ dissect.mass_quote_ack_entry_group_fields = function(buffer, offset, packet, par
   -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
   index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Quote Set Id: 2 Byte Unsigned Fixed Width Integer
@@ -6222,6 +6530,31 @@ dissect.mass_quote_ack_entry_groups = function(buffer, offset, packet, parent)
   return dissect.mass_quote_ack_entry_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Quote Req Id Optional
+size_of.quote_req_id_optional = 8
+
+-- Display: Quote Req Id Optional
+display.quote_req_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Quote Req Id Optional: No Value"
+  end
+
+  return "Quote Req Id Optional: "..value
+end
+
+-- Dissect: Quote Req Id Optional
+dissect.quote_req_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.quote_req_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.quote_req_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.quote_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Mass Quote Ack 545
 size_of.mass_quote_ack_545 = function(buffer, offset)
   local index = 0
@@ -6240,7 +6573,7 @@ size_of.mass_quote_ack_545 = function(buffer, offset)
 
   index = index + size_of.sending_time_epoch
 
-  index = index + size_of.quote_req_id
+  index = index + size_of.quote_req_id_optional
 
   index = index + size_of.location
 
@@ -6250,7 +6583,7 @@ size_of.mass_quote_ack_545 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.quote_status
+  index = index + size_of.quote_ack_status
 
   index = index + size_of.manual_order_indicator
 
@@ -6264,7 +6597,7 @@ size_of.mass_quote_ack_545 = function(buffer, offset)
 
   index = index + size_of.short_sale_type
 
-  index = index + size_of.tot_no_quote_entries
+  index = index + size_of.tot_no_quote_entries_optional
 
   index = index + size_of.poss_retrans_flag
 
@@ -6291,10 +6624,10 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   -- Text: 256 Byte Ascii String Nullable
   index, text = dissect.text(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Request Time: 8 Byte Unsigned Fixed Width Integer
@@ -6303,10 +6636,10 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
+  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_req_id_optional = dissect.quote_req_id_optional(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
@@ -6318,10 +6651,10 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Quote Status: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, quote_status = dissect.quote_status(buffer, index, packet, parent)
+  -- Quote Ack Status: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, quote_ack_status = dissect.quote_ack_status(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- No Processed Entries: 1 Byte Unsigned Fixed Width Integer
@@ -6339,8 +6672,8 @@ dissect.mass_quote_ack_545_fields = function(buffer, offset, packet, parent)
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
+  -- Tot No Quote Entries Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_no_quote_entries_optional = dissect.tot_no_quote_entries_optional(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
@@ -6396,11 +6729,6 @@ size_of.order_qty = 4
 
 -- Display: Order Qty
 display.order_qty = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Order Qty: No Value ("..value..")"
-  end
-
   return "Order Qty: "..value
 end
 
@@ -6445,13 +6773,13 @@ dissect.sides_group_fields = function(buffer, offset, packet, parent)
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Side Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -6547,10 +6875,6 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
-    return "Price: No Value ("..value..")"
-  end
   return "Price: "..value:tonumber()/1000000000
 end
 
@@ -6571,11 +6895,6 @@ size_of.cross_id = 8
 
 -- Display: Cross Id
 display.cross_id = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Cross Id: No Value ("..value..")"
-  end
-
   return "Cross Id: "..value
 end
 
@@ -6629,22 +6948,22 @@ end
 dissect.new_order_cross_544_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Cross Id: 8 Byte Unsigned Fixed Width Integer
   index, cross_id = dissect.cross_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Trans Bkd Time: 8 Byte Unsigned Fixed Width Integer
@@ -6653,10 +6972,10 @@ dissect.new_order_cross_544_fields = function(buffer, offset, packet, parent)
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Sides Groups: Struct of 2 fields
@@ -6678,15 +6997,70 @@ dissect.new_order_cross_544 = function(buffer, offset, packet, parent)
   return dissect.new_order_cross_544_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Rfq Side
+size_of.rfq_side = 1
+
+-- Display: Rfq Side
+display.rfq_side = function(value)
+  if value == 1 then
+    return "Rfq Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Rfq Side: Sell (2)"
+  end
+  if value == 8 then
+    return "Rfq Side: Cross (8)"
+  end
+
+  return "Rfq Side: Unknown("..value..")"
+end
+
+-- Dissect: Rfq Side
+dissect.rfq_side = function(buffer, offset, packet, parent)
+  local length = size_of.rfq_side
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.rfq_side(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.rfq_side, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Order Qty Optional
+size_of.order_qty_optional = 4
+
+-- Display: Order Qty Optional
+display.order_qty_optional = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Order Qty Optional: No Value"
+  end
+
+  return "Order Qty Optional: "..value
+end
+
+-- Dissect: Order Qty Optional
+dissect.order_qty_optional = function(buffer, offset, packet, parent)
+  local length = size_of.order_qty_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.order_qty_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.order_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Related Sym Group
 size_of.related_sym_group = function(buffer, offset)
   local index = 0
 
   index = index + size_of.security_id
 
-  index = index + size_of.order_qty
+  index = index + size_of.order_qty_optional
 
-  index = index + size_of.side
+  index = index + size_of.rfq_side
 
   return index
 end
@@ -6700,14 +7074,14 @@ end
 dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  -- Order Qty Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, order_qty_optional = dissect.order_qty_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  -- Rfq Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, rfq_side = dissect.rfq_side(buffer, index, packet, parent)
 
   return index
 end
@@ -6835,25 +7209,25 @@ end
 dissect.request_for_quote_543_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -6918,7 +7292,7 @@ end
 dissect.dk_reason = function(buffer, offset, packet, parent)
   local length = size_of.dk_reason
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.dk_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.dk_reason, range, value, display)
@@ -6991,7 +7365,7 @@ end
 dissect.execution_ack_539_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -7012,7 +7386,7 @@ dissect.execution_ack_539_fields = function(buffer, offset, packet, parent)
   -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = dissect.last_px(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -7021,7 +7395,7 @@ dissect.execution_ack_539_fields = function(buffer, offset, packet, parent)
   -- Dk Reason: 1 Byte Ascii String Enum with 9 values
   index, dk_reason = dissect.dk_reason(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   return index
@@ -7224,7 +7598,18 @@ end
 dissect.party_detail_id = function(buffer, offset, packet, parent)
   local length = size_of.party_detail_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.party_detail_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_detail_id, range, value, display)
@@ -7329,8 +7714,8 @@ size_of.idm_short_code = 8
 -- Display: Idm Short Code
 display.idm_short_code = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Idm Short Code: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Idm Short Code: No Value"
   end
 
   return "Idm Short Code: "..value
@@ -7354,8 +7739,8 @@ size_of.executor = 8
 -- Display: Executor
 display.executor = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Executor: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Executor: No Value"
   end
 
   return "Executor: "..value
@@ -7407,7 +7792,7 @@ end
 dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   local length = size_of.cust_order_handling_inst
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.cust_order_handling_inst, range, value, display)
@@ -7437,7 +7822,7 @@ end
 dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
   local length = size_of.cmta_giveup_cd
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.cmta_giveup_cd, range, value, display)
@@ -7530,7 +7915,7 @@ end
 dissect.self_match_prevention_instruction = function(buffer, offset, packet, parent)
   local length = size_of.self_match_prevention_instruction
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.self_match_prevention_instruction(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.self_match_prevention_instruction, range, value, display)
@@ -7663,8 +8048,8 @@ size_of.self_match_prevention_id = 8
 -- Display: Self Match Prevention Id
 display.self_match_prevention_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Self Match Prevention Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Self Match Prevention Id: No Value"
   end
 
   return "Self Match Prevention Id: "..value
@@ -7719,7 +8104,18 @@ end
 dissect.avg_px_group_id = function(buffer, offset, packet, parent)
   local length = size_of.avg_px_group_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.avg_px_group_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.avg_px_group_id, range, value, display)
@@ -7798,7 +8194,7 @@ dissect.party_details_list_report_538_fields = function(buffer, offset, packet, 
   -- Avg Px Group Id: 20 Byte Ascii String Nullable
   index, avg_px_group_id = dissect.avg_px_group_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Party Details List Report Id: 8 Byte Unsigned Fixed Width Integer
@@ -7899,6 +8295,11 @@ size_of.party_id_source = 1
 
 -- Display: Party Id Source
 display.party_id_source = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Party Id Source: No Value"
+  end
+
   return "Party Id Source: "..value
 end
 
@@ -7906,7 +8307,17 @@ end
 dissect.party_id_source = function(buffer, offset, packet, parent)
   local length = size_of.party_id_source
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.party_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_id_source, range, value, display)
@@ -8035,6 +8446,11 @@ size_of.requesting_party_role = 1
 
 -- Display: Requesting Party Role
 display.requesting_party_role = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Role: No Value"
+  end
+
   return "Requesting Party Role: "..value
 end
 
@@ -8042,7 +8458,17 @@ end
 dissect.requesting_party_role = function(buffer, offset, packet, parent)
   local length = size_of.requesting_party_role
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.requesting_party_role(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_role, range, value, display)
@@ -8055,6 +8481,11 @@ size_of.requesting_party_id_source = 1
 
 -- Display: Requesting Party Id Source
 display.requesting_party_id_source = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Requesting Party Id Source: No Value"
+  end
+
   return "Requesting Party Id Source: "..value
 end
 
@@ -8062,7 +8493,17 @@ end
 dissect.requesting_party_id_source = function(buffer, offset, packet, parent)
   local length = size_of.requesting_party_id_source
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.requesting_party_id_source(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id_source, range, value, display)
@@ -8087,7 +8528,18 @@ end
 dissect.requesting_party_id = function(buffer, offset, packet, parent)
   local length = size_of.requesting_party_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.requesting_party_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.requesting_party_id, range, value, display)
@@ -8217,7 +8669,7 @@ end
 dissect.party_details_list_request_537_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -8332,13 +8784,13 @@ dissect.order_cancel_replace_reject_536_fields = function(buffer, offset, packet
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -8353,7 +8805,7 @@ dissect.order_cancel_replace_reject_536_fields = function(buffer, offset, packet
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
@@ -8362,7 +8814,7 @@ dissect.order_cancel_replace_reject_536_fields = function(buffer, offset, packet
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8454,13 +8906,13 @@ dissect.order_cancel_reject_535_fields = function(buffer, offset, packet, parent
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -8475,7 +8927,7 @@ dissect.order_cancel_reject_535_fields = function(buffer, offset, packet, parent
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer
@@ -8484,7 +8936,7 @@ dissect.order_cancel_reject_535_fields = function(buffer, offset, packet, parent
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8519,7 +8971,7 @@ size_of.cross_type = 1
 display.cross_type = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Cross Type: No Value ("..value..")"
+    return "Cross Type: No Value"
   end
 
   return "Cross Type: "..value
@@ -8608,9 +9060,6 @@ display.time_in_force = function(value)
   if value == 6 then
     return "Time In Force: Good Till Date (6)"
   end
-  if value == 255 then
-    return "Time In Force: No Value (255)"
-  end
 
   return "Time In Force: Unknown("..value..")"
 end
@@ -8634,7 +9083,7 @@ size_of.expire_date = 2
 display.expire_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Expire Date: No Value ("..value..")"
+    return "Expire Date: No Value"
   end
 
   return "Expire Date: "..value
@@ -8659,7 +9108,7 @@ size_of.display_qty = 4
 display.display_qty = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Display Qty: No Value ("..value..")"
+    return "Display Qty: No Value"
   end
 
   return "Display Qty: "..value
@@ -8684,7 +9133,7 @@ size_of.min_qty = 4
 display.min_qty = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Min Qty: No Value ("..value..")"
+    return "Min Qty: No Value"
   end
 
   return "Min Qty: "..value
@@ -8728,8 +9177,8 @@ size_of.host_cross_id = 8
 -- Display: Host Cross Id
 display.host_cross_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Host Cross Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Host Cross Id: No Value"
   end
 
   return "Host Cross Id: "..value
@@ -8747,6 +9196,31 @@ dissect.host_cross_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Cross Id Optional
+size_of.cross_id_optional = 8
+
+-- Display: Cross Id Optional
+display.cross_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Cross Id Optional: No Value"
+  end
+
+  return "Cross Id Optional: "..value
+end
+
+-- Dissect: Cross Id Optional
+dissect.cross_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.cross_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.cross_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.cross_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Stop Px
 size_of.stop_px = 8
 
@@ -8754,7 +9228,7 @@ size_of.stop_px = 8
 display.stop_px = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Stop Px: No Value ("..value..")"
+    return "Stop Px: No Value"
   end
   return "Stop Px: "..value:tonumber()/1000000000
 end
@@ -8799,7 +9273,7 @@ size_of.execution_report_cancel_534 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -8819,7 +9293,7 @@ size_of.execution_report_cancel_534 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -8866,19 +9340,19 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -8893,19 +9367,19 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
@@ -8923,16 +9397,16 @@ dissect.execution_report_cancel_534_fields = function(buffer, offset, packet, pa
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8983,11 +9457,6 @@ size_of.ord_status_req_id = 8
 
 -- Display: Ord Status Req Id
 display.ord_status_req_id = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Ord Status Req Id: No Value ("..value..")"
-  end
-
   return "Ord Status Req Id: "..value
 end
 
@@ -9035,19 +9504,19 @@ end
 dissect.order_status_request_533_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
-  -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer
   index, ord_status_req_id = dissect.ord_status_req_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -9056,7 +9525,7 @@ dissect.order_status_request_533_fields = function(buffer, offset, packet, paren
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   return index
@@ -9105,6 +9574,51 @@ dissect.last_rpt_requested = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Ord Status
+size_of.ord_status = 1
+
+-- Display: Ord Status
+display.ord_status = function(value)
+  if value == "0" then
+    return "Ord Status: New (0)"
+  end
+  if value == "1" then
+    return "Ord Status: Partially Filled (1)"
+  end
+  if value == "2" then
+    return "Ord Status: Filled (2)"
+  end
+  if value == "4" then
+    return "Ord Status: Cancelled (4)"
+  end
+  if value == "5" then
+    return "Ord Status: Replaced (5)"
+  end
+  if value == "8" then
+    return "Ord Status: Rejected (8)"
+  end
+  if value == "C" then
+    return "Ord Status: Expired (C)"
+  end
+  if value == "U" then
+    return "Ord Status: Undefined (U)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status
+dissect.ord_status = function(buffer, offset, packet, parent)
+  local length = size_of.ord_status
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.ord_status(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Leaves Qty
 size_of.leaves_qty = 4
 
@@ -9125,27 +9639,76 @@ dissect.leaves_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mass Status Req Id
-size_of.mass_status_req_id = 8
+-- Size: Mass Status Req Id Optional
+size_of.mass_status_req_id_optional = 8
 
--- Display: Mass Status Req Id
-display.mass_status_req_id = function(value)
+-- Display: Mass Status Req Id Optional
+display.mass_status_req_id_optional = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Mass Status Req Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Mass Status Req Id Optional: No Value"
   end
 
-  return "Mass Status Req Id: "..value
+  return "Mass Status Req Id Optional: "..value
 end
 
--- Dissect: Mass Status Req Id
-dissect.mass_status_req_id = function(buffer, offset, packet, parent)
-  local length = size_of.mass_status_req_id
+-- Dissect: Mass Status Req Id Optional
+dissect.mass_status_req_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.mass_status_req_id_optional
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.mass_status_req_id(value, buffer, offset, packet, parent)
+  local display = display.mass_status_req_id_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Ord Status Req Id Optional
+size_of.ord_status_req_id_optional = 8
+
+-- Display: Ord Status Req Id Optional
+display.ord_status_req_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Ord Status Req Id Optional: No Value"
+  end
+
+  return "Ord Status Req Id Optional: "..value
+end
+
+-- Dissect: Ord Status Req Id Optional
+dissect.ord_status_req_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.ord_status_req_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.ord_status_req_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Price Optional
+size_of.price_optional = 8
+
+-- Display: Price Optional
+display.price_optional = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Price Optional: No Value"
+  end
+  return "Price Optional: "..value:tonumber()/1000000000
+end
+
+-- Dissect: Price Optional
+dissect.price_optional = function(buffer, offset, packet, parent)
+  local length = size_of.price_optional
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.price_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.price_optional, range, value, display)
 
   return offset + length, value
 end
@@ -9170,7 +9733,7 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.order_id
 
-  index = index + size_of.price
+  index = index + size_of.price_optional
 
   index = index + size_of.stop_px
 
@@ -9180,11 +9743,11 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.ord_status_req_id
+  index = index + size_of.ord_status_req_id_optional
 
-  index = index + size_of.mass_status_req_id
+  index = index + size_of.mass_status_req_id_optional
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -9206,7 +9769,7 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.ord_status
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -9254,20 +9817,20 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_optional = dissect.price_optional(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
@@ -9281,25 +9844,25 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Ord Status Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, ord_status_req_id = dissect.ord_status_req_id(buffer, index, packet, parent)
+  -- Ord Status Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, ord_status_req_id_optional = dissect.ord_status_req_id_optional(buffer, index, packet, parent)
 
-  -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, mass_status_req_id = dissect.mass_status_req_id(buffer, index, packet, parent)
+  -- Mass Status Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, mass_status_req_id_optional = dissect.mass_status_req_id_optional(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
@@ -9317,19 +9880,19 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
+  -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -9400,7 +9963,7 @@ size_of.execution_report_modify_531 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -9422,7 +9985,7 @@ size_of.execution_report_modify_531 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -9467,19 +10030,19 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -9494,19 +10057,19 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
@@ -9527,16 +10090,16 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -9592,6 +10155,9 @@ display.mass_status_tif = function(value)
   end
   if value == 6 then
     return "Mass Status Tif: Gtd (6)"
+  end
+  if value == 255 then
+    return "Mass Status Tif: No Value (255)"
   end
 
   return "Mass Status Tif: Unknown("..value..")"
@@ -9669,6 +10235,26 @@ dissect.mass_status_req_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Mass Status Req Id
+size_of.mass_status_req_id = 8
+
+-- Display: Mass Status Req Id
+display.mass_status_req_id = function(value)
+  return "Mass Status Req Id: "..value
+end
+
+-- Dissect: Mass Status Req Id
+dissect.mass_status_req_id = function(buffer, offset, packet, parent)
+  local length = size_of.mass_status_req_id
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.mass_status_req_id(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mass_status_req_id, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Order Mass Status Request 530
 size_of.order_mass_status_request_530 = function(buffer, offset)
   local index = 0
@@ -9689,7 +10275,7 @@ size_of.order_mass_status_request_530 = function(buffer, offset)
 
   index = index + size_of.location
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   index = index + size_of.mass_status_req_type
 
@@ -9711,19 +10297,19 @@ end
 dissect.order_mass_status_request_530_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
-  -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Mass Status Req Id: 8 Byte Unsigned Fixed Width Integer
   index, mass_status_req_id = dissect.mass_status_req_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -9732,11 +10318,11 @@ dissect.order_mass_status_request_530_fields = function(buffer, offset, packet, 
   -- Security Group: 6 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   -- Mass Status Req Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_status_req_type = dissect.mass_status_req_type(buffer, index, packet, parent)
@@ -9744,7 +10330,7 @@ dissect.order_mass_status_request_530_fields = function(buffer, offset, packet, 
   -- Ord Status Req Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, ord_status_req_type = dissect.ord_status_req_type(buffer, index, packet, parent)
 
-  -- Mass Status Tif: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Mass Status Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, mass_status_tif = dissect.mass_status_tif(buffer, index, packet, parent)
 
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer Nullable
@@ -9786,7 +10372,7 @@ size_of.order_mass_action_request_529 = function(buffer, offset)
 
   index = index + size_of.location
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   index = index + size_of.mass_action_scope
 
@@ -9794,9 +10380,9 @@ size_of.order_mass_action_request_529 = function(buffer, offset)
 
   index = index + size_of.mass_cancel_request_type
 
-  index = index + size_of.side
+  index = index + size_of.side_optional
 
-  index = index + size_of.ord_type
+  index = index + size_of.mass_action_ord_typ
 
   index = index + size_of.mass_cancel_tif
 
@@ -9814,19 +10400,19 @@ end
 dissect.order_mass_action_request_529_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -9835,11 +10421,11 @@ dissect.order_mass_action_request_529_fields = function(buffer, offset, packet, 
   -- Security Group: 6 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   -- Mass Action Scope: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, mass_action_scope = dissect.mass_action_scope(buffer, index, packet, parent)
@@ -9850,13 +10436,13 @@ dissect.order_mass_action_request_529_fields = function(buffer, offset, packet, 
   -- Mass Cancel Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, mass_cancel_request_type = dissect.mass_cancel_request_type(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  -- Side Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, side_optional = dissect.side_optional(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Mass Action Ord Typ: 1 Byte Ascii String Enum with 3 values
+  index, mass_action_ord_typ = dissect.mass_action_ord_typ(buffer, index, packet, parent)
 
-  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Mass Cancel Tif: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, mass_cancel_tif = dissect.mass_cancel_tif(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -9885,7 +10471,7 @@ size_of.offer_size = 4
 display.offer_size = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Offer Size: No Value ("..value..")"
+    return "Offer Size: No Value"
   end
 
   return "Offer Size: "..value
@@ -9910,7 +10496,7 @@ size_of.bid_size = 4
 display.bid_size = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Bid Size: No Value ("..value..")"
+    return "Bid Size: No Value"
   end
 
   return "Bid Size: "..value
@@ -10030,7 +10616,7 @@ size_of.quote_cancel_entry_group = function(buffer, offset)
 
   index = index + size_of.security_group
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   return index
 end
@@ -10047,8 +10633,8 @@ dissect.quote_cancel_entry_group_fields = function(buffer, offset, packet, paren
   -- Security Group: 6 Byte Ascii String Nullable
   index, security_group = dissect.security_group(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   return index
 end
@@ -10186,22 +10772,22 @@ end
 dissect.quote_cancel_528_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
@@ -10376,11 +10962,38 @@ dissect.execution_report_trade_spread_leg_order_event_groups = function(buffer, 
   return dissect.execution_report_trade_spread_leg_order_event_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Ord Status Trd
+size_of.ord_status_trd = 1
+
+-- Display: Ord Status Trd
+display.ord_status_trd = function(value)
+  if value == 1 then
+    return "Ord Status Trd: Partially Filled (1)"
+  end
+  if value == 2 then
+    return "Ord Status Trd: Filled (2)"
+  end
+
+  return "Ord Status Trd: Unknown("..value..")"
+end
+
+-- Dissect: Ord Status Trd
+dissect.ord_status_trd = function(buffer, offset, packet, parent)
+  local length = size_of.ord_status_trd
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.ord_status_trd(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_status_trd, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Risk Free Rate
 size_of.risk_free_rate = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa32
+  index = index + size_of.mantissa_32
 
   index = index + size_of.exponent
 
@@ -10396,13 +11009,13 @@ end
 dissect.risk_free_rate_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
+  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa_32 = dissect.mantissa_32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa32, exponent
+  return index, mantissa_32, exponent
 end
 
 -- Dissect: Risk Free Rate
@@ -10422,7 +11035,7 @@ end
 size_of.time_to_expiration = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa32
+  index = index + size_of.mantissa_32
 
   index = index + size_of.exponent
 
@@ -10438,13 +11051,13 @@ end
 dissect.time_to_expiration_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
+  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa_32 = dissect.mantissa_32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa32, exponent
+  return index, mantissa_32, exponent
 end
 
 -- Dissect: Time To Expiration
@@ -10464,7 +11077,7 @@ end
 size_of.option_delta = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa32
+  index = index + size_of.mantissa_32
 
   index = index + size_of.exponent
 
@@ -10480,13 +11093,13 @@ end
 dissect.option_delta_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa32: 4 Byte Signed Fixed Width Integer Nullable
-  index, mantissa32 = dissect.mantissa32(buffer, index, packet, parent)
+  -- Mantissa 32: 4 Byte Signed Fixed Width Integer Nullable
+  index, mantissa_32 = dissect.mantissa_32(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa32, exponent
+  return index, mantissa_32, exponent
 end
 
 -- Dissect: Option Delta
@@ -10509,7 +11122,7 @@ size_of.underlying_px = 8
 display.underlying_px = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Underlying Px: No Value ("..value..")"
+    return "Underlying Px: No Value"
   end
   return "Underlying Px: "..value:tonumber()/1000000000
 end
@@ -10526,27 +11139,27 @@ dissect.underlying_px = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mantissa64
-size_of.mantissa64 = 8
+-- Size: Mantissa
+size_of.mantissa = 8
 
--- Display: Mantissa64
-display.mantissa64 = function(value)
+-- Display: Mantissa
+display.mantissa = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
-    return "Mantissa64: No Value ("..value..")"
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Mantissa: No Value"
   end
 
-  return "Mantissa64: "..value
+  return "Mantissa: "..value
 end
 
--- Dissect: Mantissa64
-dissect.mantissa64 = function(buffer, offset, packet, parent)
-  local length = size_of.mantissa64
+-- Dissect: Mantissa
+dissect.mantissa = function(buffer, offset, packet, parent)
+  local length = size_of.mantissa
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.mantissa64(value, buffer, offset, packet, parent)
+  local display = display.mantissa(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mantissa64, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.mantissa, range, value, display)
 
   return offset + length, value
 end
@@ -10555,7 +11168,7 @@ end
 size_of.volatility = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mantissa64
+  index = index + size_of.mantissa
 
   index = index + size_of.exponent
 
@@ -10571,13 +11184,13 @@ end
 dissect.volatility_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Mantissa64: 8 Byte Signed Fixed Width Integer Nullable
-  index, mantissa64 = dissect.mantissa64(buffer, index, packet, parent)
+  -- Mantissa: 8 Byte Signed Fixed Width Integer Nullable
+  index, mantissa = dissect.mantissa(buffer, index, packet, parent)
 
   -- Exponent: 1 Byte Signed Fixed Width Integer Nullable
   index, exponent = dissect.exponent(buffer, index, packet, parent)
 
-  return index, mantissa64, exponent
+  return index, mantissa, exponent
 end
 
 -- Dissect: Volatility
@@ -10641,9 +11254,9 @@ size_of.execution_report_trade_spread_leg_527 = function(buffer, offset)
 
   index = index + size_of.trade_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -10674,7 +11287,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -10683,7 +11296,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Volatility: Struct of 2 fields
   index, volatility = dissect.volatility(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -10704,7 +11317,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Option Delta: Struct of 2 fields
@@ -10716,7 +11329,7 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Risk Free Rate: Struct of 2 fields
   index, risk_free_rate = dissect.risk_free_rate(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -10731,13 +11344,13 @@ dissect.execution_report_trade_spread_leg_527_fields = function(buffer, offset, 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, ord_status_trd = dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -11046,7 +11659,7 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.sec_exec_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -11070,9 +11683,9 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.expire_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -11123,13 +11736,13 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -11138,7 +11751,7 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -11156,19 +11769,19 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -11192,19 +11805,19 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, ord_status_trd = dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -11394,7 +12007,7 @@ size_of.trade_link_id = 4
 display.trade_link_id = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Trade Link Id: No Value ("..value..")"
+    return "Trade Link Id: No Value"
   end
 
   return "Trade Link Id: "..value
@@ -11444,7 +12057,7 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.sec_exec_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -11470,9 +12083,9 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.expire_date
 
-  index = index + size_of.ord_status
+  index = index + size_of.ord_status_trd
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -11523,13 +12136,13 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -11538,7 +12151,7 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -11556,19 +12169,19 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Sec Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, sec_exec_id = dissect.sec_exec_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -11595,19 +12208,19 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Ascii String Enum with 10 values
-  index, ord_status = dissect.ord_status(buffer, index, packet, parent)
+  -- Ord Status Trd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  index, ord_status_trd = dissect.ord_status_trd(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -11687,7 +12300,7 @@ size_of.execution_report_elimination_524 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -11705,7 +12318,7 @@ size_of.execution_report_elimination_524 = function(buffer, offset)
 
   index = index + size_of.expire_date
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -11748,19 +12361,19 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -11775,22 +12388,22 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -11802,16 +12415,16 @@ dissect.execution_report_elimination_524_fields = function(buffer, offset, packe
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -11891,7 +12504,7 @@ size_of.execution_report_reject_523 = function(buffer, offset)
 
   index = index + size_of.order_id
 
-  index = index + size_of.price
+  index = index + size_of.price_optional
 
   index = index + size_of.stop_px
 
@@ -11901,7 +12514,7 @@ size_of.execution_report_reject_523 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -11921,7 +12534,7 @@ size_of.execution_report_reject_523 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -11969,20 +12582,20 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_optional = dissect.price_optional(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
@@ -11996,19 +12609,19 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -12026,16 +12639,16 @@ dissect.execution_report_reject_523_fields = function(buffer, offset, packet, pa
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -12106,7 +12719,7 @@ size_of.execution_report_new_522 = function(buffer, offset)
 
   index = index + size_of.order_request_id
 
-  index = index + size_of.cross_id
+  index = index + size_of.cross_id_optional
 
   index = index + size_of.host_cross_id
 
@@ -12124,7 +12737,7 @@ size_of.execution_report_new_522 = function(buffer, offset)
 
   index = index + size_of.delay_duration
 
-  index = index + size_of.ord_type
+  index = index + size_of.ord_type_optional
 
   index = index + size_of.side
 
@@ -12169,19 +12782,19 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Exec Id: 40 Byte Ascii String
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
@@ -12196,19 +12809,19 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
   index, order_request_id = dissect.order_request_id(buffer, index, packet, parent)
 
-  -- Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  -- Cross Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, cross_id_optional = dissect.cross_id_optional(buffer, index, packet, parent)
 
   -- Host Cross Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, host_cross_id = dissect.host_cross_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -12223,16 +12836,16 @@ dissect.execution_report_new_522_fields = function(buffer, offset, packet, paren
   -- Delay Duration: 2 Byte Unsigned Fixed Width Integer Nullable
   index, delay_duration = dissect.delay_duration(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  -- Ord Type Optional: 1 Byte Ascii String Enum with 4 values
+  index, ord_type_optional = dissect.ord_type_optional(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -12275,6 +12888,36 @@ dissect.execution_report_new_522 = function(buffer, offset, packet, parent)
   return dissect.execution_report_new_522_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Manual Order Indicator Optional
+size_of.manual_order_indicator_optional = 1
+
+-- Display: Manual Order Indicator Optional
+display.manual_order_indicator_optional = function(value)
+  if value == 0 then
+    return "Manual Order Indicator Optional: Automated (0)"
+  end
+  if value == 1 then
+    return "Manual Order Indicator Optional: Manual (1)"
+  end
+  if value == 255 then
+    return "Manual Order Indicator Optional: No Value (255)"
+  end
+
+  return "Manual Order Indicator Optional: Unknown("..value..")"
+end
+
+-- Dissect: Manual Order Indicator Optional
+dissect.manual_order_indicator_optional = function(buffer, offset, packet, parent)
+  local length = size_of.manual_order_indicator_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.manual_order_indicator_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.manual_order_indicator_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Ref Msg Type
 size_of.ref_msg_type = 2
 
@@ -12292,7 +12935,18 @@ end
 dissect.ref_msg_type = function(buffer, offset, packet, parent)
   local length = size_of.ref_msg_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.ref_msg_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.ref_msg_type, range, value, display)
@@ -12327,7 +12981,7 @@ size_of.ref_tag_id = 2
 display.ref_tag_id = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Ref Tag Id: No Value ("..value..")"
+    return "Ref Tag Id: No Value"
   end
 
   return "Ref Tag Id: "..value
@@ -12352,7 +13006,7 @@ size_of.ref_seq_num = 4
 display.ref_seq_num = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Ref Seq Num: No Value ("..value..")"
+    return "Ref Seq Num: No Value"
   end
 
   return "Ref Seq Num: "..value
@@ -12370,14 +13024,50 @@ dissect.ref_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Location Optional
+size_of.location_optional = 5
+
+-- Display: Location Optional
+display.location_optional = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Location Optional: No Value"
+  end
+
+  return "Location Optional: "..value
+end
+
+-- Dissect: Location Optional
+dissect.location_optional = function(buffer, offset, packet, parent)
+  local length = size_of.location_optional
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.location_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.location_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Business Reject Ref Id
 size_of.business_reject_ref_id = 8
 
 -- Display: Business Reject Ref Id
 display.business_reject_ref_id = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Business Reject Ref Id: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Business Reject Ref Id: No Value"
   end
 
   return "Business Reject Ref Id: "..value
@@ -12395,6 +13085,31 @@ dissect.business_reject_ref_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Party Details List Req Id Optional
+size_of.party_details_list_req_id_optional = 8
+
+-- Display: Party Details List Req Id Optional
+display.party_details_list_req_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Party Details List Req Id Optional: No Value"
+  end
+
+  return "Party Details List Req Id Optional: "..value
+end
+
+-- Dissect: Party Details List Req Id Optional
+dissect.party_details_list_req_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.party_details_list_req_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.party_details_list_req_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.party_details_list_req_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Business Reject 521
 size_of.business_reject_521 = function(buffer, offset)
   local index = 0
@@ -12405,15 +13120,15 @@ size_of.business_reject_521 = function(buffer, offset)
 
   index = index + size_of.text
 
-  index = index + size_of.sender_id
+  index = index + size_of.sender_id_optional
 
-  index = index + size_of.party_details_list_req_id
+  index = index + size_of.party_details_list_req_id_optional
 
   index = index + size_of.sending_time_epoch
 
   index = index + size_of.business_reject_ref_id
 
-  index = index + size_of.location
+  index = index + size_of.location_optional
 
   index = index + size_of.ref_seq_num
 
@@ -12425,7 +13140,7 @@ size_of.business_reject_521 = function(buffer, offset)
 
   index = index + size_of.poss_retrans_flag
 
-  index = index + size_of.manual_order_indicator
+  index = index + size_of.manual_order_indicator_optional
 
   index = index + size_of.split_msg
 
@@ -12450,11 +13165,11 @@ dissect.business_reject_521_fields = function(buffer, offset, packet, parent)
   -- Text: 256 Byte Ascii String Nullable
   index, text = dissect.text(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
-  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
+  -- Sender Id Optional: 20 Byte Ascii String Nullable
+  index, sender_id_optional = dissect.sender_id_optional(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
+  -- Party Details List Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, party_details_list_req_id_optional = dissect.party_details_list_req_id_optional(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
@@ -12462,8 +13177,8 @@ dissect.business_reject_521_fields = function(buffer, offset, packet, parent)
   -- Business Reject Ref Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, business_reject_ref_id = dissect.business_reject_ref_id(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
-  index, location = dissect.location(buffer, index, packet, parent)
+  -- Location Optional: 5 Byte Ascii String Nullable
+  index, location_optional = dissect.location_optional(buffer, index, packet, parent)
 
   -- Ref Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, ref_seq_num = dissect.ref_seq_num(buffer, index, packet, parent)
@@ -12480,8 +13195,8 @@ dissect.business_reject_521_fields = function(buffer, offset, packet, parent)
   -- Poss Retrans Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, poss_retrans_flag = dissect.poss_retrans_flag(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  -- Manual Order Indicator Optional: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  index, manual_order_indicator_optional = dissect.manual_order_indicator_optional(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
@@ -12541,7 +13256,7 @@ end
 dissect.list_update_action = function(buffer, offset, packet, parent)
   local length = size_of.list_update_action
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.list_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.list_update_action, range, value, display)
@@ -12586,7 +13301,18 @@ end
 dissect.memo = function(buffer, offset, packet, parent)
   local length = size_of.memo
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.memo(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.memo, range, value, display)
@@ -12668,7 +13394,7 @@ dissect.party_details_definition_request_ack_519_fields = function(buffer, offse
   -- Avg Px Group Id: 20 Byte Ascii String Nullable
   index, avg_px_group_id = dissect.avg_px_group_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -12795,7 +13521,7 @@ end
 dissect.party_details_definition_request_518_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
@@ -12875,7 +13601,7 @@ size_of.underlying_security_id = 4
 display.underlying_security_id = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Underlying Security Id: No Value ("..value..")"
+    return "Underlying Security Id: No Value"
   end
 
   return "Underlying Security Id: "..value
@@ -12900,7 +13626,7 @@ size_of.offer_px = 8
 display.offer_px = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Offer Px: No Value ("..value..")"
+    return "Offer Px: No Value"
   end
   return "Offer Px: "..value:tonumber()/1000000000
 end
@@ -12924,7 +13650,7 @@ size_of.bid_px = 8
 display.bid_px = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Bid Px: No Value ("..value..")"
+    return "Bid Px: No Value"
   end
   return "Bid Px: "..value:tonumber()/1000000000
 end
@@ -12982,7 +13708,7 @@ dissect.mass_quote_entry_group_fields = function(buffer, offset, packet, parent)
   -- Quote Entry Id: 4 Byte Unsigned Fixed Width Integer
   index, quote_entry_id = dissect.quote_entry_id(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13062,6 +13788,26 @@ dissect.mass_quote_entry_groups = function(buffer, offset, packet, parent)
   return dissect.mass_quote_entry_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Tot No Quote Entries
+size_of.tot_no_quote_entries = 1
+
+-- Display: Tot No Quote Entries
+display.tot_no_quote_entries = function(value)
+  return "Tot No Quote Entries: "..value
+end
+
+-- Dissect: Tot No Quote Entries
+dissect.tot_no_quote_entries = function(buffer, offset, packet, parent)
+  local length = size_of.tot_no_quote_entries
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.tot_no_quote_entries(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.tot_no_quote_entries, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Mass Quote 517
 size_of.mass_quote_517 = function(buffer, offset)
   local index = 0
@@ -13076,7 +13822,7 @@ size_of.mass_quote_517 = function(buffer, offset)
 
   index = index + size_of.sender_id
 
-  index = index + size_of.quote_req_id
+  index = index + size_of.quote_req_id_optional
 
   index = index + size_of.location
 
@@ -13104,31 +13850,31 @@ end
 dissect.mass_quote_517_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
+  -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, quote_req_id_optional = dissect.quote_req_id_optional(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
   index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
-  -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer
   index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -13202,16 +13948,16 @@ dissect.order_cancel_request_516_fields = function(buffer, offset, packet, paren
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
@@ -13223,13 +13969,13 @@ dissect.order_cancel_request_516_fields = function(buffer, offset, packet, paren
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -13278,11 +14024,47 @@ dissect.ofm_override = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Ord Type
+size_of.ord_type = 1
+
+-- Display: Ord Type
+display.ord_type = function(value)
+  if value == "1" then
+    return "Ord Type: Marketwith Protection (1)"
+  end
+  if value == "2" then
+    return "Ord Type: Limit (2)"
+  end
+  if value == "3" then
+    return "Ord Type: Stopwith Protection (3)"
+  end
+  if value == "4" then
+    return "Ord Type: Stop Limit (4)"
+  end
+  if value == "K" then
+    return "Ord Type: Market With Leftover As Limit (K)"
+  end
+
+  return "Ord Type: Unknown("..value..")"
+end
+
+-- Dissect: Ord Type
+dissect.ord_type = function(buffer, offset, packet, parent)
+  local length = size_of.ord_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.ord_type(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.ord_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Order Cancel Replace Request 515
 size_of.order_cancel_replace_request_515 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.price
+  index = index + size_of.price_optional
 
   index = index + size_of.order_qty
 
@@ -13344,28 +14126,28 @@ end
 dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_optional = dissect.price_optional(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
@@ -13380,7 +14162,7 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
   index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13392,13 +14174,13 @@ dissect.order_cancel_replace_request_515_fields = function(buffer, offset, packe
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
+  -- Ord Type: 1 Byte Ascii String Enum with 5 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Ofm Override: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -13439,7 +14221,7 @@ end
 size_of.new_order_single_514 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.price
+  index = index + size_of.price_optional
 
   index = index + size_of.order_qty
 
@@ -13497,28 +14279,28 @@ end
 dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_optional = dissect.price_optional(buffer, index, packet, parent)
 
-  -- Order Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
-  -- Sender Id: 20 Byte Ascii String Nullable
+  -- Sender Id: 20 Byte Ascii String
   index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- ClOrdId: 20 Byte Ascii String
   index, clordid = dissect.clordid(buffer, index, packet, parent)
 
-  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
   index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Order Request Id: 8 Byte Unsigned Fixed Width Integer
@@ -13530,7 +14312,7 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
-  -- Location: 5 Byte Ascii String Nullable
+  -- Location: 5 Byte Ascii String
   index, location = dissect.location(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
@@ -13542,13 +14324,13 @@ dissect.new_order_single_514_fields = function(buffer, offset, packet, parent)
   -- Expire Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, expire_date = dissect.expire_date(buffer, index, packet, parent)
 
-  -- Ord Type: 1 Byte Ascii String Enum with 7 values
+  -- Ord Type: 1 Byte Ascii String Enum with 5 values
   index, ord_type = dissect.ord_type(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Exec Inst: Struct of 8 fields
@@ -13583,7 +14365,7 @@ dissect.new_order_single_514 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Msg Count
-size_of.msg_count = 2
+size_of.msg_count = 4
 
 -- Display: Msg Count
 display.msg_count = function(value)
@@ -13652,7 +14434,7 @@ dissect.not_applied_513_fields = function(buffer, offset, packet, parent)
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
   index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
-  -- Msg Count: 2 Byte Unsigned Fixed Width Integer
+  -- Msg Count: 4 Byte Unsigned Fixed Width Integer
   index, msg_count = dissect.msg_count(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -13720,8 +14502,8 @@ size_of.last_uuid = 8
 -- Display: Last Uuid
 display.last_uuid = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Last Uuid: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Last Uuid: No Value"
   end
 
   return "Last Uuid: "..value
@@ -13756,7 +14538,18 @@ end
 dissect.reason = function(buffer, offset, packet, parent)
   local length = size_of.reason
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.reason, range, value, display)
@@ -13826,6 +14619,26 @@ dissect.retransmit_reject_510 = function(buffer, offset, packet, parent)
   return dissect.retransmit_reject_510_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Msg Count 16
+size_of.msg_count_16 = 2
+
+-- Display: Msg Count 16
+display.msg_count_16 = function(value)
+  return "Msg Count 16: "..value
+end
+
+-- Dissect: Msg Count 16
+dissect.msg_count_16 = function(buffer, offset, packet, parent)
+  local length = size_of.msg_count_16
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.msg_count_16(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.msg_count_16, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Retransmission 509
 size_of.retransmission_509 = function(buffer, offset)
   local index = 0
@@ -13838,7 +14651,7 @@ size_of.retransmission_509 = function(buffer, offset)
 
   index = index + size_of.from_seq_no
 
-  index = index + size_of.msg_count
+  index = index + size_of.msg_count_16
 
   index = index + size_of.split_msg
 
@@ -13866,8 +14679,8 @@ dissect.retransmission_509_fields = function(buffer, offset, packet, parent)
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
   index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
-  -- Msg Count: 2 Byte Unsigned Fixed Width Integer
-  index, msg_count = dissect.msg_count(buffer, index, packet, parent)
+  -- Msg Count 16: 2 Byte Unsigned Fixed Width Integer
+  index, msg_count_16 = dissect.msg_count_16(buffer, index, packet, parent)
 
   -- Split Msg: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, split_msg = dissect.split_msg(buffer, index, packet, parent)
@@ -13900,7 +14713,7 @@ size_of.retransmit_request_508 = function(buffer, offset)
 
   index = index + size_of.from_seq_no
 
-  index = index + size_of.msg_count
+  index = index + size_of.msg_count_16
 
   return index
 end
@@ -13926,8 +14739,8 @@ dissect.retransmit_request_508_fields = function(buffer, offset, packet, parent)
   -- From Seq No: 4 Byte Unsigned Fixed Width Integer
   index, from_seq_no = dissect.from_seq_no(buffer, index, packet, parent)
 
-  -- Msg Count: 2 Byte Unsigned Fixed Width Integer
-  index, msg_count = dissect.msg_count(buffer, index, packet, parent)
+  -- Msg Count 16: 2 Byte Unsigned Fixed Width Integer
+  index, msg_count_16 = dissect.msg_count_16(buffer, index, packet, parent)
 
   return index
 end
@@ -14205,7 +15018,7 @@ size_of.secret_key_secure_id_expiration = 2
 display.secret_key_secure_id_expiration = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Secret Key Secure Id Expiration: No Value ("..value..")"
+    return "Secret Key Secure Id Expiration: No Value"
   end
 
   return "Secret Key Secure Id Expiration: "..value
@@ -14368,7 +15181,7 @@ end
 -- Dissect runtime sized field: Var Data
 dissect.var_data = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:string()
+  local value = range:bytes():tohex(false, " ")
   local display = display.var_data(value, buffer, offset, packet, parent, size)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.var_data, range, value, display)
@@ -14376,22 +15189,22 @@ dissect.var_data = function(buffer, offset, packet, parent, size)
   return offset + size
 end
 
--- Size: Length
-size_of.length = 2
+-- Size: Data Length
+size_of.data_length = 2
 
--- Display: Length
-display.length = function(value)
-  return "Length: "..value
+-- Display: Data Length
+display.data_length = function(value)
+  return "Data Length: "..value
 end
 
--- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+-- Dissect: Data Length
+dissect.data_length = function(buffer, offset, packet, parent)
+  local length = size_of.data_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = display.data_length(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_2.fields.length, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.data_length, range, value, display)
 
   return offset + length, value
 end
@@ -14400,7 +15213,7 @@ end
 size_of.credentials = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + size_of.data_length
 
   -- Parse runtime size of: Var Data
   index = index + buffer(offset + index - 2, 2):le_uint()
@@ -14417,11 +15230,11 @@ end
 dissect.credentials_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  -- Data Length: 2 Byte Unsigned Fixed Width Integer
+  index, data_length = dissect.data_length(buffer, index, packet, parent)
 
-  -- Var Data: 1 Byte Ascii String
-  index = dissect.var_data(buffer, index, packet, parent, length)
+  -- Var Data: 0 Byte
+  index = dissect.var_data(buffer, index, packet, parent, data_length)
 
   return index
 end
@@ -14456,7 +15269,18 @@ end
 dissect.firm = function(buffer, offset, packet, parent)
   local length = size_of.firm
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.firm(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.firm, range, value, display)
@@ -14481,7 +15305,18 @@ end
 dissect.session = function(buffer, offset, packet, parent)
   local length = size_of.session
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.session(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.session, range, value, display)
@@ -14506,7 +15341,18 @@ end
 dissect.trading_system_vendor = function(buffer, offset, packet, parent)
   local length = size_of.trading_system_vendor
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.trading_system_vendor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_vendor, range, value, display)
@@ -14531,7 +15377,18 @@ end
 dissect.trading_system_version = function(buffer, offset, packet, parent)
   local length = size_of.trading_system_version
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.trading_system_version(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_version, range, value, display)
@@ -14556,7 +15413,18 @@ end
 dissect.trading_system_name = function(buffer, offset, packet, parent)
   local length = size_of.trading_system_name
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.trading_system_name(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.trading_system_name, range, value, display)
@@ -14581,7 +15449,18 @@ end
 dissect.access_key_id = function(buffer, offset, packet, parent)
   local length = size_of.access_key_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.access_key_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.access_key_id, range, value, display)
@@ -14594,11 +15473,6 @@ size_of.hmac_signature = 32
 
 -- Display: Hmac Signature
 display.hmac_signature = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Hmac Signature: No Value"
-  end
-
   return "Hmac Signature: "..value
 end
 
@@ -14606,7 +15480,7 @@ end
 dissect.hmac_signature = function(buffer, offset, packet, parent)
   local length = size_of.hmac_signature
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:bytes():tohex(false, " ")
   local display = display.hmac_signature(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_2.fields.hmac_signature, range, value, display)
@@ -14654,7 +15528,7 @@ end
 dissect.establish_503_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Hmac Signature: 32 Byte Ascii String
+  -- Hmac Signature: 32 Byte
   index, hmac_signature = dissect.hmac_signature(buffer, index, packet, parent)
 
   -- Access Key Id: 20 Byte Ascii String
@@ -14870,7 +15744,7 @@ end
 dissect.negotiate_500_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Hmac Signature: 32 Byte Ascii String
+  -- Hmac Signature: 32 Byte
   index, hmac_signature = dissect.hmac_signature(buffer, index, packet, parent)
 
   -- Access Key Id: 20 Byte Ascii String

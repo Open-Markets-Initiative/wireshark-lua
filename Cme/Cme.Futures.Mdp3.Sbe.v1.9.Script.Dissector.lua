@@ -43,7 +43,8 @@ cme_futures_mdp3_sbe_v1_9.fields.day = ProtoField.new("Day", "cme.futures.mdp3.s
 cme_futures_mdp3_sbe_v1_9.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.futures.mdp3.sbe.v1.9.decayquantity", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.futures.mdp3.sbe.v1.9.decaystartdate", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_9.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.9.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00008000")
-cme_futures_mdp3_sbe_v1_9.fields.display_factor = ProtoField.new("Display Factor", "cme.futures.mdp3.sbe.v1.9.displayfactor", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.display_factor_decimal_9 = ProtoField.new("Display Factor Decimal 9", "cme.futures.mdp3.sbe.v1.9.displayfactordecimal9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.display_factor_float = ProtoField.new("Display Factor Float", "cme.futures.mdp3.sbe.v1.9.displayfactorfloat", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.9.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000010")
 cme_futures_mdp3_sbe_v1_9.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.9.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000008")
 cme_futures_mdp3_sbe_v1_9.fields.efr_eligible = ProtoField.new("Efr Eligible", "cme.futures.mdp3.sbe.v1.9.efreligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000040")
@@ -61,7 +62,8 @@ cme_futures_mdp3_sbe_v1_9.fields.group_size_8_byte = ProtoField.new("Group Size 
 cme_futures_mdp3_sbe_v1_9.fields.gt_orders_eligibility = ProtoField.new("Gt Orders Eligibility", "cme.futures.mdp3.sbe.v1.9.gtorderseligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00040000")
 cme_futures_mdp3_sbe_v1_9.fields.halt_reason = ProtoField.new("Halt Reason", "cme.futures.mdp3.sbe.v1.9.haltreason", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.mdp3.sbe.v1.9.heartbtint", ftypes.INT8)
-cme_futures_mdp3_sbe_v1_9.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.futures.mdp3.sbe.v1.9.highlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenul_l_9 = ProtoField.new("High Limit Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.highlimitpricepricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenull = ProtoField.new("High Limit Price Pricenull", "cme.futures.mdp3.sbe.v1.9.highlimitpricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.i_link_indicative_mass_quoting_eligible = ProtoField.new("I Link Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.9.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000100")
 cme_futures_mdp3_sbe_v1_9.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.9.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00080000")
 cme_futures_mdp3_sbe_v1_9.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.mdp3.sbe.v1.9.instattribgroup", ftypes.STRING)
@@ -78,14 +80,15 @@ cme_futures_mdp3_sbe_v1_9.fields.last_trade_msg = ProtoField.new("Last Trade Msg
 cme_futures_mdp3_sbe_v1_9.fields.last_update_time = ProtoField.new("Last Update Time", "cme.futures.mdp3.sbe.v1.9.lastupdatetime", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.futures.mdp3.sbe.v1.9.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cme_futures_mdp3_sbe_v1_9.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.mdp3.sbe.v1.9.legoptiondelta", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_9.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.mdp3.sbe.v1.9.legprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.leg_price_pricenull = ProtoField.new("Leg Price Pricenull", "cme.futures.mdp3.sbe.v1.9.legpricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.mdp3.sbe.v1.9.legratioqty", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.mdp3.sbe.v1.9.legsecurityid", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.mdp3.sbe.v1.9.legside", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.lot_type = ProtoField.new("Lot Type", "cme.futures.mdp3.sbe.v1.9.lottype", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.9.lottyperulesgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.9.lottyperulesgroups", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.futures.mdp3.sbe.v1.9.lowlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.low_limit_price_pricenul_l_9 = ProtoField.new("Low Limit Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.lowlimitpricepricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.low_limit_price_pricenull = ProtoField.new("Low Limit Price Pricenull", "cme.futures.mdp3.sbe.v1.9.lowlimitpricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.futures.mdp3.sbe.v1.9.mdfeedtypesgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.futures.mdp3.sbe.v1.9.mdfeedtypesgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.m_d_incremental_refresh_book_group = ProtoField.new("M D Incremental Refresh Book Group", "cme.futures.mdp3.sbe.v1.9.mdincrementalrefreshbookgroup", ftypes.STRING)
@@ -114,12 +117,16 @@ cme_futures_mdp3_sbe_v1_9.fields.market_segment_id = ProtoField.new("Market Segm
 cme_futures_mdp3_sbe_v1_9.fields.match_algorithm = ProtoField.new("Match Algorithm", "cme.futures.mdp3.sbe.v1.9.matchalgorithm", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.match_event_indicator = ProtoField.new("Match Event Indicator", "cme.futures.mdp3.sbe.v1.9.matcheventindicator", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.mdp3.sbe.v1.9.maturitymonthyear", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.max_price_variation = ProtoField.new("Max Price Variation", "cme.futures.mdp3.sbe.v1.9.maxpricevariation", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.max_price_variation_pricenul_l_9 = ProtoField.new("Max Price Variation Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.maxpricevariationpricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.max_price_variation_pricenull = ProtoField.new("Max Price Variation Pricenull", "cme.futures.mdp3.sbe.v1.9.maxpricevariationpricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.futures.mdp3.sbe.v1.9.maxtradevol", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.futures.mdp3.sbe.v1.9.mddisplayqty", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_9.fields.md_display_qty_optional = ProtoField.new("Md Display Qty Optional", "cme.futures.mdp3.sbe.v1.9.mddisplayqtyoptional", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.9.mdentrypx", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.mdp3.sbe.v1.9.mdentrypxoptional", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.9.mdentrysize", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_9.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.mdp3.sbe.v1.9.mdentrytype", ftypes.STRING)
+cme_futures_mdp3_sbe_v1_9.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.futures.mdp3.sbe.v1.9.mdentrysizeoptional", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_ = ProtoField.new("Md Entry Type ", "cme.futures.mdp3.sbe.v1.9.mdentrytype", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_book = ProtoField.new("Md Entry Type Book", "cme.futures.mdp3.sbe.v1.9.mdentrytypebook", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_daily_statistics = ProtoField.new("Md Entry Type Daily Statistics", "cme.futures.mdp3.sbe.v1.9.mdentrytypedailystatistics", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_statistics = ProtoField.new("Md Entry Type Statistics", "cme.futures.mdp3.sbe.v1.9.mdentrytypestatistics", ftypes.STRING)
@@ -145,6 +152,7 @@ cme_futures_mdp3_sbe_v1_9.fields.md_instrument_definition_spread_29 = ProtoField
 cme_futures_mdp3_sbe_v1_9.fields.md_instrument_definition_spread_56 = ProtoField.new("Md Instrument Definition Spread 56", "cme.futures.mdp3.sbe.v1.9.mdinstrumentdefinitionspread56", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.md_order_priority = ProtoField.new("Md Order Priority", "cme.futures.mdp3.sbe.v1.9.mdorderpriority", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.md_price_level = ProtoField.new("Md Price Level", "cme.futures.mdp3.sbe.v1.9.mdpricelevel", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_9.fields.md_price_level_optional = ProtoField.new("Md Price Level Optional", "cme.futures.mdp3.sbe.v1.9.mdpriceleveloptional", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.md_security_trading_status = ProtoField.new("Md Security Trading Status", "cme.futures.mdp3.sbe.v1.9.mdsecuritytradingstatus", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.md_trade_entry_id = ProtoField.new("Md Trade Entry Id", "cme.futures.mdp3.sbe.v1.9.mdtradeentryid", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.mdp3.sbe.v1.9.mdupdateaction", ftypes.UINT8)
@@ -152,10 +160,15 @@ cme_futures_mdp3_sbe_v1_9.fields.message = ProtoField.new("Message", "cme.future
 cme_futures_mdp3_sbe_v1_9.fields.message_header = ProtoField.new("Message Header", "cme.futures.mdp3.sbe.v1.9.messageheader", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.mdp3.sbe.v1.9.messagesequencenumber", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.message_size = ProtoField.new("Message Size", "cme.futures.mdp3.sbe.v1.9.messagesize", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.9.mincabprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_cab_price_pricenul_l_9 = ProtoField.new("Min Cab Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.mincabpricepricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_cab_price_pricenull = ProtoField.new("Min Cab Price Pricenull", "cme.futures.mdp3.sbe.v1.9.mincabpricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.min_lot_size = ProtoField.new("Min Lot Size", "cme.futures.mdp3.sbe.v1.9.minlotsize", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.mdp3.sbe.v1.9.minpriceincrement", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.futures.mdp3.sbe.v1.9.minpriceincrementamount", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount_pricenul_l_9 = ProtoField.new("Min Price Increment Amount Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.minpriceincrementamountpricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount_pricenull = ProtoField.new("Min Price Increment Amount Pricenull", "cme.futures.mdp3.sbe.v1.9.minpriceincrementamountpricenull", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.mdp3.sbe.v1.9.minpriceincrementoptional", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_price = ProtoField.new("Min Price Increment Price", "cme.futures.mdp3.sbe.v1.9.minpriceincrementprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_pricenull = ProtoField.new("Min Price Increment Pricenull", "cme.futures.mdp3.sbe.v1.9.minpriceincrementpricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.9.mintradevol", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.month = ProtoField.new("Month", "cme.futures.mdp3.sbe.v1.9.month", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.negative_price_outright_eligible = ProtoField.new("Negative Price Outright Eligible", "cme.futures.mdp3.sbe.v1.9.negativepriceoutrighteligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000400")
@@ -163,11 +176,12 @@ cme_futures_mdp3_sbe_v1_9.fields.negative_strike_eligible = ProtoField.new("Nega
 cme_futures_mdp3_sbe_v1_9.fields.no_chunks = ProtoField.new("No Chunks", "cme.futures.mdp3.sbe.v1.9.nochunks", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.null_value = ProtoField.new("Null Value", "cme.futures.mdp3.sbe.v1.9.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cme_futures_mdp3_sbe_v1_9.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.mdp3.sbe.v1.9.numingroup", ftypes.UINT8)
-cme_futures_mdp3_sbe_v1_9.fields.number_of_orders = ProtoField.new("Number Of Orders", "cme.futures.mdp3.sbe.v1.9.numberoforders", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_9.fields.number_of_orders_optional = ProtoField.new("Number Of Orders Optional", "cme.futures.mdp3.sbe.v1.9.numberofordersoptional", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.open_close_settl_flag = ProtoField.new("Open Close Settl Flag", "cme.futures.mdp3.sbe.v1.9.openclosesettlflag", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.open_interest_qty = ProtoField.new("Open Interest Qty", "cme.futures.mdp3.sbe.v1.9.openinterestqty", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.order_cross_eligible = ProtoField.new("Order Cross Eligible", "cme.futures.mdp3.sbe.v1.9.ordercrosseligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000002")
 cme_futures_mdp3_sbe_v1_9.fields.order_id = ProtoField.new("Order Id", "cme.futures.mdp3.sbe.v1.9.orderid", ftypes.UINT64)
+cme_futures_mdp3_sbe_v1_9.fields.order_id_optional = ProtoField.new("Order Id Optional", "cme.futures.mdp3.sbe.v1.9.orderidoptional", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.order_qty = ProtoField.new("Order Qty", "cme.futures.mdp3.sbe.v1.9.orderqty", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.order_update_action = ProtoField.new("Order Update Action", "cme.futures.mdp3.sbe.v1.9.orderupdateaction", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.original_contract_size = ProtoField.new("Original Contract Size", "cme.futures.mdp3.sbe.v1.9.originalcontractsize", ftypes.INT32)
@@ -182,7 +196,8 @@ cme_futures_mdp3_sbe_v1_9.fields.padding_6 = ProtoField.new("Padding 6", "cme.fu
 cme_futures_mdp3_sbe_v1_9.fields.padding_7 = ProtoField.new("Padding 7", "cme.futures.mdp3.sbe.v1.9.padding7", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_9.fields.payload = ProtoField.new("Payload", "cme.futures.mdp3.sbe.v1.9.payload", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.price_display_format = ProtoField.new("Price Display Format", "cme.futures.mdp3.sbe.v1.9.pricedisplayformat", ftypes.UINT8)
-cme_futures_mdp3_sbe_v1_9.fields.price_ratio = ProtoField.new("Price Ratio", "cme.futures.mdp3.sbe.v1.9.priceratio", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.price_ratio_pricenul_l_9 = ProtoField.new("Price Ratio Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.priceratiopricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.price_ratio_pricenull = ProtoField.new("Price Ratio Pricenull", "cme.futures.mdp3.sbe.v1.9.priceratiopricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.mdp3.sbe.v1.9.putorcall", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.mdp3.sbe.v1.9.quotereqid", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.quote_request_39 = ProtoField.new("Quote Request 39", "cme.futures.mdp3.sbe.v1.9.quoterequest39", ftypes.STRING)
@@ -205,6 +220,7 @@ cme_futures_mdp3_sbe_v1_9.fields.schema_id = ProtoField.new("Schema Id", "cme.fu
 cme_futures_mdp3_sbe_v1_9.fields.security_exchange = ProtoField.new("Security Exchange", "cme.futures.mdp3.sbe.v1.9.securityexchange", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.security_group = ProtoField.new("Security Group", "cme.futures.mdp3.sbe.v1.9.securitygroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.security_id = ProtoField.new("Security Id", "cme.futures.mdp3.sbe.v1.9.securityid", ftypes.INT32)
+cme_futures_mdp3_sbe_v1_9.fields.security_id_optional = ProtoField.new("Security Id Optional", "cme.futures.mdp3.sbe.v1.9.securityidoptional", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.security_status_30 = ProtoField.new("Security Status 30", "cme.futures.mdp3.sbe.v1.9.securitystatus30", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.security_sub_type = ProtoField.new("Security Sub Type", "cme.futures.mdp3.sbe.v1.9.securitysubtype", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.security_trading_event = ProtoField.new("Security Trading Event", "cme.futures.mdp3.sbe.v1.9.securitytradingevent", ftypes.UINT8)
@@ -224,25 +240,30 @@ cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_53 = ProtoFiel
 cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_group = ProtoField.new("Snapshot Full Refresh Order Book Group", "cme.futures.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.snapshot_full_refresh_order_book_groups = ProtoField.new("Snapshot Full Refresh Order Book Groups", "cme.futures.mdp3.sbe.v1.9.snapshotfullrefreshorderbookgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.strike_currency = ProtoField.new("Strike Currency", "cme.futures.mdp3.sbe.v1.9.strikecurrency", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.mdp3.sbe.v1.9.strikeprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.strike_price_pricenul_l_9 = ProtoField.new("Strike Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.strikepricepricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.strike_price_pricenull = ProtoField.new("Strike Price Pricenull", "cme.futures.mdp3.sbe.v1.9.strikepricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.futures.mdp3.sbe.v1.9.subfraction", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.symbol = ProtoField.new("Symbol", "cme.futures.mdp3.sbe.v1.9.symbol", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.template_id = ProtoField.new("Template Id", "cme.futures.mdp3.sbe.v1.9.templateid", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_9.fields.text = ProtoField.new("Text", "cme.futures.mdp3.sbe.v1.9.text", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.tick_rule = ProtoField.new("Tick Rule", "cme.futures.mdp3.sbe.v1.9.tickrule", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_9.fields.tot_num_reports = ProtoField.new("Tot Num Reports", "cme.futures.mdp3.sbe.v1.9.totnumreports", ftypes.UINT32)
+cme_futures_mdp3_sbe_v1_9.fields.tot_num_reports_optional = ProtoField.new("Tot Num Reports Optional", "cme.futures.mdp3.sbe.v1.9.totnumreportsoptional", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_9.fields.trade_date = ProtoField.new("Trade Date", "cme.futures.mdp3.sbe.v1.9.tradedate", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_9.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.mdp3.sbe.v1.9.tradingreferencedate", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.futures.mdp3.sbe.v1.9.tradingreferenceprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenul_l_9 = ProtoField.new("Trading Reference Price Pricenul L 9", "cme.futures.mdp3.sbe.v1.9.tradingreferencepricepricenull9", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenull = ProtoField.new("Trading Reference Price Pricenull", "cme.futures.mdp3.sbe.v1.9.tradingreferencepricepricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.mdp3.sbe.v1.9.transacttime", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_9.fields.triangulation_eligible = ProtoField.new("Triangulation Eligible", "cme.futures.mdp3.sbe.v1.9.triangulationeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00100000")
 cme_futures_mdp3_sbe_v1_9.fields.underlying_product = ProtoField.new("Underlying Product", "cme.futures.mdp3.sbe.v1.9.underlyingproduct", ftypes.UINT8)
+cme_futures_mdp3_sbe_v1_9.fields.underlying_product_optional = ProtoField.new("Underlying Product Optional", "cme.futures.mdp3.sbe.v1.9.underlyingproductoptional", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_9.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.mdp3.sbe.v1.9.underlyingsecurityid", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_9.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "cme.futures.mdp3.sbe.v1.9.underlyingsymbol", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.underlyings_group = ProtoField.new("Underlyings Group", "cme.futures.mdp3.sbe.v1.9.underlyingsgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "cme.futures.mdp3.sbe.v1.9.underlyingsgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.mdp3.sbe.v1.9.unitofmeasure", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqty", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_decimal_9_null = ProtoField.new("Unit Of Measure Qty Decimal 9 Null", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqtydecimal9null", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_pricenull = ProtoField.new("Unit Of Measure Qty Pricenull", "cme.futures.mdp3.sbe.v1.9.unitofmeasureqtypricenull", ftypes.INT64)
 cme_futures_mdp3_sbe_v1_9.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.mdp3.sbe.v1.9.userdefinedinstrument", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_9.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.9.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00200000")
 cme_futures_mdp3_sbe_v1_9.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.9.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00010000")
@@ -758,7 +779,7 @@ size_of.leg_option_delta = 4
 display.leg_option_delta = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Leg Option Delta: No Value ("..value..")"
+    return "Leg Option Delta: No Value"
   end
   return "Leg Option Delta: "..value/10000
 end
@@ -775,26 +796,26 @@ dissect.leg_option_delta = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leg Price
-size_of.leg_price = 8
+-- Size: Leg Price Pricenull
+size_of.leg_price_pricenull = 8
 
--- Display: Leg Price
-display.leg_price = function(value)
+-- Display: Leg Price Pricenull
+display.leg_price_pricenull = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Leg Price: No Value ("..value..")"
+    return "Leg Price Pricenull: No Value"
   end
-  return "Leg Price: "..value:tonumber()/10000000
+  return "Leg Price Pricenull: "..value:tonumber()/10000000
 end
 
--- Dissect: Leg Price
-dissect.leg_price = function(buffer, offset, packet, parent)
-  local length = size_of.leg_price
+-- Dissect: Leg Price Pricenull
+dissect.leg_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.leg_price_pricenull
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.leg_price(value, buffer, offset, packet, parent)
+  local display = display.leg_price_pricenull(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.leg_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.leg_price_pricenull, range, value, display)
 
   return offset + length, value
 end
@@ -876,7 +897,7 @@ size_of.m_d_instrument_definition_spread_leg_group = function(buffer, offset)
 
   index = index + size_of.leg_ratio_qty
 
-  index = index + size_of.leg_price
+  index = index + size_of.leg_price_pricenull
 
   index = index + size_of.leg_option_delta
 
@@ -901,8 +922,8 @@ dissect.m_d_instrument_definition_spread_leg_group_fields = function(buffer, off
   -- Leg Ratio Qty: 1 Byte Signed Fixed Width Integer
   index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
+  -- Leg Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, leg_price_pricenull = dissect.leg_price_pricenull(buffer, index, packet, parent)
 
   -- Leg Option Delta: 4 Byte Signed Fixed Width Integer Nullable
   index, leg_option_delta = dissect.leg_option_delta(buffer, index, packet, parent)
@@ -1061,7 +1082,7 @@ size_of.min_lot_size = 4
 display.min_lot_size = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Min Lot Size: No Value ("..value..")"
+    return "Min Lot Size: No Value"
   end
   return "Min Lot Size: "..value/10000
 end
@@ -1498,7 +1519,18 @@ end
 dissect.md_feed_type = function(buffer, offset, packet, parent)
   local length = size_of.md_feed_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.md_feed_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_feed_type, range, value, display)
@@ -1742,7 +1774,7 @@ size_of.trading_reference_date = 2
 display.trading_reference_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trading Reference Date: No Value ("..value..")"
+    return "Trading Reference Date: No Value"
   end
 
   return "Trading Reference Date: "..value
@@ -1767,7 +1799,7 @@ size_of.sub_fraction = 1
 display.sub_fraction = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Sub Fraction: No Value ("..value..")"
+    return "Sub Fraction: No Value"
   end
 
   return "Sub Fraction: "..value
@@ -1792,7 +1824,7 @@ size_of.main_fraction = 1
 display.main_fraction = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Main Fraction: No Value ("..value..")"
+    return "Main Fraction: No Value"
   end
 
   return "Main Fraction: "..value
@@ -1810,74 +1842,74 @@ dissect.main_fraction = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Max Price Variation
-size_of.max_price_variation = 8
+-- Size: Max Price Variation Pricenul L 9
+size_of.max_price_variation_pricenul_l_9 = 8
 
--- Display: Max Price Variation
-display.max_price_variation = function(value)
+-- Display: Max Price Variation Pricenul L 9
+display.max_price_variation_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Max Price Variation: No Value ("..value..")"
+    return "Max Price Variation Pricenul L 9: No Value"
   end
-  return "Max Price Variation: "..value:tonumber()/10000000
+  return "Max Price Variation Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Max Price Variation
-dissect.max_price_variation = function(buffer, offset, packet, parent)
-  local length = size_of.max_price_variation
+-- Dissect: Max Price Variation Pricenul L 9
+dissect.max_price_variation_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.max_price_variation_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.max_price_variation(value, buffer, offset, packet, parent)
+  local display = display.max_price_variation_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.max_price_variation, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.max_price_variation_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Low Limit Price
-size_of.low_limit_price = 8
+-- Size: Low Limit Price Pricenul L 9
+size_of.low_limit_price_pricenul_l_9 = 8
 
--- Display: Low Limit Price
-display.low_limit_price = function(value)
+-- Display: Low Limit Price Pricenul L 9
+display.low_limit_price_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Low Limit Price: No Value ("..value..")"
+    return "Low Limit Price Pricenul L 9: No Value"
   end
-  return "Low Limit Price: "..value:tonumber()/10000000
+  return "Low Limit Price Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Low Limit Price
-dissect.low_limit_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_limit_price
+-- Dissect: Low Limit Price Pricenul L 9
+dissect.low_limit_price_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.low_limit_price_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.low_limit_price(value, buffer, offset, packet, parent)
+  local display = display.low_limit_price_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.low_limit_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.low_limit_price_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
 
--- Size: High Limit Price
-size_of.high_limit_price = 8
+-- Size: High Limit Price Pricenul L 9
+size_of.high_limit_price_pricenul_l_9 = 8
 
--- Display: High Limit Price
-display.high_limit_price = function(value)
+-- Display: High Limit Price Pricenul L 9
+display.high_limit_price_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "High Limit Price: No Value ("..value..")"
+    return "High Limit Price Pricenul L 9: No Value"
   end
-  return "High Limit Price: "..value:tonumber()/10000000
+  return "High Limit Price Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: High Limit Price
-dissect.high_limit_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_limit_price
+-- Dissect: High Limit Price Pricenul L 9
+dissect.high_limit_price_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.high_limit_price_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.high_limit_price(value, buffer, offset, packet, parent)
+  local display = display.high_limit_price_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.high_limit_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
@@ -1889,7 +1921,7 @@ size_of.cleared_volume = 4
 display.cleared_volume = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Cleared Volume: No Value ("..value..")"
+    return "Cleared Volume: No Value"
   end
 
   return "Cleared Volume: "..value
@@ -1914,7 +1946,7 @@ size_of.open_interest_qty = 4
 display.open_interest_qty = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Open Interest Qty: No Value ("..value..")"
+    return "Open Interest Qty: No Value"
   end
 
   return "Open Interest Qty: "..value
@@ -1999,26 +2031,26 @@ dissect.settl_price_type = function(buffer, offset, packet, parent)
   return offset + 1, range
 end
 
--- Size: Trading Reference Price
-size_of.trading_reference_price = 8
+-- Size: Trading Reference Price Pricenul L 9
+size_of.trading_reference_price_pricenul_l_9 = 8
 
--- Display: Trading Reference Price
-display.trading_reference_price = function(value)
+-- Display: Trading Reference Price Pricenul L 9
+display.trading_reference_price_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Trading Reference Price: No Value ("..value..")"
+    return "Trading Reference Price Pricenul L 9: No Value"
   end
-  return "Trading Reference Price: "..value:tonumber()/10000000
+  return "Trading Reference Price Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Trading Reference Price
-dissect.trading_reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.trading_reference_price
+-- Dissect: Trading Reference Price Pricenul L 9
+dissect.trading_reference_price_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.trading_reference_price_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.trading_reference_price(value, buffer, offset, packet, parent)
+  local display = display.trading_reference_price_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
@@ -2040,7 +2072,18 @@ end
 dissect.unit_of_measure = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.unit_of_measure(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure, range, value, display)
@@ -2055,7 +2098,7 @@ size_of.tick_rule = 1
 display.tick_rule = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Tick Rule: No Value ("..value..")"
+    return "Tick Rule: No Value"
   end
 
   return "Tick Rule: "..value
@@ -2073,26 +2116,26 @@ dissect.tick_rule = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Price Ratio
-size_of.price_ratio = 8
+-- Size: Price Ratio Pricenul L 9
+size_of.price_ratio_pricenul_l_9 = 8
 
--- Display: Price Ratio
-display.price_ratio = function(value)
+-- Display: Price Ratio Pricenul L 9
+display.price_ratio_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Price Ratio: No Value ("..value..")"
+    return "Price Ratio Pricenul L 9: No Value"
   end
-  return "Price Ratio: "..value:tonumber()/10000000
+  return "Price Ratio Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Price Ratio
-dissect.price_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.price_ratio
+-- Dissect: Price Ratio Pricenul L 9
+dissect.price_ratio_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.price_ratio_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.price_ratio(value, buffer, offset, packet, parent)
+  local display = display.price_ratio_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.price_ratio, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.price_ratio_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
@@ -2104,7 +2147,7 @@ size_of.price_display_format = 1
 display.price_display_format = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Price Display Format: No Value ("..value..")"
+    return "Price Display Format: No Value"
   end
 
   return "Price Display Format: "..value
@@ -2122,46 +2165,46 @@ dissect.price_display_format = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Display Factor
-size_of.display_factor = 8
+-- Size: Display Factor Decimal 9
+size_of.display_factor_decimal_9 = 8
 
--- Display: Display Factor
-display.display_factor = function(value)
-  return "Display Factor: "..value:tonumber()/10000000
+-- Display: Display Factor Decimal 9
+display.display_factor_decimal_9 = function(value)
+  return "Display Factor Decimal 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Display Factor
-dissect.display_factor = function(buffer, offset, packet, parent)
-  local length = size_of.display_factor
+-- Dissect: Display Factor Decimal 9
+dissect.display_factor_decimal_9 = function(buffer, offset, packet, parent)
+  local length = size_of.display_factor_decimal_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.display_factor(value, buffer, offset, packet, parent)
+  local display = display.display_factor_decimal_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.display_factor, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.display_factor_decimal_9, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Min Price Increment
-size_of.min_price_increment = 8
+-- Size: Min Price Increment Optional
+size_of.min_price_increment_optional = 8
 
--- Display: Min Price Increment
-display.min_price_increment = function(value)
+-- Display: Min Price Increment Optional
+display.min_price_increment_optional = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Min Price Increment: No Value ("..value..")"
+    return "Min Price Increment Optional: No Value"
   end
-  return "Min Price Increment: "..value:tonumber()/10000000
+  return "Min Price Increment Optional: "..value:tonumber()/1000000000
 end
 
--- Dissect: Min Price Increment
-dissect.min_price_increment = function(buffer, offset, packet, parent)
-  local length = size_of.min_price_increment
+-- Dissect: Min Price Increment Optional
+dissect.min_price_increment_optional = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment_optional
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.min_price_increment(value, buffer, offset, packet, parent)
+  local display = display.min_price_increment_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2211,6 +2254,11 @@ size_of.match_algorithm = 1
 
 -- Display: Match Algorithm
 display.match_algorithm = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Match Algorithm: No Value"
+  end
+
   return "Match Algorithm: "..value
 end
 
@@ -2218,7 +2266,17 @@ end
 dissect.match_algorithm = function(buffer, offset, packet, parent)
   local length = size_of.match_algorithm
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.match_algorithm(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.match_algorithm, range, value, display)
@@ -2231,6 +2289,11 @@ size_of.user_defined_instrument = 1
 
 -- Display: User Defined Instrument
 display.user_defined_instrument = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "User Defined Instrument: No Value"
+  end
+
   return "User Defined Instrument: "..value
 end
 
@@ -2238,7 +2301,17 @@ end
 dissect.user_defined_instrument = function(buffer, offset, packet, parent)
   local length = size_of.user_defined_instrument
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.user_defined_instrument(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.user_defined_instrument, range, value, display)
@@ -2263,7 +2336,18 @@ end
 dissect.security_sub_type = function(buffer, offset, packet, parent)
   local length = size_of.security_sub_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_sub_type, range, value, display)
@@ -2288,7 +2372,18 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.currency, range, value, display)
@@ -2303,7 +2398,7 @@ size_of.week = 1
 display.week = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Week: No Value ("..value..")"
+    return "Week: No Value"
   end
 
   return "Week: "..value
@@ -2328,7 +2423,7 @@ size_of.day = 1
 display.day = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Day: No Value ("..value..")"
+    return "Day: No Value"
   end
 
   return "Day: "..value
@@ -2353,7 +2448,7 @@ size_of.month = 1
 display.month = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Month: No Value ("..value..")"
+    return "Month: No Value"
   end
 
   return "Month: "..value
@@ -2378,7 +2473,7 @@ size_of.year = 2
 display.year = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Year: No Value ("..value..")"
+    return "Year: No Value"
   end
 
   return "Year: "..value
@@ -2465,7 +2560,18 @@ end
 dissect.cfi_code = function(buffer, offset, packet, parent)
   local length = size_of.cfi_code
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.cfi_code, range, value, display)
@@ -2490,7 +2596,18 @@ end
 dissect.security_type = function(buffer, offset, packet, parent)
   local length = size_of.security_type
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_type, range, value, display)
@@ -2503,11 +2620,6 @@ size_of.security_id = 4
 
 -- Display: Security Id
 display.security_id = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Security Id: No Value ("..value..")"
-  end
-
   return "Security Id: "..value
 end
 
@@ -2540,7 +2652,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.symbol, range, value, display)
@@ -2565,7 +2688,18 @@ end
 dissect.asset = function(buffer, offset, packet, parent)
   local length = size_of.asset
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.asset(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.asset, range, value, display)
@@ -2590,7 +2724,18 @@ end
 dissect.security_group = function(buffer, offset, packet, parent)
   local length = size_of.security_group
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_group(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_group, range, value, display)
@@ -2615,7 +2760,18 @@ end
 dissect.security_exchange = function(buffer, offset, packet, parent)
   local length = size_of.security_exchange
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_exchange, range, value, display)
@@ -2623,27 +2779,27 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Underlying Product
-size_of.underlying_product = 1
+-- Size: Underlying Product Optional
+size_of.underlying_product_optional = 1
 
--- Display: Underlying Product
-display.underlying_product = function(value)
+-- Display: Underlying Product Optional
+display.underlying_product_optional = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Underlying Product: No Value ("..value..")"
+    return "Underlying Product Optional: No Value"
   end
 
-  return "Underlying Product: "..value
+  return "Underlying Product Optional: "..value
 end
 
--- Dissect: Underlying Product
-dissect.underlying_product = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_product
+-- Dissect: Underlying Product Optional
+dissect.underlying_product_optional = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_product_optional
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_product(value, buffer, offset, packet, parent)
+  local display = display.underlying_product_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.underlying_product, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.underlying_product_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2787,7 +2943,7 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_update_action, range, value, display)
@@ -2795,27 +2951,27 @@ dissect.security_update_action = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Tot Num Reports
-size_of.tot_num_reports = 4
+-- Size: Tot Num Reports Optional
+size_of.tot_num_reports_optional = 4
 
--- Display: Tot Num Reports
-display.tot_num_reports = function(value)
+-- Display: Tot Num Reports Optional
+display.tot_num_reports_optional = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Tot Num Reports: No Value ("..value..")"
+    return "Tot Num Reports Optional: No Value"
   end
 
-  return "Tot Num Reports: "..value
+  return "Tot Num Reports Optional: "..value
 end
 
--- Dissect: Tot Num Reports
-dissect.tot_num_reports = function(buffer, offset, packet, parent)
-  local length = size_of.tot_num_reports
+-- Dissect: Tot Num Reports Optional
+dissect.tot_num_reports_optional = function(buffer, offset, packet, parent)
+  local length = size_of.tot_num_reports_optional
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.tot_num_reports(value, buffer, offset, packet, parent)
+  local display = display.tot_num_reports_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.tot_num_reports, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.tot_num_reports_optional, range, value, display)
 
   return offset + length, value
 end
@@ -2911,7 +3067,7 @@ size_of.md_instrument_definition_spread_56 = function(buffer, offset)
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -2923,7 +3079,7 @@ size_of.md_instrument_definition_spread_56 = function(buffer, offset)
 
   index = index + size_of.market_segment_id
 
-  index = index + size_of.underlying_product
+  index = index + size_of.underlying_product_optional
 
   index = index + size_of.security_exchange
 
@@ -2953,19 +3109,19 @@ size_of.md_instrument_definition_spread_56 = function(buffer, offset)
 
   index = index + size_of.max_trade_vol
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment_optional
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_decimal_9
 
   index = index + size_of.price_display_format
 
-  index = index + size_of.price_ratio
+  index = index + size_of.price_ratio_pricenul_l_9
 
   index = index + size_of.tick_rule
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenul_l_9
 
   index = index + size_of.settl_price_type
 
@@ -2973,11 +3129,11 @@ size_of.md_instrument_definition_spread_56 = function(buffer, offset)
 
   index = index + size_of.cleared_volume
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenul_l_9
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenul_l_9
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenul_l_9
 
   index = index + size_of.main_fraction
 
@@ -3010,8 +3166,8 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -3028,8 +3184,8 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
+  -- Underlying Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_product_optional = dissect.underlying_product_optional(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
@@ -3043,7 +3199,7 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -3073,17 +3229,17 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_optional = dissect.min_price_increment_optional(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Decimal 9: 8 Byte Signed Fixed Width Integer
+  index, display_factor_decimal_9 = dissect.display_factor_decimal_9(buffer, index, packet, parent)
 
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
-  -- Price Ratio: 8 Byte Signed Fixed Width Integer Nullable
-  index, price_ratio = dissect.price_ratio(buffer, index, packet, parent)
+  -- Price Ratio Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_ratio_pricenul_l_9 = dissect.price_ratio_pricenul_l_9(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
@@ -3091,8 +3247,8 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenul_l_9 = dissect.trading_reference_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -3103,14 +3259,14 @@ dissect.md_instrument_definition_spread_56_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenul_l_9 = dissect.high_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenul_l_9 = dissect.low_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenul_l_9 = dissect.max_price_variation_pricenul_l_9(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
@@ -3169,7 +3325,18 @@ end
 dissect.related_symbol = function(buffer, offset, packet, parent)
   local length = size_of.related_symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.related_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.related_symbol, range, value, display)
@@ -3305,7 +3472,18 @@ end
 dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.underlying_symbol, range, value, display)
@@ -3424,74 +3602,74 @@ dissect.underlyings_groups = function(buffer, offset, packet, parent)
   return dissect.underlyings_groups_fields(buffer, offset, packet, parent)
 end
 
--- Size: Unit Of Measure Qty
-size_of.unit_of_measure_qty = 8
+-- Size: Unit Of Measure Qty Decimal 9 Null
+size_of.unit_of_measure_qty_decimal_9_null = 8
 
--- Display: Unit Of Measure Qty
-display.unit_of_measure_qty = function(value)
+-- Display: Unit Of Measure Qty Decimal 9 Null
+display.unit_of_measure_qty_decimal_9_null = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Unit Of Measure Qty: No Value ("..value..")"
+    return "Unit Of Measure Qty Decimal 9 Null: No Value"
   end
-  return "Unit Of Measure Qty: "..value:tonumber()/10000000
+  return "Unit Of Measure Qty Decimal 9 Null: "..value:tonumber()/1000000000
 end
 
--- Dissect: Unit Of Measure Qty
-dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
-  local length = size_of.unit_of_measure_qty
+-- Dissect: Unit Of Measure Qty Decimal 9 Null
+dissect.unit_of_measure_qty_decimal_9_null = function(buffer, offset, packet, parent)
+  local length = size_of.unit_of_measure_qty_decimal_9_null
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
+  local display = display.unit_of_measure_qty_decimal_9_null(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_decimal_9_null, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Min Price Increment Amount
-size_of.min_price_increment_amount = 8
+-- Size: Min Price Increment Amount Pricenul L 9
+size_of.min_price_increment_amount_pricenul_l_9 = 8
 
--- Display: Min Price Increment Amount
-display.min_price_increment_amount = function(value)
+-- Display: Min Price Increment Amount Pricenul L 9
+display.min_price_increment_amount_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Min Price Increment Amount: No Value ("..value..")"
+    return "Min Price Increment Amount Pricenul L 9: No Value"
   end
-  return "Min Price Increment Amount: "..value:tonumber()/10000000
+  return "Min Price Increment Amount Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Min Price Increment Amount
-dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
-  local length = size_of.min_price_increment_amount
+-- Dissect: Min Price Increment Amount Pricenul L 9
+dissect.min_price_increment_amount_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment_amount_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.min_price_increment_amount(value, buffer, offset, packet, parent)
+  local display = display.min_price_increment_amount_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Min Cab Price
-size_of.min_cab_price = 8
+-- Size: Min Cab Price Pricenul L 9
+size_of.min_cab_price_pricenul_l_9 = 8
 
--- Display: Min Cab Price
-display.min_cab_price = function(value)
+-- Display: Min Cab Price Pricenul L 9
+display.min_cab_price_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Min Cab Price: No Value ("..value..")"
+    return "Min Cab Price Pricenul L 9: No Value"
   end
-  return "Min Cab Price: "..value:tonumber()/10000000
+  return "Min Cab Price Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Min Cab Price
-dissect.min_cab_price = function(buffer, offset, packet, parent)
-  local length = size_of.min_cab_price
+-- Dissect: Min Cab Price Pricenul L 9
+dissect.min_cab_price_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.min_cab_price_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.min_cab_price(value, buffer, offset, packet, parent)
+  local display = display.min_cab_price_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_cab_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_cab_price_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
@@ -3513,7 +3691,18 @@ end
 dissect.settl_currency = function(buffer, offset, packet, parent)
   local length = size_of.settl_currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.settl_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.settl_currency, range, value, display)
@@ -3538,7 +3727,18 @@ end
 dissect.strike_currency = function(buffer, offset, packet, parent)
   local length = size_of.strike_currency
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.strike_currency(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.strike_currency, range, value, display)
@@ -3546,26 +3746,26 @@ dissect.strike_currency = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Strike Price
-size_of.strike_price = 8
+-- Size: Strike Price Pricenul L 9
+size_of.strike_price_pricenul_l_9 = 8
 
--- Display: Strike Price
-display.strike_price = function(value)
+-- Display: Strike Price Pricenul L 9
+display.strike_price_pricenul_l_9 = function(value)
   -- Check if field has value
   if value == 9223372036854775807 then
-    return "Strike Price: No Value ("..value..")"
+    return "Strike Price Pricenul L 9: No Value"
   end
-  return "Strike Price: "..value:tonumber()/10000000
+  return "Strike Price Pricenul L 9: "..value:tonumber()/1000000000
 end
 
--- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
+-- Dissect: Strike Price Pricenul L 9
+dissect.strike_price_pricenul_l_9 = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_pricenul_l_9
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local display = display.strike_price_pricenul_l_9(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.strike_price, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.strike_price_pricenul_l_9, range, value, display)
 
   return offset + length, value
 end
@@ -3597,13 +3797,33 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Underlying Product
+size_of.underlying_product = 1
+
+-- Display: Underlying Product
+display.underlying_product = function(value)
+  return "Underlying Product: "..value
+end
+
+-- Dissect: Underlying Product
+dissect.underlying_product = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_product
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.underlying_product(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.underlying_product, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Instrument Definition Option 55
 size_of.md_instrument_definition_option_55 = function(buffer, offset)
   local index = 0
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -3637,13 +3857,13 @@ size_of.md_instrument_definition_option_55 = function(buffer, offset)
 
   index = index + size_of.currency
 
-  index = index + size_of.strike_price
+  index = index + size_of.strike_price_pricenul_l_9
 
   index = index + size_of.strike_currency
 
   index = index + size_of.settl_currency
 
-  index = index + size_of.min_cab_price
+  index = index + size_of.min_cab_price_pricenul_l_9
 
   index = index + size_of.match_algorithm
 
@@ -3651,11 +3871,11 @@ size_of.md_instrument_definition_option_55 = function(buffer, offset)
 
   index = index + size_of.max_trade_vol
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment_optional
 
-  index = index + size_of.min_price_increment_amount
+  index = index + size_of.min_price_increment_amount_pricenul_l_9
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_decimal_9
 
   index = index + size_of.tick_rule
 
@@ -3667,9 +3887,9 @@ size_of.md_instrument_definition_option_55 = function(buffer, offset)
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty_decimal_9_null
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenul_l_9
 
   index = index + size_of.settl_price_type
 
@@ -3677,9 +3897,9 @@ size_of.md_instrument_definition_option_55 = function(buffer, offset)
 
   index = index + size_of.open_interest_qty
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenul_l_9
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenul_l_9
 
   index = index + size_of.user_defined_instrument
 
@@ -3712,8 +3932,8 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -3730,7 +3950,7 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
   index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -3745,7 +3965,7 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -3763,8 +3983,8 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  -- Strike Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, strike_price_pricenul_l_9 = dissect.strike_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- Strike Currency: 3 Byte Ascii String
   index, strike_currency = dissect.strike_currency(buffer, index, packet, parent)
@@ -3772,8 +3992,8 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Settl Currency: 3 Byte Ascii String
   index, settl_currency = dissect.settl_currency(buffer, index, packet, parent)
 
-  -- Min Cab Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_cab_price = dissect.min_cab_price(buffer, index, packet, parent)
+  -- Min Cab Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_cab_price_pricenul_l_9 = dissect.min_cab_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
   index, match_algorithm = dissect.match_algorithm(buffer, index, packet, parent)
@@ -3784,14 +4004,14 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_optional = dissect.min_price_increment_optional(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  -- Min Price Increment Amount Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_amount_pricenul_l_9 = dissect.min_price_increment_amount_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Decimal 9: 8 Byte Signed Fixed Width Integer
+  index, display_factor_decimal_9 = dissect.display_factor_decimal_9(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
@@ -3808,11 +4028,11 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Decimal 9 Null: 8 Byte Signed Fixed Width Integer Nullable
+  index, unit_of_measure_qty_decimal_9_null = dissect.unit_of_measure_qty_decimal_9_null(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenul_l_9 = dissect.trading_reference_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -3823,11 +4043,11 @@ dissect.md_instrument_definition_option_55_fields = function(buffer, offset, pac
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenul_l_9 = dissect.low_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenul_l_9 = dissect.high_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
@@ -3876,7 +4096,7 @@ size_of.flow_schedule_type = 1
 display.flow_schedule_type = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Flow Schedule Type: No Value ("..value..")"
+    return "Flow Schedule Type: No Value"
   end
 
   return "Flow Schedule Type: "..value
@@ -3901,7 +4121,7 @@ size_of.contract_multiplier_unit = 1
 display.contract_multiplier_unit = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Contract Multiplier Unit: No Value ("..value..")"
+    return "Contract Multiplier Unit: No Value"
   end
 
   return "Contract Multiplier Unit: "..value
@@ -3926,7 +4146,7 @@ size_of.contract_multiplier = 4
 display.contract_multiplier = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Contract Multiplier: No Value ("..value..")"
+    return "Contract Multiplier: No Value"
   end
 
   return "Contract Multiplier: "..value
@@ -3951,7 +4171,7 @@ size_of.original_contract_size = 4
 display.original_contract_size = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Original Contract Size: No Value ("..value..")"
+    return "Original Contract Size: No Value"
   end
 
   return "Original Contract Size: "..value
@@ -3976,7 +4196,7 @@ size_of.decay_start_date = 2
 display.decay_start_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Decay Start Date: No Value ("..value..")"
+    return "Decay Start Date: No Value"
   end
 
   return "Decay Start Date: "..value
@@ -4001,7 +4221,7 @@ size_of.decay_quantity = 4
 display.decay_quantity = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Decay Quantity: No Value ("..value..")"
+    return "Decay Quantity: No Value"
   end
 
   return "Decay Quantity: "..value
@@ -4019,13 +4239,33 @@ dissect.decay_quantity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Min Price Increment
+size_of.min_price_increment = 8
+
+-- Display: Min Price Increment
+display.min_price_increment = function(value)
+  return "Min Price Increment: "..value:tonumber()/1000000000
+end
+
+-- Dissect: Min Price Increment
+dissect.min_price_increment = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.min_price_increment(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Instrument Definition Future 54
 size_of.md_instrument_definition_future_54 = function(buffer, offset)
   local index = 0
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -4067,7 +4307,7 @@ size_of.md_instrument_definition_future_54 = function(buffer, offset)
 
   index = index + size_of.min_price_increment
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_decimal_9
 
   index = index + size_of.main_fraction
 
@@ -4077,9 +4317,9 @@ size_of.md_instrument_definition_future_54 = function(buffer, offset)
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty_decimal_9_null
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenul_l_9
 
   index = index + size_of.settl_price_type
 
@@ -4087,11 +4327,11 @@ size_of.md_instrument_definition_future_54 = function(buffer, offset)
 
   index = index + size_of.cleared_volume
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenul_l_9
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenul_l_9
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenul_l_9
 
   index = index + size_of.decay_quantity
 
@@ -4105,7 +4345,7 @@ size_of.md_instrument_definition_future_54 = function(buffer, offset)
 
   index = index + size_of.flow_schedule_type
 
-  index = index + size_of.min_price_increment_amount
+  index = index + size_of.min_price_increment_amount_pricenul_l_9
 
   index = index + size_of.user_defined_instrument
 
@@ -4134,8 +4374,8 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -4152,7 +4392,7 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
   index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -4167,7 +4407,7 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -4194,11 +4434,11 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
+  -- Min Price Increment: 8 Byte Signed Fixed Width Integer
   index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Decimal 9: 8 Byte Signed Fixed Width Integer
+  index, display_factor_decimal_9 = dissect.display_factor_decimal_9(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
@@ -4212,11 +4452,11 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Decimal 9 Null: 8 Byte Signed Fixed Width Integer Nullable
+  index, unit_of_measure_qty_decimal_9_null = dissect.unit_of_measure_qty_decimal_9_null(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenul_l_9 = dissect.trading_reference_price_pricenul_l_9(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -4227,14 +4467,14 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenul_l_9 = dissect.high_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenul_l_9 = dissect.low_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenul_l_9 = dissect.max_price_variation_pricenul_l_9(buffer, index, packet, parent)
 
   -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
   index, decay_quantity = dissect.decay_quantity(buffer, index, packet, parent)
@@ -4254,8 +4494,8 @@ dissect.md_instrument_definition_future_54_fields = function(buffer, offset, pac
   -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
   index, flow_schedule_type = dissect.flow_schedule_type(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  -- Min Price Increment Amount Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_amount_pricenul_l_9 = dissect.min_price_increment_amount_pricenul_l_9(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
@@ -4319,7 +4559,7 @@ end
 dissect.md_entry_type_book = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_book
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.md_entry_type_book(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_book, range, value, display)
@@ -4332,11 +4572,6 @@ size_of.md_display_qty = 4
 
 -- Display: Md Display Qty
 display.md_display_qty = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
-    return "Md Display Qty: No Value ("..value..")"
-  end
-
   return "Md Display Qty: "..value
 end
 
@@ -4357,10 +4592,6 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
-    return "Md Entry Px: No Value ("..value..")"
-  end
   return "Md Entry Px: "..value:tonumber()/10000000
 end
 
@@ -4382,8 +4613,8 @@ size_of.md_order_priority = 8
 -- Display: Md Order Priority
 display.md_order_priority = function(value)
   -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Md Order Priority: No Value ("..value..")"
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Md Order Priority: No Value"
   end
 
   return "Md Order Priority: "..value
@@ -4406,11 +4637,6 @@ size_of.order_id = 8
 
 -- Display: Order Id
 display.order_id = function(value)
-  -- Check if field has value
-  if value == 18446744073709551615 then
-    return "Order Id: No Value ("..value..")"
-  end
-
   return "Order Id: "..value
 end
 
@@ -4452,16 +4678,16 @@ end
 dissect.snapshot_full_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Display Qty: 4 Byte Signed Fixed Width Integer
   index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
 
   -- Md Entry Type Book: 1 Byte Ascii String Enum with 5 values
@@ -4592,6 +4818,26 @@ dissect.no_chunks = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Tot Num Reports
+size_of.tot_num_reports = 4
+
+-- Display: Tot Num Reports
+display.tot_num_reports = function(value)
+  return "Tot Num Reports: "..value
+end
+
+-- Dissect: Tot Num Reports
+dissect.tot_num_reports = function(buffer, offset, packet, parent)
+  local length = size_of.tot_num_reports
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.tot_num_reports(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.tot_num_reports, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Last Msg Seq Num Processed
 size_of.last_msg_seq_num_processed = 4
 
@@ -4645,10 +4891,10 @@ dissect.snapshot_full_refresh_order_book_53_fields = function(buffer, offset, pa
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
   index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- No Chunks: 4 Byte Unsigned Fixed Width Integer
@@ -4680,73 +4926,73 @@ dissect.snapshot_full_refresh_order_book_53 = function(buffer, offset, packet, p
 end
 
 -- Size: Md Entry Type
-size_of.md_entry_type = 1
+size_of.md_entry_type_ = 1
 
 -- Display: Md Entry Type
-display.md_entry_type = function(value)
+display.md_entry_type_ = function(value)
   if value == "0" then
-    return "Md Entry Type: Bid (0)"
+    return "Md Entry Type : Bid (0)"
   end
   if value == "1" then
-    return "Md Entry Type: Offer (1)"
+    return "Md Entry Type : Offer (1)"
   end
   if value == "2" then
-    return "Md Entry Type: Trade (2)"
+    return "Md Entry Type : Trade (2)"
   end
   if value == "4" then
-    return "Md Entry Type: Open Price (4)"
+    return "Md Entry Type : Open Price (4)"
   end
   if value == "6" then
-    return "Md Entry Type: Settlement Price (6)"
+    return "Md Entry Type : Settlement Price (6)"
   end
   if value == "7" then
-    return "Md Entry Type: Trading Session High Price (7)"
+    return "Md Entry Type : Trading Session High Price (7)"
   end
   if value == "8" then
-    return "Md Entry Type: Trading Session Low Price (8)"
+    return "Md Entry Type : Trading Session Low Price (8)"
   end
   if value == "B" then
-    return "Md Entry Type: Cleared Volume (B)"
+    return "Md Entry Type : Cleared Volume (B)"
   end
   if value == "C" then
-    return "Md Entry Type: Open Interest (C)"
+    return "Md Entry Type : Open Interest (C)"
   end
   if value == "E" then
-    return "Md Entry Type: Implied Bid (E)"
+    return "Md Entry Type : Implied Bid (E)"
   end
   if value == "F" then
-    return "Md Entry Type: Implied Offer (F)"
+    return "Md Entry Type : Implied Offer (F)"
   end
   if value == "J" then
-    return "Md Entry Type: Book Reset (J)"
+    return "Md Entry Type : Book Reset (J)"
   end
   if value == "N" then
-    return "Md Entry Type: Session High Bid (N)"
+    return "Md Entry Type : Session High Bid (N)"
   end
   if value == "O" then
-    return "Md Entry Type: Session Low Offer (O)"
+    return "Md Entry Type : Session Low Offer (O)"
   end
   if value == "W" then
-    return "Md Entry Type: Fixing Price (W)"
+    return "Md Entry Type : Fixing Price (W)"
   end
   if value == "e" then
-    return "Md Entry Type: Electronic Volume (e)"
+    return "Md Entry Type : Electronic Volume (e)"
   end
   if value == "g" then
-    return "Md Entry Type: Threshold Limitsand Price Band Variation (g)"
+    return "Md Entry Type : Threshold Limitsand Price Band Variation (g)"
   end
 
-  return "Md Entry Type: Unknown("..value..")"
+  return "Md Entry Type : Unknown("..value..")"
 end
 
 -- Dissect: Md Entry Type
-dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_type
+dissect.md_entry_type_ = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_type_
   local range = buffer(offset, length)
-  local value = range:stringz()
-  local display = display.md_entry_type(value, buffer, offset, packet, parent)
+  local value = range:string()
+  local display = display.md_entry_type_(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_, range, value, display)
 
   return offset + length, value
 end
@@ -4781,77 +5027,101 @@ dissect.open_close_settl_flag = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Md Price Level
-size_of.md_price_level = 1
+-- Size: Md Price Level Optional
+size_of.md_price_level_optional = 1
 
--- Display: Md Price Level
-display.md_price_level = function(value)
+-- Display: Md Price Level Optional
+display.md_price_level_optional = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Md Price Level: No Value ("..value..")"
+    return "Md Price Level Optional: No Value"
   end
 
-  return "Md Price Level: "..value
+  return "Md Price Level Optional: "..value
 end
 
--- Dissect: Md Price Level
-dissect.md_price_level = function(buffer, offset, packet, parent)
-  local length = size_of.md_price_level
+-- Dissect: Md Price Level Optional
+dissect.md_price_level_optional = function(buffer, offset, packet, parent)
+  local length = size_of.md_price_level_optional
   local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.md_price_level(value, buffer, offset, packet, parent)
+  local value = range:le_int()
+  local display = display.md_price_level_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_price_level, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_price_level_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Number Of Orders
-size_of.number_of_orders = 4
+-- Size: Number Of Orders Optional
+size_of.number_of_orders_optional = 4
 
--- Display: Number Of Orders
-display.number_of_orders = function(value)
+-- Display: Number Of Orders Optional
+display.number_of_orders_optional = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Number Of Orders: No Value ("..value..")"
+    return "Number Of Orders Optional: No Value"
   end
 
-  return "Number Of Orders: "..value
+  return "Number Of Orders Optional: "..value
 end
 
--- Dissect: Number Of Orders
-dissect.number_of_orders = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_orders
+-- Dissect: Number Of Orders Optional
+dissect.number_of_orders_optional = function(buffer, offset, packet, parent)
+  local length = size_of.number_of_orders_optional
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.number_of_orders(value, buffer, offset, packet, parent)
+  local display = display.number_of_orders_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.number_of_orders, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.number_of_orders_optional, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Md Entry Size
-size_of.md_entry_size = 4
+-- Size: Md Entry Size Optional
+size_of.md_entry_size_optional = 4
 
--- Display: Md Entry Size
-display.md_entry_size = function(value)
+-- Display: Md Entry Size Optional
+display.md_entry_size_optional = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Md Entry Size: No Value ("..value..")"
+    return "Md Entry Size Optional: No Value"
   end
 
-  return "Md Entry Size: "..value
+  return "Md Entry Size Optional: "..value
 end
 
--- Dissect: Md Entry Size
-dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_size
+-- Dissect: Md Entry Size Optional
+dissect.md_entry_size_optional = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_size_optional
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.md_entry_size(value, buffer, offset, packet, parent)
+  local display = display.md_entry_size_optional(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_size, range, value, display)
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_size_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Md Entry Px Optional
+size_of.md_entry_px_optional = 8
+
+-- Display: Md Entry Px Optional
+display.md_entry_px_optional = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Md Entry Px Optional: No Value"
+  end
+  return "Md Entry Px Optional: "..value:tonumber()/10000000
+end
+
+-- Dissect: Md Entry Px Optional
+dissect.md_entry_px_optional = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_px_optional
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.md_entry_px_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_px_optional, range, value, display)
 
   return offset + length, value
 end
@@ -4860,13 +5130,13 @@ end
 size_of.snapshot_full_refresh_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px_optional
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size_optional
 
-  index = index + size_of.number_of_orders
+  index = index + size_of.number_of_orders_optional
 
-  index = index + size_of.md_price_level
+  index = index + size_of.md_price_level_optional
 
   index = index + size_of.trading_reference_date
 
@@ -4874,7 +5144,7 @@ size_of.snapshot_full_refresh_group = function(buffer, offset)
 
   index = index + size_of.settl_price_type
 
-  index = index + size_of.md_entry_type
+  index = index + size_of.md_entry_type_
 
   return index
 end
@@ -4888,17 +5158,17 @@ end
 dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional = dissect.md_entry_px_optional(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_optional = dissect.md_entry_size_optional(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
+  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, number_of_orders_optional = dissect.number_of_orders_optional(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, md_price_level = dissect.md_price_level(buffer, index, packet, parent)
+  -- Md Price Level Optional: 1 Byte Signed Fixed Width Integer Nullable
+  index, md_price_level_optional = dissect.md_price_level_optional(buffer, index, packet, parent)
 
   -- Trading Reference Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trading_reference_date = dissect.trading_reference_date(buffer, index, packet, parent)
@@ -4909,8 +5179,8 @@ dissect.snapshot_full_refresh_group_fields = function(buffer, offset, packet, pa
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
 
-  -- Md Entry Type: 1 Byte Ascii String Enum with 17 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  -- Md Entry Type : 1 Byte Ascii String Enum with 17 values
+  index, md_entry_type_ = dissect.md_entry_type_(buffer, index, packet, parent)
 
   return index
 end
@@ -4984,7 +5254,7 @@ size_of.trade_date = 2
 display.trade_date = function(value)
   -- Check if field has value
   if value == 65535 then
-    return "Trade Date: No Value ("..value..")"
+    return "Trade Date: No Value"
   end
 
   return "Trade Date: "..value
@@ -5042,11 +5312,11 @@ size_of.snapshot_full_refresh_52 = function(buffer, offset)
 
   index = index + size_of.md_security_trading_status
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenul_l_9
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenul_l_9
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenul_l_9
 
   index = index + size_of.snapshot_full_refresh_groups(buffer, offset + index)
 
@@ -5065,10 +5335,10 @@ dissect.snapshot_full_refresh_52_fields = function(buffer, offset, packet, paren
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
   index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -5086,14 +5356,14 @@ dissect.snapshot_full_refresh_52_fields = function(buffer, offset, packet, paren
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenul_l_9 = dissect.high_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenul_l_9 = dissect.low_limit_price_pricenul_l_9(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenul L 9: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenul_l_9 = dissect.max_price_variation_pricenul_l_9(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Groups: Struct of 2 fields
   index, snapshot_full_refresh_groups = dissect.snapshot_full_refresh_groups(buffer, index, packet, parent)
@@ -5162,7 +5432,7 @@ end
 dissect.md_entry_type_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_statistics
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.md_entry_type_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_statistics, range, value, display)
@@ -5225,7 +5495,7 @@ size_of.m_d_incremental_refresh_session_statistics_group = function(buffer, offs
 
   index = index + size_of.md_entry_type_statistics
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size_optional
 
   index = index + size_of.padding_1
 
@@ -5241,10 +5511,10 @@ end
 dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -5259,8 +5529,8 @@ dissect.m_d_incremental_refresh_session_statistics_group_fields = function(buffe
   -- Md Entry Type Statistics: 1 Byte Ascii String Enum with 5 values
   index, md_entry_type_statistics = dissect.md_entry_type_statistics(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_optional = dissect.md_entry_size_optional(buffer, index, packet, parent)
 
   -- Padding 1: 1 Byte
   index, padding_1 = dissect.padding_1(buffer, index, packet, parent)
@@ -5402,15 +5672,87 @@ dissect.md_incremental_refresh_session_statistics_51 = function(buffer, offset, 
   return dissect.md_incremental_refresh_session_statistics_51_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Max Price Variation Pricenull
+size_of.max_price_variation_pricenull = 8
+
+-- Display: Max Price Variation Pricenull
+display.max_price_variation_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Max Price Variation Pricenull: No Value"
+  end
+  return "Max Price Variation Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Max Price Variation Pricenull
+dissect.max_price_variation_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.max_price_variation_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.max_price_variation_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.max_price_variation_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Low Limit Price Pricenull
+size_of.low_limit_price_pricenull = 8
+
+-- Display: Low Limit Price Pricenull
+display.low_limit_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Low Limit Price Pricenull: No Value"
+  end
+  return "Low Limit Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Low Limit Price Pricenull
+dissect.low_limit_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.low_limit_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.low_limit_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.low_limit_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: High Limit Price Pricenull
+size_of.high_limit_price_pricenull = 8
+
+-- Display: High Limit Price Pricenull
+display.high_limit_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "High Limit Price Pricenull: No Value"
+  end
+  return "High Limit Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: High Limit Price Pricenull
+dissect.high_limit_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.high_limit_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.high_limit_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.high_limit_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Limits Banding Group
 size_of.m_d_incremental_refresh_limits_banding_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenull
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenull
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenull
 
   index = index + size_of.security_id
 
@@ -5428,16 +5770,16 @@ end
 dissect.m_d_incremental_refresh_limits_banding_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenull = dissect.high_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenull = dissect.low_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenull = dissect.max_price_variation_pricenull(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -5605,7 +5947,7 @@ end
 dissect.md_entry_type_daily_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_daily_statistics
   local range = buffer(offset, length)
-  local value = range:stringz()
+  local value = range:string()
   local display = display.md_entry_type_daily_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_daily_statistics, range, value, display)
@@ -5617,9 +5959,9 @@ end
 size_of.m_d_incremental_refresh_daily_statistics_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px_optional
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size_optional
 
   index = index + size_of.security_id
 
@@ -5647,13 +5989,13 @@ end
 dissect.m_d_incremental_refresh_daily_statistics_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional = dissect.md_entry_px_optional(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_optional = dissect.md_entry_size_optional(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -5853,7 +6195,7 @@ end
 dissect.m_d_incremental_refresh_trade_summary_order_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Signed Fixed Width Integer
@@ -6001,7 +6343,7 @@ size_of.md_trade_entry_id = 4
 display.md_trade_entry_id = function(value)
   -- Check if field has value
   if value == 4294967295 then
-    return "Md Trade Entry Id: No Value ("..value..")"
+    return "Md Trade Entry Id: No Value"
   end
 
   return "Md Trade Entry Id: "..value
@@ -6052,6 +6394,26 @@ dissect.aggressor_side = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Md Entry Size
+size_of.md_entry_size = 4
+
+-- Display: Md Entry Size
+display.md_entry_size = function(value)
+  return "Md Entry Size: "..value
+end
+
+-- Dissect: Md Entry Size
+dissect.md_entry_size = function(buffer, offset, packet, parent)
+  local length = size_of.md_entry_size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.md_entry_size(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_size, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Trade Summary Group
 size_of.m_d_incremental_refresh_trade_summary_group = function(buffer, offset)
   local index = 0
@@ -6064,7 +6426,7 @@ size_of.m_d_incremental_refresh_trade_summary_group = function(buffer, offset)
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.number_of_orders
+  index = index + size_of.number_of_orders_optional
 
   index = index + size_of.aggressor_side
 
@@ -6086,20 +6448,20 @@ end
 dissect.m_d_incremental_refresh_trade_summary_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Px: 8 Byte Signed Fixed Width Integer
   index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
+  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, number_of_orders_optional = dissect.number_of_orders_optional(buffer, index, packet, parent)
 
   -- Aggressor Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, aggressor_side = dissect.aggressor_side(buffer, index, packet, parent)
@@ -6255,17 +6617,67 @@ dissect.padding_6 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Md Display Qty Optional
+size_of.md_display_qty_optional = 4
+
+-- Display: Md Display Qty Optional
+display.md_display_qty_optional = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Md Display Qty Optional: No Value"
+  end
+
+  return "Md Display Qty Optional: "..value
+end
+
+-- Dissect: Md Display Qty Optional
+dissect.md_display_qty_optional = function(buffer, offset, packet, parent)
+  local length = size_of.md_display_qty_optional
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.md_display_qty_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_display_qty_optional, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Order Id Optional
+size_of.order_id_optional = 8
+
+-- Display: Order Id Optional
+display.order_id_optional = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Order Id Optional: No Value"
+  end
+
+  return "Order Id Optional: "..value
+end
+
+-- Dissect: Order Id Optional
+dissect.order_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.order_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_uint64()
+  local display = display.order_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.order_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Order Book Group
 size_of.m_d_incremental_refresh_order_book_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_id
+  index = index + size_of.order_id_optional
 
   index = index + size_of.md_order_priority
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px_optional
 
-  index = index + size_of.md_display_qty
+  index = index + size_of.md_display_qty_optional
 
   index = index + size_of.security_id
 
@@ -6287,19 +6699,19 @@ end
 dissect.m_d_incremental_refresh_order_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  -- Order Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
+  index, order_id_optional = dissect.order_id_optional(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional = dissect.md_entry_px_optional(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
+  -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_display_qty_optional = dissect.md_display_qty_optional(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -6465,7 +6877,7 @@ size_of.reference_id = 1
 display.reference_id = function(value)
   -- Check if field has value
   if value == 255 then
-    return "Reference Id: No Value ("..value..")"
+    return "Reference Id: No Value"
   end
 
   return "Reference Id: "..value
@@ -6491,7 +6903,7 @@ size_of.m_d_incremental_refresh_book_order_group = function(buffer, offset)
 
   index = index + size_of.md_order_priority
 
-  index = index + size_of.md_display_qty
+  index = index + size_of.md_display_qty_optional
 
   index = index + size_of.reference_id
 
@@ -6511,14 +6923,14 @@ end
 dissect.m_d_incremental_refresh_book_order_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Md Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, md_order_priority = dissect.md_order_priority(buffer, index, packet, parent)
 
-  -- Md Display Qty: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_display_qty = dissect.md_display_qty(buffer, index, packet, parent)
+  -- Md Display Qty Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_display_qty_optional = dissect.md_display_qty_optional(buffer, index, packet, parent)
 
   -- Reference Id: 1 Byte Unsigned Fixed Width Integer Nullable
   index, reference_id = dissect.reference_id(buffer, index, packet, parent)
@@ -6594,19 +7006,39 @@ dissect.m_d_incremental_refresh_book_order_groups = function(buffer, offset, pac
   return dissect.m_d_incremental_refresh_book_order_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Md Price Level
+size_of.md_price_level = 1
+
+-- Display: Md Price Level
+display.md_price_level = function(value)
+  return "Md Price Level: "..value
+end
+
+-- Dissect: Md Price Level
+dissect.md_price_level = function(buffer, offset, packet, parent)
+  local length = size_of.md_price_level
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.md_price_level(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_price_level, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: M D Incremental Refresh Book Group
 size_of.m_d_incremental_refresh_book_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_px
+  index = index + size_of.md_entry_px_optional
 
-  index = index + size_of.md_entry_size
+  index = index + size_of.md_entry_size_optional
 
   index = index + size_of.security_id
 
   index = index + size_of.rpt_seq
 
-  index = index + size_of.number_of_orders
+  index = index + size_of.number_of_orders_optional
 
   index = index + size_of.md_price_level
 
@@ -6628,22 +7060,22 @@ end
 dissect.m_d_incremental_refresh_book_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Px: 8 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  -- Md Entry Px Optional: 8 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_px_optional = dissect.md_entry_px_optional(buffer, index, packet, parent)
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  -- Md Entry Size Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, md_entry_size_optional = dissect.md_entry_size_optional(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
   index, rpt_seq = dissect.rpt_seq(buffer, index, packet, parent)
 
-  -- Number Of Orders: 4 Byte Signed Fixed Width Integer Nullable
-  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
+  -- Number Of Orders Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, number_of_orders_optional = dissect.number_of_orders_optional(buffer, index, packet, parent)
 
-  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Md Price Level: 1 Byte Unsigned Fixed Width Integer
   index, md_price_level = dissect.md_price_level(buffer, index, packet, parent)
 
   -- Md Update Action: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -6810,10 +7242,10 @@ dissect.snapshot_full_refresh_order_book_44_fields = function(buffer, offset, pa
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
   index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- No Chunks: 4 Byte Unsigned Fixed Width Integer
@@ -6953,13 +7385,177 @@ dissect.md_incremental_refresh_trade_summary_42 = function(buffer, offset, packe
   return dissect.md_incremental_refresh_trade_summary_42_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Trading Reference Price Pricenull
+size_of.trading_reference_price_pricenull = 8
+
+-- Display: Trading Reference Price Pricenull
+display.trading_reference_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Trading Reference Price Pricenull: No Value"
+  end
+  return "Trading Reference Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Trading Reference Price Pricenull
+dissect.trading_reference_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.trading_reference_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.trading_reference_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.trading_reference_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Unit Of Measure Qty Pricenull
+size_of.unit_of_measure_qty_pricenull = 8
+
+-- Display: Unit Of Measure Qty Pricenull
+display.unit_of_measure_qty_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Unit Of Measure Qty Pricenull: No Value"
+  end
+  return "Unit Of Measure Qty Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Unit Of Measure Qty Pricenull
+dissect.unit_of_measure_qty_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.unit_of_measure_qty_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.unit_of_measure_qty_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.unit_of_measure_qty_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Display Factor Float
+size_of.display_factor_float = 8
+
+-- Display: Display Factor Float
+display.display_factor_float = function(value)
+  return "Display Factor Float: "..value:tonumber()/10000000
+end
+
+-- Dissect: Display Factor Float
+dissect.display_factor_float = function(buffer, offset, packet, parent)
+  local length = size_of.display_factor_float
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.display_factor_float(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.display_factor_float, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Min Price Increment Amount Pricenull
+size_of.min_price_increment_amount_pricenull = 8
+
+-- Display: Min Price Increment Amount Pricenull
+display.min_price_increment_amount_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Price Increment Amount Pricenull: No Value"
+  end
+  return "Min Price Increment Amount Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Min Price Increment Amount Pricenull
+dissect.min_price_increment_amount_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment_amount_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.min_price_increment_amount_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_amount_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Min Price Increment Pricenull
+size_of.min_price_increment_pricenull = 8
+
+-- Display: Min Price Increment Pricenull
+display.min_price_increment_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Price Increment Pricenull: No Value"
+  end
+  return "Min Price Increment Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Min Price Increment Pricenull
+dissect.min_price_increment_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.min_price_increment_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Min Cab Price Pricenull
+size_of.min_cab_price_pricenull = 8
+
+-- Display: Min Cab Price Pricenull
+display.min_cab_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Min Cab Price Pricenull: No Value"
+  end
+  return "Min Cab Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Min Cab Price Pricenull
+dissect.min_cab_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.min_cab_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.min_cab_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_cab_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Strike Price Pricenull
+size_of.strike_price_pricenull = 8
+
+-- Display: Strike Price Pricenull
+display.strike_price_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Strike Price Pricenull: No Value"
+  end
+  return "Strike Price Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Strike Price Pricenull
+dissect.strike_price_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.strike_price_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.strike_price_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Instrument Definition Option 41
 size_of.md_instrument_definition_option_41 = function(buffer, offset)
   local index = 0
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -6993,13 +7589,13 @@ size_of.md_instrument_definition_option_41 = function(buffer, offset)
 
   index = index + size_of.currency
 
-  index = index + size_of.strike_price
+  index = index + size_of.strike_price_pricenull
 
   index = index + size_of.strike_currency
 
   index = index + size_of.settl_currency
 
-  index = index + size_of.min_cab_price
+  index = index + size_of.min_cab_price_pricenull
 
   index = index + size_of.match_algorithm
 
@@ -7007,11 +7603,11 @@ size_of.md_instrument_definition_option_41 = function(buffer, offset)
 
   index = index + size_of.max_trade_vol
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment_pricenull
 
-  index = index + size_of.min_price_increment_amount
+  index = index + size_of.min_price_increment_amount_pricenull
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_float
 
   index = index + size_of.tick_rule
 
@@ -7023,9 +7619,9 @@ size_of.md_instrument_definition_option_41 = function(buffer, offset)
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty_pricenull
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenull
 
   index = index + size_of.settl_price_type
 
@@ -7033,9 +7629,9 @@ size_of.md_instrument_definition_option_41 = function(buffer, offset)
 
   index = index + size_of.open_interest_qty
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenull
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenull
 
   index = index + size_of.user_defined_instrument
 
@@ -7068,8 +7664,8 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -7086,7 +7682,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
   index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -7101,7 +7697,7 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -7119,8 +7715,8 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Currency: 3 Byte Ascii String
   index, currency = dissect.currency(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  -- Strike Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, strike_price_pricenull = dissect.strike_price_pricenull(buffer, index, packet, parent)
 
   -- Strike Currency: 3 Byte Ascii String
   index, strike_currency = dissect.strike_currency(buffer, index, packet, parent)
@@ -7128,8 +7724,8 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Settl Currency: 3 Byte Ascii String
   index, settl_currency = dissect.settl_currency(buffer, index, packet, parent)
 
-  -- Min Cab Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_cab_price = dissect.min_cab_price(buffer, index, packet, parent)
+  -- Min Cab Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_cab_price_pricenull = dissect.min_cab_price_pricenull(buffer, index, packet, parent)
 
   -- Match Algorithm: 1 Byte Ascii String
   index, match_algorithm = dissect.match_algorithm(buffer, index, packet, parent)
@@ -7140,14 +7736,14 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_pricenull = dissect.min_price_increment_pricenull(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  -- Min Price Increment Amount Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_amount_pricenull = dissect.min_price_increment_amount_pricenull(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Float: 8 Byte Signed Fixed Width Integer
+  index, display_factor_float = dissect.display_factor_float(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
@@ -7164,11 +7760,11 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, unit_of_measure_qty_pricenull = dissect.unit_of_measure_qty_pricenull(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenull = dissect.trading_reference_price_pricenull(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -7179,11 +7775,11 @@ dissect.md_instrument_definition_option_41_fields = function(buffer, offset, pac
   -- Open Interest Qty: 4 Byte Signed Fixed Width Integer Nullable
   index, open_interest_qty = dissect.open_interest_qty(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenull = dissect.low_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenull = dissect.high_limit_price_pricenull(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
@@ -7232,7 +7828,7 @@ size_of.side = 1
 display.side = function(value)
   -- Check if field has value
   if value == 127 then
-    return "Side: No Value ("..value..")"
+    return "Side: No Value"
   end
 
   return "Side: "..value
@@ -7277,7 +7873,7 @@ size_of.order_qty = 4
 display.order_qty = function(value)
   -- Check if field has value
   if value == 2147483647 then
-    return "Order Qty: No Value ("..value..")"
+    return "Order Qty: No Value"
   end
 
   return "Order Qty: "..value
@@ -7326,7 +7922,7 @@ dissect.related_sym_group_fields = function(buffer, offset, packet, parent)
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Signed Fixed Width Integer Nullable
@@ -7443,7 +8039,18 @@ end
 dissect.quote_req_id = function(buffer, offset, packet, parent)
   local length = size_of.quote_req_id
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.quote_req_id, range, value, display)
@@ -7528,11 +8135,11 @@ size_of.snapshot_full_refresh_38 = function(buffer, offset)
 
   index = index + size_of.md_security_trading_status
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenull
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenull
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenull
 
   index = index + size_of.snapshot_full_refresh_groups(buffer, offset + index)
 
@@ -7551,10 +8158,10 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Last Msg Seq Num Processed: 4 Byte Unsigned Fixed Width Integer
   index, last_msg_seq_num_processed = dissect.last_msg_seq_num_processed(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer
   index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -7572,14 +8179,14 @@ dissect.snapshot_full_refresh_38_fields = function(buffer, offset, packet, paren
   -- Md Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, md_security_trading_status = dissect.md_security_trading_status(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenull = dissect.high_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenull = dissect.low_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenull = dissect.max_price_variation_pricenull(buffer, index, packet, parent)
 
   -- Snapshot Full Refresh Groups: Struct of 2 fields
   index, snapshot_full_refresh_groups = dissect.snapshot_full_refresh_groups(buffer, index, packet, parent)
@@ -7626,10 +8233,10 @@ end
 dissect.m_d_incremental_refresh_volume_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Md Entry Size: 4 Byte Signed Fixed Width Integer Nullable
+  -- Md Entry Size: 4 Byte Signed Fixed Width Integer
   index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Rpt Seq: 4 Byte Unsigned Fixed Width Integer
@@ -8106,6 +8713,31 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Security Id Optional
+size_of.security_id_optional = 4
+
+-- Display: Security Id Optional
+display.security_id_optional = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Security Id Optional: No Value"
+  end
+
+  return "Security Id Optional: "..value
+end
+
+-- Dissect: Security Id Optional
+dissect.security_id_optional = function(buffer, offset, packet, parent)
+  local length = size_of.security_id_optional
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.security_id_optional(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_id_optional, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Security Status 30
 size_of.security_status_30 = function(buffer, offset)
   local index = 0
@@ -8116,7 +8748,7 @@ size_of.security_status_30 = function(buffer, offset)
 
   index = index + size_of.asset
 
-  index = index + size_of.security_id
+  index = index + size_of.security_id_optional
 
   index = index + size_of.trade_date
 
@@ -8149,8 +8781,8 @@ dissect.security_status_30_fields = function(buffer, offset, packet, parent)
   -- Asset: 6 Byte Ascii String
   index, asset = dissect.asset(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  -- Security Id Optional: 4 Byte Signed Fixed Width Integer Nullable
+  index, security_id_optional = dissect.security_id_optional(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -8183,13 +8815,57 @@ dissect.security_status_30 = function(buffer, offset, packet, parent)
   return dissect.security_status_30_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Price Ratio Pricenull
+size_of.price_ratio_pricenull = 8
+
+-- Display: Price Ratio Pricenull
+display.price_ratio_pricenull = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Price Ratio Pricenull: No Value"
+  end
+  return "Price Ratio Pricenull: "..value:tonumber()/10000000
+end
+
+-- Dissect: Price Ratio Pricenull
+dissect.price_ratio_pricenull = function(buffer, offset, packet, parent)
+  local length = size_of.price_ratio_pricenull
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.price_ratio_pricenull(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.price_ratio_pricenull, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Min Price Increment Price
+size_of.min_price_increment_price = 8
+
+-- Display: Min Price Increment Price
+display.min_price_increment_price = function(value)
+  return "Min Price Increment Price: "..value:tonumber()/10000000
+end
+
+-- Dissect: Min Price Increment Price
+dissect.min_price_increment_price = function(buffer, offset, packet, parent)
+  local length = size_of.min_price_increment_price
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.min_price_increment_price(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_mdp3_sbe_v1_9.fields.min_price_increment_price, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Md Instrument Definition Spread 29
 size_of.md_instrument_definition_spread_29 = function(buffer, offset)
   local index = 0
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -8201,7 +8877,7 @@ size_of.md_instrument_definition_spread_29 = function(buffer, offset)
 
   index = index + size_of.market_segment_id
 
-  index = index + size_of.underlying_product
+  index = index + size_of.underlying_product_optional
 
   index = index + size_of.security_exchange
 
@@ -8231,19 +8907,19 @@ size_of.md_instrument_definition_spread_29 = function(buffer, offset)
 
   index = index + size_of.max_trade_vol
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment_price
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_float
 
   index = index + size_of.price_display_format
 
-  index = index + size_of.price_ratio
+  index = index + size_of.price_ratio_pricenull
 
   index = index + size_of.tick_rule
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenull
 
   index = index + size_of.settl_price_type
 
@@ -8251,11 +8927,11 @@ size_of.md_instrument_definition_spread_29 = function(buffer, offset)
 
   index = index + size_of.cleared_volume
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenull
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenull
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenull
 
   index = index + size_of.main_fraction
 
@@ -8288,8 +8964,8 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -8306,8 +8982,8 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
+  -- Underlying Product Optional: 1 Byte Unsigned Fixed Width Integer Nullable
+  index, underlying_product_optional = dissect.underlying_product_optional(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
   index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
@@ -8321,7 +8997,7 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -8351,17 +9027,17 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Price: 8 Byte Signed Fixed Width Integer
+  index, min_price_increment_price = dissect.min_price_increment_price(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Float: 8 Byte Signed Fixed Width Integer
+  index, display_factor_float = dissect.display_factor_float(buffer, index, packet, parent)
 
   -- Price Display Format: 1 Byte Unsigned Fixed Width Integer Nullable
   index, price_display_format = dissect.price_display_format(buffer, index, packet, parent)
 
-  -- Price Ratio: 8 Byte Signed Fixed Width Integer Nullable
-  index, price_ratio = dissect.price_ratio(buffer, index, packet, parent)
+  -- Price Ratio Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, price_ratio_pricenull = dissect.price_ratio_pricenull(buffer, index, packet, parent)
 
   -- Tick Rule: 1 Byte Signed Fixed Width Integer Nullable
   index, tick_rule = dissect.tick_rule(buffer, index, packet, parent)
@@ -8369,8 +9045,8 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenull = dissect.trading_reference_price_pricenull(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -8381,14 +9057,14 @@ dissect.md_instrument_definition_spread_29_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenull = dissect.high_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenull = dissect.low_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenull = dissect.max_price_variation_pricenull(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
@@ -8436,7 +9112,7 @@ size_of.md_instrument_definition_future_27 = function(buffer, offset)
 
   index = index + size_of.match_event_indicator
 
-  index = index + size_of.tot_num_reports
+  index = index + size_of.tot_num_reports_optional
 
   index = index + size_of.security_update_action
 
@@ -8476,9 +9152,9 @@ size_of.md_instrument_definition_future_27 = function(buffer, offset)
 
   index = index + size_of.max_trade_vol
 
-  index = index + size_of.min_price_increment
+  index = index + size_of.min_price_increment_price
 
-  index = index + size_of.display_factor
+  index = index + size_of.display_factor_float
 
   index = index + size_of.main_fraction
 
@@ -8488,9 +9164,9 @@ size_of.md_instrument_definition_future_27 = function(buffer, offset)
 
   index = index + size_of.unit_of_measure
 
-  index = index + size_of.unit_of_measure_qty
+  index = index + size_of.unit_of_measure_qty_pricenull
 
-  index = index + size_of.trading_reference_price
+  index = index + size_of.trading_reference_price_pricenull
 
   index = index + size_of.settl_price_type
 
@@ -8498,11 +9174,11 @@ size_of.md_instrument_definition_future_27 = function(buffer, offset)
 
   index = index + size_of.cleared_volume
 
-  index = index + size_of.high_limit_price
+  index = index + size_of.high_limit_price_pricenull
 
-  index = index + size_of.low_limit_price
+  index = index + size_of.low_limit_price_pricenull
 
-  index = index + size_of.max_price_variation
+  index = index + size_of.max_price_variation_pricenull
 
   index = index + size_of.decay_quantity
 
@@ -8516,7 +9192,7 @@ size_of.md_instrument_definition_future_27 = function(buffer, offset)
 
   index = index + size_of.flow_schedule_type
 
-  index = index + size_of.min_price_increment_amount
+  index = index + size_of.min_price_increment_amount_pricenull
 
   index = index + size_of.user_defined_instrument
 
@@ -8545,8 +9221,8 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Match Event Indicator: Struct of 8 fields
   index, match_event_indicator = dissect.match_event_indicator(buffer, index, packet, parent)
 
-  -- Tot Num Reports: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, tot_num_reports = dissect.tot_num_reports(buffer, index, packet, parent)
+  -- Tot Num Reports Optional: 4 Byte Unsigned Fixed Width Integer Nullable
+  index, tot_num_reports_optional = dissect.tot_num_reports_optional(buffer, index, packet, parent)
 
   -- Security Update Action: 1 Byte Ascii String Enum with 3 values
   index, security_update_action = dissect.security_update_action(buffer, index, packet, parent)
@@ -8563,7 +9239,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Market Segment Id: 1 Byte Unsigned Fixed Width Integer
   index, market_segment_id = dissect.market_segment_id(buffer, index, packet, parent)
 
-  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer Nullable
+  -- Underlying Product: 1 Byte Unsigned Fixed Width Integer
   index, underlying_product = dissect.underlying_product(buffer, index, packet, parent)
 
   -- Security Exchange: 4 Byte Ascii String
@@ -8578,7 +9254,7 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Symbol: 20 Byte Ascii String
   index, symbol = dissect.symbol(buffer, index, packet, parent)
 
-  -- Security Id: 4 Byte Signed Fixed Width Integer Nullable
+  -- Security Id: 4 Byte Signed Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
   -- Security Type: 6 Byte Ascii String
@@ -8605,11 +9281,11 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Max Trade Vol: 4 Byte Unsigned Fixed Width Integer
   index, max_trade_vol = dissect.max_trade_vol(buffer, index, packet, parent)
 
-  -- Min Price Increment: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment = dissect.min_price_increment(buffer, index, packet, parent)
+  -- Min Price Increment Price: 8 Byte Signed Fixed Width Integer
+  index, min_price_increment_price = dissect.min_price_increment_price(buffer, index, packet, parent)
 
-  -- Display Factor: 8 Byte Signed Fixed Width Integer
-  index, display_factor = dissect.display_factor(buffer, index, packet, parent)
+  -- Display Factor Float: 8 Byte Signed Fixed Width Integer
+  index, display_factor_float = dissect.display_factor_float(buffer, index, packet, parent)
 
   -- Main Fraction: 1 Byte Unsigned Fixed Width Integer Nullable
   index, main_fraction = dissect.main_fraction(buffer, index, packet, parent)
@@ -8623,11 +9299,11 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Unit Of Measure: 30 Byte Ascii String
   index, unit_of_measure = dissect.unit_of_measure(buffer, index, packet, parent)
 
-  -- Unit Of Measure Qty: 8 Byte Signed Fixed Width Integer Nullable
-  index, unit_of_measure_qty = dissect.unit_of_measure_qty(buffer, index, packet, parent)
+  -- Unit Of Measure Qty Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, unit_of_measure_qty_pricenull = dissect.unit_of_measure_qty_pricenull(buffer, index, packet, parent)
 
-  -- Trading Reference Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, trading_reference_price = dissect.trading_reference_price(buffer, index, packet, parent)
+  -- Trading Reference Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, trading_reference_price_pricenull = dissect.trading_reference_price_pricenull(buffer, index, packet, parent)
 
   -- Settl Price Type: Struct of 6 fields
   index, settl_price_type = dissect.settl_price_type(buffer, index, packet, parent)
@@ -8638,14 +9314,14 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Cleared Volume: 4 Byte Signed Fixed Width Integer Nullable
   index, cleared_volume = dissect.cleared_volume(buffer, index, packet, parent)
 
-  -- High Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, high_limit_price = dissect.high_limit_price(buffer, index, packet, parent)
+  -- High Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, high_limit_price_pricenull = dissect.high_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Low Limit Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, low_limit_price = dissect.low_limit_price(buffer, index, packet, parent)
+  -- Low Limit Price Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, low_limit_price_pricenull = dissect.low_limit_price_pricenull(buffer, index, packet, parent)
 
-  -- Max Price Variation: 8 Byte Signed Fixed Width Integer Nullable
-  index, max_price_variation = dissect.max_price_variation(buffer, index, packet, parent)
+  -- Max Price Variation Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, max_price_variation_pricenull = dissect.max_price_variation_pricenull(buffer, index, packet, parent)
 
   -- Decay Quantity: 4 Byte Signed Fixed Width Integer Nullable
   index, decay_quantity = dissect.decay_quantity(buffer, index, packet, parent)
@@ -8665,8 +9341,8 @@ dissect.md_instrument_definition_future_27_fields = function(buffer, offset, pac
   -- Flow Schedule Type: 1 Byte Signed Fixed Width Integer Nullable
   index, flow_schedule_type = dissect.flow_schedule_type(buffer, index, packet, parent)
 
-  -- Min Price Increment Amount: 8 Byte Signed Fixed Width Integer Nullable
-  index, min_price_increment_amount = dissect.min_price_increment_amount(buffer, index, packet, parent)
+  -- Min Price Increment Amount Pricenull: 8 Byte Signed Fixed Width Integer Nullable
+  index, min_price_increment_amount_pricenull = dissect.min_price_increment_amount_pricenull(buffer, index, packet, parent)
 
   -- User Defined Instrument: 1 Byte Ascii String
   index, user_defined_instrument = dissect.user_defined_instrument(buffer, index, packet, parent)
@@ -8719,7 +9395,18 @@ end
 dissect.text = function(buffer, offset, packet, parent)
   local length = size_of.text
   local range = buffer(offset, length)
-  local value = range:stringz()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.text(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.text, range, value, display)
