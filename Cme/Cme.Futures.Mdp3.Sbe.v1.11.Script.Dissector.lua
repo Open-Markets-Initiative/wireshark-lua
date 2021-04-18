@@ -859,7 +859,7 @@ display.md_stream_id = function(value)
     return "Md Stream Id: Icap (3)"
   end
   if value == 255 then
-    return "Md Stream Id: No Value (255)"
+    return "Md Stream Id: No Value"
   end
 
   return "Md Stream Id: Unknown("..value..")"
@@ -949,7 +949,7 @@ display.underlying_security_alt_id_source = function(value)
     return "Underlying Security Alt Id Source: Isin (4)"
   end
   if value == 255 then
-    return "Underlying Security Alt Id Source: No Value (255)"
+    return "Underlying Security Alt Id Source: No Value"
   end
 
   return "Underlying Security Alt Id Source: Unknown("..value..")"
@@ -1517,7 +1517,17 @@ end
 dissect.md_entry_type_ = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_, range, value, display)
@@ -1549,7 +1559,7 @@ display.open_close_settl_flag = function(value)
     return "Open Close Settl Flag: Prev Session Repo Average 10 Am (103)"
   end
   if value == 255 then
-    return "Open Close Settl Flag: No Value (255)"
+    return "Open Close Settl Flag: No Value"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -1988,7 +1998,7 @@ display.aggressor_indicator = function(value)
     return "Aggressor Indicator: Aggressor (1)"
   end
   if value == 255 then
-    return "Aggressor Indicator: No Value (255)"
+    return "Aggressor Indicator: No Value"
   end
 
   return "Aggressor Indicator: Unknown("..value..")"
@@ -2418,7 +2428,17 @@ end
 dissect.md_entry_type_book = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_book
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_book(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_book, range, value, display)
@@ -3880,7 +3900,7 @@ display.money_or_par = function(value)
     return "Money Or Par: Par (2)"
   end
   if value == 255 then
-    return "Money Or Par: No Value (255)"
+    return "Money Or Par: No Value"
   end
 
   return "Money Or Par: Unknown("..value..")"
@@ -4678,7 +4698,7 @@ display.md_security_trading_status = function(value)
     return "Md Security Trading Status: Public Workup (202)"
   end
   if value == 255 then
-    return "Md Security Trading Status: No Value (255)"
+    return "Md Security Trading Status: No Value"
   end
 
   return "Md Security Trading Status: Unknown("..value..")"
@@ -4738,7 +4758,17 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_11.fields.security_update_action, range, value, display)
@@ -5060,7 +5090,7 @@ display.security_alt_id_source = function(value)
     return "Security Alt Id Source: Isin (4)"
   end
   if value == 255 then
-    return "Security Alt Id Source: No Value (255)"
+    return "Security Alt Id Source: No Value"
   end
 
   return "Security Alt Id Source: Unknown("..value..")"
@@ -8023,7 +8053,17 @@ end
 dissect.md_entry_type_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_statistics
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_statistics, range, value, display)
@@ -8446,7 +8486,17 @@ end
 dissect.md_entry_type_daily_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_daily_statistics
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_daily_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_11.fields.md_entry_type_daily_statistics, range, value, display)
@@ -8875,7 +8925,7 @@ display.aggressor_side = function(value)
     return "Aggressor Side: Sell (2)"
   end
   if value == 255 then
-    return "Aggressor Side: No Value (255)"
+    return "Aggressor Side: No Value"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -10230,7 +10280,7 @@ display.security_trading_status = function(value)
     return "Security Trading Status: Public Workup (202)"
   end
   if value == 255 then
-    return "Security Trading Status: No Value (255)"
+    return "Security Trading Status: No Value"
   end
 
   return "Security Trading Status: Unknown("..value..")"

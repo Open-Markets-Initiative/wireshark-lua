@@ -131,7 +131,7 @@ cme_futures_ilink3_sbe_v8_7.fields.last_px = ProtoField.new("Last Px", "cme.futu
 cme_futures_ilink3_sbe_v8_7.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.ilink3.sbe.v8.7.lastqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "cme.futures.ilink3.sbe.v8.7.lastrptrequested", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.7.lastuuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_7.fields.leaves = ProtoField.new("Leaves", "cme.futures.ilink3.sbe.v8.7.leaves", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_7.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.7.leavesqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.leaves_qty_optional = ProtoField.new("Leaves Qty Optional", "cme.futures.ilink3.sbe.v8.7.leavesqtyoptional", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.7.legexecid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_7.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.7.legexecrefid", ftypes.UINT64)
@@ -1168,7 +1168,7 @@ display.short_sale_type = function(value)
     return "Short Sale Type: Undisclosed Sell Information Not Available Undi (3)"
   end
   if value == 255 then
-    return "Short Sale Type: No Value (255)"
+    return "Short Sale Type: No Value"
   end
 
   return "Short Sale Type: Unknown("..value..")"
@@ -1198,7 +1198,7 @@ display.liquidity_flag = function(value)
     return "Liquidity Flag: True (1)"
   end
   if value == 255 then
-    return "Liquidity Flag: No Value (255)"
+    return "Liquidity Flag: No Value"
   end
 
   return "Liquidity Flag: Unknown("..value..")"
@@ -1231,7 +1231,7 @@ display.split_msg = function(value)
     return "Split Msg: Complete Message Delayed (2)"
   end
   if value == 255 then
-    return "Split Msg: No Value (255)"
+    return "Split Msg: No Value"
   end
 
   return "Split Msg: Unknown("..value..")"
@@ -1327,7 +1327,7 @@ display.time_in_force = function(value)
     return "Time In Force: Good For Session (99)"
   end
   if value == 255 then
-    return "Time In Force: No Value (255)"
+    return "Time In Force: No Value"
   end
 
   return "Time In Force: Unknown("..value..")"
@@ -1392,8 +1392,8 @@ display.ord_type_optional = function(value)
   if value == "K" then
     return "Ord Type Optional: Market With Leftover As Limit (K)"
   end
-  if value == "0" then
-    return "Ord Type Optional: No Value (0)"
+  if value == '' then
+    return "Ord Type Optional: No Value"
   end
 
   return "Ord Type Optional: Unknown("..value..")"
@@ -1403,7 +1403,17 @@ end
 dissect.ord_type_optional = function(buffer, offset, packet, parent)
   local length = size_of.ord_type_optional
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.ord_type_optional(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.ord_type_optional, range, value, display)
@@ -1486,22 +1496,22 @@ dissect.min_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leaves
-size_of.leaves = 4
+-- Size: Leaves Qty
+size_of.leaves_qty = 4
 
--- Display: Leaves
-display.leaves = function(value)
-  return "Leaves: "..value
+-- Display: Leaves Qty
+display.leaves_qty = function(value)
+  return "Leaves Qty: "..value
 end
 
--- Dissect: Leaves
-dissect.leaves = function(buffer, offset, packet, parent)
-  local length = size_of.leaves
+-- Dissect: Leaves Qty
+dissect.leaves_qty = function(buffer, offset, packet, parent)
+  local length = size_of.leaves_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leaves(value, buffer, offset, packet, parent)
+  local display = display.leaves_qty(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_7.fields.leaves, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.leaves_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1904,7 +1914,7 @@ size_of.execution_report_pending_replace_565 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves
+  index = index + size_of.leaves_qty
 
   index = index + size_of.min_qty
 
@@ -1989,8 +1999,8 @@ dissect.execution_report_pending_replace_565_fields = function(buffer, offset, p
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
-  index, leaves = dissect.leaves(buffer, index, packet, parent)
+  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -3237,7 +3247,7 @@ display.mass_cancel_tif = function(value)
     return "Mass Cancel Tif: Good Till Date (6)"
   end
   if value == 255 then
-    return "Mass Cancel Tif: No Value (255)"
+    return "Mass Cancel Tif: No Value"
   end
 
   return "Mass Cancel Tif: Unknown("..value..")"
@@ -3266,8 +3276,8 @@ display.mass_action_ord_typ = function(value)
   if value == "4" then
     return "Mass Action Ord Typ: Stop Limit (4)"
   end
-  if value == "0" then
-    return "Mass Action Ord Typ: No Value (0)"
+  if value == '' then
+    return "Mass Action Ord Typ: No Value"
   end
 
   return "Mass Action Ord Typ: Unknown("..value..")"
@@ -3277,7 +3287,17 @@ end
 dissect.mass_action_ord_typ = function(buffer, offset, packet, parent)
   local length = size_of.mass_action_ord_typ
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.mass_action_ord_typ(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.mass_action_ord_typ, range, value, display)
@@ -3297,7 +3317,7 @@ display.side_optional = function(value)
     return "Side Optional: Sell (2)"
   end
   if value == 255 then
-    return "Side Optional: No Value (255)"
+    return "Side Optional: No Value"
   end
 
   return "Side Optional: Unknown("..value..")"
@@ -3327,7 +3347,7 @@ display.mass_cancel_request_type = function(value)
     return "Mass Cancel Request Type: Account (101)"
   end
   if value == 255 then
-    return "Mass Cancel Request Type: No Value (255)"
+    return "Mass Cancel Request Type: No Value"
   end
 
   return "Mass Cancel Request Type: Unknown("..value..")"
@@ -4094,7 +4114,7 @@ display.expiration_cycle = function(value)
     return "Expiration Cycle: Expirationatgivendate (2)"
   end
   if value == 255 then
-    return "Expiration Cycle: No Value (255)"
+    return "Expiration Cycle: No Value"
   end
 
   return "Expiration Cycle: Unknown("..value..")"
@@ -5706,7 +5726,17 @@ end
 dissect.exec_type = function(buffer, offset, packet, parent)
   local length = size_of.exec_type
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.exec_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.exec_type, range, value, display)
@@ -5733,7 +5763,17 @@ end
 dissect.ord_status_trd_cxl = function(buffer, offset, packet, parent)
   local length = size_of.ord_status_trd_cxl
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.ord_status_trd_cxl(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.ord_status_trd_cxl, range, value, display)
@@ -6447,7 +6487,7 @@ display.managed_order = function(value)
     return "Managed Order: True (1)"
   end
   if value == 255 then
-    return "Managed Order: No Value (255)"
+    return "Managed Order: No Value"
   end
 
   return "Managed Order: Unknown("..value..")"
@@ -6476,8 +6516,8 @@ display.execution_mode = function(value)
   if value == "P" then
     return "Execution Mode: Passive (P)"
   end
-  if value == "0" then
-    return "Execution Mode: No Value (0)"
+  if value == '' then
+    return "Execution Mode: No Value"
   end
 
   return "Execution Mode: Unknown("..value..")"
@@ -6487,7 +6527,17 @@ end
 dissect.execution_mode = function(buffer, offset, packet, parent)
   local length = size_of.execution_mode
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.execution_mode(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.execution_mode, range, value, display)
@@ -7114,7 +7164,7 @@ display.exec_restatement_reason = function(value)
     return "Exec Restatement Reason: Cancelduetovolquotedoptionorderrestedqtylessthanminordersize (108)"
   end
   if value == 255 then
-    return "Exec Restatement Reason: No Value (255)"
+    return "Exec Restatement Reason: No Value"
   end
 
   return "Exec Restatement Reason: Unknown("..value..")"
@@ -8147,7 +8197,7 @@ display.rfq_side = function(value)
     return "Rfq Side: Cross (8)"
   end
   if value == 255 then
-    return "Rfq Side: No Value (255)"
+    return "Rfq Side: No Value"
   end
 
   return "Rfq Side: Unknown("..value..")"
@@ -8295,7 +8345,7 @@ display.quote_type = function(value)
     return "Quote Type: Tradeable (1)"
   end
   if value == 255 then
-    return "Quote Type: No Value (255)"
+    return "Quote Type: No Value"
   end
 
   return "Quote Type: Unknown("..value..")"
@@ -8419,8 +8469,8 @@ display.dk_reason = function(value)
   if value == "Z" then
     return "Dk Reason: Other (Z)"
   end
-  if value == "0" then
-    return "Dk Reason: No Value (0)"
+  if value == '' then
+    return "Dk Reason: No Value"
   end
 
   return "Dk Reason: Unknown("..value..")"
@@ -8430,7 +8480,17 @@ end
 dissect.dk_reason = function(buffer, offset, packet, parent)
   local length = size_of.dk_reason
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.dk_reason(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.dk_reason, range, value, display)
@@ -8939,8 +8999,8 @@ display.cust_order_handling_inst = function(value)
   if value == "Y" then
     return "Cust Order Handling Inst: Client Electronic (Y)"
   end
-  if value == "0" then
-    return "Cust Order Handling Inst: No Value (0)"
+  if value == '' then
+    return "Cust Order Handling Inst: No Value"
   end
 
   return "Cust Order Handling Inst: Unknown("..value..")"
@@ -8950,7 +9010,17 @@ end
 dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
   local length = size_of.cust_order_handling_inst
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.cust_order_handling_inst, range, value, display)
@@ -8969,8 +9039,8 @@ display.cmta_giveup_cd = function(value)
   if value == "S" then
     return "Cmta Giveup Cd: Sg Xoffset (S)"
   end
-  if value == "0" then
-    return "Cmta Giveup Cd: No Value (0)"
+  if value == '' then
+    return "Cmta Giveup Cd: No Value"
   end
 
   return "Cmta Giveup Cd: Unknown("..value..")"
@@ -8980,7 +9050,17 @@ end
 dissect.cmta_giveup_cd = function(buffer, offset, packet, parent)
   local length = size_of.cmta_giveup_cd
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.cmta_giveup_cd(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.cmta_giveup_cd, range, value, display)
@@ -9000,7 +9080,7 @@ display.clearing_trade_price_type = function(value)
     return "Clearing Trade Price Type: Trade Clearingat Alternate Clearing Price (1)"
   end
   if value == 255 then
-    return "Clearing Trade Price Type: No Value (255)"
+    return "Clearing Trade Price Type: No Value"
   end
 
   return "Clearing Trade Price Type: Unknown("..value..")"
@@ -9033,7 +9113,7 @@ display.avg_px_indicator = function(value)
     return "Avg Px Indicator: Tradeispartofa Notional Value Average Price Group (3)"
   end
   if value == 255 then
-    return "Avg Px Indicator: No Value (255)"
+    return "Avg Px Indicator: No Value"
   end
 
   return "Avg Px Indicator: Unknown("..value..")"
@@ -9062,8 +9142,8 @@ display.self_match_prevention_instruction = function(value)
   if value == "O" then
     return "Self Match Prevention Instruction: Cancel Oldest (O)"
   end
-  if value == "0" then
-    return "Self Match Prevention Instruction: No Value (0)"
+  if value == '' then
+    return "Self Match Prevention Instruction: No Value"
   end
 
   return "Self Match Prevention Instruction: Unknown("..value..")"
@@ -9073,7 +9153,17 @@ end
 dissect.self_match_prevention_instruction = function(buffer, offset, packet, parent)
   local length = size_of.self_match_prevention_instruction
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.self_match_prevention_instruction(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.self_match_prevention_instruction, range, value, display)
@@ -9093,7 +9183,7 @@ display.clearing_account_type = function(value)
     return "Clearing Account Type: Firm (1)"
   end
   if value == 255 then
-    return "Clearing Account Type: No Value (255)"
+    return "Clearing Account Type: No Value"
   end
 
   return "Clearing Account Type: Unknown("..value..")"
@@ -9129,7 +9219,7 @@ display.cust_order_capacity = function(value)
     return "Cust Order Capacity: Allother (4)"
   end
   if value == 255 then
-    return "Cust Order Capacity: No Value (255)"
+    return "Cust Order Capacity: No Value"
   end
 
   return "Cust Order Capacity: Unknown("..value..")"
@@ -10552,7 +10642,7 @@ display.last_rpt_requested = function(value)
     return "Last Rpt Requested: True (1)"
   end
   if value == 255 then
-    return "Last Rpt Requested: No Value (255)"
+    return "Last Rpt Requested: No Value"
   end
 
   return "Last Rpt Requested: Unknown("..value..")"
@@ -10613,7 +10703,17 @@ end
 dissect.ord_status = function(buffer, offset, packet, parent)
   local length = size_of.ord_status
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.ord_status(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.ord_status, range, value, display)
@@ -10741,7 +10841,7 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves
+  index = index + size_of.leaves_qty
 
   index = index + size_of.min_qty
 
@@ -10852,8 +10952,8 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
-  index, leaves = dissect.leaves(buffer, index, packet, parent)
+  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -10962,7 +11062,7 @@ size_of.execution_report_modify_531 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves
+  index = index + size_of.leaves_qty
 
   index = index + size_of.min_qty
 
@@ -11066,8 +11166,8 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
-  index, leaves = dissect.leaves(buffer, index, packet, parent)
+  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -11157,7 +11257,7 @@ display.mass_status_tif = function(value)
     return "Mass Status Tif: Gfs (99)"
   end
   if value == 255 then
-    return "Mass Status Tif: No Value (255)"
+    return "Mass Status Tif: No Value"
   end
 
   return "Mass Status Tif: Unknown("..value..")"
@@ -11187,7 +11287,7 @@ display.ord_status_req_type = function(value)
     return "Ord Status Req Type: Account (101)"
   end
   if value == 255 then
-    return "Ord Status Req Type: No Value (255)"
+    return "Ord Status Req Type: No Value"
   end
 
   return "Ord Status Req Type: Unknown("..value..")"
@@ -11833,7 +11933,7 @@ display.order_event_type = function(value)
     return "Order Event Type: Filled (5)"
   end
   if value == 255 then
-    return "Order Event Type: No Value (255)"
+    return "Order Event Type: No Value"
   end
 
   return "Order Event Type: Unknown("..value..")"
@@ -12667,7 +12767,7 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.side_trade_id
 
-  index = index + size_of.leaves
+  index = index + size_of.leaves_qty
 
   index = index + size_of.trade_date
 
@@ -12786,8 +12886,8 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
   index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
-  index, leaves = dissect.leaves(buffer, index, packet, parent)
+  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -13077,7 +13177,7 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.trade_link_id
 
-  index = index + size_of.leaves
+  index = index + size_of.leaves_qty
 
   index = index + size_of.trade_date
 
@@ -13215,8 +13315,8 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_link_id = dissect.trade_link_id(buffer, index, packet, parent)
 
-  -- Leaves: 4 Byte Unsigned Fixed Width Integer
-  index, leaves = dissect.leaves(buffer, index, packet, parent)
+  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
+  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -13965,7 +14065,7 @@ display.manual_order_indicator_optional = function(value)
     return "Manual Order Indicator Optional: Manual (1)"
   end
   if value == 255 then
-    return "Manual Order Indicator Optional: No Value (255)"
+    return "Manual Order Indicator Optional: No Value"
   end
 
   return "Manual Order Indicator Optional: Unknown("..value..")"
@@ -14321,7 +14421,17 @@ end
 dissect.list_update_action = function(buffer, offset, packet, parent)
   local length = size_of.list_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.list_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.list_update_action, range, value, display)
@@ -15178,7 +15288,17 @@ end
 dissect.ord_type = function(buffer, offset, packet, parent)
   local length = size_of.ord_type
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_7.fields.ord_type, range, value, display)
@@ -15990,7 +16110,7 @@ display.fault_tolerance_indicator = function(value)
     return "Fault Tolerance Indicator: Primary (1)"
   end
   if value == 255 then
-    return "Fault Tolerance Indicator: No Value (255)"
+    return "Fault Tolerance Indicator: No Value"
   end
 
   return "Fault Tolerance Indicator: Unknown("..value..")"

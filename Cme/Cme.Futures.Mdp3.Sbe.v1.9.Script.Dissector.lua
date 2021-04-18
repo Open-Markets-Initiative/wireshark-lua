@@ -2883,7 +2883,7 @@ display.md_security_trading_status = function(value)
     return "Md Security Trading Status: No Change (103)"
   end
   if value == 255 then
-    return "Md Security Trading Status: No Value (255)"
+    return "Md Security Trading Status: No Value"
   end
 
   return "Md Security Trading Status: Unknown("..value..")"
@@ -2943,7 +2943,17 @@ end
 dissect.security_update_action = function(buffer, offset, packet, parent)
   local length = size_of.security_update_action
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.security_update_action(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.security_update_action, range, value, display)
@@ -4559,7 +4569,17 @@ end
 dissect.md_entry_type_book = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_book
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_book(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_book, range, value, display)
@@ -4989,7 +5009,17 @@ end
 dissect.md_entry_type_ = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_, range, value, display)
@@ -5009,7 +5039,7 @@ display.open_close_settl_flag = function(value)
     return "Open Close Settl Flag: Indicative Opening Price (5)"
   end
   if value == 255 then
-    return "Open Close Settl Flag: No Value (255)"
+    return "Open Close Settl Flag: No Value"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -5432,7 +5462,17 @@ end
 dissect.md_entry_type_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_statistics
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_statistics, range, value, display)
@@ -5947,7 +5987,17 @@ end
 dissect.md_entry_type_daily_statistics = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_type_daily_statistics
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.md_entry_type_daily_statistics(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_9.fields.md_entry_type_daily_statistics, range, value, display)
@@ -6376,7 +6426,7 @@ display.aggressor_side = function(value)
     return "Aggressor Side: Sell (2)"
   end
   if value == 255 then
-    return "Aggressor Side: No Value (255)"
+    return "Aggressor Side: No Value"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -8695,7 +8745,7 @@ display.security_trading_status = function(value)
     return "Security Trading Status: No Change (103)"
   end
   if value == 255 then
-    return "Security Trading Status: No Value (255)"
+    return "Security Trading Status: No Value"
   end
 
   return "Security Trading Status: Unknown("..value..")"

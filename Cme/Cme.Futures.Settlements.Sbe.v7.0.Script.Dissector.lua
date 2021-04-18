@@ -291,7 +291,17 @@ end
 dissect.high_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.high_px_ind
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.high_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.high_px_ind, range, value, display)
@@ -413,7 +423,17 @@ end
 dissect.low_px_ind = function(buffer, offset, packet, parent)
   local length = size_of.low_px_ind
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.low_px_ind(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.low_px_ind, range, value, display)
@@ -888,7 +908,7 @@ display.put_or_call = function(value)
     return "Put Or Call: Call (1)"
   end
   if value == 255 then
-    return "Put Or Call: No Value (255)"
+    return "Put Or Call: No Value"
   end
 
   return "Put Or Call: Unknown("..value..")"
