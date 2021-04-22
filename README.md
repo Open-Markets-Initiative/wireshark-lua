@@ -1,5 +1,7 @@
 # Omi Lua Wireshark Dissectors
 
+[![Open-Markets-Initiative](https://circleci.com/github/Open-Markets-Initiative/wireshark-lua.svg?style=svg)](https://circleci.com/github/Open-Markets-Initiative/wireshark-lua)
+
 Omi Lua Wireshark dissector scripts provide easily customized cross platform dissection solutions for viewing common binary exchange protocols.
 
 For more information on lua dissectors: [How Lua fits into Wireshark](https://www.wireshark.org/docs/wsdg_html_chunked/wsluarm.html "Wireshark Lua Documentation")
