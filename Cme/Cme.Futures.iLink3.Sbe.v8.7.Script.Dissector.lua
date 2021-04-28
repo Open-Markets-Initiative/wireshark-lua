@@ -131,7 +131,7 @@ cme_futures_ilink3_sbe_v8_7.fields.last_px = ProtoField.new("Last Px", "cme.futu
 cme_futures_ilink3_sbe_v8_7.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.ilink3.sbe.v8.7.lastqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "cme.futures.ilink3.sbe.v8.7.lastrptrequested", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_7.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.7.lastuuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_7.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.7.leavesqty", ftypes.UINT32)
+cme_futures_ilink3_sbe_v8_7.fields.leaves = ProtoField.new("Leaves", "cme.futures.ilink3.sbe.v8.7.leaves", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.leaves_qty_optional = ProtoField.new("Leaves Qty Optional", "cme.futures.ilink3.sbe.v8.7.leavesqtyoptional", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_7.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.7.legexecid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_7.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.7.legexecrefid", ftypes.UINT64)
@@ -1496,22 +1496,22 @@ dissect.min_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Leaves Qty
-size_of.leaves_qty = 4
+-- Size: Leaves
+size_of.leaves = 4
 
--- Display: Leaves Qty
-display.leaves_qty = function(value)
-  return "Leaves Qty: "..value
+-- Display: Leaves
+display.leaves = function(value)
+  return "Leaves: "..value
 end
 
--- Dissect: Leaves Qty
-dissect.leaves_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leaves_qty
+-- Dissect: Leaves
+dissect.leaves = function(buffer, offset, packet, parent)
+  local length = size_of.leaves
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leaves_qty(value, buffer, offset, packet, parent)
+  local display = display.leaves(value, buffer, offset, packet, parent)
 
-  parent:add(cme_futures_ilink3_sbe_v8_7.fields.leaves_qty, range, value, display)
+  parent:add(cme_futures_ilink3_sbe_v8_7.fields.leaves, range, value, display)
 
   return offset + length, value
 end
@@ -1914,7 +1914,7 @@ size_of.execution_report_pending_replace_565 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves_qty
+  index = index + size_of.leaves
 
   index = index + size_of.min_qty
 
@@ -1999,8 +1999,8 @@ dissect.execution_report_pending_replace_565_fields = function(buffer, offset, p
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  index, leaves = dissect.leaves(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -10841,7 +10841,7 @@ size_of.execution_report_status_532 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves_qty
+  index = index + size_of.leaves
 
   index = index + size_of.min_qty
 
@@ -10952,8 +10952,8 @@ dissect.execution_report_status_532_fields = function(buffer, offset, packet, pa
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  index, leaves = dissect.leaves(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -11062,7 +11062,7 @@ size_of.execution_report_modify_531 = function(buffer, offset)
 
   index = index + size_of.cum_qty
 
-  index = index + size_of.leaves_qty
+  index = index + size_of.leaves
 
   index = index + size_of.min_qty
 
@@ -11166,8 +11166,8 @@ dissect.execution_report_modify_531_fields = function(buffer, offset, packet, pa
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  index, leaves = dissect.leaves(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer Nullable
   index, min_qty = dissect.min_qty(buffer, index, packet, parent)
@@ -12767,7 +12767,7 @@ size_of.execution_report_trade_spread_526 = function(buffer, offset)
 
   index = index + size_of.side_trade_id
 
-  index = index + size_of.leaves_qty
+  index = index + size_of.leaves
 
   index = index + size_of.trade_date
 
@@ -12886,8 +12886,8 @@ dissect.execution_report_trade_spread_526_fields = function(buffer, offset, pack
   -- Side Trade Id: 4 Byte Unsigned Fixed Width Integer
   index, side_trade_id = dissect.side_trade_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  index, leaves = dissect.leaves(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)
@@ -13177,7 +13177,7 @@ size_of.execution_report_trade_outright_525 = function(buffer, offset)
 
   index = index + size_of.trade_link_id
 
-  index = index + size_of.leaves_qty
+  index = index + size_of.leaves
 
   index = index + size_of.trade_date
 
@@ -13315,8 +13315,8 @@ dissect.execution_report_trade_outright_525_fields = function(buffer, offset, pa
   -- Trade Link Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, trade_link_id = dissect.trade_link_id(buffer, index, packet, parent)
 
-  -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  -- Leaves: 4 Byte Unsigned Fixed Width Integer
+  index, leaves = dissect.leaves(buffer, index, packet, parent)
 
   -- Trade Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, trade_date = dissect.trade_date(buffer, index, packet, parent)

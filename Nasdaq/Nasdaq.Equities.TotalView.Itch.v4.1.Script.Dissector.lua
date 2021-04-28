@@ -1865,8 +1865,8 @@ display.market_category = function(value)
   if value == "G" then
     return "Market Category: Nasdaq Gm (G)"
   end
-  if value == "G" then
-    return "Market Category: Nasdaq Cm (G)"
+  if value == "S" then
+    return "Market Category: Nasdaq Cm (S)"
   end
   if value == "Z" then
     return "Market Category: Bats (Z)"
@@ -2133,7 +2133,7 @@ size_of.payload = function(buffer, offset, message_type)
     return size_of.order_delete_message(buffer, offset)
   end
   -- Size of Order Replace Message
-  if message_type == "D" then
+  if message_type == "U" then
     return size_of.order_replace_message(buffer, offset)
   end
   -- Size of Trade Message
@@ -2212,7 +2212,7 @@ dissect.payload_branches = function(buffer, offset, packet, parent, message_type
     return dissect.order_delete_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Replace Message
-  if message_type == "D" then
+  if message_type == "U" then
     return dissect.order_replace_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
@@ -2297,8 +2297,8 @@ display.message_type = function(value)
   if value == "D" then
     return "Message Type: Order Delete Message (D)"
   end
-  if value == "D" then
-    return "Message Type: Order Replace Message (D)"
+  if value == "U" then
+    return "Message Type: Order Replace Message (U)"
   end
   if value == "P" then
     return "Message Type: Trade Message (P)"

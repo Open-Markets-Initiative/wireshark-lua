@@ -1380,29 +1380,29 @@ size_of.trade_condition = 1
 
 -- Display: Trade Condition
 display.trade_condition = function(value)
-  if value == "F" then
-    return "Trade Condition: Complex To Complex Electronic Trade (F)"
+  if value == "f" then
+    return "Trade Condition: Complex To Complex Electronic Trade (f)"
   end
-  if value == "G" then
-    return "Trade Condition: Complex Auction Trade (G)"
+  if value == "g" then
+    return "Trade Condition: Complex Auction Trade (g)"
   end
-  if value == "H" then
-    return "Trade Condition: Complex Cross (H)"
+  if value == "h" then
+    return "Trade Condition: Complex Cross (h)"
   end
-  if value == "J" then
-    return "Trade Condition: Complex Electronic Trade Against Single (J)"
+  if value == "j" then
+    return "Trade Condition: Complex Electronic Trade Against Single (j)"
   end
-  if value == "K" then
-    return "Trade Condition: Complex With Stock Options Auction Trade (K)"
+  if value == "k" then
+    return "Trade Condition: Complex With Stock Options Auction Trade (k)"
   end
-  if value == "N" then
-    return "Trade Condition: Complex With Stock Electronic Trade (N)"
+  if value == "n" then
+    return "Trade Condition: Complex With Stock Electronic Trade (n)"
   end
-  if value == "O" then
-    return "Trade Condition: Complex With Stock Cross (O)"
+  if value == "o" then
+    return "Trade Condition: Complex With Stock Cross (o)"
   end
-  if value == "L" then
-    return "Trade Condition: Electronic Trade (L)"
+  if value == "l" then
+    return "Trade Condition: Electronic Trade (l)"
   end
   if value == "O" then
     return "Trade Condition: Opening Trade (O)"

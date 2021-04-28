@@ -1120,7 +1120,7 @@ size_of.trade_condition = 1
 
 -- Display: Trade Condition
 display.trade_condition = function(value)
-  if value == "" then
+  if value == " " then
     return "Trade Condition: Normal Trade (<whitespace>)"
   end
   if value == "O" then

@@ -32,7 +32,7 @@ nasdaq_phlx_topo_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("
 nasdaq_phlx_topo_itch_v3_3.fields.count = ProtoField.new("Count", "nasdaq.phlx.topo.itch.v3.3.count", ftypes.UINT16)
 nasdaq_phlx_topo_itch_v3_3.fields.cross_id = ProtoField.new("Cross Id", "nasdaq.phlx.topo.itch.v3.3.crossid", ftypes.UINT32)
 nasdaq_phlx_topo_itch_v3_3.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.topo.itch.v3.3.currenttradingstate", ftypes.STRING)
-nasdaq_phlx_topo_itch_v3_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.topo.itch.v3.3.eventcode", ftypes.UINT8)
+nasdaq_phlx_topo_itch_v3_3.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.topo.itch.v3.3.eventcode", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.phlx.topo.itch.v3.3.expirationday", ftypes.UINT8)
 nasdaq_phlx_topo_itch_v3_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlx.topo.itch.v3.3.expirationmonth", ftypes.UINT8)
 nasdaq_phlx_topo_itch_v3_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlx.topo.itch.v3.3.expirationyear", ftypes.UINT8)
@@ -1676,28 +1676,28 @@ size_of.event_code = 1
 
 -- Display: Event Code
 display.event_code = function(value)
-  if value == O then
+  if value == "O" then
     return "Event Code: Start Of Messages (O)"
   end
-  if value == S then
+  if value == "S" then
     return "Event Code: Start Of System Hours (S)"
   end
-  if value == Q then
+  if value == "Q" then
     return "Event Code: Start Of Opening Process (Q)"
   end
-  if value == N then
+  if value == "N" then
     return "Event Code: Start Of Normal Hours Closing Process (N)"
   end
-  if value == L then
+  if value == "L" then
     return "Event Code: Start Of Late Hours Closing Process (L)"
   end
-  if value == E then
+  if value == "E" then
     return "Event Code: End Of System Hours (E)"
   end
-  if value == C then
+  if value == "C" then
     return "Event Code: End Of Messages (C)"
   end
-  if value == W then
+  if value == "W" then
     return "Event Code: End Of Wco Early Closing (W)"
   end
 
@@ -1708,7 +1708,7 @@ end
 dissect.event_code = function(buffer, offset, packet, parent)
   local length = size_of.event_code
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.event_code, range, value, display)
@@ -1743,7 +1743,7 @@ dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
   index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
 
-  -- Event Code: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Event Code: 1 Byte Ascii String Enum with 8 values
   index, event_code = dissect.event_code(buffer, index, packet, parent)
 
   -- Version: 1 Byte Unsigned Fixed Width Integer

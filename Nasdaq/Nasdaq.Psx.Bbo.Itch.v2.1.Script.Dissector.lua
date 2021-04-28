@@ -38,7 +38,7 @@ nasdaq_psx_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.
 nasdaq_psx_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.bbo.itch.v2.1.level3", ftypes.INT64)
 nasdaq_psx_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.bbo.itch.v2.1.marketcategory", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.bbo.itch.v2.1.marketcode", ftypes.INT8)
+nasdaq_psx_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.bbo.itch.v2.1.marketcode", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.message = ProtoField.new("Message", "nasdaq.psx.bbo.itch.v2.1.message", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.psx.bbo.itch.v2.1.messageheader", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psx.bbo.itch.v2.1.messagetype", ftypes.STRING)
@@ -47,7 +47,7 @@ nasdaq_psx_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("Mwcb Statu
 nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psx.bbo.itch.v2.1.nasdaqbestbid", ftypes.INT32)
 nasdaq_psx_bbo_itch_v2_1.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psx.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psx.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.bbo.itch.v2.1.operationalhaltaction", ftypes.INT8)
+nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.bbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psx.bbo.itch.v2.1.operationalhaltmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psx.bbo.itch.v2.1.packet", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psx.bbo.itch.v2.1.packetheader", ftypes.STRING)
@@ -538,10 +538,10 @@ size_of.operational_halt_action = 1
 
 -- Display: Operational Halt Action
 display.operational_halt_action = function(value)
-  if value == H then
+  if value == "H" then
     return "Operational Halt Action: Halted (H)"
   end
-  if value == T then
+  if value == "T" then
     return "Operational Halt Action: Resumed (T)"
   end
 
@@ -552,7 +552,7 @@ end
 dissect.operational_halt_action = function(buffer, offset, packet, parent)
   local length = size_of.operational_halt_action
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:string()
   local display = display.operational_halt_action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action, range, value, display)
@@ -565,13 +565,13 @@ size_of.market_code = 1
 
 -- Display: Market Code
 display.market_code = function(value)
-  if value == Q then
+  if value == "Q" then
     return "Market Code: Nasdaq (Q)"
   end
-  if value == B then
+  if value == "B" then
     return "Market Code: Bx (B)"
   end
-  if value == X then
+  if value == "X" then
     return "Market Code: Psx (X)"
   end
 
@@ -582,7 +582,7 @@ end
 dissect.market_code = function(buffer, offset, packet, parent)
   local length = size_of.market_code
   local range = buffer(offset, length)
-  local value = range:int()
+  local value = range:string()
   local display = display.market_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.market_code, range, value, display)
@@ -625,10 +625,10 @@ dissect.operational_halt_message_fields = function(buffer, offset, packet, paren
   -- Stock: 8 Byte Ascii String
   index, stock = dissect.stock(buffer, index, packet, parent)
 
-  -- Market Code: 1 Byte Signed Fixed Width Integer Enum with 3 values
+  -- Market Code: 1 Byte Ascii String Enum with 3 values
   index, market_code = dissect.market_code(buffer, index, packet, parent)
 
-  -- Operational Halt Action: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  -- Operational Halt Action: 1 Byte Ascii String Enum with 2 values
   index, operational_halt_action = dissect.operational_halt_action(buffer, index, packet, parent)
 
   return index

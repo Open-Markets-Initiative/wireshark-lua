@@ -33,7 +33,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_leg = ProtoField.new(
 nasdaq_phlx_orders_itch_v1_9.fields.complex_order_strategy_message = ProtoField.new("Complex Order Strategy Message", "nasdaq.phlx.orders.itch.v1.9.complexorderstrategymessage", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.complex_trading_action_message = ProtoField.new("Complex Trading Action Message", "nasdaq.phlx.orders.itch.v1.9.complextradingactionmessage", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.count = ProtoField.new("Count", "nasdaq.phlx.orders.itch.v1.9.count", ftypes.UINT16)
-nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.orders.itch.v1.9.currenttradingstate", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.phlx.orders.itch.v1.9.currenttradingstate", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.customer_firm_indicator = ProtoField.new("Customer Firm Indicator", "nasdaq.phlx.orders.itch.v1.9.customerfirmindicator", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.day = ProtoField.new("Day", "nasdaq.phlx.orders.itch.v1.9.day", ftypes.UINT16, nil, base.DEC, "0x001F")
 nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or Credit", "nasdaq.phlx.orders.itch.v1.9.debitorcredit", ftypes.STRING)
@@ -55,8 +55,8 @@ nasdaq_phlx_orders_itch_v1_9.fields.month = ProtoField.new("Month", "nasdaq.phlx
 nasdaq_phlx_orders_itch_v1_9.fields.nanoseconds = ProtoField.new("Nanoseconds", "nasdaq.phlx.orders.itch.v1.9.nanoseconds", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.number_of_legs = ProtoField.new("Number Of Legs", "nasdaq.phlx.orders.itch.v1.9.numberoflegs", ftypes.UINT8)
 nasdaq_phlx_orders_itch_v1_9.fields.open_close_indicator = ProtoField.new("Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.opencloseindicator", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.open_state = ProtoField.new("Open State", "nasdaq.phlx.orders.itch.v1.9.openstate", ftypes.UINT8)
-nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlx.orders.itch.v1.9.optionclosingtype", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.open_state = ProtoField.new("Open State", "nasdaq.phlx.orders.itch.v1.9.openstate", ftypes.STRING)
+nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type = ProtoField.new("Option Closing Type", "nasdaq.phlx.orders.itch.v1.9.optionclosingtype", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.option_id = ProtoField.new("Option Id", "nasdaq.phlx.orders.itch.v1.9.optionid", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlx.orders.itch.v1.9.optiontype", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlx.orders.itch.v1.9.optionsdirectorymessage", ftypes.STRING)
@@ -67,7 +67,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.original_order_volume = ProtoField.new("Orig
 nasdaq_phlx_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.phlx.orders.itch.v1.9.packet", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.orders.itch.v1.9.packetheader", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.orders.itch.v1.9.payload", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlx.orders.itch.v1.9.phlxtradable", ftypes.UINT8)
+nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlx.orders.itch.v1.9.phlxtradable", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlx.orders.itch.v1.9.price", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.orders.itch.v1.9.reserved", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlx.orders.itch.v1.9.seconds", ftypes.UINT32)
@@ -1560,10 +1560,10 @@ size_of.open_state = 1
 
 -- Display: Open State
 display.open_state = function(value)
-  if value == Y then
+  if value == "Y" then
     return "Open State: Open For Auto Execution (Y)"
   end
-  if value == N then
+  if value == "N" then
     return "Open State: Closed For Auto Execution (N)"
   end
 
@@ -1574,7 +1574,7 @@ end
 dissect.open_state = function(buffer, offset, packet, parent)
   local length = size_of.open_state
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.open_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.open_state, range, value, display)
@@ -1615,7 +1615,7 @@ dissect.strategy_open_closed_message_fields = function(buffer, offset, packet, p
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open State: 1 Byte Ascii String Enum with 2 values
   index, open_state = dissect.open_state(buffer, index, packet, parent)
 
   return index
@@ -1687,7 +1687,7 @@ dissect.security_open_closed_message_fields = function(buffer, offset, packet, p
   -- Option Type: 1 Byte Ascii String Enum with 3 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Open State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Open State: 1 Byte Ascii String Enum with 2 values
   index, open_state = dissect.open_state(buffer, index, packet, parent)
 
   return index
@@ -1711,10 +1711,10 @@ size_of.current_trading_state = 1
 
 -- Display: Current Trading State
 display.current_trading_state = function(value)
-  if value == H then
+  if value == "H" then
     return "Current Trading State: Halt In Effect (H)"
   end
-  if value == T then
+  if value == "T" then
     return "Current Trading State: Phlx Trading Resumed (T)"
   end
 
@@ -1725,7 +1725,7 @@ end
 dissect.current_trading_state = function(buffer, offset, packet, parent)
   local length = size_of.current_trading_state
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.current_trading_state, range, value, display)
@@ -1766,7 +1766,7 @@ dissect.complex_trading_action_message_fields = function(buffer, offset, packet,
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
   index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
@@ -1838,7 +1838,7 @@ dissect.security_trading_action_message_fields = function(buffer, offset, packet
   -- Option Type: 1 Byte Ascii String Enum with 3 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Current Trading State: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Current Trading State: 1 Byte Ascii String Enum with 2 values
   index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
@@ -2052,10 +2052,10 @@ size_of.phlx_tradable = 1
 
 -- Display: Phlx Tradable
 display.phlx_tradable = function(value)
-  if value == Y then
+  if value == "Y" then
     return "Phlx Tradable: Tradable (Y)"
   end
-  if value == N then
+  if value == "N" then
     return "Phlx Tradable: Not Tradable (N)"
   end
 
@@ -2066,7 +2066,7 @@ end
 dissect.phlx_tradable = function(buffer, offset, packet, parent)
   local length = size_of.phlx_tradable
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.phlx_tradable(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable, range, value, display)
@@ -2079,13 +2079,13 @@ size_of.option_closing_type = 1
 
 -- Display: Option Closing Type
 display.option_closing_type = function(value)
-  if value == N then
+  if value == "N" then
     return "Option Closing Type: Normal (N)"
   end
-  if value == L then
+  if value == "L" then
     return "Option Closing Type: Late (L)"
   end
-  if value == W then
+  if value == "W" then
     return "Option Closing Type: Wco Early Closing (W)"
   end
 
@@ -2096,7 +2096,7 @@ end
 dissect.option_closing_type = function(buffer, offset, packet, parent)
   local length = size_of.option_closing_type
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.option_closing_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.option_closing_type, range, value, display)
@@ -2169,10 +2169,10 @@ dissect.options_directory_message_fields = function(buffer, offset, packet, pare
   -- Underlying Symbol: 13 Byte Ascii String
   index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
 
-  -- Option Closing Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Option Closing Type: 1 Byte Ascii String Enum with 3 values
   index, option_closing_type = dissect.option_closing_type(buffer, index, packet, parent)
 
-  -- Phlx Tradable: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Phlx Tradable: 1 Byte Ascii String Enum with 2 values
   index, phlx_tradable = dissect.phlx_tradable(buffer, index, packet, parent)
 
   return index
