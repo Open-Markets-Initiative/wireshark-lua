@@ -219,6 +219,7 @@ cme_futures_ilink3_sbe_v8_2.fields.orig_side_trade_id = ProtoField.new("Orig Sid
 cme_futures_ilink3_sbe_v8_2.fields.origclordid = ProtoField.new("OrigClOrdId", "cme.futures.ilink3.sbe.v8.2.origclordid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.ownership = ProtoField.new("Ownership", "cme.futures.ilink3.sbe.v8.2.ownership", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.packet = ProtoField.new("Packet", "cme.futures.ilink3.sbe.v8.2.packet", ftypes.STRING)
+cme_futures_ilink3_sbe_v8_2.fields.padding_272 = ProtoField.new("Padding 272", "cme.futures.ilink3.sbe.v8.2.padding272", ftypes.BYTES)
 cme_futures_ilink3_sbe_v8_2.fields.party_detail_definition_status = ProtoField.new("Party Detail Definition Status", "cme.futures.ilink3.sbe.v8.2.partydetaildefinitionstatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_2.fields.party_detail_id = ProtoField.new("Party Detail Id", "cme.futures.ilink3.sbe.v8.2.partydetailid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_2.fields.party_detail_request_status = ProtoField.new("Party Detail Request Status", "cme.futures.ilink3.sbe.v8.2.partydetailrequeststatus", ftypes.UINT8)
@@ -13577,6 +13578,26 @@ dissect.party_details_definition_request_ack_519 = function(buffer, offset, pack
   return dissect.party_details_definition_request_ack_519_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Padding 272
+size_of.padding_272 = 272
+
+-- Display: Padding 272
+display.padding_272 = function(value)
+  return "Padding 272: "..value
+end
+
+-- Dissect: Padding 272
+dissect.padding_272 = function(buffer, offset, packet, parent)
+  local length = size_of.padding_272
+  local range = buffer(offset, length)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.padding_272(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_2.fields.padding_272, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Party Details Definition Request 518
 size_of.party_details_definition_request_518 = function(buffer, offset)
   local index = 0
@@ -13679,7 +13700,7 @@ dissect.party_details_definition_request_518_fields = function(buffer, offset, p
   -- Idm Short Code: 8 Byte Unsigned Fixed Width Integer Nullable
   index, idm_short_code = dissect.idm_short_code(buffer, index, packet, parent)
 
-  -- Padding 272
+  -- Padding 272: 272 Byte
   index, padding_272 = dissect.padding_272(buffer, index, packet, parent)
 
   -- Party Details Groups: Struct of 2 fields
