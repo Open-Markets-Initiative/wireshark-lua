@@ -10,7 +10,7 @@ jobs:
     executor: docker-executor
     steps:
       - checkout
-      - run: 
+      - run:
           name: "Setup docker environment"
           command: sudo apt-get update && sudo apt-get install -y tshark
       - run:
@@ -20,10 +20,11 @@ jobs:
           name: "Clone OMI data"
           command: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
       - run:
-          name: "Running Tesh.sh"
+          name: "Running Tests"
           command: bash -x Test.sh
 
 workflows:
   test-in-docker:
     jobs:
       - test-in-docker
+
