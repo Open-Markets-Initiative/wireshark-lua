@@ -73,7 +73,7 @@ ice_futures_mdf_impact_v1_1_43.fields.fragment_bytes = ProtoField.new("Fragment 
 ice_futures_mdf_impact_v1_1_43.fields.fragment_length = ProtoField.new("Fragment Length", "ice.futures.mdf.impact.v1.1.43.fragmentlength", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.fragment_offset = ProtoField.new("Fragment Offset", "ice.futures.mdf.impact.v1.1.43.fragmentoffset", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.fragment_wrapper_message = ProtoField.new("Fragment Wrapper Message", "ice.futures.mdf.impact.v1.1.43.fragmentwrappermessage", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.future_trade_flags = ProtoField.new("Future Trade Flags", "ice.futures.mdf.impact.v1.1.43.futuretradeflags", ftypes.UINT8, nil, base.DEC, "0x001E")
+ice_futures_mdf_impact_v1_1_43.fields.future_trade_flags = ProtoField.new("Future Trade Flags", "ice.futures.mdf.impact.v1.1.43.futuretradeflags", ftypes.UINT8, nil, base.DEC, "0x0F")
 ice_futures_mdf_impact_v1_1_43.fields.futures_contract_symbol = ProtoField.new("Futures Contract Symbol", "ice.futures.mdf.impact.v1.1.43.futurescontractsymbol", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.gbp_price = ProtoField.new("Gbp Price", "ice.futures.mdf.impact.v1.1.43.gbpprice", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.gt_allowed = ProtoField.new("Gt Allowed", "ice.futures.mdf.impact.v1.1.43.gtallowed", ftypes.STRING)
@@ -114,17 +114,18 @@ ice_futures_mdf_impact_v1_1_43.fields.is_balanced = ProtoField.new("Is Balanced"
 ice_futures_mdf_impact_v1_1_43.fields.is_block_only = ProtoField.new("Is Block Only", "ice.futures.mdf.impact.v1.1.43.isblockonly", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_final = ProtoField.new("Is Final", "ice.futures.mdf.impact.v1.1.43.isfinal", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_implied = ProtoField.new("Is Implied", "ice.futures.mdf.impact.v1.1.43.isimplied", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_43.fields.is_implied_order = ProtoField.new("Is Implied Order", "ice.futures.mdf.impact.v1.1.43.isimpliedorder", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 ice_futures_mdf_impact_v1_1_43.fields.is_implied_spread_at_market_open = ProtoField.new("Is Implied Spread At Market Open", "ice.futures.mdf.impact.v1.1.43.isimpliedspreadatmarketopen", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.is_leg_deal_outside_ipl = ProtoField.new("Is Leg Deal Outside Ipl", "ice.futures.mdf.impact.v1.1.43.islegdealoutsideipl", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x4000")
+ice_futures_mdf_impact_v1_1_43.fields.is_leg_deal_outside_ipl = ProtoField.new("Is Leg Deal Outside Ipl", "ice.futures.mdf.impact.v1.1.43.islegdealoutsideipl", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 ice_futures_mdf_impact_v1_1_43.fields.is_official = ProtoField.new("Is Official", "ice.futures.mdf.impact.v1.1.43.isofficial", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.is_rfc_crossing = ProtoField.new("Is Rfc Crossing", "ice.futures.mdf.impact.v1.1.43.isrfccrossing", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x8000")
+ice_futures_mdf_impact_v1_1_43.fields.is_rfc_crossing = ProtoField.new("Is Rfc Crossing", "ice.futures.mdf.impact.v1.1.43.isrfccrossing", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 ice_futures_mdf_impact_v1_1_43.fields.is_rfq = ProtoField.new("Is Rfq", "ice.futures.mdf.impact.v1.1.43.isrfq", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_settle_price_official = ProtoField.new("Is Settle Price Official", "ice.futures.mdf.impact.v1.1.43.issettlepriceofficial", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_system_priced_leg = ProtoField.new("Is System Priced Leg", "ice.futures.mdf.impact.v1.1.43.issystempricedleg", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_tradable = ProtoField.new("Is Tradable", "ice.futures.mdf.impact.v1.1.43.istradable", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_transaction_end = ProtoField.new("Is Transaction End", "ice.futures.mdf.impact.v1.1.43.istransactionend", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.is_up = ProtoField.new("Is Up", "ice.futures.mdf.impact.v1.1.43.isup", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.is_vertical_split = ProtoField.new("Is Vertical Split", "ice.futures.mdf.impact.v1.1.43.isverticalsplit", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x0020")
+ice_futures_mdf_impact_v1_1_43.fields.is_vertical_split = ProtoField.new("Is Vertical Split", "ice.futures.mdf.impact.v1.1.43.isverticalsplit", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 ice_futures_mdf_impact_v1_1_43.fields.isin = ProtoField.new("Isin", "ice.futures.mdf.impact.v1.1.43.isin", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.last_message_sequence_id = ProtoField.new("Last Message Sequence Id", "ice.futures.mdf.impact.v1.1.43.lastmessagesequenceid", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_43.fields.last_trade_date_time = ProtoField.new("Last Trade Date Time", "ice.futures.mdf.impact.v1.1.43.lasttradedatetime", ftypes.INT64)
@@ -8206,7 +8207,11 @@ size_of.event_type = 1
 
 -- Display: Event Type
 display.event_type = function(value)
-  return "Event Type: "..value
+  if value == "A" then
+    return "Event Type: Implication Disabled For The Market (A)"
+  end
+
+  return "Event Type: Unknown("..value..")"
 end
 
 -- Dissect: Event Type
@@ -8246,7 +8251,7 @@ dissect.market_event_message_fields = function(buffer, offset, packet, parent)
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index, market_id = dissect.market_id(buffer, index, packet, parent)
 
-  -- Event Type: 1 Byte Ascii String
+  -- Event Type: 1 Byte Ascii String Enum with 1 values
   index, event_type = dissect.event_type(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
@@ -9437,8 +9442,12 @@ display.trade_flags = function(buffer, packet, parent)
   if buffer:bitfield(1) > 0 then
     display = display.."Is Leg Deal Outside Ipl|"
   end
+  -- Is Is Implied Order flag set?
+  if buffer:bitfield(2) > 0 then
+    display = display.."Is Implied Order|"
+  end
   -- Is Is Vertical Split flag set?
-  if buffer:bitfield(10) > 0 then
+  if buffer:bitfield(3) > 0 then
     display = display.."Is Vertical Split|"
   end
 
@@ -9454,8 +9463,8 @@ dissect.trade_flags_bits = function(buffer, offset, packet, parent)
   -- Is Leg Deal Outside Ipl: 1 Bit
   parent:add(ice_futures_mdf_impact_v1_1_43.fields.is_leg_deal_outside_ipl, buffer(offset, 1))
 
-  -- Is Implied: 1 Byte Ascii String
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.is_implied, buffer(offset, 1))
+  -- Is Implied Order: 1 Bit
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.is_implied_order, buffer(offset, 1))
 
   -- Is Vertical Split: 1 Bit
   parent:add(ice_futures_mdf_impact_v1_1_43.fields.is_vertical_split, buffer(offset, 1))
