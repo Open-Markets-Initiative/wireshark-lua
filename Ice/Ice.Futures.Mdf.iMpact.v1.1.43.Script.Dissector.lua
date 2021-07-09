@@ -57,6 +57,7 @@ ice_futures_mdf_impact_v1_1_43.fields.end_day = ProtoField.new("End Day", "ice.f
 ice_futures_mdf_impact_v1_1_43.fields.end_month = ProtoField.new("End Month", "ice.futures.mdf.impact.v1.1.43.endmonth", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.end_of_day_market_summary_message = ProtoField.new("End Of Day Market Summary Message", "ice.futures.mdf.impact.v1.1.43.endofdaymarketsummarymessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.end_year = ProtoField.new("End Year", "ice.futures.mdf.impact.v1.1.43.endyear", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_43.fields.endex_status = ProtoField.new("Endex Status", "ice.futures.mdf.impact.v1.1.43.endexstatus", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.eur_price = ProtoField.new("Eur Price", "ice.futures.mdf.impact.v1.1.43.eurprice", ftypes.INT64)
 ice_futures_mdf_impact_v1_1_43.fields.event_code = ProtoField.new("Event Code", "ice.futures.mdf.impact.v1.1.43.eventcode", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.event_type = ProtoField.new("Event Type", "ice.futures.mdf.impact.v1.1.43.eventtype", ftypes.STRING)
@@ -67,6 +68,7 @@ ice_futures_mdf_impact_v1_1_43.fields.extra_strategy_leg_definition = ProtoField
 ice_futures_mdf_impact_v1_1_43.fields.ff_market_trade_indicator = ProtoField.new("Ff Market Trade Indicator", "ice.futures.mdf.impact.v1.1.43.ffmarkettradeindicator", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.fixing_indicative_price_message = ProtoField.new("Fixing Indicative Price Message", "ice.futures.mdf.impact.v1.1.43.fixingindicativepricemessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.fixing_lockdown_message = ProtoField.new("Fixing Lockdown Message", "ice.futures.mdf.impact.v1.1.43.fixinglockdownmessage", ftypes.STRING)
+ice_futures_mdf_impact_v1_1_43.fields.fixing_status = ProtoField.new("Fixing Status", "ice.futures.mdf.impact.v1.1.43.fixingstatus", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.fixing_transition_message = ProtoField.new("Fixing Transition Message", "ice.futures.mdf.impact.v1.1.43.fixingtransitionmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.flex_allowed = ProtoField.new("Flex Allowed", "ice.futures.mdf.impact.v1.1.43.flexallowed", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.fragment_bytes = ProtoField.new("Fragment Bytes", "ice.futures.mdf.impact.v1.1.43.fragmentbytes", ftypes.BYTES)
@@ -193,9 +195,9 @@ ice_futures_mdf_impact_v1_1_43.fields.off_exchange_increment_option_price = Prot
 ice_futures_mdf_impact_v1_1_43.fields.off_exchange_increment_price = ProtoField.new("Off Exchange Increment Price", "ice.futures.mdf.impact.v1.1.43.offexchangeincrementprice", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_43.fields.off_exchange_increment_qty = ProtoField.new("Off Exchange Increment Qty", "ice.futures.mdf.impact.v1.1.43.offexchangeincrementqty", ftypes.INT32)
 ice_futures_mdf_impact_v1_1_43.fields.off_exchange_increment_qty_denominator = ProtoField.new("Off Exchange Increment Qty Denominator", "ice.futures.mdf.impact.v1.1.43.offexchangeincrementqtydenominator", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.off_market_trade_indicator = ProtoField.new("Off Market Trade Indicator", "ice.futures.mdf.impact.v1.1.43.offmarkettradeindicator", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.off_market_trade_type = ProtoField.new("Off Market Trade Type", "ice.futures.mdf.impact.v1.1.43.offmarkettradetype", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.old_num_of_cycles = ProtoField.new("Old Num Of Cycles", "ice.futures.mdf.impact.v1.1.43.oldnumofcycles", ftypes.INT16)
+ice_futures_mdf_impact_v1_1_43.fields.old_off_market_trade_type = ProtoField.new("Old Off Market Trade Type", "ice.futures.mdf.impact.v1.1.43.oldoffmarkettradetype", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.old_strip_id = ProtoField.new("Old Strip Id", "ice.futures.mdf.impact.v1.1.43.oldstripid", ftypes.INT16)
 ice_futures_mdf_impact_v1_1_43.fields.old_style_options_trade_and_market_stats_message = ProtoField.new("Old Style Options Trade And Market Stats Message", "ice.futures.mdf.impact.v1.1.43.oldstyleoptionstradeandmarketstatsmessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.open_interest = ProtoField.new("Open Interest", "ice.futures.mdf.impact.v1.1.43.openinterest", ftypes.INT32)
@@ -261,7 +263,6 @@ ice_futures_mdf_impact_v1_1_43.fields.special_field_message = ProtoField.new("Sp
 ice_futures_mdf_impact_v1_1_43.fields.special_field_value = ProtoField.new("Special Field Value", "ice.futures.mdf.impact.v1.1.43.specialfieldvalue", ftypes.BYTES)
 ice_futures_mdf_impact_v1_1_43.fields.spot_market_trade_message = ProtoField.new("Spot Market Trade Message", "ice.futures.mdf.impact.v1.1.43.spotmarkettrademessage", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.start_or_end = ProtoField.new("Start Or End", "ice.futures.mdf.impact.v1.1.43.startorend", ftypes.STRING)
-ice_futures_mdf_impact_v1_1_43.fields.status = ProtoField.new("Status", "ice.futures.mdf.impact.v1.1.43.status", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.strategy_leg_definition = ProtoField.new("Strategy Leg Definition", "ice.futures.mdf.impact.v1.1.43.strategylegdefinition", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.strategy_symbol = ProtoField.new("Strategy Symbol", "ice.futures.mdf.impact.v1.1.43.strategysymbol", ftypes.STRING)
 ice_futures_mdf_impact_v1_1_43.fields.strike_price = ProtoField.new("Strike Price", "ice.futures.mdf.impact.v1.1.43.strikeprice", ftypes.INT64)
@@ -867,50 +868,22 @@ dissect.transact_date_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Off Market Trade Indicator
-size_of.off_market_trade_indicator = 1
+-- Size: Old Off Market Trade Type
+size_of.old_off_market_trade_type = 1
 
--- Display: Off Market Trade Indicator
-display.off_market_trade_indicator = function(value)
-  if value == "" then
-    return "Off Market Trade Indicator: Regular (<whitespace>)"
-  end
-  if value == "K" then
-    return "Off Market Trade Indicator: Block (K)"
-  end
-  if value == "S" then
-    return "Off Market Trade Indicator: Efs (S)"
-  end
-  if value == "E" then
-    return "Off Market Trade Indicator: Efp (E)"
-  end
-  if value == "O" then
-    return "Off Market Trade Indicator: Efp Efs (O)"
-  end
-  if value == "Q" then
-    return "Off Market Trade Indicator: Eoo (Q)"
-  end
-  if value == "I" then
-    return "Off Market Trade Indicator: Efm (I)"
-  end
-  if value == "5" then
-    return "Off Market Trade Indicator: Guaranteed Cross (5)"
-  end
-  if value == "5" then
-    return "Off Market Trade Indicator: Basis (5)"
-  end
-
-  return "Off Market Trade Indicator: Unknown("..value..")"
+-- Display: Old Off Market Trade Type
+display.old_off_market_trade_type = function(value)
+  return "Old Off Market Trade Type: "..value
 end
 
--- Dissect: Off Market Trade Indicator
-dissect.off_market_trade_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.off_market_trade_indicator
+-- Dissect: Old Off Market Trade Type
+dissect.old_off_market_trade_type = function(buffer, offset, packet, parent)
+  local length = size_of.old_off_market_trade_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.off_market_trade_indicator(value, buffer, offset, packet, parent)
+  local display = display.old_off_market_trade_type(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.off_market_trade_indicator, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.old_off_market_trade_type, range, value, display)
 
   return offset + length, value
 end
@@ -1007,7 +980,7 @@ size_of.old_style_options_trade_and_market_stats_message = function(buffer, offs
 
   index = index + size_of.quantity
 
-  index = index + size_of.off_market_trade_indicator
+  index = index + size_of.old_off_market_trade_type
 
   index = index + size_of.transact_date_time
 
@@ -1055,8 +1028,8 @@ dissect.old_style_options_trade_and_market_stats_message_fields = function(buffe
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
-  index, off_market_trade_indicator = dissect.off_market_trade_indicator(buffer, index, packet, parent)
+  -- Old Off Market Trade Type: 1 Byte Ascii String
+  index, old_off_market_trade_type = dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
   -- Transact Date Time: 8 Byte Signed Fixed Width Integer
   index, transact_date_time = dissect.transact_date_time(buffer, index, packet, parent)
@@ -2330,7 +2303,14 @@ size_of.flex_allowed = 1
 
 -- Display: Flex Allowed
 display.flex_allowed = function(value)
-  return "Flex Allowed: "..value
+  if value == "Y" then
+    return "Flex Allowed: Yes (Y)"
+  end
+  if value == "N" then
+    return "Flex Allowed: No (N)"
+  end
+
+  return "Flex Allowed: Unknown("..value..")"
 end
 
 -- Dissect: Flex Allowed
@@ -3000,7 +2980,7 @@ dissect.new_options_market_definition_message_fields = function(buffer, offset, 
   -- Tick Value: 8 Byte Signed Fixed Width Integer
   index, tick_value = dissect.tick_value(buffer, index, packet, parent)
 
-  -- Flex Allowed: 1 Byte Ascii String
+  -- Flex Allowed: 1 Byte Ascii String Enum with 2 values
   index, flex_allowed = dissect.flex_allowed(buffer, index, packet, parent)
 
   -- Settlement Type: 1 Byte Ascii String Enum with 2 values
@@ -5392,32 +5372,32 @@ dissect.auction_end_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Status
-size_of.status = 1
+-- Size: Fixing Status
+size_of.fixing_status = 1
 
--- Display: Status
-display.status = function(value)
+-- Display: Fixing Status
+display.fixing_status = function(value)
   if value == "C" then
-    return "Status: Closed (C)"
+    return "Fixing Status: Closed (C)"
   end
   if value == "P" then
-    return "Status: Preopen (P)"
+    return "Fixing Status: Preopen (P)"
   end
   if value == "L" then
-    return "Status: Lockdown (L)"
+    return "Fixing Status: Lockdown (L)"
   end
 
-  return "Status: Unknown("..value..")"
+  return "Fixing Status: Unknown("..value..")"
 end
 
--- Dissect: Status
-dissect.status = function(buffer, offset, packet, parent)
-  local length = size_of.status
+-- Dissect: Fixing Status
+dissect.fixing_status = function(buffer, offset, packet, parent)
+  local length = size_of.fixing_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.status(value, buffer, offset, packet, parent)
+  local display = display.fixing_status(value, buffer, offset, packet, parent)
 
-  parent:add(ice_futures_mdf_impact_v1_1_43.fields.status, range, value, display)
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.fixing_status, range, value, display)
 
   return offset + length, value
 end
@@ -5428,7 +5408,7 @@ size_of.fixing_transition_message = function(buffer, offset)
 
   index = index + size_of.market_id
 
-  index = index + size_of.status
+  index = index + size_of.fixing_status
 
   index = index + size_of.auction_end_time
 
@@ -5451,8 +5431,8 @@ dissect.fixing_transition_message_fields = function(buffer, offset, packet, pare
   -- Market Id: 4 Byte Signed Fixed Width Integer
   index, market_id = dissect.market_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 3 values
-  index, status = dissect.status(buffer, index, packet, parent)
+  -- Fixing Status: 1 Byte Ascii String Enum with 3 values
+  index, fixing_status = dissect.fixing_status(buffer, index, packet, parent)
 
   -- Auction End Time: 8 Byte Signed Fixed Width Integer
   index, auction_end_time = dissect.auction_end_time(buffer, index, packet, parent)
@@ -5782,7 +5762,14 @@ size_of.is_rfq = 1
 
 -- Display: Is Rfq
 display.is_rfq = function(value)
-  return "Is Rfq: "..value
+  if value == "Y" then
+    return "Is Rfq: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Rfq: No (N)"
+  end
+
+  return "Is Rfq: Unknown("..value..")"
 end
 
 -- Dissect: Is Rfq
@@ -5802,7 +5789,14 @@ size_of.is_implied = 1
 
 -- Display: Is Implied
 display.is_implied = function(value)
-  return "Is Implied: "..value
+  if value == "Y" then
+    return "Is Implied: Yes (Y)"
+  end
+  if value == "N" then
+    return "Is Implied: No (N)"
+  end
+
+  return "Is Implied: Unknown("..value..")"
 end
 
 -- Dissect: Is Implied
@@ -5897,10 +5891,10 @@ dissect.add_or_modify_order_message_fields = function(buffer, offset, packet, pa
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Is Implied: 1 Byte Ascii String
+  -- Is Implied: 1 Byte Ascii String Enum with 2 values
   index, is_implied = dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is Rfq: 1 Byte Ascii String
+  -- Is Rfq: 1 Byte Ascii String Enum with 2 values
   index, is_rfq = dissect.is_rfq(buffer, index, packet, parent)
 
   -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
@@ -5988,10 +5982,10 @@ dissect.market_snapshot_order_message_fields = function(buffer, offset, packet, 
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Is Implied: 1 Byte Ascii String
+  -- Is Implied: 1 Byte Ascii String Enum with 2 values
   index, is_implied = dissect.is_implied(buffer, index, packet, parent)
 
-  -- Is Rfq: 1 Byte Ascii String
+  -- Is Rfq: 1 Byte Ascii String Enum with 2 values
   index, is_rfq = dissect.is_rfq(buffer, index, packet, parent)
 
   -- Order Entry Date Time: 8 Byte Signed Fixed Width Integer
@@ -8430,6 +8424,39 @@ dissect.index_price_denominator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Endex Status
+size_of.endex_status = 1
+
+-- Display: Endex Status
+display.endex_status = function(value)
+  if value == "C" then
+    return "Endex Status: Current (C)"
+  end
+  if value == "D" then
+    return "Endex Status: Default (D)"
+  end
+  if value == "F" then
+    return "Endex Status: Final (F)"
+  end
+  if value == "" then
+    return "Endex Status: Non Endex Spot Market (<whitespace>)"
+  end
+
+  return "Endex Status: Unknown("..value..")"
+end
+
+-- Dissect: Endex Status
+dissect.endex_status = function(buffer, offset, packet, parent)
+  local length = size_of.endex_status
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.endex_status(value, buffer, offset, packet, parent)
+
+  parent:add(ice_futures_mdf_impact_v1_1_43.fields.endex_status, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Valuation Date
 size_of.valuation_date = 10
 
@@ -8504,7 +8531,7 @@ size_of.index_prices_message = function(buffer, offset)
 
   index = index + size_of.valuation_date
 
-  index = index + size_of.status
+  index = index + size_of.endex_status
 
   index = index + size_of.reserved_2_bytes
 
@@ -8537,8 +8564,8 @@ dissect.index_prices_message_fields = function(buffer, offset, packet, parent)
   -- Valuation Date: 10 Byte Ascii String
   index, valuation_date = dissect.valuation_date(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 3 values
-  index, status = dissect.status(buffer, index, packet, parent)
+  -- Endex Status: 1 Byte Ascii String Enum with 4 values
+  index, endex_status = dissect.endex_status(buffer, index, packet, parent)
 
   -- Reserved 2 Bytes: 2 Byte
   index, reserved_2_bytes = dissect.reserved_2_bytes(buffer, index, packet, parent)
@@ -9075,11 +9102,14 @@ display.off_market_trade_type = function(value)
   if value == "5" then
     return "Off Market Trade Type: Guaranteed Cross (5)"
   end
-  if value == "5" then
-    return "Off Market Trade Type: Basis (5)"
+  if value == "4" then
+    return "Off Market Trade Type: Basis (4)"
   end
   if value == "AA" then
     return "Off Market Trade Type: Asset Allocation (AA)"
+  end
+  if value == "V" then
+    return "Off Market Trade Type: Asset Allocation (V)"
   end
 
   return "Off Market Trade Type: Unknown("..value..")"
@@ -9109,7 +9139,7 @@ size_of.cancelled_trade_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.off_market_trade_indicator
+  index = index + size_of.old_off_market_trade_type
 
   index = index + size_of.date_time
 
@@ -9139,13 +9169,13 @@ dissect.cancelled_trade_message_fields = function(buffer, offset, packet, parent
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
-  index, off_market_trade_indicator = dissect.off_market_trade_indicator(buffer, index, packet, parent)
+  -- Old Off Market Trade Type: 1 Byte Ascii String
+  index, old_off_market_trade_type = dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
   -- Date Time: 8 Byte Signed Fixed Width Integer
   index, date_time = dissect.date_time(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
   index, off_market_trade_type = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -9264,7 +9294,7 @@ dissect.investigated_trade_message_fields = function(buffer, offset, packet, par
   -- Investigation Status: 1 Byte Ascii String Enum with 2 values
   index, investigation_status = dissect.investigation_status(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
   index, off_market_trade_type = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   return index
@@ -9598,7 +9628,7 @@ size_of.trade_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.off_market_trade_indicator
+  index = index + size_of.old_off_market_trade_type
 
   index = index + size_of.transact_date_time
 
@@ -9645,8 +9675,8 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Quantity: 4 Byte Signed Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Off Market Trade Indicator: 1 Byte Ascii String Enum with 9 values
-  index, off_market_trade_indicator = dissect.off_market_trade_indicator(buffer, index, packet, parent)
+  -- Old Off Market Trade Type: 1 Byte Ascii String
+  index, old_off_market_trade_type = dissect.old_off_market_trade_type(buffer, index, packet, parent)
 
   -- Transact Date Time: 8 Byte Signed Fixed Width Integer
   index, transact_date_time = dissect.transact_date_time(buffer, index, packet, parent)
@@ -9666,7 +9696,7 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Trade Flags: Struct of 5 fields
   index, trade_flags = dissect.trade_flags(buffer, index, packet, parent)
 
-  -- Off Market Trade Type: 3 Byte Ascii String Enum with 10 values
+  -- Off Market Trade Type: 3 Byte Ascii String Enum with 11 values
   index, off_market_trade_type = dissect.off_market_trade_type(buffer, index, packet, parent)
 
   -- Sequence Within Millis: 4 Byte Signed Fixed Width Integer
