@@ -41,6 +41,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Cboe][Cboe.Directory] | Futures | [DepthOfBook][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | Pitch | [1.1.12][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | 1/12/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Options | [ComplexDepthOfBook][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | Pitch | [2.1.18][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | 1/31/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Options | [DepthOfBook][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Cme][Cme.Directory] | Futures | [Derived][Cme.Futures.Derived.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Futures.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [iLink3][Cme.Futures.iLink3.Sbe.v8.7.Dissector] | Sbe | [8.7][Cme.Futures.iLink3.Sbe.v8.7.Dissector] | 1/6/2021 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [iLink3][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | Sbe | [8.5][Cme.Futures.iLink3.Sbe.v8.5.Dissector] | 2/27/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [Mdp3][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -120,7 +121,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 135 | 1,196,880 |
+| 136 | 1,198,816 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -181,6 +182,7 @@ Enjoy.
 [Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Cboe Edgx Options AuctionFeed Pitch v1.1.1 Lua Wireshark Dissector"
 [Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Script.Dissector.lua "Cboe Edgx Options OrderEntry Boe v2.10 Lua Wireshark Dissector"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Options.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Cboe Options DepthOfBook Pitch v2.39.4 Lua Wireshark Dissector"
+[Cme.Futures.Derived.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Derived.Sbe.v12.0.Script.Dissector.lua "Cme Futures Derived Sbe v12.0 Lua Wireshark Dissector"
 [Cme.Futures.Mdp3.Sbe.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Mdp3.Sbe.v1.11.Script.Dissector.lua "Cme Futures Mdp3 Sbe v1.11 Lua Wireshark Dissector"
 [Cme.Futures.Streamlined.Sbe.v5.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Streamlined.Sbe.v5.9.Script.Dissector.lua "Cme Futures Streamlined Sbe v5.9 Lua Wireshark Dissector"
 [Cme.Futures.Settlements.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cme/Cme.Futures.Settlements.Sbe.v7.0.Script.Dissector.lua "Cme Futures Settlements Sbe v7.0 Lua Wireshark Dissector"

@@ -5155,7 +5155,7 @@ display.md_entry_type_ = function(value)
     return "Md Entry Type : Electronic Volume (e)"
   end
   if value == "g" then
-    return "Md Entry Type : Threshold Limitsand Price Band Variation (g)"
+    return "Md Entry Type : Threshold Limits And Price Band Variation (g)"
   end
 
   return "Md Entry Type : Unknown("..value..")"
