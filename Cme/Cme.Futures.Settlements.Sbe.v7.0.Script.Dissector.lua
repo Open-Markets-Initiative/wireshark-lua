@@ -47,9 +47,9 @@ cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "c
 cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.INT64)
 cme_futures_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low_403 = ProtoField.new("Md Incremental Refresh High Low 403", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow403", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle_401 = ProtoField.new("Md Incremental Refresh Settle 401", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle401", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_vo_i_402 = ProtoField.new("Md Incremental Refresh Vo I 402", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi402", ftypes.STRING)
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
+cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi = ProtoField.new("Md Incremental Refresh Voi", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoi", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_statistic_desc = ProtoField.new("Md Statistic Desc", "cme.futures.settlements.sbe.v7.0.mdstatisticdesc", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_update_action = ProtoField.new("Md Update Action", "cme.futures.settlements.sbe.v7.0.mdupdateaction", ftypes.UINT8)
 cme_futures_settlements_sbe_v7_0.fields.message = ProtoField.new("Message", "cme.futures.settlements.sbe.v7.0.message", ftypes.STRING)
@@ -104,9 +104,9 @@ show.m_d_incremental_refresh_settle_groups = true
 show.m_d_incremental_refresh_voi_group = true
 show.m_d_incremental_refresh_voi_groups = true
 show.maturity_month_year = true
-show.md_incremental_refresh_high_low_403 = true
-show.md_incremental_refresh_settle_401 = true
-show.md_incremental_refresh_vo_i_402 = true
+show.md_incremental_refresh_high_low = true
+show.md_incremental_refresh_settle = true
+show.md_incremental_refresh_voi = true
 show.message = true
 show.message_header = true
 show.packet = true
@@ -128,9 +128,9 @@ cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_settle_group
 cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_group = Pref.bool("Show M D Incremental Refresh Voi Group", show.m_d_incremental_refresh_voi_group, "Parse and add M D Incremental Refresh Voi Group to protocol tree")
 cme_futures_settlements_sbe_v7_0.prefs.show_m_d_incremental_refresh_voi_groups = Pref.bool("Show M D Incremental Refresh Voi Groups", show.m_d_incremental_refresh_voi_groups, "Parse and add M D Incremental Refresh Voi Groups to protocol tree")
 cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year = Pref.bool("Show Maturity Month Year", show.maturity_month_year, "Parse and add Maturity Month Year to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low_403 = Pref.bool("Show Md Incremental Refresh High Low 403", show.md_incremental_refresh_high_low_403, "Parse and add Md Incremental Refresh High Low 403 to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle_401 = Pref.bool("Show Md Incremental Refresh Settle 401", show.md_incremental_refresh_settle_401, "Parse and add Md Incremental Refresh Settle 401 to protocol tree")
-cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_vo_i_402 = Pref.bool("Show Md Incremental Refresh Vo I 402", show.md_incremental_refresh_vo_i_402, "Parse and add Md Incremental Refresh Vo I 402 to protocol tree")
+cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low = Pref.bool("Show Md Incremental Refresh High Low", show.md_incremental_refresh_high_low, "Parse and add Md Incremental Refresh High Low to protocol tree")
+cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle = Pref.bool("Show Md Incremental Refresh Settle", show.md_incremental_refresh_settle, "Parse and add Md Incremental Refresh Settle to protocol tree")
+cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi = Pref.bool("Show Md Incremental Refresh Voi", show.md_incremental_refresh_voi, "Parse and add Md Incremental Refresh Voi to protocol tree")
 cme_futures_settlements_sbe_v7_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cme_futures_settlements_sbe_v7_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cme_futures_settlements_sbe_v7_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
@@ -192,16 +192,16 @@ function cme_futures_settlements_sbe_v7_0.prefs_changed()
     show.maturity_month_year = cme_futures_settlements_sbe_v7_0.prefs.show_maturity_month_year
     changed = true
   end
-  if show.md_incremental_refresh_high_low_403 ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low_403 then
-    show.md_incremental_refresh_high_low_403 = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low_403
+  if show.md_incremental_refresh_high_low ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low then
+    show.md_incremental_refresh_high_low = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_high_low
     changed = true
   end
-  if show.md_incremental_refresh_settle_401 ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle_401 then
-    show.md_incremental_refresh_settle_401 = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle_401
+  if show.md_incremental_refresh_settle ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle then
+    show.md_incremental_refresh_settle = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_settle
     changed = true
   end
-  if show.md_incremental_refresh_vo_i_402 ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_vo_i_402 then
-    show.md_incremental_refresh_vo_i_402 = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_vo_i_402
+  if show.md_incremental_refresh_voi ~= cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi then
+    show.md_incremental_refresh_voi = cme_futures_settlements_sbe_v7_0.prefs.show_md_incremental_refresh_voi
     changed = true
   end
   if show.message ~= cme_futures_settlements_sbe_v7_0.prefs.show_message then
@@ -1394,8 +1394,8 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Md Incremental Refresh High Low 403
-size_of.md_incremental_refresh_high_low_403 = function(buffer, offset)
+-- Calculate size of: Md Incremental Refresh High Low
+size_of.md_incremental_refresh_high_low = function(buffer, offset)
   local index = 0
 
   index = index + size_of.transact_time
@@ -1405,13 +1405,13 @@ size_of.md_incremental_refresh_high_low_403 = function(buffer, offset)
   return index
 end
 
--- Display: Md Incremental Refresh High Low 403
-display.md_incremental_refresh_high_low_403 = function(buffer, offset, size, packet, parent)
+-- Display: Md Incremental Refresh High Low
+display.md_incremental_refresh_high_low = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Incremental Refresh High Low 403
-dissect.md_incremental_refresh_high_low_403_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Incremental Refresh High Low
+dissect.md_incremental_refresh_high_low_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1423,17 +1423,17 @@ dissect.md_incremental_refresh_high_low_403_fields = function(buffer, offset, pa
   return index
 end
 
--- Dissect: Md Incremental Refresh High Low 403
-dissect.md_incremental_refresh_high_low_403 = function(buffer, offset, packet, parent)
+-- Dissect: Md Incremental Refresh High Low
+dissect.md_incremental_refresh_high_low = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_high_low_403 then
-    local length = size_of.md_incremental_refresh_high_low_403(buffer, offset)
+  if show.md_incremental_refresh_high_low then
+    local length = size_of.md_incremental_refresh_high_low(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_high_low_403(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low_403, range, display)
+    local display = display.md_incremental_refresh_high_low(buffer, packet, parent)
+    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low, range, display)
   end
 
-  return dissect.md_incremental_refresh_high_low_403_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_high_low_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Open Close Settl Flag
@@ -1689,8 +1689,8 @@ dissect.m_d_incremental_refresh_voi_groups = function(buffer, offset, packet, pa
   return dissect.m_d_incremental_refresh_voi_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Md Incremental Refresh Vo I 402
-size_of.md_incremental_refresh_vo_i_402 = function(buffer, offset)
+-- Calculate size of: Md Incremental Refresh Voi
+size_of.md_incremental_refresh_voi = function(buffer, offset)
   local index = 0
 
   index = index + size_of.transact_time
@@ -1700,13 +1700,13 @@ size_of.md_incremental_refresh_vo_i_402 = function(buffer, offset)
   return index
 end
 
--- Display: Md Incremental Refresh Vo I 402
-display.md_incremental_refresh_vo_i_402 = function(buffer, offset, size, packet, parent)
+-- Display: Md Incremental Refresh Voi
+display.md_incremental_refresh_voi = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Incremental Refresh Vo I 402
-dissect.md_incremental_refresh_vo_i_402_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Incremental Refresh Voi
+dissect.md_incremental_refresh_voi_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1718,17 +1718,17 @@ dissect.md_incremental_refresh_vo_i_402_fields = function(buffer, offset, packet
   return index
 end
 
--- Dissect: Md Incremental Refresh Vo I 402
-dissect.md_incremental_refresh_vo_i_402 = function(buffer, offset, packet, parent)
+-- Dissect: Md Incremental Refresh Voi
+dissect.md_incremental_refresh_voi = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_vo_i_402 then
-    local length = size_of.md_incremental_refresh_vo_i_402(buffer, offset)
+  if show.md_incremental_refresh_voi then
+    local length = size_of.md_incremental_refresh_voi(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_vo_i_402(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_vo_i_402, range, display)
+    local display = display.md_incremental_refresh_voi(buffer, packet, parent)
+    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_voi, range, display)
   end
 
-  return dissect.md_incremental_refresh_vo_i_402_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_voi_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Statistic Desc
@@ -2163,8 +2163,8 @@ dissect.m_d_incremental_refresh_settle_groups = function(buffer, offset, packet,
   return dissect.m_d_incremental_refresh_settle_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Md Incremental Refresh Settle 401
-size_of.md_incremental_refresh_settle_401 = function(buffer, offset)
+-- Calculate size of: Md Incremental Refresh Settle
+size_of.md_incremental_refresh_settle = function(buffer, offset)
   local index = 0
 
   index = index + size_of.transact_time
@@ -2174,13 +2174,13 @@ size_of.md_incremental_refresh_settle_401 = function(buffer, offset)
   return index
 end
 
--- Display: Md Incremental Refresh Settle 401
-display.md_incremental_refresh_settle_401 = function(buffer, offset, size, packet, parent)
+-- Display: Md Incremental Refresh Settle
+display.md_incremental_refresh_settle = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Incremental Refresh Settle 401
-dissect.md_incremental_refresh_settle_401_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Incremental Refresh Settle
+dissect.md_incremental_refresh_settle_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -2192,34 +2192,34 @@ dissect.md_incremental_refresh_settle_401_fields = function(buffer, offset, pack
   return index
 end
 
--- Dissect: Md Incremental Refresh Settle 401
-dissect.md_incremental_refresh_settle_401 = function(buffer, offset, packet, parent)
+-- Dissect: Md Incremental Refresh Settle
+dissect.md_incremental_refresh_settle = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_settle_401 then
-    local length = size_of.md_incremental_refresh_settle_401(buffer, offset)
+  if show.md_incremental_refresh_settle then
+    local length = size_of.md_incremental_refresh_settle(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_settle_401(buffer, packet, parent)
-    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle_401, range, display)
+    local display = display.md_incremental_refresh_settle(buffer, packet, parent)
+    parent = parent:add(cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle, range, display)
   end
 
-  return dissect.md_incremental_refresh_settle_401_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_settle_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, template_id)
-  -- Size of Md Incremental Refresh Settle 401
+  -- Size of Md Incremental Refresh Settle
   if template_id == 401 then
-    return size_of.md_incremental_refresh_settle_401(buffer, offset)
+    return size_of.md_incremental_refresh_settle(buffer, offset)
   end
-  -- Size of Md Incremental Refresh Vo I 402
+  -- Size of Md Incremental Refresh Voi
   if template_id == 402 then
-    return size_of.md_incremental_refresh_vo_i_402(buffer, offset)
+    return size_of.md_incremental_refresh_voi(buffer, offset)
   end
-  -- Size of Md Incremental Refresh High Low 403
+  -- Size of Md Incremental Refresh High Low
   if template_id == 403 then
-    return size_of.md_incremental_refresh_high_low_403(buffer, offset)
+    return size_of.md_incremental_refresh_high_low(buffer, offset)
   end
-  -- Size of Admin Heartbeat 407
+  -- Size of Admin Heartbeat
   if template_id == 407 then
     return 0
   end
@@ -2234,19 +2234,19 @@ end
 
 -- Dissect Branches: Payload
 dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
-  -- Dissect Md Incremental Refresh Settle 401
+  -- Dissect Md Incremental Refresh Settle
   if template_id == 401 then
-    return dissect.md_incremental_refresh_settle_401(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_settle(buffer, offset, packet, parent)
   end
-  -- Dissect Md Incremental Refresh Vo I 402
+  -- Dissect Md Incremental Refresh Voi
   if template_id == 402 then
-    return dissect.md_incremental_refresh_vo_i_402(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_voi(buffer, offset, packet, parent)
   end
-  -- Dissect Md Incremental Refresh High Low 403
+  -- Dissect Md Incremental Refresh High Low
   if template_id == 403 then
-    return dissect.md_incremental_refresh_high_low_403(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_high_low(buffer, offset, packet, parent)
   end
-  -- Dissect Admin Heartbeat 407
+  -- Dissect Admin Heartbeat
   if template_id == 407 then
   end
 
