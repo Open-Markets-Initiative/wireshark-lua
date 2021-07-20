@@ -30,7 +30,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Asx][Asx.Directory] | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Box][Box.Directory] | Options | [Unicast][Box.Options.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Box][Box.Directory] | Options Sola | [Unicast][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Cboe][Cboe.Directory] | Bzx Equities | [OrderEntry][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector] | Boe | [2.3][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | Bzx Options | [OrderEntry][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | C1 Options | [OrderEntry][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
@@ -173,7 +173,7 @@ Enjoy.
 [Siac.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/master/Siac "Securities Industry Automation Corporation"
 
 [Asx.Securities.Ntp.Itch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Asx/Asx.Securities.Ntp.Itch.v1.05.Script.Dissector.lua "Asx Securities Ntp Itch v1.05 Lua Wireshark Dissector"
-[Box.Options.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Box/Box.Options.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Unicast Hsvf v4.5.1 Lua Wireshark Dissector"
+[Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Lua Wireshark Dissector"
 [Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Script.Dissector.lua "Cboe Bzx Equities OrderEntry Boe v2.3 Lua Wireshark Dissector"
 [Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Script.Dissector.lua "Cboe Edgx Equities OrderEntry Boe v2.3 Lua Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Script.Dissector.lua "Cboe Futures DepthOfBook Pitch v1.1.12 Lua Wireshark Dissector"

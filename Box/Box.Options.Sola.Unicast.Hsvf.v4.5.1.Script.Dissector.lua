@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Box Options Unicast Hsvf 4.5.1 Protocol
-local box_options_unicast_hsvf_v4_5_1 = Proto("Box.Options.Unicast.Hsvf.v4.5.1.Lua", "Box Options Unicast Hsvf 4.5.1")
+-- Box Options Sola Unicast Hsvf 4.5.1 Protocol
+local box_options_sola_unicast_hsvf_v4_5_1 = Proto("Box.Options.Sola.Unicast.Hsvf.v4.5.1.Lua", "Box Options Sola Unicast Hsvf 4.5.1")
 
 -- Component Tables
 local show = {}
@@ -19,185 +19,185 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Box Options Unicast Hsvf 4.5.1 Fields
-box_options_unicast_hsvf_v4_5_1.fields.ask_price = ProtoField.new("Ask Price", "box.options.unicast.hsvf.v4.5.1.askprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.askpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "box.options.unicast.hsvf.v4.5.1.askpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.ask_size = ProtoField.new("Ask Size", "box.options.unicast.hsvf.v4.5.1.asksize", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.auction_type = ProtoField.new("Auction Type", "box.options.unicast.hsvf.v4.5.1.auctiontype", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message = ProtoField.new("Beginning Of Complex Order Summary Message", "box.options.unicast.hsvf.v4.5.1.beginningofcomplexordersummarymessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "box.options.unicast.hsvf.v4.5.1.beginningofoptionssummarymessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bid_price = ProtoField.new("Bid Price", "box.options.unicast.hsvf.v4.5.1.bidprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.bidpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "box.options.unicast.hsvf.v4.5.1.bidpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bid_price_sign+ = ProtoField.new("Bid Price Sign+", "box.options.unicast.hsvf.v4.5.1.bidpricesign+", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bid_size = ProtoField.new("Bid Size", "box.options.unicast.hsvf.v4.5.1.bidsize", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bulletin_contents = ProtoField.new("Bulletin Contents", "box.options.unicast.hsvf.v4.5.1.bulletincontents", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bulletin_type = ProtoField.new("Bulletin Type", "box.options.unicast.hsvf.v4.5.1.bulletintype", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.bulletins_message = ProtoField.new("Bulletins Message", "box.options.unicast.hsvf.v4.5.1.bulletinsmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.circuit_assurance_message = ProtoField.new("Circuit Assurance Message", "box.options.unicast.hsvf.v4.5.1.circuitassurancemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.cmta = ProtoField.new("Cmta", "box.options.unicast.hsvf.v4.5.1.cmta", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_market_depth_level = ProtoField.new("Complex Market Depth Level", "box.options.unicast.hsvf.v4.5.1.complexmarketdepthlevel", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order = ProtoField.new("Complex Order", "box.options.unicast.hsvf.v4.5.1.complexorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_group_status_message = ProtoField.new("Complex Order Group Status Message", "box.options.unicast.hsvf.v4.5.1.complexordergroupstatusmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_improvement_process_beginning_message_message = ProtoField.new("Complex Order Improvement Process Beginning Message Message", "box.options.unicast.hsvf.v4.5.1.complexorderimprovementprocessbeginningmessagemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_initial_and_improvement_order_message = ProtoField.new("Complex Order Initial And Improvement Order Message", "box.options.unicast.hsvf.v4.5.1.complexorderinitialandimprovementordermessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_allow_implied = ProtoField.new("Complex Order Instrument Allow Implied", "box.options.unicast.hsvf.v4.5.1.complexorderinstrumentallowimplied", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_keys_message = ProtoField.new("Complex Order Instrument Keys Message", "box.options.unicast.hsvf.v4.5.1.complexorderinstrumentkeysmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol = ProtoField.new("Complex Order Instrument Symbol", "box.options.unicast.hsvf.v4.5.1.complexorderinstrumentsymbol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_trade_message = ProtoField.new("Complex Order Instrument Trade Message", "box.options.unicast.hsvf.v4.5.1.complexorderinstrumenttrademessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_market_depth_message = ProtoField.new("Complex Order Market Depth Message", "box.options.unicast.hsvf.v4.5.1.complexordermarketdepthmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_market_sheet_initial_and_improvement_order_message = ProtoField.new("Complex Order Market Sheet Initial And Improvement Order Message", "box.options.unicast.hsvf.v4.5.1.complexordermarketsheetinitialandimprovementordermessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_quote_message = ProtoField.new("Complex Order Quote Message", "box.options.unicast.hsvf.v4.5.1.complexorderquotemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_summary_message = ProtoField.new("Complex Order Summary Message", "box.options.unicast.hsvf.v4.5.1.complexordersummarymessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.complex_order_trade_cancellation_message = ProtoField.new("Complex Order Trade Cancellation Message", "box.options.unicast.hsvf.v4.5.1.complexordertradecancellationmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.connection_message = ProtoField.new("Connection Message", "box.options.unicast.hsvf.v4.5.1.connectionmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.continue_marker = ProtoField.new("Continue Marker", "box.options.unicast.hsvf.v4.5.1.continuemarker", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.deletion_type = ProtoField.new("Deletion Type", "box.options.unicast.hsvf.v4.5.1.deletiontype", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.delivery_month = ProtoField.new("Delivery Month", "box.options.unicast.hsvf.v4.5.1.deliverymonth", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.end_of_sales_message = ProtoField.new("End Of Sales Message", "box.options.unicast.hsvf.v4.5.1.endofsalesmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.end_of_the_exposition = ProtoField.new("End Of The Exposition", "box.options.unicast.hsvf.v4.5.1.endoftheexposition", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.end_of_transmission_message = ProtoField.new("End Of Transmission Message", "box.options.unicast.hsvf.v4.5.1.endoftransmissionmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.exchange_id = ProtoField.new("Exchange Id", "box.options.unicast.hsvf.v4.5.1.exchangeid", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry Day", "box.options.unicast.hsvf.v4.5.1.expiryday", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.options.unicast.hsvf.v4.5.1.expirymonthcode", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.options.unicast.hsvf.v4.5.1.expiryyear", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.filler = ProtoField.new("Filler", "box.options.unicast.hsvf.v4.5.1.filler", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.firm_id = ProtoField.new("Firm Id", "box.options.unicast.hsvf.v4.5.1.firmid", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.gap_control = ProtoField.new("Gap Control", "box.options.unicast.hsvf.v4.5.1.gapcontrol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.gap_sequence_message = ProtoField.new("Gap Sequence Message", "box.options.unicast.hsvf.v4.5.1.gapsequencemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group = ProtoField.new("Group", "box.options.unicast.hsvf.v4.5.1.group", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group_instrument = ProtoField.new("Group Instrument", "box.options.unicast.hsvf.v4.5.1.groupinstrument", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group_of_the_complex_order_instrument = ProtoField.new("Group Of The Complex Order Instrument", "box.options.unicast.hsvf.v4.5.1.groupofthecomplexorderinstrument", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group_opening_time_message = ProtoField.new("Group Opening Time Message", "box.options.unicast.hsvf.v4.5.1.groupopeningtimemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group_status = ProtoField.new("Group Status", "box.options.unicast.hsvf.v4.5.1.groupstatus", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.group_status_message = ProtoField.new("Group Status Message", "box.options.unicast.hsvf.v4.5.1.groupstatusmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.high_price = ProtoField.new("High Price", "box.options.unicast.hsvf.v4.5.1.highprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.highpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.high_price_sign = ProtoField.new("High Price Sign", "box.options.unicast.hsvf.v4.5.1.highpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "box.options.unicast.hsvf.v4.5.1.hsvfetx", ftypes.INT8)
-box_options_unicast_hsvf_v4_5_1.fields.hsvf_protocol = ProtoField.new("Hsvf Protocol", "box.options.unicast.hsvf.v4.5.1.hsvfprotocol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "box.options.unicast.hsvf.v4.5.1.hsvfstx", ftypes.INT8)
-box_options_unicast_hsvf_v4_5_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.options.unicast.hsvf.v4.5.1.improvementorderside", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.options.unicast.hsvf.v4.5.1.improvementphaseexpirytime", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.options.unicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.options.unicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_and_improvement_order_message = ProtoField.new("Initial And Improvement Order Message", "box.options.unicast.hsvf.v4.5.1.initialandimprovementordermessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.options.unicast.hsvf.v4.5.1.initialorderprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.initialorderpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_order_price_sign = ProtoField.new("Initial Order Price Sign", "box.options.unicast.hsvf.v4.5.1.initialorderpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.options.unicast.hsvf.v4.5.1.initialorderquantity", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.initial_order_side = ProtoField.new("Initial Order Side", "box.options.unicast.hsvf.v4.5.1.initialorderside", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.instrument = ProtoField.new("Instrument", "box.options.unicast.hsvf.v4.5.1.instrument", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.instrument_description = ProtoField.new("Instrument Description", "box.options.unicast.hsvf.v4.5.1.instrumentdescription", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.instrument_external_code = ProtoField.new("Instrument External Code", "box.options.unicast.hsvf.v4.5.1.instrumentexternalcode", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.instrument_leg = ProtoField.new("Instrument Leg", "box.options.unicast.hsvf.v4.5.1.instrumentleg", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.options.unicast.hsvf.v4.5.1.instrumentstatusmarker", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.last_price = ProtoField.new("Last Price", "box.options.unicast.hsvf.v4.5.1.lastprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.lastpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.last_price_sign+ = ProtoField.new("Last Price Sign+", "box.options.unicast.hsvf.v4.5.1.lastpricesign+", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.options.unicast.hsvf.v4.5.1.legratio", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.options.unicast.hsvf.v4.5.1.legratiosign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.options.unicast.hsvf.v4.5.1.legsymbol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "box.options.unicast.hsvf.v4.5.1.levelofmarketdepth", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.options.unicast.hsvf.v4.5.1.limitenteredforanorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.options.unicast.hsvf.v4.5.1.limitenteredforanordersign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.limitfractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Price", "box.options.unicast.hsvf.v4.5.1.lowprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.lowpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.options.unicast.hsvf.v4.5.1.lowpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.options.unicast.hsvf.v4.5.1.marketdepthlevel", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.options.unicast.hsvf.v4.5.1.marketflowindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message = ProtoField.new("Market Sheet Initial And Improvement Order Message", "box.options.unicast.hsvf.v4.5.1.marketsheetinitialandimprovementordermessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.market_summaries = ProtoField.new("Market Summaries", "box.options.unicast.hsvf.v4.5.1.marketsummaries", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.options.unicast.hsvf.v4.5.1.maxnumberofcontractsperorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.options.unicast.hsvf.v4.5.1.maxthresholdprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price_fraction_indicator = ProtoField.new("Max Threshold Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.maxthresholdpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price_sign = ProtoField.new("Max Threshold Price Sign", "box.options.unicast.hsvf.v4.5.1.maxthresholdpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.options.unicast.hsvf.v4.5.1.maximumnumberofcontractsperorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.options.unicast.hsvf.v4.5.1.maximumthresholdprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.maximumthresholdpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.message_body = ProtoField.new("Message Body", "box.options.unicast.hsvf.v4.5.1.messagebody", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.message_header = ProtoField.new("Message Header", "box.options.unicast.hsvf.v4.5.1.messageheader", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.message_type = ProtoField.new("Message Type", "box.options.unicast.hsvf.v4.5.1.messagetype", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.options.unicast.hsvf.v4.5.1.minnumberofcontractsperorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.options.unicast.hsvf.v4.5.1.minthresholdprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price_fraction_indicator = ProtoField.new("Min Threshold Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.minthresholdpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price_sign = ProtoField.new("Min Threshold Price Sign", "box.options.unicast.hsvf.v4.5.1.minthresholdpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.options.unicast.hsvf.v4.5.1.minimumnumberofcontractsperorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.options.unicast.hsvf.v4.5.1.minimumquantityforimprovementorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.options.unicast.hsvf.v4.5.1.minimumthresholdprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.minimumthresholdpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.net_change = ProtoField.new("Net Change", "box.options.unicast.hsvf.v4.5.1.netchange", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.netchangefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.net_change_sign = ProtoField.new("Net Change Sign", "box.options.unicast.hsvf.v4.5.1.netchangesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "box.options.unicast.hsvf.v4.5.1.numberofaskorders", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "box.options.unicast.hsvf.v4.5.1.numberofbidorders", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.options.unicast.hsvf.v4.5.1.numberoflegs", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.options.unicast.hsvf.v4.5.1.numberoflevels", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.number_of_option_classes_requested = ProtoField.new("Number Of Option Classes Requested", "box.options.unicast.hsvf.v4.5.1.numberofoptionclassesrequested", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.open_interest = ProtoField.new("Open Interest", "box.options.unicast.hsvf.v4.5.1.openinterest", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.open_price = ProtoField.new("Open Price", "box.options.unicast.hsvf.v4.5.1.openprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.openpricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.options.unicast.hsvf.v4.5.1.openpricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message = ProtoField.new("Option Improvement Process Beginning Message", "box.options.unicast.hsvf.v4.5.1.optionimprovementprocessbeginningmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message = ProtoField.new("Option Instrument Keys Message", "box.options.unicast.hsvf.v4.5.1.optioninstrumentkeysmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_marker = ProtoField.new("Option Marker", "box.options.unicast.hsvf.v4.5.1.optionmarker", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_market_depth_message = ProtoField.new("Option Market Depth Message", "box.options.unicast.hsvf.v4.5.1.optionmarketdepthmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_quote_message = ProtoField.new("Option Quote Message", "box.options.unicast.hsvf.v4.5.1.optionquotemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message = ProtoField.new("Option Request For Quote Message", "box.options.unicast.hsvf.v4.5.1.optionrequestforquotemessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_summary_message = ProtoField.new("Option Summary Message", "box.options.unicast.hsvf.v4.5.1.optionsummarymessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_trade_cancellation_message = ProtoField.new("Option Trade Cancellation Message", "box.options.unicast.hsvf.v4.5.1.optiontradecancellationmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_trade_message = ProtoField.new("Option Trade Message", "box.options.unicast.hsvf.v4.5.1.optiontrademessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.option_type = ProtoField.new("Option Type", "box.options.unicast.hsvf.v4.5.1.optiontype", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.order_quantity = ProtoField.new("Order Quantity", "box.options.unicast.hsvf.v4.5.1.orderquantity", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.order_sequence_number = ProtoField.new("Order Sequence Number", "box.options.unicast.hsvf.v4.5.1.ordersequencenumber", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.order_side = ProtoField.new("Order Side", "box.options.unicast.hsvf.v4.5.1.orderside", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.packet = ProtoField.new("Packet", "box.options.unicast.hsvf.v4.5.1.packet", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.percentage_assured_to_initial_order = ProtoField.new("Percentage Assured To Initial Order", "box.options.unicast.hsvf.v4.5.1.percentageassuredtoinitialorder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.options.unicast.hsvf.v4.5.1.priceindicatormarker", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.options.unicast.hsvf.v4.5.1.publiccustomerasksize", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.options.unicast.hsvf.v4.5.1.publiccustomerbidsize", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.reference_price = ProtoField.new("Reference Price", "box.options.unicast.hsvf.v4.5.1.referenceprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.referencepricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.requested_size = ProtoField.new("Requested Size", "box.options.unicast.hsvf.v4.5.1.requestedsize", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.reserved = ProtoField.new("Reserved", "box.options.unicast.hsvf.v4.5.1.reserved", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.options.unicast.hsvf.v4.5.1.resetsequence", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.options.unicast.hsvf.v4.5.1.rootsymbol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.options.unicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.options.unicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.options.unicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.options.unicast.hsvf.v4.5.1.strikeprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.options.unicast.hsvf.v4.5.1.strikepricecurrency", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.strikepricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.system_default = ProtoField.new("System Default", "box.options.unicast.hsvf.v4.5.1.systemdefault", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.options.unicast.hsvf.v4.5.1.systemtimestampmessage", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.system_value = ProtoField.new("System Value", "box.options.unicast.hsvf.v4.5.1.systemvalue", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.tick = ProtoField.new("Tick", "box.options.unicast.hsvf.v4.5.1.tick", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.options.unicast.hsvf.v4.5.1.tickincrement", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.tickincrementfractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.time = ProtoField.new("Time", "box.options.unicast.hsvf.v4.5.1.time", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.timestamp = ProtoField.new("Timestamp", "box.options.unicast.hsvf.v4.5.1.timestamp", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.trade_price = ProtoField.new("Trade Price", "box.options.unicast.hsvf.v4.5.1.tradeprice", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "box.options.unicast.hsvf.v4.5.1.tradepricefractionindicator", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.options.unicast.hsvf.v4.5.1.tradepricesign", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.options.unicast.hsvf.v4.5.1.tradingenginetimestamp", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.options.unicast.hsvf.v4.5.1.typeofclearingaccount", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "box.options.unicast.hsvf.v4.5.1.typeofinstrument", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_market = ProtoField.new("Type Of Market", "box.options.unicast.hsvf.v4.5.1.typeofmarket", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_market_data = ProtoField.new("Type Of Market Data", "box.options.unicast.hsvf.v4.5.1.typeofmarketdata", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_options = ProtoField.new("Type Of Options", "box.options.unicast.hsvf.v4.5.1.typeofoptions", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_order = ProtoField.new("Type Of Order", "box.options.unicast.hsvf.v4.5.1.typeoforder", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.type_of_underlying = ProtoField.new("Type Of Underlying", "box.options.unicast.hsvf.v4.5.1.typeofunderlying", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "box.options.unicast.hsvf.v4.5.1.underlyingsymbol", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.options.unicast.hsvf.v4.5.1.underlyingsymbolroot", ftypes.STRING)
-box_options_unicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.options.unicast.hsvf.v4.5.1.volume", ftypes.STRING)
+-- Box Options Sola Unicast Hsvf 4.5.1 Fields
+box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price = ProtoField.new("Ask Price", "box.options.sola.unicast.hsvf.v4.5.1.askprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator = ProtoField.new("Ask Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.askpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price_sign = ProtoField.new("Ask Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.askpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.ask_size = ProtoField.new("Ask Size", "box.options.sola.unicast.hsvf.v4.5.1.asksize", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.auction_type = ProtoField.new("Auction Type", "box.options.sola.unicast.hsvf.v4.5.1.auctiontype", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message = ProtoField.new("Beginning Of Complex Order Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.beginningofcomplexordersummarymessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.beginningofoptionssummarymessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price = ProtoField.new("Bid Price", "box.options.sola.unicast.hsvf.v4.5.1.bidprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.bidpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.bidpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign+ = ProtoField.new("Bid Price Sign+", "box.options.sola.unicast.hsvf.v4.5.1.bidpricesign+", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_size = ProtoField.new("Bid Size", "box.options.sola.unicast.hsvf.v4.5.1.bidsize", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_contents = ProtoField.new("Bulletin Contents", "box.options.sola.unicast.hsvf.v4.5.1.bulletincontents", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_type = ProtoField.new("Bulletin Type", "box.options.sola.unicast.hsvf.v4.5.1.bulletintype", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bulletins_message = ProtoField.new("Bulletins Message", "box.options.sola.unicast.hsvf.v4.5.1.bulletinsmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.circuit_assurance_message = ProtoField.new("Circuit Assurance Message", "box.options.sola.unicast.hsvf.v4.5.1.circuitassurancemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.cmta = ProtoField.new("Cmta", "box.options.sola.unicast.hsvf.v4.5.1.cmta", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level = ProtoField.new("Complex Market Depth Level", "box.options.sola.unicast.hsvf.v4.5.1.complexmarketdepthlevel", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order = ProtoField.new("Complex Order", "box.options.sola.unicast.hsvf.v4.5.1.complexorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_group_status_message = ProtoField.new("Complex Order Group Status Message", "box.options.sola.unicast.hsvf.v4.5.1.complexordergroupstatusmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_improvement_process_beginning_message_message = ProtoField.new("Complex Order Improvement Process Beginning Message Message", "box.options.sola.unicast.hsvf.v4.5.1.complexorderimprovementprocessbeginningmessagemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_initial_and_improvement_order_message = ProtoField.new("Complex Order Initial And Improvement Order Message", "box.options.sola.unicast.hsvf.v4.5.1.complexorderinitialandimprovementordermessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_allow_implied = ProtoField.new("Complex Order Instrument Allow Implied", "box.options.sola.unicast.hsvf.v4.5.1.complexorderinstrumentallowimplied", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_keys_message = ProtoField.new("Complex Order Instrument Keys Message", "box.options.sola.unicast.hsvf.v4.5.1.complexorderinstrumentkeysmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol = ProtoField.new("Complex Order Instrument Symbol", "box.options.sola.unicast.hsvf.v4.5.1.complexorderinstrumentsymbol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_trade_message = ProtoField.new("Complex Order Instrument Trade Message", "box.options.sola.unicast.hsvf.v4.5.1.complexorderinstrumenttrademessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_depth_message = ProtoField.new("Complex Order Market Depth Message", "box.options.sola.unicast.hsvf.v4.5.1.complexordermarketdepthmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_sheet_initial_and_improvement_order_message = ProtoField.new("Complex Order Market Sheet Initial And Improvement Order Message", "box.options.sola.unicast.hsvf.v4.5.1.complexordermarketsheetinitialandimprovementordermessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_quote_message = ProtoField.new("Complex Order Quote Message", "box.options.sola.unicast.hsvf.v4.5.1.complexorderquotemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_summary_message = ProtoField.new("Complex Order Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.complexordersummarymessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_trade_cancellation_message = ProtoField.new("Complex Order Trade Cancellation Message", "box.options.sola.unicast.hsvf.v4.5.1.complexordertradecancellationmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.connection_message = ProtoField.new("Connection Message", "box.options.sola.unicast.hsvf.v4.5.1.connectionmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.continue_marker = ProtoField.new("Continue Marker", "box.options.sola.unicast.hsvf.v4.5.1.continuemarker", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.deletion_type = ProtoField.new("Deletion Type", "box.options.sola.unicast.hsvf.v4.5.1.deletiontype", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.delivery_month = ProtoField.new("Delivery Month", "box.options.sola.unicast.hsvf.v4.5.1.deliverymonth", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_sales_message = ProtoField.new("End Of Sales Message", "box.options.sola.unicast.hsvf.v4.5.1.endofsalesmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_the_exposition = ProtoField.new("End Of The Exposition", "box.options.sola.unicast.hsvf.v4.5.1.endoftheexposition", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_transmission_message = ProtoField.new("End Of Transmission Message", "box.options.sola.unicast.hsvf.v4.5.1.endoftransmissionmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.exchange_id = ProtoField.new("Exchange Id", "box.options.sola.unicast.hsvf.v4.5.1.exchangeid", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry Day", "box.options.sola.unicast.hsvf.v4.5.1.expiryday", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.options.sola.unicast.hsvf.v4.5.1.expirymonthcode", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.options.sola.unicast.hsvf.v4.5.1.expiryyear", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.filler = ProtoField.new("Filler", "box.options.sola.unicast.hsvf.v4.5.1.filler", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.firm_id = ProtoField.new("Firm Id", "box.options.sola.unicast.hsvf.v4.5.1.firmid", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.gap_control = ProtoField.new("Gap Control", "box.options.sola.unicast.hsvf.v4.5.1.gapcontrol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.gap_sequence_message = ProtoField.new("Gap Sequence Message", "box.options.sola.unicast.hsvf.v4.5.1.gapsequencemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group = ProtoField.new("Group", "box.options.sola.unicast.hsvf.v4.5.1.group", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group_instrument = ProtoField.new("Group Instrument", "box.options.sola.unicast.hsvf.v4.5.1.groupinstrument", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group_of_the_complex_order_instrument = ProtoField.new("Group Of The Complex Order Instrument", "box.options.sola.unicast.hsvf.v4.5.1.groupofthecomplexorderinstrument", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group_opening_time_message = ProtoField.new("Group Opening Time Message", "box.options.sola.unicast.hsvf.v4.5.1.groupopeningtimemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group_status = ProtoField.new("Group Status", "box.options.sola.unicast.hsvf.v4.5.1.groupstatus", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.group_status_message = ProtoField.new("Group Status Message", "box.options.sola.unicast.hsvf.v4.5.1.groupstatusmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.high_price = ProtoField.new("High Price", "box.options.sola.unicast.hsvf.v4.5.1.highprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.high_price_fraction_indicator = ProtoField.new("High Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.highpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.high_price_sign = ProtoField.new("High Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.highpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_etx = ProtoField.new("Hsvf Etx", "box.options.sola.unicast.hsvf.v4.5.1.hsvfetx", ftypes.INT8)
+box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_protocol = ProtoField.new("Hsvf Protocol", "box.options.sola.unicast.hsvf.v4.5.1.hsvfprotocol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_stx = ProtoField.new("Hsvf Stx", "box.options.sola.unicast.hsvf.v4.5.1.hsvfstx", ftypes.INT8)
+box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_order_side = ProtoField.new("Improvement Order Side", "box.options.sola.unicast.hsvf.v4.5.1.improvementorderside", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time = ProtoField.new("Improvement Phase Expiry Time", "box.options.sola.unicast.hsvf.v4.5.1.improvementphaseexpirytime", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number = ProtoField.new("Improvement Phase Sequential Number", "box.options.sola.unicast.hsvf.v4.5.1.improvementphasesequentialnumber", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration = ProtoField.new("Improvement Process Expiry Duration", "box.options.sola.unicast.hsvf.v4.5.1.improvementprocessexpiryduration", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_and_improvement_order_message = ProtoField.new("Initial And Improvement Order Message", "box.options.sola.unicast.hsvf.v4.5.1.initialandimprovementordermessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price = ProtoField.new("Initial Order Price", "box.options.sola.unicast.hsvf.v4.5.1.initialorderprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator = ProtoField.new("Initial Order Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.initialorderpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price_sign = ProtoField.new("Initial Order Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.initialorderpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.options.sola.unicast.hsvf.v4.5.1.initialorderquantity", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_side = ProtoField.new("Initial Order Side", "box.options.sola.unicast.hsvf.v4.5.1.initialorderside", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument = ProtoField.new("Instrument", "box.options.sola.unicast.hsvf.v4.5.1.instrument", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description = ProtoField.new("Instrument Description", "box.options.sola.unicast.hsvf.v4.5.1.instrumentdescription", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_external_code = ProtoField.new("Instrument External Code", "box.options.sola.unicast.hsvf.v4.5.1.instrumentexternalcode", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg = ProtoField.new("Instrument Leg", "box.options.sola.unicast.hsvf.v4.5.1.instrumentleg", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.options.sola.unicast.hsvf.v4.5.1.instrumentstatusmarker", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.last_price = ProtoField.new("Last Price", "box.options.sola.unicast.hsvf.v4.5.1.lastprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.lastpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign+ = ProtoField.new("Last Price Sign+", "box.options.sola.unicast.hsvf.v4.5.1.lastpricesign+", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.options.sola.unicast.hsvf.v4.5.1.legratio", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.options.sola.unicast.hsvf.v4.5.1.legratiosign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.options.sola.unicast.hsvf.v4.5.1.legsymbol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.level_of_market_depth = ProtoField.new("Level Of Market Depth", "box.options.sola.unicast.hsvf.v4.5.1.levelofmarketdepth", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order = ProtoField.new("Limit Entered For An Order", "box.options.sola.unicast.hsvf.v4.5.1.limitenteredforanorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign = ProtoField.new("Limit Entered For An Order Sign", "box.options.sola.unicast.hsvf.v4.5.1.limitenteredforanordersign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.limit_fraction_indicator = ProtoField.new("Limit Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.limitfractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Price", "box.options.sola.unicast.hsvf.v4.5.1.lowprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.lowpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.lowpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.options.sola.unicast.hsvf.v4.5.1.marketdepthlevel", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.options.sola.unicast.hsvf.v4.5.1.marketflowindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message = ProtoField.new("Market Sheet Initial And Improvement Order Message", "box.options.sola.unicast.hsvf.v4.5.1.marketsheetinitialandimprovementordermessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.market_summaries = ProtoField.new("Market Summaries", "box.options.sola.unicast.hsvf.v4.5.1.marketsummaries", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.maxnumberofcontractsperorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price = ProtoField.new("Max Threshold Price", "box.options.sola.unicast.hsvf.v4.5.1.maxthresholdprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price_fraction_indicator = ProtoField.new("Max Threshold Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.maxthresholdpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price_sign = ProtoField.new("Max Threshold Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.maxthresholdpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order = ProtoField.new("Maximum Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.maximumnumberofcontractsperorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price = ProtoField.new("Maximum Threshold Price", "box.options.sola.unicast.hsvf.v4.5.1.maximumthresholdprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator = ProtoField.new("Maximum Threshold Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.maximumthresholdpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.message_body = ProtoField.new("Message Body", "box.options.sola.unicast.hsvf.v4.5.1.messagebody", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.message_header = ProtoField.new("Message Header", "box.options.sola.unicast.hsvf.v4.5.1.messageheader", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.message_type = ProtoField.new("Message Type", "box.options.sola.unicast.hsvf.v4.5.1.messagetype", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order = ProtoField.new("Min Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.minnumberofcontractsperorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price = ProtoField.new("Min Threshold Price", "box.options.sola.unicast.hsvf.v4.5.1.minthresholdprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price_fraction_indicator = ProtoField.new("Min Threshold Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.minthresholdpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price_sign = ProtoField.new("Min Threshold Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.minthresholdpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order = ProtoField.new("Minimum Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.minimumnumberofcontractsperorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order = ProtoField.new("Minimum Quantity For Improvement Order", "box.options.sola.unicast.hsvf.v4.5.1.minimumquantityforimprovementorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_threshold_price = ProtoField.new("Minimum Threshold Price", "box.options.sola.unicast.hsvf.v4.5.1.minimumthresholdprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_threshold_price_fraction_indicator = ProtoField.new("Minimum Threshold Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.minimumthresholdpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.net_change = ProtoField.new("Net Change", "box.options.sola.unicast.hsvf.v4.5.1.netchange", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.net_change_fraction_indicator = ProtoField.new("Net Change Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.netchangefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.net_change_sign = ProtoField.new("Net Change Sign", "box.options.sola.unicast.hsvf.v4.5.1.netchangesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_ask_orders = ProtoField.new("Number Of Ask Orders", "box.options.sola.unicast.hsvf.v4.5.1.numberofaskorders", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_bid_orders = ProtoField.new("Number Of Bid Orders", "box.options.sola.unicast.hsvf.v4.5.1.numberofbidorders", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_legs = ProtoField.new("Number Of Legs", "box.options.sola.unicast.hsvf.v4.5.1.numberoflegs", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_levels = ProtoField.new("Number Of Levels", "box.options.sola.unicast.hsvf.v4.5.1.numberoflevels", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_option_classes_requested = ProtoField.new("Number Of Option Classes Requested", "box.options.sola.unicast.hsvf.v4.5.1.numberofoptionclassesrequested", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.open_interest = ProtoField.new("Open Interest", "box.options.sola.unicast.hsvf.v4.5.1.openinterest", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.open_price = ProtoField.new("Open Price", "box.options.sola.unicast.hsvf.v4.5.1.openprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator = ProtoField.new("Open Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.openpricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.openpricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message = ProtoField.new("Option Improvement Process Beginning Message", "box.options.sola.unicast.hsvf.v4.5.1.optionimprovementprocessbeginningmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message = ProtoField.new("Option Instrument Keys Message", "box.options.sola.unicast.hsvf.v4.5.1.optioninstrumentkeysmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker = ProtoField.new("Option Marker", "box.options.sola.unicast.hsvf.v4.5.1.optionmarker", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_market_depth_message = ProtoField.new("Option Market Depth Message", "box.options.sola.unicast.hsvf.v4.5.1.optionmarketdepthmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_quote_message = ProtoField.new("Option Quote Message", "box.options.sola.unicast.hsvf.v4.5.1.optionquotemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message = ProtoField.new("Option Request For Quote Message", "box.options.sola.unicast.hsvf.v4.5.1.optionrequestforquotemessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_summary_message = ProtoField.new("Option Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.optionsummarymessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_cancellation_message = ProtoField.new("Option Trade Cancellation Message", "box.options.sola.unicast.hsvf.v4.5.1.optiontradecancellationmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_message = ProtoField.new("Option Trade Message", "box.options.sola.unicast.hsvf.v4.5.1.optiontrademessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_type = ProtoField.new("Option Type", "box.options.sola.unicast.hsvf.v4.5.1.optiontype", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.order_quantity = ProtoField.new("Order Quantity", "box.options.sola.unicast.hsvf.v4.5.1.orderquantity", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.order_sequence_number = ProtoField.new("Order Sequence Number", "box.options.sola.unicast.hsvf.v4.5.1.ordersequencenumber", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.order_side = ProtoField.new("Order Side", "box.options.sola.unicast.hsvf.v4.5.1.orderside", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.packet = ProtoField.new("Packet", "box.options.sola.unicast.hsvf.v4.5.1.packet", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.percentage_assured_to_initial_order = ProtoField.new("Percentage Assured To Initial Order", "box.options.sola.unicast.hsvf.v4.5.1.percentageassuredtoinitialorder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.price_indicator_marker = ProtoField.new("Price Indicator Marker", "box.options.sola.unicast.hsvf.v4.5.1.priceindicatormarker", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_ask_size = ProtoField.new("Public Customer Ask Size", "box.options.sola.unicast.hsvf.v4.5.1.publiccustomerasksize", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_bid_size = ProtoField.new("Public Customer Bid Size", "box.options.sola.unicast.hsvf.v4.5.1.publiccustomerbidsize", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.reference_price = ProtoField.new("Reference Price", "box.options.sola.unicast.hsvf.v4.5.1.referenceprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.reference_price_fraction_indicator = ProtoField.new("Reference Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.referencepricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.requested_size = ProtoField.new("Requested Size", "box.options.sola.unicast.hsvf.v4.5.1.requestedsize", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.reserved = ProtoField.new("Reserved", "box.options.sola.unicast.hsvf.v4.5.1.reserved", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.reset_sequence = ProtoField.new("Reset Sequence", "box.options.sola.unicast.hsvf.v4.5.1.resetsequence", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root Symbol", "box.options.sola.unicast.hsvf.v4.5.1.rootsymbol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.options.sola.unicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.options.sola.unicast.hsvf.v4.5.1.strikeprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.options.sola.unicast.hsvf.v4.5.1.strikepricecurrency", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.strikepricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.system_default = ProtoField.new("System Default", "box.options.sola.unicast.hsvf.v4.5.1.systemdefault", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.options.sola.unicast.hsvf.v4.5.1.systemtimestampmessage", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.system_value = ProtoField.new("System Value", "box.options.sola.unicast.hsvf.v4.5.1.systemvalue", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.tick = ProtoField.new("Tick", "box.options.sola.unicast.hsvf.v4.5.1.tick", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.tick_increment = ProtoField.new("Tick Increment", "box.options.sola.unicast.hsvf.v4.5.1.tickincrement", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator = ProtoField.new("Tick Increment Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.tickincrementfractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.time = ProtoField.new("Time", "box.options.sola.unicast.hsvf.v4.5.1.time", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.timestamp = ProtoField.new("Timestamp", "box.options.sola.unicast.hsvf.v4.5.1.timestamp", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price = ProtoField.new("Trade Price", "box.options.sola.unicast.hsvf.v4.5.1.tradeprice", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator = ProtoField.new("Trade Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.tradepricefractionindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.tradepricesign", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.options.sola.unicast.hsvf.v4.5.1.tradingenginetimestamp", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.options.sola.unicast.hsvf.v4.5.1.typeofclearingaccount", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "box.options.sola.unicast.hsvf.v4.5.1.typeofinstrument", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market = ProtoField.new("Type Of Market", "box.options.sola.unicast.hsvf.v4.5.1.typeofmarket", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market_data = ProtoField.new("Type Of Market Data", "box.options.sola.unicast.hsvf.v4.5.1.typeofmarketdata", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_options = ProtoField.new("Type Of Options", "box.options.sola.unicast.hsvf.v4.5.1.typeofoptions", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_order = ProtoField.new("Type Of Order", "box.options.sola.unicast.hsvf.v4.5.1.typeoforder", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_underlying = ProtoField.new("Type Of Underlying", "box.options.sola.unicast.hsvf.v4.5.1.typeofunderlying", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "box.options.sola.unicast.hsvf.v4.5.1.underlyingsymbol", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.options.sola.unicast.hsvf.v4.5.1.underlyingsymbolroot", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.volume = ProtoField.new("Volume", "box.options.sola.unicast.hsvf.v4.5.1.volume", ftypes.STRING)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Box Options Unicast Hsvf 4.5.1 Element Dissection Options
+-- Box Options Sola Unicast Hsvf 4.5.1 Element Dissection Options
 show.beginning_of_complex_order_summary_message = true
 show.beginning_of_options_summary_message = true
 show.bulletins_message = true
@@ -239,211 +239,211 @@ show.packet = true
 show.system_timestamp_message = true
 show.message_body = false
 
--- Register Box Options Unicast Hsvf 4.5.1 Show Options
-box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message = Pref.bool("Show Beginning Of Complex Order Summary Message", show.beginning_of_complex_order_summary_message, "Parse and add Beginning Of Complex Order Summary Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message = Pref.bool("Show Beginning Of Options Summary Message", show.beginning_of_options_summary_message, "Parse and add Beginning Of Options Summary Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_bulletins_message = Pref.bool("Show Bulletins Message", show.bulletins_message, "Parse and add Bulletins Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message = Pref.bool("Show Circuit Assurance Message", show.circuit_assurance_message, "Parse and add Circuit Assurance Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level = Pref.bool("Show Complex Market Depth Level", show.complex_market_depth_level, "Parse and add Complex Market Depth Level to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message = Pref.bool("Show Complex Order Group Status Message", show.complex_order_group_status_message, "Parse and add Complex Order Group Status Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message = Pref.bool("Show Complex Order Improvement Process Beginning Message Message", show.complex_order_improvement_process_beginning_message_message, "Parse and add Complex Order Improvement Process Beginning Message Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message = Pref.bool("Show Complex Order Initial And Improvement Order Message", show.complex_order_initial_and_improvement_order_message, "Parse and add Complex Order Initial And Improvement Order Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message = Pref.bool("Show Complex Order Instrument Keys Message", show.complex_order_instrument_keys_message, "Parse and add Complex Order Instrument Keys Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message = Pref.bool("Show Complex Order Instrument Trade Message", show.complex_order_instrument_trade_message, "Parse and add Complex Order Instrument Trade Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message = Pref.bool("Show Complex Order Market Depth Message", show.complex_order_market_depth_message, "Parse and add Complex Order Market Depth Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Complex Order Market Sheet Initial And Improvement Order Message", show.complex_order_market_sheet_initial_and_improvement_order_message, "Parse and add Complex Order Market Sheet Initial And Improvement Order Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message = Pref.bool("Show Complex Order Quote Message", show.complex_order_quote_message, "Parse and add Complex Order Quote Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message = Pref.bool("Show Complex Order Summary Message", show.complex_order_summary_message, "Parse and add Complex Order Summary Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message = Pref.bool("Show Complex Order Trade Cancellation Message", show.complex_order_trade_cancellation_message, "Parse and add Complex Order Trade Cancellation Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_connection_message = Pref.bool("Show Connection Message", show.connection_message, "Parse and add Connection Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message = Pref.bool("Show End Of Sales Message", show.end_of_sales_message, "Parse and add End Of Sales Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message = Pref.bool("Show End Of Transmission Message", show.end_of_transmission_message, "Parse and add End Of Transmission Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message = Pref.bool("Show Gap Sequence Message", show.gap_sequence_message, "Parse and add Gap Sequence Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message = Pref.bool("Show Group Opening Time Message", show.group_opening_time_message, "Parse and add Group Opening Time Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_group_status_message = Pref.bool("Show Group Status Message", show.group_status_message, "Parse and add Group Status Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message = Pref.bool("Show Initial And Improvement Order Message", show.initial_and_improvement_order_message, "Parse and add Initial And Improvement Order Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_description = Pref.bool("Show Instrument Description", show.instrument_description, "Parse and add Instrument Description to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator = Pref.bool("Show Market Flow Indicator", show.market_flow_indicator, "Parse and add Market Flow Indicator to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Market Sheet Initial And Improvement Order Message", show.market_sheet_initial_and_improvement_order_message, "Parse and add Market Sheet Initial And Improvement Order Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message = Pref.bool("Show Option Improvement Process Beginning Message", show.option_improvement_process_beginning_message, "Parse and add Option Improvement Process Beginning Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message = Pref.bool("Show Option Instrument Keys Message", show.option_instrument_keys_message, "Parse and add Option Instrument Keys Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message = Pref.bool("Show Option Market Depth Message", show.option_market_depth_message, "Parse and add Option Market Depth Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_quote_message = Pref.bool("Show Option Quote Message", show.option_quote_message, "Parse and add Option Quote Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message = Pref.bool("Show Option Request For Quote Message", show.option_request_for_quote_message, "Parse and add Option Request For Quote Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_summary_message = Pref.bool("Show Option Summary Message", show.option_summary_message, "Parse and add Option Summary Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message = Pref.bool("Show Option Trade Cancellation Message", show.option_trade_cancellation_message, "Parse and add Option Trade Cancellation Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message = Pref.bool("Show System Timestamp Message", show.system_timestamp_message, "Parse and add System Timestamp Message to protocol tree")
-box_options_unicast_hsvf_v4_5_1.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
+-- Register Box Options Sola Unicast Hsvf 4.5.1 Show Options
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message = Pref.bool("Show Beginning Of Complex Order Summary Message", show.beginning_of_complex_order_summary_message, "Parse and add Beginning Of Complex Order Summary Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message = Pref.bool("Show Beginning Of Options Summary Message", show.beginning_of_options_summary_message, "Parse and add Beginning Of Options Summary Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message = Pref.bool("Show Bulletins Message", show.bulletins_message, "Parse and add Bulletins Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message = Pref.bool("Show Circuit Assurance Message", show.circuit_assurance_message, "Parse and add Circuit Assurance Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level = Pref.bool("Show Complex Market Depth Level", show.complex_market_depth_level, "Parse and add Complex Market Depth Level to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message = Pref.bool("Show Complex Order Group Status Message", show.complex_order_group_status_message, "Parse and add Complex Order Group Status Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message = Pref.bool("Show Complex Order Improvement Process Beginning Message Message", show.complex_order_improvement_process_beginning_message_message, "Parse and add Complex Order Improvement Process Beginning Message Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message = Pref.bool("Show Complex Order Initial And Improvement Order Message", show.complex_order_initial_and_improvement_order_message, "Parse and add Complex Order Initial And Improvement Order Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message = Pref.bool("Show Complex Order Instrument Keys Message", show.complex_order_instrument_keys_message, "Parse and add Complex Order Instrument Keys Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message = Pref.bool("Show Complex Order Instrument Trade Message", show.complex_order_instrument_trade_message, "Parse and add Complex Order Instrument Trade Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message = Pref.bool("Show Complex Order Market Depth Message", show.complex_order_market_depth_message, "Parse and add Complex Order Market Depth Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Complex Order Market Sheet Initial And Improvement Order Message", show.complex_order_market_sheet_initial_and_improvement_order_message, "Parse and add Complex Order Market Sheet Initial And Improvement Order Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message = Pref.bool("Show Complex Order Quote Message", show.complex_order_quote_message, "Parse and add Complex Order Quote Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message = Pref.bool("Show Complex Order Summary Message", show.complex_order_summary_message, "Parse and add Complex Order Summary Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message = Pref.bool("Show Complex Order Trade Cancellation Message", show.complex_order_trade_cancellation_message, "Parse and add Complex Order Trade Cancellation Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message = Pref.bool("Show Connection Message", show.connection_message, "Parse and add Connection Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message = Pref.bool("Show End Of Sales Message", show.end_of_sales_message, "Parse and add End Of Sales Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message = Pref.bool("Show End Of Transmission Message", show.end_of_transmission_message, "Parse and add End Of Transmission Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message = Pref.bool("Show Gap Sequence Message", show.gap_sequence_message, "Parse and add Gap Sequence Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message = Pref.bool("Show Group Opening Time Message", show.group_opening_time_message, "Parse and add Group Opening Time Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message = Pref.bool("Show Group Status Message", show.group_status_message, "Parse and add Group Status Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message = Pref.bool("Show Initial And Improvement Order Message", show.initial_and_improvement_order_message, "Parse and add Initial And Improvement Order Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description = Pref.bool("Show Instrument Description", show.instrument_description, "Parse and add Instrument Description to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator = Pref.bool("Show Market Flow Indicator", show.market_flow_indicator, "Parse and add Market Flow Indicator to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Market Sheet Initial And Improvement Order Message", show.market_sheet_initial_and_improvement_order_message, "Parse and add Market Sheet Initial And Improvement Order Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message = Pref.bool("Show Option Improvement Process Beginning Message", show.option_improvement_process_beginning_message, "Parse and add Option Improvement Process Beginning Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message = Pref.bool("Show Option Instrument Keys Message", show.option_instrument_keys_message, "Parse and add Option Instrument Keys Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message = Pref.bool("Show Option Market Depth Message", show.option_market_depth_message, "Parse and add Option Market Depth Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message = Pref.bool("Show Option Quote Message", show.option_quote_message, "Parse and add Option Quote Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message = Pref.bool("Show Option Request For Quote Message", show.option_request_for_quote_message, "Parse and add Option Request For Quote Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message = Pref.bool("Show Option Summary Message", show.option_summary_message, "Parse and add Option Summary Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message = Pref.bool("Show Option Trade Cancellation Message", show.option_trade_cancellation_message, "Parse and add Option Trade Cancellation Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message = Pref.bool("Show System Timestamp Message", show.system_timestamp_message, "Parse and add System Timestamp Message to protocol tree")
+box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
-function box_options_unicast_hsvf_v4_5_1.prefs_changed()
+function box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.beginning_of_complex_order_summary_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message then
-    show.beginning_of_complex_order_summary_message = box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message
+  if show.beginning_of_complex_order_summary_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message then
+    show.beginning_of_complex_order_summary_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_complex_order_summary_message
     changed = true
   end
-  if show.beginning_of_options_summary_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message then
-    show.beginning_of_options_summary_message = box_options_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message
+  if show.beginning_of_options_summary_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message then
+    show.beginning_of_options_summary_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_beginning_of_options_summary_message
     changed = true
   end
-  if show.bulletins_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_bulletins_message then
-    show.bulletins_message = box_options_unicast_hsvf_v4_5_1.prefs.show_bulletins_message
+  if show.bulletins_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message then
+    show.bulletins_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_bulletins_message
     changed = true
   end
-  if show.circuit_assurance_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message then
-    show.circuit_assurance_message = box_options_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message
+  if show.circuit_assurance_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message then
+    show.circuit_assurance_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_circuit_assurance_message
     changed = true
   end
-  if show.complex_market_depth_level ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level then
-    show.complex_market_depth_level = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level
+  if show.complex_market_depth_level ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level then
+    show.complex_market_depth_level = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_market_depth_level
     changed = true
   end
-  if show.complex_order_group_status_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message then
-    show.complex_order_group_status_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message
+  if show.complex_order_group_status_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message then
+    show.complex_order_group_status_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_group_status_message
     changed = true
   end
-  if show.complex_order_improvement_process_beginning_message_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message then
-    show.complex_order_improvement_process_beginning_message_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message
+  if show.complex_order_improvement_process_beginning_message_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message then
+    show.complex_order_improvement_process_beginning_message_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_improvement_process_beginning_message_message
     changed = true
   end
-  if show.complex_order_initial_and_improvement_order_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message then
-    show.complex_order_initial_and_improvement_order_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message
+  if show.complex_order_initial_and_improvement_order_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message then
+    show.complex_order_initial_and_improvement_order_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_initial_and_improvement_order_message
     changed = true
   end
-  if show.complex_order_instrument_keys_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message then
-    show.complex_order_instrument_keys_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message
+  if show.complex_order_instrument_keys_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message then
+    show.complex_order_instrument_keys_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_keys_message
     changed = true
   end
-  if show.complex_order_instrument_trade_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message then
-    show.complex_order_instrument_trade_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message
+  if show.complex_order_instrument_trade_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message then
+    show.complex_order_instrument_trade_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_instrument_trade_message
     changed = true
   end
-  if show.complex_order_market_depth_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message then
-    show.complex_order_market_depth_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message
+  if show.complex_order_market_depth_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message then
+    show.complex_order_market_depth_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_depth_message
     changed = true
   end
-  if show.complex_order_market_sheet_initial_and_improvement_order_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message then
-    show.complex_order_market_sheet_initial_and_improvement_order_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message
+  if show.complex_order_market_sheet_initial_and_improvement_order_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message then
+    show.complex_order_market_sheet_initial_and_improvement_order_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_market_sheet_initial_and_improvement_order_message
     changed = true
   end
-  if show.complex_order_quote_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message then
-    show.complex_order_quote_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message
+  if show.complex_order_quote_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message then
+    show.complex_order_quote_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_quote_message
     changed = true
   end
-  if show.complex_order_summary_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message then
-    show.complex_order_summary_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message
+  if show.complex_order_summary_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message then
+    show.complex_order_summary_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_summary_message
     changed = true
   end
-  if show.complex_order_trade_cancellation_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message then
-    show.complex_order_trade_cancellation_message = box_options_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message
+  if show.complex_order_trade_cancellation_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message then
+    show.complex_order_trade_cancellation_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_complex_order_trade_cancellation_message
     changed = true
   end
-  if show.connection_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_connection_message then
-    show.connection_message = box_options_unicast_hsvf_v4_5_1.prefs.show_connection_message
+  if show.connection_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message then
+    show.connection_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_connection_message
     changed = true
   end
-  if show.end_of_sales_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message then
-    show.end_of_sales_message = box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message
+  if show.end_of_sales_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message then
+    show.end_of_sales_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_sales_message
     changed = true
   end
-  if show.end_of_transmission_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message then
-    show.end_of_transmission_message = box_options_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message
+  if show.end_of_transmission_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message then
+    show.end_of_transmission_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_end_of_transmission_message
     changed = true
   end
-  if show.gap_sequence_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message then
-    show.gap_sequence_message = box_options_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message
+  if show.gap_sequence_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message then
+    show.gap_sequence_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message
     changed = true
   end
-  if show.group_opening_time_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message then
-    show.group_opening_time_message = box_options_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message
+  if show.group_opening_time_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message then
+    show.group_opening_time_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message
     changed = true
   end
-  if show.group_status_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_group_status_message then
-    show.group_status_message = box_options_unicast_hsvf_v4_5_1.prefs.show_group_status_message
+  if show.group_status_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message then
+    show.group_status_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message
     changed = true
   end
-  if show.initial_and_improvement_order_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message then
-    show.initial_and_improvement_order_message = box_options_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message
+  if show.initial_and_improvement_order_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message then
+    show.initial_and_improvement_order_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message
     changed = true
   end
-  if show.instrument_description ~= box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_description then
-    show.instrument_description = box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_description
+  if show.instrument_description ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description then
+    show.instrument_description = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description
     changed = true
   end
-  if show.instrument_leg ~= box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_leg then
-    show.instrument_leg = box_options_unicast_hsvf_v4_5_1.prefs.show_instrument_leg
+  if show.instrument_leg ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg then
+    show.instrument_leg = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg
     changed = true
   end
-  if show.market_depth_level ~= box_options_unicast_hsvf_v4_5_1.prefs.show_market_depth_level then
-    show.market_depth_level = box_options_unicast_hsvf_v4_5_1.prefs.show_market_depth_level
+  if show.market_depth_level ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level then
+    show.market_depth_level = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level
     changed = true
   end
-  if show.market_flow_indicator ~= box_options_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator then
-    show.market_flow_indicator = box_options_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator
+  if show.market_flow_indicator ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator then
+    show.market_flow_indicator = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator
     changed = true
   end
-  if show.market_sheet_initial_and_improvement_order_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message then
-    show.market_sheet_initial_and_improvement_order_message = box_options_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message
+  if show.market_sheet_initial_and_improvement_order_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message then
+    show.market_sheet_initial_and_improvement_order_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message
     changed = true
   end
-  if show.message_header ~= box_options_unicast_hsvf_v4_5_1.prefs.show_message_header then
-    show.message_header = box_options_unicast_hsvf_v4_5_1.prefs.show_message_header
+  if show.message_header ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header then
+    show.message_header = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header
     changed = true
   end
-  if show.option_improvement_process_beginning_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message then
-    show.option_improvement_process_beginning_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message
+  if show.option_improvement_process_beginning_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message then
+    show.option_improvement_process_beginning_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message
     changed = true
   end
-  if show.option_instrument_keys_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message then
-    show.option_instrument_keys_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message
+  if show.option_instrument_keys_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message then
+    show.option_instrument_keys_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message
     changed = true
   end
-  if show.option_marker ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_marker then
-    show.option_marker = box_options_unicast_hsvf_v4_5_1.prefs.show_option_marker
+  if show.option_marker ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker then
+    show.option_marker = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker
     changed = true
   end
-  if show.option_market_depth_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message then
-    show.option_market_depth_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message
+  if show.option_market_depth_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message then
+    show.option_market_depth_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message
     changed = true
   end
-  if show.option_quote_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_quote_message then
-    show.option_quote_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_quote_message
+  if show.option_quote_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message then
+    show.option_quote_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message
     changed = true
   end
-  if show.option_request_for_quote_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message then
-    show.option_request_for_quote_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message
+  if show.option_request_for_quote_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message then
+    show.option_request_for_quote_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message
     changed = true
   end
-  if show.option_summary_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_summary_message then
-    show.option_summary_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_summary_message
+  if show.option_summary_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message then
+    show.option_summary_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_summary_message
     changed = true
   end
-  if show.option_trade_cancellation_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message then
-    show.option_trade_cancellation_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message
+  if show.option_trade_cancellation_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message then
+    show.option_trade_cancellation_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_cancellation_message
     changed = true
   end
-  if show.option_trade_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_message then
-    show.option_trade_message = box_options_unicast_hsvf_v4_5_1.prefs.show_option_trade_message
+  if show.option_trade_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message then
+    show.option_trade_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_trade_message
     changed = true
   end
-  if show.packet ~= box_options_unicast_hsvf_v4_5_1.prefs.show_packet then
-    show.packet = box_options_unicast_hsvf_v4_5_1.prefs.show_packet
+  if show.packet ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet then
+    show.packet = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_packet
     changed = true
   end
-  if show.system_timestamp_message ~= box_options_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message then
-    show.system_timestamp_message = box_options_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message
+  if show.system_timestamp_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message then
+    show.system_timestamp_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_system_timestamp_message
     changed = true
   end
-  if show.message_body ~= box_options_unicast_hsvf_v4_5_1.prefs.show_message_body then
-    show.message_body = box_options_unicast_hsvf_v4_5_1.prefs.show_message_body
+  if show.message_body ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body then
+    show.message_body = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_body
     changed = true
   end
 
@@ -455,7 +455,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Box Options Unicast Hsvf 4.5.1
+-- Dissect Box Options Sola Unicast Hsvf 4.5.1
 -----------------------------------------------------------------------
 
 -- Size: Hsvf Etx
@@ -473,7 +473,7 @@ dissect.hsvf_etx = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.hsvf_etx(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.hsvf_etx, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_etx, range, value, display)
 
   return offset + length, value
 end
@@ -506,7 +506,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.auction_type, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -526,7 +526,7 @@ dissect.improvement_phase_sequential_number = function(buffer, offset, packet, p
   local value = tonumber(range:string())
   local display = display.improvement_phase_sequential_number(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number, range, value, display)
 
   return offset + length, value
 end
@@ -553,7 +553,7 @@ dissect.order_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_side(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.order_side, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.order_side, range, value, display)
 
   return offset + length, value
 end
@@ -573,7 +573,7 @@ dissect.order_sequence_number = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.order_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.order_sequence_number, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.order_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -603,7 +603,7 @@ dissect.deletion_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.deletion_type(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.deletion_type, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.deletion_type, range, value, display)
 
   return offset + length, value
 end
@@ -623,7 +623,7 @@ dissect.complex_order_instrument_symbol = function(buffer, offset, packet, paren
   local value = range:string()
   local display = display.complex_order_instrument_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -643,7 +643,7 @@ dissect.exchange_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.exchange_id(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.exchange_id, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.exchange_id, range, value, display)
 
   return offset + length, value
 end
@@ -709,7 +709,7 @@ dissect.complex_order_initial_and_improvement_order_message = function(buffer, o
     local length = size_of.complex_order_initial_and_improvement_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_initial_and_improvement_order_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_initial_and_improvement_order_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_initial_and_improvement_order_message, range, display)
   end
 
   return dissect.complex_order_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
@@ -740,7 +740,7 @@ dissect.improvement_order_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.improvement_order_side(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.improvement_order_side, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_order_side, range, value, display)
 
   return offset + length, value
 end
@@ -760,7 +760,7 @@ dissect.expiry_day = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.expiry_day(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.expiry_day, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day, range, value, display)
 
   return offset + length, value
 end
@@ -780,7 +780,7 @@ dissect.expiry_year = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.expiry_year(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.expiry_year, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year, range, value, display)
 
   return offset + length, value
 end
@@ -800,7 +800,7 @@ dissect.strike_price_fraction_indicator = function(buffer, offset, packet, paren
   local value = range:string()
   local display = display.strike_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -820,7 +820,7 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.strike_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price, range, value, display)
 
   return offset + length, value
 end
@@ -840,7 +840,7 @@ dissect.filler = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.filler(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.filler, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.filler, range, value, display)
 
   return offset + length, value
 end
@@ -894,7 +894,7 @@ dissect.expiry_month_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.expiry_month_code(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.expiry_month_code, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_month_code, range, value, display)
 
   return offset + length, value
 end
@@ -914,7 +914,7 @@ dissect.root_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.root_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.root_symbol, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -981,7 +981,7 @@ dissect.instrument_description = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:string()
     local display = display.instrument_description(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.instrument_description, range, value, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description, range, value, display)
   end
 
   return dissect.instrument_description_fields(buffer, offset, packet, parent)
@@ -1048,7 +1048,7 @@ dissect.initial_and_improvement_order_message = function(buffer, offset, packet,
     local length = size_of.initial_and_improvement_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.initial_and_improvement_order_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_and_improvement_order_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_and_improvement_order_message, range, display)
   end
 
   return dissect.initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
@@ -1069,7 +1069,7 @@ dissect.cmta = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.cmta(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.cmta, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.cmta, range, value, display)
 
   return offset + length, value
 end
@@ -1089,7 +1089,7 @@ dissect.firm_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.firm_id(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.firm_id, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.firm_id, range, value, display)
 
   return offset + length, value
 end
@@ -1109,7 +1109,7 @@ dissect.end_of_the_exposition = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.end_of_the_exposition(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.end_of_the_exposition, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_the_exposition, range, value, display)
 
   return offset + length, value
 end
@@ -1148,7 +1148,7 @@ dissect.type_of_clearing_account = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_clearing_account(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_clearing_account, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_clearing_account, range, value, display)
 
   return offset + length, value
 end
@@ -1168,7 +1168,7 @@ dissect.order_quantity = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.order_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.order_quantity, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.order_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1188,7 +1188,7 @@ dissect.limit_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.limit_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.limit_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.limit_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1208,7 +1208,7 @@ dissect.limit_entered_for_an_order = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.limit_entered_for_an_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order, range, value, display)
 
   return offset + length, value
 end
@@ -1235,7 +1235,7 @@ dissect.limit_entered_for_an_order_sign = function(buffer, offset, packet, paren
   local value = range:string()
   local display = display.limit_entered_for_an_order_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.limit_entered_for_an_order_sign, range, value, display)
 
   return offset + length, value
 end
@@ -1262,7 +1262,7 @@ dissect.type_of_order = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_order, range, value, display)
 
   return offset + length, value
 end
@@ -1373,7 +1373,7 @@ dissect.complex_order_market_sheet_initial_and_improvement_order_message = funct
     local length = size_of.complex_order_market_sheet_initial_and_improvement_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_market_sheet_initial_and_improvement_order_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_market_sheet_initial_and_improvement_order_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_sheet_initial_and_improvement_order_message, range, display)
   end
 
   return dissect.complex_order_market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
@@ -1480,7 +1480,7 @@ dissect.market_sheet_initial_and_improvement_order_message = function(buffer, of
     local length = size_of.market_sheet_initial_and_improvement_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.market_sheet_initial_and_improvement_order_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message, range, display)
   end
 
   return dissect.market_sheet_initial_and_improvement_order_message_fields(buffer, offset, packet, parent)
@@ -1501,7 +1501,7 @@ dissect.percentage_assured_to_initial_order = function(buffer, offset, packet, p
   local value = range:string()
   local display = display.percentage_assured_to_initial_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.percentage_assured_to_initial_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.percentage_assured_to_initial_order, range, value, display)
 
   return offset + length, value
 end
@@ -1521,7 +1521,7 @@ dissect.minimum_quantity_for_improvement_order = function(buffer, offset, packet
   local value = range:string()
   local display = display.minimum_quantity_for_improvement_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_quantity_for_improvement_order, range, value, display)
 
   return offset + length, value
 end
@@ -1541,7 +1541,7 @@ dissect.improvement_process_expiry_duration = function(buffer, offset, packet, p
   local value = tonumber(range:string())
   local display = display.improvement_process_expiry_duration(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration, range, value, display)
 
   return offset + length, value
 end
@@ -1561,7 +1561,7 @@ dissect.improvement_phase_expiry_time = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.improvement_phase_expiry_time(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_expiry_time, range, value, display)
 
   return offset + length, value
 end
@@ -1588,7 +1588,7 @@ dissect.initial_order_side = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.initial_order_side(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_order_side, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_side, range, value, display)
 
   return offset + length, value
 end
@@ -1608,7 +1608,7 @@ dissect.initial_order_quantity = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.initial_order_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_order_quantity, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1628,7 +1628,7 @@ dissect.initial_order_price_fraction_indicator = function(buffer, offset, packet
   local value = range:string()
   local display = display.initial_order_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1648,7 +1648,7 @@ dissect.initial_order_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.initial_order_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_order_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price, range, value, display)
 
   return offset + length, value
 end
@@ -1675,7 +1675,7 @@ dissect.initial_order_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.initial_order_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.initial_order_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -1771,7 +1771,7 @@ dissect.complex_order_improvement_process_beginning_message_message = function(b
     local length = size_of.complex_order_improvement_process_beginning_message_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_improvement_process_beginning_message_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_improvement_process_beginning_message_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_improvement_process_beginning_message_message, range, display)
   end
 
   return dissect.complex_order_improvement_process_beginning_message_message_fields(buffer, offset, packet, parent)
@@ -1868,7 +1868,7 @@ dissect.option_improvement_process_beginning_message = function(buffer, offset, 
     local length = size_of.option_improvement_process_beginning_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_improvement_process_beginning_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message, range, display)
   end
 
   return dissect.option_improvement_process_beginning_message_fields(buffer, offset, packet, parent)
@@ -1889,7 +1889,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.time, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -1909,7 +1909,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.reserved, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -1950,7 +1950,7 @@ dissect.end_of_sales_message = function(buffer, offset, packet, parent)
     local length = size_of.end_of_sales_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.end_of_sales_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.end_of_sales_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_sales_message, range, display)
   end
 
   return dissect.end_of_sales_message_fields(buffer, offset, packet, parent)
@@ -1978,7 +1978,7 @@ dissect.continue_marker = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.continue_marker(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.continue_marker, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.continue_marker, range, value, display)
 
   return offset + length, value
 end
@@ -1998,7 +1998,7 @@ dissect.bulletin_contents = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bulletin_contents(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bulletin_contents, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_contents, range, value, display)
 
   return offset + length, value
 end
@@ -2025,7 +2025,7 @@ dissect.bulletin_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bulletin_type(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bulletin_type, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_type, range, value, display)
 
   return offset + length, value
 end
@@ -2076,7 +2076,7 @@ dissect.bulletins_message = function(buffer, offset, packet, parent)
     local length = size_of.bulletins_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.bulletins_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.bulletins_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bulletins_message, range, display)
   end
 
   return dissect.bulletins_message_fields(buffer, offset, packet, parent)
@@ -2122,7 +2122,7 @@ dissect.group_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.group_status(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.group_status, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group_status, range, value, display)
 
   return offset + length, value
 end
@@ -2142,7 +2142,7 @@ dissect.group_of_the_complex_order_instrument = function(buffer, offset, packet,
   local value = range:string()
   local display = display.group_of_the_complex_order_instrument(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.group_of_the_complex_order_instrument, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group_of_the_complex_order_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -2188,7 +2188,7 @@ dissect.complex_order_group_status_message = function(buffer, offset, packet, pa
     local length = size_of.complex_order_group_status_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_group_status_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_group_status_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_group_status_message, range, display)
   end
 
   return dissect.complex_order_group_status_message_fields(buffer, offset, packet, parent)
@@ -2235,7 +2235,7 @@ dissect.group_status_message = function(buffer, offset, packet, parent)
     local length = size_of.group_status_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.group_status_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.group_status_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group_status_message, range, display)
   end
 
   return dissect.group_status_message_fields(buffer, offset, packet, parent)
@@ -2256,7 +2256,7 @@ dissect.scheduled_time = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.scheduled_time(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.scheduled_time, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.scheduled_time, range, value, display)
 
   return offset + length, value
 end
@@ -2307,7 +2307,7 @@ dissect.group_opening_time_message = function(buffer, offset, packet, parent)
     local length = size_of.group_opening_time_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.group_opening_time_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.group_opening_time_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group_opening_time_message, range, display)
   end
 
   return dissect.group_opening_time_message_fields(buffer, offset, packet, parent)
@@ -2344,7 +2344,7 @@ dissect.beginning_of_complex_order_summary_message = function(buffer, offset, pa
     local length = size_of.beginning_of_complex_order_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.beginning_of_complex_order_summary_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_message, range, display)
   end
 
   return dissect.beginning_of_complex_order_summary_message_fields(buffer, offset, packet, parent)
@@ -2381,7 +2381,7 @@ dissect.beginning_of_options_summary_message = function(buffer, offset, packet, 
     local length = size_of.beginning_of_options_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.beginning_of_options_summary_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message, range, display)
   end
 
   return dissect.beginning_of_options_summary_message_fields(buffer, offset, packet, parent)
@@ -2402,7 +2402,7 @@ dissect.volume = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.volume(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.volume, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.volume, range, value, display)
 
   return offset + length, value
 end
@@ -2422,7 +2422,7 @@ dissect.net_change_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.net_change_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.net_change_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.net_change_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2442,7 +2442,7 @@ dissect.net_change = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.net_change(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.net_change, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.net_change, range, value, display)
 
   return offset + length, value
 end
@@ -2469,7 +2469,7 @@ dissect.net_change_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.net_change_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.net_change_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.net_change_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2489,7 +2489,7 @@ dissect.low_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.low_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.low_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2509,7 +2509,7 @@ dissect.low_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.low_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.low_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -2536,7 +2536,7 @@ dissect.low_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.low_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.low_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2556,7 +2556,7 @@ dissect.high_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.high_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.high_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.high_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2576,7 +2576,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.high_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.high_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -2603,7 +2603,7 @@ dissect.high_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.high_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.high_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.high_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2623,7 +2623,7 @@ dissect.open_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2643,7 +2643,7 @@ dissect.open_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.open_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.open_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_price, range, value, display)
 
   return offset + length, value
 end
@@ -2670,7 +2670,7 @@ dissect.open_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.open_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2690,7 +2690,7 @@ dissect.last_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.last_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.last_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2710,7 +2710,7 @@ dissect.last_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.last_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.last_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price, range, value, display)
 
   return offset + length, value
 end
@@ -2730,7 +2730,7 @@ dissect.last_price_sign+ = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.last_price_sign+(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.last_price_sign+, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign+, range, value, display)
 
   return offset + length, value
 end
@@ -2750,7 +2750,7 @@ dissect.ask_size = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.ask_size, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -2770,7 +2770,7 @@ dissect.ask_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ask_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2790,7 +2790,7 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.ask_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price, range, value, display)
 
   return offset + length, value
 end
@@ -2817,7 +2817,7 @@ dissect.ask_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.ask_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.ask_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2837,7 +2837,7 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bid_size, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -2857,7 +2857,7 @@ dissect.bid_price_fraction_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -2877,7 +2877,7 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bid_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -2897,7 +2897,7 @@ dissect.bid_price_sign+ = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_price_sign+(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bid_price_sign+, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign+, range, value, display)
 
   return offset + length, value
 end
@@ -3058,7 +3058,7 @@ dissect.complex_order_summary_message = function(buffer, offset, packet, parent)
     local length = size_of.complex_order_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_summary_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_summary_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_summary_message, range, display)
   end
 
   return dissect.complex_order_summary_message_fields(buffer, offset, packet, parent)
@@ -3079,7 +3079,7 @@ dissect.reference_price_fraction_indicator = function(buffer, offset, packet, pa
   local value = range:string()
   local display = display.reference_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.reference_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reference_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3099,7 +3099,7 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.reference_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -3119,7 +3119,7 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.underlying_symbol, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3143,7 +3143,7 @@ dissect.type_of_options = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_options(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_options, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_options, range, value, display)
 
   return offset + length, value
 end
@@ -3163,7 +3163,7 @@ dissect.type_of_market = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_market(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_market, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market, range, value, display)
 
   return offset + length, value
 end
@@ -3205,7 +3205,7 @@ dissect.option_marker = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:string()
     local display = display.option_marker(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_marker, range, value, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker, range, value, display)
   end
 
   return dissect.option_marker_fields(buffer, offset, packet, parent)
@@ -3233,7 +3233,7 @@ dissect.tick = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.tick(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.tick, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.tick, range, value, display)
 
   return offset + length, value
 end
@@ -3253,7 +3253,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.open_interest, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_interest, range, value, display)
 
   return offset + length, value
 end
@@ -3414,7 +3414,7 @@ dissect.option_summary_message = function(buffer, offset, packet, parent)
     local length = size_of.option_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_summary_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_summary_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_summary_message, range, display)
   end
 
   return dissect.option_summary_message_fields(buffer, offset, packet, parent)
@@ -3435,7 +3435,7 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.leg_symbol, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -3455,7 +3455,7 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.leg_ratio, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -3482,7 +3482,7 @@ dissect.leg_ratio_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_ratio_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.leg_ratio_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio_sign, range, value, display)
 
   return offset + length, value
 end
@@ -3528,7 +3528,7 @@ dissect.instrument_leg = function(buffer, offset, packet, parent)
     local length = size_of.instrument_leg(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instrument_leg(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.instrument_leg, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg, range, display)
   end
 
   return dissect.instrument_leg_fields(buffer, offset, packet, parent)
@@ -3549,7 +3549,7 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.number_of_legs, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_legs, range, value, display)
 
   return offset + length, value
 end
@@ -3579,7 +3579,7 @@ dissect.complex_order_instrument_allow_implied = function(buffer, offset, packet
   local value = range:string()
   local display = display.complex_order_instrument_allow_implied(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_allow_implied, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_allow_implied, range, value, display)
 
   return offset + length, value
 end
@@ -3599,7 +3599,7 @@ dissect.instrument_external_code = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.instrument_external_code(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.instrument_external_code, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_external_code, range, value, display)
 
   return offset + length, value
 end
@@ -3619,7 +3619,7 @@ dissect.instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.instrument(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.instrument, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument, range, value, display)
 
   return offset + length, value
 end
@@ -3639,7 +3639,7 @@ dissect.group = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.group(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.group, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group, range, value, display)
 
   return offset + length, value
 end
@@ -3659,7 +3659,7 @@ dissect.tick_increment_fraction_indicator = function(buffer, offset, packet, par
   local value = tonumber(range:string())
   local display = display.tick_increment_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3679,7 +3679,7 @@ dissect.tick_increment = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.tick_increment(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.tick_increment, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.tick_increment, range, value, display)
 
   return offset + length, value
 end
@@ -3699,7 +3699,7 @@ dissect.min_threshold_price_fraction_indicator = function(buffer, offset, packet
   local value = range:string()
   local display = display.min_threshold_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3719,7 +3719,7 @@ dissect.min_threshold_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.min_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -3746,7 +3746,7 @@ dissect.min_threshold_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.min_threshold_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.min_threshold_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_threshold_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -3766,7 +3766,7 @@ dissect.max_threshold_price_fraction_indicator = function(buffer, offset, packet
   local value = range:string()
   local display = display.max_threshold_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -3786,7 +3786,7 @@ dissect.max_threshold_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.max_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -3813,7 +3813,7 @@ dissect.max_threshold_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.max_threshold_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.max_threshold_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_threshold_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -3833,7 +3833,7 @@ dissect.min_number_of_contracts_per_order = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.min_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.min_number_of_contracts_per_order, range, value, display)
 
   return offset + length, value
 end
@@ -3853,7 +3853,7 @@ dissect.max_number_of_contracts_per_order = function(buffer, offset, packet, par
   local value = range:string()
   local display = display.max_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order, range, value, display)
 
   return offset + length, value
 end
@@ -3907,7 +3907,7 @@ dissect.delivery_month = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.delivery_month(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.delivery_month, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.delivery_month, range, value, display)
 
   return offset + length, value
 end
@@ -4052,7 +4052,7 @@ dissect.complex_order_instrument_keys_message = function(buffer, offset, packet,
     local length = size_of.complex_order_instrument_keys_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_instrument_keys_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_keys_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_keys_message, range, display)
   end
 
   return dissect.complex_order_instrument_keys_message_fields(buffer, offset, packet, parent)
@@ -4073,7 +4073,7 @@ dissect.underlying_symbol_root = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying_symbol_root(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.underlying_symbol_root, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol_root, range, value, display)
 
   return offset + length, value
 end
@@ -4093,7 +4093,7 @@ dissect.group_instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.group_instrument(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.group_instrument, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.group_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -4120,7 +4120,7 @@ dissect.type_of_underlying = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_underlying(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_underlying, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_underlying, range, value, display)
 
   return offset + length, value
 end
@@ -4147,7 +4147,7 @@ dissect.type_of_instrument = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_instrument(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_instrument, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_instrument, range, value, display)
 
   return offset + length, value
 end
@@ -4189,7 +4189,7 @@ dissect.market_flow_indicator = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:string()
     local display = display.market_flow_indicator(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.market_flow_indicator, range, value, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator, range, value, display)
   end
 
   return dissect.market_flow_indicator_fields(buffer, offset, packet, parent)
@@ -4217,7 +4217,7 @@ dissect.option_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.option_type(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_type, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_type, range, value, display)
 
   return offset + length, value
 end
@@ -4237,7 +4237,7 @@ dissect.minimum_threshold_price_fraction_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = display.minimum_threshold_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.minimum_threshold_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_threshold_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4257,7 +4257,7 @@ dissect.minimum_threshold_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.minimum_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.minimum_threshold_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -4277,7 +4277,7 @@ dissect.maximum_threshold_price_fraction_indicator = function(buffer, offset, pa
   local value = range:string()
   local display = display.maximum_threshold_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4297,7 +4297,7 @@ dissect.maximum_threshold_price = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.maximum_threshold_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.maximum_threshold_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_threshold_price, range, value, display)
 
   return offset + length, value
 end
@@ -4317,7 +4317,7 @@ dissect.minimum_number_of_contracts_per_order = function(buffer, offset, packet,
   local value = range:string()
   local display = display.minimum_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.minimum_number_of_contracts_per_order, range, value, display)
 
   return offset + length, value
 end
@@ -4337,7 +4337,7 @@ dissect.maximum_number_of_contracts_per_order = function(buffer, offset, packet,
   local value = range:string()
   local display = display.maximum_number_of_contracts_per_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.maximum_number_of_contracts_per_order, range, value, display)
 
   return offset + length, value
 end
@@ -4364,7 +4364,7 @@ dissect.strike_price_currency = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.strike_price_currency(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.strike_price_currency, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_currency, range, value, display)
 
   return offset + length, value
 end
@@ -4485,7 +4485,7 @@ dissect.option_instrument_keys_message = function(buffer, offset, packet, parent
     local length = size_of.option_instrument_keys_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_instrument_keys_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message, range, display)
   end
 
   return dissect.option_instrument_keys_message_fields(buffer, offset, packet, parent)
@@ -4540,7 +4540,7 @@ dissect.price_indicator_marker = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.price_indicator_marker(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.price_indicator_marker, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.price_indicator_marker, range, value, display)
 
   return offset + length, value
 end
@@ -4560,7 +4560,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.timestamp, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -4580,7 +4580,7 @@ dissect.trade_price_fraction_indicator = function(buffer, offset, packet, parent
   local value = range:string()
   local display = display.trade_price_fraction_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -4600,7 +4600,7 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.trade_price, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -4620,7 +4620,7 @@ dissect.trade_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.trade_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -4696,7 +4696,7 @@ dissect.complex_order_trade_cancellation_message = function(buffer, offset, pack
     local length = size_of.complex_order_trade_cancellation_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_trade_cancellation_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_trade_cancellation_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_trade_cancellation_message, range, display)
   end
 
   return dissect.complex_order_trade_cancellation_message_fields(buffer, offset, packet, parent)
@@ -4778,7 +4778,7 @@ dissect.option_trade_cancellation_message = function(buffer, offset, packet, par
     local length = size_of.option_trade_cancellation_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_trade_cancellation_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_trade_cancellation_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_cancellation_message, range, display)
   end
 
   return dissect.option_trade_cancellation_message_fields(buffer, offset, packet, parent)
@@ -4799,7 +4799,7 @@ dissect.number_of_ask_orders = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.number_of_ask_orders(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.number_of_ask_orders, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_ask_orders, range, value, display)
 
   return offset + length, value
 end
@@ -4819,7 +4819,7 @@ dissect.number_of_bid_orders = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.number_of_bid_orders(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.number_of_bid_orders, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_bid_orders, range, value, display)
 
   return offset + length, value
 end
@@ -4839,7 +4839,7 @@ dissect.bid_price_sign = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.bid_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.bid_price_sign, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -4884,7 +4884,7 @@ dissect.level_of_market_depth = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.level_of_market_depth(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.level_of_market_depth, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.level_of_market_depth, range, value, display)
 
   return offset + length, value
 end
@@ -4971,7 +4971,7 @@ dissect.complex_market_depth_level = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:string()
     local display = display.complex_market_depth_level(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_market_depth_level, range, value, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_market_depth_level, range, value, display)
   end
 
   return dissect.complex_market_depth_level_fields(buffer, offset, packet, parent)
@@ -4992,7 +4992,7 @@ dissect.number_of_levels = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.number_of_levels(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.number_of_levels, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_levels, range, value, display)
 
   return offset + length, value
 end
@@ -5046,7 +5046,7 @@ dissect.instrument_status_marker = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.instrument_status_marker(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.instrument_status_marker, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_status_marker, range, value, display)
 
   return offset + length, value
 end
@@ -5106,7 +5106,7 @@ dissect.complex_order_market_depth_message = function(buffer, offset, packet, pa
     local length = size_of.complex_order_market_depth_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_market_depth_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_market_depth_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_market_depth_message, range, display)
   end
 
   return dissect.complex_order_market_depth_message_fields(buffer, offset, packet, parent)
@@ -5183,7 +5183,7 @@ dissect.market_depth_level = function(buffer, offset, packet, parent)
     local length = size_of.market_depth_level(buffer, offset)
     local range = buffer(offset, length)
     local display = display.market_depth_level(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.market_depth_level, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level, range, display)
   end
 
   return dissect.market_depth_level_fields(buffer, offset, packet, parent)
@@ -5244,7 +5244,7 @@ dissect.option_market_depth_message = function(buffer, offset, packet, parent)
     local length = size_of.option_market_depth_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_market_depth_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_market_depth_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_market_depth_message, range, display)
   end
 
   return dissect.option_market_depth_message_fields(buffer, offset, packet, parent)
@@ -5265,7 +5265,7 @@ dissect.public_customer_ask_size = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.public_customer_ask_size(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.public_customer_ask_size, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_ask_size, range, value, display)
 
   return offset + length, value
 end
@@ -5285,7 +5285,7 @@ dissect.public_customer_bid_size = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.public_customer_bid_size(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.public_customer_bid_size, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.public_customer_bid_size, range, value, display)
 
   return offset + length, value
 end
@@ -5381,7 +5381,7 @@ dissect.complex_order_quote_message = function(buffer, offset, packet, parent)
     local length = size_of.complex_order_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_quote_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_quote_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_quote_message, range, display)
   end
 
   return dissect.complex_order_quote_message_fields(buffer, offset, packet, parent)
@@ -5473,7 +5473,7 @@ dissect.option_quote_message = function(buffer, offset, packet, parent)
     local length = size_of.option_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_quote_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_quote_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_quote_message, range, display)
   end
 
   return dissect.option_quote_message_fields(buffer, offset, packet, parent)
@@ -5494,7 +5494,7 @@ dissect.requested_size = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.requested_size(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.requested_size, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.requested_size, range, value, display)
 
   return offset + length, value
 end
@@ -5540,7 +5540,7 @@ dissect.option_request_for_quote_message = function(buffer, offset, packet, pare
     local length = size_of.option_request_for_quote_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_request_for_quote_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message, range, display)
   end
 
   return dissect.option_request_for_quote_message_fields(buffer, offset, packet, parent)
@@ -5632,7 +5632,7 @@ dissect.complex_order_instrument_trade_message = function(buffer, offset, packet
     local length = size_of.complex_order_instrument_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_order_instrument_trade_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order_instrument_trade_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order_instrument_trade_message, range, display)
   end
 
   return dissect.complex_order_instrument_trade_message_fields(buffer, offset, packet, parent)
@@ -5729,7 +5729,7 @@ dissect.option_trade_message = function(buffer, offset, packet, parent)
     local length = size_of.option_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.option_trade_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.option_trade_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_trade_message, range, display)
   end
 
   return dissect.option_trade_message_fields(buffer, offset, packet, parent)
@@ -5750,7 +5750,7 @@ dissect.trading_engine_timestamp = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.trading_engine_timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -5786,7 +5786,7 @@ dissect.system_timestamp_message = function(buffer, offset, packet, parent)
     local length = size_of.system_timestamp_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.system_timestamp_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.system_timestamp_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.system_timestamp_message, range, display)
   end
 
   return dissect.system_timestamp_message_fields(buffer, offset, packet, parent)
@@ -5807,7 +5807,7 @@ dissect.sequence_numbers_skipped = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.sequence_numbers_skipped(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped, range, value, display)
 
   return offset + length, value
 end
@@ -5843,7 +5843,7 @@ dissect.gap_sequence_message = function(buffer, offset, packet, parent)
     local length = size_of.gap_sequence_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.gap_sequence_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.gap_sequence_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.gap_sequence_message, range, display)
   end
 
   return dissect.gap_sequence_message_fields(buffer, offset, packet, parent)
@@ -5880,7 +5880,7 @@ dissect.circuit_assurance_message = function(buffer, offset, packet, parent)
     local length = size_of.circuit_assurance_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.circuit_assurance_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.circuit_assurance_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.circuit_assurance_message, range, display)
   end
 
   return dissect.circuit_assurance_message_fields(buffer, offset, packet, parent)
@@ -5922,7 +5922,7 @@ dissect.end_of_transmission_message = function(buffer, offset, packet, parent)
     local length = size_of.end_of_transmission_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.end_of_transmission_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.end_of_transmission_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_transmission_message, range, display)
   end
 
   return dissect.end_of_transmission_message_fields(buffer, offset, packet, parent)
@@ -5943,7 +5943,7 @@ dissect.number_of_option_classes_requested = function(buffer, offset, packet, pa
   local value = tonumber(range:string())
   local display = display.number_of_option_classes_requested(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.number_of_option_classes_requested, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_option_classes_requested, range, value, display)
 
   return offset + length, value
 end
@@ -5963,7 +5963,7 @@ dissect.hsvf_protocol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.hsvf_protocol(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.hsvf_protocol, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_protocol, range, value, display)
 
   return offset + length, value
 end
@@ -5990,7 +5990,7 @@ dissect.gap_control = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.gap_control(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.gap_control, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.gap_control, range, value, display)
 
   return offset + length, value
 end
@@ -6017,7 +6017,7 @@ dissect.market_summaries = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.market_summaries(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.market_summaries, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_summaries, range, value, display)
 
   return offset + length, value
 end
@@ -6037,7 +6037,7 @@ dissect.complex_order = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_order(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.complex_order, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.complex_order, range, value, display)
 
   return offset + length, value
 end
@@ -6076,7 +6076,7 @@ dissect.type_of_market_data = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.type_of_market_data(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.type_of_market_data, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market_data, range, value, display)
 
   return offset + length, value
 end
@@ -6096,7 +6096,7 @@ dissect.system_value = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_value(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.system_value, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.system_value, range, value, display)
 
   return offset + length, value
 end
@@ -6116,7 +6116,7 @@ dissect.system_default = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.system_default(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.system_default, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.system_default, range, value, display)
 
   return offset + length, value
 end
@@ -6136,7 +6136,7 @@ dissect.reset_sequence = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.reset_sequence(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.reset_sequence, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reset_sequence, range, value, display)
 
   return offset + length, value
 end
@@ -6217,7 +6217,7 @@ dissect.connection_message = function(buffer, offset, packet, parent)
     local length = size_of.connection_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.connection_message(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.connection_message, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.connection_message, range, display)
   end
 
   return dissect.connection_message_fields(buffer, offset, packet, parent)
@@ -6503,7 +6503,7 @@ dissect.message_body = function(buffer, offset, packet, parent, message_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.message_body(buffer, packet, parent)
-  local element = parent:add(box_options_unicast_hsvf_v4_5_1.fields.message_body, range, display)
+  local element = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.message_body, range, display)
 
   return dissect.message_body_branches(buffer, offset, packet, parent, message_type)
 end
@@ -6617,7 +6617,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.message_type, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -6637,7 +6637,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = tonumber(range:string())
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.sequence_number, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -6678,7 +6678,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(box_options_unicast_hsvf_v4_5_1.fields.message_header, range, display)
+    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -6699,7 +6699,7 @@ dissect.hsvf_stx = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.hsvf_stx(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_unicast_hsvf_v4_5_1.fields.hsvf_stx, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.hsvf_stx, range, value, display)
 
   return offset + length, value
 end
@@ -6738,23 +6738,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function box_options_unicast_hsvf_v4_5_1.init()
+function box_options_sola_unicast_hsvf_v4_5_1.init()
 end
 
--- Dissector for Box Options Unicast Hsvf 4.5.1
-function box_options_unicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
+-- Dissector for Box Options Sola Unicast Hsvf 4.5.1
+function box_options_sola_unicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = box_options_unicast_hsvf_v4_5_1.name
+  packet.cols.protocol = box_options_sola_unicast_hsvf_v4_5_1.name
 
   -- Dissect protocol
-  local protocol = parent:add(box_options_unicast_hsvf_v4_5_1, buffer(), box_options_unicast_hsvf_v4_5_1.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(box_options_sola_unicast_hsvf_v4_5_1, buffer(), box_options_sola_unicast_hsvf_v4_5_1.description, "("..buffer:len().." Bytes)")
   local protocol_size = dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, box_options_unicast_hsvf_v4_5_1)
+udp_table:add(65333, box_options_sola_unicast_hsvf_v4_5_1)
 
 
 -----------------------------------------------------------------------
@@ -6762,7 +6762,7 @@ udp_table:add(65333, box_options_unicast_hsvf_v4_5_1)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.box_options_unicast_hsvf_v4_5_1_packet_size = function(buffer)
+verify.box_options_sola_unicast_hsvf_v4_5_1_packet_size = function(buffer)
 
   return true
 end
@@ -6785,10 +6785,10 @@ verify.hsvf_etx = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Box Options Unicast Hsvf 4.5.1
-local function box_options_unicast_hsvf_v4_5_1_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Box Options Sola Unicast Hsvf 4.5.1
+local function box_options_sola_unicast_hsvf_v4_5_1_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.box_options_unicast_hsvf_v4_5_1_packet_size(buffer) then return false end
+  if not verify.box_options_sola_unicast_hsvf_v4_5_1_packet_size(buffer) then return false end
 
   -- Verify Hsvf Stx
   if not verify.hsvf_stx(buffer) then return false end
@@ -6797,14 +6797,14 @@ local function box_options_unicast_hsvf_v4_5_1_heuristic(buffer, packet, parent)
   if not verify.hsvf_etx(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = box_options_unicast_hsvf_v4_5_1
-  box_options_unicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
+  packet.conversation = box_options_sola_unicast_hsvf_v4_5_1
+  box_options_sola_unicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Box Options Unicast Hsvf 4.5.1
-box_options_unicast_hsvf_v4_5_1:register_heuristic("udp", box_options_unicast_hsvf_v4_5_1_heuristic)
+-- Register Heuristic for Box Options Sola Unicast Hsvf 4.5.1
+box_options_sola_unicast_hsvf_v4_5_1:register_heuristic("udp", box_options_sola_unicast_hsvf_v4_5_1_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.

@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Options | [Unicast][Box.Options.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 6830 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][Box.Options.Unicast.Hsvf.v4.5.1.Pdf] |
+| Options Sola | [Unicast][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | 6830 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf] |
 
 
 Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
@@ -23,5 +23,5 @@ Box: [website](https://boxoptions.com "Go to Boston Options Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
-[Box.Options.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Box/Box.Options.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Unicast Hsvf v4.5.1 Wireshark Dissector"
-[Box.Options.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Boston Options Exchange 4.5.1 Pdf"
+[Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Wireshark Dissector"
+[Box.Options.Sola.Unicast.Hsvf.v4.5.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.pdf "Boston Options Exchange 4.5.1 Pdf"
