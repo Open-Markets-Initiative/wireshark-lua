@@ -718,7 +718,7 @@ dissect.delta_update_message_fields = function(buffer, offset, packet, parent, s
   -- Price Scale Code: 1 Byte Signed Fixed Width Integer
   index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
-  -- Delta Price Point: Struct of 9 fields
+  -- Dependency for Delta Price Point
   local end_of_payload = offset + delta_size - (index - offset)
 
   -- Delta Price Point: Struct of 9 fields
@@ -757,7 +757,7 @@ end
 dissect.delta_update_messages_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Delta Update Message: Struct of 10 fields
+  -- Dependency for Delta Update Message
   local end_of_payload = buffer:len()
 
   -- Delta Update Message: Struct of 10 fields
@@ -988,7 +988,7 @@ dissect.full_update_message_fields = function(buffer, offset, packet, parent, si
   -- Mpv: 2 Byte Signed Fixed Width Integer
   index, mpv = dissect.mpv(buffer, index, packet, parent)
 
-  -- Full Price Point: Struct of 5 fields
+  -- Dependency for Full Price Point
   local end_of_payload = offset + update_size - (index - offset)
 
   -- Full Price Point: Struct of 5 fields
@@ -1027,7 +1027,7 @@ end
 dissect.full_update_messages_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Full Update Message: Struct of 13 fields
+  -- Dependency for Full Update Message
   local end_of_payload = buffer:len()
 
   -- Full Update Message: Struct of 13 fields
@@ -1402,7 +1402,7 @@ function nyse_equities_openbook_ultra_v2_1_b.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nyse_equities_openbook_ultra_v2_1_b, buffer(), nyse_equities_openbook_ultra_v2_1_b.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

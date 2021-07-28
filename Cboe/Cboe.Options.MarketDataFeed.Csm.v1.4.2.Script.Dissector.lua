@@ -4148,7 +4148,7 @@ function cboe_options_marketdatafeed_csm_v1_4_2.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(cboe_options_marketdatafeed_csm_v1_4_2, buffer(), cboe_options_marketdatafeed_csm_v1_4_2.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

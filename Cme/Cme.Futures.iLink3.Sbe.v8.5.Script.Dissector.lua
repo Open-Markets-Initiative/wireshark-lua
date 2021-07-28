@@ -16921,7 +16921,7 @@ end
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Simple Open Frame: Struct of 3 fields
+  -- Dependency for Simple Open Frame
   local end_of_payload = buffer:len()
 
   -- Simple Open Frame: Struct of 3 fields
@@ -16949,7 +16949,7 @@ function cme_futures_ilink3_sbe_v8_5.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cme_futures_ilink3_sbe_v8_5, buffer(), cme_futures_ilink3_sbe_v8_5.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

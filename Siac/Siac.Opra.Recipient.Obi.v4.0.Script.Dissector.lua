@@ -2846,7 +2846,7 @@ function siac_opra_recipient_obi_v4_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(siac_opra_recipient_obi_v4_0, buffer(), siac_opra_recipient_obi_v4_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

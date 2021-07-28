@@ -3570,7 +3570,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -3598,7 +3598,7 @@ function nasdaq_bx_options_depthofmarket_itch_v1_3.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3, buffer(), nasdaq_bx_options_depthofmarket_itch_v1_3.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

@@ -4361,7 +4361,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 3 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -4397,7 +4397,7 @@ function nasdaq_uqdf_output_utp_v1_5.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_uqdf_output_utp_v1_5, buffer(), nasdaq_uqdf_output_utp_v1_5.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

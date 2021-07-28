@@ -10157,7 +10157,7 @@ function ice_futures_mdf_impact_v1_1_34.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(ice_futures_mdf_impact_v1_1_34, buffer(), ice_futures_mdf_impact_v1_1_34.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

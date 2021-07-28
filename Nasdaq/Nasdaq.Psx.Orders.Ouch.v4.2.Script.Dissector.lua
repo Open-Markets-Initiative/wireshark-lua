@@ -3043,7 +3043,7 @@ function nasdaq_psx_orders_ouch_v4_2.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_psx_orders_ouch_v4_2, buffer(), nasdaq_psx_orders_ouch_v4_2.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

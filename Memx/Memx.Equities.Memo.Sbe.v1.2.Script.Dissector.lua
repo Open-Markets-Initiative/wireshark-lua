@@ -4856,7 +4856,7 @@ function memx_equities_memo_sbe_v1_2.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(memx_equities_memo_sbe_v1_2, buffer(), memx_equities_memo_sbe_v1_2.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

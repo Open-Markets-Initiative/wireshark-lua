@@ -2414,7 +2414,7 @@ function iex_equities_tops_iextp_v1_6.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(iex_equities_tops_iextp_v1_6, buffer(), iex_equities_tops_iextp_v1_6.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

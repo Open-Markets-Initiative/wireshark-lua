@@ -2552,7 +2552,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Block Soh: 1 Byte Unsigned Fixed Width Integer
   index, block_soh = dissect.block_soh(buffer, index, packet, parent)
 
-  -- Message: Struct of 3 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
@@ -2580,7 +2580,7 @@ function finra_otc_bbds_dfi_v2018_1a.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(finra_otc_bbds_dfi_v2018_1a, buffer(), finra_otc_bbds_dfi_v2018_1a.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

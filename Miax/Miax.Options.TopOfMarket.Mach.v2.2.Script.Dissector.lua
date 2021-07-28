@@ -343,7 +343,7 @@ end
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Message: Struct of 5 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 5 fields
@@ -371,7 +371,7 @@ function miax_options_topofmarket_mach_v2_2.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(miax_options_topofmarket_mach_v2_2, buffer(), miax_options_topofmarket_mach_v2_2.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

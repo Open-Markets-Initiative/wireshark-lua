@@ -1677,7 +1677,7 @@ dissect.sequenced_message_fields = function(buffer, offset, packet, parent)
   -- Message Count: 2 Byte Unsigned Fixed Width Integer
   index, message_count = dissect.message_count(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -1921,7 +1921,7 @@ function memx_equities_memoirlastsale_sbe_v1_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(memx_equities_memoirlastsale_sbe_v1_1, buffer(), memx_equities_memoirlastsale_sbe_v1_1.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

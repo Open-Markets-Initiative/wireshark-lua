@@ -2962,7 +2962,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 6 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -2990,7 +2990,7 @@ function nyse_arca_equities_bbo_xdp_v2_4_c.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nyse_arca_equities_bbo_xdp_v2_4_c, buffer(), nyse_arca_equities_bbo_xdp_v2_4_c.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

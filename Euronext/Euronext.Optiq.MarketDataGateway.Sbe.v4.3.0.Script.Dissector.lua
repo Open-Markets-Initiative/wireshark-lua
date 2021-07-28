@@ -8785,7 +8785,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Market Data Packet Header: Struct of 4 fields
   index, market_data_packet_header = dissect.market_data_packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 3 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
@@ -8813,7 +8813,7 @@ function euronext_optiq_marketdatagateway_sbe_v4_3_0.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(euronext_optiq_marketdatagateway_sbe_v4_3_0, buffer(), euronext_optiq_marketdatagateway_sbe_v4_3_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

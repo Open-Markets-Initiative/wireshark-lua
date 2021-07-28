@@ -4056,7 +4056,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 8 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -4089,7 +4089,7 @@ function eurex_derivatives_eobi_t7_v5_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(eurex_derivatives_eobi_t7_v5_0, buffer(), eurex_derivatives_eobi_t7_v5_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

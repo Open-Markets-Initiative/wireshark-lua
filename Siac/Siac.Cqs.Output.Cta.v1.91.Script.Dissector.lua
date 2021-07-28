@@ -4546,7 +4546,7 @@ function siac_cqs_output_cta_v1_91.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(siac_cqs_output_cta_v1_91, buffer(), siac_cqs_output_cta_v1_91.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

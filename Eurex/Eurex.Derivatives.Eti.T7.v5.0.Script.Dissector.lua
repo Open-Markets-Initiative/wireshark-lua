@@ -20249,7 +20249,7 @@ function eurex_derivatives_eti_t7_v5_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(eurex_derivatives_eti_t7_v5_0, buffer(), eurex_derivatives_eti_t7_v5_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

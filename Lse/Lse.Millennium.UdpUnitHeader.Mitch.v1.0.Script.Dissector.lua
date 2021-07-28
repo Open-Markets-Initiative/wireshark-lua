@@ -364,7 +364,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Unit Header: Struct of 4 fields
   index, unit_header = dissect.unit_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -392,7 +392,7 @@ function lse_millennium_udpunitheader_mitch_v1_0.dissector(buffer, packet, paren
 
   -- Dissect protocol
   local protocol = parent:add(lse_millennium_udpunitheader_mitch_v1_0, buffer(), lse_millennium_udpunitheader_mitch_v1_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

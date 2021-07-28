@@ -2672,7 +2672,7 @@ function asx_securities_sr8_ouch_v2_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(asx_securities_sr8_ouch_v2_0, buffer(), asx_securities_sr8_ouch_v2_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

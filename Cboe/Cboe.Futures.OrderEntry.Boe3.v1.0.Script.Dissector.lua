@@ -6383,7 +6383,7 @@ function cboe_futures_orderentry_boe3_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cboe_futures_orderentry_boe3_v1_0, buffer(), cboe_futures_orderentry_boe3_v1_0.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

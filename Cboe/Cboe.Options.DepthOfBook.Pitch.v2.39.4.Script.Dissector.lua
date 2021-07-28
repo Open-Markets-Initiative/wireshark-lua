@@ -3230,7 +3230,7 @@ dissect.packet = function(buffer, packet, parent)
   -- Packet Header: Struct of 4 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
 
-  -- Message: Struct of 2 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
@@ -3258,7 +3258,7 @@ function cboe_options_depthofbook_pitch_v2_39_4.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(cboe_options_depthofbook_pitch_v2_39_4, buffer(), cboe_options_depthofbook_pitch_v2_39_4.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

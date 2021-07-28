@@ -8735,7 +8735,7 @@ end
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Message: Struct of 3 fields
+  -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
@@ -8763,7 +8763,7 @@ function euronext_optiq_orderentrygateway_sbe_v4_2_2.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(euronext_optiq_orderentrygateway_sbe_v4_2_2, buffer(), euronext_optiq_orderentrygateway_sbe_v4_2_2.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

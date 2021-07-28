@@ -15665,7 +15665,7 @@ function eurex_cash_eti_t7_v6_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(eurex_cash_eti_t7_v6_1, buffer(), eurex_cash_eti_t7_v6_1.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

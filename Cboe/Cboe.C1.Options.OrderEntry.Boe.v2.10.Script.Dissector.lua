@@ -46091,7 +46091,7 @@ function cboe_c1_options_orderentry_boe_v2_10.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cboe_c1_options_orderentry_boe_v2_10, buffer(), cboe_c1_options_orderentry_boe_v2_10.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

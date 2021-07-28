@@ -6708,7 +6708,7 @@ end
 dissect.packet = function(buffer, packet, parent)
   local index = 0
 
-  -- Packet: Struct of 4 fields
+  -- Dependency for Packet
   local end_of_payload = buffer:len()
 
   while index < end_of_payload do
@@ -6749,7 +6749,7 @@ function box_options_sola_unicast_hsvf_v4_5_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(box_options_sola_unicast_hsvf_v4_5_1, buffer(), box_options_sola_unicast_hsvf_v4_5_1.description, "("..buffer:len().." Bytes)")
-  local protocol_size = dissect.packet(buffer, packet, protocol)
+  return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
