@@ -16834,6 +16834,27 @@ dissect.simple_open_frame = function(buffer, offset, packet, parent)
   return dissect.simple_open_frame_fields(buffer, offset, packet, parent)
 end
 
+-- Remaining Bytes For:
+local simple_open_frame_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < 2 then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining
+end
+
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
@@ -16843,7 +16864,19 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Simple Open Frame: Struct of 3 fields
   while index < end_of_payload do
-    index = dissect.simple_open_frame(buffer, index, packet, parent)
+
+    -- are minimum number of bytes are available?
+    local available = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = dissect.simple_open_frame(buffer, index, packet, parent)
+    else
+      -- more bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index
