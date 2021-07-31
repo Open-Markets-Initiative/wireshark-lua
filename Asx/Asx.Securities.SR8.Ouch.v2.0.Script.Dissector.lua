@@ -78,6 +78,7 @@ asx_securities_sr8_ouch_v2_0.fields.sequenced_data_packet = ProtoField.new("Sequ
 asx_securities_sr8_ouch_v2_0.fields.session = ProtoField.new("Session", "asx.securities.sr8.ouch.v2.0.session", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.short_sell_quantity = ProtoField.new("Short Sell Quantity", "asx.securities.sr8.ouch.v2.0.shortsellquantity", ftypes.UINT64)
 asx_securities_sr8_ouch_v2_0.fields.side = ProtoField.new("Side", "asx.securities.sr8.ouch.v2.0.side", ftypes.STRING)
+asx_securities_sr8_ouch_v2_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "asx.securities.sr8.ouch.v2.0.soupbintcppacket", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.text = ProtoField.new("Text", "asx.securities.sr8.ouch.v2.0.text", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.time_in_force = ProtoField.new("Time In Force", "asx.securities.sr8.ouch.v2.0.timeinforce", ftypes.UINT8)
 asx_securities_sr8_ouch_v2_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.sr8.ouch.v2.0.timestampnanoseconds", ftypes.UINT64)
@@ -108,6 +109,7 @@ show.packet = true
 show.packet_header = true
 show.replace_order_message = true
 show.sequenced_data_packet = true
+show.soup_bin_tcp_packet = true
 show.unsequenced_data_packet = true
 show.data = false
 show.payload = false
@@ -130,6 +132,7 @@ asx_securities_sr8_ouch_v2_0.prefs.show_packet = Pref.bool("Show Packet", show.p
 asx_securities_sr8_ouch_v2_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 asx_securities_sr8_ouch_v2_0.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
 asx_securities_sr8_ouch_v2_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+asx_securities_sr8_ouch_v2_0.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 asx_securities_sr8_ouch_v2_0.prefs.show_unsequenced_data_packet = Pref.bool("Show Unsequenced Data Packet", show.unsequenced_data_packet, "Parse and add Unsequenced Data Packet to protocol tree")
 asx_securities_sr8_ouch_v2_0.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
 asx_securities_sr8_ouch_v2_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
@@ -205,6 +208,10 @@ function asx_securities_sr8_ouch_v2_0.prefs_changed()
   end
   if show.sequenced_data_packet ~= asx_securities_sr8_ouch_v2_0.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = asx_securities_sr8_ouch_v2_0.prefs.show_sequenced_data_packet
+    changed = true
+  end
+  if show.soup_bin_tcp_packet ~= asx_securities_sr8_ouch_v2_0.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = asx_securities_sr8_ouch_v2_0.prefs.show_soup_bin_tcp_packet
     changed = true
   end
   if show.unsequenced_data_packet ~= asx_securities_sr8_ouch_v2_0.prefs.show_unsequenced_data_packet then
@@ -2639,9 +2646,28 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
--- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+-- Calculate size of: Soup Bin Tcp Packet
+size_of.soup_bin_tcp_packet = function(buffer, offset)
   local index = 0
+
+  index = index + size_of.packet_header(buffer, offset + index)
+
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 1, 1):string()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
+
+  return index
+end
+
+-- Display: Soup Bin Tcp Packet
+display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Soup Bin Tcp Packet
+dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Packet Header: Struct of 2 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
@@ -2651,6 +2677,67 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Payload: Runtime Type with 6 branches
   index = dissect.payload(buffer, index, packet, parent, packet_type)
+
+  return index
+end
+
+-- Dissect: Soup Bin Tcp Packet
+dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.soup_bin_tcp_packet then
+    local length = size_of.soup_bin_tcp_packet(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.soup_bin_tcp_packet, range, display)
+  end
+
+  return dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent)
+end
+
+-- Remaining Bytes For:
+local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < 2 then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining
+end
+
+-- Dissect Packet
+dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- are minimum number of bytes are available?
+    local available = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = dissect.soup_bin_tcp_packet(buffer, index, packet, parent)
+    else
+      -- more bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
 
   return index
 end

@@ -82,6 +82,7 @@ nasdaq_equities_orders_ouch_v4_2.fields.sequence_number = ProtoField.new("Sequen
 nasdaq_equities_orders_ouch_v4_2.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.equities.orders.ouch.v4.2.sequenceddatapacket", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.session = ProtoField.new("Session", "nasdaq.equities.orders.ouch.v4.2.session", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.shares = ProtoField.new("Shares", "nasdaq.equities.orders.ouch.v4.2.shares", ftypes.UINT32)
+nasdaq_equities_orders_ouch_v4_2.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.equities.orders.ouch.v4.2.soupbintcppacket", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.stock = ProtoField.new("Stock", "nasdaq.equities.orders.ouch.v4.2.stock", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.equities.orders.ouch.v4.2.systemeventmessage", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.text = ProtoField.new("Text", "nasdaq.equities.orders.ouch.v4.2.text", ftypes.STRING)
@@ -121,6 +122,7 @@ show.rejected_order_message = true
 show.replace_order_message = true
 show.replaced_message = true
 show.sequenced_data_packet = true
+show.soup_bin_tcp_packet = true
 show.system_event_message = true
 show.trade_correction_message = true
 show.trade_now_message = true
@@ -153,6 +155,7 @@ nasdaq_equities_orders_ouch_v4_2.prefs.show_rejected_order_message = Pref.bool("
 nasdaq_equities_orders_ouch_v4_2.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
 nasdaq_equities_orders_ouch_v4_2.prefs.show_replaced_message = Pref.bool("Show Replaced Message", show.replaced_message, "Parse and add Replaced Message to protocol tree")
 nasdaq_equities_orders_ouch_v4_2.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
+nasdaq_equities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet = Pref.bool("Show Soup Bin Tcp Packet", show.soup_bin_tcp_packet, "Parse and add Soup Bin Tcp Packet to protocol tree")
 nasdaq_equities_orders_ouch_v4_2.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 nasdaq_equities_orders_ouch_v4_2.prefs.show_trade_correction_message = Pref.bool("Show Trade Correction Message", show.trade_correction_message, "Parse and add Trade Correction Message to protocol tree")
 nasdaq_equities_orders_ouch_v4_2.prefs.show_trade_now_message = Pref.bool("Show Trade Now Message", show.trade_now_message, "Parse and add Trade Now Message to protocol tree")
@@ -259,6 +262,10 @@ function nasdaq_equities_orders_ouch_v4_2.prefs_changed()
   end
   if show.sequenced_data_packet ~= nasdaq_equities_orders_ouch_v4_2.prefs.show_sequenced_data_packet then
     show.sequenced_data_packet = nasdaq_equities_orders_ouch_v4_2.prefs.show_sequenced_data_packet
+    changed = true
+  end
+  if show.soup_bin_tcp_packet ~= nasdaq_equities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet then
+    show.soup_bin_tcp_packet = nasdaq_equities_orders_ouch_v4_2.prefs.show_soup_bin_tcp_packet
     changed = true
   end
   if show.system_event_message ~= nasdaq_equities_orders_ouch_v4_2.prefs.show_system_event_message then
@@ -3125,9 +3132,28 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
--- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+-- Calculate size of: Soup Bin Tcp Packet
+size_of.soup_bin_tcp_packet = function(buffer, offset)
   local index = 0
+
+  index = index + size_of.packet_header(buffer, offset + index)
+
+  -- Calculate runtime size of Payload field
+  local payload_offset = offset + index
+  local payload_type = buffer(payload_offset - 1, 1):string()
+  index = index + size_of.payload(buffer, payload_offset, payload_type)
+
+  return index
+end
+
+-- Display: Soup Bin Tcp Packet
+display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Soup Bin Tcp Packet
+dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Packet Header: Struct of 2 fields
   index, packet_header = dissect.packet_header(buffer, index, packet, parent)
@@ -3137,6 +3163,67 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Payload: Runtime Type with 6 branches
   index = dissect.payload(buffer, index, packet, parent, packet_type)
+
+  return index
+end
+
+-- Dissect: Soup Bin Tcp Packet
+dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.soup_bin_tcp_packet then
+    local length = size_of.soup_bin_tcp_packet(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.soup_bin_tcp_packet(buffer, packet, parent)
+    parent = parent:add(nasdaq_equities_orders_ouch_v4_2.fields.soup_bin_tcp_packet, range, display)
+  end
+
+  return dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent)
+end
+
+-- Remaining Bytes For:
+local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < 2 then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 2):uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining
+end
+
+-- Dissect Packet
+dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Soup Bin Tcp Packet
+  local end_of_payload = buffer:len()
+
+  -- Soup Bin Tcp Packet: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- are minimum number of bytes are available?
+    local available = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = dissect.soup_bin_tcp_packet(buffer, index, packet, parent)
+    else
+      -- more bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
 
   return index
 end

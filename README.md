@@ -122,7 +122,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 137 | 1,205,844 |
+| 137 | 1,206,192 |
 
 Note: Our dissector model is still under rapid development.
 
