@@ -3135,13 +3135,13 @@ dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent)
   return dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent)
 end
 
--- Remaining Bytes For:
+-- Remaining Bytes For: Soup Bin Tcp Packet
 local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < 2 then
+  if remaining < size_of.packet_header(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 

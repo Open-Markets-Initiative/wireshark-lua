@@ -17872,13 +17872,13 @@ dissect.simple_open_frame = function(buffer, offset, packet, parent)
   return dissect.simple_open_frame_fields(buffer, offset, packet, parent)
 end
 
--- Remaining Bytes For:
+-- Remaining Bytes For: Simple Open Frame
 local simple_open_frame_bytes_remaining = function(buffer, index, available)
   -- Calculate the number of bytes remaining
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < 2 then
+  if remaining < size_of.simple_open_framing_header(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
