@@ -24,9 +24,9 @@ Otc: [website](https://www.Otcmarkets.com "Go to Otc Markets")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
-[Otc.Markets.Headers.Ats.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Otc/Otc.Markets.Headers.Ats.v1.0.Script.Dissector.lua "Otc Markets Headers Ats v1.0 Wireshark Dissector"
+[Otc.Markets.Headers.Ats.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Headers.Ats.v1.0.Script.Dissector.lua "Otc Markets Headers Ats v1.0 Wireshark Dissector"
 [Otc.Markets.Headers.Ats.v1.0.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Specification url"
 [Otc.Markets.Headers.Ats.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Otc/Otc.Markets.Multicast.Ats.v4.3.pdf "Otc Markets 1.0 Pdf"
-[Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/master/Otc/Otc.Markets.Multicast.Ats.v4.3.Script.Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"
+[Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Multicast.Ats.v4.3.Script.Dissector.lua "Otc Markets Multicast Ats v4.3 Wireshark Dissector"
 [Otc.Markets.Multicast.Ats.v4.3.Url]: https://www.otcmarkets.com/market-data/technical-and-user-documentation "Specification url"
 [Otc.Markets.Multicast.Ats.v4.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/master/Specifications/Otc/Otc.Markets.Multicast.Ats.v4.3.pdf "Otc Markets 4.3 Pdf"
