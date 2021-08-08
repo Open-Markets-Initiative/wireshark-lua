@@ -1,4 +1,4 @@
-[![Iex](https://github.com/Open-Markets-Initiative/Directory/blob/main/Images/Iex.png)](https://iextrading.com/)
+[![Iex](https://github.com/Open-Markets-Initiative/Directory/blob/main/Images/Iex.png)](https://iextrading.com)
 
 
 ## Investors Exchange
@@ -10,7 +10,7 @@
 | Equities | [UdpHeader][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 605 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
 
 
-Iex: [website](https://iextrading.com/ "Go to Investors Exchange")
+Iex: [website](https://iextrading.com "Go to Investors Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
