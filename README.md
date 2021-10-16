@@ -57,6 +57,10 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Eurex][Eurex.Directory] | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v10.0.Dissector] | T7 | [10.0][Eurex.Derivatives.Eti.T7.v10.0.Dissector] | 9/20/2021 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Euronext][Euronext.Directory] | Optiq | [MarketDataGateway][Euronext.Optiq.MarketDataGateway.Sbe.v4.3.0.Dissector] | Sbe | [4.3.0][Euronext.Optiq.MarketDataGateway.Sbe.v4.3.0.Dissector] | 9/25/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Euronext][Euronext.Directory] | Optiq | [OrderEntryGateway][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Dissector] | Sbe | [4.2.2][Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Dissector] | 9/25/2020 | [Beta][Omi.Glossary.Testing.Beta] |
+| [FairX][FairX.Directory] | Futures | [MarketData][FairX.Futures.MarketData.Sbe.v1.3.Dissector] | Sbe | [1.3][FairX.Futures.MarketData.Sbe.v1.3.Dissector] | 7/27/2020 | [Tested][Omi.Glossary.Testing.Tested] |
+| [FairX][FairX.Directory] | Futures | [MarketData][FairX.Futures.MarketData.Sbe.v1.2.Dissector] | Sbe | [1.2][FairX.Futures.MarketData.Sbe.v1.2.Dissector] | 7/27/2020 | [Beta][Omi.Glossary.Testing.Beta] |
+| [FairX][FairX.Directory] | Futures | [Orders][FairX.Futures.Orders.Sbe.v1.4.Dissector] | Sbe | [1.4][FairX.Futures.Orders.Sbe.v1.4.Dissector] | 7/27/2020 | [Beta][Omi.Glossary.Testing.Beta] |
+| [FairX][FairX.Directory] | Futures | [Orders][FairX.Futures.Orders.Sbe.v1.3.Dissector] | Sbe | [1.3][FairX.Futures.Orders.Sbe.v1.3.Dissector] | 7/27/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Finra][Finra.Directory] | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | Dfi | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Finra][Finra.Directory] | Otc | [Bbds][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Ice][Ice.Directory] | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | iMpact | [1.1.43][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -115,7 +119,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Siac][Siac.Directory] | Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [FairX][FairX.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory]
 
 ## Development
 
@@ -123,7 +127,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 145 | 1,293,456 |
+| 149 | 1,309,494 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -162,6 +166,7 @@ Enjoy.
 [Cme.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Cme "Chicago Mercantile Exchange"
 [Eurex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Eurex "Eurex Exchange"
 [Euronext.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Euronext "European New Exchange Technology"
+[FairX.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/FairX "Fair Exchange"
 [Finra.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Finra "Financial Industry Regulatory Authority"
 [Ice.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Ice "Intercontinental Exchange"
 [Iex.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Iex "Investors Exchange"
@@ -201,6 +206,10 @@ Enjoy.
 [Eurex.Derivatives.Eobi.T7.v10.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eobi.T7.v10.0.Script.Dissector.lua "Eurex Derivatives Eobi T7 v10.0 Lua Wireshark Dissector"
 [Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext.Optiq.OrderEntryGateway.Sbe.v4.2.2.Script.Dissector.lua "Euronext Optiq OrderEntryGateway Sbe v4.2.2 Lua Wireshark Dissector"
 [Euronext.Optiq.MarketDataGateway.Sbe.v4.3.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Euronext/Euronext.Optiq.MarketDataGateway.Sbe.v4.3.0.Script.Dissector.lua "Euronext Optiq MarketDataGateway Sbe v4.3.0 Lua Wireshark Dissector"
+[FairX.Futures.MarketData.Sbe.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.MarketData.Sbe.v1.2.Script.Dissector.lua "FairX Futures MarketData Sbe v1.2 Lua Wireshark Dissector"
+[FairX.Futures.MarketData.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.MarketData.Sbe.v1.3.Script.Dissector.lua "FairX Futures MarketData Sbe v1.3 Lua Wireshark Dissector"
+[FairX.Futures.Orders.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.Orders.Sbe.v1.3.Script.Dissector.lua "FairX Futures Orders Sbe v1.3 Lua Wireshark Dissector"
+[FairX.Futures.Orders.Sbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.Orders.Sbe.v1.4.Script.Dissector.lua "FairX Futures Orders Sbe v1.4 Lua Wireshark Dissector"
 [Finra.Orf.Tdds.Dfi.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra.Orf.Tdds.Dfi.v2.0.Script.Dissector.lua "Finra Orf Tdds Dfi v2.0 Lua Wireshark Dissector"
 [Finra.Otc.Bbds.Dfi.v2018.1A.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Finra/Finra.Otc.Bbds.Dfi.v2018.1A.Script.Dissector.lua "Finra Otc Bbds Dfi v2018.1A Lua Wireshark Dissector"
 [Ice.Futures.Mdf.iMpact.v1.1.43.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Ice/Ice.Futures.Mdf.iMpact.v1.1.43.Script.Dissector.lua "Ice Futures Mdf iMpact v1.1.43 Lua Wireshark Dissector"
