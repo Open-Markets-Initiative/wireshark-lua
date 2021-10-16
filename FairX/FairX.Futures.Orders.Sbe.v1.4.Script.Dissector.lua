@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- FairX Futures Orders Sbe 1.4 Protocol
-local fairx_futures_orders_sbe_v1_4 = Proto("FairX.Futures.Orders.Sbe.v1.4.Lua", "FairX Futures Orders Sbe 1.4")
+-- Fairx Futures Orders Sbe 1.4 Protocol
+local fairx_futures_orders_sbe_v1_4 = Proto("Fairx.Futures.Orders.Sbe.v1.4.Lua", "Fairx Futures Orders Sbe 1.4")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- FairX Futures Orders Sbe 1.4 Fields
+-- Fairx Futures Orders Sbe 1.4 Fields
 fairx_futures_orders_sbe_v1_4.fields.account = ProtoField.new("Account", "fairx.futures.orders.sbe.v1.4.account", ftypes.STRING)
 fairx_futures_orders_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "fairx.futures.orders.sbe.v1.4.availableqty", ftypes.INT32)
 fairx_futures_orders_sbe_v1_4.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "fairx.futures.orders.sbe.v1.4.beginexecid", ftypes.INT64)
@@ -114,7 +114,7 @@ fairx_futures_orders_sbe_v1_4.fields.version = ProtoField.new("Version", "fairx.
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- FairX Futures Orders Sbe 1.4 Element Dissection Options
+-- Fairx Futures Orders Sbe 1.4 Element Dissection Options
 show.cancel_order_message = true
 show.cancel_order_reject_message = true
 show.event_resend_complete_message = true
@@ -149,7 +149,7 @@ show.unlock_trading_message = true
 show.unlock_trading_reject_message = true
 show.payload = false
 
--- Register FairX Futures Orders Sbe 1.4 Show Options
+-- Register Fairx Futures Orders Sbe 1.4 Show Options
 fairx_futures_orders_sbe_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
 fairx_futures_orders_sbe_v1_4.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
 fairx_futures_orders_sbe_v1_4.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
@@ -330,7 +330,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect FairX Futures Orders Sbe 1.4
+-- Dissect Fairx Futures Orders Sbe 1.4
 -----------------------------------------------------------------------
 
 -- Display: Padding
@@ -3631,7 +3631,7 @@ end
 function fairx_futures_orders_sbe_v1_4.init()
 end
 
--- Dissector for FairX Futures Orders Sbe 1.4
+-- Dissector for Fairx Futures Orders Sbe 1.4
 function fairx_futures_orders_sbe_v1_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -3675,7 +3675,7 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for FairX Futures Orders Sbe 1.4
+-- Dissector Heuristic for Fairx Futures Orders Sbe 1.4
 local function fairx_futures_orders_sbe_v1_4_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.fairx_futures_orders_sbe_v1_4_packet_size(buffer) then return false end
@@ -3693,7 +3693,7 @@ local function fairx_futures_orders_sbe_v1_4_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for FairX Futures Orders Sbe 1.4
+-- Register Heuristic for Fairx Futures Orders Sbe 1.4
 fairx_futures_orders_sbe_v1_4:register_heuristic("tcp", fairx_futures_orders_sbe_v1_4_heuristic)
 
 -----------------------------------------------------------------------

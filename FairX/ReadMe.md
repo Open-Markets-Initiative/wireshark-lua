@@ -1,17 +1,17 @@
-[![FairX](https://github.com/Open-Markets-Initiative/Directory/blob/main/Images/FairX.png)](https://www.fairx.com)
+[![Fairx](https://github.com/Open-Markets-Initiative/Directory/blob/main/Images/Fairx.png)](https://www.fairx.com)
 
 
 ## Fair Exchange
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Futures | [MarketData][FairX.Futures.MarketData.Sbe.v1.3.Dissector] | Sbe | [1.3][FairX.Futures.MarketData.Sbe.v1.3.Dissector] | 7/27/2020 | 4494 | [Future][Omi.Glossary.Status.Future] | [Tested][Omi.Glossary.Testing.Tested] | [pdf][FairX.Futures.MarketData.Sbe.v1.3.Pdf] - [xml][FairX.Futures.MarketData.Sbe.v1.3.Xml] |
-| Futures | [MarketData][FairX.Futures.MarketData.Sbe.v1.2.Dissector] | Sbe | [1.2][FairX.Futures.MarketData.Sbe.v1.2.Dissector] | 7/27/2020 | 4104 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][FairX.Futures.MarketData.Sbe.v1.2.Pdf] - [xml][FairX.Futures.MarketData.Sbe.v1.2.Xml] |
-| Futures | [Orders][FairX.Futures.Orders.Sbe.v1.4.Dissector] | Sbe | [1.4][FairX.Futures.Orders.Sbe.v1.4.Dissector] | 7/27/2020 | 3720 | [Future][Omi.Glossary.Status.Future] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][FairX.Futures.Orders.Sbe.v1.4.Pdf] - [xml][FairX.Futures.Orders.Sbe.v1.4.Xml] |
-| Futures | [Orders][FairX.Futures.Orders.Sbe.v1.3.Dissector] | Sbe | [1.3][FairX.Futures.Orders.Sbe.v1.3.Dissector] | 7/27/2020 | 3720 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][FairX.Futures.Orders.Sbe.v1.3.Pdf] - [xml][FairX.Futures.Orders.Sbe.v1.3.Xml] |
+| Futures | [MarketData][Fairx.Futures.MarketData.Sbe.v1.3.Dissector] | Sbe | [1.3][Fairx.Futures.MarketData.Sbe.v1.3.Dissector] | 7/27/2020 | 4494 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Fairx.Futures.MarketData.Sbe.v1.3.Pdf] - [xml][Fairx.Futures.MarketData.Sbe.v1.3.Xml] |
+| Futures | [MarketData][Fairx.Futures.MarketData.Sbe.v1.2.Dissector] | Sbe | [1.2][Fairx.Futures.MarketData.Sbe.v1.2.Dissector] | 7/27/2020 | 4104 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Fairx.Futures.MarketData.Sbe.v1.2.Pdf] - [xml][Fairx.Futures.MarketData.Sbe.v1.2.Xml] |
+| Futures | [Orders][Fairx.Futures.Orders.Sbe.v1.4.Dissector] | Sbe | [1.4][Fairx.Futures.Orders.Sbe.v1.4.Dissector] | 7/27/2020 | 3720 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Fairx.Futures.Orders.Sbe.v1.4.Pdf] - [xml][Fairx.Futures.Orders.Sbe.v1.4.Xml] |
+| Futures | [Orders][Fairx.Futures.Orders.Sbe.v1.3.Dissector] | Sbe | [1.3][Fairx.Futures.Orders.Sbe.v1.3.Dissector] | 7/27/2020 | 3720 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][Fairx.Futures.Orders.Sbe.v1.3.Pdf] - [xml][Fairx.Futures.Orders.Sbe.v1.3.Xml] |
 
 
-FairX: [website](https://www.fairx.com "Go to Fair Exchange")
+Fairx: [website](https://www.fairx.com "Go to Fair Exchange")
 
 
 [Omi.Glossary.Status]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Status.md "Protocol Deployment Status"
@@ -26,15 +26,15 @@ FairX: [website](https://www.fairx.com "Go to Fair Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
-[FairX.Futures.MarketData.Sbe.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.MarketData.Sbe.v1.2.Script.Dissector.lua "FairX Futures MarketData Sbe v1.2 Wireshark Dissector"
-[FairX.Futures.MarketData.Sbe.v1.2.Pdf]:  "Specification pdf"
-[FairX.Futures.MarketData.Sbe.v1.2.Xml]:  "Specification xml"
-[FairX.Futures.MarketData.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.MarketData.Sbe.v1.3.Script.Dissector.lua "FairX Futures MarketData Sbe v1.3 Wireshark Dissector"
-[FairX.Futures.MarketData.Sbe.v1.3.Pdf]:  "Specification pdf"
-[FairX.Futures.MarketData.Sbe.v1.3.Xml]:  "Specification xml"
-[FairX.Futures.Orders.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.Orders.Sbe.v1.3.Script.Dissector.lua "FairX Futures Orders Sbe v1.3 Wireshark Dissector"
-[FairX.Futures.Orders.Sbe.v1.3.Pdf]:  "Specification pdf"
-[FairX.Futures.Orders.Sbe.v1.3.Xml]:  "Specification xml"
-[FairX.Futures.Orders.Sbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/FairX/FairX.Futures.Orders.Sbe.v1.4.Script.Dissector.lua "FairX Futures Orders Sbe v1.4 Wireshark Dissector"
-[FairX.Futures.Orders.Sbe.v1.4.Pdf]:  "Specification pdf"
-[FairX.Futures.Orders.Sbe.v1.4.Xml]:  "Specification xml"
+[Fairx.Futures.MarketData.Sbe.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Fairx/Fairx.Futures.MarketData.Sbe.v1.2.Script.Dissector.lua "Fairx Futures MarketData Sbe v1.2 Wireshark Dissector"
+[Fairx.Futures.MarketData.Sbe.v1.2.Pdf]:  "Specification pdf"
+[Fairx.Futures.MarketData.Sbe.v1.2.Xml]:  "Specification xml"
+[Fairx.Futures.MarketData.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Fairx/Fairx.Futures.MarketData.Sbe.v1.3.Script.Dissector.lua "Fairx Futures MarketData Sbe v1.3 Wireshark Dissector"
+[Fairx.Futures.MarketData.Sbe.v1.3.Pdf]:  "Specification pdf"
+[Fairx.Futures.MarketData.Sbe.v1.3.Xml]:  "Specification xml"
+[Fairx.Futures.Orders.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Fairx/Fairx.Futures.Orders.Sbe.v1.3.Script.Dissector.lua "Fairx Futures Orders Sbe v1.3 Wireshark Dissector"
+[Fairx.Futures.Orders.Sbe.v1.3.Pdf]:  "Specification pdf"
+[Fairx.Futures.Orders.Sbe.v1.3.Xml]:  "Specification xml"
+[Fairx.Futures.Orders.Sbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Fairx/Fairx.Futures.Orders.Sbe.v1.4.Script.Dissector.lua "Fairx Futures Orders Sbe v1.4 Wireshark Dissector"
+[Fairx.Futures.Orders.Sbe.v1.4.Pdf]:  "Specification pdf"
+[Fairx.Futures.Orders.Sbe.v1.4.Xml]:  "Specification xml"

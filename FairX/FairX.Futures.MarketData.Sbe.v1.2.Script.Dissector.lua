@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- FairX Futures MarketData Sbe 1.2 Protocol
-local fairx_futures_marketdata_sbe_v1_2 = Proto("FairX.Futures.MarketData.Sbe.v1.2.Lua", "FairX Futures MarketData Sbe 1.2")
+-- Fairx Futures MarketData Sbe 1.2 Protocol
+local fairx_futures_marketdata_sbe_v1_2 = Proto("Fairx.Futures.MarketData.Sbe.v1.2.Lua", "Fairx Futures MarketData Sbe 1.2")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- FairX Futures MarketData Sbe 1.2 Fields
+-- Fairx Futures MarketData Sbe 1.2 Fields
 fairx_futures_marketdata_sbe_v1_2.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "fairx.futures.marketdata.sbe.v1.2.aggressororderid", ftypes.INT64)
 fairx_futures_marketdata_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "fairx.futures.marketdata.sbe.v1.2.aggressorreceivetime", ftypes.INT64)
 fairx_futures_marketdata_sbe_v1_2.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "fairx.futures.marketdata.sbe.v1.2.beginseqnum", ftypes.INT64)
@@ -136,7 +136,7 @@ fairx_futures_marketdata_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- FairX Futures MarketData Sbe 1.2 Element Dissection Options
+-- Fairx Futures MarketData Sbe 1.2 Element Dissection Options
 show.end_of_snapshot_message = true
 show.implied_order_update_message = true
 show.instr_header = true
@@ -164,7 +164,7 @@ show.trade_summary_message = true
 show.trading_status_update_message = true
 show.payload = false
 
--- Register FairX Futures MarketData Sbe 1.2 Show Options
+-- Register Fairx Futures MarketData Sbe 1.2 Show Options
 fairx_futures_marketdata_sbe_v1_2.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
 fairx_futures_marketdata_sbe_v1_2.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
 fairx_futures_marketdata_sbe_v1_2.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
@@ -310,7 +310,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect FairX Futures MarketData Sbe 1.2
+-- Dissect Fairx Futures MarketData Sbe 1.2
 -----------------------------------------------------------------------
 
 -- Display: Padding
@@ -4015,7 +4015,7 @@ end
 function fairx_futures_marketdata_sbe_v1_2.init()
 end
 
--- Dissector for FairX Futures MarketData Sbe 1.2
+-- Dissector for Fairx Futures MarketData Sbe 1.2
 function fairx_futures_marketdata_sbe_v1_2.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -4059,7 +4059,7 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for FairX Futures MarketData Sbe 1.2
+-- Dissector Heuristic for Fairx Futures MarketData Sbe 1.2
 local function fairx_futures_marketdata_sbe_v1_2_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.fairx_futures_marketdata_sbe_v1_2_packet_size(buffer) then return false end
@@ -4077,7 +4077,7 @@ local function fairx_futures_marketdata_sbe_v1_2_heuristic(buffer, packet, paren
   return true
 end
 
--- Register Heuristic for FairX Futures MarketData Sbe 1.2
+-- Register Heuristic for Fairx Futures MarketData Sbe 1.2
 fairx_futures_marketdata_sbe_v1_2:register_heuristic("udp", fairx_futures_marketdata_sbe_v1_2_heuristic)
 
 -----------------------------------------------------------------------
