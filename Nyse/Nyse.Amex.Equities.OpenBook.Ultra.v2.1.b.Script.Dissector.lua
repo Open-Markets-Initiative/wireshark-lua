@@ -770,7 +770,7 @@ dissect.delta_update_messages_fields = function(buffer, offset, packet, parent)
   while index < end_of_payload do
 
     -- Dependency element: Delta Size
-    local delta_size = buffer(index - 0, 2):int()
+    local delta_size = buffer(index, 2):int()
 
     -- Delta Update Message: Struct of 10 fields
     index = dissect.delta_update_message(buffer, index, packet, parent, delta_size)
@@ -1040,7 +1040,7 @@ dissect.full_update_messages_fields = function(buffer, offset, packet, parent)
   while index < end_of_payload do
 
     -- Dependency element: Update Size
-    local update_size = buffer(index - 0, 2):int()
+    local update_size = buffer(index, 2):int()
 
     -- Full Update Message: Struct of 13 fields
     index = dissect.full_update_message(buffer, index, packet, parent, update_size)

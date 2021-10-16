@@ -519,7 +519,7 @@ dissect.packet = function(buffer, packet, parent)
   for i = 1, message_count do
 
     -- Dependency element: Message Length
-    local message_length = buffer(index - 0, 2):le_uint()
+    local message_length = buffer(index, 2):le_uint()
 
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2

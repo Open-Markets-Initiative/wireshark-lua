@@ -4512,7 +4512,7 @@ dissect.packet = function(buffer, packet, parent)
   for i = 1, messages_in_block do
 
     -- Dependency element: Message Length
-    local message_length = buffer(index - 0, 2):uint()
+    local message_length = buffer(index, 2):uint()
 
     -- Message: Struct of 2 fields
     index = dissect.message(buffer, index, packet, parent, message_length)

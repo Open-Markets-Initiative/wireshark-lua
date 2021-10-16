@@ -3795,7 +3795,7 @@ dissect.packet = function(buffer, packet, parent)
   while index < end_of_payload do
 
     -- Dependency element: Body Len
-    local body_len = buffer(index - 0, 2):le_uint()
+    local body_len = buffer(index, 2):le_uint()
 
     -- Message: Struct of 2 fields
     index = dissect.message(buffer, index, packet, parent, body_len)

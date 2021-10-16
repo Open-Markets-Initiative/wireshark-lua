@@ -4761,7 +4761,7 @@ dissect.packet = function(buffer, packet, parent)
   while index < end_of_payload do
 
     -- Dependency element: Message Length
-    local message_length = buffer(index - 0, 2):uint()
+    local message_length = buffer(index, 2):uint()
 
     -- Runtime Size Of: Message
     local size_of_message = message_length + 2
