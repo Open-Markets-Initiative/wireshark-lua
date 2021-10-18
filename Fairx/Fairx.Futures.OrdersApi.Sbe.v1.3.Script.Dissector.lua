@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Fairx Futures Orders Sbe 1.3 Protocol
-local fairx_futures_orders_sbe_v1_3 = Proto("Fairx.Futures.Orders.Sbe.v1.3.Lua", "Fairx Futures Orders Sbe 1.3")
+-- Fairx Futures OrdersApi Sbe 1.3 Protocol
+local fairx_futures_ordersapi_sbe_v1_3 = Proto("Fairx.Futures.OrdersApi.Sbe.v1.3.Lua", "Fairx Futures OrdersApi Sbe 1.3")
 
 -- Component Tables
 local show = {}
@@ -19,102 +19,102 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Fairx Futures Orders Sbe 1.3 Fields
-fairx_futures_orders_sbe_v1_3.fields.account = ProtoField.new("Account", "fairx.futures.orders.sbe.v1.3.account", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.available_qty = ProtoField.new("Available Qty", "fairx.futures.orders.sbe.v1.3.availableqty", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "fairx.futures.orders.sbe.v1.3.beginexecid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "fairx.futures.orders.sbe.v1.3.blocklength", ftypes.UINT16)
-fairx_futures_orders_sbe_v1_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "fairx.futures.orders.sbe.v1.3.cancelordermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "fairx.futures.orders.sbe.v1.3.cancelorderrejectmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.cancel_reason = ProtoField.new("Cancel Reason", "fairx.futures.orders.sbe.v1.3.cancelreason", ftypes.UINT8)
-fairx_futures_orders_sbe_v1_3.fields.canceled_count = ProtoField.new("Canceled Count", "fairx.futures.orders.sbe.v1.3.canceledcount", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.client_order_id = ProtoField.new("Client Order Id", "fairx.futures.orders.sbe.v1.3.clientorderid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.correlation_id = ProtoField.new("Correlation Id", "fairx.futures.orders.sbe.v1.3.correlationid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.current_session_only = ProtoField.new("Current Session Only", "fairx.futures.orders.sbe.v1.3.currentsessiononly", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.details = ProtoField.new("Details", "fairx.futures.orders.sbe.v1.3.details", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.end_exec_id = ProtoField.new("End Exec Id", "fairx.futures.orders.sbe.v1.3.endexecid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.error_message = ProtoField.new("Error Message", "fairx.futures.orders.sbe.v1.3.errormessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "fairx.futures.orders.sbe.v1.3.eventresendcompletemessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "fairx.futures.orders.sbe.v1.3.eventresendrejectmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "fairx.futures.orders.sbe.v1.3.eventresendrequestmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.exec_id = ProtoField.new("Exec Id", "fairx.futures.orders.sbe.v1.3.execid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.fill_price = ProtoField.new("Fill Price", "fairx.futures.orders.sbe.v1.3.fillprice", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.fill_qty = ProtoField.new("Fill Qty", "fairx.futures.orders.sbe.v1.3.fillqty", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.orders.sbe.v1.3.filledvwap", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.flags = ProtoField.new("Flags", "fairx.futures.orders.sbe.v1.3.flags", ftypes.UINT8)
-fairx_futures_orders_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.orders.sbe.v1.3.instrumentid", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "fairx.futures.orders.sbe.v1.3.instrumentinfomessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "fairx.futures.orders.sbe.v1.3.instrumentinforequestmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.is_aggressor = ProtoField.new("Is Aggressor", "fairx.futures.orders.sbe.v1.3.isaggressor", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.is_last_message = ProtoField.new("Is Last Message", "fairx.futures.orders.sbe.v1.3.islastmessage", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.last_exec_id = ProtoField.new("Last Exec Id", "fairx.futures.orders.sbe.v1.3.lastexecid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "fairx.futures.orders.sbe.v1.3.lastexecidmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "fairx.futures.orders.sbe.v1.3.lastexecidrequestmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "fairx.futures.orders.sbe.v1.3.lastprocessedfillid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "fairx.futures.orders.sbe.v1.3.lastprocessedseqno", ftypes.UINT32)
-fairx_futures_orders_sbe_v1_3.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.orders.sbe.v1.3.leg1fillprice", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.orders.sbe.v1.3.leg2fillprice", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.orders.sbe.v1.3.limitprice", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "fairx.futures.orders.sbe.v1.3.masscancelorderackmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "fairx.futures.orders.sbe.v1.3.masscancelordermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "fairx.futures.orders.sbe.v1.3.masscancelorderrejectmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.match_id = ProtoField.new("Match Id", "fairx.futures.orders.sbe.v1.3.matchid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "fairx.futures.orders.sbe.v1.3.messageheader", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "fairx.futures.orders.sbe.v1.3.messagelength", ftypes.UINT16)
-fairx_futures_orders_sbe_v1_3.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.orders.sbe.v1.3.newlimitprice", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.new_order_message = ProtoField.new("New Order Message", "fairx.futures.orders.sbe.v1.3.newordermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.new_quantity = ProtoField.new("New Quantity", "fairx.futures.orders.sbe.v1.3.newquantity", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.num_users_affected = ProtoField.new("Num Users Affected", "fairx.futures.orders.sbe.v1.3.numusersaffected", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.only_current_session = ProtoField.new("Only Current Session", "fairx.futures.orders.sbe.v1.3.onlycurrentsession", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "fairx.futures.orders.sbe.v1.3.ordercanceledmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.order_entered_message = ProtoField.new("Order Entered Message", "fairx.futures.orders.sbe.v1.3.orderenteredmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.order_filled_message = ProtoField.new("Order Filled Message", "fairx.futures.orders.sbe.v1.3.orderfilledmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "fairx.futures.orders.sbe.v1.3.orderid", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.order_reject_message = ProtoField.new("Order Reject Message", "fairx.futures.orders.sbe.v1.3.orderrejectmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "fairx.futures.orders.sbe.v1.3.orderreplacedmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.packet = ProtoField.new("Packet", "fairx.futures.orders.sbe.v1.3.packet", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.padding = ProtoField.new("Padding", "fairx.futures.orders.sbe.v1.3.padding", ftypes.BYTES)
-fairx_futures_orders_sbe_v1_3.fields.payload = ProtoField.new("Payload", "fairx.futures.orders.sbe.v1.3.payload", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.ping_message = ProtoField.new("Ping Message", "fairx.futures.orders.sbe.v1.3.pingmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.pong_message = ProtoField.new("Pong Message", "fairx.futures.orders.sbe.v1.3.pongmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.protocol_id = ProtoField.new("Protocol Id", "fairx.futures.orders.sbe.v1.3.protocolid", ftypes.UINT8)
-fairx_futures_orders_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "fairx.futures.orders.sbe.v1.3.quantity", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.receive_time = ProtoField.new("Receive Time", "fairx.futures.orders.sbe.v1.3.receivetime", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.reject_reason = ProtoField.new("Reject Reason", "fairx.futures.orders.sbe.v1.3.rejectreason", ftypes.UINT8)
-fairx_futures_orders_sbe_v1_3.fields.replace_order_message = ProtoField.new("Replace Order Message", "fairx.futures.orders.sbe.v1.3.replaceordermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.request_time = ProtoField.new("Request Time", "fairx.futures.orders.sbe.v1.3.requesttime", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "fairx.futures.orders.sbe.v1.3.requesttradinglock", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.resent_event_count = ProtoField.new("Resent Event Count", "fairx.futures.orders.sbe.v1.3.resenteventcount", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "fairx.futures.orders.sbe.v1.3.reserved", ftypes.UINT32)
-fairx_futures_orders_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "fairx.futures.orders.sbe.v1.3.sbemessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "fairx.futures.orders.sbe.v1.3.schemaid", ftypes.UINT16)
-fairx_futures_orders_sbe_v1_3.fields.security_type = ProtoField.new("Security Type", "fairx.futures.orders.sbe.v1.3.securitytype", ftypes.UINT8)
-fairx_futures_orders_sbe_v1_3.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "fairx.futures.orders.sbe.v1.3.sendtimeepochnanos", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "fairx.futures.orders.sbe.v1.3.sequencenumber", ftypes.UINT32)
-fairx_futures_orders_sbe_v1_3.fields.server_time = ProtoField.new("Server Time", "fairx.futures.orders.sbe.v1.3.servertime", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.set_account_message = ProtoField.new("Set Account Message", "fairx.futures.orders.sbe.v1.3.setaccountmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.set_ack_message = ProtoField.new("Set Ack Message", "fairx.futures.orders.sbe.v1.3.setackmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.set_trader_message = ProtoField.new("Set Trader Message", "fairx.futures.orders.sbe.v1.3.settradermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.side = ProtoField.new("Side", "fairx.futures.orders.sbe.v1.3.side", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "fairx.futures.orders.sbe.v1.3.spreadorderfilledmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.status = ProtoField.new("Status", "fairx.futures.orders.sbe.v1.3.status", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.stream_order_message = ProtoField.new("Stream Order Message", "fairx.futures.orders.sbe.v1.3.streamordermessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "fairx.futures.orders.sbe.v1.3.symbol", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "fairx.futures.orders.sbe.v1.3.templateid", ftypes.UINT16)
-fairx_futures_orders_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "fairx.futures.orders.sbe.v1.3.timestamp", ftypes.INT64)
-fairx_futures_orders_sbe_v1_3.fields.total_filled = ProtoField.new("Total Filled", "fairx.futures.orders.sbe.v1.3.totalfilled", ftypes.INT32)
-fairx_futures_orders_sbe_v1_3.fields.trader = ProtoField.new("Trader", "fairx.futures.orders.sbe.v1.3.trader", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "fairx.futures.orders.sbe.v1.3.tradinglockapplied", ftypes.INT8)
-fairx_futures_orders_sbe_v1_3.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "fairx.futures.orders.sbe.v1.3.unlocktradingackmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "fairx.futures.orders.sbe.v1.3.unlocktradingmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "fairx.futures.orders.sbe.v1.3.unlocktradingrejectmessage", ftypes.STRING)
-fairx_futures_orders_sbe_v1_3.fields.version = ProtoField.new("Version", "fairx.futures.orders.sbe.v1.3.version", ftypes.UINT16)
+-- Fairx Futures OrdersApi Sbe 1.3 Fields
+fairx_futures_ordersapi_sbe_v1_3.fields.account = ProtoField.new("Account", "fairx.futures.ordersapi.sbe.v1.3.account", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.available_qty = ProtoField.new("Available Qty", "fairx.futures.ordersapi.sbe.v1.3.availableqty", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "fairx.futures.ordersapi.sbe.v1.3.beginexecid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "fairx.futures.ordersapi.sbe.v1.3.blocklength", ftypes.UINT16)
+fairx_futures_ordersapi_sbe_v1_3.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "fairx.futures.ordersapi.sbe.v1.3.cancelordermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "fairx.futures.ordersapi.sbe.v1.3.cancelorderrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.cancel_reason = ProtoField.new("Cancel Reason", "fairx.futures.ordersapi.sbe.v1.3.cancelreason", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.canceled_count = ProtoField.new("Canceled Count", "fairx.futures.ordersapi.sbe.v1.3.canceledcount", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.client_order_id = ProtoField.new("Client Order Id", "fairx.futures.ordersapi.sbe.v1.3.clientorderid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.correlation_id = ProtoField.new("Correlation Id", "fairx.futures.ordersapi.sbe.v1.3.correlationid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.current_session_only = ProtoField.new("Current Session Only", "fairx.futures.ordersapi.sbe.v1.3.currentsessiononly", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.details = ProtoField.new("Details", "fairx.futures.ordersapi.sbe.v1.3.details", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.end_exec_id = ProtoField.new("End Exec Id", "fairx.futures.ordersapi.sbe.v1.3.endexecid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.error_message = ProtoField.new("Error Message", "fairx.futures.ordersapi.sbe.v1.3.errormessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "fairx.futures.ordersapi.sbe.v1.3.eventresendcompletemessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "fairx.futures.ordersapi.sbe.v1.3.eventresendrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "fairx.futures.ordersapi.sbe.v1.3.eventresendrequestmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.exec_id = ProtoField.new("Exec Id", "fairx.futures.ordersapi.sbe.v1.3.execid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.fill_price = ProtoField.new("Fill Price", "fairx.futures.ordersapi.sbe.v1.3.fillprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.fill_qty = ProtoField.new("Fill Qty", "fairx.futures.ordersapi.sbe.v1.3.fillqty", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.ordersapi.sbe.v1.3.filledvwap", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.flags = ProtoField.new("Flags", "fairx.futures.ordersapi.sbe.v1.3.flags", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.ordersapi.sbe.v1.3.instrumentid", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "fairx.futures.ordersapi.sbe.v1.3.instrumentinfomessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "fairx.futures.ordersapi.sbe.v1.3.instrumentinforequestmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.is_aggressor = ProtoField.new("Is Aggressor", "fairx.futures.ordersapi.sbe.v1.3.isaggressor", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.is_last_message = ProtoField.new("Is Last Message", "fairx.futures.ordersapi.sbe.v1.3.islastmessage", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id = ProtoField.new("Last Exec Id", "fairx.futures.ordersapi.sbe.v1.3.lastexecid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "fairx.futures.ordersapi.sbe.v1.3.lastexecidmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "fairx.futures.ordersapi.sbe.v1.3.lastexecidrequestmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "fairx.futures.ordersapi.sbe.v1.3.lastprocessedfillid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "fairx.futures.ordersapi.sbe.v1.3.lastprocessedseqno", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.ordersapi.sbe.v1.3.leg1fillprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.ordersapi.sbe.v1.3.leg2fillprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.ordersapi.sbe.v1.3.limitprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelorderackmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelordermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelorderrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.match_id = ProtoField.new("Match Id", "fairx.futures.ordersapi.sbe.v1.3.matchid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "fairx.futures.ordersapi.sbe.v1.3.messageheader", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "fairx.futures.ordersapi.sbe.v1.3.messagelength", ftypes.UINT16)
+fairx_futures_ordersapi_sbe_v1_3.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.ordersapi.sbe.v1.3.newlimitprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.new_order_message = ProtoField.new("New Order Message", "fairx.futures.ordersapi.sbe.v1.3.newordermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.new_quantity = ProtoField.new("New Quantity", "fairx.futures.ordersapi.sbe.v1.3.newquantity", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.num_users_affected = ProtoField.new("Num Users Affected", "fairx.futures.ordersapi.sbe.v1.3.numusersaffected", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.only_current_session = ProtoField.new("Only Current Session", "fairx.futures.ordersapi.sbe.v1.3.onlycurrentsession", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "fairx.futures.ordersapi.sbe.v1.3.ordercanceledmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_entered_message = ProtoField.new("Order Entered Message", "fairx.futures.ordersapi.sbe.v1.3.orderenteredmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_filled_message = ProtoField.new("Order Filled Message", "fairx.futures.ordersapi.sbe.v1.3.orderfilledmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "fairx.futures.ordersapi.sbe.v1.3.orderid", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_reject_message = ProtoField.new("Order Reject Message", "fairx.futures.ordersapi.sbe.v1.3.orderrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "fairx.futures.ordersapi.sbe.v1.3.orderreplacedmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.packet = ProtoField.new("Packet", "fairx.futures.ordersapi.sbe.v1.3.packet", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.padding = ProtoField.new("Padding", "fairx.futures.ordersapi.sbe.v1.3.padding", ftypes.BYTES)
+fairx_futures_ordersapi_sbe_v1_3.fields.payload = ProtoField.new("Payload", "fairx.futures.ordersapi.sbe.v1.3.payload", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.ping_message = ProtoField.new("Ping Message", "fairx.futures.ordersapi.sbe.v1.3.pingmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.pong_message = ProtoField.new("Pong Message", "fairx.futures.ordersapi.sbe.v1.3.pongmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.protocol_id = ProtoField.new("Protocol Id", "fairx.futures.ordersapi.sbe.v1.3.protocolid", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "fairx.futures.ordersapi.sbe.v1.3.quantity", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.receive_time = ProtoField.new("Receive Time", "fairx.futures.ordersapi.sbe.v1.3.receivetime", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.reject_reason = ProtoField.new("Reject Reason", "fairx.futures.ordersapi.sbe.v1.3.rejectreason", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.replace_order_message = ProtoField.new("Replace Order Message", "fairx.futures.ordersapi.sbe.v1.3.replaceordermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.request_time = ProtoField.new("Request Time", "fairx.futures.ordersapi.sbe.v1.3.requesttime", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "fairx.futures.ordersapi.sbe.v1.3.requesttradinglock", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.resent_event_count = ProtoField.new("Resent Event Count", "fairx.futures.ordersapi.sbe.v1.3.resenteventcount", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "fairx.futures.ordersapi.sbe.v1.3.reserved", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "fairx.futures.ordersapi.sbe.v1.3.sbemessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "fairx.futures.ordersapi.sbe.v1.3.schemaid", ftypes.UINT16)
+fairx_futures_ordersapi_sbe_v1_3.fields.security_type = ProtoField.new("Security Type", "fairx.futures.ordersapi.sbe.v1.3.securitytype", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "fairx.futures.ordersapi.sbe.v1.3.sendtimeepochnanos", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "fairx.futures.ordersapi.sbe.v1.3.sequencenumber", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.server_time = ProtoField.new("Server Time", "fairx.futures.ordersapi.sbe.v1.3.servertime", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.set_account_message = ProtoField.new("Set Account Message", "fairx.futures.ordersapi.sbe.v1.3.setaccountmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.set_ack_message = ProtoField.new("Set Ack Message", "fairx.futures.ordersapi.sbe.v1.3.setackmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.set_trader_message = ProtoField.new("Set Trader Message", "fairx.futures.ordersapi.sbe.v1.3.settradermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.side = ProtoField.new("Side", "fairx.futures.ordersapi.sbe.v1.3.side", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "fairx.futures.ordersapi.sbe.v1.3.spreadorderfilledmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.status = ProtoField.new("Status", "fairx.futures.ordersapi.sbe.v1.3.status", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.stream_order_message = ProtoField.new("Stream Order Message", "fairx.futures.ordersapi.sbe.v1.3.streamordermessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "fairx.futures.ordersapi.sbe.v1.3.symbol", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "fairx.futures.ordersapi.sbe.v1.3.templateid", ftypes.UINT16)
+fairx_futures_ordersapi_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "fairx.futures.ordersapi.sbe.v1.3.timestamp", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.total_filled = ProtoField.new("Total Filled", "fairx.futures.ordersapi.sbe.v1.3.totalfilled", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.trader = ProtoField.new("Trader", "fairx.futures.ordersapi.sbe.v1.3.trader", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "fairx.futures.ordersapi.sbe.v1.3.tradinglockapplied", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingackmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.version = ProtoField.new("Version", "fairx.futures.ordersapi.sbe.v1.3.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Fairx Futures Orders Sbe 1.3 Element Dissection Options
+-- Fairx Futures OrdersApi Sbe 1.3 Element Dissection Options
 show.cancel_order_message = true
 show.cancel_order_reject_message = true
 show.event_resend_complete_message = true
@@ -149,176 +149,176 @@ show.unlock_trading_message = true
 show.unlock_trading_reject_message = true
 show.payload = false
 
--- Register Fairx Futures Orders Sbe 1.3 Show Options
-fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
-fairx_futures_orders_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Fairx Futures OrdersApi Sbe 1.3 Show Options
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function fairx_futures_orders_sbe_v1_3.prefs_changed()
+function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_message then
-    show.cancel_order_message = fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_message then
+    show.cancel_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_message
     changed = true
   end
-  if show.cancel_order_reject_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_reject_message then
-    show.cancel_order_reject_message = fairx_futures_orders_sbe_v1_3.prefs.show_cancel_order_reject_message
+  if show.cancel_order_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message then
+    show.cancel_order_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message
     changed = true
   end
-  if show.event_resend_complete_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_complete_message then
-    show.event_resend_complete_message = fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_complete_message
+  if show.event_resend_complete_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message then
+    show.event_resend_complete_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message
     changed = true
   end
-  if show.event_resend_reject_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_reject_message then
-    show.event_resend_reject_message = fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_reject_message
+  if show.event_resend_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_reject_message then
+    show.event_resend_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_reject_message
     changed = true
   end
-  if show.event_resend_request_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_request_message then
-    show.event_resend_request_message = fairx_futures_orders_sbe_v1_3.prefs.show_event_resend_request_message
+  if show.event_resend_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message then
+    show.event_resend_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message
     changed = true
   end
-  if show.instrument_info_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_message then
-    show.instrument_info_message = fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_message
+  if show.instrument_info_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message then
+    show.instrument_info_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message
     changed = true
   end
-  if show.instrument_info_request_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_request_message then
-    show.instrument_info_request_message = fairx_futures_orders_sbe_v1_3.prefs.show_instrument_info_request_message
+  if show.instrument_info_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_request_message then
+    show.instrument_info_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_request_message
     changed = true
   end
-  if show.last_exec_id_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_message then
-    show.last_exec_id_message = fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_message
+  if show.last_exec_id_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_message then
+    show.last_exec_id_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_message
     changed = true
   end
-  if show.last_exec_id_request_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_request_message then
-    show.last_exec_id_request_message = fairx_futures_orders_sbe_v1_3.prefs.show_last_exec_id_request_message
+  if show.last_exec_id_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message then
+    show.last_exec_id_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message
     changed = true
   end
-  if show.mass_cancel_order_ack_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_ack_message then
-    show.mass_cancel_order_ack_message = fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_ack_message
+  if show.mass_cancel_order_ack_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_ack_message then
+    show.mass_cancel_order_ack_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_ack_message
     changed = true
   end
-  if show.mass_cancel_order_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_message
+  if show.mass_cancel_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_message then
+    show.mass_cancel_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_message
     changed = true
   end
-  if show.mass_cancel_order_reject_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_reject_message then
-    show.mass_cancel_order_reject_message = fairx_futures_orders_sbe_v1_3.prefs.show_mass_cancel_order_reject_message
+  if show.mass_cancel_order_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_reject_message then
+    show.mass_cancel_order_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_reject_message
     changed = true
   end
-  if show.message_header ~= fairx_futures_orders_sbe_v1_3.prefs.show_message_header then
-    show.message_header = fairx_futures_orders_sbe_v1_3.prefs.show_message_header
+  if show.message_header ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_message_header then
+    show.message_header = fairx_futures_ordersapi_sbe_v1_3.prefs.show_message_header
     changed = true
   end
-  if show.new_order_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_new_order_message then
-    show.new_order_message = fairx_futures_orders_sbe_v1_3.prefs.show_new_order_message
+  if show.new_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_new_order_message then
+    show.new_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_new_order_message
     changed = true
   end
-  if show.order_canceled_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_order_canceled_message then
-    show.order_canceled_message = fairx_futures_orders_sbe_v1_3.prefs.show_order_canceled_message
+  if show.order_canceled_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_canceled_message then
+    show.order_canceled_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_canceled_message
     changed = true
   end
-  if show.order_entered_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_order_entered_message then
-    show.order_entered_message = fairx_futures_orders_sbe_v1_3.prefs.show_order_entered_message
+  if show.order_entered_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_entered_message then
+    show.order_entered_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_entered_message
     changed = true
   end
-  if show.order_filled_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_order_filled_message then
-    show.order_filled_message = fairx_futures_orders_sbe_v1_3.prefs.show_order_filled_message
+  if show.order_filled_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_filled_message then
+    show.order_filled_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_filled_message
     changed = true
   end
-  if show.order_reject_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_order_reject_message then
-    show.order_reject_message = fairx_futures_orders_sbe_v1_3.prefs.show_order_reject_message
+  if show.order_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_reject_message then
+    show.order_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_reject_message
     changed = true
   end
-  if show.order_replaced_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_order_replaced_message then
-    show.order_replaced_message = fairx_futures_orders_sbe_v1_3.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_replaced_message then
+    show.order_replaced_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= fairx_futures_orders_sbe_v1_3.prefs.show_packet then
-    show.packet = fairx_futures_orders_sbe_v1_3.prefs.show_packet
+  if show.packet ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_packet then
+    show.packet = fairx_futures_ordersapi_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.ping_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_ping_message then
-    show.ping_message = fairx_futures_orders_sbe_v1_3.prefs.show_ping_message
+  if show.ping_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_ping_message then
+    show.ping_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_ping_message
     changed = true
   end
-  if show.pong_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_pong_message then
-    show.pong_message = fairx_futures_orders_sbe_v1_3.prefs.show_pong_message
+  if show.pong_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_pong_message then
+    show.pong_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_pong_message
     changed = true
   end
-  if show.replace_order_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_replace_order_message then
-    show.replace_order_message = fairx_futures_orders_sbe_v1_3.prefs.show_replace_order_message
+  if show.replace_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_replace_order_message then
+    show.replace_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_replace_order_message
     changed = true
   end
-  if show.sbe_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_sbe_message then
-    show.sbe_message = fairx_futures_orders_sbe_v1_3.prefs.show_sbe_message
+  if show.sbe_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message then
+    show.sbe_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.set_account_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_set_account_message then
-    show.set_account_message = fairx_futures_orders_sbe_v1_3.prefs.show_set_account_message
+  if show.set_account_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_account_message then
+    show.set_account_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_account_message
     changed = true
   end
-  if show.set_ack_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_set_ack_message then
-    show.set_ack_message = fairx_futures_orders_sbe_v1_3.prefs.show_set_ack_message
+  if show.set_ack_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_ack_message then
+    show.set_ack_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_ack_message
     changed = true
   end
-  if show.set_trader_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_set_trader_message then
-    show.set_trader_message = fairx_futures_orders_sbe_v1_3.prefs.show_set_trader_message
+  if show.set_trader_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_trader_message then
+    show.set_trader_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_trader_message
     changed = true
   end
-  if show.spread_order_filled_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_spread_order_filled_message then
-    show.spread_order_filled_message = fairx_futures_orders_sbe_v1_3.prefs.show_spread_order_filled_message
+  if show.spread_order_filled_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_spread_order_filled_message then
+    show.spread_order_filled_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_spread_order_filled_message
     changed = true
   end
-  if show.stream_order_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_stream_order_message then
-    show.stream_order_message = fairx_futures_orders_sbe_v1_3.prefs.show_stream_order_message
+  if show.stream_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message then
+    show.stream_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message
     changed = true
   end
-  if show.unlock_trading_ack_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_ack_message then
-    show.unlock_trading_ack_message = fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_ack_message
+  if show.unlock_trading_ack_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_ack_message then
+    show.unlock_trading_ack_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_ack_message
     changed = true
   end
-  if show.unlock_trading_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_message then
-    show.unlock_trading_message = fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_message
+  if show.unlock_trading_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_message then
+    show.unlock_trading_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_message
     changed = true
   end
-  if show.unlock_trading_reject_message ~= fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_reject_message then
-    show.unlock_trading_reject_message = fairx_futures_orders_sbe_v1_3.prefs.show_unlock_trading_reject_message
+  if show.unlock_trading_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_reject_message then
+    show.unlock_trading_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_reject_message
     changed = true
   end
-  if show.payload ~= fairx_futures_orders_sbe_v1_3.prefs.show_payload then
-    show.payload = fairx_futures_orders_sbe_v1_3.prefs.show_payload
+  if show.payload ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_payload then
+    show.payload = fairx_futures_ordersapi_sbe_v1_3.prefs.show_payload
     changed = true
   end
 
@@ -330,7 +330,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Fairx Futures Orders Sbe 1.3
+-- Dissect Fairx Futures OrdersApi Sbe 1.3
 -----------------------------------------------------------------------
 
 -- Display: Padding
@@ -344,7 +344,7 @@ dissect.padding = function(buffer, offset, packet, parent, size)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding(value, buffer, offset, packet, parent, size)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.padding, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.padding, range, value, display)
 
   return offset + size
 end
@@ -364,7 +364,7 @@ dissect.details = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.details(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.details, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.details, range, value, display)
 
   return offset + length, value
 end
@@ -384,7 +384,7 @@ dissect.reject_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.reject_reason, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -404,7 +404,7 @@ dissect.correlation_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.correlation_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.correlation_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.correlation_id, range, value, display)
 
   return offset + length, value
 end
@@ -450,7 +450,7 @@ dissect.event_resend_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.event_resend_reject_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_reject_message, range, display)
   end
 
   return dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
@@ -471,7 +471,7 @@ dissect.resent_event_count = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.resent_event_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.resent_event_count, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.resent_event_count, range, value, display)
 
   return offset + length, value
 end
@@ -512,7 +512,7 @@ dissect.event_resend_complete_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_complete_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_complete_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.event_resend_complete_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_complete_message, range, display)
   end
 
   return dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
@@ -533,7 +533,7 @@ dissect.end_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.end_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.end_exec_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.end_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -553,7 +553,7 @@ dissect.begin_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.begin_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.begin_exec_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.begin_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -599,7 +599,7 @@ dissect.event_resend_request_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.event_resend_request_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.event_resend_request_message, range, display)
   end
 
   return dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
@@ -620,7 +620,7 @@ dissect.last_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.last_exec_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -640,7 +640,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.timestamp, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -686,7 +686,7 @@ dissect.last_exec_id_message = function(buffer, offset, packet, parent)
     local length = size_of.last_exec_id_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.last_exec_id_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.last_exec_id_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id_message, range, display)
   end
 
   return dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
@@ -723,7 +723,7 @@ dissect.last_exec_id_request_message = function(buffer, offset, packet, parent)
     local length = size_of.last_exec_id_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.last_exec_id_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.last_exec_id_request_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.last_exec_id_request_message, range, display)
   end
 
   return dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
@@ -744,7 +744,7 @@ dissect.is_aggressor = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.is_aggressor(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.is_aggressor, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.is_aggressor, range, value, display)
 
   return offset + length, value
 end
@@ -764,7 +764,7 @@ dissect.instrument_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.instrument_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -784,7 +784,7 @@ dissect.fill_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.fill_qty, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.fill_qty, range, value, display)
 
   return offset + length, value
 end
@@ -804,7 +804,7 @@ dissect.leg_2_fill_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.leg_2_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.leg_2_fill_price, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.leg_2_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -824,7 +824,7 @@ dissect.leg_1_fill_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.leg_1_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.leg_1_fill_price, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.leg_1_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -844,7 +844,7 @@ dissect.fill_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.fill_price, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -864,7 +864,7 @@ dissect.available_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.available_qty, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -884,7 +884,7 @@ dissect.total_filled = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.total_filled(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.total_filled, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.total_filled, range, value, display)
 
   return offset + length, value
 end
@@ -904,7 +904,7 @@ dissect.filled_vwap = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.filled_vwap(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.filled_vwap, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.filled_vwap, range, value, display)
 
   return offset + length, value
 end
@@ -924,7 +924,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.order_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -944,7 +944,7 @@ dissect.client_order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.client_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.client_order_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -964,7 +964,7 @@ dissect.match_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.match_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -984,7 +984,7 @@ dissect.exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.exec_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -1090,7 +1090,7 @@ dissect.spread_order_filled_message = function(buffer, offset, packet, parent)
     local length = size_of.spread_order_filled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.spread_order_filled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.spread_order_filled_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.spread_order_filled_message, range, display)
   end
 
   return dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
@@ -1187,7 +1187,7 @@ dissect.order_filled_message = function(buffer, offset, packet, parent)
     local length = size_of.order_filled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_filled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.order_filled_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_filled_message, range, display)
   end
 
   return dissect.order_filled_message_fields(buffer, offset, packet, parent)
@@ -1208,7 +1208,7 @@ dissect.error_message = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.error_message(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.error_message, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.error_message, range, value, display)
 
   return offset + length, value
 end
@@ -1254,7 +1254,7 @@ dissect.unlock_trading_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.unlock_trading_reject_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_reject_message, range, display)
   end
 
   return dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
@@ -1275,7 +1275,7 @@ dissect.num_users_affected = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.num_users_affected(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.num_users_affected, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.num_users_affected, range, value, display)
 
   return offset + length, value
 end
@@ -1321,7 +1321,7 @@ dissect.unlock_trading_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.unlock_trading_ack_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_ack_message, range, display)
   end
 
   return dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
@@ -1342,7 +1342,7 @@ dissect.current_session_only = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.current_session_only(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.current_session_only, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.current_session_only, range, value, display)
 
   return offset + length, value
 end
@@ -1383,7 +1383,7 @@ dissect.unlock_trading_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.unlock_trading_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_message, range, display)
   end
 
   return dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
@@ -1430,7 +1430,7 @@ dissect.mass_cancel_order_reject_message = function(buffer, offset, packet, pare
     local length = size_of.mass_cancel_order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_reject_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_reject_message, range, display)
   end
 
   return dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
@@ -1451,7 +1451,7 @@ dissect.trading_lock_applied = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.trading_lock_applied(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.trading_lock_applied, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.trading_lock_applied, range, value, display)
 
   return offset + length, value
 end
@@ -1471,7 +1471,7 @@ dissect.only_current_session = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.only_current_session(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.only_current_session, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.only_current_session, range, value, display)
 
   return offset + length, value
 end
@@ -1491,7 +1491,7 @@ dissect.canceled_count = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.canceled_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.canceled_count, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.canceled_count, range, value, display)
 
   return offset + length, value
 end
@@ -1552,7 +1552,7 @@ dissect.mass_cancel_order_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.mass_cancel_order_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_ack_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_ack_message, range, display)
   end
 
   return dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
@@ -1573,7 +1573,7 @@ dissect.request_trading_lock = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.request_trading_lock(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.request_trading_lock, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.request_trading_lock, range, value, display)
 
   return offset + length, value
 end
@@ -1600,7 +1600,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.side, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1620,7 +1620,7 @@ dissect.limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.limit_price, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -1681,7 +1681,7 @@ dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
     local length = size_of.mass_cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.mass_cancel_order_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_message, range, display)
   end
 
   return dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
@@ -1743,7 +1743,7 @@ dissect.cancel_order_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.cancel_order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.cancel_order_reject_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.cancel_order_reject_message, range, display)
   end
 
   return dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
@@ -1792,7 +1792,7 @@ dissect.cancel_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.cancel_reason, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -1812,7 +1812,7 @@ dissect.receive_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.receive_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.receive_time, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.receive_time, range, value, display)
 
   return offset + length, value
 end
@@ -1888,7 +1888,7 @@ dissect.order_canceled_message = function(buffer, offset, packet, parent)
     local length = size_of.order_canceled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_canceled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.order_canceled_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_canceled_message, range, display)
   end
 
   return dissect.order_canceled_message_fields(buffer, offset, packet, parent)
@@ -1935,7 +1935,7 @@ dissect.cancel_order_message = function(buffer, offset, packet, parent)
     local length = size_of.cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.cancel_order_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.cancel_order_message, range, display)
   end
 
   return dissect.cancel_order_message_fields(buffer, offset, packet, parent)
@@ -2012,7 +2012,7 @@ dissect.order_replaced_message = function(buffer, offset, packet, parent)
     local length = size_of.order_replaced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.order_replaced_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_replaced_message, range, display)
   end
 
   return dissect.order_replaced_message_fields(buffer, offset, packet, parent)
@@ -2074,7 +2074,7 @@ dissect.order_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.order_reject_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_reject_message, range, display)
   end
 
   return dissect.order_reject_message_fields(buffer, offset, packet, parent)
@@ -2095,7 +2095,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.quantity, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2115,7 +2115,7 @@ dissect.last_processed_fill_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_processed_fill_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.last_processed_fill_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.last_processed_fill_id, range, value, display)
 
   return offset + length, value
 end
@@ -2181,7 +2181,7 @@ dissect.stream_order_message = function(buffer, offset, packet, parent)
     local length = size_of.stream_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.stream_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.stream_order_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.stream_order_message, range, display)
   end
 
   return dissect.stream_order_message_fields(buffer, offset, packet, parent)
@@ -2202,7 +2202,7 @@ dissect.new_quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.new_quantity, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2222,7 +2222,7 @@ dissect.new_limit_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.new_limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.new_limit_price, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.new_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -2278,7 +2278,7 @@ dissect.replace_order_message = function(buffer, offset, packet, parent)
     local length = size_of.replace_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.replace_order_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.replace_order_message, range, display)
   end
 
   return dissect.replace_order_message_fields(buffer, offset, packet, parent)
@@ -2340,7 +2340,7 @@ dissect.order_entered_message = function(buffer, offset, packet, parent)
     local length = size_of.order_entered_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_entered_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.order_entered_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.order_entered_message, range, display)
   end
 
   return dissect.order_entered_message_fields(buffer, offset, packet, parent)
@@ -2402,7 +2402,7 @@ dissect.new_order_message = function(buffer, offset, packet, parent)
     local length = size_of.new_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.new_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.new_order_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.new_order_message, range, display)
   end
 
   return dissect.new_order_message_fields(buffer, offset, packet, parent)
@@ -2439,7 +2439,7 @@ dissect.set_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.set_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.set_ack_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.set_ack_message, range, display)
   end
 
   return dissect.set_ack_message_fields(buffer, offset, packet, parent)
@@ -2460,7 +2460,7 @@ dissect.trader = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trader(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.trader, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.trader, range, value, display)
 
   return offset + length, value
 end
@@ -2501,7 +2501,7 @@ dissect.set_trader_message = function(buffer, offset, packet, parent)
     local length = size_of.set_trader_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_trader_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.set_trader_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.set_trader_message, range, display)
   end
 
   return dissect.set_trader_message_fields(buffer, offset, packet, parent)
@@ -2522,7 +2522,7 @@ dissect.account = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.account(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.account, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.account, range, value, display)
 
   return offset + length, value
 end
@@ -2563,7 +2563,7 @@ dissect.set_account_message = function(buffer, offset, packet, parent)
     local length = size_of.set_account_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_account_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.set_account_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.set_account_message, range, display)
   end
 
   return dissect.set_account_message_fields(buffer, offset, packet, parent)
@@ -2584,7 +2584,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.symbol, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2604,7 +2604,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.reserved, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2624,7 +2624,7 @@ dissect.is_last_message = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.is_last_message(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.is_last_message, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.is_last_message, range, value, display)
 
   return offset + length, value
 end
@@ -2644,7 +2644,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.status, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -2671,7 +2671,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.security_type, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -2737,7 +2737,7 @@ dissect.instrument_info_message = function(buffer, offset, packet, parent)
     local length = size_of.instrument_info_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instrument_info_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.instrument_info_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_message, range, display)
   end
 
   return dissect.instrument_info_message_fields(buffer, offset, packet, parent)
@@ -2774,7 +2774,7 @@ dissect.instrument_info_request_message = function(buffer, offset, packet, paren
     local length = size_of.instrument_info_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instrument_info_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.instrument_info_request_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_request_message, range, display)
   end
 
   return dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
@@ -2795,7 +2795,7 @@ dissect.server_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.server_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.server_time, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.server_time, range, value, display)
 
   return offset + length, value
 end
@@ -2815,7 +2815,7 @@ dissect.request_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.request_time, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.request_time, range, value, display)
 
   return offset + length, value
 end
@@ -2866,7 +2866,7 @@ dissect.pong_message = function(buffer, offset, packet, parent)
     local length = size_of.pong_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.pong_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.pong_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.pong_message, range, display)
   end
 
   return dissect.pong_message_fields(buffer, offset, packet, parent)
@@ -2908,7 +2908,7 @@ dissect.ping_message = function(buffer, offset, packet, parent)
     local length = size_of.ping_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.ping_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.ping_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.ping_message, range, display)
   end
 
   return dissect.ping_message_fields(buffer, offset, packet, parent)
@@ -3178,7 +3178,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(fairx_futures_orders_sbe_v1_3.fields.payload, range, display)
+  local element = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -3198,7 +3198,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.version, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -3218,7 +3218,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.schema_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -3326,7 +3326,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.template_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -3346,7 +3346,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.block_length, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -3366,7 +3366,7 @@ dissect.send_time_epoch_nanos = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.send_time_epoch_nanos(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.send_time_epoch_nanos, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.send_time_epoch_nanos, range, value, display)
 
   return offset + length, value
 end
@@ -3386,7 +3386,7 @@ dissect.last_processed_seq_no = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_processed_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.last_processed_seq_no, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.last_processed_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -3406,7 +3406,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.sequence_number, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3426,7 +3426,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.message_length, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3446,7 +3446,7 @@ dissect.flags = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.flags(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.flags, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.flags, range, value, display)
 
   return offset + length, value
 end
@@ -3466,7 +3466,7 @@ dissect.protocol_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.protocol_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_orders_sbe_v1_3.fields.protocol_id, range, value, display)
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -3552,7 +3552,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.message_header, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -3594,7 +3594,7 @@ dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_messa
   if show.sbe_message then
     local range = buffer(offset, size_of_sbe_message)
     local display = display.sbe_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_orders_sbe_v1_3.fields.sbe_message, range, display)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.sbe_message, range, display)
   end
 
   dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
@@ -3628,23 +3628,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function fairx_futures_orders_sbe_v1_3.init()
+function fairx_futures_ordersapi_sbe_v1_3.init()
 end
 
--- Dissector for Fairx Futures Orders Sbe 1.3
-function fairx_futures_orders_sbe_v1_3.dissector(buffer, packet, parent)
+-- Dissector for Fairx Futures OrdersApi Sbe 1.3
+function fairx_futures_ordersapi_sbe_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = fairx_futures_orders_sbe_v1_3.name
+  packet.cols.protocol = fairx_futures_ordersapi_sbe_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(fairx_futures_orders_sbe_v1_3, buffer(), fairx_futures_orders_sbe_v1_3.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(fairx_futures_ordersapi_sbe_v1_3, buffer(), fairx_futures_ordersapi_sbe_v1_3.description, "("..buffer:len().." Bytes)")
   return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, fairx_futures_orders_sbe_v1_3)
+tcp_table:add(65333, fairx_futures_ordersapi_sbe_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -3652,7 +3652,7 @@ tcp_table:add(65333, fairx_futures_orders_sbe_v1_3)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.fairx_futures_orders_sbe_v1_3_packet_size = function(buffer)
+verify.fairx_futures_ordersapi_sbe_v1_3_packet_size = function(buffer)
 
   return true
 end
@@ -3675,10 +3675,10 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Fairx Futures Orders Sbe 1.3
-local function fairx_futures_orders_sbe_v1_3_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Fairx Futures OrdersApi Sbe 1.3
+local function fairx_futures_ordersapi_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.fairx_futures_orders_sbe_v1_3_packet_size(buffer) then return false end
+  if not verify.fairx_futures_ordersapi_sbe_v1_3_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -3687,14 +3687,14 @@ local function fairx_futures_orders_sbe_v1_3_heuristic(buffer, packet, parent)
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = fairx_futures_orders_sbe_v1_3
-  fairx_futures_orders_sbe_v1_3.dissector(buffer, packet, parent)
+  packet.conversation = fairx_futures_ordersapi_sbe_v1_3
+  fairx_futures_ordersapi_sbe_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Fairx Futures Orders Sbe 1.3
-fairx_futures_orders_sbe_v1_3:register_heuristic("tcp", fairx_futures_orders_sbe_v1_3_heuristic)
+-- Register Heuristic for Fairx Futures OrdersApi Sbe 1.3
+fairx_futures_ordersapi_sbe_v1_3:register_heuristic("tcp", fairx_futures_ordersapi_sbe_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
