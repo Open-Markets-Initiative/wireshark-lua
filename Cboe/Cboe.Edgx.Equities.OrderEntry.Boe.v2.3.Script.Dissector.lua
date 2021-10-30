@@ -28328,7 +28328,7 @@ dissect.login_response_message_fields = function(buffer, offset, packet, parent,
   for i = 1, number_of_param_groups do
 
     -- Dependency element: Param Group Length
-    local param_group_length = buffer(index - 0, 2):le_uint()
+    local param_group_length = buffer(index, 2):le_uint()
 
     -- Param Group: Struct of 2 fields
     index = dissect.param_group(buffer, index, packet, parent, param_group_length)
@@ -28443,7 +28443,7 @@ dissect.login_request_message_fields = function(buffer, offset, packet, parent, 
   for i = 1, number_of_param_groups do
 
     -- Dependency element: Param Group Length
-    local param_group_length = buffer(index - 0, 2):le_uint()
+    local param_group_length = buffer(index, 2):le_uint()
 
     -- Param Group: Struct of 2 fields
     index = dissect.param_group(buffer, index, packet, parent, param_group_length)
