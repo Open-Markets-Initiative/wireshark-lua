@@ -98,6 +98,7 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("
 nasdaq_bx_equities_totalview_itch_v5_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.bx.equities.totalview.itch.v5.0.sequence", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.session = ProtoField.new("Session", "nasdaq.bx.equities.totalview.itch.v5.0.session", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.shares = ProtoField.new("Shares", "nasdaq.bx.equities.totalview.itch.v5.0.shares", ftypes.UINT32)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.shares_long = ProtoField.new("Shares Long", "nasdaq.bx.equities.totalview.itch.v5.0.shareslong", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.bx.equities.totalview.itch.v5.0.stock", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.bx.equities.totalview.itch.v5.0.stockdirectorymessage", ftypes.STRING)
@@ -853,22 +854,22 @@ dissect.cross_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Shares
-size_of.shares = 4
+-- Size: Shares Long
+size_of.shares_long = 8
 
--- Display: Shares
-display.shares = function(value)
-  return "Shares: "..value
+-- Display: Shares Long
+display.shares_long = function(value)
+  return "Shares Long: "..value
 end
 
--- Dissect: Shares
-dissect.shares = function(buffer, offset, packet, parent)
-  local length = size_of.shares
+-- Dissect: Shares Long
+dissect.shares_long = function(buffer, offset, packet, parent)
+  local length = size_of.shares_long
   local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.shares(value, buffer, offset, packet, parent)
+  local value = range:uint64()
+  local display = display.shares_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.shares, range, value, display)
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.shares_long, range, value, display)
 
   return offset + length, value
 end
@@ -883,7 +884,7 @@ size_of.cross_trade_message = function(buffer, offset)
 
   index = index + size_of.timestamp
 
-  index = index + size_of.shares
+  index = index + size_of.shares_long
 
   index = index + size_of.stock
 
@@ -914,8 +915,8 @@ dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = dissect.shares(buffer, index, packet, parent)
+  -- Shares Long: 8 Byte Unsigned Fixed Width Integer
+  index, shares_long = dissect.shares_long(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
   index, stock = dissect.stock(buffer, index, packet, parent)
@@ -961,6 +962,26 @@ dissect.price = function(buffer, offset, packet, parent)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Shares
+size_of.shares = 4
+
+-- Display: Shares
+display.shares = function(value)
+  return "Shares: "..value
+end
+
+-- Dissect: Shares
+dissect.shares = function(buffer, offset, packet, parent)
+  local length = size_of.shares
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.shares(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.shares, range, value, display)
 
   return offset + length, value
 end

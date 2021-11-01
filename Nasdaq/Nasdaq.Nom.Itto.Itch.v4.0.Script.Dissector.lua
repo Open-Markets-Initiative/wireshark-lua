@@ -26,14 +26,18 @@ nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoFiel
 nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_short_form_message = ProtoField.new("Add Quote Message Short Form Message", "nasdaq.nom.itto.itch.v4.0.addquotemessageshortformmessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.nom.itto.itch.v4.0.ask", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.nom.itto.itch.v4.0.askprice", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nom.itto.itch.v4.0.askpricelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nom.itto.itch.v4.0.askreferencenumber", ftypes.UINT64)
 nasdaq_nom_itto_itch_v4_0.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.nom.itto.itch.v4.0.asksize", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.nom.itto.itch.v4.0.asksizelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nom.itto.itch.v4.0.auctionid", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nom.itto.itch.v4.0.auctiontype", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.bid = ProtoField.new("Bid", "nasdaq.nom.itto.itch.v4.0.bid", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.nom.itto.itch.v4.0.bidprice", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nom.itto.itch.v4.0.bidpricelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nom.itto.itch.v4.0.bidreferencenumber", ftypes.UINT64)
 nasdaq_nom_itto_itch_v4_0.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.nom.itto.itch.v4.0.bidsize", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.nom.itto.itch.v4.0.bidsizelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.broken_trade_order_executed_message = ProtoField.new("Broken Trade Order Executed Message", "nasdaq.nom.itto.itch.v4.0.brokentradeorderexecutedmessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.nom.itto.itch.v4.0.buysellindicator", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.cancelled_contracts = ProtoField.new("Cancelled Contracts", "nasdaq.nom.itto.itch.v4.0.cancelledcontracts", ftypes.UINT32)
@@ -78,6 +82,7 @@ nasdaq_nom_itto_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header",
 nasdaq_nom_itto_itch_v4_0.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.nom.itto.itch.v4.0.pairedcontracts", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.payload = ProtoField.new("Payload", "nasdaq.nom.itto.itch.v4.0.payload", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nasdaq.nom.itto.itch.v4.0.price", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nom.itto.itch.v4.0.pricelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nom.itto.itch.v4.0.printable", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.nom.itto.itch.v4.0.quotedeletemessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.nom.itto.itch.v4.0.quotereplacemessagelongform", ftypes.STRING)
@@ -102,6 +107,7 @@ nasdaq_nom_itto_itch_v4_0.fields.tradable = ProtoField.new("Tradable", "nasdaq.n
 nasdaq_nom_itto_itch_v4_0.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.nom.itto.itch.v4.0.tradingactionmessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "nasdaq.nom.itto.itch.v4.0.underlyingsymbol", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.volume = ProtoField.new("Volume", "nasdaq.nom.itto.itch.v4.0.volume", ftypes.UINT16)
+nasdaq_nom_itto_itch_v4_0.fields.volume_long = ProtoField.new("Volume Long", "nasdaq.nom.itto.itch.v4.0.volumelong", ftypes.UINT32)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -725,42 +731,42 @@ dissect.broken_trade_order_executed_message = function(buffer, offset, packet, p
   return dissect.broken_trade_order_executed_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Volume
-size_of.volume = 2
+-- Size: Volume Long
+size_of.volume_long = 4
 
--- Display: Volume
-display.volume = function(value)
-  return "Volume: "..value
+-- Display: Volume Long
+display.volume_long = function(value)
+  return "Volume Long: "..value
 end
 
--- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local length = size_of.volume
+-- Dissect: Volume Long
+dissect.volume_long = function(buffer, offset, packet, parent)
+  local length = size_of.volume_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
+  local display = display.volume_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nom_itto_itch_v4_0.fields.volume, range, value, display)
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.volume_long, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Price
-size_of.price = 2
+-- Size: Price Long
+size_of.price_long = 4
 
--- Display: Price
-display.price = function(value)
-  return "Price: "..value
+-- Display: Price Long
+display.price_long = function(value)
+  return "Price Long: "..value
 end
 
--- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+-- Dissect: Price Long
+dissect.price_long = function(buffer, offset, packet, parent)
+  local length = size_of.price_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = display.price_long(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_nom_itto_itch_v4_0.fields.price, range, value, display)
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.price_long, range, value, display)
 
   return offset + length, value
 end
@@ -808,9 +814,9 @@ size_of.options_cross_trade_message = function(buffer, offset)
 
   index = index + size_of.cross_type
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -842,11 +848,11 @@ dissect.options_cross_trade_message_fields = function(buffer, offset, packet, pa
   -- Cross Type: 1 Byte Ascii String Enum with 2 values
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
@@ -907,9 +913,9 @@ size_of.options_trade_messages_non_auction = function(buffer, offset)
 
   index = index + size_of.match_number
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -941,11 +947,11 @@ dissect.options_trade_messages_non_auction_fields = function(buffer, offset, pac
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
   index, match_number = dissect.match_number(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
@@ -1055,6 +1061,208 @@ dissect.quote_delete_message = function(buffer, offset, packet, parent)
   return dissect.quote_delete_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Ask Size Long
+size_of.ask_size_long = 4
+
+-- Display: Ask Size Long
+display.ask_size_long = function(value)
+  return "Ask Size Long: "..value
+end
+
+-- Dissect: Ask Size Long
+dissect.ask_size_long = function(buffer, offset, packet, parent)
+  local length = size_of.ask_size_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.ask_size_long(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.ask_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Ask Price Long
+size_of.ask_price_long = 4
+
+-- Display: Ask Price Long
+display.ask_price_long = function(value)
+  return "Ask Price Long: "..value
+end
+
+-- Dissect: Ask Price Long
+dissect.ask_price_long = function(buffer, offset, packet, parent)
+  local length = size_of.ask_price_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.ask_price_long(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.ask_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size Long
+size_of.bid_size_long = 4
+
+-- Display: Bid Size Long
+display.bid_size_long = function(value)
+  return "Bid Size Long: "..value
+end
+
+-- Dissect: Bid Size Long
+dissect.bid_size_long = function(buffer, offset, packet, parent)
+  local length = size_of.bid_size_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.bid_size_long(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.bid_size_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Price Long
+size_of.bid_price_long = 4
+
+-- Display: Bid Price Long
+display.bid_price_long = function(value)
+  return "Bid Price Long: "..value
+end
+
+-- Dissect: Bid Price Long
+dissect.bid_price_long = function(buffer, offset, packet, parent)
+  local length = size_of.bid_price_long
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.bid_price_long(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.bid_price_long, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Original Ask Reference Number
+size_of.original_ask_reference_number = 8
+
+-- Display: Original Ask Reference Number
+display.original_ask_reference_number = function(value)
+  return "Original Ask Reference Number: "..value
+end
+
+-- Dissect: Original Ask Reference Number
+dissect.original_ask_reference_number = function(buffer, offset, packet, parent)
+  local length = size_of.original_ask_reference_number
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = display.original_ask_reference_number(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.original_ask_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Original Bid Reference Number
+size_of.original_bid_reference_number = 8
+
+-- Display: Original Bid Reference Number
+display.original_bid_reference_number = function(value)
+  return "Original Bid Reference Number: "..value
+end
+
+-- Dissect: Original Bid Reference Number
+dissect.original_bid_reference_number = function(buffer, offset, packet, parent)
+  local length = size_of.original_bid_reference_number
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = display.original_bid_reference_number(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.original_bid_reference_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Quote Replace Message Long Form
+size_of.quote_replace_message_long_form = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.tracking_number
+
+  index = index + size_of.timestamp
+
+  index = index + size_of.original_bid_reference_number
+
+  index = index + size_of.bid_reference_number
+
+  index = index + size_of.original_ask_reference_number
+
+  index = index + size_of.ask_reference_number
+
+  index = index + size_of.bid_price_long
+
+  index = index + size_of.bid_size_long
+
+  index = index + size_of.ask_price_long
+
+  index = index + size_of.ask_size_long
+
+  return index
+end
+
+-- Display: Quote Replace Message Long Form
+display.quote_replace_message_long_form = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Quote Replace Message Long Form
+dissect.quote_replace_message_long_form_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+
+  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+
+  -- Original Bid Reference Number: 8 Byte Unsigned Fixed Width Integer
+  index, original_bid_reference_number = dissect.original_bid_reference_number(buffer, index, packet, parent)
+
+  -- Bid Reference Number: 8 Byte Unsigned Fixed Width Integer
+  index, bid_reference_number = dissect.bid_reference_number(buffer, index, packet, parent)
+
+  -- Original Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
+  index, original_ask_reference_number = dissect.original_ask_reference_number(buffer, index, packet, parent)
+
+  -- Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
+  index, ask_reference_number = dissect.ask_reference_number(buffer, index, packet, parent)
+
+  -- Bid Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, bid_price_long = dissect.bid_price_long(buffer, index, packet, parent)
+
+  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, bid_size_long = dissect.bid_size_long(buffer, index, packet, parent)
+
+  -- Ask Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, ask_price_long = dissect.ask_price_long(buffer, index, packet, parent)
+
+  -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, ask_size_long = dissect.ask_size_long(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Quote Replace Message Long Form
+dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.quote_replace_message_long_form then
+    local length = size_of.quote_replace_message_long_form(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.quote_replace_message_long_form(buffer, packet, parent)
+    parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_long_form, range, display)
+  end
+
+  return dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Ask Size
 size_of.ask_size = 2
 
@@ -1133,128 +1341,6 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.bid_price, range, value, display)
 
   return offset + length, value
-end
-
--- Size: Original Ask Reference Number
-size_of.original_ask_reference_number = 8
-
--- Display: Original Ask Reference Number
-display.original_ask_reference_number = function(value)
-  return "Original Ask Reference Number: "..value
-end
-
--- Dissect: Original Ask Reference Number
-dissect.original_ask_reference_number = function(buffer, offset, packet, parent)
-  local length = size_of.original_ask_reference_number
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = display.original_ask_reference_number(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_nom_itto_itch_v4_0.fields.original_ask_reference_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Original Bid Reference Number
-size_of.original_bid_reference_number = 8
-
--- Display: Original Bid Reference Number
-display.original_bid_reference_number = function(value)
-  return "Original Bid Reference Number: "..value
-end
-
--- Dissect: Original Bid Reference Number
-dissect.original_bid_reference_number = function(buffer, offset, packet, parent)
-  local length = size_of.original_bid_reference_number
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = display.original_bid_reference_number(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_nom_itto_itch_v4_0.fields.original_bid_reference_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Quote Replace Message Long Form
-size_of.quote_replace_message_long_form = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.tracking_number
-
-  index = index + size_of.timestamp
-
-  index = index + size_of.original_bid_reference_number
-
-  index = index + size_of.bid_reference_number
-
-  index = index + size_of.original_ask_reference_number
-
-  index = index + size_of.ask_reference_number
-
-  index = index + size_of.bid_price
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.ask_price
-
-  index = index + size_of.ask_size
-
-  return index
-end
-
--- Display: Quote Replace Message Long Form
-display.quote_replace_message_long_form = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Quote Replace Message Long Form
-dissect.quote_replace_message_long_form_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
-
-  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
-
-  -- Original Bid Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, original_bid_reference_number = dissect.original_bid_reference_number(buffer, index, packet, parent)
-
-  -- Bid Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, bid_reference_number = dissect.bid_reference_number(buffer, index, packet, parent)
-
-  -- Original Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, original_ask_reference_number = dissect.original_ask_reference_number(buffer, index, packet, parent)
-
-  -- Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
-  index, ask_reference_number = dissect.ask_reference_number(buffer, index, packet, parent)
-
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
-
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
-
-  -- Ask Price: 2 Byte Unsigned Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
-
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index, ask_size = dissect.ask_size(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Quote Replace Message Long Form
-dissect.quote_replace_message_long_form = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.quote_replace_message_long_form then
-    local length = size_of.quote_replace_message_long_form(buffer, offset)
-    local range = buffer(offset, length)
-    local display = display.quote_replace_message_long_form(buffer, packet, parent)
-    parent = parent:add(nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_long_form, range, display)
-  end
-
-  return dissect.quote_replace_message_long_form_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Replace Message Short Form
@@ -1401,9 +1487,9 @@ size_of.single_side_change_message = function(buffer, offset)
 
   index = index + size_of.change_reason
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -1429,11 +1515,11 @@ dissect.single_side_change_message_fields = function(buffer, offset, packet, par
   -- Change Reason: 1 Byte Ascii String Enum with 3 values
   index, change_reason = dissect.change_reason(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
@@ -1550,9 +1636,9 @@ size_of.single_side_replace_message_long_form = function(buffer, offset)
 
   index = index + size_of.new_reference_number
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -1578,11 +1664,11 @@ dissect.single_side_replace_message_long_form_fields = function(buffer, offset, 
   -- New Reference Number: 8 Byte Unsigned Fixed Width Integer
   index, new_reference_number = dissect.new_reference_number(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
@@ -1598,6 +1684,46 @@ dissect.single_side_replace_message_long_form = function(buffer, offset, packet,
   end
 
   return dissect.single_side_replace_message_long_form_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Volume
+size_of.volume = 2
+
+-- Display: Volume
+display.volume = function(value)
+  return "Volume: "..value
+end
+
+-- Dissect: Volume
+dissect.volume = function(buffer, offset, packet, parent)
+  local length = size_of.volume
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.volume(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.volume, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Price
+size_of.price = 2
+
+-- Display: Price
+display.price = function(value)
+  return "Price: "..value
+end
+
+-- Dissect: Price
+dissect.price = function(buffer, offset, packet, parent)
+  local length = size_of.price
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.price(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_nom_itto_itch_v4_0.fields.price, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Single Side Replace Message Short Form
@@ -1797,9 +1923,9 @@ size_of.single_side_executed_with_price_message = function(buffer, offset)
 
   index = index + size_of.printable
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -1831,11 +1957,11 @@ dissect.single_side_executed_with_price_message_fields = function(buffer, offset
   -- Printable: 1 Byte Ascii String Enum with 2 values
   index, printable = dissect.printable(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
@@ -1991,11 +2117,11 @@ size_of.add_quote_message_long_form_message = function(buffer, offset)
 
   index = index + size_of.bid
 
-  index = index + size_of.bid_size
+  index = index + size_of.bid_size_long
 
   index = index + size_of.ask
 
-  index = index + size_of.ask_size
+  index = index + size_of.ask_size_long
 
   return index
 end
@@ -2027,14 +2153,14 @@ dissect.add_quote_message_long_form_message_fields = function(buffer, offset, pa
   -- Bid: 4 Byte Unsigned Fixed Width Integer
   index, bid = dissect.bid(buffer, index, packet, parent)
 
-  -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+  -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, bid_size_long = dissect.bid_size_long(buffer, index, packet, parent)
 
   -- Ask: 4 Byte Unsigned Fixed Width Integer
   index, ask = dissect.ask(buffer, index, packet, parent)
 
-  -- Ask Size: 2 Byte Unsigned Fixed Width Integer
-  index, ask_size = dissect.ask_size(buffer, index, packet, parent)
+  -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
+  index, ask_size_long = dissect.ask_size_long(buffer, index, packet, parent)
 
   return index
 end
@@ -2170,9 +2296,9 @@ size_of.add_order_message_long_form_message = function(buffer, offset)
 
   index = index + size_of.option_id
 
-  index = index + size_of.price
+  index = index + size_of.price_long
 
-  index = index + size_of.volume
+  index = index + size_of.volume_long
 
   return index
 end
@@ -2201,11 +2327,11 @@ dissect.add_order_message_long_form_message_fields = function(buffer, offset, pa
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = dissect.option_id(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  index, price_long = dissect.price_long(buffer, index, packet, parent)
 
-  -- Volume: 2 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  -- Volume Long: 4 Byte Unsigned Fixed Width Integer
+  index, volume_long = dissect.volume_long(buffer, index, packet, parent)
 
   return index
 end
