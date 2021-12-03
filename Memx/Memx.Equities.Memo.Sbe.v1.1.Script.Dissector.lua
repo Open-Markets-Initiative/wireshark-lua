@@ -35,7 +35,7 @@ memx_equities_memo_sbe_v1_1.fields.display_method = ProtoField.new("Display Meth
 memx_equities_memo_sbe_v1_1.fields.display_min_incr = ProtoField.new("Display Min Incr", "memx.equities.memo.sbe.v1.1.displayminincr", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.display_qty = ProtoField.new("Display Qty", "memx.equities.memo.sbe.v1.1.displayqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.exec_id = ProtoField.new("Exec Id", "memx.equities.memo.sbe.v1.1.execid", ftypes.UINT64)
-memx_equities_memo_sbe_v1_1.fields.exec_inst = ProtoField.new("Exec Inst", "memx.equities.memo.sbe.v1.1.execinst", ftypes.UINT16)
+memx_equities_memo_sbe_v1_1.fields.exec_inst = ProtoField.new("Exec Inst", "memx.equities.memo.sbe.v1.1.execinst", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "memx.equities.memo.sbe.v1.1.execrefid", ftypes.UINT64)
 memx_equities_memo_sbe_v1_1.fields.exec_restatement_reason = ProtoField.new("Exec Restatement Reason", "memx.equities.memo.sbe.v1.1.execrestatementreason", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.execution_report_canceled_message = ProtoField.new("Execution Report Canceled Message", "memx.equities.memo.sbe.v1.1.executionreportcanceledmessage", ftypes.STRING)
@@ -50,7 +50,9 @@ memx_equities_memo_sbe_v1_1.fields.execution_report_trade_break_message = ProtoF
 memx_equities_memo_sbe_v1_1.fields.execution_report_trade_correction_message = ProtoField.new("Execution Report Trade Correction Message", "memx.equities.memo.sbe.v1.1.executionreporttradecorrectionmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "memx.equities.memo.sbe.v1.1.executionreporttrademessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.expire_time = ProtoField.new("Expire Time", "memx.equities.memo.sbe.v1.1.expiretime", ftypes.UINT64)
+memx_equities_memo_sbe_v1_1.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.equities.memo.sbe.v1.1.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0004")
 memx_equities_memo_sbe_v1_1.fields.higher_than_price = ProtoField.new("Higher Than Price", "memx.equities.memo.sbe.v1.1.higherthanprice", ftypes.INT64)
+memx_equities_memo_sbe_v1_1.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.equities.memo.sbe.v1.1.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
 memx_equities_memo_sbe_v1_1.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.equities.memo.sbe.v1.1.lastliquidityind", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.last_mkt = ProtoField.new("Last Mkt", "memx.equities.memo.sbe.v1.1.lastmkt", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.last_px = ProtoField.new("Last Px", "memx.equities.memo.sbe.v1.1.lastpx", ftypes.INT64)
@@ -83,6 +85,7 @@ memx_equities_memo_sbe_v1_1.fields.order_id = ProtoField.new("Order Id", "memx.e
 memx_equities_memo_sbe_v1_1.fields.order_qty = ProtoField.new("Order Qty", "memx.equities.memo.sbe.v1.1.orderqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_1.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "memx.equities.memo.sbe.v1.1.origclordid", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.equities.memo.sbe.v1.1.packet", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.equities.memo.sbe.v1.1.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
 memx_equities_memo_sbe_v1_1.fields.payload = ProtoField.new("Payload", "memx.equities.memo.sbe.v1.1.payload", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "memx.equities.memo.sbe.v1.1.pegoffsetvalue", ftypes.INT64)
 memx_equities_memo_sbe_v1_1.fields.peg_price_type = ProtoField.new("Peg Price Type", "memx.equities.memo.sbe.v1.1.pegpricetype", ftypes.UINT8)
@@ -99,6 +102,7 @@ memx_equities_memo_sbe_v1_1.fields.replay_request_message = ProtoField.new("Repl
 memx_equities_memo_sbe_v1_1.fields.reprice_behavior = ProtoField.new("Reprice Behavior", "memx.equities.memo.sbe.v1.1.repricebehavior", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.reprice_frequency = ProtoField.new("Reprice Frequency", "memx.equities.memo.sbe.v1.1.repricefrequency", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.reserve_replenish_timing = ProtoField.new("Reserve Replenish Timing", "memx.equities.memo.sbe.v1.1.reservereplenishtiming", ftypes.UINT8)
+memx_equities_memo_sbe_v1_1.fields.reserved_13 = ProtoField.new("Reserved 13", "memx.equities.memo.sbe.v1.1.reserved13", ftypes.UINT16, nil, base.DEC, "0xFFF8")
 memx_equities_memo_sbe_v1_1.fields.risk_group_id = ProtoField.new("Risk Group Id", "memx.equities.memo.sbe.v1.1.riskgroupid", ftypes.UINT16)
 memx_equities_memo_sbe_v1_1.fields.sbe_header = ProtoField.new("Sbe Header", "memx.equities.memo.sbe.v1.1.sbeheader", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "memx.equities.memo.sbe.v1.1.sbemessage", ftypes.STRING)
@@ -115,7 +119,18 @@ memx_equities_memo_sbe_v1_1.fields.stream_reject_code = ProtoField.new("Stream R
 memx_equities_memo_sbe_v1_1.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.equities.memo.sbe.v1.1.streamrejectedmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.equities.memo.sbe.v1.1.streamrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.equities.memo.sbe.v1.1.supportedrequestmode", ftypes.STRING)
-memx_equities_memo_sbe_v1_1.fields.symbol = ProtoField.new("Symbol", "memx.equities.memo.sbe.v1.1.symbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_new_symbol = ProtoField.new("Symbol Execution Report New Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportnewsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_cancel_symbol = ProtoField.new("Symbol Execution Report Pending Cancel Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportpendingcancelsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_new_symbol = ProtoField.new("Symbol Execution Report Pending New Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportpendingnewsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_replace_symbol = ProtoField.new("Symbol Execution Report Pending Replace Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportpendingreplacesymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_rejected_symbol = ProtoField.new("Symbol Execution Report Rejected Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportrejectedsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_replaced_symbol = ProtoField.new("Symbol Execution Report Replaced Symbol", "memx.equities.memo.sbe.v1.1.symbolexecutionreportreplacedsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_mass_cancel_reject_symbol = ProtoField.new("Symbol Mass Cancel Reject Symbol", "memx.equities.memo.sbe.v1.1.symbolmasscancelrejectsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_mass_cancel_request_symbol = ProtoField.new("Symbol Mass Cancel Request Symbol", "memx.equities.memo.sbe.v1.1.symbolmasscancelrequestsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_new_order_single_symbol = ProtoField.new("Symbol New Order Single Symbol", "memx.equities.memo.sbe.v1.1.symbolnewordersinglesymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_order_cancel_replace_request_symbol = ProtoField.new("Symbol Order Cancel Replace Request Symbol", "memx.equities.memo.sbe.v1.1.symbolordercancelreplacerequestsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_order_cancel_request_symbol = ProtoField.new("Symbol Order Cancel Request Symbol", "memx.equities.memo.sbe.v1.1.symbolordercancelrequestsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_1.fields.symbol_pending_mass_cancel_symbol = ProtoField.new("Symbol Pending Mass Cancel Symbol", "memx.equities.memo.sbe.v1.1.symbolpendingmasscancelsymbol", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.equities.memo.sbe.v1.1.symbolsfx", ftypes.STRING)
 memx_equities_memo_sbe_v1_1.fields.template_id = ProtoField.new("Template Id", "memx.equities.memo.sbe.v1.1.templateid", ftypes.UINT8)
 memx_equities_memo_sbe_v1_1.fields.time_in_force = ProtoField.new("Time In Force", "memx.equities.memo.sbe.v1.1.timeinforce", ftypes.UINT8)
@@ -134,6 +149,7 @@ memx_equities_memo_sbe_v1_1.fields.version = ProtoField.new("Version", "memx.equ
 
 -- Memx Equities Memo Sbe 1.1 Element Dissection Options
 show.common_header = true
+show.exec_inst = true
 show.execution_report_canceled_message = true
 show.execution_report_new_message = true
 show.execution_report_pending_cancel_message = true
@@ -175,6 +191,7 @@ show.payload = false
 
 -- Register Memx Equities Memo Sbe 1.1 Show Options
 memx_equities_memo_sbe_v1_1.prefs.show_common_header = Pref.bool("Show Common Header", show.common_header, "Parse and add Common Header to protocol tree")
+memx_equities_memo_sbe_v1_1.prefs.show_exec_inst = Pref.bool("Show Exec Inst", show.exec_inst, "Parse and add Exec Inst to protocol tree")
 memx_equities_memo_sbe_v1_1.prefs.show_execution_report_canceled_message = Pref.bool("Show Execution Report Canceled Message", show.execution_report_canceled_message, "Parse and add Execution Report Canceled Message to protocol tree")
 memx_equities_memo_sbe_v1_1.prefs.show_execution_report_new_message = Pref.bool("Show Execution Report New Message", show.execution_report_new_message, "Parse and add Execution Report New Message to protocol tree")
 memx_equities_memo_sbe_v1_1.prefs.show_execution_report_pending_cancel_message = Pref.bool("Show Execution Report Pending Cancel Message", show.execution_report_pending_cancel_message, "Parse and add Execution Report Pending Cancel Message to protocol tree")
@@ -221,6 +238,10 @@ function memx_equities_memo_sbe_v1_1.prefs_changed()
   -- Check if show options have changed
   if show.common_header ~= memx_equities_memo_sbe_v1_1.prefs.show_common_header then
     show.common_header = memx_equities_memo_sbe_v1_1.prefs.show_common_header
+    changed = true
+  end
+  if show.exec_inst ~= memx_equities_memo_sbe_v1_1.prefs.show_exec_inst then
+    show.exec_inst = memx_equities_memo_sbe_v1_1.prefs.show_exec_inst
     changed = true
   end
   if show.execution_report_canceled_message ~= memx_equities_memo_sbe_v1_1.prefs.show_execution_report_canceled_message then
@@ -392,7 +413,278 @@ size_of.reject_reason = 1
 
 -- Display: Reject Reason
 display.reject_reason = function(value)
-  return "Reject Reason: "..value
+  if value == 0 then
+    return "Reject Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Reject Reason: Missing Symbol (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Missing Locate (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Missing Cl Ord Id (3)"
+  end
+  if value == 4 then
+    return "Reject Reason: Missing Side (4)"
+  end
+  if value == 5 then
+    return "Reject Reason: Missing Order Quantity (5)"
+  end
+  if value == 6 then
+    return "Reject Reason: Missing Order Type (6)"
+  end
+  if value == 7 then
+    return "Reject Reason: Missing Time In Force (7)"
+  end
+  if value == 8 then
+    return "Reject Reason: Missing Order Capacity (8)"
+  end
+  if value == 9 then
+    return "Reject Reason: Missing Exec Inst (9)"
+  end
+  if value == 10 then
+    return "Reject Reason: Missing Limit Price (10)"
+  end
+  if value == 11 then
+    return "Reject Reason: Missing Max Floor (11)"
+  end
+  if value == 12 then
+    return "Reject Reason: Missing Reserve Replenish Amount Type (12)"
+  end
+  if value == 13 then
+    return "Reject Reason: Missing Reserve Replenish Time Type (13)"
+  end
+  if value == 14 then
+    return "Reject Reason: Missing Random Replenish Value (14)"
+  end
+  if value == 15 then
+    return "Reject Reason: Missing Reprice Frequency Type (15)"
+  end
+  if value == 16 then
+    return "Reject Reason: Missing Reprice Behavior Type (16)"
+  end
+  if value == 17 then
+    return "Reject Reason: Missing Customer Capacity Type (17)"
+  end
+  if value == 18 then
+    return "Reject Reason: Missing Expire Time (18)"
+  end
+  if value == 19 then
+    return "Reject Reason: Missing Peg Type (19)"
+  end
+  if value == 20 then
+    return "Reject Reason: Invalid Modifier For Order Type (20)"
+  end
+  if value == 21 then
+    return "Reject Reason: Invalid Modifiers Combination (21)"
+  end
+  if value == 22 then
+    return "Reject Reason: Invalid Trading Session For Order Type (22)"
+  end
+  if value == 23 then
+    return "Reject Reason: Invalid Time In Force For Order Type (23)"
+  end
+  if value == 24 then
+    return "Reject Reason: Invalid Min Quantity (24)"
+  end
+  if value == 25 then
+    return "Reject Reason: Invalid Order Quantity (25)"
+  end
+  if value == 26 then
+    return "Reject Reason: Invalid Side (26)"
+  end
+  if value == 27 then
+    return "Reject Reason: Invalid Order Type (27)"
+  end
+  if value == 28 then
+    return "Reject Reason: Invalid Time In Force (28)"
+  end
+  if value == 29 then
+    return "Reject Reason: Invalid Order Capacity (29)"
+  end
+  if value == 30 then
+    return "Reject Reason: Invalid Customer Capacity (30)"
+  end
+  if value == 31 then
+    return "Reject Reason: Invalid Symbol (31)"
+  end
+  if value == 32 then
+    return "Reject Reason: Invalid Expire Time (32)"
+  end
+  if value == 33 then
+    return "Reject Reason: Invalid Limit Price (33)"
+  end
+  if value == 34 then
+    return "Reject Reason: Invalid Limit Price Increment (34)"
+  end
+  if value == 35 then
+    return "Reject Reason: Invalid Max Floor (35)"
+  end
+  if value == 36 then
+    return "Reject Reason: Invalid Random Replenish Value (36)"
+  end
+  if value == 37 then
+    return "Reject Reason: Invalid Random Replenish Value For Reserve Type (37)"
+  end
+  if value == 38 then
+    return "Reject Reason: Invalid Reserve Replenish Amount Type (38)"
+  end
+  if value == 39 then
+    return "Reject Reason: Invalid Reserve Replenish Time Type (39)"
+  end
+  if value == 40 then
+    return "Reject Reason: Invalid Reprice Frequency Type (40)"
+  end
+  if value == 41 then
+    return "Reject Reason: Invalid Reprice Behavior Type (41)"
+  end
+  if value == 42 then
+    return "Reject Reason: Invalid Reprice Behavior For Reprice Frequency (42)"
+  end
+  if value == 43 then
+    return "Reject Reason: Invalid Mpid Value (43)"
+  end
+  if value == 44 then
+    return "Reject Reason: Invalid Peg Type (44)"
+  end
+  if value == 45 then
+    return "Reject Reason: Invalid Modifier For Peg Type (45)"
+  end
+  if value == 46 then
+    return "Reject Reason: Invalid Locate (46)"
+  end
+  if value == 47 then
+    return "Reject Reason: Symbol Halted Or Paused (47)"
+  end
+  if value == 48 then
+    return "Reject Reason: Exchange Closed (48)"
+  end
+  if value == 49 then
+    return "Reject Reason: Duplicate Cl Ord Id (49)"
+  end
+  if value == 50 then
+    return "Reject Reason: Order Size Exceeds Limit (50)"
+  end
+  if value == 51 then
+    return "Reject Reason: Order Notional Exceeds Limit (51)"
+  end
+  if value == 52 then
+    return "Reject Reason: Block Iso Risk Rule Violated (52)"
+  end
+  if value == 53 then
+    return "Reject Reason: Block Session Risk Rule Violated (53)"
+  end
+  if value == 54 then
+    return "Reject Reason: Block Sell Short Risk Rule Violated (54)"
+  end
+  if value == 55 then
+    return "Reject Reason: Block Non Test Symbols Risk Rule Violated (55)"
+  end
+  if value == 56 then
+    return "Reject Reason: Max Shares Per Order Risk Rule Breach (56)"
+  end
+  if value == 57 then
+    return "Reject Reason: Max Notional Value Per Order Risk Rule Breach (57)"
+  end
+  if value == 58 then
+    return "Reject Reason: Price Percent Collar Risk Rule Violated (58)"
+  end
+  if value == 59 then
+    return "Reject Reason: Price Value Collar Risk Rule Violated (59)"
+  end
+  if value == 60 then
+    return "Reject Reason: Max Adv Percent Per Order Risk Rule Breach (60)"
+  end
+  if value == 61 then
+    return "Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (61)"
+  end
+  if value == 62 then
+    return "Reject Reason: Daily Net Notional Exposure Risk Rule Breach (62)"
+  end
+  if value == 63 then
+    return "Reject Reason: Max Num Duplicate Orders Risk Rule Breach (63)"
+  end
+  if value == 64 then
+    return "Reject Reason: Max Order Rate Risk Rule Breach (64)"
+  end
+  if value == 65 then
+    return "Reject Reason: Restricted Security Risk Rule Violated (65)"
+  end
+  if value == 66 then
+    return "Reject Reason: Hard To Borrow Security Risk Rule Violated (66)"
+  end
+  if value == 67 then
+    return "Reject Reason: Invalid Self Trade Prevention Configuration (67)"
+  end
+  if value == 68 then
+    return "Reject Reason: Invalid Self Trade Prevention Type (68)"
+  end
+  if value == 69 then
+    return "Reject Reason: Invalid Risk Group Id (69)"
+  end
+  if value == 70 then
+    return "Reject Reason: Firm Disabled (70)"
+  end
+  if value == 71 then
+    return "Reject Reason: Mpid Disabled (71)"
+  end
+  if value == 72 then
+    return "Reject Reason: Account Disabled (72)"
+  end
+  if value == 73 then
+    return "Reject Reason: No Nbbo Available (73)"
+  end
+  if value == 74 then
+    return "Reject Reason: Cannot Trade Non Test Symbol (74)"
+  end
+  if value == 75 then
+    return "Reject Reason: Missing Firm (75)"
+  end
+  if value == 76 then
+    return "Reject Reason: Missing Account (76)"
+  end
+  if value == 77 then
+    return "Reject Reason: Missing Mpid (77)"
+  end
+  if value == 78 then
+    return "Reject Reason: Missing Risk Group (78)"
+  end
+  if value == 79 then
+    return "Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (79)"
+  end
+  if value == 80 then
+    return "Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (80)"
+  end
+  if value == 81 then
+    return "Reject Reason: Missing Disp Method Type (81)"
+  end
+  if value == 255 then
+    return "Reject Reason: Null Value (255)"
+  end
+  if value == 1 then
+    return "Reject Reason: Unknown Product (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Unknown Side (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Unknown Group Id (3)"
+  end
+  if value == 4 then
+    return "Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
+  end
+  if value == 5 then
+    return "Reject Reason: Product Missing For Price Restriction (5)"
+  end
+  if value == 6 then
+    return "Reject Reason: Duplicate Cl Ord Id (6)"
+  end
+  if value == 7 then
+    return "Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
+  end
+
+  return "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -472,7 +764,23 @@ size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
-  return "Side: "..value
+  if value == 1 then
+    return "Side: Buy (1)"
+  end
+  if value == 2 then
+    return "Side: Sell (2)"
+  end
+  if value == 3 then
+    return "Side: Sell Short (3)"
+  end
+  if value == 4 then
+    return "Side: Sell Short Exempt (4)"
+  end
+  if value == 255 then
+    return "Side: Null Value (255)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
@@ -492,6 +800,11 @@ size_of.symbol_sfx = 6
 
 -- Display: Symbol Sfx
 display.symbol_sfx = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
   return "Symbol Sfx: "..value
 end
 
@@ -499,7 +812,18 @@ end
 dissect.symbol_sfx = function(buffer, offset, packet, parent)
   local length = size_of.symbol_sfx
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol_sfx(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_sfx, range, value, display)
@@ -507,22 +831,38 @@ dissect.symbol_sfx = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Symbol
-size_of.symbol = 6
+-- Size: Symbol Mass Cancel Reject Symbol
+size_of.symbol_mass_cancel_reject_symbol = 6
 
--- Display: Symbol
-display.symbol = function(value)
-  return "Symbol: "..value
+-- Display: Symbol Mass Cancel Reject Symbol
+display.symbol_mass_cancel_reject_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Mass Cancel Reject Symbol: No Value"
+  end
+
+  return "Symbol Mass Cancel Reject Symbol: "..value
 end
 
--- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+-- Dissect: Symbol Mass Cancel Reject Symbol
+dissect.symbol_mass_cancel_reject_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_mass_cancel_reject_symbol
   local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol, range, value, display)
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_mass_cancel_reject_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_mass_cancel_reject_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -532,6 +872,11 @@ size_of.cl_ord_id = 16
 
 -- Display: Cl Ord Id
 display.cl_ord_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cl Ord Id: No Value"
+  end
+
   return "Cl Ord Id: "..value
 end
 
@@ -539,7 +884,18 @@ end
 dissect.cl_ord_id = function(buffer, offset, packet, parent)
   local length = size_of.cl_ord_id
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.cl_ord_id, range, value, display)
@@ -575,7 +931,7 @@ size_of.mass_cancel_reject_message = function(buffer, offset)
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_mass_cancel_reject_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -607,13 +963,13 @@ dissect.mass_cancel_reject_message_fields = function(buffer, offset, packet, par
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Mass Cancel Reject Symbol: 6 Byte Ascii String
+  index, symbol_mass_cancel_reject_symbol = dissect.symbol_mass_cancel_reject_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Lower Than Price: 8 Byte Signed Fixed Width Integer
@@ -625,7 +981,7 @@ dissect.mass_cancel_reject_message_fields = function(buffer, offset, packet, par
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer
   index, cancel_group_id = dissect.cancel_group_id(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 90 values
   index, reject_reason = dissect.reject_reason(buffer, index, packet, parent)
 
   return index
@@ -649,7 +1005,80 @@ size_of.cxl_rej_reason = 1
 
 -- Display: Cxl Rej Reason
 display.cxl_rej_reason = function(value)
-  return "Cxl Rej Reason: "..value
+  if value == 0 then
+    return "Cxl Rej Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Cxl Rej Reason: Missing Symbol (1)"
+  end
+  if value == 2 then
+    return "Cxl Rej Reason: Missing Cl Ord Id (2)"
+  end
+  if value == 3 then
+    return "Cxl Rej Reason: Missing Orig Order Identifiers (3)"
+  end
+  if value == 4 then
+    return "Cxl Rej Reason: Ambiguous Orig Order Identifiers (4)"
+  end
+  if value == 5 then
+    return "Cxl Rej Reason: Unknown Orig Order (5)"
+  end
+  if value == 6 then
+    return "Cxl Rej Reason: Orig Order Symbol Not Matching Request Symbol (6)"
+  end
+  if value == 7 then
+    return "Cxl Rej Reason: Missing Locate (7)"
+  end
+  if value == 8 then
+    return "Cxl Rej Reason: Invalid Order Quantity (8)"
+  end
+  if value == 9 then
+    return "Cxl Rej Reason: Invalid Symbol (9)"
+  end
+  if value == 10 then
+    return "Cxl Rej Reason: Invalid Limit Price (10)"
+  end
+  if value == 11 then
+    return "Cxl Rej Reason: Invalid Limit Price Increment (11)"
+  end
+  if value == 12 then
+    return "Cxl Rej Reason: Invalid Locate (12)"
+  end
+  if value == 13 then
+    return "Cxl Rej Reason: Symbol Halted Or Paused (13)"
+  end
+  if value == 14 then
+    return "Cxl Rej Reason: Exchange Closed (14)"
+  end
+  if value == 15 then
+    return "Cxl Rej Reason: Duplicate Cl Ord Id (15)"
+  end
+  if value == 16 then
+    return "Cxl Rej Reason: Order Size Exceeds Limit (16)"
+  end
+  if value == 17 then
+    return "Cxl Rej Reason: Exceeded Max Notional Order Amt (17)"
+  end
+  if value == 18 then
+    return "Cxl Rej Reason: Unsupported Display Quantity Change (18)"
+  end
+  if value == 19 then
+    return "Cxl Rej Reason: Unsupported Ord Type Change (19)"
+  end
+  if value == 20 then
+    return "Cxl Rej Reason: Unsupported Side Change (20)"
+  end
+  if value == 21 then
+    return "Cxl Rej Reason: Unsupported Quantity Change (21)"
+  end
+  if value == 22 then
+    return "Cxl Rej Reason: Order In Pending State (22)"
+  end
+  if value == 255 then
+    return "Cxl Rej Reason: Null Value (255)"
+  end
+
+  return "Cxl Rej Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cxl Rej Reason
@@ -669,7 +1098,17 @@ size_of.cxl_rej_response_to = 1
 
 -- Display: Cxl Rej Response To
 display.cxl_rej_response_to = function(value)
-  return "Cxl Rej Response To: "..value
+  if value == 1 then
+    return "Cxl Rej Response To: Order Cancel Request (1)"
+  end
+  if value == 2 then
+    return "Cxl Rej Response To: Order Cancel Replace Request (2)"
+  end
+  if value == 255 then
+    return "Cxl Rej Response To: Null Value (255)"
+  end
+
+  return "Cxl Rej Response To: Unknown("..value..")"
 end
 
 -- Dissect: Cxl Rej Response To
@@ -714,10 +1153,10 @@ dissect.order_cancel_reject_message_fields = function(buffer, offset, packet, pa
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Cxl Rej Response To: 1 Byte Unsigned Fixed Width Integer
+  -- Cxl Rej Response To: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, cxl_rej_response_to = dissect.cxl_rej_response_to(buffer, index, packet, parent)
 
-  -- Cxl Rej Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Cxl Rej Reason: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, cxl_rej_reason = dissect.cxl_rej_reason(buffer, index, packet, parent)
 
   return index
@@ -761,7 +1200,17 @@ size_of.exec_restatement_reason = 1
 
 -- Display: Exec Restatement Reason
 display.exec_restatement_reason = function(value)
-  return "Exec Restatement Reason: "..value
+  if value == 1 then
+    return "Exec Restatement Reason: Order Reprice (1)"
+  end
+  if value == 2 then
+    return "Exec Restatement Reason: Self Trade Prevention (2)"
+  end
+  if value == 255 then
+    return "Exec Restatement Reason: Null Value (255)"
+  end
+
+  return "Exec Restatement Reason: Unknown("..value..")"
 end
 
 -- Dissect: Exec Restatement Reason
@@ -861,7 +1310,38 @@ size_of.ord_status = 1
 
 -- Display: Ord Status
 display.ord_status = function(value)
-  return "Ord Status: "..value
+  if value == 1 then
+    return "Ord Status: New (1)"
+  end
+  if value == 2 then
+    return "Ord Status: Partial Filled (2)"
+  end
+  if value == 3 then
+    return "Ord Status: Filled (3)"
+  end
+  if value == 4 then
+    return "Ord Status: Canceled (4)"
+  end
+  if value == 5 then
+    return "Ord Status: Pending Cancel (5)"
+  end
+  if value == 6 then
+    return "Ord Status: Rejected (6)"
+  end
+  if value == 7 then
+    return "Ord Status: Pending New (7)"
+  end
+  if value == 8 then
+    return "Ord Status: Pending Replace (8)"
+  end
+  if value == 9 then
+    return "Ord Status: Expired (9)"
+  end
+  if value == 255 then
+    return "Ord Status: Null Value (255)"
+  end
+
+  return "Ord Status: Unknown("..value..")"
 end
 
 -- Dissect: Ord Status
@@ -966,7 +1446,7 @@ dissect.execution_report_restatement_message_fields = function(buffer, offset, p
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -981,7 +1461,7 @@ dissect.execution_report_restatement_message_fields = function(buffer, offset, p
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
   index, last_shares = dissect.last_shares(buffer, index, packet, parent)
 
-  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, exec_restatement_reason = dissect.exec_restatement_reason(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1095,7 +1575,7 @@ dissect.execution_report_trade_break_message_fields = function(buffer, offset, p
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1196,7 +1676,7 @@ dissect.execution_report_trade_correction_message_fields = function(buffer, offs
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
@@ -1232,6 +1712,11 @@ size_of.locate_reqd = 1
 
 -- Display: Locate Reqd
 display.locate_reqd = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Locate Reqd: No Value"
+  end
+
   return "Locate Reqd: "..value
 end
 
@@ -1239,7 +1724,17 @@ end
 dissect.locate_reqd = function(buffer, offset, packet, parent)
   local length = size_of.locate_reqd
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.locate_reqd(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.locate_reqd, range, value, display)
@@ -1340,11 +1835,52 @@ dissect.order_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Symbol Execution Report Replaced Symbol
+size_of.symbol_execution_report_replaced_symbol = 6
+
+-- Display: Symbol Execution Report Replaced Symbol
+display.symbol_execution_report_replaced_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report Replaced Symbol: No Value"
+  end
+
+  return "Symbol Execution Report Replaced Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report Replaced Symbol
+dissect.symbol_execution_report_replaced_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_replaced_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_replaced_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_replaced_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Orig Cl Ord Id
 size_of.orig_cl_ord_id = 16
 
 -- Display: Orig Cl Ord Id
 display.orig_cl_ord_id = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Orig Cl Ord Id: No Value"
+  end
+
   return "Orig Cl Ord Id: "..value
 end
 
@@ -1352,7 +1888,18 @@ end
 dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
   local length = size_of.orig_cl_ord_id
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.orig_cl_ord_id, range, value, display)
@@ -1374,7 +1921,7 @@ size_of.execution_report_replaced_message = function(buffer, offset)
 
   index = index + size_of.exec_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_replaced_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -1425,13 +1972,13 @@ dissect.execution_report_replaced_message_fields = function(buffer, offset, pack
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report Replaced Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_replaced_symbol = dissect.symbol_execution_report_replaced_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1449,7 +1996,7 @@ dissect.execution_report_replaced_message_fields = function(buffer, offset, pack
   -- Locate Reqd: 1 Byte Ascii String
   index, locate_reqd = dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1477,6 +2024,42 @@ dissect.execution_report_replaced_message = function(buffer, offset, packet, par
   return dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Execution Report Pending Replace Symbol
+size_of.symbol_execution_report_pending_replace_symbol = 6
+
+-- Display: Symbol Execution Report Pending Replace Symbol
+display.symbol_execution_report_pending_replace_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report Pending Replace Symbol: No Value"
+  end
+
+  return "Symbol Execution Report Pending Replace Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report Pending Replace Symbol
+dissect.symbol_execution_report_pending_replace_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_pending_replace_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_pending_replace_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_replace_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Pending Replace Message
 size_of.execution_report_pending_replace_message = function(buffer, offset)
   local index = 0
@@ -1491,7 +2074,7 @@ size_of.execution_report_pending_replace_message = function(buffer, offset)
 
   index = index + size_of.exec_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_pending_replace_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -1540,13 +2123,13 @@ dissect.execution_report_pending_replace_message_fields = function(buffer, offse
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report Pending Replace Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_pending_replace_symbol = dissect.symbol_execution_report_pending_replace_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1564,7 +2147,7 @@ dissect.execution_report_pending_replace_message_fields = function(buffer, offse
   -- Locate Reqd: 1 Byte Ascii String
   index, locate_reqd = dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1636,7 +2219,56 @@ size_of.cancel_reason = 1
 
 -- Display: Cancel Reason
 display.cancel_reason = function(value)
-  return "Cancel Reason: "..value
+  if value == 0 then
+    return "Cancel Reason: Other (0)"
+  end
+  if value == 1 then
+    return "Cancel Reason: User Requested Cancel (1)"
+  end
+  if value == 4 then
+    return "Cancel Reason: End Of Trading (4)"
+  end
+  if value == 5 then
+    return "Cancel Reason: Limit Up Limit Down (5)"
+  end
+  if value == 6 then
+    return "Cancel Reason: Halted (6)"
+  end
+  if value == 7 then
+    return "Cancel Reason: Exchange Supervisory (7)"
+  end
+  if value == 8 then
+    return "Cancel Reason: Order Expired (8)"
+  end
+  if value == 9 then
+    return "Cancel Reason: Lock Or Cross Book (9)"
+  end
+  if value == 10 then
+    return "Cancel Reason: Self Trade Prevention (10)"
+  end
+  if value == 11 then
+    return "Cancel Reason: Insufficient Quotes (11)"
+  end
+  if value == 12 then
+    return "Cancel Reason: Non Compliant Price (12)"
+  end
+  if value == 13 then
+    return "Cancel Reason: Participant Disconnect (13)"
+  end
+  if value == 14 then
+    return "Cancel Reason: Order Not Bookable (14)"
+  end
+  if value == 15 then
+    return "Cancel Reason: Trade Protection Limits (15)"
+  end
+  if value == 16 then
+    return "Cancel Reason: Unable To Route (16)"
+  end
+  if value == 255 then
+    return "Cancel Reason: Null Value (255)"
+  end
+
+  return "Cancel Reason: Unknown("..value..")"
 end
 
 -- Dissect: Cancel Reason
@@ -1702,7 +2334,7 @@ dissect.execution_report_canceled_message_fields = function(buffer, offset, pack
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1711,7 +2343,7 @@ dissect.execution_report_canceled_message_fields = function(buffer, offset, pack
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, cancel_reason = dissect.cancel_reason(buffer, index, packet, parent)
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -1733,6 +2365,42 @@ dissect.execution_report_canceled_message = function(buffer, offset, packet, par
   return dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Pending Mass Cancel Symbol
+size_of.symbol_pending_mass_cancel_symbol = 6
+
+-- Display: Symbol Pending Mass Cancel Symbol
+display.symbol_pending_mass_cancel_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Pending Mass Cancel Symbol: No Value"
+  end
+
+  return "Symbol Pending Mass Cancel Symbol: "..value
+end
+
+-- Dissect: Symbol Pending Mass Cancel Symbol
+dissect.symbol_pending_mass_cancel_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_pending_mass_cancel_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_pending_mass_cancel_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_pending_mass_cancel_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Pending Mass Cancel Message
 size_of.pending_mass_cancel_message = function(buffer, offset)
   local index = 0
@@ -1741,7 +2409,7 @@ size_of.pending_mass_cancel_message = function(buffer, offset)
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_pending_mass_cancel_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -1771,13 +2439,13 @@ dissect.pending_mass_cancel_message_fields = function(buffer, offset, packet, pa
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Pending Mass Cancel Symbol: 6 Byte Ascii String
+  index, symbol_pending_mass_cancel_symbol = dissect.symbol_pending_mass_cancel_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Lower Than Price: 8 Byte Signed Fixed Width Integer
@@ -1805,6 +2473,42 @@ dissect.pending_mass_cancel_message = function(buffer, offset, packet, parent)
   return dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Execution Report Pending Cancel Symbol
+size_of.symbol_execution_report_pending_cancel_symbol = 6
+
+-- Display: Symbol Execution Report Pending Cancel Symbol
+display.symbol_execution_report_pending_cancel_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report Pending Cancel Symbol: No Value"
+  end
+
+  return "Symbol Execution Report Pending Cancel Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report Pending Cancel Symbol
+dissect.symbol_execution_report_pending_cancel_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_pending_cancel_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_pending_cancel_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_cancel_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Pending Cancel Message
 size_of.execution_report_pending_cancel_message = function(buffer, offset)
   local index = 0
@@ -1819,7 +2523,7 @@ size_of.execution_report_pending_cancel_message = function(buffer, offset)
 
   index = index + size_of.exec_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_pending_cancel_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -1856,13 +2560,13 @@ dissect.execution_report_pending_cancel_message_fields = function(buffer, offset
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report Pending Cancel Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_pending_cancel_symbol = dissect.symbol_execution_report_pending_cancel_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1912,14 +2616,76 @@ size_of.last_mkt = 1
 
 -- Display: Last Mkt
 display.last_mkt = function(value)
-  return "Last Mkt: "..value
+  if value == "U" then
+    return "Last Mkt: Memx (U)"
+  end
+  if value == "Q" then
+    return "Last Mkt: Nasdaq (Q)"
+  end
+  if value == "B" then
+    return "Last Mkt: Nasdaq Bx (B)"
+  end
+  if value == "X" then
+    return "Last Mkt: Nasdaq Psx (X)"
+  end
+  if value == "N" then
+    return "Last Mkt: Nyse (N)"
+  end
+  if value == "P" then
+    return "Last Mkt: Arca (P)"
+  end
+  if value == "A" then
+    return "Last Mkt: Nyse American (A)"
+  end
+  if value == "M" then
+    return "Last Mkt: Nyse Chicago (M)"
+  end
+  if value == "C" then
+    return "Last Mkt: Nyse National (C)"
+  end
+  if value == "K" then
+    return "Last Mkt: Edgx (K)"
+  end
+  if value == "J" then
+    return "Last Mkt: Edga (J)"
+  end
+  if value == "Z" then
+    return "Last Mkt: Bats (Z)"
+  end
+  if value == "Y" then
+    return "Last Mkt: Batsy (Y)"
+  end
+  if value == "V" then
+    return "Last Mkt: Iex (V)"
+  end
+  if value == "L" then
+    return "Last Mkt: Ltse (L)"
+  end
+  if value == "H" then
+    return "Last Mkt: Eprl (H)"
+  end
+  if value == " " then
+    return "Last Mkt: Null Value (<whitespace>)"
+  end
+
+  return "Last Mkt: Unknown("..value..")"
 end
 
 -- Dissect: Last Mkt
 dissect.last_mkt = function(buffer, offset, packet, parent)
   local length = size_of.last_mkt
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.last_mkt(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.last_mkt, range, value, display)
@@ -1932,7 +2698,32 @@ size_of.last_liquidity_ind = 1
 
 -- Display: Last Liquidity Ind
 display.last_liquidity_ind = function(value)
-  return "Last Liquidity Ind: "..value
+  if value == 1 then
+    return "Last Liquidity Ind: Add Displayed (1)"
+  end
+  if value == 2 then
+    return "Last Liquidity Ind: Removed (2)"
+  end
+  if value == 3 then
+    return "Last Liquidity Ind: Routed (3)"
+  end
+  if value == 4 then
+    return "Last Liquidity Ind: Cross (4)"
+  end
+  if value == 5 then
+    return "Last Liquidity Ind: Add Hidden (5)"
+  end
+  if value == 6 then
+    return "Last Liquidity Ind: Add Midpoint Peg (6)"
+  end
+  if value == 7 then
+    return "Last Liquidity Ind: Add Displayed Nbbo Improve (7)"
+  end
+  if value == 255 then
+    return "Last Liquidity Ind: Null Value (255)"
+  end
+
+  return "Last Liquidity Ind: Unknown("..value..")"
 end
 
 -- Dissect: Last Liquidity Ind
@@ -2001,7 +2792,7 @@ dissect.execution_report_trade_message_fields = function(buffer, offset, packet,
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
@@ -2019,10 +2810,10 @@ dissect.execution_report_trade_message_fields = function(buffer, offset, packet,
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = dissect.transact_time(buffer, index, packet, parent)
 
-  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer
+  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, last_liquidity_ind = dissect.last_liquidity_ind(buffer, index, packet, parent)
 
-  -- Last Mkt: 1 Byte Ascii String
+  -- Last Mkt: 1 Byte Ascii String Enum with 17 values
   index, last_mkt = dissect.last_mkt(buffer, index, packet, parent)
 
   -- Trd Matching Id: 8 Byte Unsigned Fixed Width Integer
@@ -2044,6 +2835,42 @@ dissect.execution_report_trade_message = function(buffer, offset, packet, parent
   return dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Execution Report Rejected Symbol
+size_of.symbol_execution_report_rejected_symbol = 6
+
+-- Display: Symbol Execution Report Rejected Symbol
+display.symbol_execution_report_rejected_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report Rejected Symbol: No Value"
+  end
+
+  return "Symbol Execution Report Rejected Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report Rejected Symbol
+dissect.symbol_execution_report_rejected_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_rejected_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_rejected_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_rejected_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Rejected Message
 size_of.execution_report_rejected_message = function(buffer, offset)
   local index = 0
@@ -2056,7 +2883,7 @@ size_of.execution_report_rejected_message = function(buffer, offset)
 
   index = index + size_of.ord_status
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_rejected_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -2087,11 +2914,11 @@ dissect.execution_report_rejected_message_fields = function(buffer, offset, pack
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = dissect.exec_id(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report Rejected Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_rejected_symbol = dissect.symbol_execution_report_rejected_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2102,7 +2929,7 @@ dissect.execution_report_rejected_message_fields = function(buffer, offset, pack
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 90 values
   index, reject_reason = dissect.reject_reason(buffer, index, packet, parent)
 
   return index
@@ -2146,7 +2973,26 @@ size_of.self_trade_prevention = 1
 
 -- Display: Self Trade Prevention
 display.self_trade_prevention = function(value)
-  return "Self Trade Prevention: "..value
+  if value == 1 then
+    return "Self Trade Prevention: Cancel Newest (1)"
+  end
+  if value == 2 then
+    return "Self Trade Prevention: Cancel Oldest (2)"
+  end
+  if value == 3 then
+    return "Self Trade Prevention: Decrement And Cancel (3)"
+  end
+  if value == 4 then
+    return "Self Trade Prevention: Cancel Both (4)"
+  end
+  if value == 5 then
+    return "Self Trade Prevention: Cancel Smallest (5)"
+  end
+  if value == 255 then
+    return "Self Trade Prevention: Null Value (255)"
+  end
+
+  return "Self Trade Prevention: Unknown("..value..")"
 end
 
 -- Dissect: Self Trade Prevention
@@ -2186,7 +3032,17 @@ size_of.reprice_behavior = 1
 
 -- Display: Reprice Behavior
 display.reprice_behavior = function(value)
-  return "Reprice Behavior: "..value
+  if value == 1 then
+    return "Reprice Behavior: Reprice Lock Cancel Cross (1)"
+  end
+  if value == 2 then
+    return "Reprice Behavior: Reprice Lock Reprice Cross (2)"
+  end
+  if value == 255 then
+    return "Reprice Behavior: Null Value (255)"
+  end
+
+  return "Reprice Behavior: Unknown("..value..")"
 end
 
 -- Dissect: Reprice Behavior
@@ -2206,7 +3062,20 @@ size_of.reprice_frequency = 1
 
 -- Display: Reprice Frequency
 display.reprice_frequency = function(value)
-  return "Reprice Frequency: "..value
+  if value == 1 then
+    return "Reprice Frequency: Single Reprice (1)"
+  end
+  if value == 2 then
+    return "Reprice Frequency: Continuous Reprice (2)"
+  end
+  if value == 3 then
+    return "Reprice Frequency: None (3)"
+  end
+  if value == 255 then
+    return "Reprice Frequency: Null Value (255)"
+  end
+
+  return "Reprice Frequency: Unknown("..value..")"
 end
 
 -- Dissect: Reprice Frequency
@@ -2246,7 +3115,17 @@ size_of.reserve_replenish_timing = 1
 
 -- Display: Reserve Replenish Timing
 display.reserve_replenish_timing = function(value)
-  return "Reserve Replenish Timing: "..value
+  if value == 1 then
+    return "Reserve Replenish Timing: Immediate (1)"
+  end
+  if value == 2 then
+    return "Reserve Replenish Timing: Random (2)"
+  end
+  if value == 255 then
+    return "Reserve Replenish Timing: Null Value (255)"
+  end
+
+  return "Reserve Replenish Timing: Unknown("..value..")"
 end
 
 -- Dissect: Reserve Replenish Timing
@@ -2266,7 +3145,20 @@ size_of.display_method = 1
 
 -- Display: Display Method
 display.display_method = function(value)
-  return "Display Method: "..value
+  if value == 1 then
+    return "Display Method: Initial (1)"
+  end
+  if value == 2 then
+    return "Display Method: Random (2)"
+  end
+  if value == 3 then
+    return "Display Method: Undisclosed (3)"
+  end
+  if value == 255 then
+    return "Display Method: Null Value (255)"
+  end
+
+  return "Display Method: Unknown("..value..")"
 end
 
 -- Dissect: Display Method
@@ -2326,7 +3218,17 @@ size_of.peg_price_type = 1
 
 -- Display: Peg Price Type
 display.peg_price_type = function(value)
-  return "Peg Price Type: "..value
+  if value == 1 then
+    return "Peg Price Type: Mid Price Peg (1)"
+  end
+  if value == 2 then
+    return "Peg Price Type: Primary Peg (2)"
+  end
+  if value == 255 then
+    return "Peg Price Type: Null Value (255)"
+  end
+
+  return "Peg Price Type: Unknown("..value..")"
 end
 
 -- Dissect: Peg Price Type
@@ -2365,20 +3267,53 @@ end
 size_of.exec_inst = 2
 
 -- Display: Exec Inst
-display.exec_inst = function(value)
-  return "Exec Inst: "..value
+display.exec_inst = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is External Routing Not Allowed flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."External Routing Not Allowed|"
+  end
+  -- Is Intermarket Sweep flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Intermarket Sweep|"
+  end
+  -- Is Participate Do Not Initiate flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Participate Do Not Initiate|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Exec Inst
+dissect.exec_inst_bits = function(buffer, offset, packet, parent)
+
+  -- Reserved 13: 13 Bit
+  parent:add(memx_equities_memo_sbe_v1_1.fields.reserved_13, buffer(offset, 2))
+
+  -- External Routing Not Allowed: 1 Bit
+  parent:add(memx_equities_memo_sbe_v1_1.fields.external_routing_not_allowed, buffer(offset, 2))
+
+  -- Intermarket Sweep: 1 Bit
+  parent:add(memx_equities_memo_sbe_v1_1.fields.intermarket_sweep, buffer(offset, 2))
+
+  -- Participate Do Not Initiate: 1 Bit
+  parent:add(memx_equities_memo_sbe_v1_1.fields.participate_do_not_initiate, buffer(offset, 2))
 end
 
 -- Dissect: Exec Inst
 dissect.exec_inst = function(buffer, offset, packet, parent)
-  local length = size_of.exec_inst
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = display.exec_inst(value, buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = display.exec_inst(range, packet, parent)
+  local element = parent:add(memx_equities_memo_sbe_v1_1.fields.exec_inst, range, display)
 
-  parent:add(memx_equities_memo_sbe_v1_1.fields.exec_inst, range, value, display)
+  if show.exec_inst then
+    dissect.exec_inst_bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 2, range
 end
 
 -- Size: Cust Order Capacity
@@ -2386,7 +3321,14 @@ size_of.cust_order_capacity = 1
 
 -- Display: Cust Order Capacity
 display.cust_order_capacity = function(value)
-  return "Cust Order Capacity: "..value
+  if value == 1 then
+    return "Cust Order Capacity: Member Trading On Their Own Account (1)"
+  end
+  if value == 255 then
+    return "Cust Order Capacity: Null Value (255)"
+  end
+
+  return "Cust Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Cust Order Capacity
@@ -2406,7 +3348,20 @@ size_of.order_capacity = 1
 
 -- Display: Order Capacity
 display.order_capacity = function(value)
-  return "Order Capacity: "..value
+  if value == 1 then
+    return "Order Capacity: Agency (1)"
+  end
+  if value == 2 then
+    return "Order Capacity: Principal (2)"
+  end
+  if value == 3 then
+    return "Order Capacity: Riskless Principal (3)"
+  end
+  if value == 255 then
+    return "Order Capacity: Null Value (255)"
+  end
+
+  return "Order Capacity: Unknown("..value..")"
 end
 
 -- Dissect: Order Capacity
@@ -2426,7 +3381,26 @@ size_of.time_in_force = 1
 
 -- Display: Time In Force
 display.time_in_force = function(value)
-  return "Time In Force: "..value
+  if value == 1 then
+    return "Time In Force: Day (1)"
+  end
+  if value == 2 then
+    return "Time In Force: Immediate Or Cancel (2)"
+  end
+  if value == 3 then
+    return "Time In Force: Fill Or Kill (3)"
+  end
+  if value == 4 then
+    return "Time In Force: Good For Time (4)"
+  end
+  if value == 5 then
+    return "Time In Force: Regular Hours Only (5)"
+  end
+  if value == 255 then
+    return "Time In Force: Null Value (255)"
+  end
+
+  return "Time In Force: Unknown("..value..")"
 end
 
 -- Dissect: Time In Force
@@ -2441,11 +3415,52 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Symbol Execution Report New Symbol
+size_of.symbol_execution_report_new_symbol = 6
+
+-- Display: Symbol Execution Report New Symbol
+display.symbol_execution_report_new_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report New Symbol: No Value"
+  end
+
+  return "Symbol Execution Report New Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report New Symbol
+dissect.symbol_execution_report_new_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_new_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_new_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_new_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Mpid
 size_of.mpid = 4
 
 -- Display: Mpid
 display.mpid = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mpid: No Value"
+  end
+
   return "Mpid: "..value
 end
 
@@ -2453,7 +3468,18 @@ end
 dissect.mpid = function(buffer, offset, packet, parent)
   local length = size_of.mpid
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_1.fields.mpid, range, value, display)
@@ -2477,7 +3503,7 @@ size_of.execution_report_new_message = function(buffer, offset)
 
   index = index + size_of.ord_status
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_new_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -2560,16 +3586,16 @@ dissect.execution_report_new_message_fields = function(buffer, offset, packet, p
   -- Mpid: 4 Byte Ascii String
   index, mpid = dissect.mpid(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report New Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_new_symbol = dissect.symbol_execution_report_new_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -2581,22 +3607,22 @@ dissect.execution_report_new_message_fields = function(buffer, offset, packet, p
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_capacity = dissect.order_capacity(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
-  -- Exec Inst: 2 Byte Unsigned Fixed Width Integer
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Peg Offset Value: 8 Byte Signed Fixed Width Integer
   index, peg_offset_value = dissect.peg_offset_value(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, peg_price_type = dissect.peg_price_type(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer
@@ -2608,10 +3634,10 @@ dissect.execution_report_new_message_fields = function(buffer, offset, packet, p
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer
   index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Unsigned Fixed Width Integer
+  -- Display Method: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, display_method = dissect.display_method(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer
+  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reserve_replenish_timing = dissect.reserve_replenish_timing(buffer, index, packet, parent)
 
   -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer
@@ -2620,10 +3646,10 @@ dissect.execution_report_new_message_fields = function(buffer, offset, packet, p
   -- Locate Reqd: 1 Byte Ascii String
   index, locate_reqd = dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, reprice_frequency = dissect.reprice_frequency(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reprice_behavior = dissect.reprice_behavior(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -2632,7 +3658,7 @@ dissect.execution_report_new_message_fields = function(buffer, offset, packet, p
   -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer
   index, stp_group_id = dissect.stp_group_id(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer
+  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, self_trade_prevention = dissect.self_trade_prevention(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -2663,6 +3689,42 @@ dissect.execution_report_new_message = function(buffer, offset, packet, parent)
   return dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Execution Report Pending New Symbol
+size_of.symbol_execution_report_pending_new_symbol = 6
+
+-- Display: Symbol Execution Report Pending New Symbol
+display.symbol_execution_report_pending_new_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Execution Report Pending New Symbol: No Value"
+  end
+
+  return "Symbol Execution Report Pending New Symbol: "..value
+end
+
+-- Dissect: Symbol Execution Report Pending New Symbol
+dissect.symbol_execution_report_pending_new_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_execution_report_pending_new_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_execution_report_pending_new_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_execution_report_pending_new_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Pending New Message
 size_of.execution_report_pending_new_message = function(buffer, offset)
   local index = 0
@@ -2679,7 +3741,7 @@ size_of.execution_report_pending_new_message = function(buffer, offset)
 
   index = index + size_of.ord_status
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_execution_report_pending_new_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -2760,16 +3822,16 @@ dissect.execution_report_pending_new_message_fields = function(buffer, offset, p
   -- Mpid: 4 Byte Ascii String
   index, mpid = dissect.mpid(buffer, index, packet, parent)
 
-  -- Ord Status: 1 Byte Unsigned Fixed Width Integer
+  -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Execution Report Pending New Symbol: 6 Byte Ascii String
+  index, symbol_execution_report_pending_new_symbol = dissect.symbol_execution_report_pending_new_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
@@ -2781,22 +3843,22 @@ dissect.execution_report_pending_new_message_fields = function(buffer, offset, p
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_capacity = dissect.order_capacity(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
-  -- Exec Inst: 2 Byte Unsigned Fixed Width Integer
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Peg Offset Value: 8 Byte Signed Fixed Width Integer
   index, peg_offset_value = dissect.peg_offset_value(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, peg_price_type = dissect.peg_price_type(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer
@@ -2808,10 +3870,10 @@ dissect.execution_report_pending_new_message_fields = function(buffer, offset, p
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer
   index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Unsigned Fixed Width Integer
+  -- Display Method: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, display_method = dissect.display_method(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer
+  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reserve_replenish_timing = dissect.reserve_replenish_timing(buffer, index, packet, parent)
 
   -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer
@@ -2820,10 +3882,10 @@ dissect.execution_report_pending_new_message_fields = function(buffer, offset, p
   -- Locate Reqd: 1 Byte Ascii String
   index, locate_reqd = dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, reprice_frequency = dissect.reprice_frequency(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reprice_behavior = dissect.reprice_behavior(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -2832,7 +3894,7 @@ dissect.execution_report_pending_new_message_fields = function(buffer, offset, p
   -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer
   index, stp_group_id = dissect.stp_group_id(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer
+  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, self_trade_prevention = dissect.self_trade_prevention(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -2860,13 +3922,49 @@ dissect.execution_report_pending_new_message = function(buffer, offset, packet, 
   return dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Mass Cancel Request Symbol
+size_of.symbol_mass_cancel_request_symbol = 6
+
+-- Display: Symbol Mass Cancel Request Symbol
+display.symbol_mass_cancel_request_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Mass Cancel Request Symbol: No Value"
+  end
+
+  return "Symbol Mass Cancel Request Symbol: "..value
+end
+
+-- Dissect: Symbol Mass Cancel Request Symbol
+dissect.symbol_mass_cancel_request_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_mass_cancel_request_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_mass_cancel_request_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_mass_cancel_request_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Mass Cancel Request Message
 size_of.mass_cancel_request_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_mass_cancel_request_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -2893,13 +3991,13 @@ dissect.mass_cancel_request_message_fields = function(buffer, offset, packet, pa
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Mass Cancel Request Symbol: 6 Byte Ascii String
+  index, symbol_mass_cancel_request_symbol = dissect.symbol_mass_cancel_request_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Lower Than Price: 8 Byte Signed Fixed Width Integer
@@ -2927,6 +4025,42 @@ dissect.mass_cancel_request_message = function(buffer, offset, packet, parent)
   return dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Order Cancel Request Symbol
+size_of.symbol_order_cancel_request_symbol = 6
+
+-- Display: Symbol Order Cancel Request Symbol
+display.symbol_order_cancel_request_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Order Cancel Request Symbol: No Value"
+  end
+
+  return "Symbol Order Cancel Request Symbol: "..value
+end
+
+-- Dissect: Symbol Order Cancel Request Symbol
+dissect.symbol_order_cancel_request_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_order_cancel_request_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_order_cancel_request_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_order_cancel_request_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Order Cancel Request Message
 size_of.order_cancel_request_message = function(buffer, offset)
   local index = 0
@@ -2937,7 +4071,7 @@ size_of.order_cancel_request_message = function(buffer, offset)
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_order_cancel_request_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -2962,8 +4096,8 @@ dissect.order_cancel_request_message_fields = function(buffer, offset, packet, p
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Order Cancel Request Symbol: 6 Byte Ascii String
+  index, symbol_order_cancel_request_symbol = dissect.symbol_order_cancel_request_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2984,6 +4118,42 @@ dissect.order_cancel_request_message = function(buffer, offset, packet, parent)
   return dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol Order Cancel Replace Request Symbol
+size_of.symbol_order_cancel_replace_request_symbol = 6
+
+-- Display: Symbol Order Cancel Replace Request Symbol
+display.symbol_order_cancel_replace_request_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Order Cancel Replace Request Symbol: No Value"
+  end
+
+  return "Symbol Order Cancel Replace Request Symbol: "..value
+end
+
+-- Dissect: Symbol Order Cancel Replace Request Symbol
+dissect.symbol_order_cancel_replace_request_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_order_cancel_replace_request_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_order_cancel_replace_request_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_order_cancel_replace_request_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Order Cancel Replace Request Message
 size_of.order_cancel_replace_request_message = function(buffer, offset)
   local index = 0
@@ -2992,7 +4162,7 @@ size_of.order_cancel_replace_request_message = function(buffer, offset)
 
   index = index + size_of.cl_ord_id
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_order_cancel_replace_request_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -3026,13 +4196,13 @@ dissect.order_cancel_replace_request_message_fields = function(buffer, offset, p
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Order Cancel Replace Request Symbol: 6 Byte Ascii String
+  index, symbol_order_cancel_replace_request_symbol = dissect.symbol_order_cancel_replace_request_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3066,6 +4236,42 @@ dissect.order_cancel_replace_request_message = function(buffer, offset, packet, 
   return dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Symbol New Order Single Symbol
+size_of.symbol_new_order_single_symbol = 6
+
+-- Display: Symbol New Order Single Symbol
+display.symbol_new_order_single_symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol New Order Single Symbol: No Value"
+  end
+
+  return "Symbol New Order Single Symbol: "..value
+end
+
+-- Dissect: Symbol New Order Single Symbol
+dissect.symbol_new_order_single_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_new_order_single_symbol
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.symbol_new_order_single_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memo_sbe_v1_1.fields.symbol_new_order_single_symbol, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: New Order Single Message
 size_of.new_order_single_message = function(buffer, offset)
   local index = 0
@@ -3074,7 +4280,7 @@ size_of.new_order_single_message = function(buffer, offset)
 
   index = index + size_of.mpid
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_new_order_single_symbol
 
   index = index + size_of.symbol_sfx
 
@@ -3142,13 +4348,13 @@ dissect.new_order_single_message_fields = function(buffer, offset, packet, paren
   -- Mpid: 4 Byte Ascii String
   index, mpid = dissect.mpid(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol New Order Single Symbol: 6 Byte Ascii String
+  index, symbol_new_order_single_symbol = dissect.symbol_new_order_single_symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = dissect.symbol_sfx(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3160,22 +4366,22 @@ dissect.new_order_single_message_fields = function(buffer, offset, packet, paren
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Time In Force: 1 Byte Unsigned Fixed Width Integer
+  -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_capacity = dissect.order_capacity(buffer, index, packet, parent)
 
-  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer
+  -- Cust Order Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, cust_order_capacity = dissect.cust_order_capacity(buffer, index, packet, parent)
 
-  -- Exec Inst: 2 Byte Unsigned Fixed Width Integer
+  -- Exec Inst: Struct of 4 fields
   index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Peg Offset Value: 8 Byte Signed Fixed Width Integer
   index, peg_offset_value = dissect.peg_offset_value(buffer, index, packet, parent)
 
-  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer
+  -- Peg Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, peg_price_type = dissect.peg_price_type(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer
@@ -3187,10 +4393,10 @@ dissect.new_order_single_message_fields = function(buffer, offset, packet, paren
   -- Display Qty: 4 Byte Unsigned Fixed Width Integer
   index, display_qty = dissect.display_qty(buffer, index, packet, parent)
 
-  -- Display Method: 1 Byte Unsigned Fixed Width Integer
+  -- Display Method: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, display_method = dissect.display_method(buffer, index, packet, parent)
 
-  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer
+  -- Reserve Replenish Timing: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reserve_replenish_timing = dissect.reserve_replenish_timing(buffer, index, packet, parent)
 
   -- Display Min Incr: 4 Byte Unsigned Fixed Width Integer
@@ -3199,10 +4405,10 @@ dissect.new_order_single_message_fields = function(buffer, offset, packet, paren
   -- Locate Reqd: 1 Byte Ascii String
   index, locate_reqd = dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Frequency: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, reprice_frequency = dissect.reprice_frequency(buffer, index, packet, parent)
 
-  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer
+  -- Reprice Behavior: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, reprice_behavior = dissect.reprice_behavior(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -3211,7 +4417,7 @@ dissect.new_order_single_message_fields = function(buffer, offset, packet, paren
   -- Stp Group Id: 2 Byte Unsigned Fixed Width Integer
   index, stp_group_id = dissect.stp_group_id(buffer, index, packet, parent)
 
-  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer
+  -- Self Trade Prevention: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, self_trade_prevention = dissect.self_trade_prevention(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer
@@ -4842,7 +6048,7 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 1 == buffer(1467, 1):uint() then
+  if 1 == buffer(1461, 1):uint() then
     return true
   end
 
@@ -4851,7 +6057,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 1 == buffer(1468, 2):uint() then
+  if 1 == buffer(1462, 2):uint() then
     return true
   end
 

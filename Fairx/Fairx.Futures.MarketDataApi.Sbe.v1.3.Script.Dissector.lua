@@ -38,7 +38,7 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.contract_size = ProtoField.new("Cont
 fairx_futures_marketdataapi_sbe_v1_3.fields.currency = ProtoField.new("Currency", "fairx.futures.marketdataapi.sbe.v1.3.currency", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.day_open_price = ProtoField.new("Day Open Price", "fairx.futures.marketdataapi.sbe.v1.3.dayopenprice", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.deepest_price = ProtoField.new("Deepest Price", "fairx.futures.marketdataapi.sbe.v1.3.deepestprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.definition_flags = ProtoField.new("Definition Flags", "fairx.futures.marketdataapi.sbe.v1.3.definitionflags", ftypes.UINT16)
+fairx_futures_marketdataapi_sbe_v1_3.fields.definition_flags = ProtoField.new("Definition Flags", "fairx.futures.marketdataapi.sbe.v1.3.definitionflags", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.description = ProtoField.new("Description", "fairx.futures.marketdataapi.sbe.v1.3.description", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.details = ProtoField.new("Details", "fairx.futures.marketdataapi.sbe.v1.3.details", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.3.endofsnapshotmessage", ftypes.STRING)
@@ -52,6 +52,9 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.instr_seq_num = ProtoField.new("Inst
 fairx_futures_marketdataapi_sbe_v1_3.fields.instrument_flags = ProtoField.new("Instrument Flags", "fairx.futures.marketdataapi.sbe.v1.3.instrumentflags", ftypes.UINT8)
 fairx_futures_marketdataapi_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.marketdataapi.sbe.v1.3.instrumentid", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.instrument_side = ProtoField.new("Instrument Side", "fairx.futures.marketdataapi.sbe.v1.3.instrumentside", ftypes.INT8)
+fairx_futures_marketdataapi_sbe_v1_3.fields.is_announced = ProtoField.new("Is Announced", "fairx.futures.marketdataapi.sbe.v1.3.isannounced", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
+fairx_futures_marketdataapi_sbe_v1_3.fields.is_call = ProtoField.new("Is Call", "fairx.futures.marketdataapi.sbe.v1.3.iscall", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0004")
+fairx_futures_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "fairx.futures.marketdataapi.sbe.v1.3.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
 fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick = ProtoField.new("Large Tick", "fairx.futures.marketdataapi.sbe.v1.3.largetick", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "fairx.futures.marketdataapi.sbe.v1.3.largetickthreshold", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.lastinstrseqnum", ftypes.UINT32)
@@ -103,6 +106,7 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.product_id = ProtoField.new("Product
 fairx_futures_marketdataapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "fairx.futures.marketdataapi.sbe.v1.3.quantity", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.reason = ProtoField.new("Reason", "fairx.futures.marketdataapi.sbe.v1.3.reason", ftypes.INT8)
 fairx_futures_marketdataapi_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "fairx.futures.marketdataapi.sbe.v1.3.reserved", ftypes.INT16)
+fairx_futures_marketdataapi_sbe_v1_3.fields.reserved_13 = ProtoField.new("Reserved 13", "fairx.futures.marketdataapi.sbe.v1.3.reserved13", ftypes.UINT16, nil, base.DEC, "0xFFF8")
 fairx_futures_marketdataapi_sbe_v1_3.fields.retransmit_reject_message = ProtoField.new("Retransmit Reject Message", "fairx.futures.marketdataapi.sbe.v1.3.retransmitrejectmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.retransmit_request_message = ProtoField.new("Retransmit Request Message", "fairx.futures.marketdataapi.sbe.v1.3.retransmitrequestmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "fairx.futures.marketdataapi.sbe.v1.3.retrydelaynanos", ftypes.INT64)
@@ -144,6 +148,7 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.vwap_price = ProtoField.new("Vwap Pr
 -----------------------------------------------------------------------
 
 -- Fairx Futures MarketDataApi Sbe 1.3 Element Dissection Options
+show.definition_flags = true
 show.end_of_snapshot_message = true
 show.implied_order_update_message = true
 show.instr_header = true
@@ -174,6 +179,7 @@ show.trading_status_update_message = true
 show.payload = false
 
 -- Register Fairx Futures MarketDataApi Sbe 1.3 Show Options
+fairx_futures_marketdataapi_sbe_v1_3.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
 fairx_futures_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
 fairx_futures_marketdataapi_sbe_v1_3.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
 fairx_futures_marketdataapi_sbe_v1_3.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
@@ -208,6 +214,10 @@ function fairx_futures_marketdataapi_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
+  if show.definition_flags ~= fairx_futures_marketdataapi_sbe_v1_3.prefs.show_definition_flags then
+    show.definition_flags = fairx_futures_marketdataapi_sbe_v1_3.prefs.show_definition_flags
+    changed = true
+  end
   if show.end_of_snapshot_message ~= fairx_futures_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message then
     show.end_of_snapshot_message = fairx_futures_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message
     changed = true
@@ -353,7 +363,20 @@ size_of.reason = 1
 
 -- Display: Reason
 display.reason = function(value)
-  return "Reason: "..value
+  if value == 1 then
+    return "Reason: Seqtoolow (1)"
+  end
+  if value == 2 then
+    return "Reason: Seqtoohigh (2)"
+  end
+  if value == 3 then
+    return "Reason: Ratelimitexceeded (3)"
+  end
+  if value == 4 then
+    return "Reason: Othererror (4)"
+  end
+
+  return "Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reason
@@ -373,6 +396,11 @@ size_of.details = 40
 
 -- Display: Details
 display.details = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Details: No Value"
+  end
+
   return "Details: "..value
 end
 
@@ -380,7 +408,18 @@ end
 dissect.details = function(buffer, offset, packet, parent)
   local length = size_of.details
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.details(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.details, range, value, display)
@@ -436,7 +475,7 @@ dissect.retransmit_reject_message_fields = function(buffer, offset, packet, pare
   -- Details: 40 Byte Ascii String
   index, details = dissect.details(buffer, index, packet, parent)
 
-  -- Reason: 1 Byte Signed Fixed Width Integer
+  -- Reason: 1 Byte Signed Fixed Width Integer Enum with 4 values
   index, reason = dissect.reason(buffer, index, packet, parent)
 
   return index
@@ -541,20 +580,53 @@ end
 size_of.definition_flags = 2
 
 -- Display: Definition Flags
-display.definition_flags = function(value)
-  return "Definition Flags: "..value
+display.definition_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Is Call flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Is Call|"
+  end
+  -- Is Is Announced flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Is Announced|"
+  end
+  -- Is Is Prior Settlement Theoretical flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Is Prior Settlement Theoretical|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Definition Flags
+dissect.definition_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Reserved 13: 13 Bit
+  parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.reserved_13, buffer(offset, 2))
+
+  -- Is Call: 1 Bit
+  parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.is_call, buffer(offset, 2))
+
+  -- Is Announced: 1 Bit
+  parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.is_announced, buffer(offset, 2))
+
+  -- Is Prior Settlement Theoretical: 1 Bit
+  parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical, buffer(offset, 2))
 end
 
 -- Dissect: Definition Flags
 dissect.definition_flags = function(buffer, offset, packet, parent)
-  local length = size_of.definition_flags
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.definition_flags(value, buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = display.definition_flags(range, packet, parent)
+  local element = parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.definition_flags, range, display)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.definition_flags, range, value, display)
+  if show.definition_flags then
+    dissect.definition_flags_bits(buffer, offset, packet, element)
+  end
 
-  return offset + length, value
+  return offset + 2, range
 end
 
 -- Size: Prior Settlement Price
@@ -1175,7 +1247,7 @@ dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
-  -- Definition Flags: 2 Byte Unsigned Fixed Width Integer
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -1199,7 +1271,7 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value
+  return "Price: "..value:tonumber()/1000000000
 end
 
 -- Dissect: Price
@@ -1336,7 +1408,29 @@ size_of.trading_status = 1
 
 -- Display: Trading Status
 display.trading_status = function(value)
-  return "Trading Status: "..value
+  if value == 0 then
+    return "Trading Status: Preopen (0)"
+  end
+  if value == 1 then
+    return "Trading Status: Open (1)"
+  end
+  if value == 2 then
+    return "Trading Status: Halt (2)"
+  end
+  if value == 3 then
+    return "Trading Status: Pause (3)"
+  end
+  if value == 4 then
+    return "Trading Status: Close (4)"
+  end
+  if value == 5 then
+    return "Trading Status: Preopennocancel (5)"
+  end
+  if value == 6 then
+    return "Trading Status: Expired (6)"
+  end
+
+  return "Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Trading Status
@@ -1575,6 +1669,11 @@ size_of.cfi_code = 8
 
 -- Display: Cfi Code
 display.cfi_code = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Cfi Code: No Value"
+  end
+
   return "Cfi Code: "..value
 end
 
@@ -1582,7 +1681,18 @@ end
 dissect.cfi_code = function(buffer, offset, packet, parent)
   local length = size_of.cfi_code
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.cfi_code, range, value, display)
@@ -1615,6 +1725,11 @@ size_of.description = 32
 
 -- Display: Description
 display.description = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Description: No Value"
+  end
+
   return "Description: "..value
 end
 
@@ -1622,7 +1737,18 @@ end
 dissect.description = function(buffer, offset, packet, parent)
   local length = size_of.description
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.description(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.description, range, value, display)
@@ -1635,6 +1761,11 @@ size_of.product_code = 8
 
 -- Display: Product Code
 display.product_code = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Product Code: No Value"
+  end
+
   return "Product Code: "..value
 end
 
@@ -1642,7 +1773,18 @@ end
 dissect.product_code = function(buffer, offset, packet, parent)
   local length = size_of.product_code
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.product_code(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.product_code, range, value, display)
@@ -1655,6 +1797,11 @@ size_of.symbol = 24
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -1662,7 +1809,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.symbol, range, value, display)
@@ -1795,10 +1953,10 @@ dissect.start_of_option_instrument_snapshot_message_fields = function(buffer, of
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
-  -- Definition Flags: 2 Byte Unsigned Fixed Width Integer
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -1909,6 +2067,11 @@ size_of.currency = 8
 
 -- Display: Currency
 display.currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
   return "Currency: "..value
 end
 
@@ -1916,7 +2079,18 @@ end
 dissect.currency = function(buffer, offset, packet, parent)
   local length = size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.currency(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.currency, range, value, display)
@@ -2043,7 +2217,7 @@ dissect.start_of_spread_instrument_snapshot_message_fields = function(buffer, of
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   -- Leg 1 Instrument Id: 4 Byte Signed Fixed Width Integer
@@ -2164,7 +2338,7 @@ dissect.start_of_outright_instrument_snapshot_message_fields = function(buffer, 
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   return index
@@ -2444,14 +2618,46 @@ size_of.stat_type = 1
 
 -- Display: Stat Type
 display.stat_type = function(value)
-  return "Stat Type: "..value
+  if value == "4" then
+    return "Stat Type: Dayopeningprice (4)"
+  end
+  if value == "5" then
+    return "Stat Type: Closingprice (5)"
+  end
+  if value == "6" then
+    return "Stat Type: Settlementprice (6)"
+  end
+  if value == "7" then
+    return "Stat Type: Tradingsessionhighprice (7)"
+  end
+  if value == "8" then
+    return "Stat Type: Tradingsessionlowprice (8)"
+  end
+  if value == "F" then
+    return "Stat Type: Referenceprice (F)"
+  end
+  if value == "I" then
+    return "Stat Type: Indicativeopeningprice (I)"
+  end
+
+  return "Stat Type: Unknown("..value..")"
 end
 
 -- Dissect: Stat Type
 dissect.stat_type = function(buffer, offset, packet, parent)
   local length = size_of.stat_type
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.stat_type(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.stat_type, range, value, display)
@@ -2487,7 +2693,7 @@ dissect.market_stat_message_fields = function(buffer, offset, packet, parent)
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Stat Type: 1 Byte Ascii String
+  -- Stat Type: 1 Byte Ascii String Enum with 7 values
   index, stat_type = dissect.stat_type(buffer, index, packet, parent)
 
   return index
@@ -3330,7 +3536,7 @@ dissect.trading_status_update_message_fields = function(buffer, offset, packet, 
   -- Limit Up Price: 8 Byte Signed Fixed Width Integer
   index, limit_up_price = dissect.limit_up_price(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   return index
@@ -3449,10 +3655,10 @@ dissect.option_instrument_definition_message_fields = function(buffer, offset, p
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
-  -- Definition Flags: 2 Byte Unsigned Fixed Width Integer
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -3577,7 +3783,7 @@ dissect.spread_instrument_definition_message_fields = function(buffer, offset, p
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
   -- Leg 1 Instrument Id: 4 Byte Signed Fixed Width Integer
@@ -3589,7 +3795,7 @@ dissect.spread_instrument_definition_message_fields = function(buffer, offset, p
   -- Spread Buy Convention: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, spread_buy_convention = dissect.spread_buy_convention(buffer, index, packet, parent)
 
-  -- Definition Flags: 2 Byte Unsigned Fixed Width Integer
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -3708,10 +3914,10 @@ dissect.outright_instrument_definition_message_fields = function(buffer, offset,
   -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
   index, product_group = dissect.product_group(buffer, index, packet, parent)
 
-  -- Trading Status: 1 Byte Signed Fixed Width Integer
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
-  -- Definition Flags: 2 Byte Unsigned Fixed Width Integer
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index

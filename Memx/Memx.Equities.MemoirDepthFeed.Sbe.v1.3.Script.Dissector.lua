@@ -876,14 +876,31 @@ size_of.side = 1
 
 -- Display: Side
 display.side = function(value)
-  return "Side: "..value
+  if value == "B" then
+    return "Side: Buy (B)"
+  end
+  if value == "S" then
+    return "Side: Sell (S)"
+  end
+
+  return "Side: Unknown("..value..")"
 end
 
 -- Dissect: Side
 dissect.side = function(buffer, offset, packet, parent)
   local length = size_of.side
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.side(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.side, range, value, display)
@@ -928,7 +945,7 @@ dissect.order_added_message_fields = function(buffer, offset, packet, parent)
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Ascii String
+  -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
@@ -958,14 +975,37 @@ size_of.trading_session = 1
 
 -- Display: Trading Session
 display.trading_session = function(value)
-  return "Trading Session: "..value
+  if value == "1" then
+    return "Trading Session: Opening (1)"
+  end
+  if value == "2" then
+    return "Trading Session: Trading (2)"
+  end
+  if value == "3" then
+    return "Trading Session: Post Trading (3)"
+  end
+  if value == "4" then
+    return "Trading Session: Closed (4)"
+  end
+
+  return "Trading Session: Unknown("..value..")"
 end
 
 -- Dissect: Trading Session
 dissect.trading_session = function(buffer, offset, packet, parent)
   local length = size_of.trading_session
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.trading_session(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.trading_session, range, value, display)
@@ -996,7 +1036,7 @@ dissect.trading_session_status_message_fields = function(buffer, offset, packet,
   -- Timestamp: 8 Byte Unsigned Fixed Width Integer
   index, timestamp = dissect.timestamp(buffer, index, packet, parent)
 
-  -- Trading Session: 1 Byte Ascii String
+  -- Trading Session: 1 Byte Ascii String Enum with 4 values
   index, trading_session = dissect.trading_session(buffer, index, packet, parent)
 
   return index
@@ -1020,14 +1060,34 @@ size_of.security_trading_status_reason = 1
 
 -- Display: Security Trading Status Reason
 display.security_trading_status_reason = function(value)
-  return "Security Trading Status Reason: "..value
+  if value == "X" then
+    return "Security Trading Status Reason: None (X)"
+  end
+  if value == "R" then
+    return "Security Trading Status Reason: Regulatory (R)"
+  end
+  if value == "A" then
+    return "Security Trading Status Reason: Administrative (A)"
+  end
+
+  return "Security Trading Status Reason: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status Reason
 dissect.security_trading_status_reason = function(buffer, offset, packet, parent)
   local length = size_of.security_trading_status_reason
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.security_trading_status_reason(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason, range, value, display)
@@ -1040,14 +1100,37 @@ size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 display.security_trading_status = function(value)
-  return "Security Trading Status: "..value
+  if value == "H" then
+    return "Security Trading Status: Halted (H)"
+  end
+  if value == "P" then
+    return "Security Trading Status: Paused (P)"
+  end
+  if value == "Q" then
+    return "Security Trading Status: Quoting (Q)"
+  end
+  if value == "T" then
+    return "Security Trading Status: Trading (T)"
+  end
+
+  return "Security Trading Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Trading Status
 dissect.security_trading_status = function(buffer, offset, packet, parent)
   local length = size_of.security_trading_status
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse as byte
+  local value = range:uint()
+
+  -- check if value is non zero
+  if value == 0 then
+    value = ''
+  else
+    value = range:string()
+  end
+
   local display = display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status, range, value, display)
@@ -1085,10 +1168,10 @@ dissect.security_trading_status_message_fields = function(buffer, offset, packet
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Ascii String
+  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
   index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
 
-  -- Security Trading Status Reason: 1 Byte Ascii String
+  -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
   index, security_trading_status_reason = dissect.security_trading_status_reason(buffer, index, packet, parent)
 
   return index
@@ -1112,7 +1195,14 @@ size_of.short_sale_restriction = 1
 
 -- Display: Short Sale Restriction
 display.short_sale_restriction = function(value)
-  return "Short Sale Restriction: "..value
+  if value == 0 then
+    return "Short Sale Restriction: False (0)"
+  end
+  if value == 1 then
+    return "Short Sale Restriction: True (1)"
+  end
+
+  return "Short Sale Restriction: Unknown("..value..")"
 end
 
 -- Dissect: Short Sale Restriction
@@ -1155,7 +1245,7 @@ dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, pa
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer
+  -- Short Sale Restriction: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, short_sale_restriction = dissect.short_sale_restriction(buffer, index, packet, parent)
 
   return index
@@ -1199,7 +1289,14 @@ size_of.is_test_symbol = 1
 
 -- Display: Is Test Symbol
 display.is_test_symbol = function(value)
-  return "Is Test Symbol: "..value
+  if value == 0 then
+    return "Is Test Symbol: False (0)"
+  end
+  if value == 1 then
+    return "Is Test Symbol: True (1)"
+  end
+
+  return "Is Test Symbol: Unknown("..value..")"
 end
 
 -- Dissect: Is Test Symbol
@@ -1259,6 +1356,11 @@ size_of.symbol_sfx = 6
 
 -- Display: Symbol Sfx
 display.symbol_sfx = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol Sfx: No Value"
+  end
+
   return "Symbol Sfx: "..value
 end
 
@@ -1266,7 +1368,18 @@ end
 dissect.symbol_sfx = function(buffer, offset, packet, parent)
   local length = size_of.symbol_sfx
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol_sfx(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol_sfx, range, value, display)
@@ -1279,6 +1392,11 @@ size_of.symbol = 6
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -1286,7 +1404,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.symbol, range, value, display)
@@ -1344,7 +1473,7 @@ dissect.instrument_directory_message_fields = function(buffer, offset, packet, p
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
   index, reserved = dissect.reserved(buffer, index, packet, parent)
 
-  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer
+  -- Is Test Symbol: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, is_test_symbol = dissect.is_test_symbol(buffer, index, packet, parent)
 
   -- Mpv: 8 Byte Signed Fixed Width Integer

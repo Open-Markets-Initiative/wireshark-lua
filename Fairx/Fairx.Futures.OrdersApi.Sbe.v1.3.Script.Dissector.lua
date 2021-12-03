@@ -31,6 +31,7 @@ fairx_futures_ordersapi_sbe_v1_3.fields.canceled_count = ProtoField.new("Cancele
 fairx_futures_ordersapi_sbe_v1_3.fields.client_order_id = ProtoField.new("Client Order Id", "fairx.futures.ordersapi.sbe.v1.3.clientorderid", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.correlation_id = ProtoField.new("Correlation Id", "fairx.futures.ordersapi.sbe.v1.3.correlationid", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.current_session_only = ProtoField.new("Current Session Only", "fairx.futures.ordersapi.sbe.v1.3.currentsessiononly", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.data = ProtoField.new("Data", "fairx.futures.ordersapi.sbe.v1.3.data", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.details = ProtoField.new("Details", "fairx.futures.ordersapi.sbe.v1.3.details", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.end_exec_id = ProtoField.new("End Exec Id", "fairx.futures.ordersapi.sbe.v1.3.endexecid", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.error_message = ProtoField.new("Error Message", "fairx.futures.ordersapi.sbe.v1.3.errormessage", ftypes.STRING)
@@ -117,6 +118,7 @@ fairx_futures_ordersapi_sbe_v1_3.fields.version = ProtoField.new("Version", "fai
 -- Fairx Futures OrdersApi Sbe 1.3 Element Dissection Options
 show.cancel_order_message = true
 show.cancel_order_reject_message = true
+show.data = true
 show.event_resend_complete_message = true
 show.event_resend_reject_message = true
 show.event_resend_request_message = true
@@ -152,6 +154,7 @@ show.payload = false
 -- Register Fairx Futures OrdersApi Sbe 1.3 Show Options
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
@@ -195,6 +198,10 @@ function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
   end
   if show.cancel_order_reject_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message then
     show.cancel_order_reject_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_cancel_order_reject_message
+    changed = true
+  end
+  if show.data ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_data then
+    show.data = fairx_futures_ordersapi_sbe_v1_3.prefs.show_data
     changed = true
   end
   if show.event_resend_complete_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message then
@@ -354,6 +361,11 @@ size_of.details = 47
 
 -- Display: Details
 display.details = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Details: No Value"
+  end
+
   return "Details: "..value
 end
 
@@ -361,7 +373,18 @@ end
 dissect.details = function(buffer, offset, packet, parent)
   local length = size_of.details
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.details(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.details, range, value, display)
@@ -374,7 +397,44 @@ size_of.reject_reason = 1
 
 -- Display: Reject Reason
 display.reject_reason = function(value)
-  return "Reject Reason: "..value
+  if value == 1 then
+    return "Reject Reason: Error (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Invalidinstrument (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Clordidinuse (3)"
+  end
+  if value == 8 then
+    return "Reject Reason: Validationfailure (8)"
+  end
+  if value == 9 then
+    return "Reject Reason: Unknownorder (9)"
+  end
+  if value == 2 then
+    return "Reject Reason: Unknownorder (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Orderfilled (3)"
+  end
+  if value == 1 then
+    return "Reject Reason: Beginexecidtoosmall (1)"
+  end
+  if value == 2 then
+    return "Reject Reason: Endexecidtoolarge (2)"
+  end
+  if value == 3 then
+    return "Reject Reason: Resendalreadyinprogress (3)"
+  end
+  if value == 4 then
+    return "Reject Reason: Toomanyresendrequests (4)"
+  end
+  if value == 5 then
+    return "Reject Reason: Servererror (5)"
+  end
+
+  return "Reject Reason: Unknown("..value..")"
 end
 
 -- Dissect: Reject Reason
@@ -434,7 +494,7 @@ dissect.event_resend_reject_message_fields = function(buffer, offset, packet, pa
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, reject_reason = dissect.reject_reason(buffer, index, packet, parent)
 
   -- Details: 47 Byte Ascii String
@@ -734,7 +794,14 @@ size_of.is_aggressor = 1
 
 -- Display: Is Aggressor
 display.is_aggressor = function(value)
-  return "Is Aggressor: "..value
+  if value == 0 then
+    return "Is Aggressor: False (0)"
+  end
+  if value == 1 then
+    return "Is Aggressor: True (1)"
+  end
+
+  return "Is Aggressor: Unknown("..value..")"
 end
 
 -- Dissect: Is Aggressor
@@ -1077,7 +1144,7 @@ dissect.spread_order_filled_message_fields = function(buffer, offset, packet, pa
   -- Instrument Id: 4 Byte Signed Fixed Width Integer
   index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Is Aggressor: 1 Byte Signed Fixed Width Integer
+  -- Is Aggressor: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, is_aggressor = dissect.is_aggressor(buffer, index, packet, parent)
 
   return index
@@ -1174,7 +1241,7 @@ dissect.order_filled_message_fields = function(buffer, offset, packet, parent)
   -- Instrument Id: 4 Byte Signed Fixed Width Integer
   index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
 
-  -- Is Aggressor: 1 Byte Signed Fixed Width Integer
+  -- Is Aggressor: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, is_aggressor = dissect.is_aggressor(buffer, index, packet, parent)
 
   return index
@@ -1198,6 +1265,11 @@ size_of.error_message = 32
 
 -- Display: Error Message
 display.error_message = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Error Message: No Value"
+  end
+
   return "Error Message: "..value
 end
 
@@ -1205,7 +1277,18 @@ end
 dissect.error_message = function(buffer, offset, packet, parent)
   local length = size_of.error_message
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.error_message(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.error_message, range, value, display)
@@ -1332,7 +1415,14 @@ size_of.current_session_only = 1
 
 -- Display: Current Session Only
 display.current_session_only = function(value)
-  return "Current Session Only: "..value
+  if value == 0 then
+    return "Current Session Only: False (0)"
+  end
+  if value == 1 then
+    return "Current Session Only: True (1)"
+  end
+
+  return "Current Session Only: Unknown("..value..")"
 end
 
 -- Dissect: Current Session Only
@@ -1370,7 +1460,7 @@ dissect.unlock_trading_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Current Session Only: 1 Byte Signed Fixed Width Integer
+  -- Current Session Only: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, current_session_only = dissect.current_session_only(buffer, index, packet, parent)
 
   return index
@@ -1441,7 +1531,14 @@ size_of.trading_lock_applied = 1
 
 -- Display: Trading Lock Applied
 display.trading_lock_applied = function(value)
-  return "Trading Lock Applied: "..value
+  if value == 0 then
+    return "Trading Lock Applied: False (0)"
+  end
+  if value == 1 then
+    return "Trading Lock Applied: True (1)"
+  end
+
+  return "Trading Lock Applied: Unknown("..value..")"
 end
 
 -- Dissect: Trading Lock Applied
@@ -1461,7 +1558,14 @@ size_of.only_current_session = 1
 
 -- Display: Only Current Session
 display.only_current_session = function(value)
-  return "Only Current Session: "..value
+  if value == 0 then
+    return "Only Current Session: False (0)"
+  end
+  if value == 1 then
+    return "Only Current Session: True (1)"
+  end
+
+  return "Only Current Session: Unknown("..value..")"
 end
 
 -- Dissect: Only Current Session
@@ -1536,10 +1640,10 @@ dissect.mass_cancel_order_ack_message_fields = function(buffer, offset, packet, 
   -- Canceled Count: 4 Byte Signed Fixed Width Integer
   index, canceled_count = dissect.canceled_count(buffer, index, packet, parent)
 
-  -- Only Current Session: 1 Byte Signed Fixed Width Integer
+  -- Only Current Session: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, only_current_session = dissect.only_current_session(buffer, index, packet, parent)
 
-  -- Trading Lock Applied: 1 Byte Signed Fixed Width Integer
+  -- Trading Lock Applied: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, trading_lock_applied = dissect.trading_lock_applied(buffer, index, packet, parent)
 
   return index
@@ -1563,7 +1667,14 @@ size_of.request_trading_lock = 1
 
 -- Display: Request Trading Lock
 display.request_trading_lock = function(value)
-  return "Request Trading Lock: "..value
+  if value == 0 then
+    return "Request Trading Lock: False (0)"
+  end
+  if value == 1 then
+    return "Request Trading Lock: True (1)"
+  end
+
+  return "Request Trading Lock: Unknown("..value..")"
 end
 
 -- Dissect: Request Trading Lock
@@ -1665,10 +1776,10 @@ dissect.mass_cancel_order_message_fields = function(buffer, offset, packet, pare
   -- Side: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Current Session Only: 1 Byte Signed Fixed Width Integer
+  -- Current Session Only: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, current_session_only = dissect.current_session_only(buffer, index, packet, parent)
 
-  -- Request Trading Lock: 1 Byte Signed Fixed Width Integer
+  -- Request Trading Lock: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, request_trading_lock = dissect.request_trading_lock(buffer, index, packet, parent)
 
   return index
@@ -1727,7 +1838,7 @@ dissect.cancel_order_reject_message_fields = function(buffer, offset, packet, pa
   -- Order Id: 8 Byte Signed Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, reject_reason = dissect.reject_reason(buffer, index, packet, parent)
 
   -- Details: 47 Byte Ascii String
@@ -2058,7 +2169,7 @@ dissect.order_reject_message_fields = function(buffer, offset, packet, parent)
   -- Order Id: 8 Byte Signed Fixed Width Integer
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer
+  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
   index, reject_reason = dissect.reject_reason(buffer, index, packet, parent)
 
   -- Details: 47 Byte Ascii String
@@ -2450,6 +2561,11 @@ size_of.trader = 16
 
 -- Display: Trader
 display.trader = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Trader: No Value"
+  end
+
   return "Trader: "..value
 end
 
@@ -2457,7 +2573,18 @@ end
 dissect.trader = function(buffer, offset, packet, parent)
   local length = size_of.trader
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.trader(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.trader, range, value, display)
@@ -2508,10 +2635,15 @@ dissect.set_trader_message = function(buffer, offset, packet, parent)
 end
 
 -- Size: Account
-size_of.account = 12
+size_of.account = 16
 
 -- Display: Account
 display.account = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Account: No Value"
+  end
+
   return "Account: "..value
 end
 
@@ -2519,7 +2651,18 @@ end
 dissect.account = function(buffer, offset, packet, parent)
   local length = size_of.account
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.account(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.account, range, value, display)
@@ -2550,7 +2693,7 @@ dissect.set_account_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Account: 12 Byte Ascii String
+  -- Account: 16 Byte Ascii String
   index, account = dissect.account(buffer, index, packet, parent)
 
   return index
@@ -2574,6 +2717,11 @@ size_of.symbol = 32
 
 -- Display: Symbol
 display.symbol = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Symbol: No Value"
+  end
+
   return "Symbol: "..value
 end
 
@@ -2581,7 +2729,18 @@ end
 dissect.symbol = function(buffer, offset, packet, parent)
   local length = size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.symbol, range, value, display)
@@ -2614,7 +2773,14 @@ size_of.is_last_message = 1
 
 -- Display: Is Last Message
 display.is_last_message = function(value)
-  return "Is Last Message: "..value
+  if value == 0 then
+    return "Is Last Message: False (0)"
+  end
+  if value == 1 then
+    return "Is Last Message: True (1)"
+  end
+
+  return "Is Last Message: Unknown("..value..")"
 end
 
 -- Dissect: Is Last Message
@@ -2634,7 +2800,35 @@ size_of.status = 1
 
 -- Display: Status
 display.status = function(value)
-  return "Status: "..value
+  if value == 0 then
+    return "Status: Ok (0)"
+  end
+  if value == 1 then
+    return "Status: Temporarilyunavailable (1)"
+  end
+  if value == 2 then
+    return "Status: Backpressured (2)"
+  end
+  if value == 1 then
+    return "Status: Preopen (1)"
+  end
+  if value == 2 then
+    return "Status: Preopennocancel (2)"
+  end
+  if value == 3 then
+    return "Status: Readytotrade (3)"
+  end
+  if value == 4 then
+    return "Status: Tradinghalt (4)"
+  end
+  if value == 5 then
+    return "Status: Close (5)"
+  end
+  if value == 6 then
+    return "Status: Postclose (6)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -2715,10 +2909,10 @@ dissect.instrument_info_message_fields = function(buffer, offset, packet, parent
   -- Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Signed Fixed Width Integer
+  -- Status: 1 Byte Signed Fixed Width Integer Enum with 9 values
   index, status = dissect.status(buffer, index, packet, parent)
 
-  -- Is Last Message: 1 Byte Signed Fixed Width Integer
+  -- Is Last Message: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, is_last_message = dissect.is_last_message(buffer, index, packet, parent)
 
   -- Reserved: 4 Byte Unsigned Fixed Width Integer
@@ -2780,6 +2974,49 @@ dissect.instrument_info_request_message = function(buffer, offset, packet, paren
   return dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Calculate size of: Data
+size_of.data = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.length
+
+  -- Parse runtime size of: Var Data
+  index = index + buffer(offset + index - 0, 0):bytes():tohex(false, " ")
+
+  return index
+end
+
+-- Display: Data
+display.data = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Data
+dissect.data_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Length
+  index, length = dissect.length(buffer, index, packet, parent)
+
+  -- Var Data
+  index = dissect.var_data(buffer, index, packet, parent, length)
+
+  return index
+end
+
+-- Dissect: Data
+dissect.data = function(buffer, offset, packet, parent)
+  -- Optionally add dynamic struct element to protocol tree
+  if show.data then
+    local length = size_of.data(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.data(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.data, range, display)
+  end
+
+  return dissect.data_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Server Time
 size_of.server_time = 8
 
@@ -2832,6 +3069,8 @@ size_of.pong_message = function(buffer, offset)
 
   index = index + size_of.status
 
+  index = index + size_of.data(buffer, offset + index)
+
   return index
 end
 
@@ -2853,15 +3092,18 @@ dissect.pong_message_fields = function(buffer, offset, packet, parent)
   -- Server Time: 8 Byte Signed Fixed Width Integer
   index, server_time = dissect.server_time(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Signed Fixed Width Integer
+  -- Status: 1 Byte Signed Fixed Width Integer Enum with 9 values
   index, status = dissect.status(buffer, index, packet, parent)
+
+  -- Data: Struct of 2 fields
+  index, data = dissect.data(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Pong Message
 dissect.pong_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.pong_message then
     local length = size_of.pong_message(buffer, offset)
     local range = buffer(offset, length)
@@ -2879,6 +3121,8 @@ size_of.ping_message = function(buffer, offset)
   index = index + size_of.correlation_id
 
   index = index + size_of.request_time
+
+  index = index + size_of.data(buffer, offset + index)
 
   return index
 end
@@ -2898,12 +3142,15 @@ dissect.ping_message_fields = function(buffer, offset, packet, parent)
   -- Request Time: 8 Byte Signed Fixed Width Integer
   index, request_time = dissect.request_time(buffer, index, packet, parent)
 
+  -- Data: Struct of 2 fields
+  index, data = dissect.data(buffer, index, packet, parent)
+
   return index
 end
 
 -- Dissect: Ping Message
 dissect.ping_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.ping_message then
     local length = size_of.ping_message(buffer, offset)
     local range = buffer(offset, length)
