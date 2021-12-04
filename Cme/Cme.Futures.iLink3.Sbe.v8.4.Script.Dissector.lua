@@ -16781,29 +16781,13 @@ dissect.simple_open_framing_header = function(buffer, offset, packet, parent)
   return dissect.simple_open_framing_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Simple Open Frame
-size_of.simple_open_frame = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.simple_open_framing_header(buffer, offset + index)
-
-  index = index + size_of.message_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Simple Open Frame
 display.simple_open_frame = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Simple Open Frame
-dissect.simple_open_frame_fields = function(buffer, offset, packet, parent)
+dissect.simple_open_frame_fields = function(buffer, offset, packet, parent, size_of_simple_open_frame)
   local index = offset
 
   -- Simple Open Framing Header: Struct of 2 fields
@@ -16822,16 +16806,17 @@ dissect.simple_open_frame_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Simple Open Frame
-dissect.simple_open_frame = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+dissect.simple_open_frame = function(buffer, offset, packet, parent, size_of_simple_open_frame)
+  -- Optionally add struct element to protocol tree
   if show.simple_open_frame then
-    local length = size_of.simple_open_frame(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_simple_open_frame)
     local display = display.simple_open_frame(buffer, packet, parent)
     parent = parent:add(cme_futures_ilink3_sbe_v8_4.fields.simple_open_frame, range, display)
   end
 
-  return dissect.simple_open_frame_fields(buffer, offset, packet, parent)
+  dissect.simple_open_frame_fields(buffer, offset, packet, parent, size_of_simple_open_frame)
+
+  return offset + size_of_simple_open_frame
 end
 
 -- Remaining Bytes For: Simple Open Frame
@@ -16852,7 +16837,7 @@ local simple_open_frame_bytes_remaining = function(buffer, index, available)
     return -(current - remaining)
   end
 
-  return remaining
+  return remaining, current
 end
 
 -- Dissect Packet
@@ -16865,13 +16850,13 @@ dissect.packet = function(buffer, packet, parent)
   -- Simple Open Frame: Struct of 3 fields
   while index < end_of_payload do
 
-    -- are minimum number of bytes are available?
-    local available = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
+    -- Are minimum number of bytes are available?
+    local available, size_of_simple_open_frame = simple_open_frame_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = dissect.simple_open_frame(buffer, index, packet, parent)
+      index = dissect.simple_open_frame(buffer, index, packet, parent, size_of_simple_open_frame)
     else
-      -- more bytes needed, so set packet information
+      -- More bytes needed, so set packet information
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 

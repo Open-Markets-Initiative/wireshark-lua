@@ -3849,6 +3849,27 @@ dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_messa
   return offset + size_of_sbe_message
 end
 
+-- Remaining Bytes For: Sbe Message
+local sbe_message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < size_of.message_header(buffer, index) then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index + 2, 2):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
 -- Dissect Packet
 dissect.packet = function(buffer, packet, parent)
   local index = 0
@@ -3859,11 +3880,18 @@ dissect.packet = function(buffer, packet, parent)
   -- Sbe Message: Struct of 3 fields
   while index < end_of_payload do
 
-    -- Dependency element: Message Length
-    local message_length = buffer(index + 2, 2):le_uint()
+    -- Are minimum number of bytes are available?
+    local available, size_of_sbe_message = sbe_message_bytes_remaining(buffer, index, end_of_payload)
 
-    -- Sbe Message: Struct of 3 fields
-    index = dissect.sbe_message(buffer, index, packet, parent, message_length)
+    if available > 0 then
+      index = dissect.sbe_message(buffer, index, packet, parent, size_of_sbe_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
   end
 
   return index

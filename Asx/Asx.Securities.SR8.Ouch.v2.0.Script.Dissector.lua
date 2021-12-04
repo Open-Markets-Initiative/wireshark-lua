@@ -2646,27 +2646,13 @@ dissect.packet_header = function(buffer, offset, packet, parent)
   return dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Soup Bin Tcp Packet
-size_of.soup_bin_tcp_packet = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.packet_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Soup Bin Tcp Packet
 display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Soup Bin Tcp Packet
-dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent)
+dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
   local index = offset
 
   -- Packet Header: Struct of 2 fields
@@ -2682,16 +2668,17 @@ dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Soup Bin Tcp Packet
-dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+  -- Optionally add struct element to protocol tree
   if show.soup_bin_tcp_packet then
-    local length = size_of.soup_bin_tcp_packet(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_soup_bin_tcp_packet)
     local display = display.soup_bin_tcp_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.soup_bin_tcp_packet, range, display)
   end
 
-  return dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent)
+  dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+
+  return offset + size_of_soup_bin_tcp_packet
 end
 
 -- Remaining Bytes For: Soup Bin Tcp Packet
@@ -2712,7 +2699,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
     return -(current - remaining)
   end
 
-  return remaining
+  return remaining, current
 end
 
 -- Dissect Packet
@@ -2725,13 +2712,13 @@ dissect.packet = function(buffer, packet, parent)
   -- Soup Bin Tcp Packet: Struct of 2 fields
   while index < end_of_payload do
 
-    -- are minimum number of bytes are available?
-    local available = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
+    -- Are minimum number of bytes are available?
+    local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = dissect.soup_bin_tcp_packet(buffer, index, packet, parent)
+      index = dissect.soup_bin_tcp_packet(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
     else
-      -- more bytes needed, so set packet information
+      -- More bytes needed, so set packet information
       packet.desegment_offset = index
       packet.desegment_len = -(available)
 
