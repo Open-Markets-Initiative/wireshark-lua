@@ -43,6 +43,11 @@ fairx_futures_ordersapi_sbe_v1_3.fields.fill_price = ProtoField.new("Fill Price"
 fairx_futures_ordersapi_sbe_v1_3.fields.fill_qty = ProtoField.new("Fill Qty", "fairx.futures.ordersapi.sbe.v1.3.fillqty", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.ordersapi.sbe.v1.3.filledvwap", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.flags = ProtoField.new("Flags", "fairx.futures.ordersapi.sbe.v1.3.flags", ftypes.UINT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.from_sequence_number = ProtoField.new("From Sequence Number", "fairx.futures.ordersapi.sbe.v1.3.fromsequencenumber", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "fairx.futures.ordersapi.sbe.v1.3.gapfillmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "fairx.futures.ordersapi.sbe.v1.3.gapfillpadding", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "fairx.futures.ordersapi.sbe.v1.3.heartbeatintervalseconds", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "fairx.futures.ordersapi.sbe.v1.3.heartbeatmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.ordersapi.sbe.v1.3.instrumentid", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "fairx.futures.ordersapi.sbe.v1.3.instrumentinfomessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "fairx.futures.ordersapi.sbe.v1.3.instrumentinforequestmessage", ftypes.STRING)
@@ -56,6 +61,10 @@ fairx_futures_ordersapi_sbe_v1_3.fields.last_processed_seq_no = ProtoField.new("
 fairx_futures_ordersapi_sbe_v1_3.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.ordersapi.sbe.v1.3.leg1fillprice", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.ordersapi.sbe.v1.3.leg2fillprice", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.ordersapi.sbe.v1.3.limitprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.logged_out_message = ProtoField.new("Logged Out Message", "fairx.futures.ordersapi.sbe.v1.3.loggedoutmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "fairx.futures.ordersapi.sbe.v1.3.logonconfmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.logon_message = ProtoField.new("Logon Message", "fairx.futures.ordersapi.sbe.v1.3.logonmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.logout_message = ProtoField.new("Logout Message", "fairx.futures.ordersapi.sbe.v1.3.logoutmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelorderackmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelordermessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "fairx.futures.ordersapi.sbe.v1.3.masscancelorderrejectmessage", ftypes.STRING)
@@ -65,6 +74,7 @@ fairx_futures_ordersapi_sbe_v1_3.fields.message_length = ProtoField.new("Message
 fairx_futures_ordersapi_sbe_v1_3.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.ordersapi.sbe.v1.3.newlimitprice", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.new_order_message = ProtoField.new("New Order Message", "fairx.futures.ordersapi.sbe.v1.3.newordermessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.new_quantity = ProtoField.new("New Quantity", "fairx.futures.ordersapi.sbe.v1.3.newquantity", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.new_sequence_number = ProtoField.new("New Sequence Number", "fairx.futures.ordersapi.sbe.v1.3.newsequencenumber", ftypes.UINT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.num_users_affected = ProtoField.new("Num Users Affected", "fairx.futures.ordersapi.sbe.v1.3.numusersaffected", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.only_current_session = ProtoField.new("Only Current Session", "fairx.futures.ordersapi.sbe.v1.3.onlycurrentsession", ftypes.INT8)
 fairx_futures_ordersapi_sbe_v1_3.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "fairx.futures.ordersapi.sbe.v1.3.ordercanceledmessage", ftypes.STRING)
@@ -75,18 +85,22 @@ fairx_futures_ordersapi_sbe_v1_3.fields.order_reject_message = ProtoField.new("O
 fairx_futures_ordersapi_sbe_v1_3.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "fairx.futures.ordersapi.sbe.v1.3.orderreplacedmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.packet = ProtoField.new("Packet", "fairx.futures.ordersapi.sbe.v1.3.packet", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.padding = ProtoField.new("Padding", "fairx.futures.ordersapi.sbe.v1.3.padding", ftypes.BYTES)
+fairx_futures_ordersapi_sbe_v1_3.fields.password = ProtoField.new("Password", "fairx.futures.ordersapi.sbe.v1.3.password", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.payload = ProtoField.new("Payload", "fairx.futures.ordersapi.sbe.v1.3.payload", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.ping_message = ProtoField.new("Ping Message", "fairx.futures.ordersapi.sbe.v1.3.pingmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.pong_message = ProtoField.new("Pong Message", "fairx.futures.ordersapi.sbe.v1.3.pongmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.protocol_id = ProtoField.new("Protocol Id", "fairx.futures.ordersapi.sbe.v1.3.protocolid", ftypes.UINT8)
 fairx_futures_ordersapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "fairx.futures.ordersapi.sbe.v1.3.quantity", ftypes.INT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.reason = ProtoField.new("Reason", "fairx.futures.ordersapi.sbe.v1.3.reason", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.receive_time = ProtoField.new("Receive Time", "fairx.futures.ordersapi.sbe.v1.3.receivetime", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.reject_reason = ProtoField.new("Reject Reason", "fairx.futures.ordersapi.sbe.v1.3.rejectreason", ftypes.UINT8)
 fairx_futures_ordersapi_sbe_v1_3.fields.replace_order_message = ProtoField.new("Replace Order Message", "fairx.futures.ordersapi.sbe.v1.3.replaceordermessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.request_time = ProtoField.new("Request Time", "fairx.futures.ordersapi.sbe.v1.3.requesttime", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_3.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "fairx.futures.ordersapi.sbe.v1.3.requesttradinglock", ftypes.INT8)
+fairx_futures_ordersapi_sbe_v1_3.fields.resend_request_message = ProtoField.new("Resend Request Message", "fairx.futures.ordersapi.sbe.v1.3.resendrequestmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.resent_event_count = ProtoField.new("Resent Event Count", "fairx.futures.ordersapi.sbe.v1.3.resenteventcount", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "fairx.futures.ordersapi.sbe.v1.3.reserved", ftypes.UINT32)
+fairx_futures_ordersapi_sbe_v1_3.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "fairx.futures.ordersapi.sbe.v1.3.resetseqnum", ftypes.INT8)
 fairx_futures_ordersapi_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "fairx.futures.ordersapi.sbe.v1.3.sbemessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "fairx.futures.ordersapi.sbe.v1.3.schemaid", ftypes.UINT16)
 fairx_futures_ordersapi_sbe_v1_3.fields.security_type = ProtoField.new("Security Type", "fairx.futures.ordersapi.sbe.v1.3.securitytype", ftypes.UINT8)
@@ -102,13 +116,16 @@ fairx_futures_ordersapi_sbe_v1_3.fields.status = ProtoField.new("Status", "fairx
 fairx_futures_ordersapi_sbe_v1_3.fields.stream_order_message = ProtoField.new("Stream Order Message", "fairx.futures.ordersapi.sbe.v1.3.streamordermessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "fairx.futures.ordersapi.sbe.v1.3.symbol", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "fairx.futures.ordersapi.sbe.v1.3.templateid", ftypes.UINT16)
+fairx_futures_ordersapi_sbe_v1_3.fields.test_request_message = ProtoField.new("Test Request Message", "fairx.futures.ordersapi.sbe.v1.3.testrequestmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "fairx.futures.ordersapi.sbe.v1.3.timestamp", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_3.fields.to_sequence_number = ProtoField.new("To Sequence Number", "fairx.futures.ordersapi.sbe.v1.3.tosequencenumber", ftypes.UINT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.total_filled = ProtoField.new("Total Filled", "fairx.futures.ordersapi.sbe.v1.3.totalfilled", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_3.fields.trader = ProtoField.new("Trader", "fairx.futures.ordersapi.sbe.v1.3.trader", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "fairx.futures.ordersapi.sbe.v1.3.tradinglockapplied", ftypes.INT8)
 fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingackmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "fairx.futures.ordersapi.sbe.v1.3.unlocktradingrejectmessage", ftypes.STRING)
+fairx_futures_ordersapi_sbe_v1_3.fields.username = ProtoField.new("Username", "fairx.futures.ordersapi.sbe.v1.3.username", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_3.fields.version = ProtoField.new("Version", "fairx.futures.ordersapi.sbe.v1.3.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -122,10 +139,16 @@ show.data = true
 show.event_resend_complete_message = true
 show.event_resend_reject_message = true
 show.event_resend_request_message = true
+show.gap_fill_message = true
+show.heartbeat_message = true
 show.instrument_info_message = true
 show.instrument_info_request_message = true
 show.last_exec_id_message = true
 show.last_exec_id_request_message = true
+show.logged_out_message = true
+show.logon_conf_message = true
+show.logon_message = true
+show.logout_message = true
 show.mass_cancel_order_ack_message = true
 show.mass_cancel_order_message = true
 show.mass_cancel_order_reject_message = true
@@ -140,12 +163,14 @@ show.packet = true
 show.ping_message = true
 show.pong_message = true
 show.replace_order_message = true
+show.resend_request_message = true
 show.sbe_message = true
 show.set_account_message = true
 show.set_ack_message = true
 show.set_trader_message = true
 show.spread_order_filled_message = true
 show.stream_order_message = true
+show.test_request_message = true
 show.unlock_trading_ack_message = true
 show.unlock_trading_message = true
 show.unlock_trading_reject_message = true
@@ -158,10 +183,16 @@ fairx_futures_ordersapi_sbe_v1_3.prefs.show_data = Pref.bool("Show Data", show.d
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
@@ -176,12 +207,14 @@ fairx_futures_ordersapi_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", sh
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
+fairx_futures_ordersapi_sbe_v1_3.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
 fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
@@ -216,6 +249,14 @@ function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
     show.event_resend_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_event_resend_request_message
     changed = true
   end
+  if show.gap_fill_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_gap_fill_message then
+    show.gap_fill_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_gap_fill_message
+    changed = true
+  end
+  if show.heartbeat_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_heartbeat_message then
+    show.heartbeat_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_heartbeat_message
+    changed = true
+  end
   if show.instrument_info_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message then
     show.instrument_info_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_instrument_info_message
     changed = true
@@ -230,6 +271,22 @@ function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
   end
   if show.last_exec_id_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message then
     show.last_exec_id_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_last_exec_id_request_message
+    changed = true
+  end
+  if show.logged_out_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_logged_out_message then
+    show.logged_out_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_logged_out_message
+    changed = true
+  end
+  if show.logon_conf_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_conf_message then
+    show.logon_conf_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_conf_message
+    changed = true
+  end
+  if show.logon_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_message then
+    show.logon_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_logon_message
+    changed = true
+  end
+  if show.logout_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_logout_message then
+    show.logout_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_logout_message
     changed = true
   end
   if show.mass_cancel_order_ack_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_mass_cancel_order_ack_message then
@@ -288,6 +345,10 @@ function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
     show.replace_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_replace_order_message
     changed = true
   end
+  if show.resend_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_resend_request_message then
+    show.resend_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_resend_request_message
+    changed = true
+  end
   if show.sbe_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message then
     show.sbe_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_sbe_message
     changed = true
@@ -310,6 +371,10 @@ function fairx_futures_ordersapi_sbe_v1_3.prefs_changed()
   end
   if show.stream_order_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message then
     show.stream_order_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_stream_order_message
+    changed = true
+  end
+  if show.test_request_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_test_request_message then
+    show.test_request_message = fairx_futures_ordersapi_sbe_v1_3.prefs.show_test_request_message
     changed = true
   end
   if show.unlock_trading_ack_message ~= fairx_futures_ordersapi_sbe_v1_3.prefs.show_unlock_trading_ack_message then
@@ -3161,8 +3226,591 @@ dissect.ping_message = function(buffer, offset, packet, parent)
   return dissect.ping_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Gap Fill Padding
+size_of.gap_fill_padding = 4
+
+-- Display: Gap Fill Padding
+display.gap_fill_padding = function(value)
+  return "Gap Fill Padding: "..value
+end
+
+-- Dissect: Gap Fill Padding
+dissect.gap_fill_padding = function(buffer, offset, packet, parent)
+  local length = size_of.gap_fill_padding
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.gap_fill_padding(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.gap_fill_padding, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: New Sequence Number
+size_of.new_sequence_number = 4
+
+-- Display: New Sequence Number
+display.new_sequence_number = function(value)
+  return "New Sequence Number: "..value
+end
+
+-- Dissect: New Sequence Number
+dissect.new_sequence_number = function(buffer, offset, packet, parent)
+  local length = size_of.new_sequence_number
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.new_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.new_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Gap Fill Message
+size_of.gap_fill_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.new_sequence_number
+
+  index = index + size_of.gap_fill_padding
+
+  return index
+end
+
+-- Display: Gap Fill Message
+display.gap_fill_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Gap Fill Message
+dissect.gap_fill_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, new_sequence_number = dissect.new_sequence_number(buffer, index, packet, parent)
+
+  -- Gap Fill Padding: 4 Byte Unsigned Fixed Width Integer
+  index, gap_fill_padding = dissect.gap_fill_padding(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Gap Fill Message
+dissect.gap_fill_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.gap_fill_message then
+    local length = size_of.gap_fill_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.gap_fill_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.gap_fill_message, range, display)
+  end
+
+  return dissect.gap_fill_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: To Sequence Number
+size_of.to_sequence_number = 4
+
+-- Display: To Sequence Number
+display.to_sequence_number = function(value)
+  return "To Sequence Number: "..value
+end
+
+-- Dissect: To Sequence Number
+dissect.to_sequence_number = function(buffer, offset, packet, parent)
+  local length = size_of.to_sequence_number
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.to_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.to_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: From Sequence Number
+size_of.from_sequence_number = 4
+
+-- Display: From Sequence Number
+display.from_sequence_number = function(value)
+  return "From Sequence Number: "..value
+end
+
+-- Dissect: From Sequence Number
+dissect.from_sequence_number = function(buffer, offset, packet, parent)
+  local length = size_of.from_sequence_number
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.from_sequence_number(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.from_sequence_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Resend Request Message
+size_of.resend_request_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.from_sequence_number
+
+  index = index + size_of.to_sequence_number
+
+  return index
+end
+
+-- Display: Resend Request Message
+display.resend_request_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Resend Request Message
+dissect.resend_request_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- From Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, from_sequence_number = dissect.from_sequence_number(buffer, index, packet, parent)
+
+  -- To Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  index, to_sequence_number = dissect.to_sequence_number(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Resend Request Message
+dissect.resend_request_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.resend_request_message then
+    local length = size_of.resend_request_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.resend_request_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.resend_request_message, range, display)
+  end
+
+  return dissect.resend_request_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Test Request Message
+size_of.test_request_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.correlation_id
+
+  return index
+end
+
+-- Display: Test Request Message
+display.test_request_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Test Request Message
+dissect.test_request_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Test Request Message
+dissect.test_request_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.test_request_message then
+    local length = size_of.test_request_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.test_request_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.test_request_message, range, display)
+  end
+
+  return dissect.test_request_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Heartbeat Message
+size_of.heartbeat_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.correlation_id
+
+  return index
+end
+
+-- Display: Heartbeat Message
+display.heartbeat_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Heartbeat Message
+dissect.heartbeat_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Correlation Id: 8 Byte Signed Fixed Width Integer
+  index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Heartbeat Message
+dissect.heartbeat_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.heartbeat_message then
+    local length = size_of.heartbeat_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.heartbeat_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.heartbeat_message, range, display)
+  end
+
+  return dissect.heartbeat_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reason
+size_of.reason = 64
+
+-- Display: Reason
+display.reason = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reason: No Value"
+  end
+
+  return "Reason: "..value
+end
+
+-- Dissect: Reason
+dissect.reason = function(buffer, offset, packet, parent)
+  local length = size_of.reason
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.reason(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.reason, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Logged Out Message
+size_of.logged_out_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  return index
+end
+
+-- Display: Logged Out Message
+display.logged_out_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Logged Out Message
+dissect.logged_out_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: 64 Byte Ascii String
+  index, reason = dissect.reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logged Out Message
+dissect.logged_out_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.logged_out_message then
+    local length = size_of.logged_out_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.logged_out_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.logged_out_message, range, display)
+  end
+
+  return dissect.logged_out_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Logout Message
+size_of.logout_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.reason
+
+  return index
+end
+
+-- Display: Logout Message
+display.logout_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Logout Message
+dissect.logout_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Reason: 64 Byte Ascii String
+  index, reason = dissect.reason(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logout Message
+dissect.logout_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.logout_message then
+    local length = size_of.logout_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.logout_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.logout_message, range, display)
+  end
+
+  return dissect.logout_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Heartbeat Interval Seconds
+size_of.heartbeat_interval_seconds = 4
+
+-- Display: Heartbeat Interval Seconds
+display.heartbeat_interval_seconds = function(value)
+  return "Heartbeat Interval Seconds: "..value
+end
+
+-- Dissect: Heartbeat Interval Seconds
+dissect.heartbeat_interval_seconds = function(buffer, offset, packet, parent)
+  local length = size_of.heartbeat_interval_seconds
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.heartbeat_interval_seconds(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.heartbeat_interval_seconds, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Logon Conf Message
+size_of.logon_conf_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.heartbeat_interval_seconds
+
+  return index
+end
+
+-- Display: Logon Conf Message
+display.logon_conf_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Logon Conf Message
+dissect.logon_conf_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Heartbeat Interval Seconds: 4 Byte Signed Fixed Width Integer
+  index, heartbeat_interval_seconds = dissect.heartbeat_interval_seconds(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Conf Message
+dissect.logon_conf_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.logon_conf_message then
+    local length = size_of.logon_conf_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.logon_conf_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.logon_conf_message, range, display)
+  end
+
+  return dissect.logon_conf_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Reset Seq Num
+size_of.reset_seq_num = 1
+
+-- Display: Reset Seq Num
+display.reset_seq_num = function(value)
+  if value == 0 then
+    return "Reset Seq Num: False (0)"
+  end
+  if value == 1 then
+    return "Reset Seq Num: True (1)"
+  end
+
+  return "Reset Seq Num: Unknown("..value..")"
+end
+
+-- Dissect: Reset Seq Num
+dissect.reset_seq_num = function(buffer, offset, packet, parent)
+  local length = size_of.reset_seq_num
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.reset_seq_num(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.reset_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Password
+size_of.password = 32
+
+-- Display: Password
+display.password = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
+  return "Password: "..value
+end
+
+-- Dissect: Password
+dissect.password = function(buffer, offset, packet, parent)
+  local length = size_of.password
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.password(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.password, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Username
+size_of.username = 16
+
+-- Display: Username
+display.username = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
+  return "Username: "..value
+end
+
+-- Dissect: Username
+dissect.username = function(buffer, offset, packet, parent)
+  local length = size_of.username
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.username(value, buffer, offset, packet, parent)
+
+  parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.username, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Logon Message
+size_of.logon_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.username
+
+  index = index + size_of.password
+
+  index = index + size_of.reset_seq_num
+
+  return index
+end
+
+-- Display: Logon Message
+display.logon_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Logon Message
+dissect.logon_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Username: 16 Byte Ascii String
+  index, username = dissect.username(buffer, index, packet, parent)
+
+  -- Password: 32 Byte Ascii String
+  index, password = dissect.password(buffer, index, packet, parent)
+
+  -- Reset Seq Num: 1 Byte Signed Fixed Width Integer Enum with 2 values
+  index, reset_seq_num = dissect.reset_seq_num(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Logon Message
+dissect.logon_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.logon_message then
+    local length = size_of.logon_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.logon_message(buffer, packet, parent)
+    parent = parent:add(fairx_futures_ordersapi_sbe_v1_3.fields.logon_message, range, display)
+  end
+
+  return dissect.logon_message_fields(buffer, offset, packet, parent)
+end
+
 -- Calculate runtime size of: Payload
 size_of.payload = function(buffer, offset, template_id)
+  -- Size of Logon Message
+  if template_id == 100 then
+    return size_of.logon_message(buffer, offset)
+  end
+  -- Size of Logon Conf Message
+  if template_id == 200 then
+    return size_of.logon_conf_message(buffer, offset)
+  end
+  -- Size of Logout Message
+  if template_id == 101 then
+    return size_of.logout_message(buffer, offset)
+  end
+  -- Size of Logged Out Message
+  if template_id == 201 then
+    return size_of.logged_out_message(buffer, offset)
+  end
+  -- Size of Heartbeat Message
+  if template_id == 10 then
+    return size_of.heartbeat_message(buffer, offset)
+  end
+  -- Size of Test Request Message
+  if template_id == 11 then
+    return size_of.test_request_message(buffer, offset)
+  end
+  -- Size of Resend Request Message
+  if template_id == 102 then
+    return size_of.resend_request_message(buffer, offset)
+  end
+  -- Size of Gap Fill Message
+  if template_id == 202 then
+    return size_of.gap_fill_message(buffer, offset)
+  end
   -- Size of Ping Message
   if template_id == 102 then
     return size_of.ping_message(buffer, offset)
@@ -3290,6 +3938,38 @@ end
 
 -- Dissect Branches: Payload
 dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+  -- Dissect Logon Message
+  if template_id == 100 then
+    return dissect.logon_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Logon Conf Message
+  if template_id == 200 then
+    return dissect.logon_conf_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Logout Message
+  if template_id == 101 then
+    return dissect.logout_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Logged Out Message
+  if template_id == 201 then
+    return dissect.logged_out_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Heartbeat Message
+  if template_id == 10 then
+    return dissect.heartbeat_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Test Request Message
+  if template_id == 11 then
+    return dissect.test_request_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Resend Request Message
+  if template_id == 102 then
+    return dissect.resend_request_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Gap Fill Message
+  if template_id == 202 then
+    return dissect.gap_fill_message(buffer, offset, packet, parent)
+  end
   -- Dissect Ping Message
   if template_id == 102 then
     return dissect.ping_message(buffer, offset, packet, parent)
@@ -3475,6 +4155,30 @@ size_of.template_id = 2
 
 -- Display: Template Id
 display.template_id = function(value)
+  if value == 100 then
+    return "Template Id: Logon Message (100)"
+  end
+  if value == 200 then
+    return "Template Id: Logon Conf Message (200)"
+  end
+  if value == 101 then
+    return "Template Id: Logout Message (101)"
+  end
+  if value == 201 then
+    return "Template Id: Logged Out Message (201)"
+  end
+  if value == 10 then
+    return "Template Id: Heartbeat Message (10)"
+  end
+  if value == 11 then
+    return "Template Id: Test Request Message (11)"
+  end
+  if value == 102 then
+    return "Template Id: Resend Request Message (102)"
+  end
+  if value == 202 then
+    return "Template Id: Gap Fill Message (202)"
+  end
   if value == 102 then
     return "Template Id: Ping Message (102)"
   end
@@ -3780,7 +4484,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 29 values
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 37 values
   index, template_id = dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
@@ -3820,7 +4524,7 @@ dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sb
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- Payload: Runtime Type with 29 branches
+  -- Payload: Runtime Type with 37 branches
   index = dissect.payload(buffer, index, packet, parent, template_id)
 
   -- Dependency element: Message Length
@@ -3934,7 +4638,7 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 1101 == buffer(28, 2):le_uint() then
+  if 1100 == buffer(28, 2):le_uint() then
     return true
   end
 
@@ -3943,7 +4647,7 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 3 == buffer(30, 2):le_uint() then
+  if 0 == buffer(30, 2):le_uint() then
     return true
   end
 
