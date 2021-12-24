@@ -634,6 +634,10 @@ size_of.prior_settlement_price = 8
 
 -- Display: Prior Settlement Price
 display.prior_settlement_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Prior Settlement Price: No Value"
+  end
   return "Prior Settlement Price: "..value:tonumber()/1000000000
 end
 
@@ -814,6 +818,10 @@ size_of.next_ask_implied_price = 8
 
 -- Display: Next Ask Implied Price
 display.next_ask_implied_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Next Ask Implied Price: No Value"
+  end
   return "Next Ask Implied Price: "..value:tonumber()/1000000000
 end
 
@@ -834,6 +842,10 @@ size_of.next_bid_implied_price = 8
 
 -- Display: Next Bid Implied Price
 display.next_bid_implied_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Next Bid Implied Price: No Value"
+  end
   return "Next Bid Implied Price: "..value:tonumber()/1000000000
 end
 
@@ -854,6 +866,10 @@ size_of.best_ask_implied_price = 8
 
 -- Display: Best Ask Implied Price
 display.best_ask_implied_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Best Ask Implied Price: No Value"
+  end
   return "Best Ask Implied Price: "..value:tonumber()/1000000000
 end
 
@@ -874,6 +890,10 @@ size_of.best_bid_implied_price = 8
 
 -- Display: Best Bid Implied Price
 display.best_bid_implied_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Best Bid Implied Price: No Value"
+  end
   return "Best Bid Implied Price: "..value:tonumber()/1000000000
 end
 
@@ -894,6 +914,11 @@ size_of.last_trade_time = 8
 
 -- Display: Last Trade Time
 display.last_trade_time = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Last Trade Time: No Value"
+  end
+
   return "Last Trade Time: "..value
 end
 
@@ -914,6 +939,10 @@ size_of.last_trade_price = 8
 
 -- Display: Last Trade Price
 display.last_trade_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Last Trade Price: No Value"
+  end
   return "Last Trade Price: "..value:tonumber()/1000000000
 end
 
@@ -934,6 +963,10 @@ size_of.settlement_price = 8
 
 -- Display: Settlement Price
 display.settlement_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Settlement Price: No Value"
+  end
   return "Settlement Price: "..value:tonumber()/1000000000
 end
 
@@ -954,6 +987,10 @@ size_of.vwap_price = 8
 
 -- Display: Vwap Price
 display.vwap_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Vwap Price: No Value"
+  end
   return "Vwap Price: "..value:tonumber()/1000000000
 end
 
@@ -974,6 +1011,10 @@ size_of.high_price = 8
 
 -- Display: High Price
 display.high_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "High Price: No Value"
+  end
   return "High Price: "..value:tonumber()/1000000000
 end
 
@@ -994,6 +1035,10 @@ size_of.low_price = 8
 
 -- Display: Low Price
 display.low_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Low Price: No Value"
+  end
   return "Low Price: "..value:tonumber()/1000000000
 end
 
@@ -1014,6 +1059,10 @@ size_of.close_price = 8
 
 -- Display: Close Price
 display.close_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Close Price: No Value"
+  end
   return "Close Price: "..value:tonumber()/1000000000
 end
 
@@ -1034,6 +1083,10 @@ size_of.day_open_price = 8
 
 -- Display: Day Open Price
 display.day_open_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Day Open Price: No Value"
+  end
   return "Day Open Price: "..value:tonumber()/1000000000
 end
 
@@ -1054,6 +1107,10 @@ size_of.indicative_open_price = 8
 
 -- Display: Indicative Open Price
 display.indicative_open_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Indicative Open Price: No Value"
+  end
   return "Indicative Open Price: "..value:tonumber()/1000000000
 end
 
@@ -1181,43 +1238,43 @@ dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Trade Volume: 4 Byte Signed Fixed Width Integer
   index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
 
-  -- Indicative Open Price: 8 Byte Signed Fixed Width Integer
+  -- Indicative Open Price: 8 Byte Signed Fixed Width Integer Nullable
   index, indicative_open_price = dissect.indicative_open_price(buffer, index, packet, parent)
 
-  -- Day Open Price: 8 Byte Signed Fixed Width Integer
+  -- Day Open Price: 8 Byte Signed Fixed Width Integer Nullable
   index, day_open_price = dissect.day_open_price(buffer, index, packet, parent)
 
-  -- Close Price: 8 Byte Signed Fixed Width Integer
+  -- Close Price: 8 Byte Signed Fixed Width Integer Nullable
   index, close_price = dissect.close_price(buffer, index, packet, parent)
 
-  -- Low Price: 8 Byte Signed Fixed Width Integer
+  -- Low Price: 8 Byte Signed Fixed Width Integer Nullable
   index, low_price = dissect.low_price(buffer, index, packet, parent)
 
-  -- High Price: 8 Byte Signed Fixed Width Integer
+  -- High Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_price = dissect.high_price(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
   index, vwap_price = dissect.vwap_price(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
-  -- Last Trade Price: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Price: 8 Byte Signed Fixed Width Integer Nullable
   index, last_trade_price = dissect.last_trade_price(buffer, index, packet, parent)
 
-  -- Last Trade Time: 8 Byte Signed Fixed Width Integer
+  -- Last Trade Time: 8 Byte Signed Fixed Width Integer Nullable
   index, last_trade_time = dissect.last_trade_time(buffer, index, packet, parent)
 
-  -- Best Bid Implied Price: 8 Byte Signed Fixed Width Integer
+  -- Best Bid Implied Price: 8 Byte Signed Fixed Width Integer Nullable
   index, best_bid_implied_price = dissect.best_bid_implied_price(buffer, index, packet, parent)
 
-  -- Best Ask Implied Price: 8 Byte Signed Fixed Width Integer
+  -- Best Ask Implied Price: 8 Byte Signed Fixed Width Integer Nullable
   index, best_ask_implied_price = dissect.best_ask_implied_price(buffer, index, packet, parent)
 
-  -- Next Bid Implied Price: 8 Byte Signed Fixed Width Integer
+  -- Next Bid Implied Price: 8 Byte Signed Fixed Width Integer Nullable
   index, next_bid_implied_price = dissect.next_bid_implied_price(buffer, index, packet, parent)
 
-  -- Next Ask Implied Price: 8 Byte Signed Fixed Width Integer
+  -- Next Ask Implied Price: 8 Byte Signed Fixed Width Integer Nullable
   index, next_ask_implied_price = dissect.next_ask_implied_price(buffer, index, packet, parent)
 
   -- Limit Down Price: 8 Byte Signed Fixed Width Integer
@@ -1244,7 +1301,7 @@ dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Next Ask Implied Qty: 4 Byte Signed Fixed Width Integer
   index, next_ask_implied_qty = dissect.next_ask_implied_qty(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
   -- Definition Flags: Struct of 4 fields
@@ -2591,7 +2648,7 @@ dissect.trade_session_volume_message_fields = function(buffer, offset, packet, p
   -- Instr Header: Struct of 7 fields
   index, instr_header = dissect.instr_header(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
   index, vwap_price = dissect.vwap_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Signed Fixed Width Integer
@@ -2717,6 +2774,11 @@ size_of.sell_order_id = 8
 
 -- Display: Sell Order Id
 display.sell_order_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Sell Order Id: No Value"
+  end
+
   return "Sell Order Id: "..value
 end
 
@@ -2737,6 +2799,11 @@ size_of.buy_order_id = 8
 
 -- Display: Buy Order Id
 display.buy_order_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Buy Order Id: No Value"
+  end
+
   return "Buy Order Id: "..value
 end
 
@@ -2802,10 +2869,10 @@ dissect.trade_bust_message_fields = function(buffer, offset, packet, parent)
   -- Match Id: 8 Byte Signed Fixed Width Integer
   index, match_id = dissect.match_id(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
 
   return index
@@ -2986,10 +3053,10 @@ dissect.spread_trade_amend_message_fields = function(buffer, offset, packet, par
   -- Match Id: 8 Byte Signed Fixed Width Integer
   index, match_id = dissect.match_id(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
 
   -- Old Price: 8 Byte Signed Fixed Width Integer
@@ -3060,10 +3127,10 @@ dissect.trade_amend_message_fields = function(buffer, offset, packet, parent)
   -- Match Id: 8 Byte Signed Fixed Width Integer
   index, match_id = dissect.match_id(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
 
   -- Old Price: 8 Byte Signed Fixed Width Integer
@@ -3122,10 +3189,10 @@ dissect.trade_message_fields = function(buffer, offset, packet, parent)
   -- Match Id: 8 Byte Signed Fixed Width Integer
   index, match_id = dissect.match_id(buffer, index, packet, parent)
 
-  -- Buy Order Id: 8 Byte Signed Fixed Width Integer
+  -- Buy Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
 
-  -- Sell Order Id: 8 Byte Signed Fixed Width Integer
+  -- Sell Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
@@ -3247,7 +3314,7 @@ dissect.trade_summary_message_fields = function(buffer, offset, packet, parent)
   -- Aggressor Receive Time: 8 Byte Signed Fixed Width Integer
   index, aggressor_receive_time = dissect.aggressor_receive_time(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
   index, vwap_price = dissect.vwap_price(buffer, index, packet, parent)
 
   -- Deepest Price: 8 Byte Signed Fixed Width Integer
@@ -3317,6 +3384,10 @@ size_of.next_price = 8
 
 -- Display: Next Price
 display.next_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Next Price: No Value"
+  end
   return "Next Price: "..value:tonumber()/1000000000
 end
 
@@ -3337,6 +3408,10 @@ size_of.best_price = 8
 
 -- Display: Best Price
 display.best_price = function(value)
+  -- Check if field has value
+  if value == 9223372036854775807 then
+    return "Best Price: No Value"
+  end
   return "Best Price: "..value:tonumber()/1000000000
 end
 
@@ -3381,10 +3456,10 @@ dissect.implied_order_update_message_fields = function(buffer, offset, packet, p
   -- Instr Header: Struct of 7 fields
   index, instr_header = dissect.instr_header(buffer, index, packet, parent)
 
-  -- Best Price: 8 Byte Signed Fixed Width Integer
+  -- Best Price: 8 Byte Signed Fixed Width Integer Nullable
   index, best_price = dissect.best_price(buffer, index, packet, parent)
 
-  -- Next Price: 8 Byte Signed Fixed Width Integer
+  -- Next Price: 8 Byte Signed Fixed Width Integer Nullable
   index, next_price = dissect.next_price(buffer, index, packet, parent)
 
   -- Best Qty: 4 Byte Signed Fixed Width Integer
@@ -3640,10 +3715,10 @@ dissect.option_instrument_definition_message_fields = function(buffer, offset, p
   -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
   index, last_trading_session_date = dissect.last_trading_session_date(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
   -- Product Id: 4 Byte Signed Fixed Width Integer
@@ -3765,10 +3840,10 @@ dissect.spread_instrument_definition_message_fields = function(buffer, offset, p
   -- Contract Size: 4 Byte Signed Fixed Width Integer
   index, contract_size = dissect.contract_size(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
   -- Limit Down Price: 8 Byte Signed Fixed Width Integer
@@ -3896,10 +3971,10 @@ dissect.outright_instrument_definition_message_fields = function(buffer, offset,
   -- Contract Size: 4 Byte Signed Fixed Width Integer
   index, contract_size = dissect.contract_size(buffer, index, packet, parent)
 
-  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
-  -- Settlement Price: 8 Byte Signed Fixed Width Integer
+  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
 
   -- Limit Down Price: 8 Byte Signed Fixed Width Integer

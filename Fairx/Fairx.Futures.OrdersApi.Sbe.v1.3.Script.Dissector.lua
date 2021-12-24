@@ -1046,6 +1046,11 @@ size_of.order_id = 8
 
 -- Display: Order Id
 display.order_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -1182,7 +1187,7 @@ dissect.spread_order_filled_message_fields = function(buffer, offset, packet, pa
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Filled Vwap: 8 Byte Signed Fixed Width Integer
@@ -1285,7 +1290,7 @@ dissect.order_filled_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Filled Vwap: 8 Byte Signed Fixed Width Integer
@@ -1900,7 +1905,7 @@ dissect.cancel_order_reject_message_fields = function(buffer, offset, packet, pa
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
@@ -2039,7 +2044,7 @@ dissect.order_canceled_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Receive Time: 8 Byte Signed Fixed Width Integer
@@ -2163,7 +2168,7 @@ dissect.order_replaced_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Receive Time: 8 Byte Signed Fixed Width Integer
@@ -2231,7 +2236,7 @@ dissect.order_reject_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
@@ -2281,6 +2286,11 @@ size_of.last_processed_fill_id = 8
 
 -- Display: Last Processed Fill Id
 display.last_processed_fill_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Last Processed Fill Id: No Value"
+  end
+
   return "Last Processed Fill Id: "..value
 end
 
@@ -2332,7 +2342,7 @@ dissect.stream_order_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Last Processed Fill Id: 8 Byte Signed Fixed Width Integer
+  -- Last Processed Fill Id: 8 Byte Signed Fixed Width Integer Nullable
   index, last_processed_fill_id = dissect.last_processed_fill_id(buffer, index, packet, parent)
 
   -- Limit Price: 8 Byte Signed Fixed Width Integer
@@ -2368,6 +2378,11 @@ size_of.new_quantity = 4
 
 -- Display: New Quantity
 display.new_quantity = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "New Quantity: No Value"
+  end
+
   return "New Quantity: "..value
 end
 
@@ -2388,6 +2403,11 @@ size_of.new_limit_price = 8
 
 -- Display: New Limit Price
 display.new_limit_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "New Limit Price: No Value"
+  end
+
   return "New Limit Price: "..value
 end
 
@@ -2435,10 +2455,10 @@ dissect.replace_order_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- New Limit Price: 8 Byte Signed Fixed Width Integer
+  -- New Limit Price: 8 Byte Signed Fixed Width Integer Nullable
   index, new_limit_price = dissect.new_limit_price(buffer, index, packet, parent)
 
-  -- New Quantity: 4 Byte Signed Fixed Width Integer
+  -- New Quantity: 4 Byte Signed Fixed Width Integer Nullable
   index, new_quantity = dissect.new_quantity(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Signed Fixed Width Integer
@@ -2500,7 +2520,7 @@ dissect.order_entered_message_fields = function(buffer, offset, packet, parent)
   -- Correlation Id: 8 Byte Signed Fixed Width Integer
   index, correlation_id = dissect.correlation_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Signed Fixed Width Integer
+  -- Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Receive Time: 8 Byte Signed Fixed Width Integer

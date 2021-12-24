@@ -1188,6 +1188,11 @@ size_of.rejected_message_id = 2
 
 -- Display: Rejected Message Id
 display.rejected_message_id = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Rejected Message Id: No Value"
+  end
+
   return "Rejected Message Id: "..value
 end
 
@@ -1208,6 +1213,11 @@ size_of.rejected_message = 1
 
 -- Display: Rejected Message
 display.rejected_message = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Rejected Message: No Value"
+  end
+
   return "Rejected Message: "..value
 end
 
@@ -1350,6 +1360,9 @@ display.emm = function(value)
   if value == 99 then
     return "Emm: Not Applicable (99)"
   end
+  if value == 255 then
+    return "Emm: No Value"
+  end
 
   return "Emm: Unknown("..value..")"
 end
@@ -1371,6 +1384,11 @@ size_of.symbol_index = 4
 
 -- Display: Symbol Index
 display.symbol_index = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Symbol Index: No Value"
+  end
+
   return "Symbol Index: "..value
 end
 
@@ -1391,6 +1409,11 @@ size_of.client_order_id = 8
 
 -- Display: Client Order Id
 display.client_order_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Client Order Id: No Value"
+  end
+
   return "Client Order Id: "..value
 end
 
@@ -1503,19 +1526,19 @@ dissect.declaration_entry_reject_message_fields = function(buffer, offset, packe
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String
+  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
   index, mi_cof_secondary_listing = dissect.mi_cof_secondary_listing(buffer, index, packet, parent)
 
   -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -1524,10 +1547,10 @@ dissect.declaration_entry_reject_message_fields = function(buffer, offset, packe
   -- Error Code: 2 Byte Unsigned Fixed Width Integer
   index, error_code = dissect.error_code(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer
+  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message = dissect.rejected_message(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer
+  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message_id = dissect.rejected_message_id(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -1554,6 +1577,11 @@ size_of.bypass_indicator = 1
 
 -- Display: Bypass Indicator
 display.bypass_indicator = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Bypass Indicator: No Value"
+  end
+
   return "Bypass Indicator: "..value
 end
 
@@ -1574,6 +1602,11 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Price: No Value"
+  end
+
   return "Price: "..value
 end
 
@@ -1622,22 +1655,22 @@ dissect.fund_price_input_ack_message_fields = function(buffer, offset, packet, p
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, bypass_indicator = dissect.bypass_indicator(buffer, index, packet, parent)
 
   return index
@@ -1661,6 +1694,11 @@ size_of.sending_time = 8
 
 -- Display: Sending Time
 display.sending_time = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Sending Time: No Value"
+  end
+
   return "Sending Time: "..value
 end
 
@@ -1731,25 +1769,25 @@ dissect.fund_price_input_message_fields = function(buffer, offset, packet, paren
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Bypass Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, bypass_indicator = dissect.bypass_indicator(buffer, index, packet, parent)
 
   return index
@@ -1803,6 +1841,11 @@ size_of.declaration_id = 8
 
 -- Display: Declaration Id
 display.declaration_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Declaration Id: No Value"
+  end
+
   return "Declaration Id: "..value
 end
 
@@ -1853,22 +1896,22 @@ dissect.declaration_cancel_and_refusal_message_fields = function(buffer, offset,
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer
+  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, declaration_id = dissect.declaration_id(buffer, index, packet, parent)
 
   -- Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -1950,6 +1993,9 @@ display.ccpid = function(value)
   if value == 6 then
     return "Ccpid: Euro Ccp (6)"
   end
+  if value == 255 then
+    return "Ccpid: No Value"
+  end
 
   return "Ccpid: Unknown("..value..")"
 end
@@ -1971,6 +2017,11 @@ size_of.miscellaneous_fee_amount = 8
 
 -- Display: Miscellaneous Fee Amount
 display.miscellaneous_fee_amount = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Miscellaneous Fee Amount: No Value"
+  end
+
   return "Miscellaneous Fee Amount: "..value
 end
 
@@ -1991,6 +2042,11 @@ size_of.previous_day_indicator = 1
 
 -- Display: Previous Day Indicator
 display.previous_day_indicator = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Previous Day Indicator: No Value"
+  end
+
   return "Previous Day Indicator: "..value
 end
 
@@ -2240,6 +2296,11 @@ size_of.gross_trade_amount = 8
 
 -- Display: Gross Trade Amount
 display.gross_trade_amount = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Gross Trade Amount: No Value"
+  end
+
   return "Gross Trade Amount: "..value
 end
 
@@ -2260,6 +2321,11 @@ size_of.end_time_vwap = 4
 
 -- Display: End Time Vwap
 display.end_time_vwap = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "End Time Vwap: No Value"
+  end
+
   return "End Time Vwap: "..value
 end
 
@@ -2280,6 +2346,11 @@ size_of.start_time_vwap = 4
 
 -- Display: Start Time Vwap
 display.start_time_vwap = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Start Time Vwap: No Value"
+  end
+
   return "Start Time Vwap: "..value
 end
 
@@ -2384,6 +2455,9 @@ display.transaction_price_type = function(value)
   if value == 4 then
     return "Transaction Price Type: Dark Trade (4)"
   end
+  if value == 255 then
+    return "Transaction Price Type: No Value"
+  end
 
   return "Transaction Price Type: Unknown("..value..")"
 end
@@ -2411,6 +2485,9 @@ display.guarantee_flag = function(value)
   if value == 2 then
     return "Guarantee Flag: Clearedand Guaranteed (2)"
   end
+  if value == 255 then
+    return "Guarantee Flag: No Value"
+  end
 
   return "Guarantee Flag: Unknown("..value..")"
 end
@@ -2432,6 +2509,11 @@ size_of.settlement_period = 1
 
 -- Display: Settlement Period
 display.settlement_period = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Settlement Period: No Value"
+  end
+
   return "Settlement Period: "..value
 end
 
@@ -2452,6 +2534,11 @@ size_of.settlement_flag = 1
 
 -- Display: Settlement Flag
 display.settlement_flag = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Settlement Flag: No Value"
+  end
+
   return "Settlement Flag: "..value
 end
 
@@ -2480,6 +2567,9 @@ display.trading_capacity_cross = function(value)
   end
   if value == 3 then
     return "Trading Capacity Cross: Anyothercapacity (3)"
+  end
+  if value == 255 then
+    return "Trading Capacity Cross: No Value"
   end
 
   return "Trading Capacity Cross: Unknown("..value..")"
@@ -2510,6 +2600,9 @@ display.trading_capacity = function(value)
   end
   if value == 3 then
     return "Trading Capacity: Anyothercapacity (3)"
+  end
+  if value == 255 then
+    return "Trading Capacity: No Value"
   end
 
   return "Trading Capacity: Unknown("..value..")"
@@ -2556,6 +2649,9 @@ display.account_type_cross = function(value)
   if value == 15 then
     return "Account Type Cross: Ceres Client (15)"
   end
+  if value == 255 then
+    return "Account Type Cross: No Value"
+  end
 
   return "Account Type Cross: Unknown("..value..")"
 end
@@ -2600,6 +2696,9 @@ display.account_type = function(value)
   end
   if value == 15 then
     return "Account Type: Ceres Client (15)"
+  end
+  if value == 255 then
+    return "Account Type: No Value"
   end
 
   return "Account Type: Unknown("..value..")"
@@ -2694,6 +2793,11 @@ size_of.trade_time = 8
 
 -- Display: Trade Time
 display.trade_time = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Trade Time: No Value"
+  end
+
   return "Trade Time: "..value
 end
 
@@ -2732,6 +2836,9 @@ display.pre_matching_type = function(value)
   if value == 6 then
     return "Pre Matching Type: Prematchedforthefifthnextfixing (6)"
   end
+  if value == 255 then
+    return "Pre Matching Type: No Value"
+  end
 
   return "Pre Matching Type: Unknown("..value..")"
 end
@@ -2753,6 +2860,11 @@ size_of.quantity = 8
 
 -- Display: Quantity
 display.quantity = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Quantity: No Value"
+  end
+
   return "Quantity: "..value
 end
 
@@ -2781,6 +2893,9 @@ display.side = function(value)
   end
   if value == 3 then
     return "Side: Cross (3)"
+  end
+  if value == 255 then
+    return "Side: No Value"
   end
 
   return "Side: Unknown("..value..")"
@@ -2993,13 +3108,13 @@ dissect.declaration_notice_message_fields = function(buffer, offset, packet, par
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer
+  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, declaration_id = dissect.declaration_id(buffer, index, packet, parent)
 
   -- Declaration Status: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
@@ -3008,100 +3123,100 @@ dissect.declaration_notice_message_fields = function(buffer, offset, packet, par
   -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, operation_type = dissect.operation_type(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Entering Counterparty: 8 Byte Ascii String
+  -- Entering Counterparty: 8 Byte Ascii String Nullable
   index, entering_counterparty = dissect.entering_counterparty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, pre_matching_type = dissect.pre_matching_type(buffer, index, packet, parent)
 
-  -- Trade Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time = dissect.trade_time(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String
+  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
   index, mi_cof_secondary_listing = dissect.mi_cof_secondary_listing(buffer, index, packet, parent)
 
-  -- Centralisation Date: 10 Byte Ascii String
+  -- Centralisation Date: 10 Byte Ascii String Nullable
   index, centralisation_date = dissect.centralisation_date(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type_cross = dissect.account_type_cross(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity_cross = dissect.trading_capacity_cross(buffer, index, packet, parent)
 
-  -- Settlement Flag: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Flag: 1 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_flag = dissect.settlement_flag(buffer, index, packet, parent)
 
-  -- Settlement Period: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Period: 1 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_period = dissect.settlement_period(buffer, index, packet, parent)
 
-  -- Guarantee Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Guarantee Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, guarantee_flag = dissect.guarantee_flag(buffer, index, packet, parent)
 
-  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, transaction_price_type = dissect.transaction_price_type(buffer, index, packet, parent)
 
-  -- Principal Code: 8 Byte Ascii String
+  -- Principal Code: 8 Byte Ascii String Nullable
   index, principal_code = dissect.principal_code(buffer, index, packet, parent)
 
-  -- Principal Code Cross: 8 Byte Ascii String
+  -- Principal Code Cross: 8 Byte Ascii String Nullable
   index, principal_code_cross = dissect.principal_code_cross(buffer, index, packet, parent)
 
-  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer
+  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
   index, start_time_vwap = dissect.start_time_vwap(buffer, index, packet, parent)
 
-  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer
+  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
   index, end_time_vwap = dissect.end_time_vwap(buffer, index, packet, parent)
 
-  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer
+  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, gross_trade_amount = dissect.gross_trade_amount(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Account Number Cross: 12 Byte Ascii String
+  -- Account Number Cross: 12 Byte Ascii String Nullable
   index, account_number_cross = dissect.account_number_cross(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
-  -- Free Text Cross: 18 Byte Ascii String
+  -- Free Text Cross: 18 Byte Ascii String Nullable
   index, free_text_cross = dissect.free_text_cross(buffer, index, packet, parent)
 
   -- Waiver Indicator: Struct of 8 fields
   index, waiver_indicator = dissect.waiver_indicator(buffer, index, packet, parent)
 
-  -- Previous Day Indicator: 1 Byte Unsigned Fixed Width Integer
+  -- Previous Day Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
   index, previous_day_indicator = dissect.previous_day_indicator(buffer, index, packet, parent)
 
-  -- Miscellaneous Fee Amount: 8 Byte Signed Fixed Width Integer
+  -- Miscellaneous Fee Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, miscellaneous_fee_amount = dissect.miscellaneous_fee_amount(buffer, index, packet, parent)
 
-  -- Ccpid: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Ccpid: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, ccpid = dissect.ccpid(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -3167,28 +3282,28 @@ dissect.declaration_entry_ack_message_fields = function(buffer, offset, packet, 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer
+  -- Declaration Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, declaration_id = dissect.declaration_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String
+  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
   index, mi_cof_secondary_listing = dissect.mi_cof_secondary_listing(buffer, index, packet, parent)
 
   -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, operation_type = dissect.operation_type(buffer, index, packet, parent)
 
-  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
+  -- Pre Matching Type: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
   index, pre_matching_type = dissect.pre_matching_type(buffer, index, packet, parent)
 
   -- Waiver Indicator: Struct of 8 fields
@@ -3218,6 +3333,11 @@ size_of.client_identification_short_code_cross = 4
 
 -- Display: Client Identification Short Code Cross
 display.client_identification_short_code_cross = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Client Identification Short Code Cross: No Value"
+  end
+
   return "Client Identification Short Code Cross: "..value
 end
 
@@ -3238,6 +3358,11 @@ size_of.investment_decision_w_firm_short_code = 4
 
 -- Display: Investment Decision W Firm Short Code
 display.investment_decision_w_firm_short_code = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Investment Decision W Firm Short Code: No Value"
+  end
+
   return "Investment Decision W Firm Short Code: "..value
 end
 
@@ -3332,6 +3457,11 @@ size_of.client_identification_shortcode = 4
 
 -- Display: Client Identification Shortcode
 display.client_identification_shortcode = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Client Identification Shortcode: No Value"
+  end
+
   return "Client Identification Shortcode: "..value
 end
 
@@ -3352,6 +3482,11 @@ size_of.execution_within_firm_short_code = 4
 
 -- Display: Execution Within Firm Short Code
 display.execution_within_firm_short_code = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Execution Within Firm Short Code: No Value"
+  end
+
   return "Execution Within Firm Short Code: "..value
 end
 
@@ -3460,109 +3595,109 @@ dissect.declaration_entry_message_fields = function(buffer, offset, packet, pare
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
   -- Operation Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, operation_type = dissect.operation_type(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Entering Counterparty: 8 Byte Ascii String
+  -- Entering Counterparty: 8 Byte Ascii String Nullable
   index, entering_counterparty = dissect.entering_counterparty(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Mi Cof Secondary Listing: 4 Byte Ascii String
+  -- Mi Cof Secondary Listing: 4 Byte Ascii String Nullable
   index, mi_cof_secondary_listing = dissect.mi_cof_secondary_listing(buffer, index, packet, parent)
 
-  -- Centralisation Date: 10 Byte Ascii String
+  -- Centralisation Date: 10 Byte Ascii String Nullable
   index, centralisation_date = dissect.centralisation_date(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type_cross = dissect.account_type_cross(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity Cross: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity_cross = dissect.trading_capacity_cross(buffer, index, packet, parent)
 
-  -- Settlement Period: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Period: 1 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_period = dissect.settlement_period(buffer, index, packet, parent)
 
-  -- Settlement Flag: 1 Byte Unsigned Fixed Width Integer
+  -- Settlement Flag: 1 Byte Unsigned Fixed Width Integer Nullable
   index, settlement_flag = dissect.settlement_flag(buffer, index, packet, parent)
 
-  -- Guarantee Flag: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Guarantee Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, guarantee_flag = dissect.guarantee_flag(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
   index, mi_fid_indicators = dissect.mi_fid_indicators(buffer, index, packet, parent)
 
-  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Transaction Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, transaction_price_type = dissect.transaction_price_type(buffer, index, packet, parent)
 
-  -- Principal Code: 8 Byte Ascii String
+  -- Principal Code: 8 Byte Ascii String Nullable
   index, principal_code = dissect.principal_code(buffer, index, packet, parent)
 
-  -- Principal Code Cross: 8 Byte Ascii String
+  -- Principal Code Cross: 8 Byte Ascii String Nullable
   index, principal_code_cross = dissect.principal_code_cross(buffer, index, packet, parent)
 
-  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer
+  -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
   index, start_time_vwap = dissect.start_time_vwap(buffer, index, packet, parent)
 
-  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer
+  -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
   index, end_time_vwap = dissect.end_time_vwap(buffer, index, packet, parent)
 
-  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer
+  -- Gross Trade Amount: 8 Byte Signed Fixed Width Integer Nullable
   index, gross_trade_amount = dissect.gross_trade_amount(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Account Number Cross: 12 Byte Ascii String
+  -- Account Number Cross: 12 Byte Ascii String Nullable
   index, account_number_cross = dissect.account_number_cross(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
-  -- Free Text Cross: 18 Byte Ascii String
+  -- Free Text Cross: 18 Byte Ascii String Nullable
   index, free_text_cross = dissect.free_text_cross(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, investment_decision_w_firm_short_code = dissect.investment_decision_w_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Short Code Cross: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Short Code Cross: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_short_code_cross = dissect.client_identification_short_code_cross(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -3589,6 +3724,11 @@ size_of.rejected_client_message_sequence_number = 4
 
 -- Display: Rejected Client Message Sequence Number
 display.rejected_client_message_sequence_number = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Rejected Client Message Sequence Number: No Value"
+  end
+
   return "Rejected Client Message Sequence Number: "..value
 end
 
@@ -3609,6 +3749,11 @@ size_of.oegout_to_member = 8
 
 -- Display: Oegout To Member
 display.oegout_to_member = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Oegout To Member: No Value"
+  end
+
   return "Oegout To Member: "..value
 end
 
@@ -3650,19 +3795,19 @@ end
 dissect.technical_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Rejected Client Message Sequence Number: 4 Byte Unsigned Fixed Width Integer
+  -- Rejected Client Message Sequence Number: 4 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_client_message_sequence_number = dissect.rejected_client_message_sequence_number(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer
+  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message = dissect.rejected_message(buffer, index, packet, parent)
 
   -- Error Code: 2 Byte Unsigned Fixed Width Integer
   index, error_code = dissect.error_code(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer
+  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message_id = dissect.rejected_message_id(buffer, index, packet, parent)
 
   return index
@@ -3762,6 +3907,11 @@ size_of.last_msg_seq_num = 4
 
 -- Display: Last Msg Seq Num
 display.last_msg_seq_num = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Last Msg Seq Num: No Value"
+  end
+
   return "Last Msg Seq Num: "..value
 end
 
@@ -3908,7 +4058,7 @@ dissect.logon_reject_message_fields = function(buffer, offset, packet, parent)
   -- Last Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, last_cl_msg_seq_num = dissect.last_cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, last_msg_seq_num = dissect.last_msg_seq_num(buffer, index, packet, parent)
 
   return index
@@ -4030,6 +4180,11 @@ size_of.oe_partition_id = 2
 
 -- Display: Oe Partition Id
 display.oe_partition_id = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Oe Partition Id: No Value"
+  end
+
   return "Oe Partition Id: "..value
 end
 
@@ -4050,6 +4205,11 @@ size_of.logical_access_id = 4
 
 -- Display: Logical Access Id
 display.logical_access_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Logical Access Id: No Value"
+  end
+
   return "Logical Access Id: "..value
 end
 
@@ -4091,16 +4251,16 @@ end
 dissect.logon_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Last Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
+  -- Last Msg Seq Num: 4 Byte Unsigned Fixed Width Integer Nullable
   index, last_msg_seq_num = dissect.last_msg_seq_num(buffer, index, packet, parent)
 
-  -- Software Provider: 8 Byte Ascii String
+  -- Software Provider: 8 Byte Ascii String Nullable
   index, software_provider = dissect.software_provider(buffer, index, packet, parent)
 
   -- Queueing Indicator: 1 Byte Unsigned Fixed Width Integer
@@ -4127,6 +4287,11 @@ size_of.execution_id = 4
 
 -- Display: Execution Id
 display.execution_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Execution Id: No Value"
+  end
+
   return "Execution Id: "..value
 end
 
@@ -4153,6 +4318,9 @@ display.leg_side = function(value)
   if value == 2 then
     return "Leg Side: Sell (2)"
   end
+  if value == 255 then
+    return "Leg Side: No Value"
+  end
 
   return "Leg Side: Unknown("..value..")"
 end
@@ -4174,6 +4342,11 @@ size_of.leg_instrument_id = 4
 
 -- Display: Leg Instrument Id
 display.leg_instrument_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Leg Instrument Id: No Value"
+  end
+
   return "Leg Instrument Id: "..value
 end
 
@@ -4194,6 +4367,11 @@ size_of.leg_last_qty = 8
 
 -- Display: Leg Last Qty
 display.leg_last_qty = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Leg Last Qty: No Value"
+  end
+
   return "Leg Last Qty: "..value
 end
 
@@ -4214,6 +4392,11 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Leg Last Px: No Value"
+  end
+
   return "Leg Last Px: "..value
 end
 
@@ -4255,19 +4438,19 @@ end
 dissect.strategy_fields_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Leg Last Px: 8 Byte Signed Fixed Width Integer
+  -- Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_last_px = dissect.leg_last_px(buffer, index, packet, parent)
 
-  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Last Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_last_qty = dissect.leg_last_qty(buffer, index, packet, parent)
 
-  -- Leg Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Instrument Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, leg_instrument_id = dissect.leg_instrument_id(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Execution Id: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   return index
@@ -4360,6 +4543,9 @@ display.clearing_instruction = function(value)
   end
   if value == 4010 then
     return "Clearing Instruction: Giveuptosinglefirm (4010)"
+  end
+  if value == 65535 then
+    return "Clearing Instruction: No Value"
   end
 
   return "Clearing Instruction: Unknown("..value..")"
@@ -4499,6 +4685,9 @@ display.technical_origin = function(value)
   if value == 5 then
     return "Technical Origin: Crossmargining (5)"
   end
+  if value == 255 then
+    return "Technical Origin: No Value"
+  end
 
   return "Technical Origin: Unknown("..value..")"
 end
@@ -4583,28 +4772,28 @@ end
 dissect.clearing_fields_x_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String
+  -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = dissect.long_client_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
   return index
@@ -4677,6 +4866,11 @@ size_of.non_executing_broker_short_code = 4
 
 -- Display: Non Executing Broker Short Code
 display.non_executing_broker_short_code = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Non Executing Broker Short Code: No Value"
+  end
+
   return "Non Executing Broker Short Code: "..value
 end
 
@@ -4714,13 +4908,13 @@ end
 dissect.mi_fi_d_shortcodes_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, investment_decision_w_firm_short_code = dissect.investment_decision_w_firm_short_code(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer
+  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, non_executing_broker_short_code = dissect.non_executing_broker_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
   return index
@@ -4806,7 +5000,7 @@ end
 dissect.free_text_section_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
   return index
@@ -4888,6 +5082,9 @@ display.message_price_notation = function(value)
   if value == 3 then
     return "Message Price Notation: Spread (3)"
   end
+  if value == 255 then
+    return "Message Price Notation: No Value"
+  end
 
   return "Message Price Notation: Unknown("..value..")"
 end
@@ -4936,6 +5133,11 @@ size_of.non_executing_client_id = 2
 
 -- Display: Non Executing Client Id
 display.non_executing_client_id = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Non Executing Client Id: No Value"
+  end
+
   return "Non Executing Client Id: "..value
 end
 
@@ -4956,6 +5158,11 @@ size_of.order_qty = 8
 
 -- Display: Order Qty
 display.order_qty = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Order Qty: No Value"
+  end
+
   return "Order Qty: "..value
 end
 
@@ -4976,6 +5183,11 @@ size_of.order_px = 8
 
 -- Display: Order Px
 display.order_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Order Px: No Value"
+  end
+
   return "Order Px: "..value
 end
 
@@ -5056,6 +5268,9 @@ display.order_side = function(value)
   if value == 3 then
     return "Order Side: Cross (3)"
   end
+  if value == 255 then
+    return "Order Side: No Value"
+  end
 
   return "Order Side: Unknown("..value..")"
 end
@@ -5129,46 +5344,46 @@ dissect.cross_order_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, order_type = dissect.order_type(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer
+  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
   index, order_px = dissect.order_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
   index, mi_fid_indicators = dissect.mi_fid_indicators(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer
+  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, non_executing_client_id = dissect.non_executing_client_id(buffer, index, packet, parent)
 
   -- Order Actor Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, order_actor_type = dissect.order_actor_type(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, message_price_notation = dissect.message_price_notation(buffer, index, packet, parent)
 
   -- Free Text Section Groups: Struct of 2 fields
@@ -5204,6 +5419,11 @@ size_of.order_id = 8
 
 -- Display: Order Id
 display.order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Order Id: No Value"
+  end
+
   return "Order Id: "..value
 end
 
@@ -5258,28 +5478,28 @@ dissect.request_for_implied_execution_message_fields = function(buffer, offset, 
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
@@ -5329,22 +5549,22 @@ end
 dissect.wholesale_ack_clearing_rep_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, investment_decision_w_firm_short_code = dissect.investment_decision_w_firm_short_code(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer
+  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, non_executing_broker_short_code = dissect.non_executing_broker_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer
+  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, non_executing_client_id = dissect.non_executing_client_id(buffer, index, packet, parent)
 
   return index
@@ -5417,6 +5637,11 @@ size_of.leg_error_code = 2
 
 -- Display: Leg Error Code
 display.leg_error_code = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Leg Error Code: No Value"
+  end
+
   return "Leg Error Code: "..value
 end
 
@@ -5437,6 +5662,11 @@ size_of.leg_offer_order_id = 8
 
 -- Display: Leg Offer Order Id
 display.leg_offer_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Leg Offer Order Id: No Value"
+  end
+
   return "Leg Offer Order Id: "..value
 end
 
@@ -5457,6 +5687,11 @@ size_of.leg_bid_order_id = 8
 
 -- Display: Leg Bid Order Id
 display.leg_bid_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Leg Bid Order Id: No Value"
+  end
+
   return "Leg Bid Order Id: "..value
 end
 
@@ -5521,16 +5756,16 @@ dissect.wholesale_ack_legs_rep_group_fields = function(buffer, offset, packet, p
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = dissect.leg_symbol_index(buffer, index, packet, parent)
 
-  -- Leg Bid Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Bid Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_bid_order_id = dissect.leg_bid_order_id(buffer, index, packet, parent)
 
-  -- Leg Offer Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Leg Offer Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, leg_offer_order_id = dissect.leg_offer_order_id(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Leg Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
   index, leg_error_code = dissect.leg_error_code(buffer, index, packet, parent)
 
   return index
@@ -5715,6 +5950,11 @@ size_of.escb_membership = 1
 
 -- Display: Escb Membership
 display.escb_membership = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Escb Membership: No Value"
+  end
+
   return "Escb Membership: "..value
 end
 
@@ -5909,6 +6149,9 @@ display.strategy_code = function(value)
   if value == "z" then
     return "Strategy Code: Put Straddleversus Sella Callora Put (z)"
   end
+  if value == 0 then
+    return "Strategy Code: No Value"
+  end
 
   return "Strategy Code: Unknown("..value..")"
 end
@@ -5940,6 +6183,11 @@ size_of.lis_transaction_id = 4
 
 -- Display: Lis Transaction Id
 display.lis_transaction_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Lis Transaction Id: No Value"
+  end
+
   return "Lis Transaction Id: "..value
 end
 
@@ -6010,6 +6258,11 @@ size_of.oegin_from_me = 8
 
 -- Display: Oegin From Me
 display.oegin_from_me = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Oegin From Me: No Value"
+  end
+
   return "Oegin From Me: "..value
 end
 
@@ -6030,6 +6283,11 @@ size_of.book_out_time = 8
 
 -- Display: Book Out Time
 display.book_out_time = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Book Out Time: No Value"
+  end
+
   return "Book Out Time: "..value
 end
 
@@ -6050,6 +6308,11 @@ size_of.book_in = 8
 
 -- Display: Book In
 display.book_in = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Book In: No Value"
+  end
+
   return "Book In: "..value
 end
 
@@ -6070,6 +6333,11 @@ size_of.oegout_time_to_me = 8
 
 -- Display: Oegout Time To Me
 display.oegout_time_to_me = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Oegout Time To Me: No Value"
+  end
+
   return "Oegout Time To Me: "..value
 end
 
@@ -6090,6 +6358,11 @@ size_of.oegin_from_member = 8
 
 -- Display: Oegin From Member
 display.oegin_from_member = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Oegin From Member: No Value"
+  end
+
   return "Oegin From Member: "..value
 end
 
@@ -6174,31 +6447,31 @@ dissect.wholesale_order_ack_message_fields = function(buffer, offset, packet, pa
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
@@ -6207,19 +6480,19 @@ dissect.wholesale_order_ack_message_fields = function(buffer, offset, packet, pa
   -- Wholesale Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, wholesale_trade_type = dissect.wholesale_trade_type(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, lis_transaction_id = dissect.lis_transaction_id(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: 1 Byte Ascii String Enum with 49 values
   index, strategy_code = dissect.strategy_code(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
@@ -6228,7 +6501,7 @@ dissect.wholesale_order_ack_message_fields = function(buffer, offset, packet, pa
   -- Wholesale Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, wholesale_side = dissect.wholesale_side(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer
+  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
   index, escb_membership = dissect.escb_membership(buffer, index, packet, parent)
 
   -- Response Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -6308,49 +6581,49 @@ end
 dissect.wholesale_client_rep_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, side = dissect.side(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String
+  -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = dissect.long_client_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer
+  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, non_executing_client_id = dissect.non_executing_client_id(buffer, index, packet, parent)
 
-  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Investment Decision W Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, investment_decision_w_firm_short_code = dissect.investment_decision_w_firm_short_code(buffer, index, packet, parent)
 
-  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer
+  -- Non Executing Broker Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, non_executing_broker_short_code = dissect.non_executing_broker_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
   return index
@@ -6495,6 +6768,9 @@ display.leg_put_or_call = function(value)
   if value == 0 then
     return "Leg Put Or Call: Put (0)"
   end
+  if value == 255 then
+    return "Leg Put Or Call: No Value"
+  end
 
   return "Leg Put Or Call: Unknown("..value..")"
 end
@@ -6516,6 +6792,11 @@ size_of.leg_ratio = 4
 
 -- Display: Leg Ratio
 display.leg_ratio = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Leg Ratio: No Value"
+  end
+
   return "Leg Ratio: "..value
 end
 
@@ -6536,6 +6817,11 @@ size_of.leg_strike_price = 8
 
 -- Display: Leg Strike Price
 display.leg_strike_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Leg Strike Price: No Value"
+  end
+
   return "Leg Strike Price: "..value
 end
 
@@ -6556,6 +6842,11 @@ size_of.offer_quantity = 8
 
 -- Display: Offer Quantity
 display.offer_quantity = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Offer Quantity: No Value"
+  end
+
   return "Offer Quantity: "..value
 end
 
@@ -6576,6 +6867,11 @@ size_of.bid_quantity = 8
 
 -- Display: Bid Quantity
 display.bid_quantity = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Bid Quantity: No Value"
+  end
+
   return "Bid Quantity: "..value
 end
 
@@ -6596,6 +6892,11 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Leg Price: No Value"
+  end
+
   return "Leg Price: "..value
 end
 
@@ -6650,31 +6951,31 @@ dissect.wholesale_legs_rep_group_fields = function(buffer, offset, packet, paren
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = dissect.leg_symbol_index(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
-  -- Bid Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_quantity = dissect.bid_quantity(buffer, index, packet, parent)
 
-  -- Offer Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_quantity = dissect.offer_quantity(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
-  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_strike_price = dissect.leg_strike_price(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer Nullable
   index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
 
-  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_put_or_call = dissect.leg_put_or_call(buffer, index, packet, parent)
 
   -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
 
-  -- Leg Last Trading Date: 8 Byte Ascii String
+  -- Leg Last Trading Date: 8 Byte Ascii String Nullable
   index, leg_last_trading_date = dissect.leg_last_trading_date(buffer, index, packet, parent)
 
   return index
@@ -6795,13 +7096,13 @@ dissect.new_wholesale_order_message_fields = function(buffer, offset, packet, pa
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
@@ -6810,19 +7111,19 @@ dissect.new_wholesale_order_message_fields = function(buffer, offset, packet, pa
   -- Wholesale Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, wholesale_trade_type = dissect.wholesale_trade_type(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, lis_transaction_id = dissect.lis_transaction_id(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: 1 Byte Ascii String Enum with 49 values
   index, strategy_code = dissect.strategy_code(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Quantity: 8 Byte Unsigned Fixed Width Integer
+  -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
@@ -6831,10 +7132,10 @@ dissect.new_wholesale_order_message_fields = function(buffer, offset, packet, pa
   -- Wholesale Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, wholesale_side = dissect.wholesale_side(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer
+  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
   index, escb_membership = dissect.escb_membership(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, message_price_notation = dissect.message_price_notation(buffer, index, packet, parent)
 
   -- Wholesale Legs Rep Groups: Struct of 2 fields
@@ -6864,6 +7165,11 @@ size_of.breach_status = 1
 
 -- Display: Breach Status
 display.breach_status = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Breach Status: No Value"
+  end
+
   return "Breach Status: "..value
 end
 
@@ -6884,6 +7190,11 @@ size_of.current_mmp_position = 8
 
 -- Display: Current Mmp Position
 display.current_mmp_position = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Current Mmp Position: No Value"
+  end
+
   return "Current Mmp Position: "..value
 end
 
@@ -6910,6 +7221,9 @@ display.breach_action = function(value)
   if value == 1 then
     return "Breach Action: Pull (1)"
   end
+  if value == 255 then
+    return "Breach Action: No Value"
+  end
 
   return "Breach Action: Unknown("..value..")"
 end
@@ -6931,6 +7245,11 @@ size_of.protection_threshold = 8
 
 -- Display: Protection Threshold
 display.protection_threshold = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Protection Threshold: No Value"
+  end
+
   return "Protection Threshold: "..value
 end
 
@@ -6956,6 +7275,9 @@ display.protection_type = function(value)
   end
   if value == 2 then
     return "Protection Type: Volume (2)"
+  end
+  if value == 255 then
+    return "Protection Type: No Value"
   end
 
   return "Protection Type: Unknown("..value..")"
@@ -6999,19 +7321,19 @@ end
 dissect.mm_p_section_2_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, protection_type = dissect.protection_type(buffer, index, packet, parent)
 
-  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer
+  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
   index, protection_threshold = dissect.protection_threshold(buffer, index, packet, parent)
 
-  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, breach_action = dissect.breach_action(buffer, index, packet, parent)
 
-  -- Current Mmp Position: 8 Byte Signed Fixed Width Integer
+  -- Current Mmp Position: 8 Byte Signed Fixed Width Integer Nullable
   index, current_mmp_position = dissect.current_mmp_position(buffer, index, packet, parent)
 
-  -- Breach Status: 1 Byte Unsigned Fixed Width Integer
+  -- Breach Status: 1 Byte Unsigned Fixed Width Integer Nullable
   index, breach_status = dissect.breach_status(buffer, index, packet, parent)
 
   return index
@@ -7181,40 +7503,40 @@ dissect.mm_protection_ack_message_fields = function(buffer, offset, packet, pare
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Mmp Execution Type: Struct of 4 fields
@@ -7261,13 +7583,13 @@ end
 dissect.mm_p_section_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Protection Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, protection_type = dissect.protection_type(buffer, index, packet, parent)
 
-  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer
+  -- Protection Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
   index, protection_threshold = dissect.protection_threshold(buffer, index, packet, parent)
 
-  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Breach Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, breach_action = dissect.breach_action(buffer, index, packet, parent)
 
   return index
@@ -7402,22 +7724,22 @@ dissect.mm_protection_request_message_fields = function(buffer, offset, packet, 
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Request Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
@@ -7503,34 +7825,34 @@ dissect.security_definition_ack_message_fields = function(buffer, offset, packet
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Signed Fixed Width Integer
   index, security_req_id = dissect.security_req_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
   return index
@@ -7584,25 +7906,25 @@ dissect.strategy_legs_group_fields = function(buffer, offset, packet, parent)
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, leg_symbol_index = dissect.leg_symbol_index(buffer, index, packet, parent)
 
-  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
+  -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer Nullable
   index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
 
   -- Leg Security Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
 
-  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_put_or_call = dissect.leg_put_or_call(buffer, index, packet, parent)
 
-  -- Leg Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_price = dissect.leg_price(buffer, index, packet, parent)
 
-  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer
+  -- Leg Strike Price: 8 Byte Signed Fixed Width Integer Nullable
   index, leg_strike_price = dissect.leg_strike_price(buffer, index, packet, parent)
 
-  -- Leg Last Trading Date: 8 Byte Ascii String
+  -- Leg Last Trading Date: 8 Byte Ascii String Nullable
   index, leg_last_trading_date = dissect.leg_last_trading_date(buffer, index, packet, parent)
 
-  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Leg Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, leg_side = dissect.leg_side(buffer, index, packet, parent)
 
   return index
@@ -7703,10 +8025,10 @@ dissect.security_definition_request_message_fields = function(buffer, offset, pa
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
   -- Security Req Id: 8 Byte Signed Fixed Width Integer
@@ -7715,7 +8037,7 @@ dissect.security_definition_request_message_fields = function(buffer, offset, pa
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
   index, contract_symbol_index = dissect.contract_symbol_index(buffer, index, packet, parent)
 
-  -- Strategy Code: 1 Byte Ascii String Enum with 48 values
+  -- Strategy Code: 1 Byte Ascii String Enum with 49 values
   index, strategy_code = dissect.strategy_code(buffer, index, packet, parent)
 
   -- Strategy Legs Groups: Struct of 2 fields
@@ -7804,7 +8126,7 @@ dissect.synchronization_time_message_fields = function(buffer, offset, packet, p
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
   -- Resynchronization Id: 2 Byte Unsigned Fixed Width Integer
@@ -7849,10 +8171,10 @@ end
 dissect.instrument_synchronization_section_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   return index
@@ -7947,7 +8269,7 @@ dissect.instrument_synchronization_list_message_fields = function(buffer, offset
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
   -- Resynchronization Id: 2 Byte Unsigned Fixed Width Integer
@@ -8035,67 +8357,67 @@ dissect.mm_sign_in_ack_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String
+  -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = dissect.long_client_id(buffer, index, packet, parent)
 
   return index
@@ -8165,49 +8487,49 @@ dissect.mm_sign_in_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
-  -- Long Client Id: 16 Byte Ascii String
+  -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = dissect.long_client_id(buffer, index, packet, parent)
 
   return index
@@ -8231,6 +8553,11 @@ size_of.order_size_limit = 8
 
 -- Display: Order Size Limit
 display.order_size_limit = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Order Size Limit: No Value"
+  end
+
   return "Order Size Limit: "..value
 end
 
@@ -8432,28 +8759,28 @@ dissect.user_notification_message_fields = function(buffer, offset, packet, pare
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Family Id: 8 Byte Ascii String
+  -- Family Id: 8 Byte Ascii String Nullable
   index, family_id = dissect.family_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
   -- User Status: 1 Byte Unsigned Fixed Width Integer Enum with 30 values
   index, user_status = dissect.user_status(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Order Size Limit: 8 Byte Unsigned Fixed Width Integer
+  -- Order Size Limit: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_size_limit = dissect.order_size_limit(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -8500,6 +8827,11 @@ size_of.quote_req_id = 8
 
 -- Display: Quote Req Id
 display.quote_req_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Quote Req Id: No Value"
+  end
+
   return "Quote Req Id: "..value
 end
 
@@ -8556,34 +8888,34 @@ dissect.rfqlp_matching_status_message_fields = function(buffer, offset, packet, 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
   -- Potential Matching Qty: 8 Byte Unsigned Fixed Width Integer
   index, potential_matching_qty = dissect.potential_matching_qty(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   return index
@@ -8634,6 +8966,11 @@ size_of.number_of_l_ps = 1
 
 -- Display: Number Of L Ps
 display.number_of_l_ps = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Number Of L Ps: No Value"
+  end
+
   return "Number Of L Ps: "..value
 end
 
@@ -8654,6 +8991,11 @@ size_of.potential_matching_px = 8
 
 -- Display: Potential Matching Px
 display.potential_matching_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Potential Matching Px: No Value"
+  end
+
   return "Potential Matching Px: "..value
 end
 
@@ -8716,40 +9058,40 @@ dissect.rfq_matching_status_message_fields = function(buffer, offset, packet, pa
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Potential Matching Px: 8 Byte Signed Fixed Width Integer
+  -- Potential Matching Px: 8 Byte Signed Fixed Width Integer Nullable
   index, potential_matching_px = dissect.potential_matching_px(buffer, index, packet, parent)
 
   -- Potential Matching Qty: 8 Byte Unsigned Fixed Width Integer
   index, potential_matching_qty = dissect.potential_matching_qty(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
-  -- Number Of L Ps: 1 Byte Unsigned Fixed Width Integer
+  -- Number Of L Ps: 1 Byte Unsigned Fixed Width Integer Nullable
   index, number_of_l_ps = dissect.number_of_l_ps(buffer, index, packet, parent)
 
   -- Recipient Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
@@ -8776,6 +9118,11 @@ size_of.min_order_qty = 8
 
 -- Display: Min Order Qty
 display.min_order_qty = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Min Order Qty: No Value"
+  end
+
   return "Min Order Qty: "..value
 end
 
@@ -9014,49 +9361,49 @@ dissect.rfq_notification_message_fields = function(buffer, offset, packet, paren
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Counterpart Firm Id: 8 Byte Ascii String
+  -- Counterpart Firm Id: 8 Byte Ascii String Nullable
   index, counterpart_firm_id = dissect.counterpart_firm_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Rfq Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, rfq_update_type = dissect.rfq_update_type(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
-  -- End Client: 11 Byte Ascii String
+  -- End Client: 11 Byte Ascii String Nullable
   index, end_client = dissect.end_client(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 6 fields
   index, dark_execution_instruction = dissect.dark_execution_instruction(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, min_order_qty = dissect.min_order_qty(buffer, index, packet, parent)
 
   return index
@@ -9102,13 +9449,13 @@ dissect.request_for_execution_message_fields = function(buffer, offset, packet, 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   return index
@@ -9192,13 +9539,13 @@ dissect.ask_for_quote_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Afq Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -9293,25 +9640,25 @@ dissect.liquidity_provider_command_message_fields = function(buffer, offset, pac
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Lp Action Code: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
@@ -9399,31 +9746,31 @@ dissect.price_input_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Input Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, input_price_type = dissect.input_price_type(buffer, index, packet, parent)
 
-  -- Price: 8 Byte Signed Fixed Width Integer
+  -- Price: 8 Byte Signed Fixed Width Integer Nullable
   index, price = dissect.price(buffer, index, packet, parent)
 
   return index
@@ -9447,6 +9794,11 @@ size_of.orig_client_order_id = 8
 
 -- Display: Orig Client Order Id
 display.orig_client_order_id = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Orig Client Order Id: No Value"
+  end
+
   return "Orig Client Order Id: "..value
 end
 
@@ -9501,31 +9853,31 @@ dissect.collar_breach_confirmation_message_fields = function(buffer, offset, pac
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
   return index
@@ -9549,6 +9901,11 @@ size_of.parent_symbol_index = 4
 
 -- Display: Parent Symbol Index
 display.parent_symbol_index = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Parent Symbol Index: No Value"
+  end
+
   return "Parent Symbol Index: "..value
 end
 
@@ -9569,6 +9926,11 @@ size_of.parent_exec_id = 4
 
 -- Display: Parent Exec Id
 display.parent_exec_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Parent Exec Id: No Value"
+  end
+
   return "Parent Exec Id: "..value
 end
 
@@ -9671,28 +10033,28 @@ dissect.trade_bust_notification_message_fields = function(buffer, offset, packet
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Execution Id: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   -- Last Traded Px: 8 Byte Signed Fixed Width Integer
@@ -9701,13 +10063,13 @@ dissect.trade_bust_notification_message_fields = function(buffer, offset, packet
   -- Last Shares: 8 Byte Unsigned Fixed Width Integer
   index, last_shares = dissect.last_shares(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, lis_transaction_id = dissect.lis_transaction_id(buffer, index, packet, parent)
 
-  -- Parent Exec Id: 4 Byte Unsigned Fixed Width Integer
+  -- Parent Exec Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, parent_exec_id = dissect.parent_exec_id(buffer, index, packet, parent)
 
-  -- Parent Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Parent Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, parent_symbol_index = dissect.parent_symbol_index(buffer, index, packet, parent)
 
   return index
@@ -9742,6 +10104,9 @@ display.order_category = function(value)
   end
   if value == 4 then
     return "Order Category: Rfqlp Answer (4)"
+  end
+  if value == 255 then
+    return "Order Category: No Value"
   end
 
   return "Order Category: Unknown("..value..")"
@@ -9804,40 +10169,40 @@ dissect.ownership_request_message_fields = function(buffer, offset, packet, pare
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
   return index
@@ -9913,28 +10278,28 @@ dissect.ownership_request_ack_message_fields = function(buffer, offset, packet, 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
   -- Total Affected Orders: 4 Byte Signed Fixed Width Integer
   index, total_affected_orders = dissect.total_affected_orders(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
   return index
@@ -9994,34 +10359,34 @@ dissect.open_order_request_message_fields = function(buffer, offset, packet, par
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
   return index
@@ -10062,10 +10427,10 @@ end
 dissect.mi_fi_d_fields_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
@@ -10141,6 +10506,11 @@ size_of.target_execution_within_firm_short_code = 4
 
 -- Display: Target Execution Within Firm Short Code
 display.target_execution_within_firm_short_code = function(value)
+  -- Check if field has value
+  if value == 2147483647 then
+    return "Target Execution Within Firm Short Code: No Value"
+  end
+
   return "Target Execution Within Firm Short Code: "..value
 end
 
@@ -10166,6 +10536,9 @@ display.option_type = function(value)
   end
   if value == 2 then
     return "Option Type: Put (2)"
+  end
+  if value == 255 then
+    return "Option Type: No Value"
   end
 
   return "Option Type: Unknown("..value..")"
@@ -10224,6 +10597,11 @@ size_of.contract_id = 4
 
 -- Display: Contract Id
 display.contract_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Contract Id: No Value"
+  end
+
   return "Contract Id: "..value
 end
 
@@ -10344,73 +10722,73 @@ dissect.mass_cancel_ack_message_fields = function(buffer, offset, packet, parent
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
   -- Total Affected Orders: 4 Byte Signed Fixed Width Integer
   index, total_affected_orders = dissect.total_affected_orders(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Instrument Group Code: 2 Byte Ascii String
+  -- Instrument Group Code: 2 Byte Ascii String Nullable
   index, instrument_group_code = dissect.instrument_group_code(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Contract Id: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, contract_id = dissect.contract_id(buffer, index, packet, parent)
 
-  -- Maturity: 8 Byte Ascii String
+  -- Maturity: 8 Byte Ascii String Nullable
   index, maturity = dissect.maturity(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
   index, ack_qualifiers = dissect.ack_qualifiers(buffer, index, packet, parent)
 
-  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, target_execution_within_firm_short_code = dissect.target_execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Mi Fi D Fields Groups: Struct of 2 fields
@@ -10491,55 +10869,55 @@ dissect.mass_cancel_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Instrument Group Code: 2 Byte Ascii String
+  -- Instrument Group Code: 2 Byte Ascii String Nullable
   index, instrument_group_code = dissect.instrument_group_code(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
-  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer
+  -- Logical Access Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, logical_access_id = dissect.logical_access_id(buffer, index, packet, parent)
 
-  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer
+  -- Oe Partition Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, oe_partition_id = dissect.oe_partition_id(buffer, index, packet, parent)
 
-  -- Contract Id: 4 Byte Unsigned Fixed Width Integer
+  -- Contract Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, contract_id = dissect.contract_id(buffer, index, packet, parent)
 
-  -- Maturity: 8 Byte Ascii String
+  -- Maturity: 8 Byte Ascii String Nullable
   index, maturity = dissect.maturity(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
-  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Target Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, target_execution_within_firm_short_code = dissect.target_execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -10613,40 +10991,40 @@ dissect.cancel_request_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, order_type = dissect.order_type(buffer, index, packet, parent)
 
-  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Order Category: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, order_category = dissect.order_category(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
@@ -10676,6 +11054,11 @@ size_of.firm_id_publication = 1
 
 -- Display: Firm Id Publication
 display.firm_id_publication = function(value)
+  -- Check if field has value
+  if value == 255 then
+    return "Firm Id Publication: No Value"
+  end
+
   return "Firm Id Publication: "..value
 end
 
@@ -10738,43 +11121,43 @@ dissect.quote_request_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
-  -- Firm Id Publication: 1 Byte Unsigned Fixed Width Integer
+  -- Firm Id Publication: 1 Byte Unsigned Fixed Width Integer Nullable
   index, firm_id_publication = dissect.firm_id_publication(buffer, index, packet, parent)
 
-  -- End Client: 11 Byte Ascii String
+  -- End Client: 11 Byte Ascii String Nullable
   index, end_client = dissect.end_client(buffer, index, packet, parent)
 
   -- Dark Execution Instruction: Struct of 6 fields
   index, dark_execution_instruction = dissect.dark_execution_instruction(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, min_order_qty = dissect.min_order_qty(buffer, index, packet, parent)
 
   return index
@@ -10798,6 +11181,11 @@ size_of.offer_error_code = 2
 
 -- Display: Offer Error Code
 display.offer_error_code = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Offer Error Code: No Value"
+  end
+
   return "Offer Error Code: "..value
 end
 
@@ -10818,6 +11206,11 @@ size_of.bid_error_code = 2
 
 -- Display: Bid Error Code
 display.bid_error_code = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Bid Error Code: No Value"
+  end
+
   return "Bid Error Code: "..value
 end
 
@@ -10846,6 +11239,9 @@ display.sell_revision_flag = function(value)
   end
   if value == 2 then
     return "Sell Revision Flag: Cancellation (2)"
+  end
+  if value == 255 then
+    return "Sell Revision Flag: No Value"
   end
 
   return "Sell Revision Flag: Unknown("..value..")"
@@ -10877,6 +11273,9 @@ display.buy_revision_flag = function(value)
   if value == 2 then
     return "Buy Revision Flag: Cancellation (2)"
   end
+  if value == 255 then
+    return "Buy Revision Flag: No Value"
+  end
 
   return "Buy Revision Flag: Unknown("..value..")"
 end
@@ -10898,6 +11297,11 @@ size_of.offer_order_id = 8
 
 -- Display: Offer Order Id
 display.offer_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Offer Order Id: No Value"
+  end
+
   return "Offer Order Id: "..value
 end
 
@@ -10918,6 +11322,11 @@ size_of.bid_order_id = 8
 
 -- Display: Bid Order Id
 display.bid_order_id = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Bid Order Id: No Value"
+  end
+
   return "Bid Order Id: "..value
 end
 
@@ -10965,28 +11374,28 @@ end
 dissect.quote_acks_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Bid Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_order_id = dissect.bid_order_id(buffer, index, packet, parent)
 
-  -- Offer Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_order_id = dissect.offer_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Buy Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Buy Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, buy_revision_flag = dissect.buy_revision_flag(buffer, index, packet, parent)
 
-  -- Sell Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Sell Revision Flag: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, sell_revision_flag = dissect.sell_revision_flag(buffer, index, packet, parent)
 
-  -- Bid Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
   index, bid_error_code = dissect.bid_error_code(buffer, index, packet, parent)
 
-  -- Offer Error Code: 2 Byte Unsigned Fixed Width Integer
+  -- Offer Error Code: 2 Byte Unsigned Fixed Width Integer Nullable
   index, offer_error_code = dissect.offer_error_code(buffer, index, packet, parent)
 
   return index
@@ -11068,6 +11477,9 @@ display.lp_role = function(value)
   if value == 12 then
     return "Lp Role: Rfq Liquidity Provider (12)"
   end
+  if value == 255 then
+    return "Lp Role: No Value"
+  end
 
   return "Lp Role: Unknown("..value..")"
 end
@@ -11133,40 +11545,40 @@ dissect.quote_ack_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, lp_role = dissect.lp_role(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
@@ -11196,6 +11608,11 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Offer Px: No Value"
+  end
+
   return "Offer Px: "..value
 end
 
@@ -11216,6 +11633,11 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Offer Size: No Value"
+  end
+
   return "Offer Size: "..value
 end
 
@@ -11236,6 +11658,11 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Bid Px: No Value"
+  end
+
   return "Bid Px: "..value
 end
 
@@ -11256,6 +11683,11 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Bid Size: No Value"
+  end
+
   return "Bid Size: "..value
 end
 
@@ -11299,22 +11731,22 @@ end
 dissect.quotes_rep_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Bid Size: 8 Byte Unsigned Fixed Width Integer
+  -- Bid Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, bid_size = dissect.bid_size(buffer, index, packet, parent)
 
-  -- Bid Px: 8 Byte Signed Fixed Width Integer
+  -- Bid Px: 8 Byte Signed Fixed Width Integer Nullable
   index, bid_px = dissect.bid_px(buffer, index, packet, parent)
 
-  -- Offer Size: 8 Byte Unsigned Fixed Width Integer
+  -- Offer Size: 8 Byte Unsigned Fixed Width Integer Nullable
   index, offer_size = dissect.offer_size(buffer, index, packet, parent)
 
-  -- Offer Px: 8 Byte Signed Fixed Width Integer
+  -- Offer Px: 8 Byte Signed Fixed Width Integer Nullable
   index, offer_px = dissect.offer_px(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   return index
@@ -11448,25 +11880,25 @@ end
 dissect.clearing_dataset_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Client Id: 8 Byte Ascii String
+  -- Client Id: 8 Byte Ascii String Nullable
   index, client_id = dissect.client_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Free Text: 18 Byte Ascii String
+  -- Free Text: 18 Byte Ascii String Nullable
   index, free_text = dissect.free_text(buffer, index, packet, parent)
 
   return index
@@ -11686,25 +12118,25 @@ dissect.quotes_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, lp_role = dissect.lp_role(buffer, index, packet, parent)
 
   -- Mi Fid Indicators: Struct of 7 fields
@@ -11746,6 +12178,11 @@ size_of.breached_collar_price = 8
 
 -- Display: Breached Collar Price
 display.breached_collar_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Breached Collar Price: No Value"
+  end
+
   return "Breached Collar Price: "..value
 end
 
@@ -11771,6 +12208,9 @@ display.collar_rej_type = function(value)
   end
   if value == 2 then
     return "Collar Rej Type: Highdynamiccollar (2)"
+  end
+  if value == 255 then
+    return "Collar Rej Type: No Value"
   end
 
   return "Collar Rej Type: Unknown("..value..")"
@@ -11808,10 +12248,10 @@ end
 dissect.collar_fields_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Collar Rej Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Collar Rej Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, collar_rej_type = dissect.collar_rej_type(buffer, index, packet, parent)
 
-  -- Breached Collar Price: 8 Byte Signed Fixed Width Integer
+  -- Breached Collar Price: 8 Byte Signed Fixed Width Integer Nullable
   index, breached_collar_price = dissect.breached_collar_price(buffer, index, packet, parent)
 
   return index
@@ -11936,49 +12376,49 @@ dissect.reject_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer
+  -- Rejected Message: 1 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message = dissect.rejected_message(buffer, index, packet, parent)
 
   -- Error Code: 2 Byte Unsigned Fixed Width Integer
   index, error_code = dissect.error_code(buffer, index, packet, parent)
 
-  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer
+  -- Rejected Message Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, rejected_message_id = dissect.rejected_message_id(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
@@ -12024,7 +12464,7 @@ end
 dissect.additional_infos_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Long Client Id: 16 Byte Ascii String
+  -- Long Client Id: 16 Byte Ascii String Nullable
   index, long_client_id = dissect.long_client_id(buffer, index, packet, parent)
 
   return index
@@ -12122,25 +12562,25 @@ end
 dissect.clearing_fields_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Clearing Firm Id: 8 Byte Ascii String
+  -- Clearing Firm Id: 8 Byte Ascii String Nullable
   index, clearing_firm_id = dissect.clearing_firm_id(buffer, index, packet, parent)
 
-  -- Client Id: 8 Byte Ascii String
+  -- Client Id: 8 Byte Ascii String Nullable
   index, client_id = dissect.client_id(buffer, index, packet, parent)
 
-  -- Account Number: 12 Byte Ascii String
+  -- Account Number: 12 Byte Ascii String Nullable
   index, account_number = dissect.account_number(buffer, index, packet, parent)
 
-  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Technical Origin: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, technical_origin = dissect.technical_origin(buffer, index, packet, parent)
 
   -- Open Close: Struct of 11 fields
   index, open_close = dissect.open_close(buffer, index, packet, parent)
 
-  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 7 values
+  -- Clearing Instruction: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, clearing_instruction = dissect.clearing_instruction(buffer, index, packet, parent)
 
-  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type Cross: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type_cross = dissect.account_type_cross(buffer, index, packet, parent)
 
   return index
@@ -12222,6 +12662,9 @@ display.stop_triggered_time_in_force = function(value)
   if value == 6 then
     return "Stop Triggered Time In Force: Goodtill Date (6)"
   end
+  if value == 255 then
+    return "Stop Triggered Time In Force: No Value"
+  end
 
   return "Stop Triggered Time In Force: Unknown("..value..")"
 end
@@ -12254,6 +12697,9 @@ display.undisclosed_iceberg_type = function(value)
   end
   if value == 4 then
     return "Undisclosed Iceberg Type: Peg Market (4)"
+  end
+  if value == 255 then
+    return "Undisclosed Iceberg Type: No Value"
   end
 
   return "Undisclosed Iceberg Type: Unknown("..value..")"
@@ -12336,6 +12782,11 @@ size_of.peg_offset = 1
 
 -- Display: Peg Offset
 display.peg_offset = function(value)
+  -- Check if field has value
+  if value == 127 then
+    return "Peg Offset: No Value"
+  end
+
   return "Peg Offset: "..value
 end
 
@@ -12356,6 +12807,11 @@ size_of.order_expiration_date = 2
 
 -- Display: Order Expiration Date
 display.order_expiration_date = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Order Expiration Date: No Value"
+  end
+
   return "Order Expiration Date: "..value
 end
 
@@ -12376,6 +12832,11 @@ size_of.order_expiration_time = 4
 
 -- Display: Order Expiration Time
 display.order_expiration_time = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Order Expiration Time: No Value"
+  end
+
   return "Order Expiration Time: "..value
 end
 
@@ -12396,6 +12857,11 @@ size_of.disclosed_qty = 8
 
 -- Display: Disclosed Qty
 display.disclosed_qty = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Disclosed Qty: No Value"
+  end
+
   return "Disclosed Qty: "..value
 end
 
@@ -12416,6 +12882,11 @@ size_of.undisclosed_price = 8
 
 -- Display: Undisclosed Price
 display.undisclosed_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Undisclosed Price: No Value"
+  end
+
   return "Undisclosed Price: "..value
 end
 
@@ -12436,6 +12907,11 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Stop Px: No Value"
+  end
+
   return "Stop Px: "..value
 end
 
@@ -12489,37 +12965,37 @@ end
 dissect.optional_fields_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Stop Px: 8 Byte Signed Fixed Width Integer
+  -- Stop Px: 8 Byte Signed Fixed Width Integer Nullable
   index, stop_px = dissect.stop_px(buffer, index, packet, parent)
 
-  -- Undisclosed Price: 8 Byte Signed Fixed Width Integer
+  -- Undisclosed Price: 8 Byte Signed Fixed Width Integer Nullable
   index, undisclosed_price = dissect.undisclosed_price(buffer, index, packet, parent)
 
-  -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Disclosed Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, disclosed_qty = dissect.disclosed_qty(buffer, index, packet, parent)
 
-  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Min Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, min_order_qty = dissect.min_order_qty(buffer, index, packet, parent)
 
-  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer
+  -- Quote Req Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, quote_req_id = dissect.quote_req_id(buffer, index, packet, parent)
 
-  -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer
+  -- Order Expiration Time: 4 Byte Unsigned Fixed Width Integer Nullable
   index, order_expiration_time = dissect.order_expiration_time(buffer, index, packet, parent)
 
-  -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer
+  -- Order Expiration Date: 2 Byte Unsigned Fixed Width Integer Nullable
   index, order_expiration_date = dissect.order_expiration_date(buffer, index, packet, parent)
 
-  -- Peg Offset: 1 Byte Signed Fixed Width Integer
+  -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
   index, peg_offset = dissect.peg_offset(buffer, index, packet, parent)
 
   -- Trading Session: Struct of 5 fields
   index, trading_session = dissect.trading_session(buffer, index, packet, parent)
 
-  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
+  -- Undisclosed Iceberg Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, undisclosed_iceberg_type = dissect.undisclosed_iceberg_type(buffer, index, packet, parent)
 
-  -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Stop Triggered Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, stop_triggered_time_in_force = dissect.stop_triggered_time_in_force(buffer, index, packet, parent)
 
   return index
@@ -12592,6 +13068,11 @@ size_of.stpid = 2
 
 -- Display: Stpid
 display.stpid = function(value)
+  -- Check if field has value
+  if value == 65535 then
+    return "Stpid: No Value"
+  end
+
   return "Stpid: "..value
 end
 
@@ -12728,40 +13209,40 @@ dissect.cancel_replace_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer
+  -- Client Identification Shortcode: 4 Byte Signed Fixed Width Integer Nullable
   index, client_identification_shortcode = dissect.client_identification_shortcode(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer
+  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
   index, order_px = dissect.order_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
@@ -12770,10 +13251,10 @@ dissect.cancel_replace_message_fields = function(buffer, offset, packet, parent)
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, lp_role = dissect.lp_role(buffer, index, packet, parent)
 
   -- Execution Instruction: Struct of 8 fields
@@ -12785,7 +13266,7 @@ dissect.cancel_replace_message_fields = function(buffer, offset, packet, parent)
   -- Mi Fid Indicators: Struct of 7 fields
   index, mi_fid_indicators = dissect.mi_fid_indicators(buffer, index, packet, parent)
 
-  -- Stpid: 2 Byte Unsigned Fixed Width Integer
+  -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
   index, stpid = dissect.stpid(buffer, index, packet, parent)
 
   -- Free Text Section Groups: Struct of 2 fields
@@ -12974,43 +13455,43 @@ dissect.kill_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
   -- Kill Reason: 2 Byte Unsigned Fixed Width Integer Enum with 26 values
@@ -13043,6 +13524,11 @@ size_of.evaluated_price = 8
 
 -- Display: Evaluated Price
 display.evaluated_price = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Evaluated Price: No Value"
+  end
+
   return "Evaluated Price: "..value
 end
 
@@ -13078,10 +13564,10 @@ end
 dissect.optional_fields_derivatives_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Evaluated Price: 8 Byte Signed Fixed Width Integer
+  -- Evaluated Price: 8 Byte Signed Fixed Width Integer Nullable
   index, evaluated_price = dissect.evaluated_price(buffer, index, packet, parent)
 
-  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, message_price_notation = dissect.message_price_notation(buffer, index, packet, parent)
 
   return index
@@ -13154,6 +13640,11 @@ size_of.underlying_instrument_id = 4
 
 -- Display: Underlying Instrument Id
 display.underlying_instrument_id = function(value)
+  -- Check if field has value
+  if value == 4294967295 then
+    return "Underlying Instrument Id: No Value"
+  end
+
   return "Underlying Instrument Id: "..value
 end
 
@@ -13210,6 +13701,11 @@ size_of.other_leg_last_px = 8
 
 -- Display: Other Leg Last Px
 display.other_leg_last_px = function(value)
+  -- Check if field has value
+  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+    return "Other Leg Last Px: No Value"
+  end
+
   return "Other Leg Last Px: "..value
 end
 
@@ -13249,16 +13745,16 @@ end
 dissect.optional_fields_fill_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Counterpart Firm Id: 8 Byte Ascii String
+  -- Counterpart Firm Id: 8 Byte Ascii String Nullable
   index, counterpart_firm_id = dissect.counterpart_firm_id(buffer, index, packet, parent)
 
-  -- Other Leg Last Px: 8 Byte Signed Fixed Width Integer
+  -- Other Leg Last Px: 8 Byte Signed Fixed Width Integer Nullable
   index, other_leg_last_px = dissect.other_leg_last_px(buffer, index, packet, parent)
 
-  -- Package Id: 12 Byte Ascii String
+  -- Package Id: 12 Byte Ascii String Nullable
   index, package_id = dissect.package_id(buffer, index, packet, parent)
 
-  -- Underlying Instrument Id: 4 Byte Unsigned Fixed Width Integer
+  -- Underlying Instrument Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, underlying_instrument_id = dissect.underlying_instrument_id(buffer, index, packet, parent)
 
   return index
@@ -13681,31 +14177,31 @@ dissect.fill_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Trade Time: 8 Byte Unsigned Fixed Width Integer
+  -- Trade Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, trade_time = dissect.trade_time(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 42 values
@@ -13714,7 +14210,7 @@ dissect.fill_message_fields = function(buffer, offset, packet, parent)
   -- Trade Qualifier: Struct of 8 fields
   index, trade_qualifier = dissect.trade_qualifier(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
   -- Last Traded Px: 8 Byte Signed Fixed Width Integer
@@ -13726,16 +14222,16 @@ dissect.fill_message_fields = function(buffer, offset, packet, parent)
   -- Leaves Qty: 8 Byte Unsigned Fixed Width Integer
   index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
 
-  -- Execution Id: 4 Byte Unsigned Fixed Width Integer
+  -- Execution Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
   -- Execution Phase: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
   index, execution_phase = dissect.execution_phase(buffer, index, packet, parent)
 
-  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer
+  -- Lis Transaction Id: 4 Byte Unsigned Fixed Width Integer Nullable
   index, lis_transaction_id = dissect.lis_transaction_id(buffer, index, packet, parent)
 
-  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer
+  -- Escb Membership: 1 Byte Unsigned Fixed Width Integer Nullable
   index, escb_membership = dissect.escb_membership(buffer, index, packet, parent)
 
   -- Optional Fields Fill Groups: Struct of 2 fields
@@ -13771,6 +14267,11 @@ size_of.order_priority = 8
 
 -- Display: Order Priority
 display.order_priority = function(value)
+  -- Check if field has value
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+    return "Order Priority: No Value"
+  end
+
   return "Order Priority: "..value
 end
 
@@ -13814,6 +14315,9 @@ display.ack_phase = function(value)
   end
   if value == 8 then
     return "Ack Phase: Random Uncrossing Phase (8)"
+  end
+  if value == 255 then
+    return "Ack Phase: No Value"
   end
 
   return "Ack Phase: Unknown("..value..")"
@@ -13972,61 +14476,61 @@ dissect.ack_message_fields = function(buffer, offset, packet, parent)
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_member = dissect.oegin_from_member(buffer, index, packet, parent)
 
-  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout Time To Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_time_to_me = dissect.oegout_time_to_me(buffer, index, packet, parent)
 
-  -- Book In: 8 Byte Unsigned Fixed Width Integer
+  -- Book In: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_in = dissect.book_in(buffer, index, packet, parent)
 
-  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer
+  -- Book Out Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, book_out_time = dissect.book_out_time(buffer, index, packet, parent)
 
-  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer
+  -- Oegin From Me: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegin_from_me = dissect.oegin_from_me(buffer, index, packet, parent)
 
-  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer
+  -- Oegout To Member: 8 Byte Unsigned Fixed Width Integer Nullable
   index, oegout_to_member = dissect.oegout_to_member(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Orig Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, orig_client_order_id = dissect.orig_client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 19 values
   index, ack_type = dissect.ack_type(buffer, index, packet, parent)
 
-  -- Ack Phase: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Ack Phase: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, ack_phase = dissect.ack_phase(buffer, index, packet, parent)
 
-  -- Order Id: 8 Byte Unsigned Fixed Width Integer
+  -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = dissect.order_id(buffer, index, packet, parent)
 
-  -- Order Priority: 8 Byte Unsigned Fixed Width Integer
+  -- Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_priority = dissect.order_priority(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer
+  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
   index, order_px = dissect.order_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
   -- Ack Qualifiers: Struct of 8 fields
@@ -14124,22 +14628,22 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent)
   -- Cl Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, cl_msg_seq_num = dissect.cl_msg_seq_num(buffer, index, packet, parent)
 
-  -- Firm Id: 8 Byte Ascii String
+  -- Firm Id: 8 Byte Ascii String Nullable
   index, firm_id = dissect.firm_id(buffer, index, packet, parent)
 
-  -- Sending Time: 8 Byte Unsigned Fixed Width Integer
+  -- Sending Time: 8 Byte Unsigned Fixed Width Integer Nullable
   index, sending_time = dissect.sending_time(buffer, index, packet, parent)
 
-  -- Client Order Id: 8 Byte Signed Fixed Width Integer
+  -- Client Order Id: 8 Byte Signed Fixed Width Integer Nullable
   index, client_order_id = dissect.client_order_id(buffer, index, packet, parent)
 
-  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
+  -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
   index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
 
-  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
+  -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
   index, emm = dissect.emm(buffer, index, packet, parent)
 
-  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
@@ -14148,22 +14652,22 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent)
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Order Px: 8 Byte Signed Fixed Width Integer
+  -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
   index, order_px = dissect.order_px(buffer, index, packet, parent)
 
-  -- Order Qty: 8 Byte Unsigned Fixed Width Integer
+  -- Order Qty: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer
+  -- Execution Within Firm Short Code: 4 Byte Signed Fixed Width Integer Nullable
   index, execution_within_firm_short_code = dissect.execution_within_firm_short_code(buffer, index, packet, parent)
 
-  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Trading Capacity: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, trading_capacity = dissect.trading_capacity(buffer, index, packet, parent)
 
-  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
+  -- Account Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
   index, account_type = dissect.account_type(buffer, index, packet, parent)
 
-  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Lp Role: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, lp_role = dissect.lp_role(buffer, index, packet, parent)
 
   -- Execution Instruction: Struct of 8 fields
@@ -14175,10 +14679,10 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent)
   -- Mi Fid Indicators: Struct of 7 fields
   index, mi_fid_indicators = dissect.mi_fid_indicators(buffer, index, packet, parent)
 
-  -- Stpid: 2 Byte Unsigned Fixed Width Integer
+  -- Stpid: 2 Byte Unsigned Fixed Width Integer Nullable
   index, stpid = dissect.stpid(buffer, index, packet, parent)
 
-  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer
+  -- Non Executing Client Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, non_executing_client_id = dissect.non_executing_client_id(buffer, index, packet, parent)
 
   -- Free Text Section Groups: Struct of 2 fields
