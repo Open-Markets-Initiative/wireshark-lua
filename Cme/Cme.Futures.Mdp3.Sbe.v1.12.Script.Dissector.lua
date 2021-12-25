@@ -1206,7 +1206,7 @@ size_of.md_entry_size_u_int_64_null = 8
 -- Display: Md Entry Size u Int 64 Null
 display.md_entry_size_u_int_64_null = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size u Int 64 Null: No Value"
   end
 
@@ -3161,7 +3161,7 @@ size_of.md_order_priority_optional = 8
 -- Display: Md Order Priority Optional
 display.md_order_priority_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Md Order Priority Optional: No Value"
   end
 
@@ -4681,7 +4681,7 @@ size_of.instrument_guid = 8
 -- Display: Instrument Guid
 display.instrument_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Instrument Guid: No Value"
   end
 
@@ -11672,7 +11672,7 @@ size_of.order_id_optional = 8
 -- Display: Order Id Optional
 display.order_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Order Id Optional: No Value"
   end
 

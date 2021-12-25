@@ -412,7 +412,7 @@ size_of.md_entry_size = 8
 -- Display: Md Entry Size
 display.md_entry_size = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size: No Value"
   end
 

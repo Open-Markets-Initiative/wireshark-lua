@@ -340,7 +340,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0x80000000, 0x0000000) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Mantissa: No Value"
   end
 
@@ -514,7 +514,7 @@ size_of.instrument_guid = 8
 -- Display: Instrument Guid
 display.instrument_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Instrument Guid: No Value"
   end
 
@@ -835,7 +835,7 @@ size_of.underlying_product_guid = 8
 -- Display: Underlying Product Guid
 display.underlying_product_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Underlying Product Guid: No Value"
   end
 
@@ -1092,7 +1092,7 @@ size_of.product_guid = 8
 -- Display: Product Guid
 display.product_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Product Guid: No Value"
   end
 

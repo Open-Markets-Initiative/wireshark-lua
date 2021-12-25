@@ -805,7 +805,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0xFFFFFFF, 0x7FFFFFFF) then
     return "Mantissa: No Value"
   end
 
@@ -4217,7 +4217,7 @@ size_of.md_entry_size_optional = 8
 -- Display: Md Entry Size Optional
 display.md_entry_size_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size Optional: No Value"
   end
 
@@ -5013,7 +5013,7 @@ size_of.security_id = 8
 -- Display: Security Id
 display.security_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Security Id: No Value"
   end
 
@@ -5323,7 +5323,7 @@ size_of.transact_time_optional = 8
 -- Display: Transact Time Optional
 display.transact_time_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Transact Time Optional: No Value"
   end
 
@@ -6801,7 +6801,7 @@ size_of.orig_time = 8
 -- Display: Orig Time
 display.orig_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Orig Time: No Value"
   end
 
@@ -7226,7 +7226,7 @@ size_of.nominal = 8
 -- Display: Nominal
 display.nominal = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Nominal: No Value"
   end
 

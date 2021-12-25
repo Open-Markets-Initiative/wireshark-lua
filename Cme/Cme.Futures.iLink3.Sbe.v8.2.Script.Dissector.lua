@@ -4166,7 +4166,7 @@ size_of.orig_secondary_execution_id = 8
 -- Display: Orig Secondary Execution Id
 display.orig_secondary_execution_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Orig Secondary Execution Id: No Value"
   end
 
@@ -4651,7 +4651,7 @@ size_of.leg_exec_ref_id = 8
 -- Display: Leg Exec Ref Id
 display.leg_exec_ref_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Leg Exec Ref Id: No Value"
   end
 
@@ -6587,7 +6587,7 @@ size_of.quote_req_id_optional = 8
 -- Display: Quote Req Id Optional
 display.quote_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Quote Req Id Optional: No Value"
   end
 
@@ -7775,7 +7775,7 @@ size_of.idm_short_code = 8
 -- Display: Idm Short Code
 display.idm_short_code = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Idm Short Code: No Value"
   end
 
@@ -7800,7 +7800,7 @@ size_of.executor = 8
 -- Display: Executor
 display.executor = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Executor: No Value"
   end
 
@@ -8139,7 +8139,7 @@ size_of.self_match_prevention_id = 8
 -- Display: Self Match Prevention Id
 display.self_match_prevention_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Self Match Prevention Id: No Value"
   end
 
@@ -9268,7 +9268,7 @@ size_of.host_cross_id = 8
 -- Display: Host Cross Id
 display.host_cross_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Host Cross Id: No Value"
   end
 
@@ -9293,7 +9293,7 @@ size_of.cross_id_optional = 8
 -- Display: Cross Id Optional
 display.cross_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Cross Id Optional: No Value"
   end
 
@@ -9746,7 +9746,7 @@ size_of.mass_status_req_id_optional = 8
 -- Display: Mass Status Req Id Optional
 display.mass_status_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Mass Status Req Id Optional: No Value"
   end
 
@@ -9771,7 +9771,7 @@ size_of.ord_status_req_id_optional = 8
 -- Display: Ord Status Req Id Optional
 display.ord_status_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Ord Status Req Id Optional: No Value"
   end
 
@@ -11246,7 +11246,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0xFFFFFFF, 0x7FFFFFFF) then
     return "Mantissa: No Value"
   end
 
@@ -13167,7 +13167,7 @@ size_of.business_reject_ref_id = 8
 -- Display: Business Reject Ref Id
 display.business_reject_ref_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Business Reject Ref Id: No Value"
   end
 
@@ -13192,7 +13192,7 @@ size_of.party_details_list_req_id_optional = 8
 -- Display: Party Details List Req Id Optional
 display.party_details_list_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Party Details List Req Id Optional: No Value"
   end
 
@@ -14643,7 +14643,7 @@ size_of.last_uuid = 8
 -- Display: Last Uuid
 display.last_uuid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Last Uuid: No Value"
   end
 
