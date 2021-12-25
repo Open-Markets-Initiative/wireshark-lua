@@ -885,7 +885,7 @@ size_of.last_md_seq_num = 8
 -- Display: Last Md Seq Num
 display.last_md_seq_num = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Last Md Seq Num: No Value"
   end
 
@@ -1049,7 +1049,7 @@ size_of.event_time = 8
 -- Display: Event Time
 display.event_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Event Time: No Value"
   end
 
@@ -1119,7 +1119,7 @@ size_of.md_seq_num = 8
 -- Display: Md Seq Num
 display.md_seq_num = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Md Seq Num: No Value"
   end
 
@@ -1201,7 +1201,7 @@ size_of.nav_offer_price = 8
 -- Display: Nav Offer Price
 display.nav_offer_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Nav Offer Price: No Value"
   end
 
@@ -1226,7 +1226,7 @@ size_of.nav_bid_price = 8
 -- Display: Nav Bid Price
 display.nav_bid_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Nav Bid Price: No Value"
   end
 
@@ -1251,7 +1251,7 @@ size_of.nav_price = 8
 -- Display: Nav Price
 display.nav_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Nav Price: No Value"
   end
 
@@ -1348,7 +1348,7 @@ size_of.bid_offer_date_time = 8
 -- Display: Bid Offer Date Time
 display.bid_offer_date_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Bid Offer Date Time: No Value"
   end
 
@@ -1491,7 +1491,7 @@ size_of.notional_amount_traded = 8
 -- Display: Notional Amount Traded
 display.notional_amount_traded = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Notional Amount Traded: No Value"
   end
 
@@ -1763,7 +1763,7 @@ size_of.quantity = 8
 -- Display: Quantity
 display.quantity = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Quantity: No Value"
   end
 
@@ -1788,7 +1788,7 @@ size_of.offer_price = 8
 -- Display: Offer Price
 display.offer_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Offer Price: No Value"
   end
 
@@ -1813,7 +1813,7 @@ size_of.bid_price = 8
 -- Display: Bid Price
 display.bid_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Bid Price: No Value"
   end
 
@@ -1838,7 +1838,7 @@ size_of.price = 8
 -- Display: Price
 display.price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -2337,7 +2337,7 @@ size_of.minimum_amount = 8
 -- Display: Minimum Amount
 display.minimum_amount = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Minimum Amount: No Value"
   end
 
@@ -2507,7 +2507,7 @@ size_of.gross_dividend_in_euros = 8
 -- Display: Gross Dividend In Euros
 display.gross_dividend_in_euros = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Gross Dividend In Euros: No Value"
   end
 
@@ -2655,7 +2655,7 @@ size_of.dividend_rate = 8
 -- Display: Dividend Rate
 display.dividend_rate = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Dividend Rate: No Value"
   end
 
@@ -2741,7 +2741,7 @@ size_of.gross_dividend_payable_per_unit = 8
 -- Display: Gross Dividend Payable Per Unit
 display.gross_dividend_payable_per_unit = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Gross Dividend Payable Per Unit: No Value"
   end
 
@@ -2802,7 +2802,7 @@ size_of.closing_price = 8
 -- Display: Closing Price
 display.closing_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Closing Price: No Value"
   end
 
@@ -2863,7 +2863,7 @@ size_of.coupon = 8
 -- Display: Coupon
 display.coupon = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Coupon: No Value"
   end
 
@@ -2928,7 +2928,7 @@ size_of.last_nav_price = 8
 -- Display: Last Nav Price
 display.last_nav_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Last Nav Price: No Value"
   end
 
@@ -2993,7 +2993,7 @@ size_of.share_amount_in_issue = 8
 -- Display: Share Amount In Issue
 display.share_amount_in_issue = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Share Amount In Issue: No Value"
   end
 
@@ -3682,7 +3682,7 @@ size_of.original_report_timestamp = 8
 -- Display: Original Report Timestamp
 display.original_report_timestamp = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Original Report Timestamp: No Value"
   end
 
@@ -5440,7 +5440,7 @@ size_of.strike_price = 8
 -- Display: Strike Price
 display.strike_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Strike Price: No Value"
   end
 
@@ -5963,7 +5963,7 @@ size_of.leg_last_qty = 8
 -- Display: Leg Last Qty
 display.leg_last_qty = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Leg Last Qty: No Value"
   end
 
@@ -5988,7 +5988,7 @@ size_of.leg_last_px = 8
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Leg Last Px: No Value"
   end
 
@@ -6457,7 +6457,7 @@ size_of.peg_offset = 1
 -- Display: Peg Offset
 display.peg_offset = function(value)
   -- Check if field has value
-  if value == 127 then
+  if value == 128 then
     return "Peg Offset: No Value"
   end
 
@@ -6482,7 +6482,7 @@ size_of.order_quantity = 8
 -- Display: Order Quantity
 display.order_quantity = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Order Quantity: No Value"
   end
 
@@ -6540,7 +6540,7 @@ size_of.order_px = 8
 -- Display: Order Px
 display.order_px = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Order Px: No Value"
   end
 
@@ -6619,7 +6619,7 @@ size_of.previous_priority = 8
 -- Display: Previous Priority
 display.previous_priority = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Previous Priority: No Value"
   end
 
@@ -6644,7 +6644,7 @@ size_of.order_priority = 8
 -- Display: Order Priority
 display.order_priority = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Order Priority: No Value"
   end
 
@@ -6983,7 +6983,7 @@ size_of.trading_unit = 8
 -- Display: Trading Unit
 display.trading_unit = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Trading Unit: No Value"
   end
 
@@ -7227,7 +7227,7 @@ size_of.lot_size = 8
 -- Display: Lot Size
 display.lot_size = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Lot Size: No Value"
   end
 
@@ -8319,7 +8319,7 @@ size_of.edsp_tick_size = 8
 -- Display: Edsp Tick Size
 display.edsp_tick_size = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Edsp Tick Size: No Value"
   end
 
@@ -8344,7 +8344,7 @@ size_of.settlement_tick_size = 8
 -- Display: Settlement Tick Size
 display.settlement_tick_size = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Settlement Tick Size: No Value"
   end
 
@@ -9498,7 +9498,7 @@ size_of.leg_price = 8
 -- Display: Leg Price
 display.leg_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Leg Price: No Value"
   end
 
@@ -9711,7 +9711,7 @@ size_of.liquidation_time = 8
 -- Display: Liquidation Time
 display.liquidation_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Liquidation Time: No Value"
   end
 
@@ -9736,7 +9736,7 @@ size_of.liquidation_level = 8
 -- Display: Liquidation Level
 display.liquidation_level = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Liquidation Level: No Value"
   end
 
@@ -9901,7 +9901,7 @@ size_of.confirmed_reference_time = 8
 -- Display: Confirmed Reference Time
 display.confirmed_reference_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Confirmed Reference Time: No Value"
   end
 
@@ -9926,7 +9926,7 @@ size_of.confirmed_reference_level = 8
 -- Display: Confirmed Reference Level
 display.confirmed_reference_level = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Confirmed Reference Level: No Value"
   end
 
@@ -10113,7 +10113,7 @@ size_of.stats_update_value = 8
 -- Display: Stats Update Value
 display.stats_update_value = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Stats Update Value: No Value"
   end
 
@@ -10459,7 +10459,7 @@ size_of.pctg_of_capitalization = 8
 -- Display: Pctg Of Capitalization
 display.pctg_of_capitalization = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Pctg Of Capitalization: No Value"
   end
 
@@ -10779,7 +10779,7 @@ size_of.threshold_lis_post_trade_eod = 8
 -- Display: Threshold Lis Post Trade Eod
 display.threshold_lis_post_trade_eod = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade Eod: No Value"
   end
 
@@ -10804,7 +10804,7 @@ size_of.threshold_lis_post_trade_120mn = 8
 -- Display: Threshold Lis Post Trade 120mn
 display.threshold_lis_post_trade_120mn = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade 120mn: No Value"
   end
 
@@ -10829,7 +10829,7 @@ size_of.threshold_lis_post_trade_60mn = 8
 -- Display: Threshold Lis Post Trade 60mn
 display.threshold_lis_post_trade_60mn = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade 60mn: No Value"
   end
 
@@ -11012,7 +11012,7 @@ size_of.issue_price = 8
 -- Display: Issue Price
 display.issue_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Issue Price: No Value"
   end
 
@@ -11305,7 +11305,7 @@ size_of.par_value = 8
 -- Display: Par Value
 display.par_value = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Par Value: No Value"
   end
 
@@ -11330,7 +11330,7 @@ size_of.number_instrument_circulating = 8
 -- Display: Number Instrument Circulating
 display.number_instrument_circulating = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Number Instrument Circulating: No Value"
   end
 
@@ -11537,7 +11537,7 @@ size_of.last_adjusted_closing_price = 8
 -- Display: Last Adjusted Closing Price
 display.last_adjusted_closing_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Last Adjusted Closing Price: No Value"
   end
 
@@ -11745,7 +11745,7 @@ size_of.dark_lis_threshold = 8
 -- Display: Dark Lis Threshold
 display.dark_lis_threshold = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Dark Lis Threshold: No Value"
   end
 
@@ -12826,7 +12826,7 @@ size_of.scheduled_event_time = 8
 -- Display: Scheduled Event Time
 display.scheduled_event_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Scheduled Event Time: No Value"
   end
 
@@ -13443,7 +13443,7 @@ size_of.evaluated_price = 8
 -- Display: Evaluated Price
 display.evaluated_price = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Evaluated Price: No Value"
   end
 
@@ -14429,7 +14429,7 @@ size_of.imbalance_qty = 8
 -- Display: Imbalance Qty
 display.imbalance_qty = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Imbalance Qty: No Value"
   end
 
@@ -15242,7 +15242,7 @@ size_of.retransmission_end_time = 8
 -- Display: Retransmission End Time
 display.retransmission_end_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission End Time: No Value"
   end
 
@@ -15267,7 +15267,7 @@ size_of.retransmission_start_time = 8
 -- Display: Retransmission Start Time
 display.retransmission_start_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFF) then
+  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission Start Time: No Value"
   end
 

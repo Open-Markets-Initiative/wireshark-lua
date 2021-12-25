@@ -635,7 +635,7 @@ size_of.prior_settlement_price = 8
 -- Display: Prior Settlement Price
 display.prior_settlement_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Prior Settlement Price: No Value"
   end
   return "Prior Settlement Price: "..value:tonumber()/1000000000
@@ -819,7 +819,7 @@ size_of.next_ask_implied_price = 8
 -- Display: Next Ask Implied Price
 display.next_ask_implied_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Next Ask Implied Price: No Value"
   end
   return "Next Ask Implied Price: "..value:tonumber()/1000000000
@@ -843,7 +843,7 @@ size_of.next_bid_implied_price = 8
 -- Display: Next Bid Implied Price
 display.next_bid_implied_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Next Bid Implied Price: No Value"
   end
   return "Next Bid Implied Price: "..value:tonumber()/1000000000
@@ -867,7 +867,7 @@ size_of.best_ask_implied_price = 8
 -- Display: Best Ask Implied Price
 display.best_ask_implied_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Best Ask Implied Price: No Value"
   end
   return "Best Ask Implied Price: "..value:tonumber()/1000000000
@@ -891,7 +891,7 @@ size_of.best_bid_implied_price = 8
 -- Display: Best Bid Implied Price
 display.best_bid_implied_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Best Bid Implied Price: No Value"
   end
   return "Best Bid Implied Price: "..value:tonumber()/1000000000
@@ -915,7 +915,7 @@ size_of.last_trade_time = 8
 -- Display: Last Trade Time
 display.last_trade_time = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Last Trade Time: No Value"
   end
 
@@ -940,7 +940,7 @@ size_of.last_trade_price = 8
 -- Display: Last Trade Price
 display.last_trade_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Last Trade Price: No Value"
   end
   return "Last Trade Price: "..value:tonumber()/1000000000
@@ -964,7 +964,7 @@ size_of.settlement_price = 8
 -- Display: Settlement Price
 display.settlement_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Settlement Price: No Value"
   end
   return "Settlement Price: "..value:tonumber()/1000000000
@@ -988,7 +988,7 @@ size_of.vwap_price = 8
 -- Display: Vwap Price
 display.vwap_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Vwap Price: No Value"
   end
   return "Vwap Price: "..value:tonumber()/1000000000
@@ -1012,7 +1012,7 @@ size_of.high_price = 8
 -- Display: High Price
 display.high_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "High Price: No Value"
   end
   return "High Price: "..value:tonumber()/1000000000
@@ -1036,7 +1036,7 @@ size_of.low_price = 8
 -- Display: Low Price
 display.low_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Low Price: No Value"
   end
   return "Low Price: "..value:tonumber()/1000000000
@@ -1060,7 +1060,7 @@ size_of.close_price = 8
 -- Display: Close Price
 display.close_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Close Price: No Value"
   end
   return "Close Price: "..value:tonumber()/1000000000
@@ -1084,7 +1084,7 @@ size_of.day_open_price = 8
 -- Display: Day Open Price
 display.day_open_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Day Open Price: No Value"
   end
   return "Day Open Price: "..value:tonumber()/1000000000
@@ -1108,7 +1108,7 @@ size_of.indicative_open_price = 8
 -- Display: Indicative Open Price
 display.indicative_open_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Indicative Open Price: No Value"
   end
   return "Indicative Open Price: "..value:tonumber()/1000000000
@@ -2775,7 +2775,7 @@ size_of.sell_order_id = 8
 -- Display: Sell Order Id
 display.sell_order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Sell Order Id: No Value"
   end
 
@@ -2800,7 +2800,7 @@ size_of.buy_order_id = 8
 -- Display: Buy Order Id
 display.buy_order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x7FFFFFFF, 0xFFFFFFF) then
+  if value == Int64(0x0000000, 0x80000000) then
     return "Buy Order Id: No Value"
   end
 
@@ -3385,7 +3385,7 @@ size_of.next_price = 8
 -- Display: Next Price
 display.next_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Next Price: No Value"
   end
   return "Next Price: "..value:tonumber()/1000000000
@@ -3409,7 +3409,7 @@ size_of.best_price = 8
 -- Display: Best Price
 display.best_price = function(value)
   -- Check if field has value
-  if value == 9223372036854775807 then
+  if value == -9223372036854775808 then
     return "Best Price: No Value"
   end
   return "Best Price: "..value:tonumber()/1000000000
