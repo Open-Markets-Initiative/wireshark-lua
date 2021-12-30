@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -21,7 +22,7 @@ local verify = {}
 
 -- Eurex Cash Eti T7 9.1 Fields
 eurex_cash_eti_t7_v9_1.fields.account = ProtoField.new("Account", "eurex.cash.eti.t7.v9.1.account", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.accrued_interes_amt = ProtoField.new("Accrued Interes Amt", "eurex.cash.eti.t7.v9.1.accruedinteresamt", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.accrued_interes_amt = ProtoField.new("Accrued Interes Amt", "eurex.cash.eti.t7.v9.1.accruedinteresamt", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.affected_ord_grp_comp = ProtoField.new("Affected Ord Grp Comp", "eurex.cash.eti.t7.v9.1.affectedordgrpcomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.affected_order_id = ProtoField.new("Affected Order Id", "eurex.cash.eti.t7.v9.1.affectedorderid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.affected_order_request_id = ProtoField.new("Affected Order Request Id", "eurex.cash.eti.t7.v9.1.affectedorderrequestid", ftypes.UINT32)
@@ -29,7 +30,7 @@ eurex_cash_eti_t7_v9_1.fields.affected_order_requests_grp_comp = ProtoField.new(
 eurex_cash_eti_t7_v9_1.fields.affected_orig_cl_ord_id = ProtoField.new("Affected Orig Cl Ord Id", "eurex.cash.eti.t7.v9.1.affectedorigclordid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.alloc_id = ProtoField.new("Alloc Id", "eurex.cash.eti.t7.v9.1.allocid", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.alloc_method = ProtoField.new("Alloc Method", "eurex.cash.eti.t7.v9.1.allocmethod", ftypes.UINT8)
-eurex_cash_eti_t7_v9_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.cash.eti.t7.v9.1.allocqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.cash.eti.t7.v9.1.allocqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.appl_beg_msg_id = ProtoField.new("Appl Beg Msg Id", "eurex.cash.eti.t7.v9.1.applbegmsgid", ftypes.BYTES)
 eurex_cash_eti_t7_v9_1.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "eurex.cash.eti.t7.v9.1.applbegseqnum", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.appl_end_msg_id = ProtoField.new("Appl End Msg Id", "eurex.cash.eti.t7.v9.1.applendmsgid", ftypes.BYTES)
@@ -51,24 +52,24 @@ eurex_cash_eti_t7_v9_1.fields.application_system_vendor = ProtoField.new("Applic
 eurex_cash_eti_t7_v9_1.fields.application_system_version = ProtoField.new("Application System Version", "eurex.cash.eti.t7.v9.1.applicationsystemversion", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.approve_tes_trade_request = ProtoField.new("Approve Tes Trade Request", "eurex.cash.eti.t7.v9.1.approvetestraderequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.auto_approval_rule_id = ProtoField.new("Auto Approval Rule Id", "eurex.cash.eti.t7.v9.1.autoapprovalruleid", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.best_bid_px = ProtoField.new("Best Bid Px", "eurex.cash.eti.t7.v9.1.bestbidpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.best_bid_size = ProtoField.new("Best Bid Size", "eurex.cash.eti.t7.v9.1.bestbidsize", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.best_offer_px = ProtoField.new("Best Offer Px", "eurex.cash.eti.t7.v9.1.bestofferpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "eurex.cash.eti.t7.v9.1.bestoffersize", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.cash.eti.t7.v9.1.bidpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.cash.eti.t7.v9.1.bidsize", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.best_bid_px = ProtoField.new("Best Bid Px", "eurex.cash.eti.t7.v9.1.bestbidpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.best_bid_size = ProtoField.new("Best Bid Size", "eurex.cash.eti.t7.v9.1.bestbidsize", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.best_offer_px = ProtoField.new("Best Offer Px", "eurex.cash.eti.t7.v9.1.bestofferpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "eurex.cash.eti.t7.v9.1.bestoffersize", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.cash.eti.t7.v9.1.bidpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.cash.eti.t7.v9.1.bidsize", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.body_len = ProtoField.new("Body Len", "eurex.cash.eti.t7.v9.1.bodylen", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.cash.eti.t7.v9.1.broadcasterrornotification", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "eurex.cash.eti.t7.v9.1.clordid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.clearing_instruction = ProtoField.new("Clearing Instruction", "eurex.cash.eti.t7.v9.1.clearinginstruction", ftypes.UINT8)
-eurex_cash_eti_t7_v9_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "eurex.cash.eti.t7.v9.1.couponrate", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.coupon_rate = ProtoField.new("Coupon Rate", "eurex.cash.eti.t7.v9.1.couponrate", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.cross_request = ProtoField.new("Cross Request", "eurex.cash.eti.t7.v9.1.crossrequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.cross_request_response = ProtoField.new("Cross Request Response", "eurex.cash.eti.t7.v9.1.crossrequestresponse", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.crossed_indicator = ProtoField.new("Crossed Indicator", "eurex.cash.eti.t7.v9.1.crossedindicator", ftypes.UINT8)
-eurex_cash_eti_t7_v9_1.fields.cum_qty = ProtoField.new("Cum Qty", "eurex.cash.eti.t7.v9.1.cumqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.cum_qty = ProtoField.new("Cum Qty", "eurex.cash.eti.t7.v9.1.cumqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.currency = ProtoField.new("Currency", "eurex.cash.eti.t7.v9.1.currency", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.cash.eti.t7.v9.1.cxlqty", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.cxl_size = ProtoField.new("Cxl Size", "eurex.cash.eti.t7.v9.1.cxlsize", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.cash.eti.t7.v9.1.cxlqty", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.cxl_size = ProtoField.new("Cxl Size", "eurex.cash.eti.t7.v9.1.cxlsize", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.default_cstm_appl_ver_id = ProtoField.new("Default Cstm Appl Ver Id", "eurex.cash.eti.t7.v9.1.defaultcstmapplverid", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.default_cstm_appl_ver_sub_id = ProtoField.new("Default Cstm Appl Ver Sub Id", "eurex.cash.eti.t7.v9.1.defaultcstmapplversubid", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.delete_all_order_broadcast = ProtoField.new("Delete All Order Broadcast", "eurex.cash.eti.t7.v9.1.deleteallorderbroadcast", ftypes.STRING)
@@ -86,14 +87,14 @@ eurex_cash_eti_t7_v9_1.fields.delete_order_single_request = ProtoField.new("Dele
 eurex_cash_eti_t7_v9_1.fields.delete_reason = ProtoField.new("Delete Reason", "eurex.cash.eti.t7.v9.1.deletereason", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.delete_tes_trade_request = ProtoField.new("Delete Tes Trade Request", "eurex.cash.eti.t7.v9.1.deletetestraderequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.delivery_type = ProtoField.new("Delivery Type", "eurex.cash.eti.t7.v9.1.deliverytype", ftypes.UINT8)
-eurex_cash_eti_t7_v9_1.fields.display_high_qty = ProtoField.new("Display High Qty", "eurex.cash.eti.t7.v9.1.displayhighqty", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.display_low_qty = ProtoField.new("Display Low Qty", "eurex.cash.eti.t7.v9.1.displaylowqty", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.display_qty = ProtoField.new("Display Qty", "eurex.cash.eti.t7.v9.1.displayqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.display_high_qty = ProtoField.new("Display High Qty", "eurex.cash.eti.t7.v9.1.displayhighqty", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.display_low_qty = ProtoField.new("Display Low Qty", "eurex.cash.eti.t7.v9.1.displaylowqty", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.display_qty = ProtoField.new("Display Qty", "eurex.cash.eti.t7.v9.1.displayqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.enrichment_rule_id = ProtoField.new("Enrichment Rule Id", "eurex.cash.eti.t7.v9.1.enrichmentruleid", ftypes.UINT16)
 eurex_cash_eti_t7_v9_1.fields.enrichment_rules_grp_comp = ProtoField.new("Enrichment Rules Grp Comp", "eurex.cash.eti.t7.v9.1.enrichmentrulesgrpcomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.enter_tes_trade_request = ProtoField.new("Enter Tes Trade Request", "eurex.cash.eti.t7.v9.1.entertestraderequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.event_date = ProtoField.new("Event Date", "eurex.cash.eti.t7.v9.1.eventdate", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.event_px = ProtoField.new("Event Px", "eurex.cash.eti.t7.v9.1.eventpx", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.event_px = ProtoField.new("Event Px", "eurex.cash.eti.t7.v9.1.eventpx", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.event_type = ProtoField.new("Event Type", "eurex.cash.eti.t7.v9.1.eventtype", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.exec_id = ProtoField.new("Exec Id", "eurex.cash.eti.t7.v9.1.execid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.exec_inst = ProtoField.new("Exec Inst", "eurex.cash.eti.t7.v9.1.execinst", ftypes.UINT8)
@@ -107,8 +108,8 @@ eurex_cash_eti_t7_v9_1.fields.extended_deletion_report = ProtoField.new("Extende
 eurex_cash_eti_t7_v9_1.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "eurex.cash.eti.t7.v9.1.fillexecid", ftypes.INT32)
 eurex_cash_eti_t7_v9_1.fields.fill_liquidity_ind = ProtoField.new("Fill Liquidity Ind", "eurex.cash.eti.t7.v9.1.fillliquidityind", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.fill_match_id = ProtoField.new("Fill Match Id", "eurex.cash.eti.t7.v9.1.fillmatchid", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.fill_px = ProtoField.new("Fill Px", "eurex.cash.eti.t7.v9.1.fillpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.fill_qty = ProtoField.new("Fill Qty", "eurex.cash.eti.t7.v9.1.fillqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.fill_px = ProtoField.new("Fill Px", "eurex.cash.eti.t7.v9.1.fillpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.fill_qty = ProtoField.new("Fill Qty", "eurex.cash.eti.t7.v9.1.fillqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.fills_grp_comp = ProtoField.new("Fills Grp Comp", "eurex.cash.eti.t7.v9.1.fillsgrpcomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.firm_negotiation_id = ProtoField.new("Firm Negotiation Id", "eurex.cash.eti.t7.v9.1.firmnegotiationid", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.firm_trade_id = ProtoField.new("Firm Trade Id", "eurex.cash.eti.t7.v9.1.firmtradeid", ftypes.STRING)
@@ -126,7 +127,7 @@ eurex_cash_eti_t7_v9_1.fields.headline = ProtoField.new("Headline", "eurex.cash.
 eurex_cash_eti_t7_v9_1.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "eurex.cash.eti.t7.v9.1.heartbtint", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.cash.eti.t7.v9.1.heartbeat", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.heartbeat_notification = ProtoField.new("Heartbeat Notification", "eurex.cash.eti.t7.v9.1.heartbeatnotification", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.cash.eti.t7.v9.1.imbalanceqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.imbalance_qty = ProtoField.new("Imbalance Qty", "eurex.cash.eti.t7.v9.1.imbalanceqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.individual_alloc_id = ProtoField.new("Individual Alloc Id", "eurex.cash.eti.t7.v9.1.individualallocid", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.inquire_enrichment_rule_id_list_request = ProtoField.new("Inquire Enrichment Rule Id List Request", "eurex.cash.eti.t7.v9.1.inquireenrichmentruleidlistrequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.inquire_enrichment_rule_id_list_response = ProtoField.new("Inquire Enrichment Rule Id List Response", "eurex.cash.eti.t7.v9.1.inquireenrichmentruleidlistresponse", ftypes.STRING)
@@ -141,9 +142,9 @@ eurex_cash_eti_t7_v9_1.fields.last_coupon_deviation_indicator = ProtoField.new("
 eurex_cash_eti_t7_v9_1.fields.last_entity_processed = ProtoField.new("Last Entity Processed", "eurex.cash.eti.t7.v9.1.lastentityprocessed", ftypes.BYTES)
 eurex_cash_eti_t7_v9_1.fields.last_fragment = ProtoField.new("Last Fragment", "eurex.cash.eti.t7.v9.1.lastfragment", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.last_mkt = ProtoField.new("Last Mkt", "eurex.cash.eti.t7.v9.1.lastmkt", ftypes.UINT16)
-eurex_cash_eti_t7_v9_1.fields.last_px = ProtoField.new("Last Px", "eurex.cash.eti.t7.v9.1.lastpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.cash.eti.t7.v9.1.lastqty", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "eurex.cash.eti.t7.v9.1.leavesqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.last_px = ProtoField.new("Last Px", "eurex.cash.eti.t7.v9.1.lastpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.cash.eti.t7.v9.1.lastqty", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "eurex.cash.eti.t7.v9.1.leavesqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.legal_notification_broadcast = ProtoField.new("Legal Notification Broadcast", "eurex.cash.eti.t7.v9.1.legalnotificationbroadcast", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.list_update_action = ProtoField.new("List Update Action", "eurex.cash.eti.t7.v9.1.listupdateaction", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.logon_request = ProtoField.new("Logon Request", "eurex.cash.eti.t7.v9.1.logonrequest", ftypes.STRING)
@@ -209,8 +210,8 @@ eurex_cash_eti_t7_v9_1.fields.nrbc_header_comp = ProtoField.new("Nrbc Header Com
 eurex_cash_eti_t7_v9_1.fields.num_days_interest = ProtoField.new("Num Days Interest", "eurex.cash.eti.t7.v9.1.numdaysinterest", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.number_of_resp_disclosure_instruction = ProtoField.new("Number Of Resp Disclosure Instruction", "eurex.cash.eti.t7.v9.1.numberofrespdisclosureinstruction", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.number_of_respondents = ProtoField.new("Number Of Respondents", "eurex.cash.eti.t7.v9.1.numberofrespondents", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.cash.eti.t7.v9.1.offerpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.cash.eti.t7.v9.1.offersize", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.cash.eti.t7.v9.1.offerpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.cash.eti.t7.v9.1.offersize", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.ord_status = ProtoField.new("Ord Status", "eurex.cash.eti.t7.v9.1.ordstatus", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.cash.eti.t7.v9.1.ordtype", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.order_attribute_liquidity_provision = ProtoField.new("Order Attribute Liquidity Provision", "eurex.cash.eti.t7.v9.1.orderattributeliquidityprovision", ftypes.UINT8)
@@ -223,7 +224,7 @@ eurex_cash_eti_t7_v9_1.fields.order_exec_response = ProtoField.new("Order Exec R
 eurex_cash_eti_t7_v9_1.fields.order_id = ProtoField.new("Order Id", "eurex.cash.eti.t7.v9.1.orderid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.order_id_sfx = ProtoField.new("Order Id Sfx", "eurex.cash.eti.t7.v9.1.orderidsfx", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.order_origination = ProtoField.new("Order Origination", "eurex.cash.eti.t7.v9.1.orderorigination", ftypes.UINT8)
-eurex_cash_eti_t7_v9_1.fields.order_qty = ProtoField.new("Order Qty", "eurex.cash.eti.t7.v9.1.orderqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.order_qty = ProtoField.new("Order Qty", "eurex.cash.eti.t7.v9.1.orderqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.order_routing_indicator = ProtoField.new("Order Routing Indicator", "eurex.cash.eti.t7.v9.1.orderroutingindicator", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "eurex.cash.eti.t7.v9.1.origclordid", ftypes.UINT64)
 eurex_cash_eti_t7_v9_1.fields.orig_time = ProtoField.new("Orig Time", "eurex.cash.eti.t7.v9.1.origtime", ftypes.UINT64)
@@ -265,12 +266,12 @@ eurex_cash_eti_t7_v9_1.fields.party_id_specialist_trader = ProtoField.new("Party
 eurex_cash_eti_t7_v9_1.fields.party_specialist_firm = ProtoField.new("Party Specialist Firm", "eurex.cash.eti.t7.v9.1.partyspecialistfirm", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.party_specialist_trader = ProtoField.new("Party Specialist Trader", "eurex.cash.eti.t7.v9.1.partyspecialisttrader", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.password = ProtoField.new("Password", "eurex.cash.eti.t7.v9.1.password", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.peg_offset_value_abs = ProtoField.new("Peg Offset Value Abs", "eurex.cash.eti.t7.v9.1.pegoffsetvalueabs", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.peg_offset_value_pct = ProtoField.new("Peg Offset Value Pct", "eurex.cash.eti.t7.v9.1.pegoffsetvaluepct", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.peg_offset_value_abs = ProtoField.new("Peg Offset Value Abs", "eurex.cash.eti.t7.v9.1.pegoffsetvalueabs", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.peg_offset_value_pct = ProtoField.new("Peg Offset Value Pct", "eurex.cash.eti.t7.v9.1.pegoffsetvaluepct", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.ping_request = ProtoField.new("Ping Request", "eurex.cash.eti.t7.v9.1.pingrequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.ping_response = ProtoField.new("Ping Response", "eurex.cash.eti.t7.v9.1.pingresponse", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.potential_exec_volume = ProtoField.new("Potential Exec Volume", "eurex.cash.eti.t7.v9.1.potentialexecvolume", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.price = ProtoField.new("Price", "eurex.cash.eti.t7.v9.1.price", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.potential_exec_volume = ProtoField.new("Potential Exec Volume", "eurex.cash.eti.t7.v9.1.potentialexecvolume", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.price = ProtoField.new("Price", "eurex.cash.eti.t7.v9.1.price", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.price_validity_check_type = ProtoField.new("Price Validity Check Type", "eurex.cash.eti.t7.v9.1.pricevaliditychecktype", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.quote_activation_notification = ProtoField.new("Quote Activation Notification", "eurex.cash.eti.t7.v9.1.quoteactivationnotification", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.quote_activation_request = ProtoField.new("Quote Activation Request", "eurex.cash.eti.t7.v9.1.quoteactivationrequest", ftypes.STRING)
@@ -284,8 +285,8 @@ eurex_cash_eti_t7_v9_1.fields.quote_event_exec_id = ProtoField.new("Quote Event 
 eurex_cash_eti_t7_v9_1.fields.quote_event_grp_comp = ProtoField.new("Quote Event Grp Comp", "eurex.cash.eti.t7.v9.1.quoteeventgrpcomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.quote_event_liquidity_ind = ProtoField.new("Quote Event Liquidity Ind", "eurex.cash.eti.t7.v9.1.quoteeventliquidityind", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.quote_event_match_id = ProtoField.new("Quote Event Match Id", "eurex.cash.eti.t7.v9.1.quoteeventmatchid", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.quote_event_px = ProtoField.new("Quote Event Px", "eurex.cash.eti.t7.v9.1.quoteeventpx", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.quote_event_qty = ProtoField.new("Quote Event Qty", "eurex.cash.eti.t7.v9.1.quoteeventqty", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.quote_event_px = ProtoField.new("Quote Event Px", "eurex.cash.eti.t7.v9.1.quoteeventpx", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.quote_event_qty = ProtoField.new("Quote Event Qty", "eurex.cash.eti.t7.v9.1.quoteeventqty", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.quote_event_reason = ProtoField.new("Quote Event Reason", "eurex.cash.eti.t7.v9.1.quoteeventreason", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.quote_event_side = ProtoField.new("Quote Event Side", "eurex.cash.eti.t7.v9.1.quoteeventside", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.quote_event_type = ProtoField.new("Quote Event Type", "eurex.cash.eti.t7.v9.1.quoteeventtype", ftypes.UINT8)
@@ -373,14 +374,14 @@ eurex_cash_eti_t7_v9_1.fields.session_reject_reason = ProtoField.new("Session Re
 eurex_cash_eti_t7_v9_1.fields.session_status = ProtoField.new("Session Status", "eurex.cash.eti.t7.v9.1.sessionstatus", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.session_sub_mode = ProtoField.new("Session Sub Mode", "eurex.cash.eti.t7.v9.1.sessionsubmode", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.sessions_grp_comp = ProtoField.new("Sessions Grp Comp", "eurex.cash.eti.t7.v9.1.sessionsgrpcomp", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.settl_curr_amt = ProtoField.new("Settl Curr Amt", "eurex.cash.eti.t7.v9.1.settlcurramt", ftypes.UINT64)
-eurex_cash_eti_t7_v9_1.fields.settl_curr_fx_rate = ProtoField.new("Settl Curr Fx Rate", "eurex.cash.eti.t7.v9.1.settlcurrfxrate", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.settl_curr_amt = ProtoField.new("Settl Curr Amt", "eurex.cash.eti.t7.v9.1.settlcurramt", ftypes.DOUBLE)
+eurex_cash_eti_t7_v9_1.fields.settl_curr_fx_rate = ProtoField.new("Settl Curr Fx Rate", "eurex.cash.eti.t7.v9.1.settlcurrfxrate", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.settl_currency = ProtoField.new("Settl Currency", "eurex.cash.eti.t7.v9.1.settlcurrency", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.settl_date = ProtoField.new("Settl Date", "eurex.cash.eti.t7.v9.1.settldate", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.side = ProtoField.new("Side", "eurex.cash.eti.t7.v9.1.side", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.side_alloc_grp_bc_comp = ProtoField.new("Side Alloc Grp Bc Comp", "eurex.cash.eti.t7.v9.1.sideallocgrpbccomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.side_alloc_grp_comp = ProtoField.new("Side Alloc Grp Comp", "eurex.cash.eti.t7.v9.1.sideallocgrpcomp", ftypes.STRING)
-eurex_cash_eti_t7_v9_1.fields.side_gross_trade_amt = ProtoField.new("Side Gross Trade Amt", "eurex.cash.eti.t7.v9.1.sidegrosstradeamt", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.side_gross_trade_amt = ProtoField.new("Side Gross Trade Amt", "eurex.cash.eti.t7.v9.1.sidegrosstradeamt", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.side_liquidity_ind = ProtoField.new("Side Liquidity Ind", "eurex.cash.eti.t7.v9.1.sideliquidityind", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.side_trade_id = ProtoField.new("Side Trade Id", "eurex.cash.eti.t7.v9.1.sidetradeid", ftypes.UINT32)
 eurex_cash_eti_t7_v9_1.fields.side_trade_report_id = ProtoField.new("Side Trade Report Id", "eurex.cash.eti.t7.v9.1.sidetradereportid", ftypes.UINT32)
@@ -397,7 +398,7 @@ eurex_cash_eti_t7_v9_1.fields.specialist_security_state_change_request = ProtoFi
 eurex_cash_eti_t7_v9_1.fields.specialist_security_state_change_response = ProtoField.new("Specialist Security State Change Response", "eurex.cash.eti.t7.v9.1.specialistsecuritystatechangeresponse", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.srqs_quote_entry_grp_comp = ProtoField.new("Srqs Quote Entry Grp Comp", "eurex.cash.eti.t7.v9.1.srqsquoteentrygrpcomp", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.srqs_related_trade_id = ProtoField.new("Srqs Related Trade Id", "eurex.cash.eti.t7.v9.1.srqsrelatedtradeid", ftypes.UINT32)
-eurex_cash_eti_t7_v9_1.fields.stop_px = ProtoField.new("Stop Px", "eurex.cash.eti.t7.v9.1.stoppx", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.stop_px = ProtoField.new("Stop Px", "eurex.cash.eti.t7.v9.1.stoppx", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.stop_px_indicator = ProtoField.new("Stop Px Indicator", "eurex.cash.eti.t7.v9.1.stoppxindicator", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.subscribe_request = ProtoField.new("Subscribe Request", "eurex.cash.eti.t7.v9.1.subscriberequest", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.subscribe_response = ProtoField.new("Subscribe Response", "eurex.cash.eti.t7.v9.1.subscriberesponse", ftypes.STRING)
@@ -471,7 +472,7 @@ eurex_cash_eti_t7_v9_1.fields.value_check_type_quantity = ProtoField.new("Value 
 eurex_cash_eti_t7_v9_1.fields.value_check_type_value = ProtoField.new("Value Check Type Value", "eurex.cash.eti.t7.v9.1.valuechecktypevalue", ftypes.UINT8)
 eurex_cash_eti_t7_v9_1.fields.var_text = ProtoField.new("Var Text", "eurex.cash.eti.t7.v9.1.vartext", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.cash.eti.t7.v9.1.vartextlen", ftypes.UINT16)
-eurex_cash_eti_t7_v9_1.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.cash.eti.t7.v9.1.volumediscoveryprice", ftypes.UINT64)
+eurex_cash_eti_t7_v9_1.fields.volume_discovery_price = ProtoField.new("Volume Discovery Price", "eurex.cash.eti.t7.v9.1.volumediscoveryprice", ftypes.DOUBLE)
 eurex_cash_eti_t7_v9_1.fields.xetra_en_light_create_deal_notification = ProtoField.new("Xetra En Light Create Deal Notification", "eurex.cash.eti.t7.v9.1.xetraenlightcreatedealnotification", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.xetra_en_light_deal_response = ProtoField.new("Xetra En Light Deal Response", "eurex.cash.eti.t7.v9.1.xetraenlightdealresponse", ftypes.STRING)
 eurex_cash_eti_t7_v9_1.fields.xetra_en_light_enter_quote_request = ProtoField.new("Xetra En Light Enter Quote Request", "eurex.cash.eti.t7.v9.1.xetraenlightenterquoterequest", ftypes.STRING)
@@ -1746,14 +1747,20 @@ size_of.order_qty = 8
 
 -- Display: Order Qty
 display.order_qty = function(value)
-  return "Order Qty: "..value:tonumber()/10000
+  return "Order Qty: "..value
+end
+
+-- Translate: Order Qty
+translate.order_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Order Qty
 dissect.order_qty = function(buffer, offset, packet, parent)
   local length = size_of.order_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.order_qty(raw)
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.order_qty, range, value, display)
@@ -1766,14 +1773,20 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  return "Offer Px: "..value:tonumber()/100000000
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+translate.offer_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
   local length = size_of.offer_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.offer_px(raw)
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.offer_px, range, value, display)
@@ -1786,14 +1799,20 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  return "Bid Px: "..value:tonumber()/100000000
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+translate.bid_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
   local length = size_of.bid_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.bid_px(raw)
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.bid_px, range, value, display)
@@ -2935,14 +2954,20 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
-  return "Offer Size: "..value:tonumber()/10000
+  return "Offer Size: "..value
+end
+
+-- Translate: Offer Size
+translate.offer_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
   local length = size_of.offer_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.offer_size(raw)
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.offer_size, range, value, display)
@@ -2955,14 +2980,20 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
-  return "Bid Size: "..value:tonumber()/10000
+  return "Bid Size: "..value
+end
+
+-- Translate: Bid Size
+translate.bid_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
   local length = size_of.bid_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.bid_size(raw)
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.bid_size, range, value, display)
@@ -3628,14 +3659,20 @@ size_of.last_qty = 8
 
 -- Display: Last Qty
 display.last_qty = function(value)
-  return "Last Qty: "..value:tonumber()/10000
+  return "Last Qty: "..value
+end
+
+-- Translate: Last Qty
+translate.last_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
   local length = size_of.last_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.last_qty(raw)
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.last_qty, range, value, display)
@@ -3648,14 +3685,20 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  return "Last Px: "..value:tonumber()/100000000
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
   local length = size_of.last_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.last_px(raw)
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.last_px, range, value, display)
@@ -4069,14 +4112,20 @@ size_of.leaves_qty = 8
 
 -- Display: Leaves Qty
 display.leaves_qty = function(value)
-  return "Leaves Qty: "..value:tonumber()/10000
+  return "Leaves Qty: "..value
+end
+
+-- Translate: Leaves Qty
+translate.leaves_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Leaves Qty
 dissect.leaves_qty = function(buffer, offset, packet, parent)
   local length = size_of.leaves_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leaves_qty(raw)
   local display = display.leaves_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.leaves_qty, range, value, display)
@@ -4863,14 +4912,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/100000000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.price, range, value, display)
@@ -5340,14 +5395,20 @@ size_of.best_offer_size = 8
 
 -- Display: Best Offer Size
 display.best_offer_size = function(value)
-  return "Best Offer Size: "..value:tonumber()/10000
+  return "Best Offer Size: "..value
+end
+
+-- Translate: Best Offer Size
+translate.best_offer_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Best Offer Size
 dissect.best_offer_size = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_offer_size(raw)
   local display = display.best_offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.best_offer_size, range, value, display)
@@ -5360,14 +5421,20 @@ size_of.best_offer_px = 8
 
 -- Display: Best Offer Px
 display.best_offer_px = function(value)
-  return "Best Offer Px: "..value:tonumber()/100000000
+  return "Best Offer Px: "..value
+end
+
+-- Translate: Best Offer Px
+translate.best_offer_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Best Offer Px
 dissect.best_offer_px = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_offer_px(raw)
   local display = display.best_offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.best_offer_px, range, value, display)
@@ -5380,14 +5447,20 @@ size_of.best_bid_size = 8
 
 -- Display: Best Bid Size
 display.best_bid_size = function(value)
-  return "Best Bid Size: "..value:tonumber()/10000
+  return "Best Bid Size: "..value
+end
+
+-- Translate: Best Bid Size
+translate.best_bid_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Best Bid Size
 dissect.best_bid_size = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_bid_size(raw)
   local display = display.best_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.best_bid_size, range, value, display)
@@ -5400,14 +5473,20 @@ size_of.best_bid_px = 8
 
 -- Display: Best Bid Px
 display.best_bid_px = function(value)
-  return "Best Bid Px: "..value:tonumber()/100000000
+  return "Best Bid Px: "..value
+end
+
+-- Translate: Best Bid Px
+translate.best_bid_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Best Bid Px
 dissect.best_bid_px = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_bid_px(raw)
   local display = display.best_bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.best_bid_px, range, value, display)
@@ -6499,14 +6578,20 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  return "Stop Px: "..value:tonumber()/100000000
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+translate.stop_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
 dissect.stop_px = function(buffer, offset, packet, parent)
   local length = size_of.stop_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.stop_px(raw)
   local display = display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.stop_px, range, value, display)
@@ -8182,14 +8267,20 @@ size_of.coupon_rate = 8
 
 -- Display: Coupon Rate
 display.coupon_rate = function(value)
-  return "Coupon Rate: "..value:tonumber()/10000000
+  return "Coupon Rate: "..value
+end
+
+-- Translate: Coupon Rate
+translate.coupon_rate = function(raw)
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
   local length = size_of.coupon_rate
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.coupon_rate(raw)
   local display = display.coupon_rate(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.coupon_rate, range, value, display)
@@ -8202,14 +8293,20 @@ size_of.accrued_interes_amt = 8
 
 -- Display: Accrued Interes Amt
 display.accrued_interes_amt = function(value)
-  return "Accrued Interes Amt: "..value:tonumber()/100000000
+  return "Accrued Interes Amt: "..value
+end
+
+-- Translate: Accrued Interes Amt
+translate.accrued_interes_amt = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Accrued Interes Amt
 dissect.accrued_interes_amt = function(buffer, offset, packet, parent)
   local length = size_of.accrued_interes_amt
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.accrued_interes_amt(raw)
   local display = display.accrued_interes_amt(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.accrued_interes_amt, range, value, display)
@@ -8222,14 +8319,20 @@ size_of.side_gross_trade_amt = 8
 
 -- Display: Side Gross Trade Amt
 display.side_gross_trade_amt = function(value)
-  return "Side Gross Trade Amt: "..value:tonumber()/100000000
+  return "Side Gross Trade Amt: "..value
+end
+
+-- Translate: Side Gross Trade Amt
+translate.side_gross_trade_amt = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Side Gross Trade Amt
 dissect.side_gross_trade_amt = function(buffer, offset, packet, parent)
   local length = size_of.side_gross_trade_amt
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.side_gross_trade_amt(raw)
   local display = display.side_gross_trade_amt(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.side_gross_trade_amt, range, value, display)
@@ -8242,14 +8345,20 @@ size_of.cum_qty = 8
 
 -- Display: Cum Qty
 display.cum_qty = function(value)
-  return "Cum Qty: "..value:tonumber()/10000
+  return "Cum Qty: "..value
+end
+
+-- Translate: Cum Qty
+translate.cum_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cum Qty
 dissect.cum_qty = function(buffer, offset, packet, parent)
   local length = size_of.cum_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cum_qty(raw)
   local display = display.cum_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.cum_qty, range, value, display)
@@ -8262,14 +8371,20 @@ size_of.settl_curr_fx_rate = 8
 
 -- Display: Settl Curr Fx Rate
 display.settl_curr_fx_rate = function(value)
-  return "Settl Curr Fx Rate: "..value:tonumber()/100000000
+  return "Settl Curr Fx Rate: "..value
+end
+
+-- Translate: Settl Curr Fx Rate
+translate.settl_curr_fx_rate = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Fx Rate
 dissect.settl_curr_fx_rate = function(buffer, offset, packet, parent)
   local length = size_of.settl_curr_fx_rate
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.settl_curr_fx_rate(raw)
   local display = display.settl_curr_fx_rate(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.settl_curr_fx_rate, range, value, display)
@@ -8282,14 +8397,20 @@ size_of.settl_curr_amt = 8
 
 -- Display: Settl Curr Amt
 display.settl_curr_amt = function(value)
-  return "Settl Curr Amt: "..value:tonumber()/100000000
+  return "Settl Curr Amt: "..value
+end
+
+-- Translate: Settl Curr Amt
+translate.settl_curr_amt = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Settl Curr Amt
 dissect.settl_curr_amt = function(buffer, offset, packet, parent)
   local length = size_of.settl_curr_amt
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.settl_curr_amt(raw)
   local display = display.settl_curr_amt(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.settl_curr_amt, range, value, display)
@@ -9885,14 +10006,20 @@ size_of.alloc_qty = 8
 
 -- Display: Alloc Qty
 display.alloc_qty = function(value)
-  return "Alloc Qty: "..value:tonumber()/10000
+  return "Alloc Qty: "..value
+end
+
+-- Translate: Alloc Qty
+translate.alloc_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Alloc Qty
 dissect.alloc_qty = function(buffer, offset, packet, parent)
   local length = size_of.alloc_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.alloc_qty(raw)
   local display = display.alloc_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.alloc_qty, range, value, display)
@@ -11390,14 +11517,20 @@ size_of.fill_qty = 8
 
 -- Display: Fill Qty
 display.fill_qty = function(value)
-  return "Fill Qty: "..value:tonumber()/10000
+  return "Fill Qty: "..value
+end
+
+-- Translate: Fill Qty
+translate.fill_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Fill Qty
 dissect.fill_qty = function(buffer, offset, packet, parent)
   local length = size_of.fill_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.fill_qty(raw)
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fill_qty, range, value, display)
@@ -11410,14 +11543,20 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  return "Fill Px: "..value:tonumber()/100000000
+  return "Fill Px: "..value
+end
+
+-- Translate: Fill Px
+translate.fill_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
 dissect.fill_px = function(buffer, offset, packet, parent)
   local length = size_of.fill_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.fill_px(raw)
   local display = display.fill_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fill_px, range, value, display)
@@ -11804,14 +11943,20 @@ size_of.cxl_qty = 8
 
 -- Display: Cxl Qty
 display.cxl_qty = function(value)
-  return "Cxl Qty: "..value:tonumber()/10000
+  return "Cxl Qty: "..value
+end
+
+-- Translate: Cxl Qty
+translate.cxl_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cxl Qty
 dissect.cxl_qty = function(buffer, offset, packet, parent)
   local length = size_of.cxl_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cxl_qty(raw)
   local display = display.cxl_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.cxl_qty, range, value, display)
@@ -14562,14 +14707,20 @@ size_of.quote_event_qty = 8
 
 -- Display: Quote Event Qty
 display.quote_event_qty = function(value)
-  return "Quote Event Qty: "..value:tonumber()/10000
+  return "Quote Event Qty: "..value
+end
+
+-- Translate: Quote Event Qty
+translate.quote_event_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Quote Event Qty
 dissect.quote_event_qty = function(buffer, offset, packet, parent)
   local length = size_of.quote_event_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.quote_event_qty(raw)
   local display = display.quote_event_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.quote_event_qty, range, value, display)
@@ -14582,14 +14733,20 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  return "Quote Event Px: "..value:tonumber()/100000000
+  return "Quote Event Px: "..value
+end
+
+-- Translate: Quote Event Px
+translate.quote_event_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
 dissect.quote_event_px = function(buffer, offset, packet, parent)
   local length = size_of.quote_event_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.quote_event_px(raw)
   local display = display.quote_event_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.quote_event_px, range, value, display)
@@ -15735,14 +15892,20 @@ size_of.display_qty = 8
 
 -- Display: Display Qty
 display.display_qty = function(value)
-  return "Display Qty: "..value:tonumber()/10000
+  return "Display Qty: "..value
+end
+
+-- Translate: Display Qty
+translate.display_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Display Qty
 dissect.display_qty = function(buffer, offset, packet, parent)
   local length = size_of.display_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.display_qty(raw)
   local display = display.display_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.display_qty, range, value, display)
@@ -16030,14 +16193,20 @@ size_of.peg_offset_value_pct = 8
 
 -- Display: Peg Offset Value Pct
 display.peg_offset_value_pct = function(value)
-  return "Peg Offset Value Pct: "..value:tonumber()/10000
+  return "Peg Offset Value Pct: "..value
+end
+
+-- Translate: Peg Offset Value Pct
+translate.peg_offset_value_pct = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Peg Offset Value Pct
 dissect.peg_offset_value_pct = function(buffer, offset, packet, parent)
   local length = size_of.peg_offset_value_pct
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.peg_offset_value_pct(raw)
   local display = display.peg_offset_value_pct(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.peg_offset_value_pct, range, value, display)
@@ -16050,14 +16219,20 @@ size_of.peg_offset_value_abs = 8
 
 -- Display: Peg Offset Value Abs
 display.peg_offset_value_abs = function(value)
-  return "Peg Offset Value Abs: "..value:tonumber()/100000000
+  return "Peg Offset Value Abs: "..value
+end
+
+-- Translate: Peg Offset Value Abs
+translate.peg_offset_value_abs = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Peg Offset Value Abs
 dissect.peg_offset_value_abs = function(buffer, offset, packet, parent)
   local length = size_of.peg_offset_value_abs
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.peg_offset_value_abs(raw)
   local display = display.peg_offset_value_abs(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.peg_offset_value_abs, range, value, display)
@@ -16070,14 +16245,20 @@ size_of.volume_discovery_price = 8
 
 -- Display: Volume Discovery Price
 display.volume_discovery_price = function(value)
-  return "Volume Discovery Price: "..value:tonumber()/100000000
+  return "Volume Discovery Price: "..value
+end
+
+-- Translate: Volume Discovery Price
+translate.volume_discovery_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Volume Discovery Price
 dissect.volume_discovery_price = function(buffer, offset, packet, parent)
   local length = size_of.volume_discovery_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.volume_discovery_price(raw)
   local display = display.volume_discovery_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.volume_discovery_price, range, value, display)
@@ -16090,14 +16271,20 @@ size_of.display_high_qty = 8
 
 -- Display: Display High Qty
 display.display_high_qty = function(value)
-  return "Display High Qty: "..value:tonumber()/10000
+  return "Display High Qty: "..value
+end
+
+-- Translate: Display High Qty
+translate.display_high_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Display High Qty
 dissect.display_high_qty = function(buffer, offset, packet, parent)
   local length = size_of.display_high_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.display_high_qty(raw)
   local display = display.display_high_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.display_high_qty, range, value, display)
@@ -16110,14 +16297,20 @@ size_of.display_low_qty = 8
 
 -- Display: Display Low Qty
 display.display_low_qty = function(value)
-  return "Display Low Qty: "..value:tonumber()/10000
+  return "Display Low Qty: "..value
+end
+
+-- Translate: Display Low Qty
+translate.display_low_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Display Low Qty
 dissect.display_low_qty = function(buffer, offset, packet, parent)
   local length = size_of.display_low_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.display_low_qty(raw)
   local display = display.display_low_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.display_low_qty, range, value, display)
@@ -18454,14 +18647,20 @@ size_of.cxl_size = 8
 
 -- Display: Cxl Size
 display.cxl_size = function(value)
-  return "Cxl Size: "..value:tonumber()/10000
+  return "Cxl Size: "..value
+end
+
+-- Translate: Cxl Size
+translate.cxl_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cxl Size
 dissect.cxl_size = function(buffer, offset, packet, parent)
   local length = size_of.cxl_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cxl_size(raw)
   local display = display.cxl_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.cxl_size, range, value, display)
@@ -19631,14 +19830,20 @@ size_of.event_px = 8
 
 -- Display: Event Px
 display.event_px = function(value)
-  return "Event Px: "..value:tonumber()/100000000
+  return "Event Px: "..value
+end
+
+-- Translate: Event Px
+translate.event_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Event Px
 dissect.event_px = function(buffer, offset, packet, parent)
   local length = size_of.event_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.event_px(raw)
   local display = display.event_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.event_px, range, value, display)
@@ -19893,14 +20098,20 @@ size_of.imbalance_qty = 8
 
 -- Display: Imbalance Qty
 display.imbalance_qty = function(value)
-  return "Imbalance Qty: "..value:tonumber()/10000
+  return "Imbalance Qty: "..value
+end
+
+-- Translate: Imbalance Qty
+translate.imbalance_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Imbalance Qty
 dissect.imbalance_qty = function(buffer, offset, packet, parent)
   local length = size_of.imbalance_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.imbalance_qty(raw)
   local display = display.imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.imbalance_qty, range, value, display)
@@ -19913,14 +20124,20 @@ size_of.potential_exec_volume = 8
 
 -- Display: Potential Exec Volume
 display.potential_exec_volume = function(value)
-  return "Potential Exec Volume: "..value:tonumber()/10000
+  return "Potential Exec Volume: "..value
+end
+
+-- Translate: Potential Exec Volume
+translate.potential_exec_volume = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Potential Exec Volume
 dissect.potential_exec_volume = function(buffer, offset, packet, parent)
   local length = size_of.potential_exec_volume
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.potential_exec_volume(raw)
   local display = display.potential_exec_volume(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.potential_exec_volume, range, value, display)

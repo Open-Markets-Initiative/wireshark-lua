@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -33,7 +34,7 @@ cme_futures_streamlined_sbe_v5_8.fields.binary_packet_header = ProtoField.new("B
 cme_futures_streamlined_sbe_v5_8.fields.block_length = ProtoField.new("Block Length", "cme.futures.streamlined.sbe.v5.8.blocklength", ftypes.UINT16)
 cme_futures_streamlined_sbe_v5_8.fields.cal_fut_px = ProtoField.new("Cal Fut Px", "cme.futures.streamlined.sbe.v5.8.calfutpx", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.cal_fut_px_optional = ProtoField.new("Cal Fut Px Optional", "cme.futures.streamlined.sbe.v5.8.calfutpxoptional", ftypes.STRING)
-cme_futures_streamlined_sbe_v5_8.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.streamlined.sbe.v5.8.couponrate", ftypes.INT32)
+cme_futures_streamlined_sbe_v5_8.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.streamlined.sbe.v5.8.couponrate", ftypes.DOUBLE)
 cme_futures_streamlined_sbe_v5_8.fields.coupon_rate_optional = ProtoField.new("Coupon Rate Optional", "cme.futures.streamlined.sbe.v5.8.couponrateoptional", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.currency = ProtoField.new("Currency", "cme.futures.streamlined.sbe.v5.8.currency", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.d_v_01 = ProtoField.new("D V 01", "cme.futures.streamlined.sbe.v5.8.dv01", ftypes.STRING)
@@ -115,7 +116,7 @@ cme_futures_streamlined_sbe_v5_8.fields.md_entry_id = ProtoField.new("Md Entry I
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_position_no = ProtoField.new("Md Entry Position No", "cme.futures.streamlined.sbe.v5.8.mdentrypositionno", ftypes.INT32)
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_px_decimal = ProtoField.new("Md Entry Px Decimal", "cme.futures.streamlined.sbe.v5.8.mdentrypxdecimal", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_px_decimal_optional = ProtoField.new("Md Entry Px Decimal Optional", "cme.futures.streamlined.sbe.v5.8.mdentrypxdecimaloptional", ftypes.STRING)
-cme_futures_streamlined_sbe_v5_8.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.streamlined.sbe.v5.8.mdentrypxoptional", ftypes.INT64)
+cme_futures_streamlined_sbe_v5_8.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.streamlined.sbe.v5.8.mdentrypxoptional", ftypes.DOUBLE)
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.streamlined.sbe.v5.8.mdentrysize", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.futures.streamlined.sbe.v5.8.mdentrysizeoptional", ftypes.UINT64)
 cme_futures_streamlined_sbe_v5_8.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.streamlined.sbe.v5.8.mdentrytime", ftypes.INT32)
@@ -150,7 +151,7 @@ cme_futures_streamlined_sbe_v5_8.fields.next_fixed_payment_date = ProtoField.new
 cme_futures_streamlined_sbe_v5_8.fields.next_floating_payment_amount = ProtoField.new("Next Floating Payment Amount", "cme.futures.streamlined.sbe.v5.8.nextfloatingpaymentamount", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.next_floating_payment_date = ProtoField.new("Next Floating Payment Date", "cme.futures.streamlined.sbe.v5.8.nextfloatingpaymentdate", ftypes.UINT16)
 cme_futures_streamlined_sbe_v5_8.fields.nominal = ProtoField.new("Nominal", "cme.futures.streamlined.sbe.v5.8.nominal", ftypes.UINT64)
-cme_futures_streamlined_sbe_v5_8.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.futures.streamlined.sbe.v5.8.notionalpercentageoutstanding", ftypes.INT32)
+cme_futures_streamlined_sbe_v5_8.fields.notional_percentage_outstanding = ProtoField.new("Notional Percentage Outstanding", "cme.futures.streamlined.sbe.v5.8.notionalpercentageoutstanding", ftypes.DOUBLE)
 cme_futures_streamlined_sbe_v5_8.fields.npv = ProtoField.new("Npv", "cme.futures.streamlined.sbe.v5.8.npv", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.null_value = ProtoField.new("Null Value", "cme.futures.streamlined.sbe.v5.8.nullvalue", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cme_futures_streamlined_sbe_v5_8.fields.num_in_group_16 = ProtoField.new("Num In Group 16", "cme.futures.streamlined.sbe.v5.8.numingroup16", ftypes.UINT16)
@@ -208,7 +209,7 @@ cme_futures_streamlined_sbe_v5_8.fields.settl_date = ProtoField.new("Settl Date"
 cme_futures_streamlined_sbe_v5_8.fields.settl_price_type = ProtoField.new("Settl Price Type", "cme.futures.streamlined.sbe.v5.8.settlpricetype", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.settlement_npv = ProtoField.new("Settlement Npv", "cme.futures.streamlined.sbe.v5.8.settlementnpv", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "cme.futures.streamlined.sbe.v5.8.strategylinkid", ftypes.STRING)
-cme_futures_streamlined_sbe_v5_8.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.streamlined.sbe.v5.8.strikeprice", ftypes.INT64)
+cme_futures_streamlined_sbe_v5_8.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.streamlined.sbe.v5.8.strikeprice", ftypes.DOUBLE)
 cme_futures_streamlined_sbe_v5_8.fields.strike_price_decimal = ProtoField.new("Strike Price Decimal", "cme.futures.streamlined.sbe.v5.8.strikepricedecimal", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.symbol = ProtoField.new("Symbol", "cme.futures.streamlined.sbe.v5.8.symbol", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.template_id = ProtoField.new("Template Id", "cme.futures.streamlined.sbe.v5.8.templateid", ftypes.UINT16)
@@ -224,7 +225,7 @@ cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure = ProtoField.new("Unit O
 cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_currency = ProtoField.new("Unit Of Measure Currency", "cme.futures.streamlined.sbe.v5.8.unitofmeasurecurrency", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_currency_3 = ProtoField.new("Unit Of Measure Currency 3", "cme.futures.streamlined.sbe.v5.8.unitofmeasurecurrency3", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_qty_decimal = ProtoField.new("Unit Of Measure Qty Decimal", "cme.futures.streamlined.sbe.v5.8.unitofmeasureqtydecimal", ftypes.STRING)
-cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.futures.streamlined.sbe.v5.8.unitofmeasureqtyoptional", ftypes.INT64)
+cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_qty_optional = ProtoField.new("Unit Of Measure Qty Optional", "cme.futures.streamlined.sbe.v5.8.unitofmeasureqtyoptional", ftypes.DOUBLE)
 cme_futures_streamlined_sbe_v5_8.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.streamlined.sbe.v5.8.userdefinedinstrument", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_8.fields.version = ProtoField.new("Version", "cme.futures.streamlined.sbe.v5.8.version", ftypes.UINT16)
 cme_futures_streamlined_sbe_v5_8.fields.vol_type = ProtoField.new("Vol Type", "cme.futures.streamlined.sbe.v5.8.voltype", ftypes.UINT16)
@@ -805,7 +806,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0xFFFFFFF, 0x7FFFFFFF) then
+  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Mantissa: No Value"
   end
 
@@ -2069,20 +2070,32 @@ end
 size_of.coupon_rate = 4
 
 -- Display: Coupon Rate
-display.coupon_rate = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
+display.coupon_rate = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
     return "Coupon Rate: No Value"
   end
-  return "Coupon Rate: "..value/10000
+
+  return "Coupon Rate: "..value
+end
+
+-- Translate: Coupon Rate
+translate.coupon_rate = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
 end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
   local length = size_of.coupon_rate
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.coupon_rate(value, buffer, offset, packet, parent)
+  local raw = range:le_int()
+  local value = translate.coupon_rate(raw)
+  local display = display.coupon_rate(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamlined_sbe_v5_8.fields.coupon_rate, range, value, display)
 
@@ -3115,20 +3128,32 @@ end
 size_of.notional_percentage_outstanding = 4
 
 -- Display: Notional Percentage Outstanding
-display.notional_percentage_outstanding = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
+display.notional_percentage_outstanding = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
     return "Notional Percentage Outstanding: No Value"
   end
-  return "Notional Percentage Outstanding: "..value/10000
+
+  return "Notional Percentage Outstanding: "..value
+end
+
+-- Translate: Notional Percentage Outstanding
+translate.notional_percentage_outstanding = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
 end
 
 -- Dissect: Notional Percentage Outstanding
 dissect.notional_percentage_outstanding = function(buffer, offset, packet, parent)
   local length = size_of.notional_percentage_outstanding
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.notional_percentage_outstanding(value, buffer, offset, packet, parent)
+  local raw = range:le_int()
+  local value = translate.notional_percentage_outstanding(raw)
+  local display = display.notional_percentage_outstanding(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamlined_sbe_v5_8.fields.notional_percentage_outstanding, range, value, display)
 
@@ -3441,20 +3466,32 @@ end
 size_of.md_entry_px_optional = 8
 
 -- Display: Md Entry Px Optional
-display.md_entry_px_optional = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.md_entry_px_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Md Entry Px Optional: No Value"
   end
-  return "Md Entry Px Optional: "..value:tonumber()/10000000
+
+  return "Md Entry Px Optional: "..value
+end
+
+-- Translate: Md Entry Px Optional
+translate.md_entry_px_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Md Entry Px Optional
 dissect.md_entry_px_optional = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px_optional
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.md_entry_px_optional(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.md_entry_px_optional(raw)
+  local display = display.md_entry_px_optional(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamlined_sbe_v5_8.fields.md_entry_px_optional, range, value, display)
 
@@ -4217,7 +4254,7 @@ size_of.md_entry_size_optional = 8
 -- Display: Md Entry Size Optional
 display.md_entry_size_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size Optional: No Value"
   end
 
@@ -4830,20 +4867,32 @@ end
 size_of.strike_price = 8
 
 -- Display: Strike Price
-display.strike_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.strike_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Strike Price: No Value"
   end
-  return "Strike Price: "..value:tonumber()/10000000
+
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
   local length = size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.strike_price(raw)
+  local display = display.strike_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamlined_sbe_v5_8.fields.strike_price, range, value, display)
 
@@ -4915,20 +4964,32 @@ end
 size_of.unit_of_measure_qty_optional = 8
 
 -- Display: Unit Of Measure Qty Optional
-display.unit_of_measure_qty_optional = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.unit_of_measure_qty_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Unit Of Measure Qty Optional: No Value"
   end
-  return "Unit Of Measure Qty Optional: "..value:tonumber()/10000000
+
+  return "Unit Of Measure Qty Optional: "..value
+end
+
+-- Translate: Unit Of Measure Qty Optional
+translate.unit_of_measure_qty_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/10000000
 end
 
 -- Dissect: Unit Of Measure Qty Optional
 dissect.unit_of_measure_qty_optional = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure_qty_optional
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.unit_of_measure_qty_optional(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.unit_of_measure_qty_optional(raw)
+  local display = display.unit_of_measure_qty_optional(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_streamlined_sbe_v5_8.fields.unit_of_measure_qty_optional, range, value, display)
 
@@ -5013,7 +5074,7 @@ size_of.security_id = 8
 -- Display: Security Id
 display.security_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Security Id: No Value"
   end
 
@@ -5323,7 +5384,7 @@ size_of.transact_time_optional = 8
 -- Display: Transact Time Optional
 display.transact_time_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Transact Time Optional: No Value"
   end
 
@@ -6801,7 +6862,7 @@ size_of.orig_time = 8
 -- Display: Orig Time
 display.orig_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Orig Time: No Value"
   end
 
@@ -7226,7 +7287,7 @@ size_of.nominal = 8
 -- Display: Nominal
 display.nominal = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Nominal: No Value"
   end
 

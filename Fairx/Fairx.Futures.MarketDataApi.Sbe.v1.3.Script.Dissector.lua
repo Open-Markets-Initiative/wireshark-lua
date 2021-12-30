@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -23,30 +24,30 @@ local verify = {}
 fairx_futures_marketdataapi_sbe_v1_3.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "fairx.futures.marketdataapi.sbe.v1.3.aggressororderid", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "fairx.futures.marketdataapi.sbe.v1.3.aggressorreceivetime", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.beginseqnum", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.bestaskimpliedprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.bestaskimpliedprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "fairx.futures.marketdataapi.sbe.v1.3.bestaskimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.bestbidimpliedprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.bestbidimpliedprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "fairx.futures.marketdataapi.sbe.v1.3.bestbidimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.best_price = ProtoField.new("Best Price", "fairx.futures.marketdataapi.sbe.v1.3.bestprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.best_price = ProtoField.new("Best Price", "fairx.futures.marketdataapi.sbe.v1.3.bestprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.best_qty = ProtoField.new("Best Qty", "fairx.futures.marketdataapi.sbe.v1.3.bestqty", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "fairx.futures.marketdataapi.sbe.v1.3.blocklength", ftypes.UINT16)
 fairx_futures_marketdataapi_sbe_v1_3.fields.buy_order_id = ProtoField.new("Buy Order Id", "fairx.futures.marketdataapi.sbe.v1.3.buyorderid", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.cfi_code = ProtoField.new("Cfi Code", "fairx.futures.marketdataapi.sbe.v1.3.cficode", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.channel_id = ProtoField.new("Channel Id", "fairx.futures.marketdataapi.sbe.v1.3.channelid", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_3.fields.close_price = ProtoField.new("Close Price", "fairx.futures.marketdataapi.sbe.v1.3.closeprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.close_price = ProtoField.new("Close Price", "fairx.futures.marketdataapi.sbe.v1.3.closeprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.contract_size = ProtoField.new("Contract Size", "fairx.futures.marketdataapi.sbe.v1.3.contractsize", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.currency = ProtoField.new("Currency", "fairx.futures.marketdataapi.sbe.v1.3.currency", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_3.fields.day_open_price = ProtoField.new("Day Open Price", "fairx.futures.marketdataapi.sbe.v1.3.dayopenprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.deepest_price = ProtoField.new("Deepest Price", "fairx.futures.marketdataapi.sbe.v1.3.deepestprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.day_open_price = ProtoField.new("Day Open Price", "fairx.futures.marketdataapi.sbe.v1.3.dayopenprice", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.deepest_price = ProtoField.new("Deepest Price", "fairx.futures.marketdataapi.sbe.v1.3.deepestprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.definition_flags = ProtoField.new("Definition Flags", "fairx.futures.marketdataapi.sbe.v1.3.definitionflags", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.description = ProtoField.new("Description", "fairx.futures.marketdataapi.sbe.v1.3.description", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.details = ProtoField.new("Details", "fairx.futures.marketdataapi.sbe.v1.3.details", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.3.endofsnapshotmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "fairx.futures.marketdataapi.sbe.v1.3.firsttradingsessiondate", ftypes.UINT16)
 fairx_futures_marketdataapi_sbe_v1_3.fields.frame_length = ProtoField.new("Frame Length", "fairx.futures.marketdataapi.sbe.v1.3.framelength", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_3.fields.high_price = ProtoField.new("High Price", "fairx.futures.marketdataapi.sbe.v1.3.highprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.high_price = ProtoField.new("High Price", "fairx.futures.marketdataapi.sbe.v1.3.highprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "fairx.futures.marketdataapi.sbe.v1.3.impliedorderupdatemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_3.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "fairx.futures.marketdataapi.sbe.v1.3.indicativeopenprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "fairx.futures.marketdataapi.sbe.v1.3.indicativeopenprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.instr_header = ProtoField.new("Instr Header", "fairx.futures.marketdataapi.sbe.v1.3.instrheader", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.instrseqnum", ftypes.UINT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.instrument_flags = ProtoField.new("Instrument Flags", "fairx.futures.marketdataapi.sbe.v1.3.instrumentflags", ftypes.UINT8)
@@ -55,34 +56,34 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.instrument_side = ProtoField.new("In
 fairx_futures_marketdataapi_sbe_v1_3.fields.is_announced = ProtoField.new("Is Announced", "fairx.futures.marketdataapi.sbe.v1.3.isannounced", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
 fairx_futures_marketdataapi_sbe_v1_3.fields.is_call = ProtoField.new("Is Call", "fairx.futures.marketdataapi.sbe.v1.3.iscall", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0004")
 fairx_futures_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "fairx.futures.marketdataapi.sbe.v1.3.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
-fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick = ProtoField.new("Large Tick", "fairx.futures.marketdataapi.sbe.v1.3.largetick", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "fairx.futures.marketdataapi.sbe.v1.3.largetickthreshold", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick = ProtoField.new("Large Tick", "fairx.futures.marketdataapi.sbe.v1.3.largetick", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "fairx.futures.marketdataapi.sbe.v1.3.largetickthreshold", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.lastinstrseqnum", ftypes.UINT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.last_trade_price = ProtoField.new("Last Trade Price", "fairx.futures.marketdataapi.sbe.v1.3.lasttradeprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.last_trade_price = ProtoField.new("Last Trade Price", "fairx.futures.marketdataapi.sbe.v1.3.lasttradeprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "fairx.futures.marketdataapi.sbe.v1.3.lasttradeqty", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.last_trade_time = ProtoField.new("Last Trade Time", "fairx.futures.marketdataapi.sbe.v1.3.lasttradetime", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "fairx.futures.marketdataapi.sbe.v1.3.lasttradingsessiondate", ftypes.UINT16)
 fairx_futures_marketdataapi_sbe_v1_3.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "fairx.futures.marketdataapi.sbe.v1.3.leg1instrumentid", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "fairx.futures.marketdataapi.sbe.v1.3.leg2instrumentid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.limit_down_price = ProtoField.new("Limit Down Price", "fairx.futures.marketdataapi.sbe.v1.3.limitdownprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.limit_up_price = ProtoField.new("Limit Up Price", "fairx.futures.marketdataapi.sbe.v1.3.limitupprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.low_price = ProtoField.new("Low Price", "fairx.futures.marketdataapi.sbe.v1.3.lowprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.limit_down_price = ProtoField.new("Limit Down Price", "fairx.futures.marketdataapi.sbe.v1.3.limitdownprice", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.limit_up_price = ProtoField.new("Limit Up Price", "fairx.futures.marketdataapi.sbe.v1.3.limitupprice", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.low_price = ProtoField.new("Low Price", "fairx.futures.marketdataapi.sbe.v1.3.lowprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.market_stat_message = ProtoField.new("Market Stat Message", "fairx.futures.marketdataapi.sbe.v1.3.marketstatmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.match_id = ProtoField.new("Match Id", "fairx.futures.marketdataapi.sbe.v1.3.matchid", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "fairx.futures.marketdataapi.sbe.v1.3.messagecount", ftypes.UINT8)
 fairx_futures_marketdataapi_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "fairx.futures.marketdataapi.sbe.v1.3.messageheader", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.3.newleg1price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.3.newleg2price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.new_price = ProtoField.new("New Price", "fairx.futures.marketdataapi.sbe.v1.3.newprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.nextaskimpliedprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.3.newleg1price", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.3.newleg2price", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.new_price = ProtoField.new("New Price", "fairx.futures.marketdataapi.sbe.v1.3.newprice", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.nextaskimpliedprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "fairx.futures.marketdataapi.sbe.v1.3.nextaskimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.nextbidimpliedprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.3.nextbidimpliedprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "fairx.futures.marketdataapi.sbe.v1.3.nextbidimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.next_price = ProtoField.new("Next Price", "fairx.futures.marketdataapi.sbe.v1.3.nextprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.next_price = ProtoField.new("Next Price", "fairx.futures.marketdataapi.sbe.v1.3.nextprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.next_qty = ProtoField.new("Next Qty", "fairx.futures.marketdataapi.sbe.v1.3.nextqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.3.oldleg1price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.3.oldleg2price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.old_price = ProtoField.new("Old Price", "fairx.futures.marketdataapi.sbe.v1.3.oldprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.3.oldleg1price", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.3.oldleg2price", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.old_price = ProtoField.new("Old Price", "fairx.futures.marketdataapi.sbe.v1.3.oldprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.open_interest = ProtoField.new("Open Interest", "fairx.futures.marketdataapi.sbe.v1.3.openinterest", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.open_interest_message = ProtoField.new("Open Interest Message", "fairx.futures.marketdataapi.sbe.v1.3.openinterestmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.option_instrument_definition_message = ProtoField.new("Option Instrument Definition Message", "fairx.futures.marketdataapi.sbe.v1.3.optioninstrumentdefinitionmessage", ftypes.STRING)
@@ -97,9 +98,9 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.packet_flags = ProtoField.new("Packe
 fairx_futures_marketdataapi_sbe_v1_3.fields.packet_header = ProtoField.new("Packet Header", "fairx.futures.marketdataapi.sbe.v1.3.packetheader", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.padding = ProtoField.new("Padding", "fairx.futures.marketdataapi.sbe.v1.3.padding", ftypes.BYTES)
 fairx_futures_marketdataapi_sbe_v1_3.fields.payload = ProtoField.new("Payload", "fairx.futures.marketdataapi.sbe.v1.3.payload", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_3.fields.price = ProtoField.new("Price", "fairx.futures.marketdataapi.sbe.v1.3.price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.price_increment = ProtoField.new("Price Increment", "fairx.futures.marketdataapi.sbe.v1.3.priceincrement", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "fairx.futures.marketdataapi.sbe.v1.3.priorsettlementprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.price = ProtoField.new("Price", "fairx.futures.marketdataapi.sbe.v1.3.price", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.price_increment = ProtoField.new("Price Increment", "fairx.futures.marketdataapi.sbe.v1.3.priceincrement", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "fairx.futures.marketdataapi.sbe.v1.3.priorsettlementprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.product_code = ProtoField.new("Product Code", "fairx.futures.marketdataapi.sbe.v1.3.productcode", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.product_group = ProtoField.new("Product Group", "fairx.futures.marketdataapi.sbe.v1.3.productgroup", ftypes.INT8)
 fairx_futures_marketdataapi_sbe_v1_3.fields.product_id = ProtoField.new("Product Id", "fairx.futures.marketdataapi.sbe.v1.3.productid", ftypes.INT32)
@@ -115,8 +116,8 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.schema_id = ProtoField.new("Schema I
 fairx_futures_marketdataapi_sbe_v1_3.fields.sell_order_id = ProtoField.new("Sell Order Id", "fairx.futures.marketdataapi.sbe.v1.3.sellorderid", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "fairx.futures.marketdataapi.sbe.v1.3.sendingtime", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.seq_num = ProtoField.new("Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.seqnum", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.settlement_price = ProtoField.new("Settlement Price", "fairx.futures.marketdataapi.sbe.v1.3.settlementprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_3.fields.small_tick = ProtoField.new("Small Tick", "fairx.futures.marketdataapi.sbe.v1.3.smalltick", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.settlement_price = ProtoField.new("Settlement Price", "fairx.futures.marketdataapi.sbe.v1.3.settlementprice", ftypes.DOUBLE)
+fairx_futures_marketdataapi_sbe_v1_3.fields.small_tick = ProtoField.new("Small Tick", "fairx.futures.marketdataapi.sbe.v1.3.smalltick", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "fairx.futures.marketdataapi.sbe.v1.3.snapshotinstrumentid", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "fairx.futures.marketdataapi.sbe.v1.3.snapshotseqnum", ftypes.UINT16)
 fairx_futures_marketdataapi_sbe_v1_3.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "fairx.futures.marketdataapi.sbe.v1.3.spreadbuyconvention", ftypes.INT8)
@@ -126,7 +127,7 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.start_of_option_instrument_snapshot_
 fairx_futures_marketdataapi_sbe_v1_3.fields.start_of_outright_instrument_snapshot_message = ProtoField.new("Start Of Outright Instrument Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.3.startofoutrightinstrumentsnapshotmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.start_of_spread_instrument_snapshot_message = ProtoField.new("Start Of Spread Instrument Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.3.startofspreadinstrumentsnapshotmessage", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.stat_type = ProtoField.new("Stat Type", "fairx.futures.marketdataapi.sbe.v1.3.stattype", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "fairx.futures.marketdataapi.sbe.v1.3.strikeprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "fairx.futures.marketdataapi.sbe.v1.3.strikeprice", ftypes.DOUBLE)
 fairx_futures_marketdataapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "fairx.futures.marketdataapi.sbe.v1.3.symbol", ftypes.STRING)
 fairx_futures_marketdataapi_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "fairx.futures.marketdataapi.sbe.v1.3.templateid", ftypes.UINT16)
 fairx_futures_marketdataapi_sbe_v1_3.fields.trade_amend_message = ProtoField.new("Trade Amend Message", "fairx.futures.marketdataapi.sbe.v1.3.tradeamendmessage", ftypes.STRING)
@@ -141,7 +142,7 @@ fairx_futures_marketdataapi_sbe_v1_3.fields.trading_status_update_message = Prot
 fairx_futures_marketdataapi_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "fairx.futures.marketdataapi.sbe.v1.3.transacttime", ftypes.INT64)
 fairx_futures_marketdataapi_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "fairx.futures.marketdataapi.sbe.v1.3.underlyinginstrumentid", ftypes.INT32)
 fairx_futures_marketdataapi_sbe_v1_3.fields.version = ProtoField.new("Version", "fairx.futures.marketdataapi.sbe.v1.3.version", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_3.fields.vwap_price = ProtoField.new("Vwap Price", "fairx.futures.marketdataapi.sbe.v1.3.vwapprice", ftypes.INT64)
+fairx_futures_marketdataapi_sbe_v1_3.fields.vwap_price = ProtoField.new("Vwap Price", "fairx.futures.marketdataapi.sbe.v1.3.vwapprice", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -633,20 +634,32 @@ end
 size_of.prior_settlement_price = 8
 
 -- Display: Prior Settlement Price
-display.prior_settlement_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.prior_settlement_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Prior Settlement Price: No Value"
   end
-  return "Prior Settlement Price: "..value:tonumber()/1000000000
+
+  return "Prior Settlement Price: "..value
+end
+
+-- Translate: Prior Settlement Price
+translate.prior_settlement_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Prior Settlement Price
 dissect.prior_settlement_price = function(buffer, offset, packet, parent)
   local length = size_of.prior_settlement_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.prior_settlement_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.prior_settlement_price(raw)
+  local display = display.prior_settlement_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.prior_settlement_price, range, value, display)
 
@@ -778,14 +791,20 @@ size_of.limit_up_price = 8
 
 -- Display: Limit Up Price
 display.limit_up_price = function(value)
-  return "Limit Up Price: "..value:tonumber()/1000000000
+  return "Limit Up Price: "..value
+end
+
+-- Translate: Limit Up Price
+translate.limit_up_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Limit Up Price
 dissect.limit_up_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_up_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.limit_up_price(raw)
   local display = display.limit_up_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.limit_up_price, range, value, display)
@@ -798,14 +817,20 @@ size_of.limit_down_price = 8
 
 -- Display: Limit Down Price
 display.limit_down_price = function(value)
-  return "Limit Down Price: "..value:tonumber()/1000000000
+  return "Limit Down Price: "..value
+end
+
+-- Translate: Limit Down Price
+translate.limit_down_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Limit Down Price
 dissect.limit_down_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_down_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.limit_down_price(raw)
   local display = display.limit_down_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.limit_down_price, range, value, display)
@@ -817,20 +842,32 @@ end
 size_of.next_ask_implied_price = 8
 
 -- Display: Next Ask Implied Price
-display.next_ask_implied_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.next_ask_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Ask Implied Price: No Value"
   end
-  return "Next Ask Implied Price: "..value:tonumber()/1000000000
+
+  return "Next Ask Implied Price: "..value
+end
+
+-- Translate: Next Ask Implied Price
+translate.next_ask_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Next Ask Implied Price
 dissect.next_ask_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.next_ask_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_ask_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_ask_implied_price(raw)
+  local display = display.next_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.next_ask_implied_price, range, value, display)
 
@@ -841,20 +878,32 @@ end
 size_of.next_bid_implied_price = 8
 
 -- Display: Next Bid Implied Price
-display.next_bid_implied_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.next_bid_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Bid Implied Price: No Value"
   end
-  return "Next Bid Implied Price: "..value:tonumber()/1000000000
+
+  return "Next Bid Implied Price: "..value
+end
+
+-- Translate: Next Bid Implied Price
+translate.next_bid_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Next Bid Implied Price
 dissect.next_bid_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.next_bid_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_bid_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_bid_implied_price(raw)
+  local display = display.next_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.next_bid_implied_price, range, value, display)
 
@@ -865,20 +914,32 @@ end
 size_of.best_ask_implied_price = 8
 
 -- Display: Best Ask Implied Price
-display.best_ask_implied_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.best_ask_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Ask Implied Price: No Value"
   end
-  return "Best Ask Implied Price: "..value:tonumber()/1000000000
+
+  return "Best Ask Implied Price: "..value
+end
+
+-- Translate: Best Ask Implied Price
+translate.best_ask_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Best Ask Implied Price
 dissect.best_ask_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.best_ask_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_ask_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_ask_implied_price(raw)
+  local display = display.best_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.best_ask_implied_price, range, value, display)
 
@@ -889,20 +950,32 @@ end
 size_of.best_bid_implied_price = 8
 
 -- Display: Best Bid Implied Price
-display.best_bid_implied_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.best_bid_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Bid Implied Price: No Value"
   end
-  return "Best Bid Implied Price: "..value:tonumber()/1000000000
+
+  return "Best Bid Implied Price: "..value
+end
+
+-- Translate: Best Bid Implied Price
+translate.best_bid_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Best Bid Implied Price
 dissect.best_bid_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_bid_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_bid_implied_price(raw)
+  local display = display.best_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.best_bid_implied_price, range, value, display)
 
@@ -915,7 +988,7 @@ size_of.last_trade_time = 8
 -- Display: Last Trade Time
 display.last_trade_time = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Last Trade Time: No Value"
   end
 
@@ -938,20 +1011,32 @@ end
 size_of.last_trade_price = 8
 
 -- Display: Last Trade Price
-display.last_trade_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.last_trade_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Trade Price: No Value"
   end
-  return "Last Trade Price: "..value:tonumber()/1000000000
+
+  return "Last Trade Price: "..value
+end
+
+-- Translate: Last Trade Price
+translate.last_trade_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Last Trade Price
 dissect.last_trade_price = function(buffer, offset, packet, parent)
   local length = size_of.last_trade_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.last_trade_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.last_trade_price(raw)
+  local display = display.last_trade_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.last_trade_price, range, value, display)
 
@@ -962,20 +1047,32 @@ end
 size_of.settlement_price = 8
 
 -- Display: Settlement Price
-display.settlement_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.settlement_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Settlement Price: No Value"
   end
-  return "Settlement Price: "..value:tonumber()/1000000000
+
+  return "Settlement Price: "..value
+end
+
+-- Translate: Settlement Price
+translate.settlement_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
   local length = size_of.settlement_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.settlement_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.settlement_price(raw)
+  local display = display.settlement_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.settlement_price, range, value, display)
 
@@ -986,20 +1083,32 @@ end
 size_of.vwap_price = 8
 
 -- Display: Vwap Price
-display.vwap_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.vwap_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Vwap Price: No Value"
   end
-  return "Vwap Price: "..value:tonumber()/1000000000
+
+  return "Vwap Price: "..value
+end
+
+-- Translate: Vwap Price
+translate.vwap_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Vwap Price
 dissect.vwap_price = function(buffer, offset, packet, parent)
   local length = size_of.vwap_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.vwap_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.vwap_price(raw)
+  local display = display.vwap_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
 
@@ -1010,20 +1119,32 @@ end
 size_of.high_price = 8
 
 -- Display: High Price
-display.high_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.high_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "High Price: No Value"
   end
-  return "High Price: "..value:tonumber()/1000000000
+
+  return "High Price: "..value
+end
+
+-- Translate: High Price
+translate.high_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: High Price
 dissect.high_price = function(buffer, offset, packet, parent)
   local length = size_of.high_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.high_price(raw)
+  local display = display.high_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.high_price, range, value, display)
 
@@ -1034,20 +1155,32 @@ end
 size_of.low_price = 8
 
 -- Display: Low Price
-display.low_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.low_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Low Price: No Value"
   end
-  return "Low Price: "..value:tonumber()/1000000000
+
+  return "Low Price: "..value
+end
+
+-- Translate: Low Price
+translate.low_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Low Price
 dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.low_price(raw)
+  local display = display.low_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.low_price, range, value, display)
 
@@ -1058,20 +1191,32 @@ end
 size_of.close_price = 8
 
 -- Display: Close Price
-display.close_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.close_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Close Price: No Value"
   end
-  return "Close Price: "..value:tonumber()/1000000000
+
+  return "Close Price: "..value
+end
+
+-- Translate: Close Price
+translate.close_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Close Price
 dissect.close_price = function(buffer, offset, packet, parent)
   local length = size_of.close_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.close_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.close_price(raw)
+  local display = display.close_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.close_price, range, value, display)
 
@@ -1082,20 +1227,32 @@ end
 size_of.day_open_price = 8
 
 -- Display: Day Open Price
-display.day_open_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.day_open_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Day Open Price: No Value"
   end
-  return "Day Open Price: "..value:tonumber()/1000000000
+
+  return "Day Open Price: "..value
+end
+
+-- Translate: Day Open Price
+translate.day_open_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Day Open Price
 dissect.day_open_price = function(buffer, offset, packet, parent)
   local length = size_of.day_open_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.day_open_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.day_open_price(raw)
+  local display = display.day_open_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.day_open_price, range, value, display)
 
@@ -1106,20 +1263,32 @@ end
 size_of.indicative_open_price = 8
 
 -- Display: Indicative Open Price
-display.indicative_open_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.indicative_open_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Indicative Open Price: No Value"
   end
-  return "Indicative Open Price: "..value:tonumber()/1000000000
+
+  return "Indicative Open Price: "..value
+end
+
+-- Translate: Indicative Open Price
+translate.indicative_open_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Indicative Open Price
 dissect.indicative_open_price = function(buffer, offset, packet, parent)
   local length = size_of.indicative_open_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.indicative_open_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.indicative_open_price(raw)
+  local display = display.indicative_open_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.indicative_open_price, range, value, display)
 
@@ -1328,14 +1497,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/1000000000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.price, range, value, display)
@@ -1666,14 +1841,20 @@ size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
-  return "Strike Price: "..value:tonumber()/1000000000
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
   local length = size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.strike_price(raw)
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.strike_price, range, value, display)
@@ -1686,14 +1867,20 @@ size_of.large_tick_threshold = 8
 
 -- Display: Large Tick Threshold
 display.large_tick_threshold = function(value)
-  return "Large Tick Threshold: "..value:tonumber()/1000000000
+  return "Large Tick Threshold: "..value
+end
+
+-- Translate: Large Tick Threshold
+translate.large_tick_threshold = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Large Tick Threshold
 dissect.large_tick_threshold = function(buffer, offset, packet, parent)
   local length = size_of.large_tick_threshold
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.large_tick_threshold(raw)
   local display = display.large_tick_threshold(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick_threshold, range, value, display)
@@ -1706,14 +1893,20 @@ size_of.large_tick = 8
 
 -- Display: Large Tick
 display.large_tick = function(value)
-  return "Large Tick: "..value:tonumber()/1000000000
+  return "Large Tick: "..value
+end
+
+-- Translate: Large Tick
+translate.large_tick = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Large Tick
 dissect.large_tick = function(buffer, offset, packet, parent)
   local length = size_of.large_tick
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.large_tick(raw)
   local display = display.large_tick(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.large_tick, range, value, display)
@@ -1762,14 +1955,20 @@ size_of.small_tick = 8
 
 -- Display: Small Tick
 display.small_tick = function(value)
-  return "Small Tick: "..value:tonumber()/1000000000
+  return "Small Tick: "..value
+end
+
+-- Translate: Small Tick
+translate.small_tick = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Small Tick
 dissect.small_tick = function(buffer, offset, packet, parent)
   local length = size_of.small_tick
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.small_tick(raw)
   local display = display.small_tick(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.small_tick, range, value, display)
@@ -2160,14 +2359,20 @@ size_of.price_increment = 8
 
 -- Display: Price Increment
 display.price_increment = function(value)
-  return "Price Increment: "..value:tonumber()/1000000000
+  return "Price Increment: "..value
+end
+
+-- Translate: Price Increment
+translate.price_increment = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Price Increment
 dissect.price_increment = function(buffer, offset, packet, parent)
   local length = size_of.price_increment
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price_increment(raw)
   local display = display.price_increment(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.price_increment, range, value, display)
@@ -2775,7 +2980,7 @@ size_of.sell_order_id = 8
 -- Display: Sell Order Id
 display.sell_order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Sell Order Id: No Value"
   end
 
@@ -2800,7 +3005,7 @@ size_of.buy_order_id = 8
 -- Display: Buy Order Id
 display.buy_order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Buy Order Id: No Value"
   end
 
@@ -2896,14 +3101,20 @@ size_of.new_leg_2_price = 8
 
 -- Display: New Leg 2 Price
 display.new_leg_2_price = function(value)
-  return "New Leg 2 Price: "..value:tonumber()/1000000000
+  return "New Leg 2 Price: "..value
+end
+
+-- Translate: New Leg 2 Price
+translate.new_leg_2_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: New Leg 2 Price
 dissect.new_leg_2_price = function(buffer, offset, packet, parent)
   local length = size_of.new_leg_2_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_leg_2_price(raw)
   local display = display.new_leg_2_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_2_price, range, value, display)
@@ -2916,14 +3127,20 @@ size_of.old_leg_2_price = 8
 
 -- Display: Old Leg 2 Price
 display.old_leg_2_price = function(value)
-  return "Old Leg 2 Price: "..value:tonumber()/1000000000
+  return "Old Leg 2 Price: "..value
+end
+
+-- Translate: Old Leg 2 Price
+translate.old_leg_2_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Old Leg 2 Price
 dissect.old_leg_2_price = function(buffer, offset, packet, parent)
   local length = size_of.old_leg_2_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_leg_2_price(raw)
   local display = display.old_leg_2_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_2_price, range, value, display)
@@ -2936,14 +3153,20 @@ size_of.new_leg_1_price = 8
 
 -- Display: New Leg 1 Price
 display.new_leg_1_price = function(value)
-  return "New Leg 1 Price: "..value:tonumber()/1000000000
+  return "New Leg 1 Price: "..value
+end
+
+-- Translate: New Leg 1 Price
+translate.new_leg_1_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: New Leg 1 Price
 dissect.new_leg_1_price = function(buffer, offset, packet, parent)
   local length = size_of.new_leg_1_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_leg_1_price(raw)
   local display = display.new_leg_1_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.new_leg_1_price, range, value, display)
@@ -2956,14 +3179,20 @@ size_of.old_leg_1_price = 8
 
 -- Display: Old Leg 1 Price
 display.old_leg_1_price = function(value)
-  return "Old Leg 1 Price: "..value:tonumber()/1000000000
+  return "Old Leg 1 Price: "..value
+end
+
+-- Translate: Old Leg 1 Price
+translate.old_leg_1_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Old Leg 1 Price
 dissect.old_leg_1_price = function(buffer, offset, packet, parent)
   local length = size_of.old_leg_1_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_leg_1_price(raw)
   local display = display.old_leg_1_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.old_leg_1_price, range, value, display)
@@ -2976,14 +3205,20 @@ size_of.new_price = 8
 
 -- Display: New Price
 display.new_price = function(value)
-  return "New Price: "..value:tonumber()/1000000000
+  return "New Price: "..value
+end
+
+-- Translate: New Price
+translate.new_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: New Price
 dissect.new_price = function(buffer, offset, packet, parent)
   local length = size_of.new_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_price(raw)
   local display = display.new_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.new_price, range, value, display)
@@ -2996,14 +3231,20 @@ size_of.old_price = 8
 
 -- Display: Old Price
 display.old_price = function(value)
-  return "Old Price: "..value:tonumber()/1000000000
+  return "Old Price: "..value
+end
+
+-- Translate: Old Price
+translate.old_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Old Price
 dissect.old_price = function(buffer, offset, packet, parent)
   local length = size_of.old_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_price(raw)
   local display = display.old_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.old_price, range, value, display)
@@ -3222,14 +3463,20 @@ size_of.deepest_price = 8
 
 -- Display: Deepest Price
 display.deepest_price = function(value)
-  return "Deepest Price: "..value:tonumber()/1000000000
+  return "Deepest Price: "..value
+end
+
+-- Translate: Deepest Price
+translate.deepest_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Deepest Price
 dissect.deepest_price = function(buffer, offset, packet, parent)
   local length = size_of.deepest_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.deepest_price(raw)
   local display = display.deepest_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.deepest_price, range, value, display)
@@ -3383,20 +3630,32 @@ end
 size_of.next_price = 8
 
 -- Display: Next Price
-display.next_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.next_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Price: No Value"
   end
-  return "Next Price: "..value:tonumber()/1000000000
+
+  return "Next Price: "..value
+end
+
+-- Translate: Next Price
+translate.next_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Next Price
 dissect.next_price = function(buffer, offset, packet, parent)
   local length = size_of.next_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_price(raw)
+  local display = display.next_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.next_price, range, value, display)
 
@@ -3407,20 +3666,32 @@ end
 size_of.best_price = 8
 
 -- Display: Best Price
-display.best_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.best_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Price: No Value"
   end
-  return "Best Price: "..value:tonumber()/1000000000
+
+  return "Best Price: "..value
+end
+
+-- Translate: Best Price
+translate.best_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Best Price
 dissect.best_price = function(buffer, offset, packet, parent)
   local length = size_of.best_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_price(raw)
+  local display = display.best_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_marketdataapi_sbe_v1_3.fields.best_price, range, value, display)
 

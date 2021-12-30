@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -28,7 +29,7 @@ eurex_derivatives_eti_t7_v8_1.fields.add_flexible_instrument_response = ProtoFie
 eurex_derivatives_eti_t7_v8_1.fields.affected_order_request_id = ProtoField.new("Affected Order Request Id", "eurex.derivatives.eti.t7.v8.1.affectedorderrequestid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.affected_order_requests_grp_comp = ProtoField.new("Affected Order Requests Grp Comp", "eurex.derivatives.eti.t7.v8.1.affectedorderrequestsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.alloc_id = ProtoField.new("Alloc Id", "eurex.derivatives.eti.t7.v8.1.allocid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.derivatives.eti.t7.v8.1.allocqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.alloc_qty = ProtoField.new("Alloc Qty", "eurex.derivatives.eti.t7.v8.1.allocqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.amend_basket_trade_request = ProtoField.new("Amend Basket Trade Request", "eurex.derivatives.eti.t7.v8.1.amendbaskettraderequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.appl_beg_msg_id = ProtoField.new("Appl Beg Msg Id", "eurex.derivatives.eti.t7.v8.1.applbegmsgid", ftypes.BYTES)
 eurex_derivatives_eti_t7_v8_1.fields.appl_beg_seq_num = ProtoField.new("Appl Beg Seq Num", "eurex.derivatives.eti.t7.v8.1.applbegseqnum", ftypes.UINT64)
@@ -69,17 +70,17 @@ eurex_derivatives_eti_t7_v8_1.fields.basket_side_trade_report_id = ProtoField.ne
 eurex_derivatives_eti_t7_v8_1.fields.basket_trade_report_text = ProtoField.new("Basket Trade Report Text", "eurex.derivatives.eti.t7.v8.1.baskettradereporttext", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.basket_trade_report_type = ProtoField.new("Basket Trade Report Type", "eurex.derivatives.eti.t7.v8.1.baskettradereporttype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.basket_trd_match_id = ProtoField.new("Basket Trd Match Id", "eurex.derivatives.eti.t7.v8.1.baskettrdmatchid", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.best_bid_px = ProtoField.new("Best Bid Px", "eurex.derivatives.eti.t7.v8.1.bestbidpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.best_bid_size = ProtoField.new("Best Bid Size", "eurex.derivatives.eti.t7.v8.1.bestbidsize", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.best_offer_px = ProtoField.new("Best Offer Px", "eurex.derivatives.eti.t7.v8.1.bestofferpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "eurex.derivatives.eti.t7.v8.1.bestoffersize", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eti.t7.v8.1.bidpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.derivatives.eti.t7.v8.1.bidsize", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.best_bid_px = ProtoField.new("Best Bid Px", "eurex.derivatives.eti.t7.v8.1.bestbidpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.best_bid_size = ProtoField.new("Best Bid Size", "eurex.derivatives.eti.t7.v8.1.bestbidsize", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.best_offer_px = ProtoField.new("Best Offer Px", "eurex.derivatives.eti.t7.v8.1.bestofferpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "eurex.derivatives.eti.t7.v8.1.bestoffersize", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.bid_px = ProtoField.new("Bid Px", "eurex.derivatives.eti.t7.v8.1.bidpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.bid_size = ProtoField.new("Bid Size", "eurex.derivatives.eti.t7.v8.1.bidsize", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.body_len = ProtoField.new("Body Len", "eurex.derivatives.eti.t7.v8.1.bodylen", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.broadcast_error_notification = ProtoField.new("Broadcast Error Notification", "eurex.derivatives.eti.t7.v8.1.broadcasterrornotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "eurex.derivatives.eti.t7.v8.1.clordid", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_price = ProtoField.new("Clearing Trade Price", "eurex.derivatives.eti.t7.v8.1.clearingtradeprice", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_qty = ProtoField.new("Clearing Trade Qty", "eurex.derivatives.eti.t7.v8.1.clearingtradeqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_price = ProtoField.new("Clearing Trade Price", "eurex.derivatives.eti.t7.v8.1.clearingtradeprice", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_qty = ProtoField.new("Clearing Trade Qty", "eurex.derivatives.eti.t7.v8.1.clearingtradeqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.clip_deletion_notification = ProtoField.new("Clip Deletion Notification", "eurex.derivatives.eti.t7.v8.1.clipdeletionnotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.clip_execution_notification = ProtoField.new("Clip Execution Notification", "eurex.derivatives.eti.t7.v8.1.clipexecutionnotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.clip_response = ProtoField.new("Clip Response", "eurex.derivatives.eti.t7.v8.1.clipresponse", ftypes.STRING)
@@ -91,10 +92,10 @@ eurex_derivatives_eti_t7_v8_1.fields.cross_request_id = ProtoField.new("Cross Re
 eurex_derivatives_eti_t7_v8_1.fields.cross_request_response = ProtoField.new("Cross Request Response", "eurex.derivatives.eti.t7.v8.1.crossrequestresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.cross_request_side_grp_comp = ProtoField.new("Cross Request Side Grp Comp", "eurex.derivatives.eti.t7.v8.1.crossrequestsidegrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.crossed_indicator = ProtoField.new("Crossed Indicator", "eurex.derivatives.eti.t7.v8.1.crossedindicator", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.cum_qty = ProtoField.new("Cum Qty", "eurex.derivatives.eti.t7.v8.1.cumqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.cum_qty = ProtoField.new("Cum Qty", "eurex.derivatives.eti.t7.v8.1.cumqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "eurex.derivatives.eti.t7.v8.1.custorderhandlinginst", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.derivatives.eti.t7.v8.1.cxlqty", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.cxl_size = ProtoField.new("Cxl Size", "eurex.derivatives.eti.t7.v8.1.cxlsize", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.cxl_qty = ProtoField.new("Cxl Qty", "eurex.derivatives.eti.t7.v8.1.cxlqty", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.cxl_size = ProtoField.new("Cxl Size", "eurex.derivatives.eti.t7.v8.1.cxlsize", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.default_cstm_appl_ver_id = ProtoField.new("Default Cstm Appl Ver Id", "eurex.derivatives.eti.t7.v8.1.defaultcstmapplverid", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.default_cstm_appl_ver_sub_id = ProtoField.new("Default Cstm Appl Ver Sub Id", "eurex.derivatives.eti.t7.v8.1.defaultcstmapplversubid", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.delete_all_order_broadcast = ProtoField.new("Delete All Order Broadcast", "eurex.derivatives.eti.t7.v8.1.deleteallorderbroadcast", ftypes.STRING)
@@ -114,7 +115,7 @@ eurex_derivatives_eti_t7_v8_1.fields.delete_order_response = ProtoField.new("Del
 eurex_derivatives_eti_t7_v8_1.fields.delete_order_single_request = ProtoField.new("Delete Order Single Request", "eurex.derivatives.eti.t7.v8.1.deleteordersinglerequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.delete_reason = ProtoField.new("Delete Reason", "eurex.derivatives.eti.t7.v8.1.deletereason", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.delete_tes_trade_request = ProtoField.new("Delete Tes Trade Request", "eurex.derivatives.eti.t7.v8.1.deletetestraderequest", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.delta = ProtoField.new("Delta", "eurex.derivatives.eti.t7.v8.1.delta", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.delta = ProtoField.new("Delta", "eurex.derivatives.eti.t7.v8.1.delta", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.effect_on_basket = ProtoField.new("Effect On Basket", "eurex.derivatives.eti.t7.v8.1.effectonbasket", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.effective_time = ProtoField.new("Effective Time", "eurex.derivatives.eti.t7.v8.1.effectivetime", ftypes.UINT64)
 eurex_derivatives_eti_t7_v8_1.fields.enlight_rfq_avg_resp_rate_ranking = ProtoField.new("Enlight Rfq Avg Resp Rate Ranking", "eurex.derivatives.eti.t7.v8.1.enlightrfqavgresprateranking", ftypes.UINT8)
@@ -140,8 +141,8 @@ eurex_derivatives_eti_t7_v8_1.fields.exposure_duration = ProtoField.new("Exposur
 eurex_derivatives_eti_t7_v8_1.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "eurex.derivatives.eti.t7.v8.1.fillexecid", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.fill_liquidity_ind = ProtoField.new("Fill Liquidity Ind", "eurex.derivatives.eti.t7.v8.1.fillliquidityind", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.fill_match_id = ProtoField.new("Fill Match Id", "eurex.derivatives.eti.t7.v8.1.fillmatchid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.fill_px = ProtoField.new("Fill Px", "eurex.derivatives.eti.t7.v8.1.fillpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.fill_qty = ProtoField.new("Fill Qty", "eurex.derivatives.eti.t7.v8.1.fillqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.fill_px = ProtoField.new("Fill Px", "eurex.derivatives.eti.t7.v8.1.fillpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.fill_qty = ProtoField.new("Fill Qty", "eurex.derivatives.eti.t7.v8.1.fillqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.fill_ref_id = ProtoField.new("Fill Ref Id", "eurex.derivatives.eti.t7.v8.1.fillrefid", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.fills_grp_comp = ProtoField.new("Fills Grp Comp", "eurex.derivatives.eti.t7.v8.1.fillsgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.firm_negotiation_id = ProtoField.new("Firm Negotiation Id", "eurex.derivatives.eti.t7.v8.1.firmnegotiationid", ftypes.STRING)
@@ -162,7 +163,7 @@ eurex_derivatives_eti_t7_v8_1.fields.heart_bt_int = ProtoField.new("Heart Bt Int
 eurex_derivatives_eti_t7_v8_1.fields.heartbeat = ProtoField.new("Heartbeat", "eurex.derivatives.eti.t7.v8.1.heartbeat", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.heartbeat_notification = ProtoField.new("Heartbeat Notification", "eurex.derivatives.eti.t7.v8.1.heartbeatnotification", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.hedge_type = ProtoField.new("Hedge Type", "eurex.derivatives.eti.t7.v8.1.hedgetype", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.high_limit_price = ProtoField.new("High Limit Price", "eurex.derivatives.eti.t7.v8.1.highlimitprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.high_limit_price = ProtoField.new("High Limit Price", "eurex.derivatives.eti.t7.v8.1.highlimitprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.implied_market_indicator = ProtoField.new("Implied Market Indicator", "eurex.derivatives.eti.t7.v8.1.impliedmarketindicator", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.individual_alloc_id = ProtoField.new("Individual Alloc Id", "eurex.derivatives.eti.t7.v8.1.individualallocid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.input_source = ProtoField.new("Input Source", "eurex.derivatives.eti.t7.v8.1.inputsource", ftypes.UINT8)
@@ -185,22 +186,22 @@ eurex_derivatives_eti_t7_v8_1.fields.instrument_attribute_grp_comp = ProtoField.
 eurex_derivatives_eti_t7_v8_1.fields.instrument_event_grp_comp = ProtoField.new("Instrument Event Grp Comp", "eurex.derivatives.eti.t7.v8.1.instrumenteventgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.last_entity_processed = ProtoField.new("Last Entity Processed", "eurex.derivatives.eti.t7.v8.1.lastentityprocessed", ftypes.BYTES)
 eurex_derivatives_eti_t7_v8_1.fields.last_fragment = ProtoField.new("Last Fragment", "eurex.derivatives.eti.t7.v8.1.lastfragment", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eti.t7.v8.1.lastpx", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.last_px = ProtoField.new("Last Px", "eurex.derivatives.eti.t7.v8.1.lastpx", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.last_px_disclosure_instruction = ProtoField.new("Last Px Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.lastpxdisclosureinstruction", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.derivatives.eti.t7.v8.1.lastqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.last_qty = ProtoField.new("Last Qty", "eurex.derivatives.eti.t7.v8.1.lastqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.last_qty_disclosure_instruction = ProtoField.new("Last Qty Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.lastqtydisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.last_update_time = ProtoField.new("Last Update Time", "eurex.derivatives.eti.t7.v8.1.lastupdatetime", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "eurex.derivatives.eti.t7.v8.1.leavesqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.leaves_qty = ProtoField.new("Leaves Qty", "eurex.derivatives.eti.t7.v8.1.leavesqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.leaves_qty_disclosure_instruction = ProtoField.new("Leaves Qty Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.leavesqtydisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.leg_account = ProtoField.new("Leg Account", "eurex.derivatives.eti.t7.v8.1.legaccount", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "eurex.derivatives.eti.t7.v8.1.legexecid", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.leg_input_source = ProtoField.new("Leg Input Source", "eurex.derivatives.eti.t7.v8.1.leginputsource", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.leg_last_px = ProtoField.new("Leg Last Px", "eurex.derivatives.eti.t7.v8.1.leglastpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "eurex.derivatives.eti.t7.v8.1.leglastqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.leg_last_px = ProtoField.new("Leg Last Px", "eurex.derivatives.eti.t7.v8.1.leglastpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "eurex.derivatives.eti.t7.v8.1.leglastqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.leg_ord_grp_comp = ProtoField.new("Leg Ord Grp Comp", "eurex.derivatives.eti.t7.v8.1.legordgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.leg_position_effect = ProtoField.new("Leg Position Effect", "eurex.derivatives.eti.t7.v8.1.legpositioneffect", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.leg_price = ProtoField.new("Leg Price", "eurex.derivatives.eti.t7.v8.1.legprice", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.leg_qty = ProtoField.new("Leg Qty", "eurex.derivatives.eti.t7.v8.1.legqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.leg_price = ProtoField.new("Leg Price", "eurex.derivatives.eti.t7.v8.1.legprice", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.leg_qty = ProtoField.new("Leg Qty", "eurex.derivatives.eti.t7.v8.1.legqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "eurex.derivatives.eti.t7.v8.1.legratioqty", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.leg_security_id = ProtoField.new("Leg Security Id", "eurex.derivatives.eti.t7.v8.1.legsecurityid", ftypes.INT64)
 eurex_derivatives_eti_t7_v8_1.fields.leg_security_type = ProtoField.new("Leg Security Type", "eurex.derivatives.eti.t7.v8.1.legsecuritytype", ftypes.UINT8)
@@ -212,7 +213,7 @@ eurex_derivatives_eti_t7_v8_1.fields.logon_request = ProtoField.new("Logon Reque
 eurex_derivatives_eti_t7_v8_1.fields.logon_response = ProtoField.new("Logon Response", "eurex.derivatives.eti.t7.v8.1.logonresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.logout_request = ProtoField.new("Logout Request", "eurex.derivatives.eti.t7.v8.1.logoutrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.logout_response = ProtoField.new("Logout Response", "eurex.derivatives.eti.t7.v8.1.logoutresponse", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.low_limit_price = ProtoField.new("Low Limit Price", "eurex.derivatives.eti.t7.v8.1.lowlimitprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.low_limit_price = ProtoField.new("Low Limit Price", "eurex.derivatives.eti.t7.v8.1.lowlimitprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.market_id = ProtoField.new("Market Id", "eurex.derivatives.eti.t7.v8.1.marketid", ftypes.UINT16)
 eurex_derivatives_eti_t7_v8_1.fields.market_segment_id = ProtoField.new("Market Segment Id", "eurex.derivatives.eti.t7.v8.1.marketsegmentid", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.mass_action_reason = ProtoField.new("Mass Action Reason", "eurex.derivatives.eti.t7.v8.1.massactionreason", ftypes.UINT8)
@@ -229,7 +230,7 @@ eurex_derivatives_eti_t7_v8_1.fields.matching_engine_status = ProtoField.new("Ma
 eurex_derivatives_eti_t7_v8_1.fields.matching_engine_trade_date = ProtoField.new("Matching Engine Trade Date", "eurex.derivatives.eti.t7.v8.1.matchingenginetradedate", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.maturity_date = ProtoField.new("Maturity Date", "eurex.derivatives.eti.t7.v8.1.maturitydate", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "eurex.derivatives.eti.t7.v8.1.maturitymonthyear", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.maximum_price = ProtoField.new("Maximum Price", "eurex.derivatives.eti.t7.v8.1.maximumprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.maximum_price = ProtoField.new("Maximum Price", "eurex.derivatives.eti.t7.v8.1.maximumprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.derivatives.eti.t7.v8.1.mdbooktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.md_sub_book_type = ProtoField.new("Md Sub Book Type", "eurex.derivatives.eti.t7.v8.1.mdsubbooktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.message_event_source = ProtoField.new("Message Event Source", "eurex.derivatives.eti.t7.v8.1.messageeventsource", ftypes.STRING)
@@ -303,8 +304,8 @@ eurex_derivatives_eti_t7_v8_1.fields.nrbc_header_comp = ProtoField.new("Nrbc Hea
 eurex_derivatives_eti_t7_v8_1.fields.number_of_resp_disclosure_instruction = ProtoField.new("Number Of Resp Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.numberofrespdisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.number_of_respondents = ProtoField.new("Number Of Respondents", "eurex.derivatives.eti.t7.v8.1.numberofrespondents", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.number_of_securities = ProtoField.new("Number Of Securities", "eurex.derivatives.eti.t7.v8.1.numberofsecurities", ftypes.INT32)
-eurex_derivatives_eti_t7_v8_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eti.t7.v8.1.offerpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.derivatives.eti.t7.v8.1.offersize", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.offer_px = ProtoField.new("Offer Px", "eurex.derivatives.eti.t7.v8.1.offerpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.offer_size = ProtoField.new("Offer Size", "eurex.derivatives.eti.t7.v8.1.offersize", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.opt_attribute = ProtoField.new("Opt Attribute", "eurex.derivatives.eti.t7.v8.1.optattribute", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.ord_status = ProtoField.new("Ord Status", "eurex.derivatives.eti.t7.v8.1.ordstatus", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.ord_type = ProtoField.new("Ord Type", "eurex.derivatives.eti.t7.v8.1.ordtype", ftypes.UINT8)
@@ -317,7 +318,7 @@ eurex_derivatives_eti_t7_v8_1.fields.order_exec_report_broadcast = ProtoField.ne
 eurex_derivatives_eti_t7_v8_1.fields.order_exec_response = ProtoField.new("Order Exec Response", "eurex.derivatives.eti.t7.v8.1.orderexecresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.order_id = ProtoField.new("Order Id", "eurex.derivatives.eti.t7.v8.1.orderid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v8_1.fields.order_origination = ProtoField.new("Order Origination", "eurex.derivatives.eti.t7.v8.1.orderorigination", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.order_qty = ProtoField.new("Order Qty", "eurex.derivatives.eti.t7.v8.1.orderqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.order_qty = ProtoField.new("Order Qty", "eurex.derivatives.eti.t7.v8.1.orderqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.order_qty_disclosure_instruction = ProtoField.new("Order Qty Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.orderqtydisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.order_routing_indicator = ProtoField.new("Order Routing Indicator", "eurex.derivatives.eti.t7.v8.1.orderroutingindicator", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.order_side = ProtoField.new("Order Side", "eurex.derivatives.eti.t7.v8.1.orderside", ftypes.UINT8)
@@ -374,7 +375,7 @@ eurex_derivatives_eti_t7_v8_1.fields.pct_count = ProtoField.new("Pct Count", "eu
 eurex_derivatives_eti_t7_v8_1.fields.position_effect = ProtoField.new("Position Effect", "eurex.derivatives.eti.t7.v8.1.positioneffect", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.pre_trade_risk_limit_response = ProtoField.new("Pre Trade Risk Limit Response", "eurex.derivatives.eti.t7.v8.1.pretraderisklimitresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.pre_trade_risk_limits_definition_request = ProtoField.new("Pre Trade Risk Limits Definition Request", "eurex.derivatives.eti.t7.v8.1.pretraderisklimitsdefinitionrequest", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.price = ProtoField.new("Price", "eurex.derivatives.eti.t7.v8.1.price", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.price = ProtoField.new("Price", "eurex.derivatives.eti.t7.v8.1.price", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.price_disclosure_instruction = ProtoField.new("Price Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.pricedisclosureinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.price_validity_check_type = ProtoField.new("Price Validity Check Type", "eurex.derivatives.eti.t7.v8.1.pricevaliditychecktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.product_complex = ProtoField.new("Product Complex", "eurex.derivatives.eti.t7.v8.1.productcomplex", ftypes.UINT8)
@@ -392,8 +393,8 @@ eurex_derivatives_eti_t7_v8_1.fields.quote_event_exec_id = ProtoField.new("Quote
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_grp_comp = ProtoField.new("Quote Event Grp Comp", "eurex.derivatives.eti.t7.v8.1.quoteeventgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_liquidity_ind = ProtoField.new("Quote Event Liquidity Ind", "eurex.derivatives.eti.t7.v8.1.quoteeventliquidityind", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_match_id = ProtoField.new("Quote Event Match Id", "eurex.derivatives.eti.t7.v8.1.quoteeventmatchid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.quote_event_px = ProtoField.new("Quote Event Px", "eurex.derivatives.eti.t7.v8.1.quoteeventpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.quote_event_qty = ProtoField.new("Quote Event Qty", "eurex.derivatives.eti.t7.v8.1.quoteeventqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.quote_event_px = ProtoField.new("Quote Event Px", "eurex.derivatives.eti.t7.v8.1.quoteeventpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.quote_event_qty = ProtoField.new("Quote Event Qty", "eurex.derivatives.eti.t7.v8.1.quoteeventqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_reason = ProtoField.new("Quote Event Reason", "eurex.derivatives.eti.t7.v8.1.quoteeventreason", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_side = ProtoField.new("Quote Event Side", "eurex.derivatives.eti.t7.v8.1.quoteeventside", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.quote_event_type = ProtoField.new("Quote Event Type", "eurex.derivatives.eti.t7.v8.1.quoteeventtype", ftypes.UINT8)
@@ -402,7 +403,7 @@ eurex_derivatives_eti_t7_v8_1.fields.quote_id = ProtoField.new("Quote Id", "eure
 eurex_derivatives_eti_t7_v8_1.fields.quote_instruction = ProtoField.new("Quote Instruction", "eurex.derivatives.eti.t7.v8.1.quoteinstruction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.quote_leg_exec_grp_comp = ProtoField.new("Quote Leg Exec Grp Comp", "eurex.derivatives.eti.t7.v8.1.quotelegexecgrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.quote_msg_id = ProtoField.new("Quote Msg Id", "eurex.derivatives.eti.t7.v8.1.quotemsgid", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.quote_ref_price = ProtoField.new("Quote Ref Price", "eurex.derivatives.eti.t7.v8.1.quoterefprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.quote_ref_price = ProtoField.new("Quote Ref Price", "eurex.derivatives.eti.t7.v8.1.quoterefprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.quote_ref_price_source = ProtoField.new("Quote Ref Price Source", "eurex.derivatives.eti.t7.v8.1.quoterefpricesource", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.quote_req_id = ProtoField.new("Quote Req Id", "eurex.derivatives.eti.t7.v8.1.quotereqid", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.quote_response_id = ProtoField.new("Quote Response Id", "eurex.derivatives.eti.t7.v8.1.quoteresponseid", ftypes.UINT64)
@@ -419,13 +420,13 @@ eurex_derivatives_eti_t7_v8_1.fields.ref_appl_last_seq_num = ProtoField.new("Ref
 eurex_derivatives_eti_t7_v8_1.fields.ref_appl_sub_id = ProtoField.new("Ref Appl Sub Id", "eurex.derivatives.eti.t7.v8.1.refapplsubid", ftypes.UINT32)
 eurex_derivatives_eti_t7_v8_1.fields.regulatory_trade_id = ProtoField.new("Regulatory Trade Id", "eurex.derivatives.eti.t7.v8.1.regulatorytradeid", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.reject = ProtoField.new("Reject", "eurex.derivatives.eti.t7.v8.1.reject", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.related_close_price = ProtoField.new("Related Close Price", "eurex.derivatives.eti.t7.v8.1.relatedcloseprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.related_close_price = ProtoField.new("Related Close Price", "eurex.derivatives.eti.t7.v8.1.relatedcloseprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.related_market_segment_id = ProtoField.new("Related Market Segment Id", "eurex.derivatives.eti.t7.v8.1.relatedmarketsegmentid", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.related_product_complex = ProtoField.new("Related Product Complex", "eurex.derivatives.eti.t7.v8.1.relatedproductcomplex", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.related_security_id = ProtoField.new("Related Security Id", "eurex.derivatives.eti.t7.v8.1.relatedsecurityid", ftypes.INT64)
 eurex_derivatives_eti_t7_v8_1.fields.related_symbol = ProtoField.new("Related Symbol", "eurex.derivatives.eti.t7.v8.1.relatedsymbol", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.related_trade_id = ProtoField.new("Related Trade Id", "eurex.derivatives.eti.t7.v8.1.relatedtradeid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.related_trade_quantity = ProtoField.new("Related Trade Quantity", "eurex.derivatives.eti.t7.v8.1.relatedtradequantity", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.related_trade_quantity = ProtoField.new("Related Trade Quantity", "eurex.derivatives.eti.t7.v8.1.relatedtradequantity", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.request_header_comp = ProtoField.new("Request Header Comp", "eurex.derivatives.eti.t7.v8.1.requestheadercomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.request_time = ProtoField.new("Request Time", "eurex.derivatives.eti.t7.v8.1.requesttime", ftypes.UINT64)
 eurex_derivatives_eti_t7_v8_1.fields.requesting_party_clearing_firm = ProtoField.new("Requesting Party Clearing Firm", "eurex.derivatives.eti.t7.v8.1.requestingpartyclearingfirm", ftypes.STRING)
@@ -446,10 +447,10 @@ eurex_derivatives_eti_t7_v8_1.fields.rfq_request = ProtoField.new("Rfq Request",
 eurex_derivatives_eti_t7_v8_1.fields.rfq_response = ProtoField.new("Rfq Response", "eurex.derivatives.eti.t7.v8.1.rfqresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_action = ProtoField.new("Risk Limit Action", "eurex.derivatives.eti.t7.v8.1.risklimitaction", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_group = ProtoField.new("Risk Limit Group", "eurex.derivatives.eti.t7.v8.1.risklimitgroup", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.risk_limit_net_position_qty = ProtoField.new("Risk Limit Net Position Qty", "eurex.derivatives.eti.t7.v8.1.risklimitnetpositionqty", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.risk_limit_open_qty = ProtoField.new("Risk Limit Open Qty", "eurex.derivatives.eti.t7.v8.1.risklimitopenqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.risk_limit_net_position_qty = ProtoField.new("Risk Limit Net Position Qty", "eurex.derivatives.eti.t7.v8.1.risklimitnetpositionqty", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.risk_limit_open_qty = ProtoField.new("Risk Limit Open Qty", "eurex.derivatives.eti.t7.v8.1.risklimitopenqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_platform = ProtoField.new("Risk Limit Platform", "eurex.derivatives.eti.t7.v8.1.risklimitplatform", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.risk_limit_qty = ProtoField.new("Risk Limit Qty", "eurex.derivatives.eti.t7.v8.1.risklimitqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.risk_limit_qty = ProtoField.new("Risk Limit Qty", "eurex.derivatives.eti.t7.v8.1.risklimitqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_qty_grp_comp = ProtoField.new("Risk Limit Qty Grp Comp", "eurex.derivatives.eti.t7.v8.1.risklimitqtygrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_report_id = ProtoField.new("Risk Limit Report Id", "eurex.derivatives.eti.t7.v8.1.risklimitreportid", ftypes.UINT64)
 eurex_derivatives_eti_t7_v8_1.fields.risk_limit_requesting_party_role = ProtoField.new("Risk Limit Requesting Party Role", "eurex.derivatives.eti.t7.v8.1.risklimitrequestingpartyrole", ftypes.UINT8)
@@ -502,8 +503,8 @@ eurex_derivatives_eti_t7_v8_1.fields.side_alloc_grp_comp = ProtoField.new("Side 
 eurex_derivatives_eti_t7_v8_1.fields.side_compliance_text = ProtoField.new("Side Compliance Text", "eurex.derivatives.eti.t7.v8.1.sidecompliancetext", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.side_cross_leg_grp_comp = ProtoField.new("Side Cross Leg Grp Comp", "eurex.derivatives.eti.t7.v8.1.sidecrossleggrpcomp", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.side_disclosure_instruction = ProtoField.new("Side Disclosure Instruction", "eurex.derivatives.eti.t7.v8.1.sidedisclosureinstruction", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.side_last_px = ProtoField.new("Side Last Px", "eurex.derivatives.eti.t7.v8.1.sidelastpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.side_last_qty = ProtoField.new("Side Last Qty", "eurex.derivatives.eti.t7.v8.1.sidelastqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.side_last_px = ProtoField.new("Side Last Px", "eurex.derivatives.eti.t7.v8.1.sidelastpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.side_last_qty = ProtoField.new("Side Last Qty", "eurex.derivatives.eti.t7.v8.1.sidelastqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.side_liquidity_ind = ProtoField.new("Side Liquidity Ind", "eurex.derivatives.eti.t7.v8.1.sideliquidityind", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.side_market_segment_id = ProtoField.new("Side Market Segment Id", "eurex.derivatives.eti.t7.v8.1.sidemarketsegmentid", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.side_trade_id = ProtoField.new("Side Trade Id", "eurex.derivatives.eti.t7.v8.1.sidetradeid", ftypes.UINT32)
@@ -532,9 +533,9 @@ eurex_derivatives_eti_t7_v8_1.fields.srqs_related_trade_id_grp_comp = ProtoField
 eurex_derivatives_eti_t7_v8_1.fields.srqs_status_broadcast = ProtoField.new("Srqs Status Broadcast", "eurex.derivatives.eti.t7.v8.1.srqsstatusbroadcast", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.srqs_update_deal_status_request = ProtoField.new("Srqs Update Deal Status Request", "eurex.derivatives.eti.t7.v8.1.srqsupdatedealstatusrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.srqs_update_negotiation_request = ProtoField.new("Srqs Update Negotiation Request", "eurex.derivatives.eti.t7.v8.1.srqsupdatenegotiationrequest", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.stop_px = ProtoField.new("Stop Px", "eurex.derivatives.eti.t7.v8.1.stoppx", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.stop_px = ProtoField.new("Stop Px", "eurex.derivatives.eti.t7.v8.1.stoppx", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.strategy_link_id = ProtoField.new("Strategy Link Id", "eurex.derivatives.eti.t7.v8.1.strategylinkid", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.strike_price = ProtoField.new("Strike Price", "eurex.derivatives.eti.t7.v8.1.strikeprice", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.strike_price = ProtoField.new("Strike Price", "eurex.derivatives.eti.t7.v8.1.strikeprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.subscribe_request = ProtoField.new("Subscribe Request", "eurex.derivatives.eti.t7.v8.1.subscriberequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.subscribe_response = ProtoField.new("Subscribe Response", "eurex.derivatives.eti.t7.v8.1.subscriberesponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.subscription_scope = ProtoField.new("Subscription Scope", "eurex.derivatives.eti.t7.v8.1.subscriptionscope", ftypes.UINT32)
@@ -582,7 +583,7 @@ eurex_derivatives_eti_t7_v8_1.fields.trade_report_text = ProtoField.new("Trade R
 eurex_derivatives_eti_t7_v8_1.fields.trade_report_type = ProtoField.new("Trade Report Type", "eurex.derivatives.eti.t7.v8.1.tradereporttype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.trade_request_result = ProtoField.new("Trade Request Result", "eurex.derivatives.eti.t7.v8.1.traderequestresult", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.trade_to_quote_ratio_ranking = ProtoField.new("Trade To Quote Ratio Ranking", "eurex.derivatives.eti.t7.v8.1.tradetoquoteratioranking", ftypes.UINT8)
-eurex_derivatives_eti_t7_v8_1.fields.trade_to_request_ratio = ProtoField.new("Trade To Request Ratio", "eurex.derivatives.eti.t7.v8.1.tradetorequestratio", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.trade_to_request_ratio = ProtoField.new("Trade To Request Ratio", "eurex.derivatives.eti.t7.v8.1.tradetorequestratio", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.trade_underlying = ProtoField.new("Trade Underlying", "eurex.derivatives.eti.t7.v8.1.tradeunderlying", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.trading_capacity = ProtoField.new("Trading Capacity", "eurex.derivatives.eti.t7.v8.1.tradingcapacity", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.trading_session_status_broadcast = ProtoField.new("Trading Session Status Broadcast", "eurex.derivatives.eti.t7.v8.1.tradingsessionstatusbroadcast", ftypes.STRING)
@@ -602,13 +603,13 @@ eurex_derivatives_eti_t7_v8_1.fields.trd_rpt_status = ProtoField.new("Trd Rpt St
 eurex_derivatives_eti_t7_v8_1.fields.trd_type = ProtoField.new("Trd Type", "eurex.derivatives.eti.t7.v8.1.trdtype", ftypes.UINT16)
 eurex_derivatives_eti_t7_v8_1.fields.triggered = ProtoField.new("Triggered", "eurex.derivatives.eti.t7.v8.1.triggered", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_currency = ProtoField.new("Underlying Currency", "eurex.derivatives.eti.t7.v8.1.underlyingcurrency", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.underlying_delta_percentage = ProtoField.new("Underlying Delta Percentage", "eurex.derivatives.eti.t7.v8.1.underlyingdeltapercentage", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.underlying_effective_delta_percentage = ProtoField.new("Underlying Effective Delta Percentage", "eurex.derivatives.eti.t7.v8.1.underlyingeffectivedeltapercentage", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.underlying_delta_percentage = ProtoField.new("Underlying Delta Percentage", "eurex.derivatives.eti.t7.v8.1.underlyingdeltapercentage", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.underlying_effective_delta_percentage = ProtoField.new("Underlying Effective Delta Percentage", "eurex.derivatives.eti.t7.v8.1.underlyingeffectivedeltapercentage", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_issuer = ProtoField.new("Underlying Issuer", "eurex.derivatives.eti.t7.v8.1.underlyingissuer", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_maturity_date = ProtoField.new("Underlying Maturity Date", "eurex.derivatives.eti.t7.v8.1.underlyingmaturitydate", ftypes.UINT32)
-eurex_derivatives_eti_t7_v8_1.fields.underlying_price_stip_value = ProtoField.new("Underlying Price Stip Value", "eurex.derivatives.eti.t7.v8.1.underlyingpricestipvalue", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.underlying_px = ProtoField.new("Underlying Px", "eurex.derivatives.eti.t7.v8.1.underlyingpx", ftypes.UINT64)
-eurex_derivatives_eti_t7_v8_1.fields.underlying_qty = ProtoField.new("Underlying Qty", "eurex.derivatives.eti.t7.v8.1.underlyingqty", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.underlying_price_stip_value = ProtoField.new("Underlying Price Stip Value", "eurex.derivatives.eti.t7.v8.1.underlyingpricestipvalue", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.underlying_px = ProtoField.new("Underlying Px", "eurex.derivatives.eti.t7.v8.1.underlyingpx", ftypes.DOUBLE)
+eurex_derivatives_eti_t7_v8_1.fields.underlying_qty = ProtoField.new("Underlying Qty", "eurex.derivatives.eti.t7.v8.1.underlyingqty", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_security_desc = ProtoField.new("Underlying Security Desc", "eurex.derivatives.eti.t7.v8.1.underlyingsecuritydesc", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "eurex.derivatives.eti.t7.v8.1.underlyingsecurityid", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.underlying_settlement_date = ProtoField.new("Underlying Settlement Date", "eurex.derivatives.eti.t7.v8.1.underlyingsettlementdate", ftypes.UINT32)
@@ -630,7 +631,7 @@ eurex_derivatives_eti_t7_v8_1.fields.value_check_type_quantity = ProtoField.new(
 eurex_derivatives_eti_t7_v8_1.fields.value_check_type_value = ProtoField.new("Value Check Type Value", "eurex.derivatives.eti.t7.v8.1.valuechecktypevalue", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.var_text = ProtoField.new("Var Text", "eurex.derivatives.eti.t7.v8.1.vartext", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.var_text_len = ProtoField.new("Var Text Len", "eurex.derivatives.eti.t7.v8.1.vartextlen", ftypes.UINT16)
-eurex_derivatives_eti_t7_v8_1.fields.vega = ProtoField.new("Vega", "eurex.derivatives.eti.t7.v8.1.vega", ftypes.UINT64)
+eurex_derivatives_eti_t7_v8_1.fields.vega = ProtoField.new("Vega", "eurex.derivatives.eti.t7.v8.1.vega", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -2785,14 +2786,20 @@ size_of.leg_qty = 8
 
 -- Display: Leg Qty
 display.leg_qty = function(value)
-  return "Leg Qty: "..value:tonumber()/10000
+  return "Leg Qty: "..value
+end
+
+-- Translate: Leg Qty
+translate.leg_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Leg Qty
 dissect.leg_qty = function(buffer, offset, packet, parent)
   local length = size_of.leg_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leg_qty(raw)
   local display = display.leg_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.leg_qty, range, value, display)
@@ -2805,14 +2812,20 @@ size_of.leg_price = 8
 
 -- Display: Leg Price
 display.leg_price = function(value)
-  return "Leg Price: "..value:tonumber()/100000000
+  return "Leg Price: "..value
+end
+
+-- Translate: Leg Price
+translate.leg_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
   local length = size_of.leg_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leg_price(raw)
   local display = display.leg_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.leg_price, range, value, display)
@@ -3524,14 +3537,20 @@ size_of.alloc_qty = 8
 
 -- Display: Alloc Qty
 display.alloc_qty = function(value)
-  return "Alloc Qty: "..value:tonumber()/10000
+  return "Alloc Qty: "..value
+end
+
+-- Translate: Alloc Qty
+translate.alloc_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Alloc Qty
 dissect.alloc_qty = function(buffer, offset, packet, parent)
   local length = size_of.alloc_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.alloc_qty(raw)
   local display = display.alloc_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.alloc_qty, range, value, display)
@@ -4452,14 +4471,20 @@ size_of.underlying_qty = 8
 
 -- Display: Underlying Qty
 display.underlying_qty = function(value)
-  return "Underlying Qty: "..value:tonumber()/10000
+  return "Underlying Qty: "..value
+end
+
+-- Translate: Underlying Qty
+translate.underlying_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Underlying Qty
 dissect.underlying_qty = function(buffer, offset, packet, parent)
   local length = size_of.underlying_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.underlying_qty(raw)
   local display = display.underlying_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.underlying_qty, range, value, display)
@@ -4472,14 +4497,20 @@ size_of.related_trade_quantity = 8
 
 -- Display: Related Trade Quantity
 display.related_trade_quantity = function(value)
-  return "Related Trade Quantity: "..value:tonumber()/10000
+  return "Related Trade Quantity: "..value
+end
+
+-- Translate: Related Trade Quantity
+translate.related_trade_quantity = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Related Trade Quantity
 dissect.related_trade_quantity = function(buffer, offset, packet, parent)
   local length = size_of.related_trade_quantity
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.related_trade_quantity(raw)
   local display = display.related_trade_quantity(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.related_trade_quantity, range, value, display)
@@ -4492,14 +4523,20 @@ size_of.related_close_price = 8
 
 -- Display: Related Close Price
 display.related_close_price = function(value)
-  return "Related Close Price: "..value:tonumber()/1000000
+  return "Related Close Price: "..value
+end
+
+-- Translate: Related Close Price
+translate.related_close_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Related Close Price
 dissect.related_close_price = function(buffer, offset, packet, parent)
   local length = size_of.related_close_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.related_close_price(raw)
   local display = display.related_close_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.related_close_price, range, value, display)
@@ -4512,14 +4549,20 @@ size_of.underlying_px = 8
 
 -- Display: Underlying Px
 display.underlying_px = function(value)
-  return "Underlying Px: "..value:tonumber()/100000000
+  return "Underlying Px: "..value
+end
+
+-- Translate: Underlying Px
+translate.underlying_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Underlying Px
 dissect.underlying_px = function(buffer, offset, packet, parent)
   local length = size_of.underlying_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.underlying_px(raw)
   local display = display.underlying_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.underlying_px, range, value, display)
@@ -4552,14 +4595,20 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  return "Last Px: "..value:tonumber()/100000000
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
   local length = size_of.last_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.last_px(raw)
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.last_px, range, value, display)
@@ -6215,14 +6264,20 @@ size_of.cum_qty = 8
 
 -- Display: Cum Qty
 display.cum_qty = function(value)
-  return "Cum Qty: "..value:tonumber()/10000
+  return "Cum Qty: "..value
+end
+
+-- Translate: Cum Qty
+translate.cum_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cum Qty
 dissect.cum_qty = function(buffer, offset, packet, parent)
   local length = size_of.cum_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cum_qty(raw)
   local display = display.cum_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.cum_qty, range, value, display)
@@ -6235,14 +6290,20 @@ size_of.leaves_qty = 8
 
 -- Display: Leaves Qty
 display.leaves_qty = function(value)
-  return "Leaves Qty: "..value:tonumber()/10000
+  return "Leaves Qty: "..value
+end
+
+-- Translate: Leaves Qty
+translate.leaves_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Leaves Qty
 dissect.leaves_qty = function(buffer, offset, packet, parent)
   local length = size_of.leaves_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leaves_qty(raw)
   local display = display.leaves_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.leaves_qty, range, value, display)
@@ -6315,14 +6376,20 @@ size_of.clearing_trade_qty = 8
 
 -- Display: Clearing Trade Qty
 display.clearing_trade_qty = function(value)
-  return "Clearing Trade Qty: "..value:tonumber()/10000
+  return "Clearing Trade Qty: "..value
+end
+
+-- Translate: Clearing Trade Qty
+translate.clearing_trade_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Clearing Trade Qty
 dissect.clearing_trade_qty = function(buffer, offset, packet, parent)
   local length = size_of.clearing_trade_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.clearing_trade_qty(raw)
   local display = display.clearing_trade_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_qty, range, value, display)
@@ -6335,14 +6402,20 @@ size_of.clearing_trade_price = 8
 
 -- Display: Clearing Trade Price
 display.clearing_trade_price = function(value)
-  return "Clearing Trade Price: "..value:tonumber()/100000000
+  return "Clearing Trade Price: "..value
+end
+
+-- Translate: Clearing Trade Price
+translate.clearing_trade_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Clearing Trade Price
 dissect.clearing_trade_price = function(buffer, offset, packet, parent)
   local length = size_of.clearing_trade_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.clearing_trade_price(raw)
   local display = display.clearing_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.clearing_trade_price, range, value, display)
@@ -6355,14 +6428,20 @@ size_of.side_last_qty = 8
 
 -- Display: Side Last Qty
 display.side_last_qty = function(value)
-  return "Side Last Qty: "..value:tonumber()/10000
+  return "Side Last Qty: "..value
+end
+
+-- Translate: Side Last Qty
+translate.side_last_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Side Last Qty
 dissect.side_last_qty = function(buffer, offset, packet, parent)
   local length = size_of.side_last_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.side_last_qty(raw)
   local display = display.side_last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.side_last_qty, range, value, display)
@@ -6375,14 +6454,20 @@ size_of.side_last_px = 8
 
 -- Display: Side Last Px
 display.side_last_px = function(value)
-  return "Side Last Px: "..value:tonumber()/100000000
+  return "Side Last Px: "..value
+end
+
+-- Translate: Side Last Px
+translate.side_last_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Side Last Px
 dissect.side_last_px = function(buffer, offset, packet, parent)
   local length = size_of.side_last_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.side_last_px(raw)
   local display = display.side_last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.side_last_px, range, value, display)
@@ -6395,14 +6480,20 @@ size_of.last_qty = 8
 
 -- Display: Last Qty
 display.last_qty = function(value)
-  return "Last Qty: "..value:tonumber()/10000
+  return "Last Qty: "..value
+end
+
+-- Translate: Last Qty
+translate.last_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Last Qty
 dissect.last_qty = function(buffer, offset, packet, parent)
   local length = size_of.last_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.last_qty(raw)
   local display = display.last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.last_qty, range, value, display)
@@ -6415,14 +6506,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/100000000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.price, range, value, display)
@@ -10453,14 +10550,20 @@ size_of.order_qty = 8
 
 -- Display: Order Qty
 display.order_qty = function(value)
-  return "Order Qty: "..value:tonumber()/10000
+  return "Order Qty: "..value
+end
+
+-- Translate: Order Qty
+translate.order_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Order Qty
 dissect.order_qty = function(buffer, offset, packet, parent)
   local length = size_of.order_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.order_qty(raw)
   local display = display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.order_qty, range, value, display)
@@ -10473,14 +10576,20 @@ size_of.offer_px = 8
 
 -- Display: Offer Px
 display.offer_px = function(value)
-  return "Offer Px: "..value:tonumber()/100000000
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+translate.offer_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
   local length = size_of.offer_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.offer_px(raw)
   local display = display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.offer_px, range, value, display)
@@ -10493,14 +10602,20 @@ size_of.bid_px = 8
 
 -- Display: Bid Px
 display.bid_px = function(value)
-  return "Bid Px: "..value:tonumber()/100000000
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+translate.bid_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
   local length = size_of.bid_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.bid_px(raw)
   local display = display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.bid_px, range, value, display)
@@ -10513,14 +10628,20 @@ size_of.underlying_delta_percentage = 8
 
 -- Display: Underlying Delta Percentage
 display.underlying_delta_percentage = function(value)
-  return "Underlying Delta Percentage: "..value:tonumber()/10000
+  return "Underlying Delta Percentage: "..value
+end
+
+-- Translate: Underlying Delta Percentage
+translate.underlying_delta_percentage = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Underlying Delta Percentage
 dissect.underlying_delta_percentage = function(buffer, offset, packet, parent)
   local length = size_of.underlying_delta_percentage
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.underlying_delta_percentage(raw)
   local display = display.underlying_delta_percentage(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.underlying_delta_percentage, range, value, display)
@@ -10533,14 +10654,20 @@ size_of.quote_ref_price = 8
 
 -- Display: Quote Ref Price
 display.quote_ref_price = function(value)
-  return "Quote Ref Price: "..value:tonumber()/100000000
+  return "Quote Ref Price: "..value
+end
+
+-- Translate: Quote Ref Price
+translate.quote_ref_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Quote Ref Price
 dissect.quote_ref_price = function(buffer, offset, packet, parent)
   local length = size_of.quote_ref_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.quote_ref_price(raw)
   local display = display.quote_ref_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.quote_ref_price, range, value, display)
@@ -10684,14 +10811,20 @@ size_of.underlying_price_stip_value = 8
 
 -- Display: Underlying Price Stip Value
 display.underlying_price_stip_value = function(value)
-  return "Underlying Price Stip Value: "..value:tonumber()/100000000
+  return "Underlying Price Stip Value: "..value
+end
+
+-- Translate: Underlying Price Stip Value
+translate.underlying_price_stip_value = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Underlying Price Stip Value
 dissect.underlying_price_stip_value = function(buffer, offset, packet, parent)
   local length = size_of.underlying_price_stip_value
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.underlying_price_stip_value(raw)
   local display = display.underlying_price_stip_value(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.underlying_price_stip_value, range, value, display)
@@ -11082,14 +11215,20 @@ size_of.offer_size = 8
 
 -- Display: Offer Size
 display.offer_size = function(value)
-  return "Offer Size: "..value:tonumber()/10000
+  return "Offer Size: "..value
+end
+
+-- Translate: Offer Size
+translate.offer_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Offer Size
 dissect.offer_size = function(buffer, offset, packet, parent)
   local length = size_of.offer_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.offer_size(raw)
   local display = display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.offer_size, range, value, display)
@@ -11102,14 +11241,20 @@ size_of.bid_size = 8
 
 -- Display: Bid Size
 display.bid_size = function(value)
-  return "Bid Size: "..value:tonumber()/10000
+  return "Bid Size: "..value
+end
+
+-- Translate: Bid Size
+translate.bid_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Bid Size
 dissect.bid_size = function(buffer, offset, packet, parent)
   local length = size_of.bid_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.bid_size(raw)
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.bid_size, range, value, display)
@@ -11720,14 +11865,20 @@ size_of.trade_to_request_ratio = 8
 
 -- Display: Trade To Request Ratio
 display.trade_to_request_ratio = function(value)
-  return "Trade To Request Ratio: "..value:tonumber()/10000
+  return "Trade To Request Ratio: "..value
+end
+
+-- Translate: Trade To Request Ratio
+translate.trade_to_request_ratio = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Trade To Request Ratio
 dissect.trade_to_request_ratio = function(buffer, offset, packet, parent)
   local length = size_of.trade_to_request_ratio
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.trade_to_request_ratio(raw)
   local display = display.trade_to_request_ratio(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.trade_to_request_ratio, range, value, display)
@@ -14188,14 +14339,20 @@ size_of.best_offer_size = 8
 
 -- Display: Best Offer Size
 display.best_offer_size = function(value)
-  return "Best Offer Size: "..value:tonumber()/10000
+  return "Best Offer Size: "..value
+end
+
+-- Translate: Best Offer Size
+translate.best_offer_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Best Offer Size
 dissect.best_offer_size = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_offer_size(raw)
   local display = display.best_offer_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.best_offer_size, range, value, display)
@@ -14208,14 +14365,20 @@ size_of.best_offer_px = 8
 
 -- Display: Best Offer Px
 display.best_offer_px = function(value)
-  return "Best Offer Px: "..value:tonumber()/100000000
+  return "Best Offer Px: "..value
+end
+
+-- Translate: Best Offer Px
+translate.best_offer_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Best Offer Px
 dissect.best_offer_px = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_offer_px(raw)
   local display = display.best_offer_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.best_offer_px, range, value, display)
@@ -14228,14 +14391,20 @@ size_of.best_bid_size = 8
 
 -- Display: Best Bid Size
 display.best_bid_size = function(value)
-  return "Best Bid Size: "..value:tonumber()/10000
+  return "Best Bid Size: "..value
+end
+
+-- Translate: Best Bid Size
+translate.best_bid_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Best Bid Size
 dissect.best_bid_size = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_bid_size(raw)
   local display = display.best_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.best_bid_size, range, value, display)
@@ -14248,14 +14417,20 @@ size_of.best_bid_px = 8
 
 -- Display: Best Bid Px
 display.best_bid_px = function(value)
-  return "Best Bid Px: "..value:tonumber()/100000000
+  return "Best Bid Px: "..value
+end
+
+-- Translate: Best Bid Px
+translate.best_bid_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Best Bid Px
 dissect.best_bid_px = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.best_bid_px(raw)
   local display = display.best_bid_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.best_bid_px, range, value, display)
@@ -14360,14 +14535,20 @@ size_of.underlying_effective_delta_percentage = 8
 
 -- Display: Underlying Effective Delta Percentage
 display.underlying_effective_delta_percentage = function(value)
-  return "Underlying Effective Delta Percentage: "..value:tonumber()/10000
+  return "Underlying Effective Delta Percentage: "..value
+end
+
+-- Translate: Underlying Effective Delta Percentage
+translate.underlying_effective_delta_percentage = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Underlying Effective Delta Percentage
 dissect.underlying_effective_delta_percentage = function(buffer, offset, packet, parent)
   local length = size_of.underlying_effective_delta_percentage
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.underlying_effective_delta_percentage(raw)
   local display = display.underlying_effective_delta_percentage(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.underlying_effective_delta_percentage, range, value, display)
@@ -15801,14 +15982,20 @@ size_of.leg_last_qty = 8
 
 -- Display: Leg Last Qty
 display.leg_last_qty = function(value)
-  return "Leg Last Qty: "..value:tonumber()/10000
+  return "Leg Last Qty: "..value
+end
+
+-- Translate: Leg Last Qty
+translate.leg_last_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Leg Last Qty
 dissect.leg_last_qty = function(buffer, offset, packet, parent)
   local length = size_of.leg_last_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leg_last_qty(raw)
   local display = display.leg_last_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.leg_last_qty, range, value, display)
@@ -15821,14 +16008,20 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
-  return "Leg Last Px: "..value:tonumber()/100000000
+  return "Leg Last Px: "..value
+end
+
+-- Translate: Leg Last Px
+translate.leg_last_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Leg Last Px
 dissect.leg_last_px = function(buffer, offset, packet, parent)
   local length = size_of.leg_last_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.leg_last_px(raw)
   local display = display.leg_last_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.leg_last_px, range, value, display)
@@ -16094,14 +16287,20 @@ size_of.quote_event_qty = 8
 
 -- Display: Quote Event Qty
 display.quote_event_qty = function(value)
-  return "Quote Event Qty: "..value:tonumber()/10000
+  return "Quote Event Qty: "..value
+end
+
+-- Translate: Quote Event Qty
+translate.quote_event_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Quote Event Qty
 dissect.quote_event_qty = function(buffer, offset, packet, parent)
   local length = size_of.quote_event_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.quote_event_qty(raw)
   local display = display.quote_event_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.quote_event_qty, range, value, display)
@@ -16114,14 +16313,20 @@ size_of.quote_event_px = 8
 
 -- Display: Quote Event Px
 display.quote_event_px = function(value)
-  return "Quote Event Px: "..value:tonumber()/100000000
+  return "Quote Event Px: "..value
+end
+
+-- Translate: Quote Event Px
+translate.quote_event_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Quote Event Px
 dissect.quote_event_px = function(buffer, offset, packet, parent)
   local length = size_of.quote_event_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.quote_event_px(raw)
   local display = display.quote_event_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.quote_event_px, range, value, display)
@@ -16876,14 +17081,20 @@ size_of.risk_limit_qty = 8
 
 -- Display: Risk Limit Qty
 display.risk_limit_qty = function(value)
-  return "Risk Limit Qty: "..value:tonumber()/10000
+  return "Risk Limit Qty: "..value
+end
+
+-- Translate: Risk Limit Qty
+translate.risk_limit_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Qty
 dissect.risk_limit_qty = function(buffer, offset, packet, parent)
   local length = size_of.risk_limit_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.risk_limit_qty(raw)
   local display = display.risk_limit_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.risk_limit_qty, range, value, display)
@@ -17153,14 +17364,20 @@ size_of.risk_limit_net_position_qty = 8
 
 -- Display: Risk Limit Net Position Qty
 display.risk_limit_net_position_qty = function(value)
-  return "Risk Limit Net Position Qty: "..value:tonumber()/10000
+  return "Risk Limit Net Position Qty: "..value
+end
+
+-- Translate: Risk Limit Net Position Qty
+translate.risk_limit_net_position_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Net Position Qty
 dissect.risk_limit_net_position_qty = function(buffer, offset, packet, parent)
   local length = size_of.risk_limit_net_position_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.risk_limit_net_position_qty(raw)
   local display = display.risk_limit_net_position_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.risk_limit_net_position_qty, range, value, display)
@@ -17173,14 +17390,20 @@ size_of.risk_limit_open_qty = 8
 
 -- Display: Risk Limit Open Qty
 display.risk_limit_open_qty = function(value)
-  return "Risk Limit Open Qty: "..value:tonumber()/10000
+  return "Risk Limit Open Qty: "..value
+end
+
+-- Translate: Risk Limit Open Qty
+translate.risk_limit_open_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Risk Limit Open Qty
 dissect.risk_limit_open_qty = function(buffer, offset, packet, parent)
   local length = size_of.risk_limit_open_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.risk_limit_open_qty(raw)
   local display = display.risk_limit_open_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.risk_limit_open_qty, range, value, display)
@@ -17830,14 +18053,20 @@ size_of.fill_qty = 8
 
 -- Display: Fill Qty
 display.fill_qty = function(value)
-  return "Fill Qty: "..value:tonumber()/10000
+  return "Fill Qty: "..value
+end
+
+-- Translate: Fill Qty
+translate.fill_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Fill Qty
 dissect.fill_qty = function(buffer, offset, packet, parent)
   local length = size_of.fill_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.fill_qty(raw)
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.fill_qty, range, value, display)
@@ -17850,14 +18079,20 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  return "Fill Px: "..value:tonumber()/100000000
+  return "Fill Px: "..value
+end
+
+-- Translate: Fill Px
+translate.fill_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Fill Px
 dissect.fill_px = function(buffer, offset, packet, parent)
   local length = size_of.fill_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.fill_px(raw)
   local display = display.fill_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.fill_px, range, value, display)
@@ -18204,14 +18439,20 @@ size_of.cxl_qty = 8
 
 -- Display: Cxl Qty
 display.cxl_qty = function(value)
-  return "Cxl Qty: "..value:tonumber()/10000
+  return "Cxl Qty: "..value
+end
+
+-- Translate: Cxl Qty
+translate.cxl_qty = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cxl Qty
 dissect.cxl_qty = function(buffer, offset, packet, parent)
   local length = size_of.cxl_qty
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cxl_qty(raw)
   local display = display.cxl_qty(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.cxl_qty, range, value, display)
@@ -18825,14 +19066,20 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  return "Stop Px: "..value:tonumber()/100000000
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+translate.stop_px = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
 dissect.stop_px = function(buffer, offset, packet, parent)
   local length = size_of.stop_px
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.stop_px(raw)
   local display = display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.stop_px, range, value, display)
@@ -22655,14 +22902,20 @@ size_of.cxl_size = 8
 
 -- Display: Cxl Size
 display.cxl_size = function(value)
-  return "Cxl Size: "..value:tonumber()/10000
+  return "Cxl Size: "..value
+end
+
+-- Translate: Cxl Size
+translate.cxl_size = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Cxl Size
 dissect.cxl_size = function(buffer, offset, packet, parent)
   local length = size_of.cxl_size
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.cxl_size(raw)
   local display = display.cxl_size(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.cxl_size, range, value, display)
@@ -23150,14 +23403,20 @@ size_of.vega = 8
 
 -- Display: Vega
 display.vega = function(value)
-  return "Vega: "..value:tonumber()/10000
+  return "Vega: "..value
+end
+
+-- Translate: Vega
+translate.vega = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Vega
 dissect.vega = function(buffer, offset, packet, parent)
   local length = size_of.vega
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.vega(raw)
   local display = display.vega(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.vega, range, value, display)
@@ -23170,14 +23429,20 @@ size_of.delta = 8
 
 -- Display: Delta
 display.delta = function(value)
-  return "Delta: "..value:tonumber()/10000
+  return "Delta: "..value
+end
+
+-- Translate: Delta
+translate.delta = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Delta
 dissect.delta = function(buffer, offset, packet, parent)
   local length = size_of.delta
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.delta(raw)
   local display = display.delta(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.delta, range, value, display)
@@ -25664,14 +25929,20 @@ size_of.maximum_price = 8
 
 -- Display: Maximum Price
 display.maximum_price = function(value)
-  return "Maximum Price: "..value:tonumber()/100000000
+  return "Maximum Price: "..value
+end
+
+-- Translate: Maximum Price
+translate.maximum_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Maximum Price
 dissect.maximum_price = function(buffer, offset, packet, parent)
   local length = size_of.maximum_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.maximum_price(raw)
   local display = display.maximum_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.maximum_price, range, value, display)
@@ -30056,14 +30327,20 @@ size_of.strike_price = 8
 
 -- Display: Strike Price
 display.strike_price = function(value)
-  return "Strike Price: "..value:tonumber()/100000000
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
   local length = size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.strike_price(raw)
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.strike_price, range, value, display)
@@ -30436,14 +30713,20 @@ size_of.high_limit_price = 8
 
 -- Display: High Limit Price
 display.high_limit_price = function(value)
-  return "High Limit Price: "..value:tonumber()/100000000
+  return "High Limit Price: "..value
+end
+
+-- Translate: High Limit Price
+translate.high_limit_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: High Limit Price
 dissect.high_limit_price = function(buffer, offset, packet, parent)
   local length = size_of.high_limit_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.high_limit_price(raw)
   local display = display.high_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.high_limit_price, range, value, display)
@@ -30456,14 +30739,20 @@ size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
 display.low_limit_price = function(value)
-  return "Low Limit Price: "..value:tonumber()/100000000
+  return "Low Limit Price: "..value
+end
+
+-- Translate: Low Limit Price
+translate.low_limit_price = function(raw)
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Low Limit Price
 dissect.low_limit_price = function(buffer, offset, packet, parent)
   local length = size_of.low_limit_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.low_limit_price(raw)
   local display = display.low_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v8_1.fields.low_limit_price, range, value, display)

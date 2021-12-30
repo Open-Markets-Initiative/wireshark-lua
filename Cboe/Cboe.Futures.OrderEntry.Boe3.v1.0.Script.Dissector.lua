@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -34,12 +35,12 @@ cboe_futures_orderentry_boe3_v1_0.fields.cl_ord_id = ProtoField.new("Cl Ord Id",
 cboe_futures_orderentry_boe3_v1_0.fields.clearing_account = ProtoField.new("Clearing Account", "cboe.futures.orderentry.boe3.v1.0.clearingaccount", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm = ProtoField.new("Clearing Firm", "cboe.futures.orderentry.boe3.v1.0.clearingfirm", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm_filter = ProtoField.new("Clearing Firm Filter", "cboe.futures.orderentry.boe3.v1.0.clearingfirmfilter", ftypes.STRING)
-cboe_futures_orderentry_boe3_v1_0.fields.clearing_price = ProtoField.new("Clearing Price", "cboe.futures.orderentry.boe3.v1.0.clearingprice", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.clearing_price = ProtoField.new("Clearing Price", "cboe.futures.orderentry.boe3.v1.0.clearingprice", ftypes.DOUBLE)
 cboe_futures_orderentry_boe3_v1_0.fields.clearing_size = ProtoField.new("Clearing Size", "cboe.futures.orderentry.boe3.v1.0.clearingsize", ftypes.UINT32)
 cboe_futures_orderentry_boe3_v1_0.fields.clearing_symbol = ProtoField.new("Clearing Symbol", "cboe.futures.orderentry.boe3.v1.0.clearingsymbol", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.client_sequence = ProtoField.new("Client Sequence", "cboe.futures.orderentry.boe3.v1.0.clientsequence", ftypes.UINT32)
 cboe_futures_orderentry_boe3_v1_0.fields.cmta_number = ProtoField.new("Cmta Number", "cboe.futures.orderentry.boe3.v1.0.cmtanumber", ftypes.UINT32)
-cboe_futures_orderentry_boe3_v1_0.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.futures.orderentry.boe3.v1.0.correctedprice", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.corrected_price = ProtoField.new("Corrected Price", "cboe.futures.orderentry.boe3.v1.0.correctedprice", ftypes.DOUBLE)
 cboe_futures_orderentry_boe3_v1_0.fields.cti_code = ProtoField.new("Cti Code", "cboe.futures.orderentry.boe3.v1.0.cticode", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.futures.orderentry.boe3.v1.0.cumqty", ftypes.UINT32)
 cboe_futures_orderentry_boe3_v1_0.fields.cust_order_handling_inst = ProtoField.new("Cust Order Handling Inst", "cboe.futures.orderentry.boe3.v1.0.custorderhandlinginst", ftypes.STRING)
@@ -53,7 +54,7 @@ cboe_futures_orderentry_boe3_v1_0.fields.frequent_trader_id = ProtoField.new("Fr
 cboe_futures_orderentry_boe3_v1_0.fields.gtc_order_filter = ProtoField.new("Gtc Order Filter", "cboe.futures.orderentry.boe3.v1.0.gtcorderfilter", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.instruction_details = ProtoField.new("Instruction Details", "cboe.futures.orderentry.boe3.v1.0.instructiondetails", ftypes.BYTES)
 cboe_futures_orderentry_boe3_v1_0.fields.instrument_type_filter = ProtoField.new("Instrument Type Filter", "cboe.futures.orderentry.boe3.v1.0.instrumenttypefilter", ftypes.STRING)
-cboe_futures_orderentry_boe3_v1_0.fields.last_px = ProtoField.new("Last Px", "cboe.futures.orderentry.boe3.v1.0.lastpx", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.last_px = ProtoField.new("Last Px", "cboe.futures.orderentry.boe3.v1.0.lastpx", ftypes.DOUBLE)
 cboe_futures_orderentry_boe3_v1_0.fields.last_shares = ProtoField.new("Last Shares", "cboe.futures.orderentry.boe3.v1.0.lastshares", ftypes.UINT32)
 cboe_futures_orderentry_boe3_v1_0.fields.leaves_qty = ProtoField.new("Leaves Qty", "cboe.futures.orderentry.boe3.v1.0.leavesqty", ftypes.UINT32)
 cboe_futures_orderentry_boe3_v1_0.fields.lockout_instruction = ProtoField.new("Lockout Instruction", "cboe.futures.orderentry.boe3.v1.0.lockoutinstruction", ftypes.STRING)
@@ -102,7 +103,7 @@ cboe_futures_orderentry_boe3_v1_0.fields.packet = ProtoField.new("Packet", "cboe
 cboe_futures_orderentry_boe3_v1_0.fields.password = ProtoField.new("Password", "cboe.futures.orderentry.boe3.v1.0.password", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.pending_status = ProtoField.new("Pending Status", "cboe.futures.orderentry.boe3.v1.0.pendingstatus", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.prevent_match = ProtoField.new("Prevent Match", "cboe.futures.orderentry.boe3.v1.0.preventmatch", ftypes.STRING)
-cboe_futures_orderentry_boe3_v1_0.fields.price = ProtoField.new("Price", "cboe.futures.orderentry.boe3.v1.0.price", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.price = ProtoField.new("Price", "cboe.futures.orderentry.boe3.v1.0.price", ftypes.DOUBLE)
 cboe_futures_orderentry_boe3_v1_0.fields.product_name = ProtoField.new("Product Name", "cboe.futures.orderentry.boe3.v1.0.productname", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message = ProtoField.new("Purge Acknowledgement Message", "cboe.futures.orderentry.boe3.v1.0.purgeacknowledgementmessage", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message = ProtoField.new("Purge Orders Message", "cboe.futures.orderentry.boe3.v1.0.purgeordersmessage", ftypes.STRING)
@@ -137,7 +138,7 @@ cboe_futures_orderentry_boe3_v1_0.fields.session_sub_id = ProtoField.new("Sessio
 cboe_futures_orderentry_boe3_v1_0.fields.side = ProtoField.new("Side", "cboe.futures.orderentry.boe3.v1.0.side", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.size_modifier = ProtoField.new("Size Modifier", "cboe.futures.orderentry.boe3.v1.0.sizemodifier", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.start_of_message = ProtoField.new("Start Of Message", "cboe.futures.orderentry.boe3.v1.0.startofmessage", ftypes.UINT16)
-cboe_futures_orderentry_boe3_v1_0.fields.stop_px = ProtoField.new("Stop Px", "cboe.futures.orderentry.boe3.v1.0.stoppx", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.stop_px = ProtoField.new("Stop Px", "cboe.futures.orderentry.boe3.v1.0.stoppx", ftypes.DOUBLE)
 cboe_futures_orderentry_boe3_v1_0.fields.sub_liquidity_indicator = ProtoField.new("Sub Liquidity Indicator", "cboe.futures.orderentry.boe3.v1.0.subliquidityindicator", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.symbol = ProtoField.new("Symbol", "cboe.futures.orderentry.boe3.v1.0.symbol", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message = ProtoField.new("Tas Quote Restatement Message", "cboe.futures.orderentry.boe3.v1.0.tasquoterestatementmessage", ftypes.STRING)
@@ -153,7 +154,7 @@ cboe_futures_orderentry_boe3_v1_0.fields.unit_number = ProtoField.new("Unit Numb
 cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence = ProtoField.new("Unit Sequence", "cboe.futures.orderentry.boe3.v1.0.unitsequence", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.variance_quote_restatement_message = ProtoField.new("Variance Quote Restatement Message", "cboe.futures.orderentry.boe3.v1.0.variancequoterestatementmessage", ftypes.STRING)
 cboe_futures_orderentry_boe3_v1_0.fields.variance_restatement_message = ProtoField.new("Variance Restatement Message", "cboe.futures.orderentry.boe3.v1.0.variancerestatementmessage", ftypes.STRING)
-cboe_futures_orderentry_boe3_v1_0.fields.working_price = ProtoField.new("Working Price", "cboe.futures.orderentry.boe3.v1.0.workingprice", ftypes.INT64)
+cboe_futures_orderentry_boe3_v1_0.fields.working_price = ProtoField.new("Working Price", "cboe.futures.orderentry.boe3.v1.0.workingprice", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -583,14 +584,20 @@ size_of.clearing_price = 8
 
 -- Display: Clearing Price
 display.clearing_price = function(value)
-  return "Clearing Price: "..value:tonumber()/10000
+  return "Clearing Price: "..value
+end
+
+-- Translate: Clearing Price
+translate.clearing_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Clearing Price
 dissect.clearing_price = function(buffer, offset, packet, parent)
   local length = size_of.clearing_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.clearing_price(raw)
   local display = display.clearing_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_price, range, value, display)
@@ -1131,14 +1138,20 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  return "Last Px: "..value:tonumber()/10000
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
   local length = size_of.last_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.last_px(raw)
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.last_px, range, value, display)
@@ -1315,14 +1328,20 @@ size_of.working_price = 8
 
 -- Display: Working Price
 display.working_price = function(value)
-  return "Working Price: "..value:tonumber()/10000
+  return "Working Price: "..value
+end
+
+-- Translate: Working Price
+translate.working_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Working Price
 dissect.working_price = function(buffer, offset, packet, parent)
   local length = size_of.working_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.working_price(raw)
   local display = display.working_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.working_price, range, value, display)
@@ -1860,14 +1879,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/10000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.price, range, value, display)
@@ -2226,14 +2251,20 @@ size_of.corrected_price = 8
 
 -- Display: Corrected Price
 display.corrected_price = function(value)
-  return "Corrected Price: "..value:tonumber()/10000
+  return "Corrected Price: "..value
+end
+
+-- Translate: Corrected Price
+translate.corrected_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Corrected Price
 dissect.corrected_price = function(buffer, offset, packet, parent)
   local length = size_of.corrected_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.corrected_price(raw)
   local display = display.corrected_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.corrected_price, range, value, display)
@@ -3437,14 +3468,20 @@ size_of.stop_px = 8
 
 -- Display: Stop Px
 display.stop_px = function(value)
-  return "Stop Px: "..value:tonumber()/10000
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+translate.stop_px = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Stop Px
 dissect.stop_px = function(buffer, offset, packet, parent)
   local length = size_of.stop_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.stop_px(raw)
   local display = display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.stop_px, range, value, display)

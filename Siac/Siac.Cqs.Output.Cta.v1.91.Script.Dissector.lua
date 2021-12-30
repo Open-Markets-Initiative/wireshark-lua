@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -27,20 +28,20 @@ siac_cqs_output_cta_v1_91.fields.administrative_payload = ProtoField.new("Admini
 siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cqs.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cqs.output.cta.v1.91.auctionstatusmessage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.cqs.output.cta.v1.91.bestbidparticipantid", ftypes.STRING)
-siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.UINT64)
-siac_cqs_output_cta_v1_91.fields.best_bid_price_short = ProtoField.new("Best Bid Price Short", "siac.cqs.output.cta.v1.91.bestbidpriceshort", ftypes.UINT16)
+siac_cqs_output_cta_v1_91.fields.best_bid_price_long = ProtoField.new("Best Bid Price Long", "siac.cqs.output.cta.v1.91.bestbidpricelong", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.best_bid_price_short = ProtoField.new("Best Bid Price Short", "siac.cqs.output.cta.v1.91.bestbidpriceshort", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition = ProtoField.new("Best Bid Quote Condition", "siac.cqs.output.cta.v1.91.bestbidquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_bid_size_long = ProtoField.new("Best Bid Size Long", "siac.cqs.output.cta.v1.91.bestbidsizelong", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.best_bid_size_short = ProtoField.new("Best Bid Size Short", "siac.cqs.output.cta.v1.91.bestbidsizeshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.cqs.output.cta.v1.91.bestofferparticipantid", ftypes.STRING)
-siac_cqs_output_cta_v1_91.fields.best_offer_price_long = ProtoField.new("Best Offer Price Long", "siac.cqs.output.cta.v1.91.bestofferpricelong", ftypes.UINT64)
-siac_cqs_output_cta_v1_91.fields.best_offer_price_short = ProtoField.new("Best Offer Price Short", "siac.cqs.output.cta.v1.91.bestofferpriceshort", ftypes.UINT16)
+siac_cqs_output_cta_v1_91.fields.best_offer_price_long = ProtoField.new("Best Offer Price Long", "siac.cqs.output.cta.v1.91.bestofferpricelong", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.best_offer_price_short = ProtoField.new("Best Offer Price Short", "siac.cqs.output.cta.v1.91.bestofferpriceshort", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.best_offer_quote_condition = ProtoField.new("Best Offer Quote Condition", "siac.cqs.output.cta.v1.91.bestofferquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.best_offer_size_long = ProtoField.new("Best Offer Size Long", "siac.cqs.output.cta.v1.91.bestoffersizelong", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.best_offer_size_short = ProtoField.new("Best Offer Size Short", "siac.cqs.output.cta.v1.91.bestoffersizeshort", ftypes.UINT16)
-siac_cqs_output_cta_v1_91.fields.bid_price_long = ProtoField.new("Bid Price Long", "siac.cqs.output.cta.v1.91.bidpricelong", ftypes.UINT64)
-siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band = ProtoField.new("Bid Price Lower Limit Price Band", "siac.cqs.output.cta.v1.91.bidpricelowerlimitpriceband", ftypes.UINT64)
-siac_cqs_output_cta_v1_91.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.cqs.output.cta.v1.91.bidpriceshort", ftypes.UINT16)
+siac_cqs_output_cta_v1_91.fields.bid_price_long = ProtoField.new("Bid Price Long", "siac.cqs.output.cta.v1.91.bidpricelong", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band = ProtoField.new("Bid Price Lower Limit Price Band", "siac.cqs.output.cta.v1.91.bidpricelowerlimitpriceband", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.cqs.output.cta.v1.91.bidpriceshort", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.bid_size_long = ProtoField.new("Bid Size Long", "siac.cqs.output.cta.v1.91.bidsizelong", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.bid_size_short = ProtoField.new("Bid Size Short", "siac.cqs.output.cta.v1.91.bidsizeshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.block_checksum = ProtoField.new("Block Checksum", "siac.cqs.output.cta.v1.91.blockchecksum", ftypes.UINT16)
@@ -59,11 +60,11 @@ siac_cqs_output_cta_v1_91.fields.financial_status_indicator = ProtoField.new("Fi
 siac_cqs_output_cta_v1_91.fields.finra_bbo_indicator = ProtoField.new("Finra Bbo Indicator", "siac.cqs.output.cta.v1.91.finrabboindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_bbo_luld_indicator = ProtoField.new("Finra Bbo Luld Indicator", "siac.cqs.output.cta.v1.91.finrabboluldindicator", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id = ProtoField.new("Finra Best Bid Market Maker Id", "siac.cqs.output.cta.v1.91.finrabestbidmarketmakerid", ftypes.STRING)
-siac_cqs_output_cta_v1_91.fields.finra_best_bid_price = ProtoField.new("Finra Best Bid Price", "siac.cqs.output.cta.v1.91.finrabestbidprice", ftypes.UINT64)
+siac_cqs_output_cta_v1_91.fields.finra_best_bid_price = ProtoField.new("Finra Best Bid Price", "siac.cqs.output.cta.v1.91.finrabestbidprice", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.finra_best_bid_quote_condition = ProtoField.new("Finra Best Bid Quote Condition", "siac.cqs.output.cta.v1.91.finrabestbidquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_best_bid_size = ProtoField.new("Finra Best Bid Size", "siac.cqs.output.cta.v1.91.finrabestbidsize", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id = ProtoField.new("Finra Best Offer Market Maker Id", "siac.cqs.output.cta.v1.91.finrabestoffermarketmakerid", ftypes.STRING)
-siac_cqs_output_cta_v1_91.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.output.cta.v1.91.finrabestofferprice", ftypes.UINT64)
+siac_cqs_output_cta_v1_91.fields.finra_best_offer_price = ProtoField.new("Finra Best Offer Price", "siac.cqs.output.cta.v1.91.finrabestofferprice", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.finra_best_offer_quote_condition = ProtoField.new("Finra Best Offer Quote Condition", "siac.cqs.output.cta.v1.91.finrabestofferquotecondition", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.finra_best_offer_size = ProtoField.new("Finra Best Offer Size", "siac.cqs.output.cta.v1.91.finrabestoffersize", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.finra_close_message = ProtoField.new("Finra Close Message", "siac.cqs.output.cta.v1.91.finraclosemessage", ftypes.STRING)
@@ -96,9 +97,9 @@ siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage = ProtoField.
 siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage = ProtoField.new("National Best Offer Long Appendage", "siac.cqs.output.cta.v1.91.nationalbestofferlongappendage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage = ProtoField.new("National Best Offer Short Appendage", "siac.cqs.output.cta.v1.91.nationalbestoffershortappendage", ftypes.STRING)
 siac_cqs_output_cta_v1_91.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cqs.output.cta.v1.91.numberofextensions", ftypes.UINT8)
-siac_cqs_output_cta_v1_91.fields.offer_price_long = ProtoField.new("Offer Price Long", "siac.cqs.output.cta.v1.91.offerpricelong", ftypes.UINT64)
-siac_cqs_output_cta_v1_91.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.cqs.output.cta.v1.91.offerpriceshort", ftypes.UINT16)
-siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band = ProtoField.new("Offer Price Upper Limit Price Band", "siac.cqs.output.cta.v1.91.offerpriceupperlimitpriceband", ftypes.UINT64)
+siac_cqs_output_cta_v1_91.fields.offer_price_long = ProtoField.new("Offer Price Long", "siac.cqs.output.cta.v1.91.offerpricelong", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.offer_price_short = ProtoField.new("Offer Price Short", "siac.cqs.output.cta.v1.91.offerpriceshort", ftypes.DOUBLE)
+siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band = ProtoField.new("Offer Price Upper Limit Price Band", "siac.cqs.output.cta.v1.91.offerpriceupperlimitpriceband", ftypes.DOUBLE)
 siac_cqs_output_cta_v1_91.fields.offer_size_long = ProtoField.new("Offer Size Long", "siac.cqs.output.cta.v1.91.offersizelong", ftypes.UINT32)
 siac_cqs_output_cta_v1_91.fields.offer_size_short = ProtoField.new("Offer Size Short", "siac.cqs.output.cta.v1.91.offersizeshort", ftypes.UINT16)
 siac_cqs_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cqs.output.cta.v1.91.packet", ftypes.STRING)
@@ -425,14 +426,20 @@ size_of.best_offer_price_short = 2
 
 -- Display: Best Offer Price Short
 display.best_offer_price_short = function(value)
-  return "Best Offer Price Short: "..value/100
+  return "Best Offer Price Short: "..value
+end
+
+-- Translate: Best Offer Price Short
+translate.best_offer_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Best Offer Price Short
 dissect.best_offer_price_short = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.best_offer_price_short(raw)
   local display = display.best_offer_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_short, range, value, display)
@@ -587,14 +594,20 @@ size_of.best_bid_price_short = 2
 
 -- Display: Best Bid Price Short
 display.best_bid_price_short = function(value)
-  return "Best Bid Price Short: "..value/100
+  return "Best Bid Price Short: "..value
+end
+
+-- Translate: Best Bid Price Short
+translate.best_bid_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Best Bid Price Short
 dissect.best_bid_price_short = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.best_bid_price_short(raw)
   local display = display.best_bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_short, range, value, display)
@@ -769,14 +782,20 @@ size_of.best_offer_price_long = 8
 
 -- Display: Best Offer Price Long
 display.best_offer_price_long = function(value)
-  return "Best Offer Price Long: "..value:tonumber()/1000000
+  return "Best Offer Price Long: "..value
+end
+
+-- Translate: Best Offer Price Long
+translate.best_offer_price_long = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Best Offer Price Long
 dissect.best_offer_price_long = function(buffer, offset, packet, parent)
   local length = size_of.best_offer_price_long
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.best_offer_price_long(raw)
   local display = display.best_offer_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_long, range, value, display)
@@ -906,14 +925,20 @@ size_of.best_bid_price_long = 8
 
 -- Display: Best Bid Price Long
 display.best_bid_price_long = function(value)
-  return "Best Bid Price Long: "..value:tonumber()/1000000
+  return "Best Bid Price Long: "..value
+end
+
+-- Translate: Best Bid Price Long
+translate.best_bid_price_long = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Best Bid Price Long
 dissect.best_bid_price_long = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_price_long
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.best_bid_price_long(raw)
   local display = display.best_bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
@@ -1474,14 +1499,20 @@ size_of.finra_best_offer_price = 8
 
 -- Display: Finra Best Offer Price
 display.finra_best_offer_price = function(value)
-  return "Finra Best Offer Price: "..value:tonumber()/1000000
+  return "Finra Best Offer Price: "..value
+end
+
+-- Translate: Finra Best Offer Price
+translate.finra_best_offer_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Finra Best Offer Price
 dissect.finra_best_offer_price = function(buffer, offset, packet, parent)
   local length = size_of.finra_best_offer_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.finra_best_offer_price(raw)
   local display = display.finra_best_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_price, range, value, display)
@@ -1534,14 +1565,20 @@ size_of.finra_best_bid_price = 8
 
 -- Display: Finra Best Bid Price
 display.finra_best_bid_price = function(value)
-  return "Finra Best Bid Price: "..value:tonumber()/1000000
+  return "Finra Best Bid Price: "..value
+end
+
+-- Translate: Finra Best Bid Price
+translate.finra_best_bid_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Finra Best Bid Price
 dissect.finra_best_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.finra_best_bid_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.finra_best_bid_price(raw)
   local display = display.finra_best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_price, range, value, display)
@@ -1707,14 +1744,20 @@ size_of.offer_price_long = 8
 
 -- Display: Offer Price Long
 display.offer_price_long = function(value)
-  return "Offer Price Long: "..value:tonumber()/1000000
+  return "Offer Price Long: "..value
+end
+
+-- Translate: Offer Price Long
+translate.offer_price_long = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Offer Price Long
 dissect.offer_price_long = function(buffer, offset, packet, parent)
   local length = size_of.offer_price_long
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.offer_price_long(raw)
   local display = display.offer_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_long, range, value, display)
@@ -1747,14 +1790,20 @@ size_of.bid_price_long = 8
 
 -- Display: Bid Price Long
 display.bid_price_long = function(value)
-  return "Bid Price Long: "..value:tonumber()/1000000
+  return "Bid Price Long: "..value
+end
+
+-- Translate: Bid Price Long
+translate.bid_price_long = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Bid Price Long
 dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = size_of.bid_price_long
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.bid_price_long(raw)
   local display = display.bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_long, range, value, display)
@@ -2310,14 +2359,20 @@ size_of.offer_price_short = 2
 
 -- Display: Offer Price Short
 display.offer_price_short = function(value)
-  return "Offer Price Short: "..value/100
+  return "Offer Price Short: "..value
+end
+
+-- Translate: Offer Price Short
+translate.offer_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Offer Price Short
 dissect.offer_price_short = function(buffer, offset, packet, parent)
   local length = size_of.offer_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.offer_price_short(raw)
   local display = display.offer_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_short, range, value, display)
@@ -2350,14 +2405,20 @@ size_of.bid_price_short = 2
 
 -- Display: Bid Price Short
 display.bid_price_short = function(value)
-  return "Bid Price Short: "..value/100
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+translate.bid_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Bid Price Short
 dissect.bid_price_short = function(buffer, offset, packet, parent)
   local length = size_of.bid_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_short(raw)
   local display = display.bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_short, range, value, display)
@@ -2521,14 +2582,20 @@ size_of.offer_price_upper_limit_price_band = 8
 
 -- Display: Offer Price Upper Limit Price Band
 display.offer_price_upper_limit_price_band = function(value)
-  return "Offer Price Upper Limit Price Band: "..value:tonumber()/1000000
+  return "Offer Price Upper Limit Price Band: "..value
+end
+
+-- Translate: Offer Price Upper Limit Price Band
+translate.offer_price_upper_limit_price_band = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Offer Price Upper Limit Price Band
 dissect.offer_price_upper_limit_price_band = function(buffer, offset, packet, parent)
   local length = size_of.offer_price_upper_limit_price_band
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.offer_price_upper_limit_price_band(raw)
   local display = display.offer_price_upper_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band, range, value, display)
@@ -2541,14 +2608,20 @@ size_of.bid_price_lower_limit_price_band = 8
 
 -- Display: Bid Price Lower Limit Price Band
 display.bid_price_lower_limit_price_band = function(value)
-  return "Bid Price Lower Limit Price Band: "..value:tonumber()/1000000
+  return "Bid Price Lower Limit Price Band: "..value
+end
+
+-- Translate: Bid Price Lower Limit Price Band
+translate.bid_price_lower_limit_price_band = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Bid Price Lower Limit Price Band
 dissect.bid_price_lower_limit_price_band = function(buffer, offset, packet, parent)
   local length = size_of.bid_price_lower_limit_price_band
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.bid_price_lower_limit_price_band(raw)
   local display = display.bid_price_lower_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band, range, value, display)

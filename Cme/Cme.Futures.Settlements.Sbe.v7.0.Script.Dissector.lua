@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -45,7 +46,7 @@ cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_group = Prot
 cme_futures_settlements_sbe_v7_0.fields.m_d_incremental_refresh_voi_groups = ProtoField.new("M D Incremental Refresh Voi Groups", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshvoigroups", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.mantissa = ProtoField.new("Mantissa", "cme.futures.settlements.sbe.v7.0.mantissa", ftypes.INT64)
 cme_futures_settlements_sbe_v7_0.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.settlements.sbe.v7.0.maturitymonthyear", ftypes.STRING)
-cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.INT64)
+cme_futures_settlements_sbe_v7_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.settlements.sbe.v7.0.mdentrypx", ftypes.DOUBLE)
 cme_futures_settlements_sbe_v7_0.fields.md_entry_type = ProtoField.new("Md Entry Type", "cme.futures.settlements.sbe.v7.0.mdentrytype", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_high_low = ProtoField.new("Md Incremental Refresh High Low", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshhighlow", ftypes.STRING)
 cme_futures_settlements_sbe_v7_0.fields.md_incremental_refresh_settle = ProtoField.new("Md Incremental Refresh Settle", "cme.futures.settlements.sbe.v7.0.mdincrementalrefreshsettle", ftypes.STRING)
@@ -340,7 +341,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Mantissa: No Value"
   end
 
@@ -514,7 +515,7 @@ size_of.instrument_guid = 8
 -- Display: Instrument Guid
 display.instrument_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Instrument Guid: No Value"
   end
 
@@ -835,7 +836,7 @@ size_of.underlying_product_guid = 8
 -- Display: Underlying Product Guid
 display.underlying_product_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Underlying Product Guid: No Value"
   end
 
@@ -1092,7 +1093,7 @@ size_of.product_guid = 8
 -- Display: Product Guid
 display.product_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Product Guid: No Value"
   end
 
@@ -1845,20 +1846,32 @@ end
 size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
-display.md_entry_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.md_entry_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Md Entry Px: No Value"
   end
-  return "Md Entry Px: "..value:tonumber()/1000000000
+
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+translate.md_entry_px = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.md_entry_px(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.md_entry_px(raw)
+  local display = display.md_entry_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_settlements_sbe_v7_0.fields.md_entry_px, range, value, display)
 

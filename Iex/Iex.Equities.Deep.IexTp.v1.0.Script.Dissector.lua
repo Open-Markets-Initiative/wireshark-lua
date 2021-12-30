@@ -14,18 +14,19 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
 -- Iex Equities Deep IexTp 1.0 Fields
-iex_equities_deep_iextp_v1_0.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.equities.deep.iextp.v1.0.adjustedpocprice", ftypes.INT64)
-iex_equities_deep_iextp_v1_0.fields.auction_book_clearing_price = ProtoField.new("Auction Book Clearing Price", "iex.equities.deep.iextp.v1.0.auctionbookclearingprice", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.adjusted_poc_price = ProtoField.new("Adjusted Poc Price", "iex.equities.deep.iextp.v1.0.adjustedpocprice", ftypes.DOUBLE)
+iex_equities_deep_iextp_v1_0.fields.auction_book_clearing_price = ProtoField.new("Auction Book Clearing Price", "iex.equities.deep.iextp.v1.0.auctionbookclearingprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.auction_information_message = ProtoField.new("Auction Information Message", "iex.equities.deep.iextp.v1.0.auctioninformationmessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.auction_type = ProtoField.new("Auction Type", "iex.equities.deep.iextp.v1.0.auctiontype", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.channel_id = ProtoField.new("Channel Id", "iex.equities.deep.iextp.v1.0.channelid", ftypes.UINT32)
-iex_equities_deep_iextp_v1_0.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.deep.iextp.v1.0.collarreferenceprice", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "iex.equities.deep.iextp.v1.0.collarreferenceprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.detail = ProtoField.new("Detail", "iex.equities.deep.iextp.v1.0.detail", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.etp = ProtoField.new("Etp", "iex.equities.deep.iextp.v1.0.etp", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 iex_equities_deep_iextp_v1_0.fields.event_flags = ProtoField.new("Event Flags", "iex.equities.deep.iextp.v1.0.eventflags", ftypes.UINT8)
@@ -35,9 +36,9 @@ iex_equities_deep_iextp_v1_0.fields.first_message_sequence_number = ProtoField.n
 iex_equities_deep_iextp_v1_0.fields.iex_tp_header = ProtoField.new("Iex Tp Header", "iex.equities.deep.iextp.v1.0.iextpheader", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "iex.equities.deep.iextp.v1.0.imbalanceshares", ftypes.UINT32)
 iex_equities_deep_iextp_v1_0.fields.imbalance_side = ProtoField.new("Imbalance Side", "iex.equities.deep.iextp.v1.0.imbalanceside", ftypes.STRING)
-iex_equities_deep_iextp_v1_0.fields.indicative_clearing_price = ProtoField.new("Indicative Clearing Price", "iex.equities.deep.iextp.v1.0.indicativeclearingprice", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.indicative_clearing_price = ProtoField.new("Indicative Clearing Price", "iex.equities.deep.iextp.v1.0.indicativeclearingprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "iex.equities.deep.iextp.v1.0.intermarketsweep", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
-iex_equities_deep_iextp_v1_0.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.equities.deep.iextp.v1.0.lowerauctioncollar", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.lower_auction_collar = ProtoField.new("Lower Auction Collar", "iex.equities.deep.iextp.v1.0.lowerauctioncollar", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.luld_tier = ProtoField.new("Luld Tier", "iex.equities.deep.iextp.v1.0.luldtier", ftypes.UINT8)
 iex_equities_deep_iextp_v1_0.fields.message = ProtoField.new("Message", "iex.equities.deep.iextp.v1.0.message", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.message_count = ProtoField.new("Message Count", "iex.equities.deep.iextp.v1.0.messagecount", ftypes.UINT16)
@@ -47,19 +48,19 @@ iex_equities_deep_iextp_v1_0.fields.message_length = ProtoField.new("Message Len
 iex_equities_deep_iextp_v1_0.fields.message_protocol_id = ProtoField.new("Message Protocol Id", "iex.equities.deep.iextp.v1.0.messageprotocolid", ftypes.UINT16)
 iex_equities_deep_iextp_v1_0.fields.message_type = ProtoField.new("Message Type", "iex.equities.deep.iextp.v1.0.messagetype", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.odd_lot = ProtoField.new("Odd Lot", "iex.equities.deep.iextp.v1.0.oddlot", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-iex_equities_deep_iextp_v1_0.fields.official_price = ProtoField.new("Official Price", "iex.equities.deep.iextp.v1.0.officialprice", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.official_price = ProtoField.new("Official Price", "iex.equities.deep.iextp.v1.0.officialprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.official_price_message = ProtoField.new("Official Price Message", "iex.equities.deep.iextp.v1.0.officialpricemessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.operational_halt_status = ProtoField.new("Operational Halt Status", "iex.equities.deep.iextp.v1.0.operationalhaltstatus", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.operational_halt_status_message = ProtoField.new("Operational Halt Status Message", "iex.equities.deep.iextp.v1.0.operationalhaltstatusmessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.packet = ProtoField.new("Packet", "iex.equities.deep.iextp.v1.0.packet", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.paired_shares = ProtoField.new("Paired Shares", "iex.equities.deep.iextp.v1.0.pairedshares", ftypes.UINT32)
 iex_equities_deep_iextp_v1_0.fields.payload_length = ProtoField.new("Payload Length", "iex.equities.deep.iextp.v1.0.payloadlength", ftypes.UINT16)
-iex_equities_deep_iextp_v1_0.fields.price = ProtoField.new("Price", "iex.equities.deep.iextp.v1.0.price", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.price = ProtoField.new("Price", "iex.equities.deep.iextp.v1.0.price", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.price_level_buy_update_message = ProtoField.new("Price Level Buy Update Message", "iex.equities.deep.iextp.v1.0.pricelevelbuyupdatemessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.price_level_sell_update_message = ProtoField.new("Price Level Sell Update Message", "iex.equities.deep.iextp.v1.0.pricelevelsellupdatemessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.price_type = ProtoField.new("Price Type", "iex.equities.deep.iextp.v1.0.pricetype", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.reason = ProtoField.new("Reason", "iex.equities.deep.iextp.v1.0.reason", ftypes.STRING)
-iex_equities_deep_iextp_v1_0.fields.reference_price = ProtoField.new("Reference Price", "iex.equities.deep.iextp.v1.0.referenceprice", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.reference_price = ProtoField.new("Reference Price", "iex.equities.deep.iextp.v1.0.referenceprice", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.reserved = ProtoField.new("Reserved", "iex.equities.deep.iextp.v1.0.reserved", ftypes.BYTES)
 iex_equities_deep_iextp_v1_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "iex.equities.deep.iextp.v1.0.roundlotsize", ftypes.UINT32)
 iex_equities_deep_iextp_v1_0.fields.sale_condition_flags = ProtoField.new("Sale Condition Flags", "iex.equities.deep.iextp.v1.0.saleconditionflags", ftypes.STRING)
@@ -88,7 +89,7 @@ iex_equities_deep_iextp_v1_0.fields.trading_status = ProtoField.new("Trading Sta
 iex_equities_deep_iextp_v1_0.fields.trading_status_message = ProtoField.new("Trading Status Message", "iex.equities.deep.iextp.v1.0.tradingstatusmessage", ftypes.STRING)
 iex_equities_deep_iextp_v1_0.fields.unused_3 = ProtoField.new("Unused 3", "iex.equities.deep.iextp.v1.0.unused3", ftypes.UINT8, nil, base.DEC, "0x07")
 iex_equities_deep_iextp_v1_0.fields.unused_5 = ProtoField.new("Unused 5", "iex.equities.deep.iextp.v1.0.unused5", ftypes.UINT8, nil, base.DEC, "0x1F")
-iex_equities_deep_iextp_v1_0.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.equities.deep.iextp.v1.0.upperauctioncollar", ftypes.INT64)
+iex_equities_deep_iextp_v1_0.fields.upper_auction_collar = ProtoField.new("Upper Auction Collar", "iex.equities.deep.iextp.v1.0.upperauctioncollar", ftypes.DOUBLE)
 iex_equities_deep_iextp_v1_0.fields.version = ProtoField.new("Version", "iex.equities.deep.iextp.v1.0.version", ftypes.UINT8)
 iex_equities_deep_iextp_v1_0.fields.when_issued = ProtoField.new("When Issued", "iex.equities.deep.iextp.v1.0.whenissued", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 
@@ -236,14 +237,20 @@ size_of.upper_auction_collar = 8
 
 -- Display: Upper Auction Collar
 display.upper_auction_collar = function(value)
-  return "Upper Auction Collar: "..value:tonumber()/10000
+  return "Upper Auction Collar: "..value
+end
+
+-- Translate: Upper Auction Collar
+translate.upper_auction_collar = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Upper Auction Collar
 dissect.upper_auction_collar = function(buffer, offset, packet, parent)
   local length = size_of.upper_auction_collar
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.upper_auction_collar(raw)
   local display = display.upper_auction_collar(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.upper_auction_collar, range, value, display)
@@ -256,14 +263,20 @@ size_of.lower_auction_collar = 8
 
 -- Display: Lower Auction Collar
 display.lower_auction_collar = function(value)
-  return "Lower Auction Collar: "..value:tonumber()/10000
+  return "Lower Auction Collar: "..value
+end
+
+-- Translate: Lower Auction Collar
+translate.lower_auction_collar = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Lower Auction Collar
 dissect.lower_auction_collar = function(buffer, offset, packet, parent)
   local length = size_of.lower_auction_collar
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.lower_auction_collar(raw)
   local display = display.lower_auction_collar(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.lower_auction_collar, range, value, display)
@@ -276,14 +289,20 @@ size_of.collar_reference_price = 8
 
 -- Display: Collar Reference Price
 display.collar_reference_price = function(value)
-  return "Collar Reference Price: "..value:tonumber()/10000
+  return "Collar Reference Price: "..value
+end
+
+-- Translate: Collar Reference Price
+translate.collar_reference_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Collar Reference Price
 dissect.collar_reference_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_reference_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.collar_reference_price(raw)
   local display = display.collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.collar_reference_price, range, value, display)
@@ -296,14 +315,20 @@ size_of.auction_book_clearing_price = 8
 
 -- Display: Auction Book Clearing Price
 display.auction_book_clearing_price = function(value)
-  return "Auction Book Clearing Price: "..value:tonumber()/10000
+  return "Auction Book Clearing Price: "..value
+end
+
+-- Translate: Auction Book Clearing Price
+translate.auction_book_clearing_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Auction Book Clearing Price
 dissect.auction_book_clearing_price = function(buffer, offset, packet, parent)
   local length = size_of.auction_book_clearing_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.auction_book_clearing_price(raw)
   local display = display.auction_book_clearing_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.auction_book_clearing_price, range, value, display)
@@ -406,14 +431,20 @@ size_of.indicative_clearing_price = 8
 
 -- Display: Indicative Clearing Price
 display.indicative_clearing_price = function(value)
-  return "Indicative Clearing Price: "..value:tonumber()/10000
+  return "Indicative Clearing Price: "..value
+end
+
+-- Translate: Indicative Clearing Price
+translate.indicative_clearing_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Indicative Clearing Price
 dissect.indicative_clearing_price = function(buffer, offset, packet, parent)
   local length = size_of.indicative_clearing_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.indicative_clearing_price(raw)
   local display = display.indicative_clearing_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.indicative_clearing_price, range, value, display)
@@ -426,14 +457,20 @@ size_of.reference_price = 8
 
 -- Display: Reference Price
 display.reference_price = function(value)
-  return "Reference Price: "..value:tonumber()/10000
+  return "Reference Price: "..value
+end
+
+-- Translate: Reference Price
+translate.reference_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Reference Price
 dissect.reference_price = function(buffer, offset, packet, parent)
   local length = size_of.reference_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.reference_price(raw)
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.reference_price, range, value, display)
@@ -664,14 +701,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/10000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.price, range, value, display)
@@ -833,14 +876,20 @@ size_of.official_price = 8
 
 -- Display: Official Price
 display.official_price = function(value)
-  return "Official Price: "..value:tonumber()/10000
+  return "Official Price: "..value
+end
+
+-- Translate: Official Price
+translate.official_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Official Price
 dissect.official_price = function(buffer, offset, packet, parent)
   local length = size_of.official_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.official_price(raw)
   local display = display.official_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.official_price, range, value, display)
@@ -1530,14 +1579,20 @@ size_of.adjusted_poc_price = 8
 
 -- Display: Adjusted Poc Price
 display.adjusted_poc_price = function(value)
-  return "Adjusted Poc Price: "..value:tonumber()/10000
+  return "Adjusted Poc Price: "..value
+end
+
+-- Translate: Adjusted Poc Price
+translate.adjusted_poc_price = function(raw)
+  return raw:tonumber()/10000
 end
 
 -- Dissect: Adjusted Poc Price
 dissect.adjusted_poc_price = function(buffer, offset, packet, parent)
   local length = size_of.adjusted_poc_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.adjusted_poc_price(raw)
   local display = display.adjusted_poc_price(value, buffer, offset, packet, parent)
 
   parent:add(iex_equities_deep_iextp_v1_0.fields.adjusted_poc_price, range, value, display)

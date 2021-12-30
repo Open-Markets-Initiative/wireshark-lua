@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -35,7 +36,7 @@ cme_futures_mdp3_sbe_v1_12.fields.channel_reset = ProtoField.new("Channel Reset"
 cme_futures_mdp3_sbe_v1_12.fields.channel_reset_group = ProtoField.new("Channel Reset Group", "cme.futures.mdp3.sbe.v1.12.channelresetgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.channel_reset_groups = ProtoField.new("Channel Reset Groups", "cme.futures.mdp3.sbe.v1.12.channelresetgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.cleared_volume = ProtoField.new("Cleared Volume", "cme.futures.mdp3.sbe.v1.12.clearedvolume", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_12.fields.collateral_market_price = ProtoField.new("Collateral Market Price", "cme.futures.mdp3.sbe.v1.12.collateralmarketprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.collateral_market_price = ProtoField.new("Collateral Market Price", "cme.futures.mdp3.sbe.v1.12.collateralmarketprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.collateral_market_value = ProtoField.new("Collateral Market Value", "cme.futures.mdp3.sbe.v1.12.collateralmarketvalue", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.collateral_market_value_group = ProtoField.new("Collateral Market Value Group", "cme.futures.mdp3.sbe.v1.12.collateralmarketvaluegroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.collateral_market_value_groups = ProtoField.new("Collateral Market Value Groups", "cme.futures.mdp3.sbe.v1.12.collateralmarketvaluegroups", ftypes.STRING)
@@ -45,7 +46,7 @@ cme_futures_mdp3_sbe_v1_12.fields.country_of_issue = ProtoField.new("Country Of 
 cme_futures_mdp3_sbe_v1_12.fields.coupon_day_count = ProtoField.new("Coupon Day Count", "cme.futures.mdp3.sbe.v1.12.coupondaycount", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.coupon_frequency_period = ProtoField.new("Coupon Frequency Period", "cme.futures.mdp3.sbe.v1.12.couponfrequencyperiod", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_12.fields.coupon_frequency_unit = ProtoField.new("Coupon Frequency Unit", "cme.futures.mdp3.sbe.v1.12.couponfrequencyunit", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_12.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.mdp3.sbe.v1.12.couponrate", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.coupon_rate = ProtoField.new("Coupon Rate", "cme.futures.mdp3.sbe.v1.12.couponrate", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.currency = ProtoField.new("Currency", "cme.futures.mdp3.sbe.v1.12.currency", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.current_chunk = ProtoField.new("Current Chunk", "cme.futures.mdp3.sbe.v1.12.currentchunk", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.daily_product_eligibility = ProtoField.new("Daily Product Eligibility", "cme.futures.mdp3.sbe.v1.12.dailyproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00020000")
@@ -54,8 +55,8 @@ cme_futures_mdp3_sbe_v1_12.fields.day = ProtoField.new("Day", "cme.futures.mdp3.
 cme_futures_mdp3_sbe_v1_12.fields.decay_quantity = ProtoField.new("Decay Quantity", "cme.futures.mdp3.sbe.v1.12.decayquantity", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.decay_start_date = ProtoField.new("Decay Start Date", "cme.futures.mdp3.sbe.v1.12.decaystartdate", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_12.fields.decaying_product_eligibility = ProtoField.new("Decaying Product Eligibility", "cme.futures.mdp3.sbe.v1.12.decayingproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00008000")
-cme_futures_mdp3_sbe_v1_12.fields.dirty_price = ProtoField.new("Dirty Price", "cme.futures.mdp3.sbe.v1.12.dirtyprice", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.display_factor = ProtoField.new("Display Factor", "cme.futures.mdp3.sbe.v1.12.displayfactor", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.dirty_price = ProtoField.new("Dirty Price", "cme.futures.mdp3.sbe.v1.12.dirtyprice", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.display_factor = ProtoField.new("Display Factor", "cme.futures.mdp3.sbe.v1.12.displayfactor", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.ebf_eligible = ProtoField.new("Ebf Eligible", "cme.futures.mdp3.sbe.v1.12.ebfeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000010")
 cme_futures_mdp3_sbe_v1_12.fields.efix_instrument = ProtoField.new("Efix Instrument", "cme.futures.mdp3.sbe.v1.12.efixinstrument", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x04000000")
 cme_futures_mdp3_sbe_v1_12.fields.efp_eligible = ProtoField.new("Efp Eligible", "cme.futures.mdp3.sbe.v1.12.efpeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000008")
@@ -81,7 +82,7 @@ cme_futures_mdp3_sbe_v1_12.fields.gt_orders_eligibility = ProtoField.new("Gt Ord
 cme_futures_mdp3_sbe_v1_12.fields.halt_reason = ProtoField.new("Halt Reason", "cme.futures.mdp3.sbe.v1.12.haltreason", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.heart_bt_int = ProtoField.new("Heart Bt Int", "cme.futures.mdp3.sbe.v1.12.heartbtint", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_12.fields.hedge_instrument = ProtoField.new("Hedge Instrument", "cme.futures.mdp3.sbe.v1.12.hedgeinstrument", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x08000000")
-cme_futures_mdp3_sbe_v1_12.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.futures.mdp3.sbe.v1.12.highlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.high_limit_price = ProtoField.new("High Limit Price", "cme.futures.mdp3.sbe.v1.12.highlimitprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.i_link_indicative_mass_quoting_eligible = ProtoField.new("I Link Indicative Mass Quoting Eligible", "cme.futures.mdp3.sbe.v1.12.ilinkindicativemassquotingeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00000100")
 cme_futures_mdp3_sbe_v1_12.fields.implied_matching_eligibility = ProtoField.new("Implied Matching Eligibility", "cme.futures.mdp3.sbe.v1.12.impliedmatchingeligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00080000")
 cme_futures_mdp3_sbe_v1_12.fields.inst_attrib_group = ProtoField.new("Inst Attrib Group", "cme.futures.mdp3.sbe.v1.12.instattribgroup", ftypes.STRING)
@@ -103,15 +104,15 @@ cme_futures_mdp3_sbe_v1_12.fields.last_stats_msg = ProtoField.new("Last Stats Ms
 cme_futures_mdp3_sbe_v1_12.fields.last_trade_msg = ProtoField.new("Last Trade Msg", "cme.futures.mdp3.sbe.v1.12.lasttrademsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cme_futures_mdp3_sbe_v1_12.fields.last_update_time = ProtoField.new("Last Update Time", "cme.futures.mdp3.sbe.v1.12.lastupdatetime", ftypes.UINT64)
 cme_futures_mdp3_sbe_v1_12.fields.last_volume_msg = ProtoField.new("Last Volume Msg", "cme.futures.mdp3.sbe.v1.12.lastvolumemsg", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_futures_mdp3_sbe_v1_12.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.mdp3.sbe.v1.12.legoptiondelta", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_12.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.mdp3.sbe.v1.12.legprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.mdp3.sbe.v1.12.legoptiondelta", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.mdp3.sbe.v1.12.legprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.mdp3.sbe.v1.12.legratioqty", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_12.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.mdp3.sbe.v1.12.legsecurityid", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.mdp3.sbe.v1.12.legside", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.lot_type = ProtoField.new("Lot Type", "cme.futures.mdp3.sbe.v1.12.lottype", ftypes.INT8)
 cme_futures_mdp3_sbe_v1_12.fields.lot_type_rules_group = ProtoField.new("Lot Type Rules Group", "cme.futures.mdp3.sbe.v1.12.lottyperulesgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.lot_type_rules_groups = ProtoField.new("Lot Type Rules Groups", "cme.futures.mdp3.sbe.v1.12.lottyperulesgroups", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_12.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.futures.mdp3.sbe.v1.12.lowlimitprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.low_limit_price = ProtoField.new("Low Limit Price", "cme.futures.mdp3.sbe.v1.12.lowlimitprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.m_d_feed_types_group = ProtoField.new("M D Feed Types Group", "cme.futures.mdp3.sbe.v1.12.mdfeedtypesgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.m_d_feed_types_groups = ProtoField.new("M D Feed Types Groups", "cme.futures.mdp3.sbe.v1.12.mdfeedtypesgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.m_d_incremental_refresh_book_group = ProtoField.new("M D Incremental Refresh Book Group", "cme.futures.mdp3.sbe.v1.12.mdincrementalrefreshbookgroup", ftypes.STRING)
@@ -155,13 +156,13 @@ cme_futures_mdp3_sbe_v1_12.fields.match_event_indicator = ProtoField.new("Match 
 cme_futures_mdp3_sbe_v1_12.fields.maturity_date = ProtoField.new("Maturity Date", "cme.futures.mdp3.sbe.v1.12.maturitydate", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_12.fields.maturity_month_year = ProtoField.new("Maturity Month Year", "cme.futures.mdp3.sbe.v1.12.maturitymonthyear", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.max_no_of_substitutions = ProtoField.new("Max No Of Substitutions", "cme.futures.mdp3.sbe.v1.12.maxnoofsubstitutions", ftypes.UINT8)
-cme_futures_mdp3_sbe_v1_12.fields.max_price_discretion_offset = ProtoField.new("Max Price Discretion Offset", "cme.futures.mdp3.sbe.v1.12.maxpricediscretionoffset", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.max_price_variation = ProtoField.new("Max Price Variation", "cme.futures.mdp3.sbe.v1.12.maxpricevariation", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.max_price_discretion_offset = ProtoField.new("Max Price Discretion Offset", "cme.futures.mdp3.sbe.v1.12.maxpricediscretionoffset", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.max_price_variation = ProtoField.new("Max Price Variation", "cme.futures.mdp3.sbe.v1.12.maxpricevariation", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.max_trade_vol = ProtoField.new("Max Trade Vol", "cme.futures.mdp3.sbe.v1.12.maxtradevol", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.md_display_qty = ProtoField.new("Md Display Qty", "cme.futures.mdp3.sbe.v1.12.mddisplayqty", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.md_display_qty_optional = ProtoField.new("Md Display Qty Optional", "cme.futures.mdp3.sbe.v1.12.mddisplayqtyoptional", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_12.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.12.mdentrypx", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.mdp3.sbe.v1.12.mdentrypxoptional", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.mdp3.sbe.v1.12.mdentrypx", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.md_entry_px_optional = ProtoField.new("Md Entry Px Optional", "cme.futures.mdp3.sbe.v1.12.mdentrypxoptional", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.mdp3.sbe.v1.12.mdentrysize", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.md_entry_size_optional = ProtoField.new("Md Entry Size Optional", "cme.futures.mdp3.sbe.v1.12.mdentrysizeoptional", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.md_entry_size_u_int_64 = ProtoField.new("Md Entry Size u Int 64", "cme.futures.mdp3.sbe.v1.12.mdentrysizeuint64", ftypes.UINT64)
@@ -202,11 +203,11 @@ cme_futures_mdp3_sbe_v1_12.fields.message = ProtoField.new("Message", "cme.futur
 cme_futures_mdp3_sbe_v1_12.fields.message_header = ProtoField.new("Message Header", "cme.futures.mdp3.sbe.v1.12.messageheader", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.message_sequence_number = ProtoField.new("Message Sequence Number", "cme.futures.mdp3.sbe.v1.12.messagesequencenumber", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.message_size = ProtoField.new("Message Size", "cme.futures.mdp3.sbe.v1.12.messagesize", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_12.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.12.mincabprice", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.min_lot_size_decimal_qty = ProtoField.new("Min Lot Size Decimal Qty", "cme.futures.mdp3.sbe.v1.12.minlotsizedecimalqty", ftypes.INT32)
-cme_futures_mdp3_sbe_v1_12.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.mdp3.sbe.v1.12.minpriceincrement", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.futures.mdp3.sbe.v1.12.minpriceincrementamount", ftypes.INT64)
-cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.mdp3.sbe.v1.12.minpriceincrementoptional", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.min_cab_price = ProtoField.new("Min Cab Price", "cme.futures.mdp3.sbe.v1.12.mincabprice", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.min_lot_size_decimal_qty = ProtoField.new("Min Lot Size Decimal Qty", "cme.futures.mdp3.sbe.v1.12.minlotsizedecimalqty", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.min_price_increment = ProtoField.new("Min Price Increment", "cme.futures.mdp3.sbe.v1.12.minpriceincrement", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_amount = ProtoField.new("Min Price Increment Amount", "cme.futures.mdp3.sbe.v1.12.minpriceincrementamount", ftypes.DOUBLE)
+cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_optional = ProtoField.new("Min Price Increment Optional", "cme.futures.mdp3.sbe.v1.12.minpriceincrementoptional", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.min_quote_life = ProtoField.new("Min Quote Life", "cme.futures.mdp3.sbe.v1.12.minquotelife", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.min_trade_vol = ProtoField.new("Min Trade Vol", "cme.futures.mdp3.sbe.v1.12.mintradevol", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.money_or_par = ProtoField.new("Money Or Par", "cme.futures.mdp3.sbe.v1.12.moneyorpar", ftypes.UINT8)
@@ -236,14 +237,14 @@ cme_futures_mdp3_sbe_v1_12.fields.padding_4 = ProtoField.new("Padding 4", "cme.f
 cme_futures_mdp3_sbe_v1_12.fields.padding_5 = ProtoField.new("Padding 5", "cme.futures.mdp3.sbe.v1.12.padding5", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_12.fields.padding_6 = ProtoField.new("Padding 6", "cme.futures.mdp3.sbe.v1.12.padding6", ftypes.BYTES)
 cme_futures_mdp3_sbe_v1_12.fields.padding_7 = ProtoField.new("Padding 7", "cme.futures.mdp3.sbe.v1.12.padding7", ftypes.BYTES)
-cme_futures_mdp3_sbe_v1_12.fields.par_value = ProtoField.new("Par Value", "cme.futures.mdp3.sbe.v1.12.parvalue", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.par_value = ProtoField.new("Par Value", "cme.futures.mdp3.sbe.v1.12.parvalue", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.party_role_clearing_org = ProtoField.new("Party Role Clearing Org", "cme.futures.mdp3.sbe.v1.12.partyroleclearingorg", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.payload = ProtoField.new("Payload", "cme.futures.mdp3.sbe.v1.12.payload", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.price_display_format = ProtoField.new("Price Display Format", "cme.futures.mdp3.sbe.v1.12.pricedisplayformat", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.price_precision = ProtoField.new("Price Precision", "cme.futures.mdp3.sbe.v1.12.priceprecision", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.price_quote_currency = ProtoField.new("Price Quote Currency", "cme.futures.mdp3.sbe.v1.12.pricequotecurrency", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.price_quote_method = ProtoField.new("Price Quote Method", "cme.futures.mdp3.sbe.v1.12.pricequotemethod", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_12.fields.price_ratio = ProtoField.new("Price Ratio", "cme.futures.mdp3.sbe.v1.12.priceratio", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.price_ratio = ProtoField.new("Price Ratio", "cme.futures.mdp3.sbe.v1.12.priceratio", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.put_or_call = ProtoField.new("Put Or Call", "cme.futures.mdp3.sbe.v1.12.putorcall", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.quote_req_id = ProtoField.new("Quote Req Id", "cme.futures.mdp3.sbe.v1.12.quotereqid", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.quote_request = ProtoField.new("Quote Request", "cme.futures.mdp3.sbe.v1.12.quoterequest", ftypes.STRING)
@@ -310,7 +311,7 @@ cme_futures_mdp3_sbe_v1_12.fields.snapshot_refresh_top_orders_group = ProtoField
 cme_futures_mdp3_sbe_v1_12.fields.snapshot_refresh_top_orders_groups = ProtoField.new("Snapshot Refresh Top Orders Groups", "cme.futures.mdp3.sbe.v1.12.snapshotrefreshtopordersgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.start_date = ProtoField.new("Start Date", "cme.futures.mdp3.sbe.v1.12.startdate", ftypes.UINT16)
 cme_futures_mdp3_sbe_v1_12.fields.strike_currency = ProtoField.new("Strike Currency", "cme.futures.mdp3.sbe.v1.12.strikecurrency", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_12.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.mdp3.sbe.v1.12.strikeprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.strike_price = ProtoField.new("Strike Price", "cme.futures.mdp3.sbe.v1.12.strikeprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.sub_fraction = ProtoField.new("Sub Fraction", "cme.futures.mdp3.sbe.v1.12.subfraction", ftypes.UINT8)
 cme_futures_mdp3_sbe_v1_12.fields.symbol = ProtoField.new("Symbol", "cme.futures.mdp3.sbe.v1.12.symbol", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.template_id = ProtoField.new("Template Id", "cme.futures.mdp3.sbe.v1.12.templateid", ftypes.UINT16)
@@ -324,7 +325,7 @@ cme_futures_mdp3_sbe_v1_12.fields.trade_date = ProtoField.new("Trade Date", "cme
 cme_futures_mdp3_sbe_v1_12.fields.trade_link_id = ProtoField.new("Trade Link Id", "cme.futures.mdp3.sbe.v1.12.tradelinkid", ftypes.UINT32)
 cme_futures_mdp3_sbe_v1_12.fields.tradeable_size = ProtoField.new("Tradeable Size", "cme.futures.mdp3.sbe.v1.12.tradeablesize", ftypes.INT32)
 cme_futures_mdp3_sbe_v1_12.fields.trading_reference_date = ProtoField.new("Trading Reference Date", "cme.futures.mdp3.sbe.v1.12.tradingreferencedate", ftypes.UINT16)
-cme_futures_mdp3_sbe_v1_12.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.futures.mdp3.sbe.v1.12.tradingreferenceprice", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.trading_reference_price = ProtoField.new("Trading Reference Price", "cme.futures.mdp3.sbe.v1.12.tradingreferenceprice", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.trading_sessions_group = ProtoField.new("Trading Sessions Group", "cme.futures.mdp3.sbe.v1.12.tradingsessionsgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.trading_sessions_groups = ProtoField.new("Trading Sessions Groups", "cme.futures.mdp3.sbe.v1.12.tradingsessionsgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.transact_time = ProtoField.new("Transact Time", "cme.futures.mdp3.sbe.v1.12.transacttime", ftypes.UINT64)
@@ -339,7 +340,7 @@ cme_futures_mdp3_sbe_v1_12.fields.underlying_symbol = ProtoField.new("Underlying
 cme_futures_mdp3_sbe_v1_12.fields.underlyings_group = ProtoField.new("Underlyings Group", "cme.futures.mdp3.sbe.v1.12.underlyingsgroup", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.underlyings_groups = ProtoField.new("Underlyings Groups", "cme.futures.mdp3.sbe.v1.12.underlyingsgroups", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.unit_of_measure = ProtoField.new("Unit Of Measure", "cme.futures.mdp3.sbe.v1.12.unitofmeasure", ftypes.STRING)
-cme_futures_mdp3_sbe_v1_12.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.mdp3.sbe.v1.12.unitofmeasureqty", ftypes.INT64)
+cme_futures_mdp3_sbe_v1_12.fields.unit_of_measure_qty = ProtoField.new("Unit Of Measure Qty", "cme.futures.mdp3.sbe.v1.12.unitofmeasureqty", ftypes.DOUBLE)
 cme_futures_mdp3_sbe_v1_12.fields.user_defined_instrument = ProtoField.new("User Defined Instrument", "cme.futures.mdp3.sbe.v1.12.userdefinedinstrument", ftypes.STRING)
 cme_futures_mdp3_sbe_v1_12.fields.variable_cab_eligible = ProtoField.new("Variable Cab Eligible", "cme.futures.mdp3.sbe.v1.12.variablecabeligible", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00200000")
 cme_futures_mdp3_sbe_v1_12.fields.variable_product_eligibility = ProtoField.new("Variable Product Eligibility", "cme.futures.mdp3.sbe.v1.12.variableproducteligibility", ftypes.UINT32, {[1]="Yes",[0]="No"}, base.DEC, "0x00010000")
@@ -1206,7 +1207,7 @@ size_of.md_entry_size_u_int_64_null = 8
 -- Display: Md Entry Size u Int 64 Null
 display.md_entry_size_u_int_64_null = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size u Int 64 Null: No Value"
   end
 
@@ -1229,20 +1230,32 @@ end
 size_of.md_entry_px_optional = 8
 
 -- Display: Md Entry Px Optional
-display.md_entry_px_optional = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.md_entry_px_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Md Entry Px Optional: No Value"
   end
-  return "Md Entry Px Optional: "..value:tonumber()/1000000000
+
+  return "Md Entry Px Optional: "..value
+end
+
+-- Translate: Md Entry Px Optional
+translate.md_entry_px_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Md Entry Px Optional
 dissect.md_entry_px_optional = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px_optional
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.md_entry_px_optional(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.md_entry_px_optional(raw)
+  local display = display.md_entry_px_optional(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.md_entry_px_optional, range, value, display)
 
@@ -1446,20 +1459,32 @@ end
 size_of.max_price_variation = 8
 
 -- Display: Max Price Variation
-display.max_price_variation = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.max_price_variation = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Max Price Variation: No Value"
   end
-  return "Max Price Variation: "..value:tonumber()/1000000000
+
+  return "Max Price Variation: "..value
+end
+
+-- Translate: Max Price Variation
+translate.max_price_variation = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Max Price Variation
 dissect.max_price_variation = function(buffer, offset, packet, parent)
   local length = size_of.max_price_variation
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.max_price_variation(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.max_price_variation(raw)
+  local display = display.max_price_variation(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.max_price_variation, range, value, display)
 
@@ -1470,20 +1495,32 @@ end
 size_of.low_limit_price = 8
 
 -- Display: Low Limit Price
-display.low_limit_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.low_limit_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Low Limit Price: No Value"
   end
-  return "Low Limit Price: "..value:tonumber()/1000000000
+
+  return "Low Limit Price: "..value
+end
+
+-- Translate: Low Limit Price
+translate.low_limit_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Low Limit Price
 dissect.low_limit_price = function(buffer, offset, packet, parent)
   local length = size_of.low_limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.low_limit_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.low_limit_price(raw)
+  local display = display.low_limit_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.low_limit_price, range, value, display)
 
@@ -1494,20 +1531,32 @@ end
 size_of.high_limit_price = 8
 
 -- Display: High Limit Price
-display.high_limit_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.high_limit_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "High Limit Price: No Value"
   end
-  return "High Limit Price: "..value:tonumber()/1000000000
+
+  return "High Limit Price: "..value
+end
+
+-- Translate: High Limit Price
+translate.high_limit_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: High Limit Price
 dissect.high_limit_price = function(buffer, offset, packet, parent)
   local length = size_of.high_limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.high_limit_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.high_limit_price(raw)
+  local display = display.high_limit_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.high_limit_price, range, value, display)
 
@@ -2190,14 +2239,20 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  return "Md Entry Px: "..value:tonumber()/1000000000
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+translate.md_entry_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.md_entry_px(raw)
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.md_entry_px, range, value, display)
@@ -3161,7 +3216,7 @@ size_of.md_order_priority_optional = 8
 -- Display: Md Order Priority Optional
 display.md_order_priority_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Order Priority Optional: No Value"
   end
 
@@ -3757,20 +3812,32 @@ end
 size_of.min_lot_size_decimal_qty = 4
 
 -- Display: Min Lot Size Decimal Qty
-display.min_lot_size_decimal_qty = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
+display.min_lot_size_decimal_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
     return "Min Lot Size Decimal Qty: No Value"
   end
-  return "Min Lot Size Decimal Qty: "..value/10000
+
+  return "Min Lot Size Decimal Qty: "..value
+end
+
+-- Translate: Min Lot Size Decimal Qty
+translate.min_lot_size_decimal_qty = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
 end
 
 -- Dissect: Min Lot Size Decimal Qty
 dissect.min_lot_size_decimal_qty = function(buffer, offset, packet, parent)
   local length = size_of.min_lot_size_decimal_qty
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.min_lot_size_decimal_qty(value, buffer, offset, packet, parent)
+  local raw = range:le_int()
+  local value = translate.min_lot_size_decimal_qty(raw)
+  local display = display.min_lot_size_decimal_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.min_lot_size_decimal_qty, range, value, display)
 
@@ -4681,7 +4748,7 @@ size_of.instrument_guid = 8
 -- Display: Instrument Guid
 display.instrument_guid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Instrument Guid: No Value"
   end
 
@@ -4705,14 +4772,20 @@ size_of.max_price_discretion_offset = 8
 
 -- Display: Max Price Discretion Offset
 display.max_price_discretion_offset = function(value)
-  return "Max Price Discretion Offset: "..value:tonumber()/1000000000
+  return "Max Price Discretion Offset: "..value
+end
+
+-- Translate: Max Price Discretion Offset
+translate.max_price_discretion_offset = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Max Price Discretion Offset
 dissect.max_price_discretion_offset = function(buffer, offset, packet, parent)
   local length = size_of.max_price_discretion_offset
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.max_price_discretion_offset(raw)
   local display = display.max_price_discretion_offset(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.max_price_discretion_offset, range, value, display)
@@ -5051,20 +5124,32 @@ end
 size_of.unit_of_measure_qty = 8
 
 -- Display: Unit Of Measure Qty
-display.unit_of_measure_qty = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.unit_of_measure_qty = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Unit Of Measure Qty: No Value"
   end
-  return "Unit Of Measure Qty: "..value:tonumber()/1000000000
+
+  return "Unit Of Measure Qty: "..value
+end
+
+-- Translate: Unit Of Measure Qty
+translate.unit_of_measure_qty = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Unit Of Measure Qty
 dissect.unit_of_measure_qty = function(buffer, offset, packet, parent)
   local length = size_of.unit_of_measure_qty
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.unit_of_measure_qty(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.unit_of_measure_qty(raw)
+  local display = display.unit_of_measure_qty(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.unit_of_measure_qty, range, value, display)
 
@@ -5132,14 +5217,20 @@ size_of.display_factor = 8
 
 -- Display: Display Factor
 display.display_factor = function(value)
-  return "Display Factor: "..value:tonumber()/1000000000
+  return "Display Factor: "..value
+end
+
+-- Translate: Display Factor
+translate.display_factor = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Display Factor
 dissect.display_factor = function(buffer, offset, packet, parent)
   local length = size_of.display_factor
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.display_factor(raw)
   local display = display.display_factor(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.display_factor, range, value, display)
@@ -5152,14 +5243,20 @@ size_of.min_price_increment = 8
 
 -- Display: Min Price Increment
 display.min_price_increment = function(value)
-  return "Min Price Increment: "..value:tonumber()/1000000000
+  return "Min Price Increment: "..value
+end
+
+-- Translate: Min Price Increment
+translate.min_price_increment = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Min Price Increment
 dissect.min_price_increment = function(buffer, offset, packet, parent)
   local length = size_of.min_price_increment
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.min_price_increment(raw)
   local display = display.min_price_increment(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.min_price_increment, range, value, display)
@@ -6024,14 +6121,20 @@ size_of.dirty_price = 8
 
 -- Display: Dirty Price
 display.dirty_price = function(value)
-  return "Dirty Price: "..value:tonumber()/1000000000
+  return "Dirty Price: "..value
+end
+
+-- Translate: Dirty Price
+translate.dirty_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Dirty Price
 dissect.dirty_price = function(buffer, offset, packet, parent)
   local length = size_of.dirty_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.dirty_price(raw)
   local display = display.dirty_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.dirty_price, range, value, display)
@@ -6044,14 +6147,20 @@ size_of.collateral_market_price = 8
 
 -- Display: Collateral Market Price
 display.collateral_market_price = function(value)
-  return "Collateral Market Price: "..value:tonumber()/1000000000
+  return "Collateral Market Price: "..value
+end
+
+-- Translate: Collateral Market Price
+translate.collateral_market_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Collateral Market Price
 dissect.collateral_market_price = function(buffer, offset, packet, parent)
   local length = size_of.collateral_market_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.collateral_market_price(raw)
   local display = display.collateral_market_price(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.collateral_market_price, range, value, display)
@@ -7867,20 +7976,32 @@ end
 size_of.trading_reference_price = 8
 
 -- Display: Trading Reference Price
-display.trading_reference_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.trading_reference_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Trading Reference Price: No Value"
   end
-  return "Trading Reference Price: "..value:tonumber()/1000000000
+
+  return "Trading Reference Price: "..value
+end
+
+-- Translate: Trading Reference Price
+translate.trading_reference_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Trading Reference Price
 dissect.trading_reference_price = function(buffer, offset, packet, parent)
   local length = size_of.trading_reference_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.trading_reference_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.trading_reference_price(raw)
+  local display = display.trading_reference_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.trading_reference_price, range, value, display)
 
@@ -8367,20 +8488,32 @@ end
 size_of.par_value = 8
 
 -- Display: Par Value
-display.par_value = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.par_value = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Par Value: No Value"
   end
-  return "Par Value: "..value:tonumber()/1000000000
+
+  return "Par Value: "..value
+end
+
+-- Translate: Par Value
+translate.par_value = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Par Value
 dissect.par_value = function(buffer, offset, packet, parent)
   local length = size_of.par_value
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.par_value(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.par_value(raw)
+  local display = display.par_value(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.par_value, range, value, display)
 
@@ -8391,20 +8524,32 @@ end
 size_of.coupon_rate = 8
 
 -- Display: Coupon Rate
-display.coupon_rate = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.coupon_rate = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Coupon Rate: No Value"
   end
-  return "Coupon Rate: "..value:tonumber()/1000000000
+
+  return "Coupon Rate: "..value
+end
+
+-- Translate: Coupon Rate
+translate.coupon_rate = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Coupon Rate
 dissect.coupon_rate = function(buffer, offset, packet, parent)
   local length = size_of.coupon_rate
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.coupon_rate(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.coupon_rate(raw)
+  local display = display.coupon_rate(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.coupon_rate, range, value, display)
 
@@ -8465,20 +8610,32 @@ end
 size_of.min_price_increment_amount = 8
 
 -- Display: Min Price Increment Amount
-display.min_price_increment_amount = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.min_price_increment_amount = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Min Price Increment Amount: No Value"
   end
-  return "Min Price Increment Amount: "..value:tonumber()/1000000000
+
+  return "Min Price Increment Amount: "..value
+end
+
+-- Translate: Min Price Increment Amount
+translate.min_price_increment_amount = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Min Price Increment Amount
 dissect.min_price_increment_amount = function(buffer, offset, packet, parent)
   local length = size_of.min_price_increment_amount
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.min_price_increment_amount(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.min_price_increment_amount(raw)
+  local display = display.min_price_increment_amount(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_amount, range, value, display)
 
@@ -8564,20 +8721,32 @@ end
 size_of.min_price_increment_optional = 8
 
 -- Display: Min Price Increment Optional
-display.min_price_increment_optional = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.min_price_increment_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Min Price Increment Optional: No Value"
   end
-  return "Min Price Increment Optional: "..value:tonumber()/1000000000
+
+  return "Min Price Increment Optional: "..value
+end
+
+-- Translate: Min Price Increment Optional
+translate.min_price_increment_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Min Price Increment Optional
 dissect.min_price_increment_optional = function(buffer, offset, packet, parent)
   local length = size_of.min_price_increment_optional
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.min_price_increment_optional(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.min_price_increment_optional(raw)
+  local display = display.min_price_increment_optional(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.min_price_increment_optional, range, value, display)
 
@@ -8900,20 +9069,32 @@ end
 size_of.leg_option_delta = 4
 
 -- Display: Leg Option Delta
-display.leg_option_delta = function(value)
-  -- Check if field has value
-  if value == 2147483647 then
+display.leg_option_delta = function(raw, value)
+  -- Check null sentinel value
+  if raw == 2147483647 then
     return "Leg Option Delta: No Value"
   end
-  return "Leg Option Delta: "..value/10000
+
+  return "Leg Option Delta: "..value
+end
+
+-- Translate: Leg Option Delta
+translate.leg_option_delta = function(raw)
+  -- Check null sentinel value
+  if raw == 2147483647 then
+    return 0/0
+  end
+
+  return raw/10000
 end
 
 -- Dissect: Leg Option Delta
 dissect.leg_option_delta = function(buffer, offset, packet, parent)
   local length = size_of.leg_option_delta
   local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.leg_option_delta(value, buffer, offset, packet, parent)
+  local raw = range:le_int()
+  local value = translate.leg_option_delta(raw)
+  local display = display.leg_option_delta(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.leg_option_delta, range, value, display)
 
@@ -8924,20 +9105,32 @@ end
 size_of.leg_price = 8
 
 -- Display: Leg Price
-display.leg_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.leg_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Leg Price: No Value"
   end
-  return "Leg Price: "..value:tonumber()/1000000000
+
+  return "Leg Price: "..value
+end
+
+-- Translate: Leg Price
+translate.leg_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
   local length = size_of.leg_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.leg_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.leg_price(raw)
+  local display = display.leg_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.leg_price, range, value, display)
 
@@ -9196,20 +9389,32 @@ end
 size_of.price_ratio = 8
 
 -- Display: Price Ratio
-display.price_ratio = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.price_ratio = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Price Ratio: No Value"
   end
-  return "Price Ratio: "..value:tonumber()/1000000000
+
+  return "Price Ratio: "..value
+end
+
+-- Translate: Price Ratio
+translate.price_ratio = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Price Ratio
 dissect.price_ratio = function(buffer, offset, packet, parent)
   local length = size_of.price_ratio
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.price_ratio(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.price_ratio(raw)
+  local display = display.price_ratio(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.price_ratio, range, value, display)
 
@@ -9553,20 +9758,32 @@ end
 size_of.min_cab_price = 8
 
 -- Display: Min Cab Price
-display.min_cab_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.min_cab_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Min Cab Price: No Value"
   end
-  return "Min Cab Price: "..value:tonumber()/1000000000
+
+  return "Min Cab Price: "..value
+end
+
+-- Translate: Min Cab Price
+translate.min_cab_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Min Cab Price
 dissect.min_cab_price = function(buffer, offset, packet, parent)
   local length = size_of.min_cab_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.min_cab_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.min_cab_price(raw)
+  local display = display.min_cab_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.min_cab_price, range, value, display)
 
@@ -9613,20 +9830,32 @@ end
 size_of.strike_price = 8
 
 -- Display: Strike Price
-display.strike_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.strike_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Strike Price: No Value"
   end
-  return "Strike Price: "..value:tonumber()/1000000000
+
+  return "Strike Price: "..value
+end
+
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Strike Price
 dissect.strike_price = function(buffer, offset, packet, parent)
   local length = size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.strike_price(raw)
+  local display = display.strike_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_mdp3_sbe_v1_12.fields.strike_price, range, value, display)
 
@@ -11672,7 +11901,7 @@ size_of.order_id_optional = 8
 -- Display: Order Id Optional
 display.order_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Order Id Optional: No Value"
   end
 

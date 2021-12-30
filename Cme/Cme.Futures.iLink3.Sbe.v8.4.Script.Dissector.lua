@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -29,7 +30,7 @@ cme_futures_ilink3_sbe_v8_4.fields.aon = ProtoField.new("Aon", "cme.futures.ilin
 cme_futures_ilink3_sbe_v8_4.fields.auto_quote_request = ProtoField.new("Auto Quote Request", "cme.futures.ilink3.sbe.v8.4.autoquoterequest", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.avg_px_group_id = ProtoField.new("Avg Px Group Id", "cme.futures.ilink3.sbe.v8.4.avgpxgroupid", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.avg_px_indicator = ProtoField.new("Avg Px Indicator", "cme.futures.ilink3.sbe.v8.4.avgpxindicator", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_4.fields.bid_px = ProtoField.new("Bid Px", "cme.futures.ilink3.sbe.v8.4.bidpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.bid_px = ProtoField.new("Bid Px", "cme.futures.ilink3.sbe.v8.4.bidpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.bid_size = ProtoField.new("Bid Size", "cme.futures.ilink3.sbe.v8.4.bidsize", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.block_length = ProtoField.new("Block Length", "cme.futures.ilink3.sbe.v8.4.blocklength", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_4.fields.business_reject = ProtoField.new("Business Reject", "cme.futures.ilink3.sbe.v8.4.businessreject", ftypes.STRING)
@@ -104,7 +105,7 @@ cme_futures_ilink3_sbe_v8_4.fields.expire_date = ProtoField.new("Expire Date", "
 cme_futures_ilink3_sbe_v8_4.fields.exponent = ProtoField.new("Exponent", "cme.futures.ilink3.sbe.v8.4.exponent", ftypes.INT8)
 cme_futures_ilink3_sbe_v8_4.fields.fault_tolerance_indicator = ProtoField.new("Fault Tolerance Indicator", "cme.futures.ilink3.sbe.v8.4.faulttoleranceindicator", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.fill_exec_id = ProtoField.new("Fill Exec Id", "cme.futures.ilink3.sbe.v8.4.fillexecid", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.fill_px = ProtoField.new("Fill Px", "cme.futures.ilink3.sbe.v8.4.fillpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.fill_px = ProtoField.new("Fill Px", "cme.futures.ilink3.sbe.v8.4.fillpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.fill_qty = ProtoField.new("Fill Qty", "cme.futures.ilink3.sbe.v8.4.fillqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.fill_yield_type = ProtoField.new("Fill Yield Type", "cme.futures.ilink3.sbe.v8.4.fillyieldtype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.fills_group = ProtoField.new("Fills Group", "cme.futures.ilink3.sbe.v8.4.fillsgroup", ftypes.STRING)
@@ -119,17 +120,17 @@ cme_futures_ilink3_sbe_v8_4.fields.idm_short_code = ProtoField.new("Idm Short Co
 cme_futures_ilink3_sbe_v8_4.fields.keep_alive_interval = ProtoField.new("Keep Alive Interval", "cme.futures.ilink3.sbe.v8.4.keepaliveinterval", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_4.fields.keep_alive_interval_lapsed = ProtoField.new("Keep Alive Interval Lapsed", "cme.futures.ilink3.sbe.v8.4.keepaliveintervallapsed", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.last_fragment = ProtoField.new("Last Fragment", "cme.futures.ilink3.sbe.v8.4.lastfragment", ftypes.UINT8)
-cme_futures_ilink3_sbe_v8_4.fields.last_px = ProtoField.new("Last Px", "cme.futures.ilink3.sbe.v8.4.lastpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.last_px = ProtoField.new("Last Px", "cme.futures.ilink3.sbe.v8.4.lastpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.last_qty = ProtoField.new("Last Qty", "cme.futures.ilink3.sbe.v8.4.lastqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.last_rpt_requested = ProtoField.new("Last Rpt Requested", "cme.futures.ilink3.sbe.v8.4.lastrptrequested", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.last_uuid = ProtoField.new("Last Uuid", "cme.futures.ilink3.sbe.v8.4.lastuuid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.leaves_qty = ProtoField.new("Leaves Qty", "cme.futures.ilink3.sbe.v8.4.leavesqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.leg_exec_id = ProtoField.new("Leg Exec Id", "cme.futures.ilink3.sbe.v8.4.legexecid", ftypes.UINT64)
 cme_futures_ilink3_sbe_v8_4.fields.leg_exec_ref_id = ProtoField.new("Leg Exec Ref Id", "cme.futures.ilink3.sbe.v8.4.legexecrefid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_4.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.4.leglastpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.leg_last_px = ProtoField.new("Leg Last Px", "cme.futures.ilink3.sbe.v8.4.leglastpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.leg_last_qty = ProtoField.new("Leg Last Qty", "cme.futures.ilink3.sbe.v8.4.leglastqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.leg_option_delta = ProtoField.new("Leg Option Delta", "cme.futures.ilink3.sbe.v8.4.legoptiondelta", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.4.legprice", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.leg_price = ProtoField.new("Leg Price", "cme.futures.ilink3.sbe.v8.4.legprice", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.leg_ratio_qty = ProtoField.new("Leg Ratio Qty", "cme.futures.ilink3.sbe.v8.4.legratioqty", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.leg_security_id = ProtoField.new("Leg Security Id", "cme.futures.ilink3.sbe.v8.4.legsecurityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_4.fields.leg_side = ProtoField.new("Leg Side", "cme.futures.ilink3.sbe.v8.4.legside", ftypes.UINT8)
@@ -184,7 +185,7 @@ cme_futures_ilink3_sbe_v8_4.fields.no_processed_entries = ProtoField.new("No Pro
 cme_futures_ilink3_sbe_v8_4.fields.not_applied = ProtoField.new("Not Applied", "cme.futures.ilink3.sbe.v8.4.notapplied", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.num_in_group = ProtoField.new("Num In Group", "cme.futures.ilink3.sbe.v8.4.numingroup", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.ob = ProtoField.new("Ob", "cme.futures.ilink3.sbe.v8.4.ob", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cme_futures_ilink3_sbe_v8_4.fields.offer_px = ProtoField.new("Offer Px", "cme.futures.ilink3.sbe.v8.4.offerpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.offer_px = ProtoField.new("Offer Px", "cme.futures.ilink3.sbe.v8.4.offerpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.offer_size = ProtoField.new("Offer Size", "cme.futures.ilink3.sbe.v8.4.offersize", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.ofm_override = ProtoField.new("Ofm Override", "cme.futures.ilink3.sbe.v8.4.ofmoverride", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.option_delta = ProtoField.new("Option Delta", "cme.futures.ilink3.sbe.v8.4.optiondelta", ftypes.STRING)
@@ -202,7 +203,7 @@ cme_futures_ilink3_sbe_v8_4.fields.order_cancel_replace_reject = ProtoField.new(
 cme_futures_ilink3_sbe_v8_4.fields.order_cancel_replace_request = ProtoField.new("Order Cancel Replace Request", "cme.futures.ilink3.sbe.v8.4.ordercancelreplacerequest", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.order_cancel_request = ProtoField.new("Order Cancel Request", "cme.futures.ilink3.sbe.v8.4.ordercancelrequest", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.order_event_exec_id = ProtoField.new("Order Event Exec Id", "cme.futures.ilink3.sbe.v8.4.ordereventexecid", ftypes.UINT32)
-cme_futures_ilink3_sbe_v8_4.fields.order_event_px = ProtoField.new("Order Event Px", "cme.futures.ilink3.sbe.v8.4.ordereventpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.order_event_px = ProtoField.new("Order Event Px", "cme.futures.ilink3.sbe.v8.4.ordereventpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.order_event_qty = ProtoField.new("Order Event Qty", "cme.futures.ilink3.sbe.v8.4.ordereventqty", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.order_event_reason = ProtoField.new("Order Event Reason", "cme.futures.ilink3.sbe.v8.4.ordereventreason", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.order_event_text = ProtoField.new("Order Event Text", "cme.futures.ilink3.sbe.v8.4.ordereventtext", ftypes.STRING)
@@ -243,8 +244,8 @@ cme_futures_ilink3_sbe_v8_4.fields.payload = ProtoField.new("Payload", "cme.futu
 cme_futures_ilink3_sbe_v8_4.fields.poss_retrans_flag = ProtoField.new("Poss Retrans Flag", "cme.futures.ilink3.sbe.v8.4.possretransflag", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.previous_seq_no = ProtoField.new("Previous Seq No", "cme.futures.ilink3.sbe.v8.4.previousseqno", ftypes.UINT32)
 cme_futures_ilink3_sbe_v8_4.fields.previous_uuid = ProtoField.new("Previous Uuid", "cme.futures.ilink3.sbe.v8.4.previousuuid", ftypes.UINT64)
-cme_futures_ilink3_sbe_v8_4.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.4.price", ftypes.INT64)
-cme_futures_ilink3_sbe_v8_4.fields.price_optional = ProtoField.new("Price Optional", "cme.futures.ilink3.sbe.v8.4.priceoptional", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.price = ProtoField.new("Price", "cme.futures.ilink3.sbe.v8.4.price", ftypes.DOUBLE)
+cme_futures_ilink3_sbe_v8_4.fields.price_optional = ProtoField.new("Price Optional", "cme.futures.ilink3.sbe.v8.4.priceoptional", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.quote_ack_status = ProtoField.new("Quote Ack Status", "cme.futures.ilink3.sbe.v8.4.quoteackstatus", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.quote_cancel = ProtoField.new("Quote Cancel", "cme.futures.ilink3.sbe.v8.4.quotecancel", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.quote_cancel_ack = ProtoField.new("Quote Cancel Ack", "cme.futures.ilink3.sbe.v8.4.quotecancelack", ftypes.STRING)
@@ -330,7 +331,7 @@ cme_futures_ilink3_sbe_v8_4.fields.simple_open_framing_header = ProtoField.new("
 cme_futures_ilink3_sbe_v8_4.fields.source_repo_id = ProtoField.new("Source Repo Id", "cme.futures.ilink3.sbe.v8.4.sourcerepoid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_4.fields.split_msg = ProtoField.new("Split Msg", "cme.futures.ilink3.sbe.v8.4.splitmsg", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.start_date = ProtoField.new("Start Date", "cme.futures.ilink3.sbe.v8.4.startdate", ftypes.UINT16)
-cme_futures_ilink3_sbe_v8_4.fields.stop_px = ProtoField.new("Stop Px", "cme.futures.ilink3.sbe.v8.4.stoppx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.stop_px = ProtoField.new("Stop Px", "cme.futures.ilink3.sbe.v8.4.stoppx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.symbol = ProtoField.new("Symbol", "cme.futures.ilink3.sbe.v8.4.symbol", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.template_id = ProtoField.new("Template Id", "cme.futures.ilink3.sbe.v8.4.templateid", ftypes.UINT16)
 cme_futures_ilink3_sbe_v8_4.fields.terminate = ProtoField.new("Terminate", "cme.futures.ilink3.sbe.v8.4.terminate", ftypes.STRING)
@@ -355,7 +356,7 @@ cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publication_reason = ProtoField.new("
 cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publication_type = ProtoField.new("Trd Reg Publication Type", "cme.futures.ilink3.sbe.v8.4.trdregpublicationtype", ftypes.UINT8)
 cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publications_group = ProtoField.new("Trd Reg Publications Group", "cme.futures.ilink3.sbe.v8.4.trdregpublicationsgroup", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.trd_reg_publications_groups = ProtoField.new("Trd Reg Publications Groups", "cme.futures.ilink3.sbe.v8.4.trdregpublicationsgroups", ftypes.STRING)
-cme_futures_ilink3_sbe_v8_4.fields.underlying_px = ProtoField.new("Underlying Px", "cme.futures.ilink3.sbe.v8.4.underlyingpx", ftypes.INT64)
+cme_futures_ilink3_sbe_v8_4.fields.underlying_px = ProtoField.new("Underlying Px", "cme.futures.ilink3.sbe.v8.4.underlyingpx", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_4.fields.underlying_security_id = ProtoField.new("Underlying Security Id", "cme.futures.ilink3.sbe.v8.4.underlyingsecurityid", ftypes.INT32)
 cme_futures_ilink3_sbe_v8_4.fields.unsolicited_cancel_type = ProtoField.new("Unsolicited Cancel Type", "cme.futures.ilink3.sbe.v8.4.unsolicitedcanceltype", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_4.fields.uuid = ProtoField.new("Uuid", "cme.futures.ilink3.sbe.v8.4.uuid", ftypes.UINT64)
@@ -1218,20 +1219,32 @@ end
 size_of.leg_price = 8
 
 -- Display: Leg Price
-display.leg_price = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.leg_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Leg Price: No Value"
   end
-  return "Leg Price: "..value:tonumber()/1000000000
+
+  return "Leg Price: "..value
+end
+
+-- Translate: Leg Price
+translate.leg_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Leg Price
 dissect.leg_price = function(buffer, offset, packet, parent)
   local length = size_of.leg_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.leg_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.leg_price(raw)
+  local display = display.leg_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.leg_price, range, value, display)
 
@@ -2976,7 +2989,7 @@ size_of.delay_to_time = 8
 -- Display: Delay To Time
 display.delay_to_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Delay To Time: No Value"
   end
 
@@ -3709,14 +3722,20 @@ size_of.order_event_px = 8
 
 -- Display: Order Event Px
 display.order_event_px = function(value)
-  return "Order Event Px: "..value:tonumber()/1000000000
+  return "Order Event Px: "..value
+end
+
+-- Translate: Order Event Px
+translate.order_event_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Order Event Px
 dissect.order_event_px = function(buffer, offset, packet, parent)
   local length = size_of.order_event_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.order_event_px(raw)
   local display = display.order_event_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.order_event_px, range, value, display)
@@ -3921,14 +3940,20 @@ size_of.fill_px = 8
 
 -- Display: Fill Px
 display.fill_px = function(value)
-  return "Fill Px: "..value:tonumber()/1000000000
+  return "Fill Px: "..value
+end
+
+-- Translate: Fill Px
+translate.fill_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Fill Px
 dissect.fill_px = function(buffer, offset, packet, parent)
   local length = size_of.fill_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.fill_px(raw)
   local display = display.fill_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.fill_px, range, value, display)
@@ -4227,7 +4252,7 @@ size_of.orig_secondary_execution_id = 8
 -- Display: Orig Secondary Execution Id
 display.orig_secondary_execution_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Orig Secondary Execution Id: No Value"
   end
 
@@ -4291,14 +4316,20 @@ size_of.last_px = 8
 
 -- Display: Last Px
 display.last_px = function(value)
-  return "Last Px: "..value:tonumber()/1000000000
+  return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Last Px
 dissect.last_px = function(buffer, offset, packet, parent)
   local length = size_of.last_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.last_px(raw)
   local display = display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.last_px, range, value, display)
@@ -4717,7 +4748,7 @@ size_of.leg_exec_ref_id = 8
 -- Display: Leg Exec Ref Id
 display.leg_exec_ref_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Leg Exec Ref Id: No Value"
   end
 
@@ -4741,14 +4772,20 @@ size_of.leg_last_px = 8
 
 -- Display: Leg Last Px
 display.leg_last_px = function(value)
-  return "Leg Last Px: "..value:tonumber()/1000000000
+  return "Leg Last Px: "..value
+end
+
+-- Translate: Leg Last Px
+translate.leg_last_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Leg Last Px
 dissect.leg_last_px = function(buffer, offset, packet, parent)
   local length = size_of.leg_last_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.leg_last_px(raw)
   local display = display.leg_last_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.leg_last_px, range, value, display)
@@ -6668,7 +6705,7 @@ size_of.quote_req_id_optional = 8
 -- Display: Quote Req Id Optional
 display.quote_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Quote Req Id Optional: No Value"
   end
 
@@ -7012,14 +7049,20 @@ size_of.price = 8
 
 -- Display: Price
 display.price = function(value)
-  return "Price: "..value:tonumber()/1000000000
+  return "Price: "..value
+end
+
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.price, range, value, display)
@@ -7869,7 +7912,7 @@ size_of.idm_short_code = 8
 -- Display: Idm Short Code
 display.idm_short_code = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Idm Short Code: No Value"
   end
 
@@ -7894,7 +7937,7 @@ size_of.executor = 8
 -- Display: Executor
 display.executor = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Executor: No Value"
   end
 
@@ -8233,7 +8276,7 @@ size_of.self_match_prevention_id = 8
 -- Display: Self Match Prevention Id
 display.self_match_prevention_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Self Match Prevention Id: No Value"
   end
 
@@ -9372,7 +9415,7 @@ size_of.host_cross_id = 8
 -- Display: Host Cross Id
 display.host_cross_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Host Cross Id: No Value"
   end
 
@@ -9397,7 +9440,7 @@ size_of.cross_id_optional = 8
 -- Display: Cross Id Optional
 display.cross_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Cross Id Optional: No Value"
   end
 
@@ -9420,20 +9463,32 @@ end
 size_of.stop_px = 8
 
 -- Display: Stop Px
-display.stop_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.stop_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Stop Px: No Value"
   end
-  return "Stop Px: "..value:tonumber()/1000000000
+
+  return "Stop Px: "..value
+end
+
+-- Translate: Stop Px
+translate.stop_px = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Stop Px
 dissect.stop_px = function(buffer, offset, packet, parent)
   local length = size_of.stop_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.stop_px(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.stop_px(raw)
+  local display = display.stop_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.stop_px, range, value, display)
 
@@ -9855,7 +9910,7 @@ size_of.mass_status_req_id_optional = 8
 -- Display: Mass Status Req Id Optional
 display.mass_status_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Mass Status Req Id Optional: No Value"
   end
 
@@ -9880,7 +9935,7 @@ size_of.ord_status_req_id_optional = 8
 -- Display: Ord Status Req Id Optional
 display.ord_status_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Ord Status Req Id Optional: No Value"
   end
 
@@ -9903,20 +9958,32 @@ end
 size_of.price_optional = 8
 
 -- Display: Price Optional
-display.price_optional = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.price_optional = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Price Optional: No Value"
   end
-  return "Price Optional: "..value:tonumber()/1000000000
+
+  return "Price Optional: "..value
+end
+
+-- Translate: Price Optional
+translate.price_optional = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Price Optional
 dissect.price_optional = function(buffer, offset, packet, parent)
   local length = size_of.price_optional
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.price_optional(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.price_optional(raw)
+  local display = display.price_optional(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.price_optional, range, value, display)
 
@@ -11334,20 +11401,32 @@ end
 size_of.underlying_px = 8
 
 -- Display: Underlying Px
-display.underlying_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.underlying_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Underlying Px: No Value"
   end
-  return "Underlying Px: "..value:tonumber()/1000000000
+
+  return "Underlying Px: "..value
+end
+
+-- Translate: Underlying Px
+translate.underlying_px = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Underlying Px
 dissect.underlying_px = function(buffer, offset, packet, parent)
   local length = size_of.underlying_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.underlying_px(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.underlying_px(raw)
+  local display = display.underlying_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.underlying_px, range, value, display)
 
@@ -11360,7 +11439,7 @@ size_of.mantissa = 8
 -- Display: Mantissa
 display.mantissa = function(value)
   -- Check if field has value
-  if value == Int64(0xFFFFFFF, 0x7FFFFFFF) then
+  if value == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Mantissa: No Value"
   end
 
@@ -13291,7 +13370,7 @@ size_of.business_reject_ref_id = 8
 -- Display: Business Reject Ref Id
 display.business_reject_ref_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Business Reject Ref Id: No Value"
   end
 
@@ -13316,7 +13395,7 @@ size_of.party_details_list_req_id_optional = 8
 -- Display: Party Details List Req Id Optional
 display.party_details_list_req_id_optional = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Party Details List Req Id Optional: No Value"
   end
 
@@ -13853,20 +13932,32 @@ end
 size_of.offer_px = 8
 
 -- Display: Offer Px
-display.offer_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.offer_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Offer Px: No Value"
   end
-  return "Offer Px: "..value:tonumber()/1000000000
+
+  return "Offer Px: "..value
+end
+
+-- Translate: Offer Px
+translate.offer_px = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Offer Px
 dissect.offer_px = function(buffer, offset, packet, parent)
   local length = size_of.offer_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.offer_px(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.offer_px(raw)
+  local display = display.offer_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.offer_px, range, value, display)
 
@@ -13877,20 +13968,32 @@ end
 size_of.bid_px = 8
 
 -- Display: Bid Px
-display.bid_px = function(value)
-  -- Check if field has value
-  if value == 9223372036854775807 then
+display.bid_px = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
     return "Bid Px: No Value"
   end
-  return "Bid Px: "..value:tonumber()/1000000000
+
+  return "Bid Px: "..value
+end
+
+-- Translate: Bid Px
+translate.bid_px = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0xFFFFFFFF, 0x7FFFFFFF) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Bid Px
 dissect.bid_px = function(buffer, offset, packet, parent)
   local length = size_of.bid_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.bid_px(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.bid_px(raw)
+  local display = display.bid_px(raw, value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_ilink3_sbe_v8_4.fields.bid_px, range, value, display)
 
@@ -14742,7 +14845,7 @@ size_of.last_uuid = 8
 -- Display: Last Uuid
 display.last_uuid = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Last Uuid: No Value"
   end
 

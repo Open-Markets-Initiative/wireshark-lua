@@ -5,8 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.Deep.IexTp.v1.0.Dissector] | 2/27/2018 | 2424 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.Pdf] |
-| Equities | [Tops][Iex.Equities.Tops.IexTp.v1.6.Dissector] | IexTp | [1.6][Iex.Equities.Tops.IexTp.v1.6.Dissector] | 2/27/2018 | 2471 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.Pdf] |
+| Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.Deep.IexTp.v1.0.Dissector] | 2/27/2018 | 2479 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Deep.IexTp.v1.0.Url] - [pdf][Iex.Equities.Deep.IexTp.v1.0.Pdf] |
+| Equities | [Tops][Iex.Equities.Tops.IexTp.v1.6.Dissector] | IexTp | [1.6][Iex.Equities.Tops.IexTp.v1.6.Dissector] | 2/27/2018 | 2538 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.Tops.IexTp.v1.6.Url] - [pdf][Iex.Equities.Tops.IexTp.v1.6.Pdf] |
 | Equities | [UdpHeader][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.UdpHeader.IexTp.v1.0.Dissector] | 9/20/2015 | 605 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Iex.Equities.UdpHeader.IexTp.v1.0.Url] - [pdf][Iex.Equities.UdpHeader.IexTp.v1.0.Pdf] |
 
 

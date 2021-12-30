@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -39,9 +40,9 @@ fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoFie
 fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "fairx.futures.ordersapi.sbe.v1.4.eventresendrejectmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "fairx.futures.ordersapi.sbe.v1.4.eventresendrequestmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "fairx.futures.ordersapi.sbe.v1.4.execid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "fairx.futures.ordersapi.sbe.v1.4.fillprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "fairx.futures.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
 fairx_futures_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "fairx.futures.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.ordersapi.sbe.v1.4.filledvwap", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
 fairx_futures_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "fairx.futures.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
 fairx_futures_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
 fairx_futures_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "fairx.futures.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
@@ -58,9 +59,9 @@ fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_message = ProtoField.new("L
 fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "fairx.futures.ordersapi.sbe.v1.4.lastexecidrequestmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "fairx.futures.ordersapi.sbe.v1.4.lastprocessedfillid", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "fairx.futures.ordersapi.sbe.v1.4.lastprocessedseqno", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg1fillprice", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg2fillprice", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.ordersapi.sbe.v1.4.limitprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg1fillprice", ftypes.DOUBLE)
+fairx_futures_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
+fairx_futures_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
 fairx_futures_ordersapi_sbe_v1_4.fields.logged_out_message = ProtoField.new("Logged Out Message", "fairx.futures.ordersapi.sbe.v1.4.loggedoutmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "fairx.futures.ordersapi.sbe.v1.4.logonconfmessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.logon_message = ProtoField.new("Logon Message", "fairx.futures.ordersapi.sbe.v1.4.logonmessage", ftypes.STRING)
@@ -71,7 +72,7 @@ fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message = Proto
 fairx_futures_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "fairx.futures.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
 fairx_futures_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "fairx.futures.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "fairx.futures.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
-fairx_futures_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.ordersapi.sbe.v1.4.newlimitprice", ftypes.INT64)
+fairx_futures_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
 fairx_futures_ordersapi_sbe_v1_4.fields.new_order_message = ProtoField.new("New Order Message", "fairx.futures.ordersapi.sbe.v1.4.newordermessage", ftypes.STRING)
 fairx_futures_ordersapi_sbe_v1_4.fields.new_quantity = ProtoField.new("New Quantity", "fairx.futures.ordersapi.sbe.v1.4.newquantity", ftypes.INT32)
 fairx_futures_ordersapi_sbe_v1_4.fields.new_sequence_number = ProtoField.new("New Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.newsequencenumber", ftypes.UINT32)
@@ -926,14 +927,20 @@ size_of.leg_2_fill_price = 8
 
 -- Display: Leg 2 Fill Price
 display.leg_2_fill_price = function(value)
-  return "Leg 2 Fill Price: "..value:tonumber()/1000000000
+  return "Leg 2 Fill Price: "..value
+end
+
+-- Translate: Leg 2 Fill Price
+translate.leg_2_fill_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Leg 2 Fill Price
 dissect.leg_2_fill_price = function(buffer, offset, packet, parent)
   local length = size_of.leg_2_fill_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.leg_2_fill_price(raw)
   local display = display.leg_2_fill_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.leg_2_fill_price, range, value, display)
@@ -946,14 +953,20 @@ size_of.leg_1_fill_price = 8
 
 -- Display: Leg 1 Fill Price
 display.leg_1_fill_price = function(value)
-  return "Leg 1 Fill Price: "..value:tonumber()/1000000000
+  return "Leg 1 Fill Price: "..value
+end
+
+-- Translate: Leg 1 Fill Price
+translate.leg_1_fill_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Leg 1 Fill Price
 dissect.leg_1_fill_price = function(buffer, offset, packet, parent)
   local length = size_of.leg_1_fill_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.leg_1_fill_price(raw)
   local display = display.leg_1_fill_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.leg_1_fill_price, range, value, display)
@@ -966,14 +979,20 @@ size_of.fill_price = 8
 
 -- Display: Fill Price
 display.fill_price = function(value)
-  return "Fill Price: "..value:tonumber()/1000000000
+  return "Fill Price: "..value
+end
+
+-- Translate: Fill Price
+translate.fill_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Fill Price
 dissect.fill_price = function(buffer, offset, packet, parent)
   local length = size_of.fill_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.fill_price(raw)
   local display = display.fill_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.fill_price, range, value, display)
@@ -1026,14 +1045,20 @@ size_of.filled_vwap = 8
 
 -- Display: Filled Vwap
 display.filled_vwap = function(value)
-  return "Filled Vwap: "..value:tonumber()/1000000000
+  return "Filled Vwap: "..value
+end
+
+-- Translate: Filled Vwap
+translate.filled_vwap = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Filled Vwap
 dissect.filled_vwap = function(buffer, offset, packet, parent)
   local length = size_of.filled_vwap
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.filled_vwap(raw)
   local display = display.filled_vwap(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.filled_vwap, range, value, display)
@@ -1047,7 +1072,7 @@ size_of.order_id = 8
 -- Display: Order Id
 display.order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Order Id: No Value"
   end
 
@@ -1791,14 +1816,20 @@ size_of.limit_price = 8
 
 -- Display: Limit Price
 display.limit_price = function(value)
-  return "Limit Price: "..value:tonumber()/1000000000
+  return "Limit Price: "..value
+end
+
+-- Translate: Limit Price
+translate.limit_price = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Limit Price
 dissect.limit_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.limit_price(raw)
   local display = display.limit_price(value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.limit_price, range, value, display)
@@ -2287,7 +2318,7 @@ size_of.last_processed_fill_id = 8
 -- Display: Last Processed Fill Id
 display.last_processed_fill_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Last Processed Fill Id: No Value"
   end
 
@@ -2402,20 +2433,32 @@ end
 size_of.new_limit_price = 8
 
 -- Display: New Limit Price
-display.new_limit_price = function(value)
-  -- Check if field has value
-  if value == -9223372036854775808 then
+display.new_limit_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "New Limit Price: No Value"
   end
-  return "New Limit Price: "..value:tonumber()/1000000000
+
+  return "New Limit Price: "..value
+end
+
+-- Translate: New Limit Price
+translate.new_limit_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: New Limit Price
 dissect.new_limit_price = function(buffer, offset, packet, parent)
   local length = size_of.new_limit_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.new_limit_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.new_limit_price(raw)
+  local display = display.new_limit_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.new_limit_price, range, value, display)
 

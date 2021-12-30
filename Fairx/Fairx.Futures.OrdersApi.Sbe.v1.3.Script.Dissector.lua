@@ -1047,7 +1047,7 @@ size_of.order_id = 8
 -- Display: Order Id
 display.order_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Order Id: No Value"
   end
 
@@ -2287,7 +2287,7 @@ size_of.last_processed_fill_id = 8
 -- Display: Last Processed Fill Id
 display.last_processed_fill_id = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Last Processed Fill Id: No Value"
   end
 
@@ -2404,7 +2404,7 @@ size_of.new_limit_price = 8
 -- Display: New Limit Price
 display.new_limit_price = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "New Limit Price: No Value"
   end
 

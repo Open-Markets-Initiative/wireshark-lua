@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -25,27 +26,27 @@ nasdaq_uqdf_output_utp_v1_5.fields.administrative = ProtoField.new("Administrati
 nasdaq_uqdf_output_utp_v1_5.fields.administrative_message_type = ProtoField.new("Administrative Message Type", "nasdaq.uqdf.output.utp.v1.5.administrativemessagetype", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.administrative_payload = ProtoField.new("Administrative Payload", "nasdaq.uqdf.output.utp.v1.5.administrativepayload", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.ask_adf_mpid = ProtoField.new("Ask Adf Mpid", "nasdaq.uqdf.output.utp.v1.5.askadfmpid", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.uqdf.output.utp.v1.5.askprice", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.uqdf.output.utp.v1.5.askpriceshort", ftypes.UINT16)
+nasdaq_uqdf_output_utp_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.uqdf.output.utp.v1.5.askprice", ftypes.DOUBLE)
+nasdaq_uqdf_output_utp_v1_5.fields.ask_price_short = ProtoField.new("Ask Price Short", "nasdaq.uqdf.output.utp.v1.5.askpriceshort", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.uqdf.output.utp.v1.5.asksize", ftypes.UINT32)
 nasdaq_uqdf_output_utp_v1_5.fields.ask_size_short = ProtoField.new("Ask Size Short", "nasdaq.uqdf.output.utp.v1.5.asksizeshort", ftypes.UINT16)
 nasdaq_uqdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.uqdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.uqdf.output.utp.v1.5.authenticity", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.best_ask_market_center = ProtoField.new("Best Ask Market Center", "nasdaq.uqdf.output.utp.v1.5.bestaskmarketcenter", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.best_ask_price = ProtoField.new("Best Ask Price", "nasdaq.uqdf.output.utp.v1.5.bestaskprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.best_ask_price = ProtoField.new("Best Ask Price", "nasdaq.uqdf.output.utp.v1.5.bestaskprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.best_ask_size = ProtoField.new("Best Ask Size", "nasdaq.uqdf.output.utp.v1.5.bestasksize", ftypes.UINT32)
 nasdaq_uqdf_output_utp_v1_5.fields.best_bid_market_center = ProtoField.new("Best Bid Market Center", "nasdaq.uqdf.output.utp.v1.5.bestbidmarketcenter", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.best_bid_price = ProtoField.new("Best Bid Price", "nasdaq.uqdf.output.utp.v1.5.bestbidprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.best_bid_price = ProtoField.new("Best Bid Price", "nasdaq.uqdf.output.utp.v1.5.bestbidprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.best_bid_size = ProtoField.new("Best Bid Size", "nasdaq.uqdf.output.utp.v1.5.bestbidsize", ftypes.UINT32)
 nasdaq_uqdf_output_utp_v1_5.fields.bid_adf_mpid = ProtoField.new("Bid Adf Mpid", "nasdaq.uqdf.output.utp.v1.5.bidadfmpid", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.uqdf.output.utp.v1.5.bidprice", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.uqdf.output.utp.v1.5.bidpriceshort", ftypes.UINT16)
+nasdaq_uqdf_output_utp_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.uqdf.output.utp.v1.5.bidprice", ftypes.DOUBLE)
+nasdaq_uqdf_output_utp_v1_5.fields.bid_price_short = ProtoField.new("Bid Price Short", "nasdaq.uqdf.output.utp.v1.5.bidpriceshort", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.uqdf.output.utp.v1.5.bidsize", ftypes.UINT32)
 nasdaq_uqdf_output_utp_v1_5.fields.bid_size_short = ProtoField.new("Bid Size Short", "nasdaq.uqdf.output.utp.v1.5.bidsizeshort", ftypes.UINT16)
-nasdaq_uqdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.uqdf.output.utp.v1.5.collardownprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.uqdf.output.utp.v1.5.collardownprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.uqdf.output.utp.v1.5.collarextensionindicator", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.uqdf.output.utp.v1.5.collarreferenceprice", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.uqdf.output.utp.v1.5.collarupprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.uqdf.output.utp.v1.5.collarreferenceprice", ftypes.DOUBLE)
+nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.uqdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.uqdf.output.utp.v1.5.control", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Control Message Type", "nasdaq.uqdf.output.utp.v1.5.controlmessagetype", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.uqdf.output.utp.v1.5.controlpayload", ftypes.STRING)
@@ -64,17 +65,17 @@ nasdaq_uqdf_output_utp_v1_5.fields.issue_name = ProtoField.new("Issue Name", "na
 nasdaq_uqdf_output_utp_v1_5.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.uqdf.output.utp.v1.5.issuesubtype", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.issue_symbol_directory_message = ProtoField.new("Issue Symbol Directory Message", "nasdaq.uqdf.output.utp.v1.5.issuesymboldirectorymessage", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.issue_type = ProtoField.new("Issue Type", "nasdaq.uqdf.output.utp.v1.5.issuetype", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.uqdf.output.utp.v1.5.limitdownprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.uqdf.output.utp.v1.5.limitdownprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message = ProtoField.new("Limit Up Limit Down Price Band Message", "nasdaq.uqdf.output.utp.v1.5.limituplimitdownpricebandmessage", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.uqdf.output.utp.v1.5.limitupprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.uqdf.output.utp.v1.5.limitupprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.long_form_national_bbo_appendage = ProtoField.new("Long Form National Bbo Appendage", "nasdaq.uqdf.output.utp.v1.5.longformnationalbboappendage", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.luld_bbo_indicator = ProtoField.new("Luld Bbo Indicator", "nasdaq.uqdf.output.utp.v1.5.luldbboindicator", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.luld_national_bbo_indicator = ProtoField.new("Luld National Bbo Indicator", "nasdaq.uqdf.output.utp.v1.5.luldnationalbboindicator", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.uqdf.output.utp.v1.5.luldpricebandindicator", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.luld_timestamp = ProtoField.new("Luld Timestamp", "nasdaq.uqdf.output.utp.v1.5.luldtimestamp", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.market_center_ask_price = ProtoField.new("Market Center Ask Price", "nasdaq.uqdf.output.utp.v1.5.marketcenteraskprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.market_center_ask_price = ProtoField.new("Market Center Ask Price", "nasdaq.uqdf.output.utp.v1.5.marketcenteraskprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.market_center_ask_size = ProtoField.new("Market Center Ask Size", "nasdaq.uqdf.output.utp.v1.5.marketcenterasksize", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.market_center_bid_price = ProtoField.new("Market Center Bid Price", "nasdaq.uqdf.output.utp.v1.5.marketcenterbidprice", ftypes.UINT64)
+nasdaq_uqdf_output_utp_v1_5.fields.market_center_bid_price = ProtoField.new("Market Center Bid Price", "nasdaq.uqdf.output.utp.v1.5.marketcenterbidprice", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.market_center_bid_size = ProtoField.new("Market Center Bid Size", "nasdaq.uqdf.output.utp.v1.5.marketcenterbidsize", ftypes.UINT64)
 nasdaq_uqdf_output_utp_v1_5.fields.market_center_close_recap = ProtoField.new("Market Center Close Recap", "nasdaq.uqdf.output.utp.v1.5.marketcentercloserecap", ftypes.STRING)
 nasdaq_uqdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.uqdf.output.utp.v1.5.marketcenteridentifier", ftypes.STRING)
@@ -93,13 +94,13 @@ nasdaq_uqdf_output_utp_v1_5.fields.mwcb_level_1 = ProtoField.new("Mwcb Level 1",
 nasdaq_uqdf_output_utp_v1_5.fields.mwcb_level_2 = ProtoField.new("Mwcb Level 2", "nasdaq.uqdf.output.utp.v1.5.mwcblevel2", ftypes.UINT64)
 nasdaq_uqdf_output_utp_v1_5.fields.mwcb_level_3 = ProtoField.new("Mwcb Level 3", "nasdaq.uqdf.output.utp.v1.5.mwcblevel3", ftypes.UINT64)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_market_center = ProtoField.new("National Best Ask Market Center", "nasdaq.uqdf.output.utp.v1.5.nationalbestaskmarketcenter", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price = ProtoField.new("National Best Ask Price", "nasdaq.uqdf.output.utp.v1.5.nationalbestaskprice", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price_short = ProtoField.new("National Best Ask Price Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestaskpriceshort", ftypes.UINT16)
+nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price = ProtoField.new("National Best Ask Price", "nasdaq.uqdf.output.utp.v1.5.nationalbestaskprice", ftypes.DOUBLE)
+nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price_short = ProtoField.new("National Best Ask Price Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestaskpriceshort", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_size = ProtoField.new("National Best Ask Size", "nasdaq.uqdf.output.utp.v1.5.nationalbestasksize", ftypes.UINT64)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_size_short = ProtoField.new("National Best Ask Size Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestasksizeshort", ftypes.UINT16)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_market_center = ProtoField.new("National Best Bid Market Center", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidmarketcenter", ftypes.STRING)
-nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price = ProtoField.new("National Best Bid Price", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidprice", ftypes.UINT64)
-nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price_short = ProtoField.new("National Best Bid Price Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidpriceshort", ftypes.UINT16)
+nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price = ProtoField.new("National Best Bid Price", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidprice", ftypes.DOUBLE)
+nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price_short = ProtoField.new("National Best Bid Price Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidpriceshort", ftypes.DOUBLE)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_size = ProtoField.new("National Best Bid Size", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidsize", ftypes.UINT64)
 nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_size_short = ProtoField.new("National Best Bid Size Short", "nasdaq.uqdf.output.utp.v1.5.nationalbestbidsizeshort", ftypes.UINT16)
 nasdaq_uqdf_output_utp_v1_5.fields.nbbo_appendage_indicator = ProtoField.new("Nbbo Appendage Indicator", "nasdaq.uqdf.output.utp.v1.5.nbboappendageindicator", ftypes.STRING)
@@ -1005,14 +1006,20 @@ size_of.market_center_ask_price = 8
 
 -- Display: Market Center Ask Price
 display.market_center_ask_price = function(value)
-  return "Market Center Ask Price: "..value:tonumber()/1000000
+  return "Market Center Ask Price: "..value
+end
+
+-- Translate: Market Center Ask Price
+translate.market_center_ask_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Center Ask Price
 dissect.market_center_ask_price = function(buffer, offset, packet, parent)
   local length = size_of.market_center_ask_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_center_ask_price(raw)
   local display = display.market_center_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_ask_price, range, value, display)
@@ -1045,14 +1052,20 @@ size_of.market_center_bid_price = 8
 
 -- Display: Market Center Bid Price
 display.market_center_bid_price = function(value)
-  return "Market Center Bid Price: "..value:tonumber()/1000000
+  return "Market Center Bid Price: "..value
+end
+
+-- Translate: Market Center Bid Price
+translate.market_center_bid_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Center Bid Price
 dissect.market_center_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.market_center_bid_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_center_bid_price(raw)
   local display = display.market_center_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.market_center_bid_price, range, value, display)
@@ -1215,14 +1228,20 @@ size_of.national_best_ask_price = 8
 
 -- Display: National Best Ask Price
 display.national_best_ask_price = function(value)
-  return "National Best Ask Price: "..value:tonumber()/1000000
+  return "National Best Ask Price: "..value
+end
+
+-- Translate: National Best Ask Price
+translate.national_best_ask_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: National Best Ask Price
 dissect.national_best_ask_price = function(buffer, offset, packet, parent)
   local length = size_of.national_best_ask_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.national_best_ask_price(raw)
   local display = display.national_best_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price, range, value, display)
@@ -1275,14 +1294,20 @@ size_of.national_best_bid_price = 8
 
 -- Display: National Best Bid Price
 display.national_best_bid_price = function(value)
-  return "National Best Bid Price: "..value:tonumber()/1000000
+  return "National Best Bid Price: "..value
+end
+
+-- Translate: National Best Bid Price
+translate.national_best_bid_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: National Best Bid Price
 dissect.national_best_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.national_best_bid_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.national_best_bid_price(raw)
   local display = display.national_best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price, range, value, display)
@@ -1423,14 +1448,20 @@ size_of.collar_down_price = 8
 
 -- Display: Collar Down Price
 display.collar_down_price = function(value)
-  return "Collar Down Price: "..value:tonumber()/1000000
+  return "Collar Down Price: "..value
+end
+
+-- Translate: Collar Down Price
+translate.collar_down_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Down Price
 dissect.collar_down_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_down_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_down_price(raw)
   local display = display.collar_down_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
@@ -1443,14 +1474,20 @@ size_of.collar_up_price = 8
 
 -- Display: Collar Up Price
 display.collar_up_price = function(value)
-  return "Collar Up Price: "..value:tonumber()/1000000
+  return "Collar Up Price: "..value
+end
+
+-- Translate: Collar Up Price
+translate.collar_up_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Up Price
 dissect.collar_up_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_up_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_up_price(raw)
   local display = display.collar_up_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
@@ -1463,14 +1500,20 @@ size_of.collar_reference_price = 8
 
 -- Display: Collar Reference Price
 display.collar_reference_price = function(value)
-  return "Collar Reference Price: "..value:tonumber()/1000000
+  return "Collar Reference Price: "..value
+end
+
+-- Translate: Collar Reference Price
+translate.collar_reference_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Reference Price
 dissect.collar_reference_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_reference_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_reference_price(raw)
   local display = display.collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
@@ -1662,14 +1705,20 @@ size_of.limit_up_price = 8
 
 -- Display: Limit Up Price
 display.limit_up_price = function(value)
-  return "Limit Up Price: "..value:tonumber()/1000000
+  return "Limit Up Price: "..value
+end
+
+-- Translate: Limit Up Price
+translate.limit_up_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Limit Up Price
 dissect.limit_up_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_up_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.limit_up_price(raw)
   local display = display.limit_up_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
@@ -1682,14 +1731,20 @@ size_of.limit_down_price = 8
 
 -- Display: Limit Down Price
 display.limit_down_price = function(value)
-  return "Limit Down Price: "..value:tonumber()/1000000
+  return "Limit Down Price: "..value
+end
+
+-- Translate: Limit Down Price
+translate.limit_down_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Limit Down Price
 dissect.limit_down_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_down_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.limit_down_price(raw)
   local display = display.limit_down_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
@@ -2803,14 +2858,20 @@ size_of.ask_price = 8
 
 -- Display: Ask Price
 display.ask_price = function(value)
-  return "Ask Price: "..value:tonumber()/1000000
+  return "Ask Price: "..value
+end
+
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Ask Price
 dissect.ask_price = function(buffer, offset, packet, parent)
   local length = size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.ask_price(raw)
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.ask_price, range, value, display)
@@ -2843,14 +2904,20 @@ size_of.bid_price = 8
 
 -- Display: Bid Price
 display.bid_price = function(value)
-  return "Bid Price: "..value:tonumber()/1000000
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Bid Price
 dissect.bid_price = function(buffer, offset, packet, parent)
   local length = size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.bid_price(raw)
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.bid_price, range, value, display)
@@ -3045,14 +3112,20 @@ size_of.best_ask_price = 8
 
 -- Display: Best Ask Price
 display.best_ask_price = function(value)
-  return "Best Ask Price: "..value:tonumber()/1000000
+  return "Best Ask Price: "..value
+end
+
+-- Translate: Best Ask Price
+translate.best_ask_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Best Ask Price
 dissect.best_ask_price = function(buffer, offset, packet, parent)
   local length = size_of.best_ask_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.best_ask_price(raw)
   local display = display.best_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.best_ask_price, range, value, display)
@@ -3105,14 +3178,20 @@ size_of.best_bid_price = 8
 
 -- Display: Best Bid Price
 display.best_bid_price = function(value)
-  return "Best Bid Price: "..value:tonumber()/1000000
+  return "Best Bid Price: "..value
+end
+
+-- Translate: Best Bid Price
+translate.best_bid_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Best Bid Price
 dissect.best_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.best_bid_price(raw)
   local display = display.best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.best_bid_price, range, value, display)
@@ -3295,14 +3374,20 @@ size_of.national_best_ask_price_short = 2
 
 -- Display: National Best Ask Price Short
 display.national_best_ask_price_short = function(value)
-  return "National Best Ask Price Short: "..value/100
+  return "National Best Ask Price Short: "..value
+end
+
+-- Translate: National Best Ask Price Short
+translate.national_best_ask_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: National Best Ask Price Short
 dissect.national_best_ask_price_short = function(buffer, offset, packet, parent)
   local length = size_of.national_best_ask_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.national_best_ask_price_short(raw)
   local display = display.national_best_ask_price_short(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.national_best_ask_price_short, range, value, display)
@@ -3335,14 +3420,20 @@ size_of.national_best_bid_price_short = 2
 
 -- Display: National Best Bid Price Short
 display.national_best_bid_price_short = function(value)
-  return "National Best Bid Price Short: "..value/100
+  return "National Best Bid Price Short: "..value
+end
+
+-- Translate: National Best Bid Price Short
+translate.national_best_bid_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: National Best Bid Price Short
 dissect.national_best_bid_price_short = function(buffer, offset, packet, parent)
   local length = size_of.national_best_bid_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.national_best_bid_price_short(raw)
   local display = display.national_best_bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.national_best_bid_price_short, range, value, display)
@@ -3754,14 +3845,20 @@ size_of.ask_price_short = 2
 
 -- Display: Ask Price Short
 display.ask_price_short = function(value)
-  return "Ask Price Short: "..value/100
+  return "Ask Price Short: "..value
+end
+
+-- Translate: Ask Price Short
+translate.ask_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Ask Price Short
 dissect.ask_price_short = function(buffer, offset, packet, parent)
   local length = size_of.ask_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_short(raw)
   local display = display.ask_price_short(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.ask_price_short, range, value, display)
@@ -3794,14 +3891,20 @@ size_of.bid_price_short = 2
 
 -- Display: Bid Price Short
 display.bid_price_short = function(value)
-  return "Bid Price Short: "..value/100
+  return "Bid Price Short: "..value
+end
+
+-- Translate: Bid Price Short
+translate.bid_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Bid Price Short
 dissect.bid_price_short = function(buffer, offset, packet, parent)
   local length = size_of.bid_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_short(raw)
   local display = display.bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.bid_price_short, range, value, display)

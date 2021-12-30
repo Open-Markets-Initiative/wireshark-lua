@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -26,8 +27,8 @@ siac_cts_output_cta_v1_91.fields.administrative_payload = ProtoField.new("Admini
 siac_cts_output_cta_v1_91.fields.administrative_unformatted_message = ProtoField.new("Administrative Unformatted Message", "siac.cts.output.cta.v1.91.administrativeunformattedmessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.approximate_adjusted_volume_market_center_message = ProtoField.new("Approximate Adjusted Volume Market Center Message", "siac.cts.output.cta.v1.91.approximateadjustedvolumemarketcentermessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.approximate_trades_and_total_dollar_value_message = ProtoField.new("Approximate Trades And Total Dollar Value Message", "siac.cts.output.cta.v1.91.approximatetradesandtotaldollarvaluemessage", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v1.91.auctioncollarlowerthresholdprice", ftypes.UINT64)
-siac_cts_output_cta_v1_91.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v1.91.auctioncollarreferenceprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price = ProtoField.new("Auction Collar Lower Threshold Price", "siac.cts.output.cta.v1.91.auctioncollarlowerthresholdprice", ftypes.DOUBLE)
+siac_cts_output_cta_v1_91.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "siac.cts.output.cta.v1.91.auctioncollarreferenceprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.auction_status_message = ProtoField.new("Auction Status Message", "siac.cts.output.cta.v1.91.auctionstatusmessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.bid_and_offer_index_message = ProtoField.new("Bid And Offer Index Message", "siac.cts.output.cta.v1.91.bidandofferindexmessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.cts.output.cta.v1.91.bidindexvalue", ftypes.INT64)
@@ -65,8 +66,8 @@ siac_cts_output_cta_v1_91.fields.financial_status_indicator = ProtoField.new("Fi
 siac_cts_output_cta_v1_91.fields.future_use = ProtoField.new("Future Use", "siac.cts.output.cta.v1.91.futureuse", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.halt_reason = ProtoField.new("Halt Reason", "siac.cts.output.cta.v1.91.haltreason", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.held_trade_indicator = ProtoField.new("Held Trade Indicator", "siac.cts.output.cta.v1.91.heldtradeindicator", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v1.91.highindicationpriceupperlimitpriceband", ftypes.UINT64)
-siac_cts_output_cta_v1_91.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v1.91.highprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.high_indication_price_upper_limit_price_band = ProtoField.new("High Indication Price Upper Limit Price Band", "siac.cts.output.cta.v1.91.highindicationpriceupperlimitpriceband", ftypes.DOUBLE)
+siac_cts_output_cta_v1_91.fields.high_price = ProtoField.new("High Price", "siac.cts.output.cta.v1.91.highprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.index = ProtoField.new("Index", "siac.cts.output.cta.v1.91.index", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.index_message = ProtoField.new("Index Message", "siac.cts.output.cta.v1.91.indexmessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.index_message_type = ProtoField.new("Index Message Type", "siac.cts.output.cta.v1.91.indexmessagetype", ftypes.STRING)
@@ -75,12 +76,12 @@ siac_cts_output_cta_v1_91.fields.index_symbol = ProtoField.new("Index Symbol", "
 siac_cts_output_cta_v1_91.fields.index_value = ProtoField.new("Index Value", "siac.cts.output.cta.v1.91.indexvalue", ftypes.INT64)
 siac_cts_output_cta_v1_91.fields.instrument_type = ProtoField.new("Instrument Type", "siac.cts.output.cta.v1.91.instrumenttype", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.last_participant_id = ProtoField.new("Last Participant Id", "siac.cts.output.cta.v1.91.lastparticipantid", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.last_price = ProtoField.new("Last Price", "siac.cts.output.cta.v1.91.lastprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.last_price = ProtoField.new("Last Price", "siac.cts.output.cta.v1.91.lastprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.limit_up_limit_down_indicator = ProtoField.new("Limit Up Limit Down Indicator", "siac.cts.output.cta.v1.91.limituplimitdownindicator", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.line_integrity_message = ProtoField.new("Line Integrity Message", "siac.cts.output.cta.v1.91.lineintegritymessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.long_trade_message = ProtoField.new("Long Trade Message", "siac.cts.output.cta.v1.91.longtrademessage", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band = ProtoField.new("Low Indication Price Lower Limit Price Band", "siac.cts.output.cta.v1.91.lowindicationpricelowerlimitpriceband", ftypes.UINT64)
-siac_cts_output_cta_v1_91.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v1.91.lowprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band = ProtoField.new("Low Indication Price Lower Limit Price Band", "siac.cts.output.cta.v1.91.lowindicationpricelowerlimitpriceband", ftypes.DOUBLE)
+siac_cts_output_cta_v1_91.fields.low_price = ProtoField.new("Low Price", "siac.cts.output.cta.v1.91.lowprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.market_status = ProtoField.new("Market Status", "siac.cts.output.cta.v1.91.marketstatus", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.market_status_message_type = ProtoField.new("Market Status Message Type", "siac.cts.output.cta.v1.91.marketstatusmessagetype", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.market_status_payload = ProtoField.new("Market Status Payload", "siac.cts.output.cta.v1.91.marketstatuspayload", ftypes.STRING)
@@ -98,7 +99,7 @@ siac_cts_output_cta_v1_91.fields.nanoseconds = ProtoField.new("Nanoseconds", "si
 siac_cts_output_cta_v1_91.fields.number_of_extensions = ProtoField.new("Number Of Extensions", "siac.cts.output.cta.v1.91.numberofextensions", ftypes.UINT8)
 siac_cts_output_cta_v1_91.fields.number_of_participants = ProtoField.new("Number Of Participants", "siac.cts.output.cta.v1.91.numberofparticipants", ftypes.UINT8)
 siac_cts_output_cta_v1_91.fields.offer_index_value = ProtoField.new("Offer Index Value", "siac.cts.output.cta.v1.91.offerindexvalue", ftypes.INT64)
-siac_cts_output_cta_v1_91.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v1.91.openprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.open_price = ProtoField.new("Open Price", "siac.cts.output.cta.v1.91.openprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.original_participant_reference_number = ProtoField.new("Original Participant Reference Number", "siac.cts.output.cta.v1.91.originalparticipantreferencenumber", ftypes.INT64)
 siac_cts_output_cta_v1_91.fields.original_trade = ProtoField.new("Original Trade", "siac.cts.output.cta.v1.91.originaltrade", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.packet = ProtoField.new("Packet", "siac.cts.output.cta.v1.91.packet", ftypes.STRING)
@@ -110,7 +111,7 @@ siac_cts_output_cta_v1_91.fields.participant_reference_number = ProtoField.new("
 siac_cts_output_cta_v1_91.fields.participant_start_of_day_summary_message = ProtoField.new("Participant Start Of Day Summary Message", "siac.cts.output.cta.v1.91.participantstartofdaysummarymessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.participants = ProtoField.new("Participants", "siac.cts.output.cta.v1.91.participants", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.payload = ProtoField.new("Payload", "siac.cts.output.cta.v1.91.payload", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.previous_close_price = ProtoField.new("Previous Close Price", "siac.cts.output.cta.v1.91.previouscloseprice", ftypes.UINT64)
+siac_cts_output_cta_v1_91.fields.previous_close_price = ProtoField.new("Previous Close Price", "siac.cts.output.cta.v1.91.previouscloseprice", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.previous_close_price_date = ProtoField.new("Previous Close Price Date", "siac.cts.output.cta.v1.91.previousclosepricedate", ftypes.UINT32)
 siac_cts_output_cta_v1_91.fields.primary_listing_market_participant_id = ProtoField.new("Primary Listing Market Participant Id", "siac.cts.output.cta.v1.91.primarylistingmarketparticipantid", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.prior_day = ProtoField.new("Prior Day", "siac.cts.output.cta.v1.91.priorday", ftypes.STRING)
@@ -152,8 +153,8 @@ siac_cts_output_cta_v1_91.fields.trade_cancel_error_message = ProtoField.new("Tr
 siac_cts_output_cta_v1_91.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "siac.cts.output.cta.v1.91.tradecorrectionmessage", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.trade_message_type = ProtoField.new("Trade Message Type", "siac.cts.output.cta.v1.91.trademessagetype", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.trade_payload = ProtoField.new("Trade Payload", "siac.cts.output.cta.v1.91.tradepayload", ftypes.STRING)
-siac_cts_output_cta_v1_91.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v1.91.tradeprice", ftypes.UINT64)
-siac_cts_output_cta_v1_91.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v1.91.tradepriceshort", ftypes.UINT16)
+siac_cts_output_cta_v1_91.fields.trade_price = ProtoField.new("Trade Price", "siac.cts.output.cta.v1.91.tradeprice", ftypes.DOUBLE)
+siac_cts_output_cta_v1_91.fields.trade_price_short = ProtoField.new("Trade Price Short", "siac.cts.output.cta.v1.91.tradepriceshort", ftypes.DOUBLE)
 siac_cts_output_cta_v1_91.fields.trade_reporting_facility_id = ProtoField.new("Trade Reporting Facility Id", "siac.cts.output.cta.v1.91.tradereportingfacilityid", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.trade_through_exempt_indicator = ProtoField.new("Trade Through Exempt Indicator", "siac.cts.output.cta.v1.91.tradethroughexemptindicator", ftypes.STRING)
 siac_cts_output_cta_v1_91.fields.trade_total_volume = ProtoField.new("Trade Total Volume", "siac.cts.output.cta.v1.91.tradetotalvolume", ftypes.UINT64)
@@ -639,14 +640,20 @@ size_of.low_price = 8
 
 -- Display: Low Price
 display.low_price = function(value)
-  return "Low Price: "..value:tonumber()/1000000
+  return "Low Price: "..value
+end
+
+-- Translate: Low Price
+translate.low_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Low Price
 dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.low_price(raw)
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.low_price, range, value, display)
@@ -659,14 +666,20 @@ size_of.high_price = 8
 
 -- Display: High Price
 display.high_price = function(value)
-  return "High Price: "..value:tonumber()/1000000
+  return "High Price: "..value
+end
+
+-- Translate: High Price
+translate.high_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: High Price
 dissect.high_price = function(buffer, offset, packet, parent)
   local length = size_of.high_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.high_price(raw)
   local display = display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.high_price, range, value, display)
@@ -679,14 +692,20 @@ size_of.last_price = 8
 
 -- Display: Last Price
 display.last_price = function(value)
-  return "Last Price: "..value:tonumber()/1000000
+  return "Last Price: "..value
+end
+
+-- Translate: Last Price
+translate.last_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Price
 dissect.last_price = function(buffer, offset, packet, parent)
   local length = size_of.last_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.last_price(raw)
   local display = display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.last_price, range, value, display)
@@ -1362,14 +1381,20 @@ size_of.trade_price = 8
 
 -- Display: Trade Price
 display.trade_price = function(value)
-  return "Trade Price: "..value:tonumber()/1000000
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Trade Price
 dissect.trade_price = function(buffer, offset, packet, parent)
   local length = size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.trade_price(raw)
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_price, range, value, display)
@@ -2058,14 +2083,20 @@ size_of.trade_price_short = 2
 
 -- Display: Trade Price Short
 display.trade_price_short = function(value)
-  return "Trade Price Short: "..value/100
+  return "Trade Price Short: "..value
+end
+
+-- Translate: Trade Price Short
+translate.trade_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Trade Price Short
 dissect.trade_price_short = function(buffer, offset, packet, parent)
   local length = size_of.trade_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.trade_price_short(raw)
   local display = display.trade_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_price_short, range, value, display)
@@ -2519,14 +2550,20 @@ size_of.low_indication_price_lower_limit_price_band = 8
 
 -- Display: Low Indication Price Lower Limit Price Band
 display.low_indication_price_lower_limit_price_band = function(value)
-  return "Low Indication Price Lower Limit Price Band: "..value:tonumber()/1000000
+  return "Low Indication Price Lower Limit Price Band: "..value
+end
+
+-- Translate: Low Indication Price Lower Limit Price Band
+translate.low_indication_price_lower_limit_price_band = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Low Indication Price Lower Limit Price Band
 dissect.low_indication_price_lower_limit_price_band = function(buffer, offset, packet, parent)
   local length = size_of.low_indication_price_lower_limit_price_band
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.low_indication_price_lower_limit_price_band(raw)
   local display = display.low_indication_price_lower_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band, range, value, display)
@@ -2539,14 +2576,20 @@ size_of.high_indication_price_upper_limit_price_band = 8
 
 -- Display: High Indication Price Upper Limit Price Band
 display.high_indication_price_upper_limit_price_band = function(value)
-  return "High Indication Price Upper Limit Price Band: "..value:tonumber()/1000000
+  return "High Indication Price Upper Limit Price Band: "..value
+end
+
+-- Translate: High Indication Price Upper Limit Price Band
+translate.high_indication_price_upper_limit_price_band = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: High Indication Price Upper Limit Price Band
 dissect.high_indication_price_upper_limit_price_band = function(buffer, offset, packet, parent)
   local length = size_of.high_indication_price_upper_limit_price_band
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.high_indication_price_upper_limit_price_band(raw)
   local display = display.high_indication_price_upper_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.high_indication_price_upper_limit_price_band, range, value, display)
@@ -3102,14 +3145,20 @@ size_of.auction_collar_lower_threshold_price = 8
 
 -- Display: Auction Collar Lower Threshold Price
 display.auction_collar_lower_threshold_price = function(value)
-  return "Auction Collar Lower Threshold Price: "..value:tonumber()/1000000
+  return "Auction Collar Lower Threshold Price: "..value
+end
+
+-- Translate: Auction Collar Lower Threshold Price
+translate.auction_collar_lower_threshold_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Auction Collar Lower Threshold Price
 dissect.auction_collar_lower_threshold_price = function(buffer, offset, packet, parent)
   local length = size_of.auction_collar_lower_threshold_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.auction_collar_lower_threshold_price(raw)
   local display = display.auction_collar_lower_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price, range, value, display)
@@ -3122,14 +3171,20 @@ size_of.auction_collar_reference_price = 8
 
 -- Display: Auction Collar Reference Price
 display.auction_collar_reference_price = function(value)
-  return "Auction Collar Reference Price: "..value:tonumber()/1000000
+  return "Auction Collar Reference Price: "..value
+end
+
+-- Translate: Auction Collar Reference Price
+translate.auction_collar_reference_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Auction Collar Reference Price
 dissect.auction_collar_reference_price = function(buffer, offset, packet, parent)
   local length = size_of.auction_collar_reference_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.auction_collar_reference_price(raw)
   local display = display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.auction_collar_reference_price, range, value, display)
@@ -3383,14 +3438,20 @@ size_of.open_price = 8
 
 -- Display: Open Price
 display.open_price = function(value)
-  return "Open Price: "..value:tonumber()/1000000
+  return "Open Price: "..value
+end
+
+-- Translate: Open Price
+translate.open_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Open Price
 dissect.open_price = function(buffer, offset, packet, parent)
   local length = size_of.open_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.open_price(raw)
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.open_price, range, value, display)
@@ -3585,14 +3646,20 @@ size_of.previous_close_price = 8
 
 -- Display: Previous Close Price
 display.previous_close_price = function(value)
-  return "Previous Close Price: "..value:tonumber()/1000000
+  return "Previous Close Price: "..value
+end
+
+-- Translate: Previous Close Price
+translate.previous_close_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Previous Close Price
 dissect.previous_close_price = function(buffer, offset, packet, parent)
   local length = size_of.previous_close_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.previous_close_price(raw)
   local display = display.previous_close_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.previous_close_price, range, value, display)

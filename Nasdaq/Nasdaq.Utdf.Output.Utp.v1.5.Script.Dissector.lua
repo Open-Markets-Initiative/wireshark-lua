@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -28,13 +29,13 @@ nasdaq_utdf_output_utp_v1_5.fields.as_of_action = ProtoField.new("As Of Action",
 nasdaq_utdf_output_utp_v1_5.fields.auction_collar_message = ProtoField.new("Auction Collar Message", "nasdaq.utdf.output.utp.v1.5.auctioncollarmessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.utdf.output.utp.v1.5.authenticity", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.closing_trade_summary_report_message = ProtoField.new("Closing Trade Summary Report Message", "nasdaq.utdf.output.utp.v1.5.closingtradesummaryreportmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utdf.output.utp.v1.5.collardownprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.collar_down_price = ProtoField.new("Collar Down Price", "nasdaq.utdf.output.utp.v1.5.collardownprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.collar_extension_indicator = ProtoField.new("Collar Extension Indicator", "nasdaq.utdf.output.utp.v1.5.collarextensionindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utdf.output.utp.v1.5.collarreferenceprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.utdf.output.utp.v1.5.collarupprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.consolidatedhighprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlastprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlowprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price = ProtoField.new("Collar Reference Price", "nasdaq.utdf.output.utp.v1.5.collarreferenceprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.collar_up_price = ProtoField.new("Collar Up Price", "nasdaq.utdf.output.utp.v1.5.collarupprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price = ProtoField.new("Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.consolidatedhighprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price = ProtoField.new("Consolidated Last Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlastprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price = ProtoField.new("Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.consolidatedlowprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.consolidated_price_change_indicator = ProtoField.new("Consolidated Price Change Indicator", "nasdaq.utdf.output.utp.v1.5.consolidatedpricechangeindicator", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.consolidated_volume = ProtoField.new("Consolidated Volume", "nasdaq.utdf.output.utp.v1.5.consolidatedvolume", ftypes.UINT64)
 nasdaq_utdf_output_utp_v1_5.fields.control = ProtoField.new("Control", "nasdaq.utdf.output.utp.v1.5.control", ftypes.STRING)
@@ -42,15 +43,15 @@ nasdaq_utdf_output_utp_v1_5.fields.control_message_type = ProtoField.new("Contro
 nasdaq_utdf_output_utp_v1_5.fields.control_payload = ProtoField.new("Control Payload", "nasdaq.utdf.output.utp.v1.5.controlpayload", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.corrected_sellers_sale_days = ProtoField.new("Corrected Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.correctedsellerssaledays", ftypes.UINT16)
 nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_id = ProtoField.new("Corrected Trade Id", "nasdaq.utdf.output.utp.v1.5.correctedtradeid", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.utdf.output.utp.v1.5.correctedtradeprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.utdf.output.utp.v1.5.correctedtradeprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_through_exempt_flag = ProtoField.new("Corrected Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.correctedtradethroughexemptflag", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.corrected_volume = ProtoField.new("Corrected Volume", "nasdaq.utdf.output.utp.v1.5.correctedvolume", ftypes.UINT32)
 nasdaq_utdf_output_utp_v1_5.fields.count = ProtoField.new("Count", "nasdaq.utdf.output.utp.v1.5.count", ftypes.UINT16)
 nasdaq_utdf_output_utp_v1_5.fields.cross_sro_trading_action_message = ProtoField.new("Cross Sro Trading Action Message", "nasdaq.utdf.output.utp.v1.5.crosssrotradingactionmessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.current_market_center_volume = ProtoField.new("Current Market Center Volume", "nasdaq.utdf.output.utp.v1.5.currentmarketcentervolume", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price = ProtoField.new("Daily Consolidated Closing Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedclosingprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price = ProtoField.new("Daily Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedhighprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price = ProtoField.new("Daily Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedlowprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price = ProtoField.new("Daily Consolidated Closing Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedclosingprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price = ProtoField.new("Daily Consolidated High Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedhighprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price = ProtoField.new("Daily Consolidated Low Price", "nasdaq.utdf.output.utp.v1.5.dailyconsolidatedlowprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.end_of_consolidated_last_sale_eligibility = ProtoField.new("End Of Consolidated Last Sale Eligibility", "nasdaq.utdf.output.utp.v1.5.endofconsolidatedlastsaleeligibility", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.end_of_day_message = ProtoField.new("End Of Day Message", "nasdaq.utdf.output.utp.v1.5.endofdaymessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.end_of_trade_reporting_message = ProtoField.new("End Of Trade Reporting Message", "nasdaq.utdf.output.utp.v1.5.endoftradereportingmessage", ftypes.STRING)
@@ -66,22 +67,22 @@ nasdaq_utdf_output_utp_v1_5.fields.level_1 = ProtoField.new("Level 1", "nasdaq.u
 nasdaq_utdf_output_utp_v1_5.fields.level_2 = ProtoField.new("Level 2", "nasdaq.utdf.output.utp.v1.5.level2", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.level_3 = ProtoField.new("Level 3", "nasdaq.utdf.output.utp.v1.5.level3", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.level_4 = ProtoField.new("Level 4", "nasdaq.utdf.output.utp.v1.5.level4", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.utdf.output.utp.v1.5.limitdownprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.limit_down_price = ProtoField.new("Limit Down Price", "nasdaq.utdf.output.utp.v1.5.limitdownprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.limit_up_limit_down_price_band_message = ProtoField.new("Limit Up Limit Down Price Band Message", "nasdaq.utdf.output.utp.v1.5.limituplimitdownpricebandmessage", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.utdf.output.utp.v1.5.limitupprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.limit_up_price = ProtoField.new("Limit Up Price", "nasdaq.utdf.output.utp.v1.5.limitupprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.luld_price_band_indicator = ProtoField.new("Luld Price Band Indicator", "nasdaq.utdf.output.utp.v1.5.luldpricebandindicator", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.luld_timestamp = ProtoField.new("Luld Timestamp", "nasdaq.utdf.output.utp.v1.5.luldtimestamp", ftypes.UINT64)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_close_indicator = ProtoField.new("Market Center Close Indicator", "nasdaq.utdf.output.utp.v1.5.marketcentercloseindicator", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price = ProtoField.new("Market Center Closing Price", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price = ProtoField.new("Market Center Closing Price", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price_and_volume_summary = ProtoField.new("Market Center Closing Price And Volume Summary", "nasdaq.utdf.output.utp.v1.5.marketcenterclosingpriceandvolumesummary", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.utdf.output.utp.v1.5.marketcenteridentifier", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_originator_id = ProtoField.new("Market Center Originator Id", "nasdaq.utdf.output.utp.v1.5.marketcenteroriginatorid", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_trading_action_message = ProtoField.new("Market Center Trading Action Message", "nasdaq.utdf.output.utp.v1.5.marketcentertradingactionmessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_volume = ProtoField.new("Market Center Volume", "nasdaq.utdf.output.utp.v1.5.marketcentervolume", ftypes.UINT64)
 nasdaq_utdf_output_utp_v1_5.fields.market_center_volume_attachment = ProtoField.new("Market Center Volume Attachment", "nasdaq.utdf.output.utp.v1.5.marketcentervolumeattachment", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price = ProtoField.new("Market Participant High Price", "nasdaq.utdf.output.utp.v1.5.marketparticipanthighprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price = ProtoField.new("Market Participant Last Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlastprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlowprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price = ProtoField.new("Market Participant High Price", "nasdaq.utdf.output.utp.v1.5.marketparticipanthighprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price = ProtoField.new("Market Participant Last Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlastprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price = ProtoField.new("Market Participant Low Price", "nasdaq.utdf.output.utp.v1.5.marketparticipantlowprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.market_participant_volume = ProtoField.new("Market Participant Volume", "nasdaq.utdf.output.utp.v1.5.marketparticipantvolume", ftypes.UINT64)
 nasdaq_utdf_output_utp_v1_5.fields.market_session_close_message = ProtoField.new("Market Session Close Message", "nasdaq.utdf.output.utp.v1.5.marketsessionclosemessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.market_session_open_message = ProtoField.new("Market Session Open Message", "nasdaq.utdf.output.utp.v1.5.marketsessionopenmessage", ftypes.STRING)
@@ -100,7 +101,7 @@ nasdaq_utdf_output_utp_v1_5.fields.number_of_market_center_volumes = ProtoField.
 nasdaq_utdf_output_utp_v1_5.fields.old_symbol = ProtoField.new("Old Symbol", "nasdaq.utdf.output.utp.v1.5.oldsymbol", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.original_sellers_sale_days = ProtoField.new("Original Sellers Sale Days", "nasdaq.utdf.output.utp.v1.5.originalsellerssaledays", ftypes.UINT16)
 nasdaq_utdf_output_utp_v1_5.fields.original_trade_id = ProtoField.new("Original Trade Id", "nasdaq.utdf.output.utp.v1.5.originaltradeid", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.UINT64)
+nasdaq_utdf_output_utp_v1_5.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.utdf.output.utp.v1.5.originaltradeprice", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.original_trade_through_exempt_flag = ProtoField.new("Original Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.originaltradethroughexemptflag", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.utdf.output.utp.v1.5.originalvolume", ftypes.UINT32)
 nasdaq_utdf_output_utp_v1_5.fields.packet = ProtoField.new("Packet", "nasdaq.utdf.output.utp.v1.5.packet", ftypes.STRING)
@@ -134,8 +135,8 @@ nasdaq_utdf_output_utp_v1_5.fields.trade_correction_message = ProtoField.new("Tr
 nasdaq_utdf_output_utp_v1_5.fields.trade_id = ProtoField.new("Trade Id", "nasdaq.utdf.output.utp.v1.5.tradeid", ftypes.UINT64)
 nasdaq_utdf_output_utp_v1_5.fields.trade_message_type = ProtoField.new("Trade Message Type", "nasdaq.utdf.output.utp.v1.5.trademessagetype", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.trade_payload = ProtoField.new("Trade Payload", "nasdaq.utdf.output.utp.v1.5.tradepayload", ftypes.STRING)
-nasdaq_utdf_output_utp_v1_5.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.utdf.output.utp.v1.5.tradeprice", ftypes.UINT64)
-nasdaq_utdf_output_utp_v1_5.fields.trade_price_short = ProtoField.new("Trade Price Short", "nasdaq.utdf.output.utp.v1.5.tradepriceshort", ftypes.UINT16)
+nasdaq_utdf_output_utp_v1_5.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.utdf.output.utp.v1.5.tradeprice", ftypes.DOUBLE)
+nasdaq_utdf_output_utp_v1_5.fields.trade_price_short = ProtoField.new("Trade Price Short", "nasdaq.utdf.output.utp.v1.5.tradepriceshort", ftypes.DOUBLE)
 nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_long_form_message = ProtoField.new("Trade Report Message Long Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessagelongformmessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.trade_report_message_short_form_message = ProtoField.new("Trade Report Message Short Form Message", "nasdaq.utdf.output.utp.v1.5.tradereportmessageshortformmessage", ftypes.STRING)
 nasdaq_utdf_output_utp_v1_5.fields.trade_through_exempt_flag = ProtoField.new("Trade Through Exempt Flag", "nasdaq.utdf.output.utp.v1.5.tradethroughexemptflag", ftypes.STRING)
@@ -1348,14 +1349,20 @@ size_of.market_participant_low_price = 8
 
 -- Display: Market Participant Low Price
 display.market_participant_low_price = function(value)
-  return "Market Participant Low Price: "..value:tonumber()/1000000
+  return "Market Participant Low Price: "..value
+end
+
+-- Translate: Market Participant Low Price
+translate.market_participant_low_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Participant Low Price
 dissect.market_participant_low_price = function(buffer, offset, packet, parent)
   local length = size_of.market_participant_low_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_participant_low_price(raw)
   local display = display.market_participant_low_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_low_price, range, value, display)
@@ -1368,14 +1375,20 @@ size_of.market_participant_high_price = 8
 
 -- Display: Market Participant High Price
 display.market_participant_high_price = function(value)
-  return "Market Participant High Price: "..value:tonumber()/1000000
+  return "Market Participant High Price: "..value
+end
+
+-- Translate: Market Participant High Price
+translate.market_participant_high_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Participant High Price
 dissect.market_participant_high_price = function(buffer, offset, packet, parent)
   local length = size_of.market_participant_high_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_participant_high_price(raw)
   local display = display.market_participant_high_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_high_price, range, value, display)
@@ -1435,14 +1448,20 @@ size_of.market_center_closing_price = 8
 
 -- Display: Market Center Closing Price
 display.market_center_closing_price = function(value)
-  return "Market Center Closing Price: "..value:tonumber()/1000000
+  return "Market Center Closing Price: "..value
+end
+
+-- Translate: Market Center Closing Price
+translate.market_center_closing_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Center Closing Price
 dissect.market_center_closing_price = function(buffer, offset, packet, parent)
   local length = size_of.market_center_closing_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_center_closing_price(raw)
   local display = display.market_center_closing_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_center_closing_price, range, value, display)
@@ -1584,14 +1603,20 @@ size_of.daily_consolidated_closing_price = 8
 
 -- Display: Daily Consolidated Closing Price
 display.daily_consolidated_closing_price = function(value)
-  return "Daily Consolidated Closing Price: "..value:tonumber()/1000000
+  return "Daily Consolidated Closing Price: "..value
+end
+
+-- Translate: Daily Consolidated Closing Price
+translate.daily_consolidated_closing_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated Closing Price
 dissect.daily_consolidated_closing_price = function(buffer, offset, packet, parent)
   local length = size_of.daily_consolidated_closing_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.daily_consolidated_closing_price(raw)
   local display = display.daily_consolidated_closing_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_closing_price, range, value, display)
@@ -1604,14 +1629,20 @@ size_of.daily_consolidated_low_price = 8
 
 -- Display: Daily Consolidated Low Price
 display.daily_consolidated_low_price = function(value)
-  return "Daily Consolidated Low Price: "..value:tonumber()/1000000
+  return "Daily Consolidated Low Price: "..value
+end
+
+-- Translate: Daily Consolidated Low Price
+translate.daily_consolidated_low_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated Low Price
 dissect.daily_consolidated_low_price = function(buffer, offset, packet, parent)
   local length = size_of.daily_consolidated_low_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.daily_consolidated_low_price(raw)
   local display = display.daily_consolidated_low_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_low_price, range, value, display)
@@ -1624,14 +1655,20 @@ size_of.daily_consolidated_high_price = 8
 
 -- Display: Daily Consolidated High Price
 display.daily_consolidated_high_price = function(value)
-  return "Daily Consolidated High Price: "..value:tonumber()/1000000
+  return "Daily Consolidated High Price: "..value
+end
+
+-- Translate: Daily Consolidated High Price
+translate.daily_consolidated_high_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Daily Consolidated High Price
 dissect.daily_consolidated_high_price = function(buffer, offset, packet, parent)
   local length = size_of.daily_consolidated_high_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.daily_consolidated_high_price(raw)
   local display = display.daily_consolidated_high_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.daily_consolidated_high_price, range, value, display)
@@ -1749,14 +1786,20 @@ size_of.collar_down_price = 8
 
 -- Display: Collar Down Price
 display.collar_down_price = function(value)
-  return "Collar Down Price: "..value:tonumber()/1000000
+  return "Collar Down Price: "..value
+end
+
+-- Translate: Collar Down Price
+translate.collar_down_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Down Price
 dissect.collar_down_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_down_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_down_price(raw)
   local display = display.collar_down_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_down_price, range, value, display)
@@ -1769,14 +1812,20 @@ size_of.collar_up_price = 8
 
 -- Display: Collar Up Price
 display.collar_up_price = function(value)
-  return "Collar Up Price: "..value:tonumber()/1000000
+  return "Collar Up Price: "..value
+end
+
+-- Translate: Collar Up Price
+translate.collar_up_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Up Price
 dissect.collar_up_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_up_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_up_price(raw)
   local display = display.collar_up_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_up_price, range, value, display)
@@ -1789,14 +1838,20 @@ size_of.collar_reference_price = 8
 
 -- Display: Collar Reference Price
 display.collar_reference_price = function(value)
-  return "Collar Reference Price: "..value:tonumber()/1000000
+  return "Collar Reference Price: "..value
+end
+
+-- Translate: Collar Reference Price
+translate.collar_reference_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Collar Reference Price
 dissect.collar_reference_price = function(buffer, offset, packet, parent)
   local length = size_of.collar_reference_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.collar_reference_price(raw)
   local display = display.collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.collar_reference_price, range, value, display)
@@ -1988,14 +2043,20 @@ size_of.limit_up_price = 8
 
 -- Display: Limit Up Price
 display.limit_up_price = function(value)
-  return "Limit Up Price: "..value:tonumber()/1000000
+  return "Limit Up Price: "..value
+end
+
+-- Translate: Limit Up Price
+translate.limit_up_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Limit Up Price
 dissect.limit_up_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_up_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.limit_up_price(raw)
   local display = display.limit_up_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.limit_up_price, range, value, display)
@@ -2008,14 +2069,20 @@ size_of.limit_down_price = 8
 
 -- Display: Limit Down Price
 display.limit_down_price = function(value)
-  return "Limit Down Price: "..value:tonumber()/1000000
+  return "Limit Down Price: "..value
+end
+
+-- Translate: Limit Down Price
+translate.limit_down_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Limit Down Price
 dissect.limit_down_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_down_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.limit_down_price(raw)
   local display = display.limit_down_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.limit_down_price, range, value, display)
@@ -3376,14 +3443,20 @@ size_of.trade_price = 8
 
 -- Display: Trade Price
 display.trade_price = function(value)
-  return "Trade Price: "..value:tonumber()/1000000
+  return "Trade Price: "..value
+end
+
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Trade Price
 dissect.trade_price = function(buffer, offset, packet, parent)
   local length = size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.trade_price(raw)
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_price, range, value, display)
@@ -3522,14 +3595,20 @@ size_of.market_participant_last_price = 8
 
 -- Display: Market Participant Last Price
 display.market_participant_last_price = function(value)
-  return "Market Participant Last Price: "..value:tonumber()/1000000
+  return "Market Participant Last Price: "..value
+end
+
+-- Translate: Market Participant Last Price
+translate.market_participant_last_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Market Participant Last Price
 dissect.market_participant_last_price = function(buffer, offset, packet, parent)
   local length = size_of.market_participant_last_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.market_participant_last_price(raw)
   local display = display.market_participant_last_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.market_participant_last_price, range, value, display)
@@ -3587,14 +3666,20 @@ size_of.consolidated_last_price = 8
 
 -- Display: Consolidated Last Price
 display.consolidated_last_price = function(value)
-  return "Consolidated Last Price: "..value:tonumber()/1000000
+  return "Consolidated Last Price: "..value
+end
+
+-- Translate: Consolidated Last Price
+translate.consolidated_last_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Consolidated Last Price
 dissect.consolidated_last_price = function(buffer, offset, packet, parent)
   local length = size_of.consolidated_last_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.consolidated_last_price(raw)
   local display = display.consolidated_last_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_last_price, range, value, display)
@@ -3607,14 +3692,20 @@ size_of.consolidated_low_price = 8
 
 -- Display: Consolidated Low Price
 display.consolidated_low_price = function(value)
-  return "Consolidated Low Price: "..value:tonumber()/1000000
+  return "Consolidated Low Price: "..value
+end
+
+-- Translate: Consolidated Low Price
+translate.consolidated_low_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Consolidated Low Price
 dissect.consolidated_low_price = function(buffer, offset, packet, parent)
   local length = size_of.consolidated_low_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.consolidated_low_price(raw)
   local display = display.consolidated_low_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_low_price, range, value, display)
@@ -3627,14 +3718,20 @@ size_of.consolidated_high_price = 8
 
 -- Display: Consolidated High Price
 display.consolidated_high_price = function(value)
-  return "Consolidated High Price: "..value:tonumber()/1000000
+  return "Consolidated High Price: "..value
+end
+
+-- Translate: Consolidated High Price
+translate.consolidated_high_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Consolidated High Price
 dissect.consolidated_high_price = function(buffer, offset, packet, parent)
   local length = size_of.consolidated_high_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.consolidated_high_price(raw)
   local display = display.consolidated_high_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.consolidated_high_price, range, value, display)
@@ -3707,14 +3804,20 @@ size_of.corrected_trade_price = 8
 
 -- Display: Corrected Trade Price
 display.corrected_trade_price = function(value)
-  return "Corrected Trade Price: "..value:tonumber()/1000000
+  return "Corrected Trade Price: "..value
+end
+
+-- Translate: Corrected Trade Price
+translate.corrected_trade_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Corrected Trade Price
 dissect.corrected_trade_price = function(buffer, offset, packet, parent)
   local length = size_of.corrected_trade_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.corrected_trade_price(raw)
   local display = display.corrected_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.corrected_trade_price, range, value, display)
@@ -3807,14 +3910,20 @@ size_of.original_trade_price = 8
 
 -- Display: Original Trade Price
 display.original_trade_price = function(value)
-  return "Original Trade Price: "..value:tonumber()/1000000
+  return "Original Trade Price: "..value
+end
+
+-- Translate: Original Trade Price
+translate.original_trade_price = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Original Trade Price
 dissect.original_trade_price = function(buffer, offset, packet, parent)
   local length = size_of.original_trade_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.original_trade_price(raw)
   local display = display.original_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.original_trade_price, range, value, display)
@@ -4199,14 +4308,20 @@ size_of.trade_price_short = 2
 
 -- Display: Trade Price Short
 display.trade_price_short = function(value)
-  return "Trade Price Short: "..value/100
+  return "Trade Price Short: "..value
+end
+
+-- Translate: Trade Price Short
+translate.trade_price_short = function(raw)
+  return raw/100
 end
 
 -- Dissect: Trade Price Short
 dissect.trade_price_short = function(buffer, offset, packet, parent)
   local length = size_of.trade_price_short
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.trade_price_short(raw)
   local display = display.trade_price_short(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_utdf_output_utp_v1_5.fields.trade_price_short, range, value, display)

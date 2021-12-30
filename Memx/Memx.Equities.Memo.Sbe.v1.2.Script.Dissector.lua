@@ -737,7 +737,7 @@ size_of.higher_than_price = 8
 -- Display: Higher Than Price
 display.higher_than_price = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Higher Than Price: No Value"
   end
 
@@ -762,7 +762,7 @@ size_of.lower_than_price = 8
 -- Display: Lower Than Price
 display.lower_than_price = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Lower Than Price: No Value"
   end
 
@@ -1313,7 +1313,7 @@ size_of.last_px = 8
 -- Display: Last Px
 display.last_px = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Last Px: No Value"
   end
 
@@ -1409,7 +1409,7 @@ size_of.order_id = 8
 -- Display: Order Id
 display.order_id = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Order Id: No Value"
   end
 
@@ -1810,7 +1810,7 @@ size_of.price = 8
 -- Display: Price
 display.price = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
@@ -3284,7 +3284,7 @@ size_of.expire_time = 8
 -- Display: Expire Time
 display.expire_time = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Expire Time: No Value"
   end
 
@@ -3342,7 +3342,7 @@ size_of.peg_offset_value = 8
 -- Display: Peg Offset Value
 display.peg_offset_value = function(value)
   -- Check if field has value
-  if value == Int64(0x0000000, 0x80000000) then
+  if value == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value: No Value"
   end
 

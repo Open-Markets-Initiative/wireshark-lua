@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -35,7 +36,7 @@ cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_group = Proto
 cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_spectrum_groups = ProtoField.new("M D Snapshot Refresh Spectrum Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshspectrumgroups", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_group = ProtoField.new("M D Snapshot Refresh Ticker Group", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroup", ftypes.STRING)
 cme_futures_derived_sbe_v12_0.fields.m_d_snapshot_refresh_ticker_groups = ProtoField.new("M D Snapshot Refresh Ticker Groups", "cme.futures.derived.sbe.v12.0.mdsnapshotrefreshtickergroups", ftypes.STRING)
-cme_futures_derived_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.derived.sbe.v12.0.mdentrypx", ftypes.INT64)
+cme_futures_derived_sbe_v12_0.fields.md_entry_px = ProtoField.new("Md Entry Px", "cme.futures.derived.sbe.v12.0.mdentrypx", ftypes.DOUBLE)
 cme_futures_derived_sbe_v12_0.fields.md_entry_size = ProtoField.new("Md Entry Size", "cme.futures.derived.sbe.v12.0.mdentrysize", ftypes.UINT64)
 cme_futures_derived_sbe_v12_0.fields.md_entry_time = ProtoField.new("Md Entry Time", "cme.futures.derived.sbe.v12.0.mdentrytime", ftypes.UINT64)
 cme_futures_derived_sbe_v12_0.fields.md_entry_type_spectrum_entry_type = ProtoField.new("Md Entry Type Spectrum Entry Type", "cme.futures.derived.sbe.v12.0.mdentrytypespectrumentrytype", ftypes.STRING)
@@ -412,7 +413,7 @@ size_of.md_entry_size = 8
 -- Display: Md Entry Size
 display.md_entry_size = function(value)
   -- Check if field has value
-  if value == UInt64(0xFFFFFFF, 0xFFFFFFFF) then
+  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Entry Size: No Value"
   end
 
@@ -436,14 +437,20 @@ size_of.md_entry_px = 8
 
 -- Display: Md Entry Px
 display.md_entry_px = function(value)
-  return "Md Entry Px: "..value:tonumber()/1000000000
+  return "Md Entry Px: "..value
+end
+
+-- Translate: Md Entry Px
+translate.md_entry_px = function(raw)
+  return raw:tonumber()/1000000000
 end
 
 -- Dissect: Md Entry Px
 dissect.md_entry_px = function(buffer, offset, packet, parent)
   local length = size_of.md_entry_px
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.md_entry_px(raw)
   local display = display.md_entry_px(value, buffer, offset, packet, parent)
 
   parent:add(cme_futures_derived_sbe_v12_0.fields.md_entry_px, range, value, display)
