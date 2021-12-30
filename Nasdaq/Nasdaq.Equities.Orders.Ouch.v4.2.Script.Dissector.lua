@@ -2107,6 +2107,9 @@ display.customer_type = function(value)
   if value == "N" then
     return "Customer Type: Not A Retail Designated (N)"
   end
+  if value == " " then
+    return "Customer Type: Default (<whitespace>)"
+  end
 
   return "Customer Type: Unknown("..value..")"
 end
@@ -2201,7 +2204,7 @@ dissect.enter_order_message_fields = function(buffer, offset, packet, parent)
   -- Cross Type: 1 Byte Ascii String Enum with 7 values
   index, cross_type = dissect.cross_type(buffer, index, packet, parent)
 
-  -- Customer Type: 1 Byte Ascii String Enum with 2 values
+  -- Customer Type: 1 Byte Ascii String Enum with 3 values
   index, customer_type = dissect.customer_type(buffer, index, packet, parent)
 
   return index
