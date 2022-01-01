@@ -62,7 +62,6 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_the_exposition = ProtoField.n
 box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_transmission_message = ProtoField.new("End Of Transmission Message", "box.options.sola.unicast.hsvf.v4.5.1.endoftransmissionmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.exchange_id = ProtoField.new("Exchange Id", "box.options.sola.unicast.hsvf.v4.5.1.exchangeid", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day = ProtoField.new("Expiry Day", "box.options.sola.unicast.hsvf.v4.5.1.expiryday", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_month_code = ProtoField.new("Expiry Month Code", "box.options.sola.unicast.hsvf.v4.5.1.expirymonthcode", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year = ProtoField.new("Expiry Year", "box.options.sola.unicast.hsvf.v4.5.1.expiryyear", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.filler_1 = ProtoField.new("Filler 1", "box.options.sola.unicast.hsvf.v4.5.1.filler1", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.filler_6 = ProtoField.new("Filler 6", "box.options.sola.unicast.hsvf.v4.5.1.filler6", ftypes.STRING)
@@ -94,7 +93,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price_sign = ProtoFiel
 box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_quantity = ProtoField.new("Initial Order Quantity", "box.options.sola.unicast.hsvf.v4.5.1.initialorderquantity", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_side = ProtoField.new("Initial Order Side", "box.options.sola.unicast.hsvf.v4.5.1.initialorderside", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.instrument = ProtoField.new("Instrument", "box.options.sola.unicast.hsvf.v4.5.1.instrument", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description = ProtoField.new("Instrument Description", "box.options.sola.unicast.hsvf.v4.5.1.instrumentdescription", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description_x_20 = ProtoField.new("Instrument Description X 20", "box.options.sola.unicast.hsvf.v4.5.1.instrumentdescriptionx20", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_external_code = ProtoField.new("Instrument External Code", "box.options.sola.unicast.hsvf.v4.5.1.instrumentexternalcode", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg = ProtoField.new("Instrument Leg", "box.options.sola.unicast.hsvf.v4.5.1.instrumentleg", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.options.sola.unicast.hsvf.v4.5.1.instrumentstatusmarker", ftypes.STRING)
@@ -113,7 +112,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.low_price = ProtoField.new("Low Pric
 box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_fraction_indicator = ProtoField.new("Low Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.lowpricefractionindicator", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.low_price_sign = ProtoField.new("Low Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.lowpricesign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.market_depth_level = ProtoField.new("Market Depth Level", "box.options.sola.unicast.hsvf.v4.5.1.marketdepthlevel", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator = ProtoField.new("Market Flow Indicator", "box.options.sola.unicast.hsvf.v4.5.1.marketflowindicator", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator_x_2 = ProtoField.new("Market Flow Indicator X 2", "box.options.sola.unicast.hsvf.v4.5.1.marketflowindicatorx2", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.market_sheet_initial_and_improvement_order_message = ProtoField.new("Market Sheet Initial And Improvement Order Message", "box.options.sola.unicast.hsvf.v4.5.1.marketsheetinitialandimprovementordermessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.market_summaries = ProtoField.new("Market Summaries", "box.options.sola.unicast.hsvf.v4.5.1.marketsummaries", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.max_number_of_contracts_per_order = ProtoField.new("Max Number Of Contracts Per Order", "box.options.sola.unicast.hsvf.v4.5.1.maxnumberofcontractsperorder", ftypes.STRING)
@@ -149,7 +148,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_fraction_indicator = Prot
 box_options_sola_unicast_hsvf_v4_5_1.fields.open_price_sign = ProtoField.new("Open Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.openpricesign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_improvement_process_beginning_message = ProtoField.new("Option Improvement Process Beginning Message", "box.options.sola.unicast.hsvf.v4.5.1.optionimprovementprocessbeginningmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_instrument_keys_message = ProtoField.new("Option Instrument Keys Message", "box.options.sola.unicast.hsvf.v4.5.1.optioninstrumentkeysmessage", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker = ProtoField.new("Option Marker", "box.options.sola.unicast.hsvf.v4.5.1.optionmarker", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker_a_2 = ProtoField.new("Option Marker A 2", "box.options.sola.unicast.hsvf.v4.5.1.optionmarkera2", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_market_depth_message = ProtoField.new("Option Market Depth Message", "box.options.sola.unicast.hsvf.v4.5.1.optionmarketdepthmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_quote_message = ProtoField.new("Option Quote Message", "box.options.sola.unicast.hsvf.v4.5.1.optionquotemessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.option_request_for_quote_message = ProtoField.new("Option Request For Quote Message", "box.options.sola.unicast.hsvf.v4.5.1.optionrequestforquotemessage", ftypes.STRING)
@@ -175,9 +174,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol = ProtoField.new("Root S
 box_options_sola_unicast_hsvf_v4_5_1.fields.scheduled_time = ProtoField.new("Scheduled Time", "box.options.sola.unicast.hsvf.v4.5.1.scheduledtime", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_number = ProtoField.new("Sequence Number", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumber", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_numbers_skipped = ProtoField.new("Sequence Numbers Skipped", "box.options.sola.unicast.hsvf.v4.5.1.sequencenumbersskipped", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price = ProtoField.new("Strike Price", "box.options.sola.unicast.hsvf.v4.5.1.strikeprice", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_currency = ProtoField.new("Strike Price Currency", "box.options.sola.unicast.hsvf.v4.5.1.strikepricecurrency", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator = ProtoField.new("Strike Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.strikepricefractionindicator", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.system_default = ProtoField.new("System Default", "box.options.sola.unicast.hsvf.v4.5.1.systemdefault", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.system_timestamp_message = ProtoField.new("System Timestamp Message", "box.options.sola.unicast.hsvf.v4.5.1.systemtimestampmessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.system_value = ProtoField.new("System Value", "box.options.sola.unicast.hsvf.v4.5.1.systemvalue", ftypes.STRING)
@@ -191,12 +188,8 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_fraction_indicator = Pro
 box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price_sign = ProtoField.new("Trade Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.tradepricesign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp = ProtoField.new("Trading Engine Timestamp", "box.options.sola.unicast.hsvf.v4.5.1.tradingenginetimestamp", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_clearing_account = ProtoField.new("Type Of Clearing Account", "box.options.sola.unicast.hsvf.v4.5.1.typeofclearingaccount", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_instrument = ProtoField.new("Type Of Instrument", "box.options.sola.unicast.hsvf.v4.5.1.typeofinstrument", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market = ProtoField.new("Type Of Market", "box.options.sola.unicast.hsvf.v4.5.1.typeofmarket", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market_data = ProtoField.new("Type Of Market Data", "box.options.sola.unicast.hsvf.v4.5.1.typeofmarketdata", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_options = ProtoField.new("Type Of Options", "box.options.sola.unicast.hsvf.v4.5.1.typeofoptions", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_order = ProtoField.new("Type Of Order", "box.options.sola.unicast.hsvf.v4.5.1.typeoforder", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_underlying = ProtoField.new("Type Of Underlying", "box.options.sola.unicast.hsvf.v4.5.1.typeofunderlying", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol = ProtoField.new("Underlying Symbol", "box.options.sola.unicast.hsvf.v4.5.1.underlyingsymbol", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.underlying_symbol_root = ProtoField.new("Underlying Symbol Root", "box.options.sola.unicast.hsvf.v4.5.1.underlyingsymbolroot", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.volume_n_8 = ProtoField.new("Volume N 8", "box.options.sola.unicast.hsvf.v4.5.1.volumen8", ftypes.STRING)
@@ -228,15 +221,12 @@ show.gap_sequence_message = true
 show.group_opening_time_message = true
 show.group_status_message = true
 show.initial_and_improvement_order_message = true
-show.instrument_description = true
 show.instrument_leg = true
 show.market_depth_level = true
-show.market_flow_indicator = true
 show.market_sheet_initial_and_improvement_order_message = true
 show.message_header = true
 show.option_improvement_process_beginning_message = true
 show.option_instrument_keys_message = true
-show.option_marker = true
 show.option_market_depth_message = true
 show.option_quote_message = true
 show.option_request_for_quote_message = true
@@ -269,15 +259,12 @@ box_options_sola_unicast_hsvf_v4_5_1.prefs.show_gap_sequence_message = Pref.bool
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_opening_time_message = Pref.bool("Show Group Opening Time Message", show.group_opening_time_message, "Parse and add Group Opening Time Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_group_status_message = Pref.bool("Show Group Status Message", show.group_status_message, "Parse and add Group Status Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message = Pref.bool("Show Initial And Improvement Order Message", show.initial_and_improvement_order_message, "Parse and add Initial And Improvement Order Message to protocol tree")
-box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description = Pref.bool("Show Instrument Description", show.instrument_description, "Parse and add Instrument Description to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg = Pref.bool("Show Instrument Leg", show.instrument_leg, "Parse and add Instrument Leg to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level = Pref.bool("Show Market Depth Level", show.market_depth_level, "Parse and add Market Depth Level to protocol tree")
-box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator = Pref.bool("Show Market Flow Indicator", show.market_flow_indicator, "Parse and add Market Flow Indicator to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message = Pref.bool("Show Market Sheet Initial And Improvement Order Message", show.market_sheet_initial_and_improvement_order_message, "Parse and add Market Sheet Initial And Improvement Order Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_improvement_process_beginning_message = Pref.bool("Show Option Improvement Process Beginning Message", show.option_improvement_process_beginning_message, "Parse and add Option Improvement Process Beginning Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message = Pref.bool("Show Option Instrument Keys Message", show.option_instrument_keys_message, "Parse and add Option Instrument Keys Message to protocol tree")
-box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker = Pref.bool("Show Option Marker", show.option_marker, "Parse and add Option Marker to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message = Pref.bool("Show Option Market Depth Message", show.option_market_depth_message, "Parse and add Option Market Depth Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_quote_message = Pref.bool("Show Option Quote Message", show.option_quote_message, "Parse and add Option Quote Message to protocol tree")
 box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_request_for_quote_message = Pref.bool("Show Option Request For Quote Message", show.option_request_for_quote_message, "Parse and add Option Request For Quote Message to protocol tree")
@@ -377,20 +364,12 @@ function box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
     show.initial_and_improvement_order_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_initial_and_improvement_order_message
     changed = true
   end
-  if show.instrument_description ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description then
-    show.instrument_description = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_description
-    changed = true
-  end
   if show.instrument_leg ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg then
     show.instrument_leg = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_instrument_leg
     changed = true
   end
   if show.market_depth_level ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level then
     show.market_depth_level = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_depth_level
-    changed = true
-  end
-  if show.market_flow_indicator ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator then
-    show.market_flow_indicator = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_flow_indicator
     changed = true
   end
   if show.market_sheet_initial_and_improvement_order_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_market_sheet_initial_and_improvement_order_message then
@@ -407,10 +386,6 @@ function box_options_sola_unicast_hsvf_v4_5_1.prefs_changed()
   end
   if show.option_instrument_keys_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message then
     show.option_instrument_keys_message = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_instrument_keys_message
-    changed = true
-  end
-  if show.option_marker ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker then
-    show.option_marker = box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_marker
     changed = true
   end
   if show.option_market_depth_message ~= box_options_sola_unicast_hsvf_v4_5_1.prefs.show_option_market_depth_message then
@@ -748,255 +723,13 @@ dissect.improvement_order_side = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Expiry Day
-size_of.expiry_day = 2
-
--- Display: Expiry Day
-display.expiry_day = function(value)
-  return "Expiry Day: "..value
-end
-
--- Dissect: Expiry Day
-dissect.expiry_day = function(buffer, offset, packet, parent)
-  local length = size_of.expiry_day
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-  local display = display.expiry_day(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Expiry Year
-size_of.expiry_year = 2
-
--- Display: Expiry Year
-display.expiry_year = function(value)
-  return "Expiry Year: "..value
-end
-
--- Dissect: Expiry Year
-dissect.expiry_year = function(buffer, offset, packet, parent)
-  local length = size_of.expiry_year
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-  local display = display.expiry_year(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Strike Price Fraction Indicator
-size_of.strike_price_fraction_indicator = 1
-
--- Display: Strike Price Fraction Indicator
-display.strike_price_fraction_indicator = function(value)
-  return "Strike Price Fraction Indicator: "..value
-end
-
--- Dissect: Strike Price Fraction Indicator
-dissect.strike_price_fraction_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_fraction_indicator
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.strike_price_fraction_indicator(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price_fraction_indicator, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Strike Price
-size_of.strike_price = 7
-
--- Display: Strike Price
-display.strike_price = function(value)
-  return "Strike Price: "..value
-end
-
--- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
-  local range = buffer(offset, length)
-  local value = tonumber(range:string())
-  local display = display.strike_price(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Filler 1
-size_of.filler_1 = 1
-
--- Display: Filler 1
-display.filler_1 = function(value)
-  return "Filler 1: "..value
-end
-
--- Dissect: Filler 1
-dissect.filler_1 = function(buffer, offset, packet, parent)
-  local length = size_of.filler_1
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.filler_1(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.filler_1, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Expiry Month Code
-size_of.expiry_month_code = 1
-
--- Display: Expiry Month Code
-display.expiry_month_code = function(value)
-  if value == "M" then
-    return "Expiry Month Code: January Put (M)"
-  end
-  if value == "N" then
-    return "Expiry Month Code: February Put (N)"
-  end
-  if value == "O" then
-    return "Expiry Month Code: March Put (O)"
-  end
-  if value == "P" then
-    return "Expiry Month Code: April Put (P)"
-  end
-  if value == "Q" then
-    return "Expiry Month Code: May Put (Q)"
-  end
-  if value == "R" then
-    return "Expiry Month Code: June Put (R)"
-  end
-  if value == "S" then
-    return "Expiry Month Code: July Put (S)"
-  end
-  if value == "T" then
-    return "Expiry Month Code: August Put (T)"
-  end
-  if value == "U" then
-    return "Expiry Month Code: September Put (U)"
-  end
-  if value == "V" then
-    return "Expiry Month Code: October Put (V)"
-  end
-  if value == "W" then
-    return "Expiry Month Code: November Put (W)"
-  end
-
-  return "Expiry Month Code: Unknown("..value..")"
-end
-
--- Dissect: Expiry Month Code
-dissect.expiry_month_code = function(buffer, offset, packet, parent)
-  local length = size_of.expiry_month_code
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.expiry_month_code(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_month_code, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Root Symbol
-size_of.root_symbol = 6
-
--- Display: Root Symbol
-display.root_symbol = function(value)
-  return "Root Symbol: "..value
-end
-
--- Dissect: Root Symbol
-dissect.root_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.root_symbol
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.root_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Instrument Description
-size_of.instrument_description = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.root_symbol
-
-  index = index + size_of.expiry_month_code
-
-  index = index + size_of.filler_1
-
-  index = index + size_of.strike_price
-
-  index = index + size_of.strike_price_fraction_indicator
-
-  index = index + size_of.expiry_year
-
-  index = index + size_of.expiry_day
-
-  return index
-end
-
--- Display: Instrument Description
-display.instrument_description = function(buffer, offset, value, packet, parent)
-  return "Instrument Description: "..value
-end
-
--- Dissect Fields: Instrument Description
-dissect.instrument_description_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Root Symbol: 6 Byte Ascii String
-  index, root_symbol = dissect.root_symbol(buffer, index, packet, parent)
-
-  -- Expiry Month Code: 1 Byte Ascii String Enum with 11 values
-  index, expiry_month_code = dissect.expiry_month_code(buffer, index, packet, parent)
-
-  -- Filler 1: 1 Byte Ascii String
-  index, filler_1 = dissect.filler_1(buffer, index, packet, parent)
-
-  -- Strike Price: 7 Byte Ascii String
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
-
-  -- Strike Price Fraction Indicator: 1 Byte Ascii String
-  index, strike_price_fraction_indicator = dissect.strike_price_fraction_indicator(buffer, index, packet, parent)
-
-  -- Expiry Year: 2 Byte Ascii String
-  index, expiry_year = dissect.expiry_year(buffer, index, packet, parent)
-
-  -- Expiry Day: 2 Byte Ascii String
-  index, expiry_day = dissect.expiry_day(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Instrument Description
-dissect.instrument_description = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.instrument_description then
-    local length = size_of.instrument_description(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = display.instrument_description(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description, range, value, display)
-  end
-
-  return dissect.instrument_description_fields(buffer, offset, packet, parent)
-end
-
 -- Calculate size of: Initial And Improvement Order Message
 size_of.initial_and_improvement_order_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.deletion_type
 
@@ -1023,8 +756,8 @@ dissect.initial_and_improvement_order_message_fields = function(buffer, offset, 
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Deletion Type: 1 Byte Ascii String Enum with 3 values
   index, deletion_type = dissect.deletion_type(buffer, index, packet, parent)
@@ -1428,7 +1161,7 @@ size_of.market_sheet_initial_and_improvement_order_message = function(buffer, of
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.order_side
 
@@ -1471,8 +1204,8 @@ dissect.market_sheet_initial_and_improvement_order_message_fields = function(buf
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
   index, order_side = dissect.order_side(buffer, index, packet, parent)
@@ -1826,7 +1559,7 @@ size_of.option_improvement_process_beginning_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.improvement_phase_sequential_number
 
@@ -1865,8 +1598,8 @@ dissect.option_improvement_process_beginning_message_fields = function(buffer, o
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Improvement Phase Sequential Number: 6 Byte Ascii String
   index, improvement_phase_sequential_number = dissect.improvement_phase_sequential_number(buffer, index, packet, parent)
@@ -2073,6 +1806,26 @@ dissect.bulletin_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Filler 1
+size_of.filler_1 = 1
+
+-- Display: Filler 1
+display.filler_1 = function(value)
+  return "Filler 1: "..value
+end
+
+-- Dissect: Filler 1
+dissect.filler_1 = function(buffer, offset, packet, parent)
+  local length = size_of.filler_1
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.filler_1(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.filler_1, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Bulletins Message
 size_of.bulletins_message = function(buffer, offset)
   local index = 0
@@ -2235,6 +1988,26 @@ dissect.complex_order_group_status_message = function(buffer, offset, packet, pa
   end
 
   return dissect.complex_order_group_status_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Root Symbol
+size_of.root_symbol = 6
+
+-- Display: Root Symbol
+display.root_symbol = function(value)
+  return "Root Symbol: "..value
+end
+
+-- Dissect: Root Symbol
+dissect.root_symbol = function(buffer, offset, packet, parent)
+  local length = size_of.root_symbol
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.root_symbol(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.root_symbol, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Group Status Message
@@ -3167,91 +2940,24 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Type Of Options
-size_of.type_of_options = 1
+-- Size: Option Marker A 2
+size_of.option_marker_a_2 = 2
 
--- Display: Type Of Options
-display.type_of_options = function(value)
-  if value == " " then
-    return "Type Of Options: Regular (<whitespace>)"
-  end
-
-  return "Type Of Options: Unknown("..value..")"
+-- Display: Option Marker A 2
+display.option_marker_a_2 = function(value)
+  return "Option Marker A 2: "..value
 end
 
--- Dissect: Type Of Options
-dissect.type_of_options = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_options
+-- Dissect: Option Marker A 2
+dissect.option_marker_a_2 = function(buffer, offset, packet, parent)
+  local length = size_of.option_marker_a_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.type_of_options(value, buffer, offset, packet, parent)
+  local display = display.option_marker_a_2(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_options, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Type Of Market
-size_of.type_of_market = 1
-
--- Display: Type Of Market
-display.type_of_market = function(value)
-  return "Type Of Market: "..value
-end
-
--- Dissect: Type Of Market
-dissect.type_of_market = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_market
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.type_of_market(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_market, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker_a_2, range, value, display)
 
   return offset + length, value
-end
-
--- Calculate size of: Option Marker
-size_of.option_marker = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.type_of_market
-
-  index = index + size_of.type_of_options
-
-  return index
-end
-
--- Display: Option Marker
-display.option_marker = function(buffer, offset, value, packet, parent)
-  return "Option Marker: "..value
-end
-
--- Dissect Fields: Option Marker
-dissect.option_marker_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Type Of Market: 1 Byte Ascii String
-  index, type_of_market = dissect.type_of_market(buffer, index, packet, parent)
-
-  -- Type Of Options: 1 Byte Ascii String Enum with 1 values
-  index, type_of_options = dissect.type_of_options(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Option Marker
-dissect.option_marker = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.option_marker then
-    local length = size_of.option_marker(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = display.option_marker(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.option_marker, range, value, display)
-  end
-
-  return dissect.option_marker_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Volume N 8
@@ -3327,7 +3033,7 @@ size_of.option_summary_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.bid_price_n_6
 
@@ -3369,7 +3075,7 @@ size_of.option_summary_message = function(buffer, offset)
 
   index = index + size_of.low_price_fraction_indicator
 
-  index = index + size_of.option_marker(buffer, offset + index)
+  index = index + size_of.option_marker_a_2
 
   index = index + size_of.underlying_symbol
 
@@ -3392,8 +3098,8 @@ dissect.option_summary_message_fields = function(buffer, offset, packet, parent)
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Bid Price N 6: 6 Byte Ascii String
   index, bid_price_n_6 = dissect.bid_price_n_6(buffer, index, packet, parent)
@@ -3455,8 +3161,8 @@ dissect.option_summary_message_fields = function(buffer, offset, packet, parent)
   -- Low Price Fraction Indicator: 1 Byte Ascii String
   index, low_price_fraction_indicator = dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String: Struct of 2 fields
-  index, option_marker = dissect.option_marker(buffer, index, packet, parent)
+  -- Option Marker A 2: 2 Byte Ascii String
+  index, option_marker_a_2 = dissect.option_marker_a_2(buffer, index, packet, parent)
 
   -- Underlying Symbol: 10 Byte Ascii String
   index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
@@ -3941,6 +3647,26 @@ dissect.max_number_of_contracts_per_order = function(buffer, offset, packet, par
   return offset + length, value
 end
 
+-- Size: Expiry Day
+size_of.expiry_day = 2
+
+-- Display: Expiry Day
+display.expiry_day = function(value)
+  return "Expiry Day: "..value
+end
+
+-- Dissect: Expiry Day
+dissect.expiry_day = function(buffer, offset, packet, parent)
+  local length = size_of.expiry_day
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+  local display = display.expiry_day(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Delivery Month
 size_of.delivery_month = 1
 
@@ -3991,6 +3717,26 @@ dissect.delivery_month = function(buffer, offset, packet, parent)
   local display = display.delivery_month(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.delivery_month, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Expiry Year
+size_of.expiry_year = 2
+
+-- Display: Expiry Year
+display.expiry_year = function(value)
+  return "Expiry Year: "..value
+end
+
+-- Dissect: Expiry Year
+dissect.expiry_year = function(buffer, offset, packet, parent)
+  local length = size_of.expiry_year
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+  local display = display.expiry_year(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year, range, value, display)
 
   return offset + length, value
 end
@@ -4181,101 +3927,24 @@ dissect.group_instrument = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Type Of Underlying
-size_of.type_of_underlying = 1
+-- Size: Market Flow Indicator X 2
+size_of.market_flow_indicator_x_2 = 2
 
--- Display: Type Of Underlying
-display.type_of_underlying = function(value)
-  if value == "X" then
-    return "Type Of Underlying: Index (X)"
-  end
-  if value == "E" then
-    return "Type Of Underlying: Equities (E)"
-  end
-
-  return "Type Of Underlying: Unknown("..value..")"
+-- Display: Market Flow Indicator X 2
+display.market_flow_indicator_x_2 = function(value)
+  return "Market Flow Indicator X 2: "..value
 end
 
--- Dissect: Type Of Underlying
-dissect.type_of_underlying = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_underlying
+-- Dissect: Market Flow Indicator X 2
+dissect.market_flow_indicator_x_2 = function(buffer, offset, packet, parent)
+  local length = size_of.market_flow_indicator_x_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.type_of_underlying(value, buffer, offset, packet, parent)
+  local display = display.market_flow_indicator_x_2(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_underlying, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Type Of Instrument
-size_of.type_of_instrument = 1
-
--- Display: Type Of Instrument
-display.type_of_instrument = function(value)
-  if value == "O" then
-    return "Type Of Instrument: Options (O)"
-  end
-  if value == "L" then
-    return "Type Of Instrument: Long Term (L)"
-  end
-
-  return "Type Of Instrument: Unknown("..value..")"
-end
-
--- Dissect: Type Of Instrument
-dissect.type_of_instrument = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_instrument
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.type_of_instrument(value, buffer, offset, packet, parent)
-
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.type_of_instrument, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator_x_2, range, value, display)
 
   return offset + length, value
-end
-
--- Calculate size of: Market Flow Indicator
-size_of.market_flow_indicator = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.type_of_instrument
-
-  index = index + size_of.type_of_underlying
-
-  return index
-end
-
--- Display: Market Flow Indicator
-display.market_flow_indicator = function(buffer, offset, value, packet, parent)
-  return "Market Flow Indicator: "..value
-end
-
--- Dissect Fields: Market Flow Indicator
-dissect.market_flow_indicator_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Type Of Instrument: 1 Byte Ascii String Enum with 2 values
-  index, type_of_instrument = dissect.type_of_instrument(buffer, index, packet, parent)
-
-  -- Type Of Underlying: 1 Byte Ascii String Enum with 2 values
-  index, type_of_underlying = dissect.type_of_underlying(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Market Flow Indicator
-dissect.market_flow_indicator = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.market_flow_indicator then
-    local length = size_of.market_flow_indicator(buffer, offset)
-    local range = buffer(offset, length)
-    local value = range:string()
-    local display = display.market_flow_indicator(buffer, offset, value, packet, parent)
-    parent = parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.market_flow_indicator, range, value, display)
-  end
-
-  return dissect.market_flow_indicator_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Option Type
@@ -4458,7 +4127,7 @@ size_of.option_instrument_keys_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.strike_price_currency
 
@@ -4480,7 +4149,7 @@ size_of.option_instrument_keys_message = function(buffer, offset)
 
   index = index + size_of.option_type
 
-  index = index + size_of.market_flow_indicator(buffer, offset + index)
+  index = index + size_of.market_flow_indicator_x_2
 
   index = index + size_of.group_instrument
 
@@ -4488,7 +4157,7 @@ size_of.option_instrument_keys_message = function(buffer, offset)
 
   index = index + size_of.instrument_external_code
 
-  index = index + size_of.option_marker(buffer, offset + index)
+  index = index + size_of.option_marker_a_2
 
   index = index + size_of.underlying_symbol_root
 
@@ -4507,8 +4176,8 @@ dissect.option_instrument_keys_message_fields = function(buffer, offset, packet,
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Strike Price Currency: 3 Byte Ascii String Enum with 2 values
   index, strike_price_currency = dissect.strike_price_currency(buffer, index, packet, parent)
@@ -4540,8 +4209,8 @@ dissect.option_instrument_keys_message_fields = function(buffer, offset, packet,
   -- Option Type: 1 Byte Ascii String Enum with 2 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String: Struct of 2 fields
-  index, market_flow_indicator = dissect.market_flow_indicator(buffer, index, packet, parent)
+  -- Market Flow Indicator X 2: 2 Byte Ascii String
+  index, market_flow_indicator_x_2 = dissect.market_flow_indicator_x_2(buffer, index, packet, parent)
 
   -- Group Instrument: 2 Byte Ascii String
   index, group_instrument = dissect.group_instrument(buffer, index, packet, parent)
@@ -4552,8 +4221,8 @@ dissect.option_instrument_keys_message_fields = function(buffer, offset, packet,
   -- Instrument External Code: 30 Byte Ascii String
   index, instrument_external_code = dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String: Struct of 2 fields
-  index, option_marker = dissect.option_marker(buffer, index, packet, parent)
+  -- Option Marker A 2: 2 Byte Ascii String
+  index, option_marker_a_2 = dissect.option_marker_a_2(buffer, index, packet, parent)
 
   -- Underlying Symbol Root: 10 Byte Ascii String
   index, underlying_symbol_root = dissect.underlying_symbol_root(buffer, index, packet, parent)
@@ -4811,13 +4480,33 @@ dissect.open_interest_n_7 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Instrument Description X 20
+size_of.instrument_description_x_20 = 20
+
+-- Display: Instrument Description X 20
+display.instrument_description_x_20 = function(value)
+  return "Instrument Description X 20: "..value
+end
+
+-- Dissect: Instrument Description X 20
+dissect.instrument_description_x_20 = function(buffer, offset, packet, parent)
+  local length = size_of.instrument_description_x_20
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.instrument_description_x_20(value, buffer, offset, packet, parent)
+
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_description_x_20, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Option Trade Cancellation Message
 size_of.option_trade_cancellation_message = function(buffer, offset)
   local index = 0
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_x_20
 
   index = index + size_of.volume_x_8
 
@@ -4850,8 +4539,8 @@ dissect.option_trade_cancellation_message_fields = function(buffer, offset, pack
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description X 20: 20 Byte Ascii String
+  index, instrument_description_x_20 = dissect.instrument_description_x_20(buffer, index, packet, parent)
 
   -- Volume X 8: 8 Byte Ascii String
   index, volume_x_8 = dissect.volume_x_8(buffer, index, packet, parent)
@@ -5252,7 +4941,7 @@ size_of.option_market_depth_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_x_20
 
   index = index + size_of.instrument_status_marker
 
@@ -5277,8 +4966,8 @@ dissect.option_market_depth_message_fields = function(buffer, offset, packet, pa
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description X 20: 20 Byte Ascii String
+  index, instrument_description_x_20 = dissect.instrument_description_x_20(buffer, index, packet, parent)
 
   -- Instrument Status Marker: 1 Byte Ascii String Enum with 11 values
   index, instrument_status_marker = dissect.instrument_status_marker(buffer, index, packet, parent)
@@ -5470,7 +5159,7 @@ size_of.option_quote_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.bid_price_x_6
 
@@ -5507,8 +5196,8 @@ dissect.option_quote_message_fields = function(buffer, offset, packet, parent)
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Bid Price X 6: 6 Byte Ascii String
   index, bid_price_x_6 = dissect.bid_price_x_6(buffer, index, packet, parent)
@@ -5582,7 +5271,7 @@ size_of.option_request_for_quote_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_x_20
 
   index = index + size_of.requested_size
 
@@ -5601,8 +5290,8 @@ dissect.option_request_for_quote_message_fields = function(buffer, offset, packe
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description X 20: 20 Byte Ascii String
+  index, instrument_description_x_20 = dissect.instrument_description_x_20(buffer, index, packet, parent)
 
   -- Requested Size: 8 Byte Ascii String
   index, requested_size = dissect.requested_size(buffer, index, packet, parent)
@@ -5721,7 +5410,7 @@ size_of.option_trade_message = function(buffer, offset)
 
   index = index + size_of.exchange_id
 
-  index = index + size_of.instrument_description(buffer, offset + index)
+  index = index + size_of.instrument_description_struct_20
 
   index = index + size_of.volume_x_8
 
@@ -5760,8 +5449,8 @@ dissect.option_trade_message_fields = function(buffer, offset, packet, parent)
   -- Exchange Id: 1 Byte Ascii String
   index, exchange_id = dissect.exchange_id(buffer, index, packet, parent)
 
-  -- Instrument Description: 20 Byte Ascii String: Struct of 7 fields
-  index, instrument_description = dissect.instrument_description(buffer, index, packet, parent)
+  -- Instrument Description Struct 20
+  index, instrument_description_struct_20 = dissect.instrument_description_struct_20(buffer, index, packet, parent)
 
   -- Volume X 8: 8 Byte Ascii String
   index, volume_x_8 = dissect.volume_x_8(buffer, index, packet, parent)
@@ -6855,7 +6544,7 @@ end
 
 -- Verify Hsvf Etx Field
 verify.hsvf_etx = function(buffer)
-  if 3 == buffer(1538, 1):int() then
+  if 3 == buffer(1398, 1):int() then
     return true
   end
 
