@@ -756,7 +756,11 @@ size_of.timestamp = 8
 
 -- Display: Timestamp
 display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -2014,7 +2018,11 @@ size_of.receive_time = 8
 
 -- Display: Receive Time
 display.receive_time = function(value)
-  return "Receive Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Receive Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Receive Time
@@ -3149,7 +3157,11 @@ size_of.server_time = 8
 
 -- Display: Server Time
 display.server_time = function(value)
-  return "Server Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Server Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Server Time
@@ -3169,7 +3181,11 @@ size_of.request_time = 8
 
 -- Display: Request Time
 display.request_time = function(value)
-  return "Request Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Time
@@ -4369,7 +4385,11 @@ size_of.send_time_epoch_nanos = 8
 
 -- Display: Send Time Epoch Nanos
 display.send_time_epoch_nanos = function(value)
-  return "Send Time Epoch Nanos: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Send Time Epoch Nanos: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Send Time Epoch Nanos
