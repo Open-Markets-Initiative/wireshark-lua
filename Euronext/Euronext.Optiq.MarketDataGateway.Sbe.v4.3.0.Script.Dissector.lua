@@ -16308,7 +16308,10 @@ end
 
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
-  if 0 == buffer(20, 2):le_uint() then
+  -- Attempt to read field
+  local value = buffer(20, 2):le_uint()
+
+  if value == 0 then
     return true
   end
 
@@ -16317,7 +16320,10 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 304 == buffer(22, 2):le_uint() then
+  -- Attempt to read field
+  local value = buffer(22, 2):le_uint()
+
+  if value == 304 then
     return true
   end
 

@@ -2866,7 +2866,10 @@ end
 
 -- Verify Version Field
 verify.version = function(buffer)
-  if 5 == buffer(0, 1):le_uint() then
+  -- Attempt to read field
+  local value = buffer(0, 1):le_uint()
+
+  if value == 5 then
     return true
   end
 
@@ -2875,7 +2878,10 @@ end
 
 -- Verify Data Feed Indicator Field
 verify.data_feed_indicator = function(buffer)
-  if O == buffer(3, 1):string() then
+  -- Attempt to read field
+  local value = buffer(3, 1):string()
+
+  if value == O then
     return true
   end
 

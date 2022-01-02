@@ -1422,7 +1422,10 @@ end
 
 -- Verify Product Id Field
 verify.product_id = function(buffer)
-  if 12 == buffer(12, 1):uint() then
+  -- Attempt to read field
+  local value = buffer(12, 1):uint()
+
+  if value == 12 then
     return true
   end
 

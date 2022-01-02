@@ -6535,7 +6535,10 @@ end
 
 -- Verify Hsvf Stx Field
 verify.hsvf_stx = function(buffer)
-  if 2 == buffer(0, 1):int() then
+  -- Attempt to read field
+  local value = buffer(0, 1):int()
+
+  if value == 2 then
     return true
   end
 
@@ -6544,7 +6547,10 @@ end
 
 -- Verify Hsvf Etx Field
 verify.hsvf_etx = function(buffer)
-  if 3 == buffer(1398, 1):int() then
+  -- Attempt to read field
+  local value = buffer(1398, 1):int()
+
+  if value == 3 then
     return true
   end
 
