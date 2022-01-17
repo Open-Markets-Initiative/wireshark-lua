@@ -15601,6 +15601,10 @@ end
 
 -- Display: Var Data
 display.var_data = function(value)
+  if string.len(value) > 24 then
+    return "Var Data: "..string.sub(value, 0, 24).."..."
+  end
+
   return "Var Data: "..value
 end
 
@@ -15899,6 +15903,10 @@ size_of.hmac_signature = 32
 
 -- Display: Hmac Signature
 display.hmac_signature = function(value)
+  if string.len(value) > 24 then
+    return "Hmac Signature: "..string.sub(value, 0, 24).."..."
+  end
+
   return "Hmac Signature: "..value
 end
 
