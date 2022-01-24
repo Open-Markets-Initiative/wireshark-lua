@@ -3584,7 +3584,7 @@ display.security_sub_type = function(value)
     return "Security Sub Type: Call Spread Versus Sell Put Hedge (44)"
   end
   if value == 45 then
-    return "Security Sub Type: Put Spread Versus Sell Call+ Hedge (45)"
+    return "Security Sub Type: Put Spread Versus Sell Call Hedge (45)"
   end
   if value == 46 then
     return "Security Sub Type: Hedged Call Calendar (46)"

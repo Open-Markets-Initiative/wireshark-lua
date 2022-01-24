@@ -31,7 +31,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_complex_order_summary_m
 box_options_sola_unicast_hsvf_v4_5_1.fields.beginning_of_options_summary_message = ProtoField.new("Beginning Of Options Summary Message", "box.options.sola.unicast.hsvf.v4.5.1.beginningofoptionssummarymessage", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_fraction_indicator = ProtoField.new("Bid Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.bidpricefractionindicator", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_n_6 = ProtoField.new("Bid Price N 6", "box.options.sola.unicast.hsvf.v4.5.1.bidpricen6", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign+ = ProtoField.new("Bid Price Sign+", "box.options.sola.unicast.hsvf.v4.5.1.bidpricesign+", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign = ProtoField.new("Bid Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.bidpricesign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_x_6 = ProtoField.new("Bid Price X 6", "box.options.sola.unicast.hsvf.v4.5.1.bidpricex6", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.bid_size = ProtoField.new("Bid Size", "box.options.sola.unicast.hsvf.v4.5.1.bidsize", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.bulletin_contents = ProtoField.new("Bulletin Contents", "box.options.sola.unicast.hsvf.v4.5.1.bulletincontents", ftypes.STRING)
@@ -99,7 +99,7 @@ box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_leg = ProtoField.new("Ins
 box_options_sola_unicast_hsvf_v4_5_1.fields.instrument_status_marker = ProtoField.new("Instrument Status Marker", "box.options.sola.unicast.hsvf.v4.5.1.instrumentstatusmarker", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.last_price = ProtoField.new("Last Price", "box.options.sola.unicast.hsvf.v4.5.1.lastprice", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_fraction_indicator = ProtoField.new("Last Price Fraction Indicator", "box.options.sola.unicast.hsvf.v4.5.1.lastpricefractionindicator", ftypes.STRING)
-box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign+ = ProtoField.new("Last Price Sign+", "box.options.sola.unicast.hsvf.v4.5.1.lastpricesign+", ftypes.STRING)
+box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign = ProtoField.new("Last Price Sign", "box.options.sola.unicast.hsvf.v4.5.1.lastpricesign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio = ProtoField.new("Leg Ratio", "box.options.sola.unicast.hsvf.v4.5.1.legratio", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio_sign = ProtoField.new("Leg Ratio Sign", "box.options.sola.unicast.hsvf.v4.5.1.legratiosign", ftypes.STRING)
 box_options_sola_unicast_hsvf_v4_5_1.fields.leg_symbol = ProtoField.new("Leg Symbol", "box.options.sola.unicast.hsvf.v4.5.1.legsymbol", ftypes.STRING)
@@ -2531,22 +2531,22 @@ dissect.last_price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Last Price Sign+
-size_of.last_price_sign+ = 1
+-- Size: Last Price Sign
+size_of.last_price_sign = 1
 
--- Display: Last Price Sign+
-display.last_price_sign+ = function(value)
-  return "Last Price Sign+: "..value
+-- Display: Last Price Sign
+display.last_price_sign = function(value)
+  return "Last Price Sign: "..value
 end
 
--- Dissect: Last Price Sign+
-dissect.last_price_sign+ = function(buffer, offset, packet, parent)
-  local length = size_of.last_price_sign+
+-- Dissect: Last Price Sign
+dissect.last_price_sign = function(buffer, offset, packet, parent)
+  local length = size_of.last_price_sign
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.last_price_sign+(value, buffer, offset, packet, parent)
+  local display = display.last_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign+, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2698,22 +2698,22 @@ dissect.bid_price_n_6 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Bid Price Sign+
-size_of.bid_price_sign+ = 1
+-- Size: Bid Price Sign
+size_of.bid_price_sign = 1
 
--- Display: Bid Price Sign+
-display.bid_price_sign+ = function(value)
-  return "Bid Price Sign+: "..value
+-- Display: Bid Price Sign
+display.bid_price_sign = function(value)
+  return "Bid Price Sign: "..value
 end
 
--- Dissect: Bid Price Sign+
-dissect.bid_price_sign+ = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_sign+
+-- Dissect: Bid Price Sign
+dissect.bid_price_sign = function(buffer, offset, packet, parent)
+  local length = size_of.bid_price_sign
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.bid_price_sign+(value, buffer, offset, packet, parent)
+  local display = display.bid_price_sign(value, buffer, offset, packet, parent)
 
-  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign+, range, value, display)
+  parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price_sign, range, value, display)
 
   return offset + length, value
 end
@@ -2726,7 +2726,7 @@ size_of.complex_order_summary_message = function(buffer, offset)
 
   index = index + size_of.complex_order_instrument_symbol
 
-  index = index + size_of.bid_price_sign+
+  index = index + size_of.bid_price_sign
 
   index = index + size_of.bid_price_n_6
 
@@ -2742,7 +2742,7 @@ size_of.complex_order_summary_message = function(buffer, offset)
 
   index = index + size_of.ask_size
 
-  index = index + size_of.last_price_sign+
+  index = index + size_of.last_price_sign
 
   index = index + size_of.last_price
 
@@ -2792,8 +2792,8 @@ dissect.complex_order_summary_message_fields = function(buffer, offset, packet, 
   -- Complex Order Instrument Symbol: 30 Byte Ascii String
   index, complex_order_instrument_symbol = dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign+: 1 Byte Ascii String
-  index, bid_price_sign+ = dissect.bid_price_sign+(buffer, index, packet, parent)
+  -- Bid Price Sign: 1 Byte Ascii String
+  index, bid_price_sign = dissect.bid_price_sign(buffer, index, packet, parent)
 
   -- Bid Price N 6: 6 Byte Ascii String
   index, bid_price_n_6 = dissect.bid_price_n_6(buffer, index, packet, parent)
@@ -2816,8 +2816,8 @@ dissect.complex_order_summary_message_fields = function(buffer, offset, packet, 
   -- Ask Size: 5 Byte Ascii String
   index, ask_size = dissect.ask_size(buffer, index, packet, parent)
 
-  -- Last Price Sign+: 1 Byte Ascii String
-  index, last_price_sign+ = dissect.last_price_sign+(buffer, index, packet, parent)
+  -- Last Price Sign: 1 Byte Ascii String
+  index, last_price_sign = dissect.last_price_sign(buffer, index, packet, parent)
 
   -- Last Price: 6 Byte Ascii String
   index, last_price = dissect.last_price(buffer, index, packet, parent)
@@ -5064,7 +5064,7 @@ size_of.complex_order_quote_message = function(buffer, offset)
 
   index = index + size_of.complex_order_instrument_symbol
 
-  index = index + size_of.bid_price_sign+
+  index = index + size_of.bid_price_sign
 
   index = index + size_of.bid_price_x_6
 
@@ -5104,8 +5104,8 @@ dissect.complex_order_quote_message_fields = function(buffer, offset, packet, pa
   -- Complex Order Instrument Symbol: 30 Byte Ascii String
   index, complex_order_instrument_symbol = dissect.complex_order_instrument_symbol(buffer, index, packet, parent)
 
-  -- Bid Price Sign+: 1 Byte Ascii String
-  index, bid_price_sign+ = dissect.bid_price_sign+(buffer, index, packet, parent)
+  -- Bid Price Sign: 1 Byte Ascii String
+  index, bid_price_sign = dissect.bid_price_sign(buffer, index, packet, parent)
 
   -- Bid Price X 6: 6 Byte Ascii String
   index, bid_price_x_6 = dissect.bid_price_x_6(buffer, index, packet, parent)
