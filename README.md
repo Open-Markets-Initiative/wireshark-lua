@@ -118,6 +118,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Siac][Siac.Directory] | Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Tmx][Tmx.Directory] | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | Hsvf | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Tmx][Tmx.Directory] | QuantumFeed | [UdpHeader][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | Xmt | [1.1][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | 10/20/2020 | [Verified][Omi.Glossary.Testing.Verified] |
 
 Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Fairx][Fairx.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
 
@@ -127,7 +128,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 150 | 1,352,064 |
+| 151 | 1,352,593 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -268,3 +269,4 @@ Enjoy.
 [Siac.Cqs.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cqs.Output.Cta.v1.91.Script.Dissector.lua "Siac Cqs Output Cta v1.91 Lua Wireshark Dissector"
 [Siac.Cts.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cts.Output.Cta.v1.91.Script.Dissector.lua "Siac Cts Output Cta v1.91 Lua Wireshark Dissector"
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Lua Wireshark Dissector"
+[Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Script.Dissector.lua "Tmx QuantumFeed UdpHeader Xmt v1.1 Lua Wireshark Dissector"
