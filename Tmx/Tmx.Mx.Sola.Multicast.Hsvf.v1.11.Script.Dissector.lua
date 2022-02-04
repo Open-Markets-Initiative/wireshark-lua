@@ -35,10 +35,13 @@ tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_sign = ProtoField.new("Bid Pri
 tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_price_x_6 = ProtoField.new("Bid Price X 6", "tmx.mx.sola.multicast.hsvf.v1.11.bidpricex6", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.bid_size = ProtoField.new("Bid Size", "tmx.mx.sola.multicast.hsvf.v1.11.bidsize", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin = ProtoField.new("Bulletin", "tmx.mx.sola.multicast.hsvf.v1.11.bulletin", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_contents_x_49 = ProtoField.new("Bulletin Contents X 49", "tmx.mx.sola.multicast.hsvf.v1.11.bulletincontentsx49", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_type = ProtoField.new("Bulletin Type", "tmx.mx.sola.multicast.hsvf.v1.11.bulletintype", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletins_message = ProtoField.new("Bulletins Message", "tmx.mx.sola.multicast.hsvf.v1.11.bulletinsmessage", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.call_put_code = ProtoField.new("Call Put Code", "tmx.mx.sola.multicast.hsvf.v1.11.callputcode", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.cash_flow_alignment_date = ProtoField.new("Cash Flow Alignment Date", "tmx.mx.sola.multicast.hsvf.v1.11.cashflowalignmentdate", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.circuit_assurance_message = ProtoField.new("Circuit Assurance Message", "tmx.mx.sola.multicast.hsvf.v1.11.circuitassurancemessage", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.continue_marker = ProtoField.new("Continue Marker", "tmx.mx.sola.multicast.hsvf.v1.11.continuemarker", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.contract_month_code = ProtoField.new("Contract Month Code", "tmx.mx.sola.multicast.hsvf.v1.11.contractmonthcode", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.contract_size = ProtoField.new("Contract Size", "tmx.mx.sola.multicast.hsvf.v1.11.contractsize", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.currency = ProtoField.new("Currency", "tmx.mx.sola.multicast.hsvf.v1.11.currency", ftypes.STRING)
@@ -184,6 +187,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.fields.price_fraction_indicator = ProtoField.ne
 tmx_mx_sola_multicast_hsvf_v1_11.fields.price_indicator_marker_a_1 = ProtoField.new("Price Indicator Marker A 1", "tmx.mx.sola.multicast.hsvf.v1.11.priceindicatormarkera1", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.price_indicator_marker_x_1 = ProtoField.new("Price Indicator Marker X 1", "tmx.mx.sola.multicast.hsvf.v1.11.priceindicatormarkerx1", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.reason = ProtoField.new("Reason", "tmx.mx.sola.multicast.hsvf.v1.11.reason", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.regular_bulletin_contents = ProtoField.new("Regular Bulletin Contents", "tmx.mx.sola.multicast.hsvf.v1.11.regularbulletincontents", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.regular_text_bulletin = ProtoField.new("Regular Text Bulletin", "tmx.mx.sola.multicast.hsvf.v1.11.regulartextbulletin", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.requested_market_side = ProtoField.new("Requested Market Side", "tmx.mx.sola.multicast.hsvf.v1.11.requestedmarketside", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.requested_size = ProtoField.new("Requested Size", "tmx.mx.sola.multicast.hsvf.v1.11.requestedsize", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.reserved = ProtoField.new("Reserved", "tmx.mx.sola.multicast.hsvf.v1.11.reserved", ftypes.STRING)
@@ -196,6 +201,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.fields.series_status = ProtoField.new("Series S
 tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price = ProtoField.new("Settlement Price", "tmx.mx.sola.multicast.hsvf.v1.11.settlementprice", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_n_1 = ProtoField.new("Settlement Price Fraction Indicator N 1", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatorn1", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.settlement_price_fraction_indicator_x_1 = ProtoField.new("Settlement Price Fraction Indicator X 1", "tmx.mx.sola.multicast.hsvf.v1.11.settlementpricefractionindicatorx1", ftypes.STRING)
+tmx_mx_sola_multicast_hsvf_v1_11.fields.special_text_bulletin = ProtoField.new("Special Text Bulletin", "tmx.mx.sola.multicast.hsvf.v1.11.specialtextbulletin", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.strategies_message = ProtoField.new("Strategies Message", "tmx.mx.sola.multicast.hsvf.v1.11.strategiesmessage", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_allow_implied = ProtoField.new("Strategy Allow Implied", "tmx.mx.sola.multicast.hsvf.v1.11.strategyallowimplied", ftypes.STRING)
 tmx_mx_sola_multicast_hsvf_v1_11.fields.strategy_instrument_keys_message = ProtoField.new("Strategy Instrument Keys Message", "tmx.mx.sola.multicast.hsvf.v1.11.strategyinstrumentkeysmessage", ftypes.STRING)
@@ -297,6 +303,8 @@ show.option_trade_cancellation_message = true
 show.option_trade_correction_message = true
 show.option_trade_message = true
 show.packet = true
+show.regular_text_bulletin = true
+show.special_text_bulletin = true
 show.strategies_message = true
 show.strategy_instrument_keys_message = true
 show.strategy_market_depth_message = true
@@ -321,6 +329,7 @@ show.swap_future_trade_message = true
 show.tick_entry_group = true
 show.tick_table_message = true
 show.underlying_instrument_keys_message = true
+show.bulletin = false
 show.message_body = false
 
 -- Register Tmx Mx Sola Multicast Hsvf 1.11 Show Options
@@ -367,6 +376,8 @@ tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_option_trade_cancellation_message = 
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_option_trade_correction_message = Pref.bool("Show Option Trade Correction Message", show.option_trade_correction_message, "Parse and add Option Trade Correction Message to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_option_trade_message = Pref.bool("Show Option Trade Message", show.option_trade_message, "Parse and add Option Trade Message to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_regular_text_bulletin = Pref.bool("Show Regular Text Bulletin", show.regular_text_bulletin, "Parse and add Regular Text Bulletin to protocol tree")
+tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_special_text_bulletin = Pref.bool("Show Special Text Bulletin", show.special_text_bulletin, "Parse and add Special Text Bulletin to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategies_message = Pref.bool("Show Strategies Message", show.strategies_message, "Parse and add Strategies Message to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategy_instrument_keys_message = Pref.bool("Show Strategy Instrument Keys Message", show.strategy_instrument_keys_message, "Parse and add Strategy Instrument Keys Message to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategy_market_depth_message = Pref.bool("Show Strategy Market Depth Message", show.strategy_market_depth_message, "Parse and add Strategy Market Depth Message to protocol tree")
@@ -391,6 +402,7 @@ tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_swap_future_trade_message = Pref.boo
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_tick_entry_group = Pref.bool("Show Tick Entry Group", show.tick_entry_group, "Parse and add Tick Entry Group to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_tick_table_message = Pref.bool("Show Tick Table Message", show.tick_table_message, "Parse and add Tick Table Message to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message = Pref.bool("Show Underlying Instrument Keys Message", show.underlying_instrument_keys_message, "Parse and add Underlying Instrument Keys Message to protocol tree")
+tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin = Pref.bool("Show Bulletin", show.bulletin, "Parse and add Bulletin to protocol tree")
 tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_message_body = Pref.bool("Show Message Body", show.message_body, "Parse and add Message Body to protocol tree")
 
 -- Handle changed preferences
@@ -570,6 +582,14 @@ function tmx_mx_sola_multicast_hsvf_v1_11.prefs_changed()
     show.packet = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_packet
     changed = true
   end
+  if show.regular_text_bulletin ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_regular_text_bulletin then
+    show.regular_text_bulletin = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_regular_text_bulletin
+    changed = true
+  end
+  if show.special_text_bulletin ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_special_text_bulletin then
+    show.special_text_bulletin = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_special_text_bulletin
+    changed = true
+  end
   if show.strategies_message ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategies_message then
     show.strategies_message = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_strategies_message
     changed = true
@@ -664,6 +684,10 @@ function tmx_mx_sola_multicast_hsvf_v1_11.prefs_changed()
   end
   if show.underlying_instrument_keys_message ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message then
     show.underlying_instrument_keys_message = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_underlying_instrument_keys_message
+    changed = true
+  end
+  if show.bulletin ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin then
+    show.bulletin = tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_bulletin
     changed = true
   end
   if show.message_body ~= tmx_mx_sola_multicast_hsvf_v1_11.prefs.show_message_body then
@@ -1154,22 +1178,251 @@ dissect.end_of_sales_message = function(buffer, offset, packet, parent)
   return dissect.end_of_sales_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Bulletin
-size_of.bulletin = 1
+-- Size: Continue Marker
+size_of.continue_marker = 1
+
+-- Display: Continue Marker
+display.continue_marker = function(value)
+  return "Continue Marker: "..value
+end
+
+-- Dissect: Continue Marker
+dissect.continue_marker = function(buffer, offset, packet, parent)
+  local length = size_of.continue_marker
+  local range = buffer(offset, length)
+  local value = tonumber(range:string())
+  local display = display.continue_marker(value, buffer, offset, packet, parent)
+
+  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.continue_marker, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bulletin Contents X 49
+size_of.bulletin_contents_x_49 = 49
+
+-- Display: Bulletin Contents X 49
+display.bulletin_contents_x_49 = function(value)
+  return "Bulletin Contents X 49: "..value
+end
+
+-- Dissect: Bulletin Contents X 49
+dissect.bulletin_contents_x_49 = function(buffer, offset, packet, parent)
+  local length = size_of.bulletin_contents_x_49
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.bulletin_contents_x_49(value, buffer, offset, packet, parent)
+
+  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_contents_x_49, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Symbol
+size_of.symbol = 30
+
+-- Display: Symbol
+display.symbol = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+dissect.symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.symbol(value, buffer, offset, packet, parent)
+
+  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.symbol, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Special Text Bulletin
+size_of.special_text_bulletin = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.symbol
+
+  index = index + size_of.bulletin_contents_x_49
+
+  index = index + size_of.continue_marker
+
+  return index
+end
+
+-- Display: Special Text Bulletin
+display.special_text_bulletin = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Special Text Bulletin
+dissect.special_text_bulletin_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Symbol: 30 Byte Ascii String
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
+
+  -- Bulletin Contents X 49: 49 Byte Ascii String
+  index, bulletin_contents_x_49 = dissect.bulletin_contents_x_49(buffer, index, packet, parent)
+
+  -- Continue Marker: 1 Byte Ascii String
+  index, continue_marker = dissect.continue_marker(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Special Text Bulletin
+dissect.special_text_bulletin = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.special_text_bulletin then
+    local length = size_of.special_text_bulletin(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.special_text_bulletin(buffer, packet, parent)
+    parent = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.special_text_bulletin, range, display)
+  end
+
+  return dissect.special_text_bulletin_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Regular Bulletin Contents
+size_of.regular_bulletin_contents = 79
+
+-- Display: Regular Bulletin Contents
+display.regular_bulletin_contents = function(value)
+  return "Regular Bulletin Contents: "..value
+end
+
+-- Dissect: Regular Bulletin Contents
+dissect.regular_bulletin_contents = function(buffer, offset, packet, parent)
+  local length = size_of.regular_bulletin_contents
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.regular_bulletin_contents(value, buffer, offset, packet, parent)
+
+  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.regular_bulletin_contents, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Regular Text Bulletin
+size_of.regular_text_bulletin = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.regular_bulletin_contents
+
+  index = index + size_of.continue_marker
+
+  return index
+end
+
+-- Display: Regular Text Bulletin
+display.regular_text_bulletin = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Regular Text Bulletin
+dissect.regular_text_bulletin_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Regular Bulletin Contents: 79 Byte Ascii String
+  index, regular_bulletin_contents = dissect.regular_bulletin_contents(buffer, index, packet, parent)
+
+  -- Continue Marker: 1 Byte Ascii String
+  index, continue_marker = dissect.continue_marker(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Regular Text Bulletin
+dissect.regular_text_bulletin = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.regular_text_bulletin then
+    local length = size_of.regular_text_bulletin(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.regular_text_bulletin(buffer, packet, parent)
+    parent = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.regular_text_bulletin, range, display)
+  end
+
+  return dissect.regular_text_bulletin_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate runtime size of: Bulletin
+size_of.bulletin = function(buffer, offset, bulletin_type)
+  -- Size of Regular Text Bulletin
+  if bulletin_type == "1" then
+    return size_of.regular_text_bulletin(buffer, offset)
+  end
+  -- Size of Special Text Bulletin
+  if bulletin_type == "2" then
+    return size_of.special_text_bulletin(buffer, offset)
+  end
+
+  return 0
+end
 
 -- Display: Bulletin
-display.bulletin = function(value)
-  return "Bulletin: "..value
+display.bulletin = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Bulletin
+dissect.bulletin_branches = function(buffer, offset, packet, parent, bulletin_type)
+  -- Dissect Regular Text Bulletin
+  if bulletin_type == "1" then
+    return dissect.regular_text_bulletin(buffer, offset, packet, parent)
+  end
+  -- Dissect Special Text Bulletin
+  if bulletin_type == "2" then
+    return dissect.special_text_bulletin(buffer, offset, packet, parent)
+  end
+
+  return offset
 end
 
 -- Dissect: Bulletin
-dissect.bulletin = function(buffer, offset, packet, parent)
-  local length = size_of.bulletin
+dissect.bulletin = function(buffer, offset, packet, parent, bulletin_type)
+  if not show.bulletin then
+    return dissect.bulletin_branches(buffer, offset, packet, parent, bulletin_type)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = size_of.bulletin(buffer, offset, bulletin_type)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = display.bulletin(buffer, packet, parent)
+  local element = parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin, range, display)
+
+  return dissect.bulletin_branches(buffer, offset, packet, parent, bulletin_type)
+end
+
+-- Size: Bulletin Type
+size_of.bulletin_type = 1
+
+-- Display: Bulletin Type
+display.bulletin_type = function(value)
+  if value == "1" then
+    return "Bulletin Type: Regular Text Bulletin (1)"
+  end
+  if value == "2" then
+    return "Bulletin Type: Special Text Bulletin (2)"
+  end
+
+  return "Bulletin Type: Unknown("..value..")"
+end
+
+-- Dissect: Bulletin Type
+dissect.bulletin_type = function(buffer, offset, packet, parent)
+  local length = size_of.bulletin_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.bulletin(value, buffer, offset, packet, parent)
+  local display = display.bulletin_type(value, buffer, offset, packet, parent)
 
-  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin, range, value, display)
+  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.bulletin_type, range, value, display)
 
   return offset + length, value
 end
@@ -1180,7 +1433,12 @@ size_of.bulletins_message = function(buffer, offset)
 
   index = index + size_of.reserved
 
-  index = index + size_of.bulletin
+  index = index + size_of.bulletin_type
+
+  -- Calculate runtime size of Bulletin field
+  local bulletin_offset = offset + index
+  local bulletin_type = buffer(bulletin_offset - 1, 1):string()
+  index = index + size_of.bulletin(buffer, bulletin_offset, bulletin_type)
 
   return index
 end
@@ -1197,15 +1455,18 @@ dissect.bulletins_message_fields = function(buffer, offset, packet, parent)
   -- Reserved: 1 Byte Ascii String
   index, reserved = dissect.reserved(buffer, index, packet, parent)
 
-  -- Bulletin: 1 Byte Ascii String
-  index, bulletin = dissect.bulletin(buffer, index, packet, parent)
+  -- Bulletin Type: 1 Byte Ascii String Enum with 2 values
+  index, bulletin_type = dissect.bulletin_type(buffer, index, packet, parent)
+
+  -- Bulletin: Runtime Type with 2 branches
+  index = dissect.bulletin(buffer, index, packet, parent, bulletin_type)
 
   return index
 end
 
 -- Dissect: Bulletins Message
 dissect.bulletins_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.bulletins_message then
     local length = size_of.bulletins_message(buffer, offset)
     local range = buffer(offset, length)
@@ -1863,26 +2124,6 @@ dissect.volume = function(buffer, offset, packet, parent)
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.volume, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Symbol
-size_of.symbol = 30
-
--- Display: Symbol
-display.symbol = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
-
-  parent:add(tmx_mx_sola_multicast_hsvf_v1_11.fields.symbol, range, value, display)
 
   return offset + length, value
 end
