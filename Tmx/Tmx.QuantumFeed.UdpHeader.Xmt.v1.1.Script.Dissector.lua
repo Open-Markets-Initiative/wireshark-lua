@@ -27,7 +27,7 @@ tmx_quantumfeed_udpheader_xmt_v1_1.fields.body_message = ProtoField.new("Body Me
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.frame_header = ProtoField.new("Frame Header", "tmx.quantumfeed.udpheader.xmt.v1.1.frameheader", ftypes.STRING)
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.message_length = ProtoField.new("Message Length", "tmx.quantumfeed.udpheader.xmt.v1.1.messagelength", ftypes.UINT16)
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.msg_length = ProtoField.new("Msg Length", "tmx.quantumfeed.udpheader.xmt.v1.1.msglength", ftypes.UINT16)
-tmx_quantumfeed_udpheader_xmt_v1_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.udpheader.xmt.v1.1.msgtype", ftypes.UINT8)
+tmx_quantumfeed_udpheader_xmt_v1_1.fields.msg_type = ProtoField.new("Msg Type", "tmx.quantumfeed.udpheader.xmt.v1.1.msgtype", ftypes.STRING)
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.num_body = ProtoField.new("Num Body", "tmx.quantumfeed.udpheader.xmt.v1.1.numbody", ftypes.UINT8)
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.packet = ProtoField.new("Packet", "tmx.quantumfeed.udpheader.xmt.v1.1.packet", ftypes.STRING)
 tmx_quantumfeed_udpheader_xmt_v1_1.fields.protocol_name = ProtoField.new("Protocol Name", "tmx.quantumfeed.udpheader.xmt.v1.1.protocolname", ftypes.STRING)
@@ -112,7 +112,7 @@ end
 dissect.msg_type = function(buffer, offset, packet, parent)
   local length = size_of.msg_type
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:string()
   local display = display.msg_type(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_udpheader_xmt_v1_1.fields.msg_type, range, value, display)
@@ -163,7 +163,7 @@ dissect.body_header_fields = function(buffer, offset, packet, parent)
   -- Msg Length: 2 Byte Unsigned Fixed Width Integer
   index, msg_length = dissect.msg_length(buffer, index, packet, parent)
 
-  -- Msg Type: 1 Byte Unsigned Fixed Width Integer
+  -- Msg Type: 1 Byte Ascii String
   index, msg_type = dissect.msg_type(buffer, index, packet, parent)
 
   return index

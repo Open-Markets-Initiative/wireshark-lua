@@ -6,7 +6,9 @@
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | Hsvf | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | 11303 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [pdf][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf] |
-| QuantumFeed | [UdpHeader][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | Xmt | [1.1][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | 10/20/2020 | 529 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Url] |
+| QuantumFeed | [AlphaLevel1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | Xmt | [2.1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | 10/20/2020 | 2201 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Pdf] |
+| QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | 6857 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Url] - [pdf][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Pdf] |
+| QuantumFeed | [UdpHeader][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | Xmt | [1.1][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector] | 10/20/2020 | 529 | [Header][Omi.Glossary.Status.Header] | [Verified][Omi.Glossary.Testing.Verified] | [url][Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Url] |
 
 
 Tmx: [website](https://www.tmx.com/ "Go to Tmx Group")
@@ -26,5 +28,10 @@ Tmx: [website](https://www.tmx.com/ "Go to Tmx Group")
 
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Wireshark Dissector"
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf]:  "Specification pdf"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Script.Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.1 Wireshark Dissector"
+[Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Pdf]:  "Specification pdf"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Script.Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v3.6 Wireshark Dissector"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Url]: https://www.tmxwebstore.com/ "Specification url"
+[Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Pdf]:  "Specification pdf"
 [Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Script.Dissector.lua "Tmx QuantumFeed UdpHeader Xmt v1.1 Wireshark Dissector"
 [Tmx.QuantumFeed.UdpHeader.Xmt.v1.1.Url]: https://iextrading.com/trading/market-data/ "Specification url"
