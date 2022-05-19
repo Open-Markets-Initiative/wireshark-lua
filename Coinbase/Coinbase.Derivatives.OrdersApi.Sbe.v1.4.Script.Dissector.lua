@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Fairx Futures OrdersApi Sbe 1.4 Protocol
-local fairx_futures_ordersapi_sbe_v1_4 = Proto("Fairx.Futures.OrdersApi.Sbe.v1.4.Lua", "Fairx Futures OrdersApi Sbe 1.4")
+-- Coinbase Derivatives OrdersApi Sbe 1.4 Protocol
+local coinbase_derivatives_ordersapi_sbe_v1_4 = Proto("Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Lua", "Coinbase Derivatives OrdersApi Sbe 1.4")
 
 -- Component Tables
 local show = {}
@@ -20,120 +20,119 @@ local translate = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Fairx Futures OrdersApi Sbe 1.4 Fields
-fairx_futures_ordersapi_sbe_v1_4.fields.account = ProtoField.new("Account", "fairx.futures.ordersapi.sbe.v1.4.account", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "fairx.futures.ordersapi.sbe.v1.4.availableqty", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "fairx.futures.ordersapi.sbe.v1.4.beginexecid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.block_length = ProtoField.new("Block Length", "fairx.futures.ordersapi.sbe.v1.4.blocklength", ftypes.UINT16)
-fairx_futures_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "fairx.futures.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "fairx.futures.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "fairx.futures.ordersapi.sbe.v1.4.cancelreason", ftypes.UINT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.canceled_count = ProtoField.new("Canceled Count", "fairx.futures.ordersapi.sbe.v1.4.canceledcount", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "fairx.futures.ordersapi.sbe.v1.4.clientorderid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.correlation_id = ProtoField.new("Correlation Id", "fairx.futures.ordersapi.sbe.v1.4.correlationid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.current_session_only = ProtoField.new("Current Session Only", "fairx.futures.ordersapi.sbe.v1.4.currentsessiononly", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.data = ProtoField.new("Data", "fairx.futures.ordersapi.sbe.v1.4.data", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.details = ProtoField.new("Details", "fairx.futures.ordersapi.sbe.v1.4.details", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.end_exec_id = ProtoField.new("End Exec Id", "fairx.futures.ordersapi.sbe.v1.4.endexecid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.error_message = ProtoField.new("Error Message", "fairx.futures.ordersapi.sbe.v1.4.errormessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "fairx.futures.ordersapi.sbe.v1.4.eventresendcompletemessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "fairx.futures.ordersapi.sbe.v1.4.eventresendrejectmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "fairx.futures.ordersapi.sbe.v1.4.eventresendrequestmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "fairx.futures.ordersapi.sbe.v1.4.execid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "fairx.futures.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "fairx.futures.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "fairx.futures.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "fairx.futures.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "fairx.futures.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "fairx.futures.ordersapi.sbe.v1.4.gapfillpadding", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "fairx.futures.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "fairx.futures.ordersapi.sbe.v1.4.heartbeatmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.ordersapi.sbe.v1.4.instrumentid", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "fairx.futures.ordersapi.sbe.v1.4.instrumentinfomessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "fairx.futures.ordersapi.sbe.v1.4.instrumentinforequestmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.is_aggressor = ProtoField.new("Is Aggressor", "fairx.futures.ordersapi.sbe.v1.4.isaggressor", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.is_last_message = ProtoField.new("Is Last Message", "fairx.futures.ordersapi.sbe.v1.4.islastmessage", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id = ProtoField.new("Last Exec Id", "fairx.futures.ordersapi.sbe.v1.4.lastexecid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "fairx.futures.ordersapi.sbe.v1.4.lastexecidmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "fairx.futures.ordersapi.sbe.v1.4.lastexecidrequestmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "fairx.futures.ordersapi.sbe.v1.4.lastprocessedfillid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "fairx.futures.ordersapi.sbe.v1.4.lastprocessedseqno", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg1fillprice", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "fairx.futures.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "fairx.futures.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.logged_out_message = ProtoField.new("Logged Out Message", "fairx.futures.ordersapi.sbe.v1.4.loggedoutmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "fairx.futures.ordersapi.sbe.v1.4.logonconfmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.logon_message = ProtoField.new("Logon Message", "fairx.futures.ordersapi.sbe.v1.4.logonmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.logout_message = ProtoField.new("Logout Message", "fairx.futures.ordersapi.sbe.v1.4.logoutmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "fairx.futures.ordersapi.sbe.v1.4.masscancelorderackmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "fairx.futures.ordersapi.sbe.v1.4.masscancelordermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "fairx.futures.ordersapi.sbe.v1.4.masscancelorderrejectmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "fairx.futures.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "fairx.futures.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "fairx.futures.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
-fairx_futures_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "fairx.futures.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
-fairx_futures_ordersapi_sbe_v1_4.fields.new_order_message = ProtoField.new("New Order Message", "fairx.futures.ordersapi.sbe.v1.4.newordermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.new_quantity = ProtoField.new("New Quantity", "fairx.futures.ordersapi.sbe.v1.4.newquantity", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.new_sequence_number = ProtoField.new("New Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.newsequencenumber", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.num_users_affected = ProtoField.new("Num Users Affected", "fairx.futures.ordersapi.sbe.v1.4.numusersaffected", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.only_current_session = ProtoField.new("Only Current Session", "fairx.futures.ordersapi.sbe.v1.4.onlycurrentsession", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "fairx.futures.ordersapi.sbe.v1.4.ordercanceledmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_entered_message = ProtoField.new("Order Entered Message", "fairx.futures.ordersapi.sbe.v1.4.orderenteredmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_filled_message = ProtoField.new("Order Filled Message", "fairx.futures.ordersapi.sbe.v1.4.orderfilledmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order Id", "fairx.futures.ordersapi.sbe.v1.4.orderid", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_reject_message = ProtoField.new("Order Reject Message", "fairx.futures.ordersapi.sbe.v1.4.orderrejectmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "fairx.futures.ordersapi.sbe.v1.4.orderreplacedmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "fairx.futures.ordersapi.sbe.v1.4.packet", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "fairx.futures.ordersapi.sbe.v1.4.padding", ftypes.BYTES)
-fairx_futures_ordersapi_sbe_v1_4.fields.password = ProtoField.new("Password", "fairx.futures.ordersapi.sbe.v1.4.password", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.payload = ProtoField.new("Payload", "fairx.futures.ordersapi.sbe.v1.4.payload", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.ping_message = ProtoField.new("Ping Message", "fairx.futures.ordersapi.sbe.v1.4.pingmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.pong_message = ProtoField.new("Pong Message", "fairx.futures.ordersapi.sbe.v1.4.pongmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.protocol_id = ProtoField.new("Protocol Id", "fairx.futures.ordersapi.sbe.v1.4.protocolid", ftypes.UINT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.quantity = ProtoField.new("Quantity", "fairx.futures.ordersapi.sbe.v1.4.quantity", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.reason = ProtoField.new("Reason", "fairx.futures.ordersapi.sbe.v1.4.reason", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.receive_time = ProtoField.new("Receive Time", "fairx.futures.ordersapi.sbe.v1.4.receivetime", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.reject_reason = ProtoField.new("Reject Reason", "fairx.futures.ordersapi.sbe.v1.4.rejectreason", ftypes.UINT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "fairx.futures.ordersapi.sbe.v1.4.replaceordermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.request_time = ProtoField.new("Request Time", "fairx.futures.ordersapi.sbe.v1.4.requesttime", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "fairx.futures.ordersapi.sbe.v1.4.requesttradinglock", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.resend_request_message = ProtoField.new("Resend Request Message", "fairx.futures.ordersapi.sbe.v1.4.resendrequestmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.resent_event_count = ProtoField.new("Resent Event Count", "fairx.futures.ordersapi.sbe.v1.4.resenteventcount", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.reserved = ProtoField.new("Reserved", "fairx.futures.ordersapi.sbe.v1.4.reserved", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "fairx.futures.ordersapi.sbe.v1.4.resetseqnum", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "fairx.futures.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.schema_id = ProtoField.new("Schema Id", "fairx.futures.ordersapi.sbe.v1.4.schemaid", ftypes.UINT16)
-fairx_futures_ordersapi_sbe_v1_4.fields.security_type = ProtoField.new("Security Type", "fairx.futures.ordersapi.sbe.v1.4.securitytype", ftypes.UINT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "fairx.futures.ordersapi.sbe.v1.4.sendtimeepochnanos", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.sequencenumber", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.server_time = ProtoField.new("Server Time", "fairx.futures.ordersapi.sbe.v1.4.servertime", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.set_account_message = ProtoField.new("Set Account Message", "fairx.futures.ordersapi.sbe.v1.4.setaccountmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.set_ack_message = ProtoField.new("Set Ack Message", "fairx.futures.ordersapi.sbe.v1.4.setackmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.set_trader_message = ProtoField.new("Set Trader Message", "fairx.futures.ordersapi.sbe.v1.4.settradermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.side = ProtoField.new("Side", "fairx.futures.ordersapi.sbe.v1.4.side", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "fairx.futures.ordersapi.sbe.v1.4.spreadorderfilledmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.status = ProtoField.new("Status", "fairx.futures.ordersapi.sbe.v1.4.status", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.stream_order_message = ProtoField.new("Stream Order Message", "fairx.futures.ordersapi.sbe.v1.4.streamordermessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.symbol = ProtoField.new("Symbol", "fairx.futures.ordersapi.sbe.v1.4.symbol", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.template_id = ProtoField.new("Template Id", "fairx.futures.ordersapi.sbe.v1.4.templateid", ftypes.UINT16)
-fairx_futures_ordersapi_sbe_v1_4.fields.test_request_message = ProtoField.new("Test Request Message", "fairx.futures.ordersapi.sbe.v1.4.testrequestmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.timestamp = ProtoField.new("Timestamp", "fairx.futures.ordersapi.sbe.v1.4.timestamp", ftypes.INT64)
-fairx_futures_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.new("To Sequence Number", "fairx.futures.ordersapi.sbe.v1.4.tosequencenumber", ftypes.UINT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "fairx.futures.ordersapi.sbe.v1.4.totalfilled", ftypes.INT32)
-fairx_futures_ordersapi_sbe_v1_4.fields.trader = ProtoField.new("Trader", "fairx.futures.ordersapi.sbe.v1.4.trader", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "fairx.futures.ordersapi.sbe.v1.4.tradinglockapplied", ftypes.INT8)
-fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "fairx.futures.ordersapi.sbe.v1.4.unlocktradingackmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "fairx.futures.ordersapi.sbe.v1.4.unlocktradingmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "fairx.futures.ordersapi.sbe.v1.4.unlocktradingrejectmessage", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "fairx.futures.ordersapi.sbe.v1.4.username", ftypes.STRING)
-fairx_futures_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "fairx.futures.ordersapi.sbe.v1.4.version", ftypes.UINT16)
+-- Coinbase Derivatives OrdersApi Sbe 1.4 Fields
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.account = ProtoField.new("Account", "coinbase.derivatives.ordersapi.sbe.v1.4.account", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty = ProtoField.new("Available Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.availableqty", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id = ProtoField.new("Begin Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.beginexecid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.ordersapi.sbe.v1.4.blocklength", ftypes.UINT16)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message = ProtoField.new("Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelordermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message = ProtoField.new("Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelorderrejectmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason = ProtoField.new("Cancel Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.cancelreason", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count = ProtoField.new("Canceled Count", "coinbase.derivatives.ordersapi.sbe.v1.4.canceledcount", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id = ProtoField.new("Client Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.clientorderid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id = ProtoField.new("Correlation Id", "coinbase.derivatives.ordersapi.sbe.v1.4.correlationid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only = ProtoField.new("Current Session Only", "coinbase.derivatives.ordersapi.sbe.v1.4.currentsessiononly", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.data = ProtoField.new("Data", "coinbase.derivatives.ordersapi.sbe.v1.4.data", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.details = ProtoField.new("Details", "coinbase.derivatives.ordersapi.sbe.v1.4.details", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id = ProtoField.new("End Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.endexecid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message = ProtoField.new("Error Message", "coinbase.derivatives.ordersapi.sbe.v1.4.errormessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message = ProtoField.new("Event Resend Complete Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendcompletemessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message = ProtoField.new("Event Resend Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrejectmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message = ProtoField.new("Event Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.eventresendrequestmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id = ProtoField.new("Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.execid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price = ProtoField.new("Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.fillprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty = ProtoField.new("Fill Qty", "coinbase.derivatives.ordersapi.sbe.v1.4.fillqty", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Filled Vwap", "coinbase.derivatives.ordersapi.sbe.v1.4.filledvwap", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentid", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message = ProtoField.new("Instrument Info Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinfomessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message = ProtoField.new("Instrument Info Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentinforequestmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor = ProtoField.new("Is Aggressor", "coinbase.derivatives.ordersapi.sbe.v1.4.isaggressor", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message = ProtoField.new("Is Last Message", "coinbase.derivatives.ordersapi.sbe.v1.4.islastmessage", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id = ProtoField.new("Last Exec Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message = ProtoField.new("Last Exec Id Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message = ProtoField.new("Last Exec Id Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.lastexecidrequestmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id = ProtoField.new("Last Processed Fill Id", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedfillid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.ordersapi.sbe.v1.4.lastprocessedseqno", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg1fillprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.4.leg2fillprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.limitprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.ordersapi.sbe.v1.4.loggedoutmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonconfmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message = ProtoField.new("Logon Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logonmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message = ProtoField.new("Logout Message", "coinbase.derivatives.ordersapi.sbe.v1.4.logoutmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message = ProtoField.new("Mass Cancel Order Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderackmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message = ProtoField.new("Mass Cancel Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelordermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message = ProtoField.new("Mass Cancel Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.masscancelorderrejectmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.ordersapi.sbe.v1.4.matchid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.ordersapi.sbe.v1.4.messageheader", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length = ProtoField.new("Message Length", "coinbase.derivatives.ordersapi.sbe.v1.4.messagelength", ftypes.UINT16)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price = ProtoField.new("New Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.4.newlimitprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message = ProtoField.new("New Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.newordermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity = ProtoField.new("New Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.newquantity", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number = ProtoField.new("New Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.newsequencenumber", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected = ProtoField.new("Num Users Affected", "coinbase.derivatives.ordersapi.sbe.v1.4.numusersaffected", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session = ProtoField.new("Only Current Session", "coinbase.derivatives.ordersapi.sbe.v1.4.onlycurrentsession", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message = ProtoField.new("Order Canceled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.ordercanceledmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message = ProtoField.new("Order Entered Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderenteredmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message = ProtoField.new("Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderfilledmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.ordersapi.sbe.v1.4.orderid", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message = ProtoField.new("Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderreplacedmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.padding", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.4.password", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.4.payload", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message = ProtoField.new("Ping Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pingmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message = ProtoField.new("Pong Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pongmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id = ProtoField.new("Protocol Id", "coinbase.derivatives.ordersapi.sbe.v1.4.protocolid", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.ordersapi.sbe.v1.4.quantity", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.reason", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time = ProtoField.new("Receive Time", "coinbase.derivatives.ordersapi.sbe.v1.4.receivetime", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.reject_reason = ProtoField.new("Reject Reason", "coinbase.derivatives.ordersapi.sbe.v1.4.rejectreason", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message = ProtoField.new("Replace Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.replaceordermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time = ProtoField.new("Request Time", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttime", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock = ProtoField.new("Request Trading Lock", "coinbase.derivatives.ordersapi.sbe.v1.4.requesttradinglock", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message = ProtoField.new("Resend Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.resendrequestmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count = ProtoField.new("Resent Event Count", "coinbase.derivatives.ordersapi.sbe.v1.4.resenteventcount", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.ordersapi.sbe.v1.4.reserved", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num = ProtoField.new("Reset Seq Num", "coinbase.derivatives.ordersapi.sbe.v1.4.resetseqnum", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.ordersapi.sbe.v1.4.sbemessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.ordersapi.sbe.v1.4.schemaid", ftypes.UINT16)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type = ProtoField.new("Security Type", "coinbase.derivatives.ordersapi.sbe.v1.4.securitytype", ftypes.UINT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos = ProtoField.new("Send Time Epoch Nanos", "coinbase.derivatives.ordersapi.sbe.v1.4.sendtimeepochnanos", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number = ProtoField.new("Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.sequencenumber", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time = ProtoField.new("Server Time", "coinbase.derivatives.ordersapi.sbe.v1.4.servertime", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message = ProtoField.new("Set Account Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setaccountmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message = ProtoField.new("Set Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.setackmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message = ProtoField.new("Set Trader Message", "coinbase.derivatives.ordersapi.sbe.v1.4.settradermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.side = ProtoField.new("Side", "coinbase.derivatives.ordersapi.sbe.v1.4.side", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message = ProtoField.new("Spread Order Filled Message", "coinbase.derivatives.ordersapi.sbe.v1.4.spreadorderfilledmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.status = ProtoField.new("Status", "coinbase.derivatives.ordersapi.sbe.v1.4.status", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message = ProtoField.new("Stream Order Message", "coinbase.derivatives.ordersapi.sbe.v1.4.streamordermessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.ordersapi.sbe.v1.4.symbol", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.ordersapi.sbe.v1.4.templateid", ftypes.UINT16)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message = ProtoField.new("Test Request Message", "coinbase.derivatives.ordersapi.sbe.v1.4.testrequestmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp = ProtoField.new("Timestamp", "coinbase.derivatives.ordersapi.sbe.v1.4.timestamp", ftypes.INT64)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number = ProtoField.new("To Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.tosequencenumber", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled = ProtoField.new("Total Filled", "coinbase.derivatives.ordersapi.sbe.v1.4.totalfilled", ftypes.INT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader = ProtoField.new("Trader", "coinbase.derivatives.ordersapi.sbe.v1.4.trader", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied = ProtoField.new("Trading Lock Applied", "coinbase.derivatives.ordersapi.sbe.v1.4.tradinglockapplied", ftypes.INT8)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message = ProtoField.new("Unlock Trading Ack Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingackmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.unlocktradingrejectmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.4.username", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.4.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Fairx Futures OrdersApi Sbe 1.4 Element Dissection Options
+-- Coinbase Derivatives OrdersApi Sbe 1.4 Element Dissection Options
 show.cancel_order_message = true
 show.cancel_order_reject_message = true
 show.data = true
@@ -177,221 +176,221 @@ show.unlock_trading_message = true
 show.unlock_trading_reject_message = true
 show.payload = false
 
--- Register Fairx Futures OrdersApi Sbe 1.4 Show Options
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
-fairx_futures_ordersapi_sbe_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Coinbase Derivatives OrdersApi Sbe 1.4 Show Options
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message = Pref.bool("Show Cancel Order Message", show.cancel_order_message, "Parse and add Cancel Order Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message = Pref.bool("Show Cancel Order Reject Message", show.cancel_order_reject_message, "Parse and add Cancel Order Reject Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data = Pref.bool("Show Data", show.data, "Parse and add Data to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message = Pref.bool("Show Event Resend Complete Message", show.event_resend_complete_message, "Parse and add Event Resend Complete Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message = Pref.bool("Show Event Resend Reject Message", show.event_resend_reject_message, "Parse and add Event Resend Reject Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message = Pref.bool("Show Event Resend Request Message", show.event_resend_request_message, "Parse and add Event Resend Request Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message = Pref.bool("Show Gap Fill Message", show.gap_fill_message, "Parse and add Gap Fill Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message = Pref.bool("Show Heartbeat Message", show.heartbeat_message, "Parse and add Heartbeat Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message = Pref.bool("Show Instrument Info Message", show.instrument_info_message, "Parse and add Instrument Info Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message = Pref.bool("Show Instrument Info Request Message", show.instrument_info_request_message, "Parse and add Instrument Info Request Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message = Pref.bool("Show Last Exec Id Message", show.last_exec_id_message, "Parse and add Last Exec Id Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message = Pref.bool("Show Last Exec Id Request Message", show.last_exec_id_request_message, "Parse and add Last Exec Id Request Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message = Pref.bool("Show Logged Out Message", show.logged_out_message, "Parse and add Logged Out Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message = Pref.bool("Show Logon Conf Message", show.logon_conf_message, "Parse and add Logon Conf Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message = Pref.bool("Show Logon Message", show.logon_message, "Parse and add Logon Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message = Pref.bool("Show Logout Message", show.logout_message, "Parse and add Logout Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message = Pref.bool("Show Mass Cancel Order Ack Message", show.mass_cancel_order_ack_message, "Parse and add Mass Cancel Order Ack Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message = Pref.bool("Show Mass Cancel Order Message", show.mass_cancel_order_message, "Parse and add Mass Cancel Order Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message = Pref.bool("Show Mass Cancel Order Reject Message", show.mass_cancel_order_reject_message, "Parse and add Mass Cancel Order Reject Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message = Pref.bool("Show New Order Message", show.new_order_message, "Parse and add New Order Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message = Pref.bool("Show Order Canceled Message", show.order_canceled_message, "Parse and add Order Canceled Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message = Pref.bool("Show Order Entered Message", show.order_entered_message, "Parse and add Order Entered Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message = Pref.bool("Show Order Filled Message", show.order_filled_message, "Parse and add Order Filled Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message = Pref.bool("Show Order Reject Message", show.order_reject_message, "Parse and add Order Reject Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message = Pref.bool("Show Order Replaced Message", show.order_replaced_message, "Parse and add Order Replaced Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message = Pref.bool("Show Ping Message", show.ping_message, "Parse and add Ping Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message = Pref.bool("Show Pong Message", show.pong_message, "Parse and add Pong Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message = Pref.bool("Show Replace Order Message", show.replace_order_message, "Parse and add Replace Order Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message = Pref.bool("Show Resend Request Message", show.resend_request_message, "Parse and add Resend Request Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message = Pref.bool("Show Set Account Message", show.set_account_message, "Parse and add Set Account Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message = Pref.bool("Show Set Ack Message", show.set_ack_message, "Parse and add Set Ack Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message = Pref.bool("Show Set Trader Message", show.set_trader_message, "Parse and add Set Trader Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message = Pref.bool("Show Spread Order Filled Message", show.spread_order_filled_message, "Parse and add Spread Order Filled Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message = Pref.bool("Show Stream Order Message", show.stream_order_message, "Parse and add Stream Order Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message = Pref.bool("Show Test Request Message", show.test_request_message, "Parse and add Test Request Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message = Pref.bool("Show Unlock Trading Ack Message", show.unlock_trading_ack_message, "Parse and add Unlock Trading Ack Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message = Pref.bool("Show Unlock Trading Message", show.unlock_trading_message, "Parse and add Unlock Trading Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message = Pref.bool("Show Unlock Trading Reject Message", show.unlock_trading_reject_message, "Parse and add Unlock Trading Reject Message to protocol tree")
+coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function fairx_futures_ordersapi_sbe_v1_4.prefs_changed()
+function coinbase_derivatives_ordersapi_sbe_v1_4.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.cancel_order_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_message then
-    show.cancel_order_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_message
+  if show.cancel_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message then
+    show.cancel_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_message
     changed = true
   end
-  if show.cancel_order_reject_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message then
-    show.cancel_order_reject_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message
+  if show.cancel_order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message then
+    show.cancel_order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_cancel_order_reject_message
     changed = true
   end
-  if show.data ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_data then
-    show.data = fairx_futures_ordersapi_sbe_v1_4.prefs.show_data
+  if show.data ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data then
+    show.data = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_data
     changed = true
   end
-  if show.event_resend_complete_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message then
-    show.event_resend_complete_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message
+  if show.event_resend_complete_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message then
+    show.event_resend_complete_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_complete_message
     changed = true
   end
-  if show.event_resend_reject_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message then
-    show.event_resend_reject_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message
+  if show.event_resend_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message then
+    show.event_resend_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_reject_message
     changed = true
   end
-  if show.event_resend_request_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message then
-    show.event_resend_request_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message
+  if show.event_resend_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message then
+    show.event_resend_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_event_resend_request_message
     changed = true
   end
-  if show.gap_fill_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_gap_fill_message then
-    show.gap_fill_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_gap_fill_message
+  if show.gap_fill_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message then
+    show.gap_fill_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_gap_fill_message
     changed = true
   end
-  if show.heartbeat_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_heartbeat_message then
-    show.heartbeat_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_heartbeat_message
+  if show.heartbeat_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message then
+    show.heartbeat_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_heartbeat_message
     changed = true
   end
-  if show.instrument_info_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_message then
-    show.instrument_info_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_message
+  if show.instrument_info_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message then
+    show.instrument_info_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_message
     changed = true
   end
-  if show.instrument_info_request_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message then
-    show.instrument_info_request_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message
+  if show.instrument_info_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message then
+    show.instrument_info_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_instrument_info_request_message
     changed = true
   end
-  if show.last_exec_id_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message then
-    show.last_exec_id_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message
+  if show.last_exec_id_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message then
+    show.last_exec_id_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_message
     changed = true
   end
-  if show.last_exec_id_request_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message then
-    show.last_exec_id_request_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message
+  if show.last_exec_id_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message then
+    show.last_exec_id_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_last_exec_id_request_message
     changed = true
   end
-  if show.logged_out_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_logged_out_message then
-    show.logged_out_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_logged_out_message
+  if show.logged_out_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message then
+    show.logged_out_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logged_out_message
     changed = true
   end
-  if show.logon_conf_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_conf_message then
-    show.logon_conf_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_conf_message
+  if show.logon_conf_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message then
+    show.logon_conf_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_conf_message
     changed = true
   end
-  if show.logon_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_message then
-    show.logon_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_logon_message
+  if show.logon_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message then
+    show.logon_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logon_message
     changed = true
   end
-  if show.logout_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_logout_message then
-    show.logout_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_logout_message
+  if show.logout_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message then
+    show.logout_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_logout_message
     changed = true
   end
-  if show.mass_cancel_order_ack_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message then
-    show.mass_cancel_order_ack_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message
+  if show.mass_cancel_order_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message then
+    show.mass_cancel_order_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_ack_message
     changed = true
   end
-  if show.mass_cancel_order_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message then
-    show.mass_cancel_order_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message
+  if show.mass_cancel_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message then
+    show.mass_cancel_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_message
     changed = true
   end
-  if show.mass_cancel_order_reject_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message then
-    show.mass_cancel_order_reject_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message
+  if show.mass_cancel_order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message then
+    show.mass_cancel_order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_mass_cancel_order_reject_message
     changed = true
   end
-  if show.message_header ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_message_header then
-    show.message_header = fairx_futures_ordersapi_sbe_v1_4.prefs.show_message_header
+  if show.message_header ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header then
+    show.message_header = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_message_header
     changed = true
   end
-  if show.new_order_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_new_order_message then
-    show.new_order_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_new_order_message
+  if show.new_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message then
+    show.new_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_new_order_message
     changed = true
   end
-  if show.order_canceled_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_canceled_message then
-    show.order_canceled_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_canceled_message
+  if show.order_canceled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message then
+    show.order_canceled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_canceled_message
     changed = true
   end
-  if show.order_entered_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_entered_message then
-    show.order_entered_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_entered_message
+  if show.order_entered_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message then
+    show.order_entered_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_entered_message
     changed = true
   end
-  if show.order_filled_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_filled_message then
-    show.order_filled_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_filled_message
+  if show.order_filled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message then
+    show.order_filled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_filled_message
     changed = true
   end
-  if show.order_reject_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_reject_message then
-    show.order_reject_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_reject_message
+  if show.order_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message then
+    show.order_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_reject_message
     changed = true
   end
-  if show.order_replaced_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_replaced_message then
-    show.order_replaced_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_order_replaced_message
+  if show.order_replaced_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message then
+    show.order_replaced_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_order_replaced_message
     changed = true
   end
-  if show.packet ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_packet then
-    show.packet = fairx_futures_ordersapi_sbe_v1_4.prefs.show_packet
+  if show.packet ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet then
+    show.packet = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_packet
     changed = true
   end
-  if show.ping_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_ping_message then
-    show.ping_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_ping_message
+  if show.ping_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message then
+    show.ping_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_ping_message
     changed = true
   end
-  if show.pong_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_pong_message then
-    show.pong_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_pong_message
+  if show.pong_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message then
+    show.pong_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_pong_message
     changed = true
   end
-  if show.replace_order_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_replace_order_message then
-    show.replace_order_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_replace_order_message
+  if show.replace_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message then
+    show.replace_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_replace_order_message
     changed = true
   end
-  if show.resend_request_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_resend_request_message then
-    show.resend_request_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_resend_request_message
+  if show.resend_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message then
+    show.resend_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_resend_request_message
     changed = true
   end
-  if show.sbe_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_sbe_message then
-    show.sbe_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_sbe_message
+  if show.sbe_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message then
+    show.sbe_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_sbe_message
     changed = true
   end
-  if show.set_account_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_account_message then
-    show.set_account_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_account_message
+  if show.set_account_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message then
+    show.set_account_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_account_message
     changed = true
   end
-  if show.set_ack_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_ack_message then
-    show.set_ack_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_ack_message
+  if show.set_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message then
+    show.set_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_ack_message
     changed = true
   end
-  if show.set_trader_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_trader_message then
-    show.set_trader_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_set_trader_message
+  if show.set_trader_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message then
+    show.set_trader_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_set_trader_message
     changed = true
   end
-  if show.spread_order_filled_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message then
-    show.spread_order_filled_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message
+  if show.spread_order_filled_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message then
+    show.spread_order_filled_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_spread_order_filled_message
     changed = true
   end
-  if show.stream_order_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_stream_order_message then
-    show.stream_order_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_stream_order_message
+  if show.stream_order_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message then
+    show.stream_order_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_stream_order_message
     changed = true
   end
-  if show.test_request_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_test_request_message then
-    show.test_request_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_test_request_message
+  if show.test_request_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message then
+    show.test_request_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_test_request_message
     changed = true
   end
-  if show.unlock_trading_ack_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message then
-    show.unlock_trading_ack_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message
+  if show.unlock_trading_ack_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message then
+    show.unlock_trading_ack_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_ack_message
     changed = true
   end
-  if show.unlock_trading_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message then
-    show.unlock_trading_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message
+  if show.unlock_trading_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message then
+    show.unlock_trading_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_message
     changed = true
   end
-  if show.unlock_trading_reject_message ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message then
-    show.unlock_trading_reject_message = fairx_futures_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message
+  if show.unlock_trading_reject_message ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message then
+    show.unlock_trading_reject_message = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_unlock_trading_reject_message
     changed = true
   end
-  if show.payload ~= fairx_futures_ordersapi_sbe_v1_4.prefs.show_payload then
-    show.payload = fairx_futures_ordersapi_sbe_v1_4.prefs.show_payload
+  if show.payload ~= coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload then
+    show.payload = coinbase_derivatives_ordersapi_sbe_v1_4.prefs.show_payload
     changed = true
   end
 
@@ -403,7 +402,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Fairx Futures OrdersApi Sbe 1.4
+-- Dissect Coinbase Derivatives OrdersApi Sbe 1.4
 -----------------------------------------------------------------------
 
 -- Display: Padding
@@ -414,10 +413,10 @@ end
 -- Dissect runtime sized field: Padding
 dissect.padding = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:bytes():tohex(false, " ")
+  local value = range:le_uint()
   local display = display.padding(value, buffer, offset, packet, parent, size)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.padding, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding, range, value, display)
 
   return offset + size
 end
@@ -453,7 +452,7 @@ dissect.details = function(buffer, offset, packet, parent)
 
   local display = display.details(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.details, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.details, range, value, display)
 
   return offset + length, value
 end
@@ -510,7 +509,7 @@ dissect.reject_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.reject_reason, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -530,7 +529,7 @@ dissect.correlation_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.correlation_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.correlation_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.correlation_id, range, value, display)
 
   return offset + length, value
 end
@@ -576,7 +575,7 @@ dissect.event_resend_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_reject_message, range, display)
   end
 
   return dissect.event_resend_reject_message_fields(buffer, offset, packet, parent)
@@ -597,7 +596,7 @@ dissect.resent_event_count = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.resent_event_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.resent_event_count, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.resent_event_count, range, value, display)
 
   return offset + length, value
 end
@@ -638,7 +637,7 @@ dissect.event_resend_complete_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_complete_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_complete_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_complete_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_complete_message, range, display)
   end
 
   return dissect.event_resend_complete_message_fields(buffer, offset, packet, parent)
@@ -659,7 +658,7 @@ dissect.end_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.end_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.end_exec_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.end_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -679,7 +678,7 @@ dissect.begin_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.begin_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.begin_exec_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.begin_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -725,7 +724,7 @@ dissect.event_resend_request_message = function(buffer, offset, packet, parent)
     local length = size_of.event_resend_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.event_resend_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.event_resend_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.event_resend_request_message, range, display)
   end
 
   return dissect.event_resend_request_message_fields(buffer, offset, packet, parent)
@@ -746,7 +745,7 @@ dissect.last_exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -770,7 +769,7 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.timestamp, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.timestamp, range, value, display)
 
   return offset + length, value
 end
@@ -816,7 +815,7 @@ dissect.last_exec_id_message = function(buffer, offset, packet, parent)
     local length = size_of.last_exec_id_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.last_exec_id_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_message, range, display)
   end
 
   return dissect.last_exec_id_message_fields(buffer, offset, packet, parent)
@@ -853,7 +852,7 @@ dissect.last_exec_id_request_message = function(buffer, offset, packet, parent)
     local length = size_of.last_exec_id_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.last_exec_id_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.last_exec_id_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_exec_id_request_message, range, display)
   end
 
   return dissect.last_exec_id_request_message_fields(buffer, offset, packet, parent)
@@ -881,7 +880,7 @@ dissect.is_aggressor = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.is_aggressor(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.is_aggressor, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_aggressor, range, value, display)
 
   return offset + length, value
 end
@@ -901,7 +900,7 @@ dissect.instrument_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.instrument_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -921,7 +920,7 @@ dissect.fill_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.fill_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.fill_qty, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_qty, range, value, display)
 
   return offset + length, value
 end
@@ -947,7 +946,7 @@ dissect.leg_2_fill_price = function(buffer, offset, packet, parent)
   local value = translate.leg_2_fill_price(raw)
   local display = display.leg_2_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.leg_2_fill_price, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_2_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -973,7 +972,7 @@ dissect.leg_1_fill_price = function(buffer, offset, packet, parent)
   local value = translate.leg_1_fill_price(raw)
   local display = display.leg_1_fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.leg_1_fill_price, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.leg_1_fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -999,7 +998,7 @@ dissect.fill_price = function(buffer, offset, packet, parent)
   local value = translate.fill_price(raw)
   local display = display.fill_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.fill_price, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.fill_price, range, value, display)
 
   return offset + length, value
 end
@@ -1019,7 +1018,7 @@ dissect.available_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.available_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.available_qty, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.available_qty, range, value, display)
 
   return offset + length, value
 end
@@ -1039,7 +1038,7 @@ dissect.total_filled = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.total_filled(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.total_filled, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.total_filled, range, value, display)
 
   return offset + length, value
 end
@@ -1065,7 +1064,7 @@ dissect.filled_vwap = function(buffer, offset, packet, parent)
   local value = translate.filled_vwap(raw)
   local display = display.filled_vwap(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.filled_vwap, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap, range, value, display)
 
   return offset + length, value
 end
@@ -1090,7 +1089,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1110,7 +1109,7 @@ dissect.client_order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.client_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.client_order_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.client_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1130,7 +1129,7 @@ dissect.match_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.match_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -1150,7 +1149,7 @@ dissect.exec_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.exec_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.exec_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.exec_id, range, value, display)
 
   return offset + length, value
 end
@@ -1256,7 +1255,7 @@ dissect.spread_order_filled_message = function(buffer, offset, packet, parent)
     local length = size_of.spread_order_filled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.spread_order_filled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.spread_order_filled_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.spread_order_filled_message, range, display)
   end
 
   return dissect.spread_order_filled_message_fields(buffer, offset, packet, parent)
@@ -1353,7 +1352,7 @@ dissect.order_filled_message = function(buffer, offset, packet, parent)
     local length = size_of.order_filled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_filled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_filled_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_filled_message, range, display)
   end
 
   return dissect.order_filled_message_fields(buffer, offset, packet, parent)
@@ -1390,7 +1389,7 @@ dissect.error_message = function(buffer, offset, packet, parent)
 
   local display = display.error_message(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.error_message, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.error_message, range, value, display)
 
   return offset + length, value
 end
@@ -1436,7 +1435,7 @@ dissect.unlock_trading_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_reject_message, range, display)
   end
 
   return dissect.unlock_trading_reject_message_fields(buffer, offset, packet, parent)
@@ -1457,7 +1456,7 @@ dissect.num_users_affected = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.num_users_affected(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.num_users_affected, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.num_users_affected, range, value, display)
 
   return offset + length, value
 end
@@ -1503,7 +1502,7 @@ dissect.unlock_trading_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_ack_message, range, display)
   end
 
   return dissect.unlock_trading_ack_message_fields(buffer, offset, packet, parent)
@@ -1531,7 +1530,7 @@ dissect.current_session_only = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.current_session_only(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.current_session_only, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.current_session_only, range, value, display)
 
   return offset + length, value
 end
@@ -1572,7 +1571,7 @@ dissect.unlock_trading_message = function(buffer, offset, packet, parent)
     local length = size_of.unlock_trading_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unlock_trading_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.unlock_trading_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.unlock_trading_message, range, display)
   end
 
   return dissect.unlock_trading_message_fields(buffer, offset, packet, parent)
@@ -1619,7 +1618,7 @@ dissect.mass_cancel_order_reject_message = function(buffer, offset, packet, pare
     local length = size_of.mass_cancel_order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_reject_message, range, display)
   end
 
   return dissect.mass_cancel_order_reject_message_fields(buffer, offset, packet, parent)
@@ -1647,7 +1646,7 @@ dissect.trading_lock_applied = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.trading_lock_applied(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.trading_lock_applied, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.trading_lock_applied, range, value, display)
 
   return offset + length, value
 end
@@ -1674,7 +1673,7 @@ dissect.only_current_session = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.only_current_session(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.only_current_session, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.only_current_session, range, value, display)
 
   return offset + length, value
 end
@@ -1694,7 +1693,7 @@ dissect.canceled_count = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.canceled_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.canceled_count, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.canceled_count, range, value, display)
 
   return offset + length, value
 end
@@ -1755,7 +1754,7 @@ dissect.mass_cancel_order_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.mass_cancel_order_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_ack_message, range, display)
   end
 
   return dissect.mass_cancel_order_ack_message_fields(buffer, offset, packet, parent)
@@ -1783,7 +1782,7 @@ dissect.request_trading_lock = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.request_trading_lock(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.request_trading_lock, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_trading_lock, range, value, display)
 
   return offset + length, value
 end
@@ -1810,7 +1809,7 @@ dissect.side = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.side(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.side, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.side, range, value, display)
 
   return offset + length, value
 end
@@ -1836,7 +1835,7 @@ dissect.limit_price = function(buffer, offset, packet, parent)
   local value = translate.limit_price(raw)
   local display = display.limit_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.limit_price, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -1897,7 +1896,7 @@ dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
     local length = size_of.mass_cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.mass_cancel_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.mass_cancel_order_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.mass_cancel_order_message, range, display)
   end
 
   return dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
@@ -1959,7 +1958,7 @@ dissect.cancel_order_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.cancel_order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.cancel_order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.cancel_order_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_reject_message, range, display)
   end
 
   return dissect.cancel_order_reject_message_fields(buffer, offset, packet, parent)
@@ -2008,7 +2007,7 @@ dissect.cancel_reason = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.cancel_reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.cancel_reason, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2032,7 +2031,7 @@ dissect.receive_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.receive_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.receive_time, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.receive_time, range, value, display)
 
   return offset + length, value
 end
@@ -2108,7 +2107,7 @@ dissect.order_canceled_message = function(buffer, offset, packet, parent)
     local length = size_of.order_canceled_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_canceled_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_canceled_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_canceled_message, range, display)
   end
 
   return dissect.order_canceled_message_fields(buffer, offset, packet, parent)
@@ -2155,7 +2154,7 @@ dissect.cancel_order_message = function(buffer, offset, packet, parent)
     local length = size_of.cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.cancel_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.cancel_order_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.cancel_order_message, range, display)
   end
 
   return dissect.cancel_order_message_fields(buffer, offset, packet, parent)
@@ -2232,7 +2231,7 @@ dissect.order_replaced_message = function(buffer, offset, packet, parent)
     local length = size_of.order_replaced_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_replaced_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_replaced_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message, range, display)
   end
 
   return dissect.order_replaced_message_fields(buffer, offset, packet, parent)
@@ -2294,7 +2293,7 @@ dissect.order_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.order_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message, range, display)
   end
 
   return dissect.order_reject_message_fields(buffer, offset, packet, parent)
@@ -2315,7 +2314,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.quantity, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2340,7 +2339,7 @@ dissect.last_processed_fill_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_processed_fill_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_fill_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_fill_id, range, value, display)
 
   return offset + length, value
 end
@@ -2406,7 +2405,7 @@ dissect.stream_order_message = function(buffer, offset, packet, parent)
     local length = size_of.stream_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.stream_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.stream_order_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.stream_order_message, range, display)
   end
 
   return dissect.stream_order_message_fields(buffer, offset, packet, parent)
@@ -2432,7 +2431,7 @@ dissect.new_quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.new_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.new_quantity, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2468,7 +2467,7 @@ dissect.new_limit_price = function(buffer, offset, packet, parent)
   local value = translate.new_limit_price(raw)
   local display = display.new_limit_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.new_limit_price, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_limit_price, range, value, display)
 
   return offset + length, value
 end
@@ -2524,7 +2523,7 @@ dissect.replace_order_message = function(buffer, offset, packet, parent)
     local length = size_of.replace_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.replace_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.replace_order_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.replace_order_message, range, display)
   end
 
   return dissect.replace_order_message_fields(buffer, offset, packet, parent)
@@ -2586,7 +2585,7 @@ dissect.order_entered_message = function(buffer, offset, packet, parent)
     local length = size_of.order_entered_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_entered_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.order_entered_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_entered_message, range, display)
   end
 
   return dissect.order_entered_message_fields(buffer, offset, packet, parent)
@@ -2648,7 +2647,7 @@ dissect.new_order_message = function(buffer, offset, packet, parent)
     local length = size_of.new_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.new_order_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.new_order_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_order_message, range, display)
   end
 
   return dissect.new_order_message_fields(buffer, offset, packet, parent)
@@ -2685,7 +2684,7 @@ dissect.set_ack_message = function(buffer, offset, packet, parent)
     local length = size_of.set_ack_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_ack_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.set_ack_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_ack_message, range, display)
   end
 
   return dissect.set_ack_message_fields(buffer, offset, packet, parent)
@@ -2722,7 +2721,7 @@ dissect.trader = function(buffer, offset, packet, parent)
 
   local display = display.trader(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.trader, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.trader, range, value, display)
 
   return offset + length, value
 end
@@ -2763,7 +2762,7 @@ dissect.set_trader_message = function(buffer, offset, packet, parent)
     local length = size_of.set_trader_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_trader_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.set_trader_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_trader_message, range, display)
   end
 
   return dissect.set_trader_message_fields(buffer, offset, packet, parent)
@@ -2800,7 +2799,7 @@ dissect.account = function(buffer, offset, packet, parent)
 
   local display = display.account(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.account, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.account, range, value, display)
 
   return offset + length, value
 end
@@ -2841,7 +2840,7 @@ dissect.set_account_message = function(buffer, offset, packet, parent)
     local length = size_of.set_account_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.set_account_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.set_account_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.set_account_message, range, display)
   end
 
   return dissect.set_account_message_fields(buffer, offset, packet, parent)
@@ -2878,7 +2877,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
 
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.symbol, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2898,7 +2897,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.reserved, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2925,7 +2924,7 @@ dissect.is_last_message = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.is_last_message(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.is_last_message, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.is_last_message, range, value, display)
 
   return offset + length, value
 end
@@ -2973,7 +2972,7 @@ dissect.status = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.status(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.status, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.status, range, value, display)
 
   return offset + length, value
 end
@@ -3000,7 +2999,7 @@ dissect.security_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.security_type(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.security_type, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.security_type, range, value, display)
 
   return offset + length, value
 end
@@ -3066,7 +3065,7 @@ dissect.instrument_info_message = function(buffer, offset, packet, parent)
     local length = size_of.instrument_info_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instrument_info_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.instrument_info_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_message, range, display)
   end
 
   return dissect.instrument_info_message_fields(buffer, offset, packet, parent)
@@ -3103,7 +3102,7 @@ dissect.instrument_info_request_message = function(buffer, offset, packet, paren
     local length = size_of.instrument_info_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instrument_info_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.instrument_info_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_info_request_message, range, display)
   end
 
   return dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
@@ -3146,7 +3145,7 @@ dissect.data = function(buffer, offset, packet, parent)
     local length = size_of.data(buffer, offset)
     local range = buffer(offset, length)
     local display = display.data(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.data, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.data, range, display)
   end
 
   return dissect.data_fields(buffer, offset, packet, parent)
@@ -3171,7 +3170,7 @@ dissect.server_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.server_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.server_time, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.server_time, range, value, display)
 
   return offset + length, value
 end
@@ -3195,7 +3194,7 @@ dissect.request_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.request_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.request_time, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.request_time, range, value, display)
 
   return offset + length, value
 end
@@ -3251,7 +3250,7 @@ dissect.pong_message = function(buffer, offset, packet, parent)
     local length = size_of.pong_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.pong_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.pong_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.pong_message, range, display)
   end
 
   return dissect.pong_message_fields(buffer, offset, packet, parent)
@@ -3298,30 +3297,10 @@ dissect.ping_message = function(buffer, offset, packet, parent)
     local length = size_of.ping_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.ping_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.ping_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message, range, display)
   end
 
   return dissect.ping_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Gap Fill Padding
-size_of.gap_fill_padding = 4
-
--- Display: Gap Fill Padding
-display.gap_fill_padding = function(value)
-  return "Gap Fill Padding: "..value
-end
-
--- Dissect: Gap Fill Padding
-dissect.gap_fill_padding = function(buffer, offset, packet, parent)
-  local length = size_of.gap_fill_padding
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = display.gap_fill_padding(value, buffer, offset, packet, parent)
-
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.gap_fill_padding, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: New Sequence Number
@@ -3339,7 +3318,7 @@ dissect.new_sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.new_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.new_sequence_number, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.new_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3350,7 +3329,8 @@ size_of.gap_fill_message = function(buffer, offset)
 
   index = index + size_of.new_sequence_number
 
-  index = index + size_of.gap_fill_padding
+  -- Parse runtime size of: Padding
+  index = index + buffer(offset + index - 34, 2):le_uint()
 
   return index
 end
@@ -3367,20 +3347,26 @@ dissect.gap_fill_message_fields = function(buffer, offset, packet, parent)
   -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, new_sequence_number = dissect.new_sequence_number(buffer, index, packet, parent)
 
-  -- Gap Fill Padding: 4 Byte Unsigned Fixed Width Integer
-  index, gap_fill_padding = dissect.gap_fill_padding(buffer, index, packet, parent)
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 30, 2):le_uint()
+
+  -- Runtime Size Of: Padding
+  local size_of_padding = message_length - (index - offset)
+
+  -- Padding: 4 Byte Unsigned Fixed Width Integer
+  index = dissect.padding(buffer, index, packet, parent, size_of_padding)
 
   return index
 end
 
 -- Dissect: Gap Fill Message
 dissect.gap_fill_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.gap_fill_message then
     local length = size_of.gap_fill_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.gap_fill_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.gap_fill_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message, range, display)
   end
 
   return dissect.gap_fill_message_fields(buffer, offset, packet, parent)
@@ -3401,7 +3387,7 @@ dissect.to_sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.to_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.to_sequence_number, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.to_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3421,7 +3407,7 @@ dissect.from_sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.from_sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.from_sequence_number, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -3462,7 +3448,7 @@ dissect.resend_request_message = function(buffer, offset, packet, parent)
     local length = size_of.resend_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.resend_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.resend_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.resend_request_message, range, display)
   end
 
   return dissect.resend_request_message_fields(buffer, offset, packet, parent)
@@ -3499,7 +3485,7 @@ dissect.test_request_message = function(buffer, offset, packet, parent)
     local length = size_of.test_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.test_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.test_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.test_request_message, range, display)
   end
 
   return dissect.test_request_message_fields(buffer, offset, packet, parent)
@@ -3536,7 +3522,7 @@ dissect.heartbeat_message = function(buffer, offset, packet, parent)
     local length = size_of.heartbeat_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.heartbeat_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.heartbeat_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message, range, display)
   end
 
   return dissect.heartbeat_message_fields(buffer, offset, packet, parent)
@@ -3573,7 +3559,7 @@ dissect.reason = function(buffer, offset, packet, parent)
 
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.reason, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -3609,7 +3595,7 @@ dissect.logged_out_message = function(buffer, offset, packet, parent)
     local length = size_of.logged_out_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.logged_out_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.logged_out_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logged_out_message, range, display)
   end
 
   return dissect.logged_out_message_fields(buffer, offset, packet, parent)
@@ -3646,7 +3632,7 @@ dissect.logout_message = function(buffer, offset, packet, parent)
     local length = size_of.logout_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.logout_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.logout_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logout_message, range, display)
   end
 
   return dissect.logout_message_fields(buffer, offset, packet, parent)
@@ -3667,7 +3653,7 @@ dissect.heartbeat_interval_seconds = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.heartbeat_interval_seconds(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds, range, value, display)
 
   return offset + length, value
 end
@@ -3703,7 +3689,7 @@ dissect.logon_conf_message = function(buffer, offset, packet, parent)
     local length = size_of.logon_conf_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.logon_conf_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.logon_conf_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_conf_message, range, display)
   end
 
   return dissect.logon_conf_message_fields(buffer, offset, packet, parent)
@@ -3731,7 +3717,7 @@ dissect.reset_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.reset_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.reset_seq_num, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.reset_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -3767,7 +3753,7 @@ dissect.password = function(buffer, offset, packet, parent)
 
   local display = display.password(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.password, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.password, range, value, display)
 
   return offset + length, value
 end
@@ -3803,7 +3789,7 @@ dissect.username = function(buffer, offset, packet, parent)
 
   local display = display.username(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.username, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.username, range, value, display)
 
   return offset + length, value
 end
@@ -3849,7 +3835,7 @@ dissect.logon_message = function(buffer, offset, packet, parent)
     local length = size_of.logon_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.logon_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.logon_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.logon_message, range, display)
   end
 
   return dissect.logon_message_fields(buffer, offset, packet, parent)
@@ -4183,7 +4169,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.payload, range, display)
+  local element = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -4203,7 +4189,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.version, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -4223,7 +4209,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.schema_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -4355,7 +4341,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.template_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -4375,7 +4361,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.block_length, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -4399,7 +4385,7 @@ dissect.send_time_epoch_nanos = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.send_time_epoch_nanos(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.send_time_epoch_nanos, range, value, display)
 
   return offset + length, value
 end
@@ -4419,7 +4405,7 @@ dissect.last_processed_seq_no = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_processed_seq_no(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.last_processed_seq_no, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.last_processed_seq_no, range, value, display)
 
   return offset + length, value
 end
@@ -4439,7 +4425,7 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.sequence_number, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sequence_number, range, value, display)
 
   return offset + length, value
 end
@@ -4459,7 +4445,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.message_length, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -4479,7 +4465,7 @@ dissect.flags = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.flags(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.flags, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags, range, value, display)
 
   return offset + length, value
 end
@@ -4499,7 +4485,7 @@ dissect.protocol_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.protocol_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.protocol_id, range, value, display)
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.protocol_id, range, value, display)
 
   return offset + length, value
 end
@@ -4585,7 +4571,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.message_header, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -4615,7 +4601,7 @@ dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sb
   -- Runtime Size Of: Padding
   local size_of_padding = message_length - (index - offset)
 
-  -- Padding: 0 Byte
+  -- Padding: 4 Byte Unsigned Fixed Width Integer
   index = dissect.padding(buffer, index, packet, parent, size_of_padding)
 
   return index
@@ -4627,7 +4613,7 @@ dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_messa
   if show.sbe_message then
     local range = buffer(offset, size_of_sbe_message)
     local display = display.sbe_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_ordersapi_sbe_v1_4.fields.sbe_message, range, display)
+    parent = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.sbe_message, range, display)
   end
 
   dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
@@ -4689,23 +4675,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function fairx_futures_ordersapi_sbe_v1_4.init()
+function coinbase_derivatives_ordersapi_sbe_v1_4.init()
 end
 
--- Dissector for Fairx Futures OrdersApi Sbe 1.4
-function fairx_futures_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
+-- Dissector for Coinbase Derivatives OrdersApi Sbe 1.4
+function coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = fairx_futures_ordersapi_sbe_v1_4.name
+  packet.cols.protocol = coinbase_derivatives_ordersapi_sbe_v1_4.name
 
   -- Dissect protocol
-  local protocol = parent:add(fairx_futures_ordersapi_sbe_v1_4, buffer(), fairx_futures_ordersapi_sbe_v1_4.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(coinbase_derivatives_ordersapi_sbe_v1_4, buffer(), coinbase_derivatives_ordersapi_sbe_v1_4.description, "("..buffer:len().." Bytes)")
   return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
 local tcp_table = DissectorTable.get("tcp.port")
-tcp_table:add(65333, fairx_futures_ordersapi_sbe_v1_4)
+tcp_table:add(65333, coinbase_derivatives_ordersapi_sbe_v1_4)
 
 
 -----------------------------------------------------------------------
@@ -4713,7 +4699,7 @@ tcp_table:add(65333, fairx_futures_ordersapi_sbe_v1_4)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.fairx_futures_ordersapi_sbe_v1_4_packet_size = function(buffer)
+verify.coinbase_derivatives_ordersapi_sbe_v1_4_packet_size = function(buffer)
 
   return true
 end
@@ -4750,10 +4736,10 @@ verify.version = function(buffer)
   return false
 end
 
--- Dissector Heuristic for Fairx Futures OrdersApi Sbe 1.4
-local function fairx_futures_ordersapi_sbe_v1_4_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Coinbase Derivatives OrdersApi Sbe 1.4
+local function coinbase_derivatives_ordersapi_sbe_v1_4_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.fairx_futures_ordersapi_sbe_v1_4_packet_size(buffer) then return false end
+  if not verify.coinbase_derivatives_ordersapi_sbe_v1_4_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -4762,14 +4748,14 @@ local function fairx_futures_ordersapi_sbe_v1_4_heuristic(buffer, packet, parent
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = fairx_futures_ordersapi_sbe_v1_4
-  fairx_futures_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
+  packet.conversation = coinbase_derivatives_ordersapi_sbe_v1_4
+  coinbase_derivatives_ordersapi_sbe_v1_4.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Fairx Futures OrdersApi Sbe 1.4
-fairx_futures_ordersapi_sbe_v1_4:register_heuristic("tcp", fairx_futures_ordersapi_sbe_v1_4_heuristic)
+-- Register Heuristic for Coinbase Derivatives OrdersApi Sbe 1.4
+coinbase_derivatives_ordersapi_sbe_v1_4:register_heuristic("tcp", coinbase_derivatives_ordersapi_sbe_v1_4_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -4777,7 +4763,7 @@ fairx_futures_ordersapi_sbe_v1_4:register_heuristic("tcp", fairx_futures_ordersa
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Fair Exchange
+--   Organization: Coinbase
 --   Version: 1.4
 --   Date: Monday, July 27, 2020
 -- 

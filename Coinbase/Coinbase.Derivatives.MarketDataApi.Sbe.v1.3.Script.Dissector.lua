@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Fairx Futures MarketDataApi Sbe 1.2 Protocol
-local fairx_futures_marketdataapi_sbe_v1_2 = Proto("Fairx.Futures.MarketDataApi.Sbe.v1.2.Lua", "Fairx Futures MarketDataApi Sbe 1.2")
+-- Coinbase Derivatives MarketDataApi Sbe 1.3 Protocol
+local coinbase_derivatives_marketdataapi_sbe_v1_3 = Proto("Coinbase.Derivatives.MarketDataApi.Sbe.v1.3.Lua", "Coinbase Derivatives MarketDataApi Sbe 1.3")
 
 -- Component Tables
 local show = {}
@@ -14,131 +14,141 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Fairx Futures MarketDataApi Sbe 1.2 Fields
-fairx_futures_marketdataapi_sbe_v1_2.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "fairx.futures.marketdataapi.sbe.v1.2.aggressororderid", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "fairx.futures.marketdataapi.sbe.v1.2.aggressorreceivetime", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "fairx.futures.marketdataapi.sbe.v1.2.beginseqnum", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.2.bestaskimpliedprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "fairx.futures.marketdataapi.sbe.v1.2.bestaskimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.2.bestbidimpliedprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "fairx.futures.marketdataapi.sbe.v1.2.bestbidimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_price = ProtoField.new("Best Price", "fairx.futures.marketdataapi.sbe.v1.2.bestprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.best_qty = ProtoField.new("Best Qty", "fairx.futures.marketdataapi.sbe.v1.2.bestqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.block_length = ProtoField.new("Block Length", "fairx.futures.marketdataapi.sbe.v1.2.blocklength", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.buy_order_id = ProtoField.new("Buy Order Id", "fairx.futures.marketdataapi.sbe.v1.2.buyorderid", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.cfi_code = ProtoField.new("Cfi Code", "fairx.futures.marketdataapi.sbe.v1.2.cficode", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.channel_id = ProtoField.new("Channel Id", "fairx.futures.marketdataapi.sbe.v1.2.channelid", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.close_price = ProtoField.new("Close Price", "fairx.futures.marketdataapi.sbe.v1.2.closeprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.contract_size = ProtoField.new("Contract Size", "fairx.futures.marketdataapi.sbe.v1.2.contractsize", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.currency = ProtoField.new("Currency", "fairx.futures.marketdataapi.sbe.v1.2.currency", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.day_open_price = ProtoField.new("Day Open Price", "fairx.futures.marketdataapi.sbe.v1.2.dayopenprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.deepest_price = ProtoField.new("Deepest Price", "fairx.futures.marketdataapi.sbe.v1.2.deepestprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.definition_flags = ProtoField.new("Definition Flags", "fairx.futures.marketdataapi.sbe.v1.2.definitionflags", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.description = ProtoField.new("Description", "fairx.futures.marketdataapi.sbe.v1.2.description", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.details = ProtoField.new("Details", "fairx.futures.marketdataapi.sbe.v1.2.details", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.2.endofsnapshotmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "fairx.futures.marketdataapi.sbe.v1.2.firsttradingsessiondate", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.frame_length = ProtoField.new("Frame Length", "fairx.futures.marketdataapi.sbe.v1.2.framelength", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.high_price = ProtoField.new("High Price", "fairx.futures.marketdataapi.sbe.v1.2.highprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "fairx.futures.marketdataapi.sbe.v1.2.impliedorderupdatemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "fairx.futures.marketdataapi.sbe.v1.2.indicativeopenprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.instr_header = ProtoField.new("Instr Header", "fairx.futures.marketdataapi.sbe.v1.2.instrheader", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "fairx.futures.marketdataapi.sbe.v1.2.instrseqnum", ftypes.UINT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_flags = ProtoField.new("Instrument Flags", "fairx.futures.marketdataapi.sbe.v1.2.instrumentflags", ftypes.UINT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_id = ProtoField.new("Instrument Id", "fairx.futures.marketdataapi.sbe.v1.2.instrumentid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_side = ProtoField.new("Instrument Side", "fairx.futures.marketdataapi.sbe.v1.2.instrumentside", ftypes.INT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "fairx.futures.marketdataapi.sbe.v1.2.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
-fairx_futures_marketdataapi_sbe_v1_2.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "fairx.futures.marketdataapi.sbe.v1.2.lastinstrseqnum", ftypes.UINT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_price = ProtoField.new("Last Trade Price", "fairx.futures.marketdataapi.sbe.v1.2.lasttradeprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "fairx.futures.marketdataapi.sbe.v1.2.lasttradeqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_time = ProtoField.new("Last Trade Time", "fairx.futures.marketdataapi.sbe.v1.2.lasttradetime", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "fairx.futures.marketdataapi.sbe.v1.2.lasttradingsessiondate", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "fairx.futures.marketdataapi.sbe.v1.2.leg1instrumentid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "fairx.futures.marketdataapi.sbe.v1.2.leg2instrumentid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.limit_down_price = ProtoField.new("Limit Down Price", "fairx.futures.marketdataapi.sbe.v1.2.limitdownprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.limit_up_price = ProtoField.new("Limit Up Price", "fairx.futures.marketdataapi.sbe.v1.2.limitupprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.low_price = ProtoField.new("Low Price", "fairx.futures.marketdataapi.sbe.v1.2.lowprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.market_stat_message = ProtoField.new("Market Stat Message", "fairx.futures.marketdataapi.sbe.v1.2.marketstatmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.match_id = ProtoField.new("Match Id", "fairx.futures.marketdataapi.sbe.v1.2.matchid", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.message_count = ProtoField.new("Message Count", "fairx.futures.marketdataapi.sbe.v1.2.messagecount", ftypes.UINT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.message_header = ProtoField.new("Message Header", "fairx.futures.marketdataapi.sbe.v1.2.messageheader", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.2.newleg1price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.2.newleg2price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.new_price = ProtoField.new("New Price", "fairx.futures.marketdataapi.sbe.v1.2.newprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "fairx.futures.marketdataapi.sbe.v1.2.nextaskimpliedprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "fairx.futures.marketdataapi.sbe.v1.2.nextaskimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "fairx.futures.marketdataapi.sbe.v1.2.nextbidimpliedprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "fairx.futures.marketdataapi.sbe.v1.2.nextbidimpliedqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_price = ProtoField.new("Next Price", "fairx.futures.marketdataapi.sbe.v1.2.nextprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.next_qty = ProtoField.new("Next Qty", "fairx.futures.marketdataapi.sbe.v1.2.nextqty", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "fairx.futures.marketdataapi.sbe.v1.2.oldleg1price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "fairx.futures.marketdataapi.sbe.v1.2.oldleg2price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.old_price = ProtoField.new("Old Price", "fairx.futures.marketdataapi.sbe.v1.2.oldprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.open_interest = ProtoField.new("Open Interest", "fairx.futures.marketdataapi.sbe.v1.2.openinterest", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.open_interest_message = ProtoField.new("Open Interest Message", "fairx.futures.marketdataapi.sbe.v1.2.openinterestmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.order_count = ProtoField.new("Order Count", "fairx.futures.marketdataapi.sbe.v1.2.ordercount", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.order_delete_message = ProtoField.new("Order Delete Message", "fairx.futures.marketdataapi.sbe.v1.2.orderdeletemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.order_id = ProtoField.new("Order Id", "fairx.futures.marketdataapi.sbe.v1.2.orderid", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.order_put_message = ProtoField.new("Order Put Message", "fairx.futures.marketdataapi.sbe.v1.2.orderputmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.order_snapshot_message = ProtoField.new("Order Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.2.ordersnapshotmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.outright_instrument_definition_message = ProtoField.new("Outright Instrument Definition Message", "fairx.futures.marketdataapi.sbe.v1.2.outrightinstrumentdefinitionmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.packet = ProtoField.new("Packet", "fairx.futures.marketdataapi.sbe.v1.2.packet", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.packet_flags = ProtoField.new("Packet Flags", "fairx.futures.marketdataapi.sbe.v1.2.packetflags", ftypes.UINT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.packet_header = ProtoField.new("Packet Header", "fairx.futures.marketdataapi.sbe.v1.2.packetheader", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.padding = ProtoField.new("Padding", "fairx.futures.marketdataapi.sbe.v1.2.padding", ftypes.BYTES)
-fairx_futures_marketdataapi_sbe_v1_2.fields.payload = ProtoField.new("Payload", "fairx.futures.marketdataapi.sbe.v1.2.payload", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.price = ProtoField.new("Price", "fairx.futures.marketdataapi.sbe.v1.2.price", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.price_increment = ProtoField.new("Price Increment", "fairx.futures.marketdataapi.sbe.v1.2.priceincrement", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "fairx.futures.marketdataapi.sbe.v1.2.priorsettlementprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.product_code = ProtoField.new("Product Code", "fairx.futures.marketdataapi.sbe.v1.2.productcode", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.product_group = ProtoField.new("Product Group", "fairx.futures.marketdataapi.sbe.v1.2.productgroup", ftypes.INT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.product_id = ProtoField.new("Product Id", "fairx.futures.marketdataapi.sbe.v1.2.productid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.quantity = ProtoField.new("Quantity", "fairx.futures.marketdataapi.sbe.v1.2.quantity", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.reason = ProtoField.new("Reason", "fairx.futures.marketdataapi.sbe.v1.2.reason", ftypes.INT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.reserved = ProtoField.new("Reserved", "fairx.futures.marketdataapi.sbe.v1.2.reserved", ftypes.INT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.reserved_15 = ProtoField.new("Reserved 15", "fairx.futures.marketdataapi.sbe.v1.2.reserved15", ftypes.UINT16, nil, base.DEC, "0xFFFE")
-fairx_futures_marketdataapi_sbe_v1_2.fields.retransmit_reject_message = ProtoField.new("Retransmit Reject Message", "fairx.futures.marketdataapi.sbe.v1.2.retransmitrejectmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.retransmit_request_message = ProtoField.new("Retransmit Request Message", "fairx.futures.marketdataapi.sbe.v1.2.retransmitrequestmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "fairx.futures.marketdataapi.sbe.v1.2.retrydelaynanos", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.sbe_message = ProtoField.new("Sbe Message", "fairx.futures.marketdataapi.sbe.v1.2.sbemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.schema_id = ProtoField.new("Schema Id", "fairx.futures.marketdataapi.sbe.v1.2.schemaid", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.sell_order_id = ProtoField.new("Sell Order Id", "fairx.futures.marketdataapi.sbe.v1.2.sellorderid", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.sending_time = ProtoField.new("Sending Time", "fairx.futures.marketdataapi.sbe.v1.2.sendingtime", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.seq_num = ProtoField.new("Seq Num", "fairx.futures.marketdataapi.sbe.v1.2.seqnum", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.settlement_price = ProtoField.new("Settlement Price", "fairx.futures.marketdataapi.sbe.v1.2.settlementprice", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "fairx.futures.marketdataapi.sbe.v1.2.snapshotinstrumentid", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "fairx.futures.marketdataapi.sbe.v1.2.snapshotseqnum", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "fairx.futures.marketdataapi.sbe.v1.2.spreadbuyconvention", ftypes.INT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.spread_instrument_definition_message = ProtoField.new("Spread Instrument Definition Message", "fairx.futures.marketdataapi.sbe.v1.2.spreadinstrumentdefinitionmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.spread_trade_amend_message = ProtoField.new("Spread Trade Amend Message", "fairx.futures.marketdataapi.sbe.v1.2.spreadtradeamendmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.start_of_outright_instrument_snapshot_message = ProtoField.new("Start Of Outright Instrument Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.2.startofoutrightinstrumentsnapshotmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.start_of_spread_instrument_snapshot_message = ProtoField.new("Start Of Spread Instrument Snapshot Message", "fairx.futures.marketdataapi.sbe.v1.2.startofspreadinstrumentsnapshotmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.stat_type = ProtoField.new("Stat Type", "fairx.futures.marketdataapi.sbe.v1.2.stattype", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.symbol = ProtoField.new("Symbol", "fairx.futures.marketdataapi.sbe.v1.2.symbol", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.template_id = ProtoField.new("Template Id", "fairx.futures.marketdataapi.sbe.v1.2.templateid", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_amend_message = ProtoField.new("Trade Amend Message", "fairx.futures.marketdataapi.sbe.v1.2.tradeamendmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "fairx.futures.marketdataapi.sbe.v1.2.tradebustmessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_message = ProtoField.new("Trade Message", "fairx.futures.marketdataapi.sbe.v1.2.trademessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_session_volume_message = ProtoField.new("Trade Session Volume Message", "fairx.futures.marketdataapi.sbe.v1.2.tradesessionvolumemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "fairx.futures.marketdataapi.sbe.v1.2.tradesummarymessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trade_volume = ProtoField.new("Trade Volume", "fairx.futures.marketdataapi.sbe.v1.2.tradevolume", ftypes.INT32)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trading_session_date = ProtoField.new("Trading Session Date", "fairx.futures.marketdataapi.sbe.v1.2.tradingsessiondate", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trading_status = ProtoField.new("Trading Status", "fairx.futures.marketdataapi.sbe.v1.2.tradingstatus", ftypes.INT8)
-fairx_futures_marketdataapi_sbe_v1_2.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "fairx.futures.marketdataapi.sbe.v1.2.tradingstatusupdatemessage", ftypes.STRING)
-fairx_futures_marketdataapi_sbe_v1_2.fields.transact_time = ProtoField.new("Transact Time", "fairx.futures.marketdataapi.sbe.v1.2.transacttime", ftypes.INT64)
-fairx_futures_marketdataapi_sbe_v1_2.fields.version = ProtoField.new("Version", "fairx.futures.marketdataapi.sbe.v1.2.version", ftypes.UINT16)
-fairx_futures_marketdataapi_sbe_v1_2.fields.vwap_price = ProtoField.new("Vwap Price", "fairx.futures.marketdataapi.sbe.v1.2.vwapprice", ftypes.INT64)
+-- Coinbase Derivatives MarketDataApi Sbe 1.3 Fields
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.aggressor_order_id = ProtoField.new("Aggressor Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.aggressororderid", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time = ProtoField.new("Aggressor Receive Time", "coinbase.derivatives.marketdataapi.sbe.v1.3.aggressorreceivetime", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.begin_seq_num = ProtoField.new("Begin Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.3.beginseqnum", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_price = ProtoField.new("Best Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestaskimpliedprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_qty = ProtoField.new("Best Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestaskimpliedqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_bid_implied_price = ProtoField.new("Best Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestbidimpliedprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_bid_implied_qty = ProtoField.new("Best Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestbidimpliedqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_price = ProtoField.new("Best Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_qty = ProtoField.new("Best Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.bestqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "coinbase.derivatives.marketdataapi.sbe.v1.3.blocklength", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.buy_order_id = ProtoField.new("Buy Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.buyorderid", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.cfi_code = ProtoField.new("Cfi Code", "coinbase.derivatives.marketdataapi.sbe.v1.3.cficode", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.channel_id = ProtoField.new("Channel Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.channelid", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.close_price = ProtoField.new("Close Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.closeprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.contract_size = ProtoField.new("Contract Size", "coinbase.derivatives.marketdataapi.sbe.v1.3.contractsize", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.currency = ProtoField.new("Currency", "coinbase.derivatives.marketdataapi.sbe.v1.3.currency", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.day_open_price = ProtoField.new("Day Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.dayopenprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.deepest_price = ProtoField.new("Deepest Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.deepestprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.definition_flags = ProtoField.new("Definition Flags", "coinbase.derivatives.marketdataapi.sbe.v1.3.definitionflags", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.description = ProtoField.new("Description", "coinbase.derivatives.marketdataapi.sbe.v1.3.description", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.details = ProtoField.new("Details", "coinbase.derivatives.marketdataapi.sbe.v1.3.details", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.end_of_snapshot_message = ProtoField.new("End Of Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.endofsnapshotmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.first_trading_session_date = ProtoField.new("First Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.3.firsttradingsessiondate", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.frame_length = ProtoField.new("Frame Length", "coinbase.derivatives.marketdataapi.sbe.v1.3.framelength", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.high_price = ProtoField.new("High Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.highprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.implied_order_update_message = ProtoField.new("Implied Order Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.impliedorderupdatemessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.indicative_open_price = ProtoField.new("Indicative Open Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.indicativeopenprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instr_header = ProtoField.new("Instr Header", "coinbase.derivatives.marketdataapi.sbe.v1.3.instrheader", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instr_seq_num = ProtoField.new("Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.3.instrseqnum", ftypes.UINT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_flags = ProtoField.new("Instrument Flags", "coinbase.derivatives.marketdataapi.sbe.v1.3.instrumentflags", ftypes.UINT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.instrumentid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_side = ProtoField.new("Instrument Side", "coinbase.derivatives.marketdataapi.sbe.v1.3.instrumentside", ftypes.INT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_announced = ProtoField.new("Is Announced", "coinbase.derivatives.marketdataapi.sbe.v1.3.isannounced", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_call = ProtoField.new("Is Call", "coinbase.derivatives.marketdataapi.sbe.v1.3.iscall", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0004")
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical = ProtoField.new("Is Prior Settlement Theoretical", "coinbase.derivatives.marketdataapi.sbe.v1.3.ispriorsettlementtheoretical", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick = ProtoField.new("Large Tick", "coinbase.derivatives.marketdataapi.sbe.v1.3.largetick", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick_threshold = ProtoField.new("Large Tick Threshold", "coinbase.derivatives.marketdataapi.sbe.v1.3.largetickthreshold", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_instr_seq_num = ProtoField.new("Last Instr Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.3.lastinstrseqnum", ftypes.UINT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_price = ProtoField.new("Last Trade Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.lasttradeprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_qty = ProtoField.new("Last Trade Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.lasttradeqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_time = ProtoField.new("Last Trade Time", "coinbase.derivatives.marketdataapi.sbe.v1.3.lasttradetime", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trading_session_date = ProtoField.new("Last Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.3.lasttradingsessiondate", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.leg_1_instrument_id = ProtoField.new("Leg 1 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.leg1instrumentid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.leg_2_instrument_id = ProtoField.new("Leg 2 Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.leg2instrumentid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_down_price = ProtoField.new("Limit Down Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.limitdownprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_up_price = ProtoField.new("Limit Up Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.limitupprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.low_price = ProtoField.new("Low Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.lowprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.market_stat_message = ProtoField.new("Market Stat Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.marketstatmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.match_id = ProtoField.new("Match Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.matchid", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "coinbase.derivatives.marketdataapi.sbe.v1.3.messagecount", ftypes.UINT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.message_header = ProtoField.new("Message Header", "coinbase.derivatives.marketdataapi.sbe.v1.3.messageheader", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_1_price = ProtoField.new("New Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.newleg1price", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_2_price = ProtoField.new("New Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.newleg2price", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_price = ProtoField.new("New Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.newprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_ask_implied_price = ProtoField.new("Next Ask Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextaskimpliedprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_ask_implied_qty = ProtoField.new("Next Ask Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextaskimpliedqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_bid_implied_price = ProtoField.new("Next Bid Implied Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextbidimpliedprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_bid_implied_qty = ProtoField.new("Next Bid Implied Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextbidimpliedqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_price = ProtoField.new("Next Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_qty = ProtoField.new("Next Qty", "coinbase.derivatives.marketdataapi.sbe.v1.3.nextqty", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_1_price = ProtoField.new("Old Leg 1 Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.oldleg1price", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_2_price = ProtoField.new("Old Leg 2 Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.oldleg2price", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_price = ProtoField.new("Old Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.oldprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.open_interest = ProtoField.new("Open Interest", "coinbase.derivatives.marketdataapi.sbe.v1.3.openinterest", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.open_interest_message = ProtoField.new("Open Interest Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.openinterestmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.option_instrument_definition_message = ProtoField.new("Option Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.optioninstrumentdefinitionmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_count = ProtoField.new("Order Count", "coinbase.derivatives.marketdataapi.sbe.v1.3.ordercount", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_delete_message = ProtoField.new("Order Delete Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.orderdeletemessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.orderid", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_put_message = ProtoField.new("Order Put Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.orderputmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_snapshot_message = ProtoField.new("Order Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.ordersnapshotmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.outright_instrument_definition_message = ProtoField.new("Outright Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.outrightinstrumentdefinitionmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.marketdataapi.sbe.v1.3.packet", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.packet_flags = ProtoField.new("Packet Flags", "coinbase.derivatives.marketdataapi.sbe.v1.3.packetflags", ftypes.UINT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.packet_header = ProtoField.new("Packet Header", "coinbase.derivatives.marketdataapi.sbe.v1.3.packetheader", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.marketdataapi.sbe.v1.3.padding", ftypes.BYTES)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.marketdataapi.sbe.v1.3.payload", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price = ProtoField.new("Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.price", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price_increment = ProtoField.new("Price Increment", "coinbase.derivatives.marketdataapi.sbe.v1.3.priceincrement", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price = ProtoField.new("Prior Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.priorsettlementprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_code = ProtoField.new("Product Code", "coinbase.derivatives.marketdataapi.sbe.v1.3.productcode", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_group = ProtoField.new("Product Group", "coinbase.derivatives.marketdataapi.sbe.v1.3.productgroup", ftypes.INT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_id = ProtoField.new("Product Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.productid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "coinbase.derivatives.marketdataapi.sbe.v1.3.quantity", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reason = ProtoField.new("Reason", "coinbase.derivatives.marketdataapi.sbe.v1.3.reason", ftypes.INT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "coinbase.derivatives.marketdataapi.sbe.v1.3.reserved", ftypes.INT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved_13 = ProtoField.new("Reserved 13", "coinbase.derivatives.marketdataapi.sbe.v1.3.reserved13", ftypes.UINT16, nil, base.DEC, "0xFFF8")
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retransmit_reject_message = ProtoField.new("Retransmit Reject Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.retransmitrejectmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retransmit_request_message = ProtoField.new("Retransmit Request Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.retransmitrequestmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retry_delay_nanos = ProtoField.new("Retry Delay Nanos", "coinbase.derivatives.marketdataapi.sbe.v1.3.retrydelaynanos", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.sbemessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.schemaid", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sell_order_id = ProtoField.new("Sell Order Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.sellorderid", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "coinbase.derivatives.marketdataapi.sbe.v1.3.sendingtime", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.seq_num = ProtoField.new("Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.3.seqnum", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.settlement_price = ProtoField.new("Settlement Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.settlementprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.small_tick = ProtoField.new("Small Tick", "coinbase.derivatives.marketdataapi.sbe.v1.3.smalltick", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.snapshot_instrument_id = ProtoField.new("Snapshot Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.snapshotinstrumentid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.snapshot_seq_num = ProtoField.new("Snapshot Seq Num", "coinbase.derivatives.marketdataapi.sbe.v1.3.snapshotseqnum", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_buy_convention = ProtoField.new("Spread Buy Convention", "coinbase.derivatives.marketdataapi.sbe.v1.3.spreadbuyconvention", ftypes.INT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_instrument_definition_message = ProtoField.new("Spread Instrument Definition Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.spreadinstrumentdefinitionmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_trade_amend_message = ProtoField.new("Spread Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.spreadtradeamendmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_option_instrument_snapshot_message = ProtoField.new("Start Of Option Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.startofoptioninstrumentsnapshotmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_outright_instrument_snapshot_message = ProtoField.new("Start Of Outright Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.startofoutrightinstrumentsnapshotmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_spread_instrument_snapshot_message = ProtoField.new("Start Of Spread Instrument Snapshot Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.startofspreadinstrumentsnapshotmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.stat_type = ProtoField.new("Stat Type", "coinbase.derivatives.marketdataapi.sbe.v1.3.stattype", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.strikeprice", ftypes.DOUBLE)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "coinbase.derivatives.marketdataapi.sbe.v1.3.symbol", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.templateid", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_amend_message = ProtoField.new("Trade Amend Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradeamendmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_bust_message = ProtoField.new("Trade Bust Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradebustmessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_message = ProtoField.new("Trade Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.trademessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_session_volume_message = ProtoField.new("Trade Session Volume Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradesessionvolumemessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_summary_message = ProtoField.new("Trade Summary Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradesummarymessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_volume = ProtoField.new("Trade Volume", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradevolume", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_session_date = ProtoField.new("Trading Session Date", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradingsessiondate", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_status = ProtoField.new("Trading Status", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradingstatus", ftypes.INT8)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_status_update_message = ProtoField.new("Trading Status Update Message", "coinbase.derivatives.marketdataapi.sbe.v1.3.tradingstatusupdatemessage", ftypes.STRING)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "coinbase.derivatives.marketdataapi.sbe.v1.3.transacttime", ftypes.INT64)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.underlying_instrument_id = ProtoField.new("Underlying Instrument Id", "coinbase.derivatives.marketdataapi.sbe.v1.3.underlyinginstrumentid", ftypes.INT32)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.version = ProtoField.new("Version", "coinbase.derivatives.marketdataapi.sbe.v1.3.version", ftypes.UINT16)
+coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price = ProtoField.new("Vwap Price", "coinbase.derivatives.marketdataapi.sbe.v1.3.vwapprice", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Fairx Futures MarketDataApi Sbe 1.2 Element Dissection Options
+-- Coinbase Derivatives MarketDataApi Sbe 1.3 Element Dissection Options
 show.definition_flags = true
 show.end_of_snapshot_message = true
 show.implied_order_update_message = true
@@ -146,6 +156,7 @@ show.instr_header = true
 show.market_stat_message = true
 show.message_header = true
 show.open_interest_message = true
+show.option_instrument_definition_message = true
 show.order_delete_message = true
 show.order_put_message = true
 show.order_snapshot_message = true
@@ -157,6 +168,7 @@ show.retransmit_request_message = true
 show.sbe_message = true
 show.spread_instrument_definition_message = true
 show.spread_trade_amend_message = true
+show.start_of_option_instrument_snapshot_message = true
 show.start_of_outright_instrument_snapshot_message = true
 show.start_of_spread_instrument_snapshot_message = true
 show.trade_amend_message = true
@@ -167,146 +179,156 @@ show.trade_summary_message = true
 show.trading_status_update_message = true
 show.payload = false
 
--- Register Fairx Futures MarketDataApi Sbe 1.2 Show Options
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_market_stat_message = Pref.bool("Show Market Stat Message", show.market_stat_message, "Parse and add Market Stat Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_put_message = Pref.bool("Show Order Put Message", show.order_put_message, "Parse and add Order Put Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message = Pref.bool("Show Order Snapshot Message", show.order_snapshot_message, "Parse and add Order Snapshot Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message = Pref.bool("Show Outright Instrument Definition Message", show.outright_instrument_definition_message, "Parse and add Outright Instrument Definition Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message = Pref.bool("Show Spread Instrument Definition Message", show.spread_instrument_definition_message, "Parse and add Spread Instrument Definition Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message = Pref.bool("Show Spread Trade Amend Message", show.spread_trade_amend_message, "Parse and add Spread Trade Amend Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message = Pref.bool("Show Start Of Outright Instrument Snapshot Message", show.start_of_outright_instrument_snapshot_message, "Parse and add Start Of Outright Instrument Snapshot Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message = Pref.bool("Show Start Of Spread Instrument Snapshot Message", show.start_of_spread_instrument_snapshot_message, "Parse and add Start Of Spread Instrument Snapshot Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message = Pref.bool("Show Trade Amend Message", show.trade_amend_message, "Parse and add Trade Amend Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
-fairx_futures_marketdataapi_sbe_v1_2.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Coinbase Derivatives MarketDataApi Sbe 1.3 Show Options
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_definition_flags = Pref.bool("Show Definition Flags", show.definition_flags, "Parse and add Definition Flags to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message = Pref.bool("Show End Of Snapshot Message", show.end_of_snapshot_message, "Parse and add End Of Snapshot Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_implied_order_update_message = Pref.bool("Show Implied Order Update Message", show.implied_order_update_message, "Parse and add Implied Order Update Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_instr_header = Pref.bool("Show Instr Header", show.instr_header, "Parse and add Instr Header to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_market_stat_message = Pref.bool("Show Market Stat Message", show.market_stat_message, "Parse and add Market Stat Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_open_interest_message = Pref.bool("Show Open Interest Message", show.open_interest_message, "Parse and add Open Interest Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_option_instrument_definition_message = Pref.bool("Show Option Instrument Definition Message", show.option_instrument_definition_message, "Parse and add Option Instrument Definition Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_put_message = Pref.bool("Show Order Put Message", show.order_put_message, "Parse and add Order Put Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_snapshot_message = Pref.bool("Show Order Snapshot Message", show.order_snapshot_message, "Parse and add Order Snapshot Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_outright_instrument_definition_message = Pref.bool("Show Outright Instrument Definition Message", show.outright_instrument_definition_message, "Parse and add Outright Instrument Definition Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_reject_message = Pref.bool("Show Retransmit Reject Message", show.retransmit_reject_message, "Parse and add Retransmit Reject Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_request_message = Pref.bool("Show Retransmit Request Message", show.retransmit_request_message, "Parse and add Retransmit Request Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_sbe_message = Pref.bool("Show Sbe Message", show.sbe_message, "Parse and add Sbe Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_instrument_definition_message = Pref.bool("Show Spread Instrument Definition Message", show.spread_instrument_definition_message, "Parse and add Spread Instrument Definition Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_trade_amend_message = Pref.bool("Show Spread Trade Amend Message", show.spread_trade_amend_message, "Parse and add Spread Trade Amend Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_option_instrument_snapshot_message = Pref.bool("Show Start Of Option Instrument Snapshot Message", show.start_of_option_instrument_snapshot_message, "Parse and add Start Of Option Instrument Snapshot Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_outright_instrument_snapshot_message = Pref.bool("Show Start Of Outright Instrument Snapshot Message", show.start_of_outright_instrument_snapshot_message, "Parse and add Start Of Outright Instrument Snapshot Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_spread_instrument_snapshot_message = Pref.bool("Show Start Of Spread Instrument Snapshot Message", show.start_of_spread_instrument_snapshot_message, "Parse and add Start Of Spread Instrument Snapshot Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_amend_message = Pref.bool("Show Trade Amend Message", show.trade_amend_message, "Parse and add Trade Amend Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_bust_message = Pref.bool("Show Trade Bust Message", show.trade_bust_message, "Parse and add Trade Bust Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_message = Pref.bool("Show Trade Message", show.trade_message, "Parse and add Trade Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_session_volume_message = Pref.bool("Show Trade Session Volume Message", show.trade_session_volume_message, "Parse and add Trade Session Volume Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_summary_message = Pref.bool("Show Trade Summary Message", show.trade_summary_message, "Parse and add Trade Summary Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trading_status_update_message = Pref.bool("Show Trading Status Update Message", show.trading_status_update_message, "Parse and add Trading Status Update Message to protocol tree")
+coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function fairx_futures_marketdataapi_sbe_v1_2.prefs_changed()
+function coinbase_derivatives_marketdataapi_sbe_v1_3.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.definition_flags ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_definition_flags then
-    show.definition_flags = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_definition_flags
+  if show.definition_flags ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_definition_flags then
+    show.definition_flags = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_definition_flags
     changed = true
   end
-  if show.end_of_snapshot_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message then
-    show.end_of_snapshot_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_end_of_snapshot_message
+  if show.end_of_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message then
+    show.end_of_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_end_of_snapshot_message
     changed = true
   end
-  if show.implied_order_update_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message then
-    show.implied_order_update_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_implied_order_update_message
+  if show.implied_order_update_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_implied_order_update_message then
+    show.implied_order_update_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_implied_order_update_message
     changed = true
   end
-  if show.instr_header ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_instr_header then
-    show.instr_header = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_instr_header
+  if show.instr_header ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_instr_header then
+    show.instr_header = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_instr_header
     changed = true
   end
-  if show.market_stat_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_market_stat_message then
-    show.market_stat_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_market_stat_message
+  if show.market_stat_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_market_stat_message then
+    show.market_stat_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_market_stat_message
     changed = true
   end
-  if show.message_header ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_message_header then
-    show.message_header = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_message_header
+  if show.message_header ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_message_header then
+    show.message_header = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_message_header
     changed = true
   end
-  if show.open_interest_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_open_interest_message then
-    show.open_interest_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_open_interest_message
+  if show.open_interest_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_open_interest_message then
+    show.open_interest_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_open_interest_message
     changed = true
   end
-  if show.order_delete_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_delete_message then
-    show.order_delete_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_delete_message
+  if show.option_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_option_instrument_definition_message then
+    show.option_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_option_instrument_definition_message
     changed = true
   end
-  if show.order_put_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_put_message then
-    show.order_put_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_put_message
+  if show.order_delete_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_delete_message then
+    show.order_delete_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_delete_message
     changed = true
   end
-  if show.order_snapshot_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message then
-    show.order_snapshot_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_order_snapshot_message
+  if show.order_put_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_put_message then
+    show.order_put_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_put_message
     changed = true
   end
-  if show.outright_instrument_definition_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message then
-    show.outright_instrument_definition_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_outright_instrument_definition_message
+  if show.order_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_snapshot_message then
+    show.order_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_order_snapshot_message
     changed = true
   end
-  if show.packet ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet then
-    show.packet = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet
+  if show.outright_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_outright_instrument_definition_message then
+    show.outright_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_outright_instrument_definition_message
     changed = true
   end
-  if show.packet_header ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet_header then
-    show.packet_header = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_packet_header
+  if show.packet ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet then
+    show.packet = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet
     changed = true
   end
-  if show.retransmit_reject_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message then
-    show.retransmit_reject_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_reject_message
+  if show.packet_header ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet_header then
+    show.packet_header = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_packet_header
     changed = true
   end
-  if show.retransmit_request_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message then
-    show.retransmit_request_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_retransmit_request_message
+  if show.retransmit_reject_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_reject_message then
+    show.retransmit_reject_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_reject_message
     changed = true
   end
-  if show.sbe_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_sbe_message then
-    show.sbe_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_sbe_message
+  if show.retransmit_request_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_request_message then
+    show.retransmit_request_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_retransmit_request_message
     changed = true
   end
-  if show.spread_instrument_definition_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message then
-    show.spread_instrument_definition_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_instrument_definition_message
+  if show.sbe_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_sbe_message then
+    show.sbe_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_sbe_message
     changed = true
   end
-  if show.spread_trade_amend_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message then
-    show.spread_trade_amend_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_spread_trade_amend_message
+  if show.spread_instrument_definition_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_instrument_definition_message then
+    show.spread_instrument_definition_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_instrument_definition_message
     changed = true
   end
-  if show.start_of_outright_instrument_snapshot_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message then
-    show.start_of_outright_instrument_snapshot_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_outright_instrument_snapshot_message
+  if show.spread_trade_amend_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_trade_amend_message then
+    show.spread_trade_amend_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_spread_trade_amend_message
     changed = true
   end
-  if show.start_of_spread_instrument_snapshot_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message then
-    show.start_of_spread_instrument_snapshot_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_start_of_spread_instrument_snapshot_message
+  if show.start_of_option_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_option_instrument_snapshot_message then
+    show.start_of_option_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_option_instrument_snapshot_message
     changed = true
   end
-  if show.trade_amend_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message then
-    show.trade_amend_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_amend_message
+  if show.start_of_outright_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_outright_instrument_snapshot_message then
+    show.start_of_outright_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_outright_instrument_snapshot_message
     changed = true
   end
-  if show.trade_bust_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message then
-    show.trade_bust_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_bust_message
+  if show.start_of_spread_instrument_snapshot_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_spread_instrument_snapshot_message then
+    show.start_of_spread_instrument_snapshot_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_start_of_spread_instrument_snapshot_message
     changed = true
   end
-  if show.trade_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_message then
-    show.trade_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_message
+  if show.trade_amend_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_amend_message then
+    show.trade_amend_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_amend_message
     changed = true
   end
-  if show.trade_session_volume_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message then
-    show.trade_session_volume_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_session_volume_message
+  if show.trade_bust_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_bust_message then
+    show.trade_bust_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_bust_message
     changed = true
   end
-  if show.trade_summary_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message then
-    show.trade_summary_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trade_summary_message
+  if show.trade_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_message then
+    show.trade_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_message
     changed = true
   end
-  if show.trading_status_update_message ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message then
-    show.trading_status_update_message = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_trading_status_update_message
+  if show.trade_session_volume_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_session_volume_message then
+    show.trade_session_volume_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_session_volume_message
     changed = true
   end
-  if show.payload ~= fairx_futures_marketdataapi_sbe_v1_2.prefs.show_payload then
-    show.payload = fairx_futures_marketdataapi_sbe_v1_2.prefs.show_payload
+  if show.trade_summary_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_summary_message then
+    show.trade_summary_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trade_summary_message
+    changed = true
+  end
+  if show.trading_status_update_message ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trading_status_update_message then
+    show.trading_status_update_message = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_trading_status_update_message
+    changed = true
+  end
+  if show.payload ~= coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_payload then
+    show.payload = coinbase_derivatives_marketdataapi_sbe_v1_3.prefs.show_payload
     changed = true
   end
 
@@ -318,7 +340,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Fairx Futures MarketDataApi Sbe 1.2
+-- Dissect Coinbase Derivatives MarketDataApi Sbe 1.3
 -----------------------------------------------------------------------
 
 -- Display: Padding
@@ -332,7 +354,7 @@ dissect.padding = function(buffer, offset, packet, parent, size)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding(value, buffer, offset, packet, parent, size)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.padding, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.padding, range, value, display)
 
   return offset + size
 end
@@ -365,7 +387,7 @@ dissect.reason = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.reason(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.reason, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reason, range, value, display)
 
   return offset + length, value
 end
@@ -401,7 +423,7 @@ dissect.details = function(buffer, offset, packet, parent)
 
   local display = display.details(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.details, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.details, range, value, display)
 
   return offset + length, value
 end
@@ -421,7 +443,7 @@ dissect.retry_delay_nanos = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.retry_delay_nanos(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.retry_delay_nanos, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retry_delay_nanos, range, value, display)
 
   return offset + length, value
 end
@@ -467,7 +489,7 @@ dissect.retransmit_reject_message = function(buffer, offset, packet, parent)
     local length = size_of.retransmit_reject_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.retransmit_reject_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.retransmit_reject_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retransmit_reject_message, range, display)
   end
 
   return dissect.retransmit_reject_message_fields(buffer, offset, packet, parent)
@@ -488,7 +510,7 @@ dissect.message_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.message_count, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.message_count, range, value, display)
 
   return offset + length, value
 end
@@ -508,7 +530,7 @@ dissect.begin_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.begin_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.begin_seq_num, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.begin_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -549,7 +571,7 @@ dissect.retransmit_request_message = function(buffer, offset, packet, parent)
     local length = size_of.retransmit_request_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.retransmit_request_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.retransmit_request_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.retransmit_request_message, range, display)
   end
 
   return dissect.retransmit_request_message_fields(buffer, offset, packet, parent)
@@ -562,6 +584,14 @@ size_of.definition_flags = 2
 display.definition_flags = function(buffer, packet, parent)
   local display = ""
 
+  -- Is Is Call flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Is Call|"
+  end
+  -- Is Is Announced flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Is Announced|"
+  end
   -- Is Is Prior Settlement Theoretical flag set?
   if buffer:bitfield(15) > 0 then
     display = display.."Is Prior Settlement Theoretical|"
@@ -573,11 +603,17 @@ end
 -- Dissect Bit Fields: Definition Flags
 dissect.definition_flags_bits = function(buffer, offset, packet, parent)
 
-  -- Reserved 15: 15 Bit
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.reserved_15, buffer(offset, 2))
+  -- Reserved 13: 13 Bit
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved_13, buffer(offset, 2))
+
+  -- Is Call: 1 Bit
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_call, buffer(offset, 2))
+
+  -- Is Announced: 1 Bit
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_announced, buffer(offset, 2))
 
   -- Is Prior Settlement Theoretical: 1 Bit
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.is_prior_settlement_theoretical, buffer(offset, 2))
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.is_prior_settlement_theoretical, buffer(offset, 2))
 end
 
 -- Dissect: Definition Flags
@@ -585,7 +621,7 @@ dissect.definition_flags = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
   local display = display.definition_flags(range, packet, parent)
-  local element = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.definition_flags, range, display)
+  local element = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.definition_flags, range, display)
 
   if show.definition_flags then
     dissect.definition_flags_bits(buffer, offset, packet, element)
@@ -598,23 +634,34 @@ end
 size_of.prior_settlement_price = 8
 
 -- Display: Prior Settlement Price
-display.prior_settlement_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.prior_settlement_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Prior Settlement Price: No Value"
   end
 
   return "Prior Settlement Price: "..value
 end
 
+-- Translate: Prior Settlement Price
+translate.prior_settlement_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Prior Settlement Price
 dissect.prior_settlement_price = function(buffer, offset, packet, parent)
   local length = size_of.prior_settlement_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.prior_settlement_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.prior_settlement_price(raw)
+  local display = display.prior_settlement_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.prior_settlement_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.prior_settlement_price, range, value, display)
 
   return offset + length, value
 end
@@ -634,7 +681,7 @@ dissect.next_ask_implied_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.next_ask_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_ask_implied_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_ask_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -654,7 +701,7 @@ dissect.next_bid_implied_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.next_bid_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_bid_implied_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_bid_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -674,7 +721,7 @@ dissect.best_ask_implied_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.best_ask_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_ask_implied_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -694,7 +741,7 @@ dissect.best_bid_implied_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.best_bid_implied_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_bid_implied_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_bid_implied_qty, range, value, display)
 
   return offset + length, value
 end
@@ -714,7 +761,7 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.open_interest, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.open_interest, range, value, display)
 
   return offset + length, value
 end
@@ -734,7 +781,7 @@ dissect.last_trade_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.last_trade_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_qty, range, value, display)
 
   return offset + length, value
 end
@@ -747,14 +794,20 @@ display.limit_up_price = function(value)
   return "Limit Up Price: "..value
 end
 
+-- Translate: Limit Up Price
+translate.limit_up_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Limit Up Price
 dissect.limit_up_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_up_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.limit_up_price(raw)
   local display = display.limit_up_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.limit_up_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_up_price, range, value, display)
 
   return offset + length, value
 end
@@ -767,14 +820,20 @@ display.limit_down_price = function(value)
   return "Limit Down Price: "..value
 end
 
+-- Translate: Limit Down Price
+translate.limit_down_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Limit Down Price
 dissect.limit_down_price = function(buffer, offset, packet, parent)
   local length = size_of.limit_down_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.limit_down_price(raw)
   local display = display.limit_down_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.limit_down_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.limit_down_price, range, value, display)
 
   return offset + length, value
 end
@@ -783,23 +842,34 @@ end
 size_of.next_ask_implied_price = 8
 
 -- Display: Next Ask Implied Price
-display.next_ask_implied_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.next_ask_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Ask Implied Price: No Value"
   end
 
   return "Next Ask Implied Price: "..value
 end
 
+-- Translate: Next Ask Implied Price
+translate.next_ask_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Next Ask Implied Price
 dissect.next_ask_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.next_ask_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_ask_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_ask_implied_price(raw)
+  local display = display.next_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_ask_implied_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_ask_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -808,23 +878,34 @@ end
 size_of.next_bid_implied_price = 8
 
 -- Display: Next Bid Implied Price
-display.next_bid_implied_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.next_bid_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Bid Implied Price: No Value"
   end
 
   return "Next Bid Implied Price: "..value
 end
 
+-- Translate: Next Bid Implied Price
+translate.next_bid_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Next Bid Implied Price
 dissect.next_bid_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.next_bid_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_bid_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_bid_implied_price(raw)
+  local display = display.next_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_bid_implied_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_bid_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -833,23 +914,34 @@ end
 size_of.best_ask_implied_price = 8
 
 -- Display: Best Ask Implied Price
-display.best_ask_implied_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.best_ask_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Ask Implied Price: No Value"
   end
 
   return "Best Ask Implied Price: "..value
 end
 
+-- Translate: Best Ask Implied Price
+translate.best_ask_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Best Ask Implied Price
 dissect.best_ask_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.best_ask_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_ask_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_ask_implied_price(raw)
+  local display = display.best_ask_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_ask_implied_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_ask_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -858,23 +950,34 @@ end
 size_of.best_bid_implied_price = 8
 
 -- Display: Best Bid Implied Price
-display.best_bid_implied_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.best_bid_implied_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Bid Implied Price: No Value"
   end
 
   return "Best Bid Implied Price: "..value
 end
 
+-- Translate: Best Bid Implied Price
+translate.best_bid_implied_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Best Bid Implied Price
 dissect.best_bid_implied_price = function(buffer, offset, packet, parent)
   local length = size_of.best_bid_implied_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_bid_implied_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_bid_implied_price(raw)
+  local display = display.best_bid_implied_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_bid_implied_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_bid_implied_price, range, value, display)
 
   return offset + length, value
 end
@@ -899,7 +1002,7 @@ dissect.last_trade_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.last_trade_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_time, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_time, range, value, display)
 
   return offset + length, value
 end
@@ -908,23 +1011,34 @@ end
 size_of.last_trade_price = 8
 
 -- Display: Last Trade Price
-display.last_trade_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.last_trade_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Last Trade Price: No Value"
   end
 
   return "Last Trade Price: "..value
 end
 
+-- Translate: Last Trade Price
+translate.last_trade_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Last Trade Price
 dissect.last_trade_price = function(buffer, offset, packet, parent)
   local length = size_of.last_trade_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.last_trade_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.last_trade_price(raw)
+  local display = display.last_trade_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.last_trade_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trade_price, range, value, display)
 
   return offset + length, value
 end
@@ -933,23 +1047,34 @@ end
 size_of.settlement_price = 8
 
 -- Display: Settlement Price
-display.settlement_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.settlement_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Settlement Price: No Value"
   end
 
   return "Settlement Price: "..value
 end
 
+-- Translate: Settlement Price
+translate.settlement_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Settlement Price
 dissect.settlement_price = function(buffer, offset, packet, parent)
   local length = size_of.settlement_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.settlement_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.settlement_price(raw)
+  local display = display.settlement_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.settlement_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.settlement_price, range, value, display)
 
   return offset + length, value
 end
@@ -958,23 +1083,34 @@ end
 size_of.vwap_price = 8
 
 -- Display: Vwap Price
-display.vwap_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.vwap_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Vwap Price: No Value"
   end
 
   return "Vwap Price: "..value
 end
 
+-- Translate: Vwap Price
+translate.vwap_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Vwap Price
 dissect.vwap_price = function(buffer, offset, packet, parent)
   local length = size_of.vwap_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.vwap_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.vwap_price(raw)
+  local display = display.vwap_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.vwap_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
 
   return offset + length, value
 end
@@ -983,23 +1119,34 @@ end
 size_of.high_price = 8
 
 -- Display: High Price
-display.high_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.high_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "High Price: No Value"
   end
 
   return "High Price: "..value
 end
 
+-- Translate: High Price
+translate.high_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: High Price
 dissect.high_price = function(buffer, offset, packet, parent)
   local length = size_of.high_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.high_price(raw)
+  local display = display.high_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.high_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.high_price, range, value, display)
 
   return offset + length, value
 end
@@ -1008,23 +1155,34 @@ end
 size_of.low_price = 8
 
 -- Display: Low Price
-display.low_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.low_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Low Price: No Value"
   end
 
   return "Low Price: "..value
 end
 
+-- Translate: Low Price
+translate.low_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Low Price
 dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.low_price(raw)
+  local display = display.low_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.low_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.low_price, range, value, display)
 
   return offset + length, value
 end
@@ -1033,23 +1191,34 @@ end
 size_of.close_price = 8
 
 -- Display: Close Price
-display.close_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.close_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Close Price: No Value"
   end
 
   return "Close Price: "..value
 end
 
+-- Translate: Close Price
+translate.close_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Close Price
 dissect.close_price = function(buffer, offset, packet, parent)
   local length = size_of.close_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.close_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.close_price(raw)
+  local display = display.close_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.close_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.close_price, range, value, display)
 
   return offset + length, value
 end
@@ -1058,23 +1227,34 @@ end
 size_of.day_open_price = 8
 
 -- Display: Day Open Price
-display.day_open_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.day_open_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Day Open Price: No Value"
   end
 
   return "Day Open Price: "..value
 end
 
+-- Translate: Day Open Price
+translate.day_open_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Day Open Price
 dissect.day_open_price = function(buffer, offset, packet, parent)
   local length = size_of.day_open_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.day_open_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.day_open_price(raw)
+  local display = display.day_open_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.day_open_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.day_open_price, range, value, display)
 
   return offset + length, value
 end
@@ -1083,23 +1263,34 @@ end
 size_of.indicative_open_price = 8
 
 -- Display: Indicative Open Price
-display.indicative_open_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.indicative_open_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Indicative Open Price: No Value"
   end
 
   return "Indicative Open Price: "..value
 end
 
+-- Translate: Indicative Open Price
+translate.indicative_open_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Indicative Open Price
 dissect.indicative_open_price = function(buffer, offset, packet, parent)
   local length = size_of.indicative_open_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.indicative_open_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.indicative_open_price(raw)
+  local display = display.indicative_open_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.indicative_open_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.indicative_open_price, range, value, display)
 
   return offset + length, value
 end
@@ -1119,7 +1310,7 @@ dissect.trade_volume = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.trade_volume(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_volume, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_volume, range, value, display)
 
   return offset + length, value
 end
@@ -1139,7 +1330,7 @@ dissect.snapshot_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.snapshot_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.snapshot_seq_num, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.snapshot_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -1282,7 +1473,7 @@ dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent
   -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
   index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
 
-  -- Definition Flags: Struct of 2 fields
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -1295,7 +1486,7 @@ dissect.end_of_snapshot_message = function(buffer, offset, packet, parent)
     local length = size_of.end_of_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.end_of_snapshot_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.end_of_snapshot_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.end_of_snapshot_message, range, display)
   end
 
   return dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
@@ -1309,14 +1500,20 @@ display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1336,7 +1533,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.order_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1356,7 +1553,7 @@ dissect.transact_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.transact_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.transact_time, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.transact_time, range, value, display)
 
   return offset + length, value
 end
@@ -1376,7 +1573,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.quantity, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1432,77 +1629,10 @@ dissect.order_snapshot_message = function(buffer, offset, packet, parent)
     local length = size_of.order_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_snapshot_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.order_snapshot_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_snapshot_message, range, display)
   end
 
   return dissect.order_snapshot_message_fields(buffer, offset, packet, parent)
-end
-
--- Size: Spread Buy Convention
-size_of.spread_buy_convention = 1
-
--- Display: Spread Buy Convention
-display.spread_buy_convention = function(value)
-  if value == 1 then
-    return "Spread Buy Convention: Usefarbid (1)"
-  end
-  if value == -1 then
-    return "Spread Buy Convention: Usenearbid (-1)"
-  end
-
-  return "Spread Buy Convention: Unknown("..value..")"
-end
-
--- Dissect: Spread Buy Convention
-dissect.spread_buy_convention = function(buffer, offset, packet, parent)
-  local length = size_of.spread_buy_convention
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.spread_buy_convention(value, buffer, offset, packet, parent)
-
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.spread_buy_convention, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 2 Instrument Id
-size_of.leg_2_instrument_id = 4
-
--- Display: Leg 2 Instrument Id
-display.leg_2_instrument_id = function(value)
-  return "Leg 2 Instrument Id: "..value
-end
-
--- Dissect: Leg 2 Instrument Id
-dissect.leg_2_instrument_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_2_instrument_id
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.leg_2_instrument_id(value, buffer, offset, packet, parent)
-
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.leg_2_instrument_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Leg 1 Instrument Id
-size_of.leg_1_instrument_id = 4
-
--- Display: Leg 1 Instrument Id
-display.leg_1_instrument_id = function(value)
-  return "Leg 1 Instrument Id: "..value
-end
-
--- Dissect: Leg 1 Instrument Id
-dissect.leg_1_instrument_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_1_instrument_id
-  local range = buffer(offset, length)
-  local value = range:le_int()
-  local display = display.leg_1_instrument_id(value, buffer, offset, packet, parent)
-
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.leg_1_instrument_id, range, value, display)
-
-  return offset + length, value
 end
 
 -- Size: Trading Status
@@ -1542,7 +1672,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trading_status, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -1581,7 +1711,7 @@ dissect.product_group = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.product_group(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.product_group, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_group, range, value, display)
 
   return offset + length, value
 end
@@ -1601,7 +1731,7 @@ dissect.trading_session_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trading_session_date, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -1621,7 +1751,7 @@ dissect.last_trading_session_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.last_trading_session_date, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -1641,7 +1771,7 @@ dissect.first_trading_session_date = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.first_trading_session_date(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.first_trading_session_date, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.first_trading_session_date, range, value, display)
 
   return offset + length, value
 end
@@ -1661,27 +1791,27 @@ dissect.order_count = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.order_count(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.order_count, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_count, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Contract Size
-size_of.contract_size = 4
+-- Size: Underlying Instrument Id
+size_of.underlying_instrument_id = 4
 
--- Display: Contract Size
-display.contract_size = function(value)
-  return "Contract Size: "..value
+-- Display: Underlying Instrument Id
+display.underlying_instrument_id = function(value)
+  return "Underlying Instrument Id: "..value
 end
 
--- Dissect: Contract Size
-dissect.contract_size = function(buffer, offset, packet, parent)
-  local length = size_of.contract_size
+-- Dissect: Underlying Instrument Id
+dissect.underlying_instrument_id = function(buffer, offset, packet, parent)
+  local length = size_of.underlying_instrument_id
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.contract_size(value, buffer, offset, packet, parent)
+  local display = display.underlying_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.contract_size, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.underlying_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -1701,43 +1831,85 @@ dissect.product_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.product_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.product_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_id, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Currency
-size_of.currency = 8
+-- Size: Strike Price
+size_of.strike_price = 8
 
--- Display: Currency
-display.currency = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Currency: No Value"
-  end
-
-  return "Currency: "..value
+-- Display: Strike Price
+display.strike_price = function(value)
+  return "Strike Price: "..value
 end
 
--- Dissect: Currency
-dissect.currency = function(buffer, offset, packet, parent)
-  local length = size_of.currency
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Strike Price
+dissect.strike_price = function(buffer, offset, packet, parent)
+  local length = size_of.strike_price
   local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.strike_price(raw)
+  local display = display.strike_price(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.strike_price, range, value, display)
 
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
+  return offset + length, value
+end
 
-  local display = display.currency(value, buffer, offset, packet, parent)
+-- Size: Large Tick Threshold
+size_of.large_tick_threshold = 8
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.currency, range, value, display)
+-- Display: Large Tick Threshold
+display.large_tick_threshold = function(value)
+  return "Large Tick Threshold: "..value
+end
+
+-- Translate: Large Tick Threshold
+translate.large_tick_threshold = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Large Tick Threshold
+dissect.large_tick_threshold = function(buffer, offset, packet, parent)
+  local length = size_of.large_tick_threshold
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.large_tick_threshold(raw)
+  local display = display.large_tick_threshold(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick_threshold, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Large Tick
+size_of.large_tick = 8
+
+-- Display: Large Tick
+display.large_tick = function(value)
+  return "Large Tick: "..value
+end
+
+-- Translate: Large Tick
+translate.large_tick = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Large Tick
+dissect.large_tick = function(buffer, offset, packet, parent)
+  local length = size_of.large_tick
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.large_tick(raw)
+  local display = display.large_tick(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.large_tick, range, value, display)
 
   return offset + length, value
 end
@@ -1773,27 +1945,33 @@ dissect.cfi_code = function(buffer, offset, packet, parent)
 
   local display = display.cfi_code(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.cfi_code, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.cfi_code, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Price Increment
-size_of.price_increment = 8
+-- Size: Small Tick
+size_of.small_tick = 8
 
--- Display: Price Increment
-display.price_increment = function(value)
-  return "Price Increment: "..value
+-- Display: Small Tick
+display.small_tick = function(value)
+  return "Small Tick: "..value
 end
 
--- Dissect: Price Increment
-dissect.price_increment = function(buffer, offset, packet, parent)
-  local length = size_of.price_increment
-  local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.price_increment(value, buffer, offset, packet, parent)
+-- Translate: Small Tick
+translate.small_tick = function(raw)
+  return raw:tonumber()/1000000000
+end
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.price_increment, range, value, display)
+-- Dissect: Small Tick
+dissect.small_tick = function(buffer, offset, packet, parent)
+  local length = size_of.small_tick
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.small_tick(raw)
+  local display = display.small_tick(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.small_tick, range, value, display)
 
   return offset + length, value
 end
@@ -1829,7 +2007,7 @@ dissect.description = function(buffer, offset, packet, parent)
 
   local display = display.description(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.description, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.description, range, value, display)
 
   return offset + length, value
 end
@@ -1865,7 +2043,7 @@ dissect.product_code = function(buffer, offset, packet, parent)
 
   local display = display.product_code(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.product_code, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.product_code, range, value, display)
 
   return offset + length, value
 end
@@ -1901,7 +2079,7 @@ dissect.symbol = function(buffer, offset, packet, parent)
 
   local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.symbol, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1921,7 +2099,283 @@ dissect.last_instr_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.last_instr_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.last_instr_seq_num, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.last_instr_seq_num, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Start Of Option Instrument Snapshot Message
+size_of.start_of_option_instrument_snapshot_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.snapshot_seq_num
+
+  index = index + size_of.last_instr_seq_num
+
+  index = index + size_of.symbol
+
+  index = index + size_of.product_code
+
+  index = index + size_of.description
+
+  index = index + size_of.small_tick
+
+  index = index + size_of.cfi_code
+
+  index = index + size_of.large_tick
+
+  index = index + size_of.large_tick_threshold
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.product_id
+
+  index = index + size_of.underlying_instrument_id
+
+  index = index + size_of.order_count
+
+  index = index + size_of.first_trading_session_date
+
+  index = index + size_of.last_trading_session_date
+
+  index = index + size_of.trading_session_date
+
+  index = index + size_of.product_group
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.definition_flags
+
+  return index
+end
+
+-- Display: Start Of Option Instrument Snapshot Message
+display.start_of_option_instrument_snapshot_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Start Of Option Instrument Snapshot Message
+dissect.start_of_option_instrument_snapshot_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Snapshot Seq Num: 2 Byte Unsigned Fixed Width Integer
+  index, snapshot_seq_num = dissect.snapshot_seq_num(buffer, index, packet, parent)
+
+  -- Last Instr Seq Num: 4 Byte Unsigned Fixed Width Integer
+  index, last_instr_seq_num = dissect.last_instr_seq_num(buffer, index, packet, parent)
+
+  -- Symbol: 24 Byte Ascii String
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
+
+  -- Product Code: 8 Byte Ascii String
+  index, product_code = dissect.product_code(buffer, index, packet, parent)
+
+  -- Description: 32 Byte Ascii String
+  index, description = dissect.description(buffer, index, packet, parent)
+
+  -- Small Tick: 8 Byte Signed Fixed Width Integer
+  index, small_tick = dissect.small_tick(buffer, index, packet, parent)
+
+  -- Cfi Code: 8 Byte Ascii String
+  index, cfi_code = dissect.cfi_code(buffer, index, packet, parent)
+
+  -- Large Tick: 8 Byte Signed Fixed Width Integer
+  index, large_tick = dissect.large_tick(buffer, index, packet, parent)
+
+  -- Large Tick Threshold: 8 Byte Signed Fixed Width Integer
+  index, large_tick_threshold = dissect.large_tick_threshold(buffer, index, packet, parent)
+
+  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+
+  -- Product Id: 4 Byte Signed Fixed Width Integer
+  index, product_id = dissect.product_id(buffer, index, packet, parent)
+
+  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  index, underlying_instrument_id = dissect.underlying_instrument_id(buffer, index, packet, parent)
+
+  -- Order Count: 4 Byte Signed Fixed Width Integer
+  index, order_count = dissect.order_count(buffer, index, packet, parent)
+
+  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  index, first_trading_session_date = dissect.first_trading_session_date(buffer, index, packet, parent)
+
+  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  index, last_trading_session_date = dissect.last_trading_session_date(buffer, index, packet, parent)
+
+  -- Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  index, trading_session_date = dissect.trading_session_date(buffer, index, packet, parent)
+
+  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
+  index, product_group = dissect.product_group(buffer, index, packet, parent)
+
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+
+  -- Definition Flags: Struct of 4 fields
+  index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Start Of Option Instrument Snapshot Message
+dissect.start_of_option_instrument_snapshot_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.start_of_option_instrument_snapshot_message then
+    local length = size_of.start_of_option_instrument_snapshot_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.start_of_option_instrument_snapshot_message(buffer, packet, parent)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_option_instrument_snapshot_message, range, display)
+  end
+
+  return dissect.start_of_option_instrument_snapshot_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Spread Buy Convention
+size_of.spread_buy_convention = 1
+
+-- Display: Spread Buy Convention
+display.spread_buy_convention = function(value)
+  if value == 1 then
+    return "Spread Buy Convention: Usefarbid (1)"
+  end
+  if value == -1 then
+    return "Spread Buy Convention: Usenearbid (-1)"
+  end
+
+  return "Spread Buy Convention: Unknown("..value..")"
+end
+
+-- Dissect: Spread Buy Convention
+dissect.spread_buy_convention = function(buffer, offset, packet, parent)
+  local length = size_of.spread_buy_convention
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.spread_buy_convention(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_buy_convention, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg 2 Instrument Id
+size_of.leg_2_instrument_id = 4
+
+-- Display: Leg 2 Instrument Id
+display.leg_2_instrument_id = function(value)
+  return "Leg 2 Instrument Id: "..value
+end
+
+-- Dissect: Leg 2 Instrument Id
+dissect.leg_2_instrument_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_2_instrument_id
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.leg_2_instrument_id(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.leg_2_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Leg 1 Instrument Id
+size_of.leg_1_instrument_id = 4
+
+-- Display: Leg 1 Instrument Id
+display.leg_1_instrument_id = function(value)
+  return "Leg 1 Instrument Id: "..value
+end
+
+-- Dissect: Leg 1 Instrument Id
+dissect.leg_1_instrument_id = function(buffer, offset, packet, parent)
+  local length = size_of.leg_1_instrument_id
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.leg_1_instrument_id(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.leg_1_instrument_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Contract Size
+size_of.contract_size = 4
+
+-- Display: Contract Size
+display.contract_size = function(value)
+  return "Contract Size: "..value
+end
+
+-- Dissect: Contract Size
+dissect.contract_size = function(buffer, offset, packet, parent)
+  local length = size_of.contract_size
+  local range = buffer(offset, length)
+  local value = range:le_int()
+  local display = display.contract_size(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.contract_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Currency
+size_of.currency = 8
+
+-- Display: Currency
+display.currency = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Currency: No Value"
+  end
+
+  return "Currency: "..value
+end
+
+-- Dissect: Currency
+dissect.currency = function(buffer, offset, packet, parent)
+  local length = size_of.currency
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.currency(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.currency, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Price Increment
+size_of.price_increment = 8
+
+-- Display: Price Increment
+display.price_increment = function(value)
+  return "Price Increment: "..value
+end
+
+-- Translate: Price Increment
+translate.price_increment = function(raw)
+  return raw:tonumber()/1000000000
+end
+
+-- Dissect: Price Increment
+dissect.price_increment = function(buffer, offset, packet, parent)
+  local length = size_of.price_increment
+  local range = buffer(offset, length)
+  local raw = range:le_int64()
+  local value = translate.price_increment(raw)
+  local display = display.price_increment(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.price_increment, range, value, display)
 
   return offset + length, value
 end
@@ -2047,7 +2501,7 @@ dissect.start_of_spread_instrument_snapshot_message = function(buffer, offset, p
     local length = size_of.start_of_spread_instrument_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.start_of_spread_instrument_snapshot_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.start_of_spread_instrument_snapshot_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_spread_instrument_snapshot_message, range, display)
   end
 
   return dissect.start_of_spread_instrument_snapshot_message_fields(buffer, offset, packet, parent)
@@ -2159,7 +2613,7 @@ dissect.start_of_outright_instrument_snapshot_message = function(buffer, offset,
     local length = size_of.start_of_outright_instrument_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.start_of_outright_instrument_snapshot_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.start_of_outright_instrument_snapshot_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.start_of_outright_instrument_snapshot_message, range, display)
   end
 
   return dissect.start_of_outright_instrument_snapshot_message_fields(buffer, offset, packet, parent)
@@ -2180,7 +2634,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.reserved, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -2200,7 +2654,7 @@ dissect.instr_seq_num = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.instr_seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.instr_seq_num, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instr_seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -2220,7 +2674,7 @@ dissect.instrument_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -2240,7 +2694,7 @@ dissect.instrument_side = function(buffer, offset, packet, parent)
   local value = range:int()
   local display = display.instrument_side(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_side, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_side, range, value, display)
 
   return offset + length, value
 end
@@ -2260,7 +2714,7 @@ dissect.instrument_flags = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.instrument_flags(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.instrument_flags, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instrument_flags, range, value, display)
 
   return offset + length, value
 end
@@ -2326,7 +2780,7 @@ dissect.instr_header = function(buffer, offset, packet, parent)
     local length = size_of.instr_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.instr_header(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.instr_header, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.instr_header, range, display)
   end
 
   return dissect.instr_header_fields(buffer, offset, packet, parent)
@@ -2368,7 +2822,7 @@ dissect.open_interest_message = function(buffer, offset, packet, parent)
     local length = size_of.open_interest_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.open_interest_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.open_interest_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.open_interest_message, range, display)
   end
 
   return dissect.open_interest_message_fields(buffer, offset, packet, parent)
@@ -2415,7 +2869,7 @@ dissect.trade_session_volume_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_session_volume_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_session_volume_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_session_volume_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_session_volume_message, range, display)
   end
 
   return dissect.trade_session_volume_message_fields(buffer, offset, packet, parent)
@@ -2468,7 +2922,7 @@ dissect.stat_type = function(buffer, offset, packet, parent)
 
   local display = display.stat_type(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.stat_type, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.stat_type, range, value, display)
 
   return offset + length, value
 end
@@ -2514,7 +2968,7 @@ dissect.market_stat_message = function(buffer, offset, packet, parent)
     local length = size_of.market_stat_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.market_stat_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.market_stat_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.market_stat_message, range, display)
   end
 
   return dissect.market_stat_message_fields(buffer, offset, packet, parent)
@@ -2540,7 +2994,7 @@ dissect.sell_order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.sell_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.sell_order_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sell_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2565,7 +3019,7 @@ dissect.buy_order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.buy_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.buy_order_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.buy_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -2585,7 +3039,7 @@ dissect.match_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.match_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.match_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.match_id, range, value, display)
 
   return offset + length, value
 end
@@ -2636,7 +3090,7 @@ dissect.trade_bust_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_bust_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_bust_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_bust_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_bust_message, range, display)
   end
 
   return dissect.trade_bust_message_fields(buffer, offset, packet, parent)
@@ -2650,14 +3104,20 @@ display.new_leg_2_price = function(value)
   return "New Leg 2 Price: "..value
 end
 
+-- Translate: New Leg 2 Price
+translate.new_leg_2_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: New Leg 2 Price
 dissect.new_leg_2_price = function(buffer, offset, packet, parent)
   local length = size_of.new_leg_2_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_leg_2_price(raw)
   local display = display.new_leg_2_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.new_leg_2_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_2_price, range, value, display)
 
   return offset + length, value
 end
@@ -2670,14 +3130,20 @@ display.old_leg_2_price = function(value)
   return "Old Leg 2 Price: "..value
 end
 
+-- Translate: Old Leg 2 Price
+translate.old_leg_2_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Old Leg 2 Price
 dissect.old_leg_2_price = function(buffer, offset, packet, parent)
   local length = size_of.old_leg_2_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_leg_2_price(raw)
   local display = display.old_leg_2_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.old_leg_2_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_2_price, range, value, display)
 
   return offset + length, value
 end
@@ -2690,14 +3156,20 @@ display.new_leg_1_price = function(value)
   return "New Leg 1 Price: "..value
 end
 
+-- Translate: New Leg 1 Price
+translate.new_leg_1_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: New Leg 1 Price
 dissect.new_leg_1_price = function(buffer, offset, packet, parent)
   local length = size_of.new_leg_1_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_leg_1_price(raw)
   local display = display.new_leg_1_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.new_leg_1_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_leg_1_price, range, value, display)
 
   return offset + length, value
 end
@@ -2710,14 +3182,20 @@ display.old_leg_1_price = function(value)
   return "Old Leg 1 Price: "..value
 end
 
+-- Translate: Old Leg 1 Price
+translate.old_leg_1_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Old Leg 1 Price
 dissect.old_leg_1_price = function(buffer, offset, packet, parent)
   local length = size_of.old_leg_1_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_leg_1_price(raw)
   local display = display.old_leg_1_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.old_leg_1_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_leg_1_price, range, value, display)
 
   return offset + length, value
 end
@@ -2730,14 +3208,20 @@ display.new_price = function(value)
   return "New Price: "..value
 end
 
+-- Translate: New Price
+translate.new_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: New Price
 dissect.new_price = function(buffer, offset, packet, parent)
   local length = size_of.new_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.new_price(raw)
   local display = display.new_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.new_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.new_price, range, value, display)
 
   return offset + length, value
 end
@@ -2750,14 +3234,20 @@ display.old_price = function(value)
   return "Old Price: "..value
 end
 
+-- Translate: Old Price
+translate.old_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Old Price
 dissect.old_price = function(buffer, offset, packet, parent)
   local length = size_of.old_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.old_price(raw)
   local display = display.old_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.old_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.old_price, range, value, display)
 
   return offset + length, value
 end
@@ -2838,7 +3328,7 @@ dissect.spread_trade_amend_message = function(buffer, offset, packet, parent)
     local length = size_of.spread_trade_amend_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.spread_trade_amend_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.spread_trade_amend_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_trade_amend_message, range, display)
   end
 
   return dissect.spread_trade_amend_message_fields(buffer, offset, packet, parent)
@@ -2900,7 +3390,7 @@ dissect.trade_amend_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_amend_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_amend_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_amend_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_amend_message, range, display)
   end
 
   return dissect.trade_amend_message_fields(buffer, offset, packet, parent)
@@ -2962,7 +3452,7 @@ dissect.trade_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_message, range, display)
   end
 
   return dissect.trade_message_fields(buffer, offset, packet, parent)
@@ -2976,14 +3466,20 @@ display.deepest_price = function(value)
   return "Deepest Price: "..value
 end
 
+-- Translate: Deepest Price
+translate.deepest_price = function(raw)
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Deepest Price
 dissect.deepest_price = function(buffer, offset, packet, parent)
   local length = size_of.deepest_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.deepest_price(raw)
   local display = display.deepest_price(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.deepest_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.deepest_price, range, value, display)
 
   return offset + length, value
 end
@@ -3003,7 +3499,7 @@ dissect.aggressor_receive_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.aggressor_receive_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.aggressor_receive_time, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.aggressor_receive_time, range, value, display)
 
   return offset + length, value
 end
@@ -3023,7 +3519,7 @@ dissect.aggressor_order_id = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.aggressor_order_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.aggressor_order_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.aggressor_order_id, range, value, display)
 
   return offset + length, value
 end
@@ -3084,7 +3580,7 @@ dissect.trade_summary_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_summary_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trade_summary_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trade_summary_message, range, display)
   end
 
   return dissect.trade_summary_message_fields(buffer, offset, packet, parent)
@@ -3105,7 +3601,7 @@ dissect.next_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.next_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3125,7 +3621,7 @@ dissect.best_qty = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.best_qty(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_qty, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_qty, range, value, display)
 
   return offset + length, value
 end
@@ -3134,23 +3630,34 @@ end
 size_of.next_price = 8
 
 -- Display: Next Price
-display.next_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.next_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Next Price: No Value"
   end
 
   return "Next Price: "..value
 end
 
+-- Translate: Next Price
+translate.next_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Next Price
 dissect.next_price = function(buffer, offset, packet, parent)
   local length = size_of.next_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.next_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.next_price(raw)
+  local display = display.next_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.next_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.next_price, range, value, display)
 
   return offset + length, value
 end
@@ -3159,23 +3666,34 @@ end
 size_of.best_price = 8
 
 -- Display: Best Price
-display.best_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+display.best_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Best Price: No Value"
   end
 
   return "Best Price: "..value
 end
 
+-- Translate: Best Price
+translate.best_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000000
+end
+
 -- Dissect: Best Price
 dissect.best_price = function(buffer, offset, packet, parent)
   local length = size_of.best_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
-  local display = display.best_price(value, buffer, offset, packet, parent)
+  local raw = range:le_int64()
+  local value = translate.best_price(raw)
+  local display = display.best_price(raw, value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.best_price, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.best_price, range, value, display)
 
   return offset + length, value
 end
@@ -3231,7 +3749,7 @@ dissect.implied_order_update_message = function(buffer, offset, packet, parent)
     local length = size_of.implied_order_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.implied_order_update_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.implied_order_update_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.implied_order_update_message, range, display)
   end
 
   return dissect.implied_order_update_message_fields(buffer, offset, packet, parent)
@@ -3273,7 +3791,7 @@ dissect.order_delete_message = function(buffer, offset, packet, parent)
     local length = size_of.order_delete_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_delete_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.order_delete_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_delete_message, range, display)
   end
 
   return dissect.order_delete_message_fields(buffer, offset, packet, parent)
@@ -3325,7 +3843,7 @@ dissect.order_put_message = function(buffer, offset, packet, parent)
     local length = size_of.order_put_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_put_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.order_put_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.order_put_message, range, display)
   end
 
   return dissect.order_put_message_fields(buffer, offset, packet, parent)
@@ -3377,10 +3895,132 @@ dissect.trading_status_update_message = function(buffer, offset, packet, parent)
     local length = size_of.trading_status_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trading_status_update_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.trading_status_update_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.trading_status_update_message, range, display)
   end
 
   return dissect.trading_status_update_message_fields(buffer, offset, packet, parent)
+end
+
+-- Calculate size of: Option Instrument Definition Message
+size_of.option_instrument_definition_message = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.instr_header(buffer, offset + index)
+
+  index = index + size_of.symbol
+
+  index = index + size_of.product_code
+
+  index = index + size_of.description
+
+  index = index + size_of.small_tick
+
+  index = index + size_of.cfi_code
+
+  index = index + size_of.large_tick
+
+  index = index + size_of.large_tick_threshold
+
+  index = index + size_of.strike_price
+
+  index = index + size_of.first_trading_session_date
+
+  index = index + size_of.last_trading_session_date
+
+  index = index + size_of.prior_settlement_price
+
+  index = index + size_of.settlement_price
+
+  index = index + size_of.product_id
+
+  index = index + size_of.underlying_instrument_id
+
+  index = index + size_of.product_group
+
+  index = index + size_of.trading_status
+
+  index = index + size_of.definition_flags
+
+  return index
+end
+
+-- Display: Option Instrument Definition Message
+display.option_instrument_definition_message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Option Instrument Definition Message
+dissect.option_instrument_definition_message_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Instr Header: Struct of 7 fields
+  index, instr_header = dissect.instr_header(buffer, index, packet, parent)
+
+  -- Symbol: 24 Byte Ascii String
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
+
+  -- Product Code: 8 Byte Ascii String
+  index, product_code = dissect.product_code(buffer, index, packet, parent)
+
+  -- Description: 32 Byte Ascii String
+  index, description = dissect.description(buffer, index, packet, parent)
+
+  -- Small Tick: 8 Byte Signed Fixed Width Integer
+  index, small_tick = dissect.small_tick(buffer, index, packet, parent)
+
+  -- Cfi Code: 8 Byte Ascii String
+  index, cfi_code = dissect.cfi_code(buffer, index, packet, parent)
+
+  -- Large Tick: 8 Byte Signed Fixed Width Integer
+  index, large_tick = dissect.large_tick(buffer, index, packet, parent)
+
+  -- Large Tick Threshold: 8 Byte Signed Fixed Width Integer
+  index, large_tick_threshold = dissect.large_tick_threshold(buffer, index, packet, parent)
+
+  -- Strike Price: 8 Byte Signed Fixed Width Integer
+  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+
+  -- First Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  index, first_trading_session_date = dissect.first_trading_session_date(buffer, index, packet, parent)
+
+  -- Last Trading Session Date: 2 Byte Unsigned Fixed Width Integer
+  index, last_trading_session_date = dissect.last_trading_session_date(buffer, index, packet, parent)
+
+  -- Prior Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  index, prior_settlement_price = dissect.prior_settlement_price(buffer, index, packet, parent)
+
+  -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
+  index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
+
+  -- Product Id: 4 Byte Signed Fixed Width Integer
+  index, product_id = dissect.product_id(buffer, index, packet, parent)
+
+  -- Underlying Instrument Id: 4 Byte Signed Fixed Width Integer
+  index, underlying_instrument_id = dissect.underlying_instrument_id(buffer, index, packet, parent)
+
+  -- Product Group: 1 Byte Signed Fixed Width Integer Enum with 6 values
+  index, product_group = dissect.product_group(buffer, index, packet, parent)
+
+  -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
+  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+
+  -- Definition Flags: Struct of 4 fields
+  index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Option Instrument Definition Message
+dissect.option_instrument_definition_message = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.option_instrument_definition_message then
+    local length = size_of.option_instrument_definition_message(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.option_instrument_definition_message(buffer, packet, parent)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.option_instrument_definition_message, range, display)
+  end
+
+  return dissect.option_instrument_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Spread Instrument Definition Message
@@ -3501,7 +4141,7 @@ dissect.spread_instrument_definition_message_fields = function(buffer, offset, p
   -- Spread Buy Convention: 1 Byte Signed Fixed Width Integer Enum with 2 values
   index, spread_buy_convention = dissect.spread_buy_convention(buffer, index, packet, parent)
 
-  -- Definition Flags: Struct of 2 fields
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -3514,7 +4154,7 @@ dissect.spread_instrument_definition_message = function(buffer, offset, packet, 
     local length = size_of.spread_instrument_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.spread_instrument_definition_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.spread_instrument_definition_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.spread_instrument_definition_message, range, display)
   end
 
   return dissect.spread_instrument_definition_message_fields(buffer, offset, packet, parent)
@@ -3623,7 +4263,7 @@ dissect.outright_instrument_definition_message_fields = function(buffer, offset,
   -- Trading Status: 1 Byte Signed Fixed Width Integer Enum with 7 values
   index, trading_status = dissect.trading_status(buffer, index, packet, parent)
 
-  -- Definition Flags: Struct of 2 fields
+  -- Definition Flags: Struct of 4 fields
   index, definition_flags = dissect.definition_flags(buffer, index, packet, parent)
 
   return index
@@ -3636,7 +4276,7 @@ dissect.outright_instrument_definition_message = function(buffer, offset, packet
     local length = size_of.outright_instrument_definition_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.outright_instrument_definition_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.outright_instrument_definition_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.outright_instrument_definition_message, range, display)
   end
 
   return dissect.outright_instrument_definition_message_fields(buffer, offset, packet, parent)
@@ -3651,6 +4291,10 @@ size_of.payload = function(buffer, offset, template_id)
   -- Size of Spread Instrument Definition Message
   if template_id == 11 then
     return size_of.spread_instrument_definition_message(buffer, offset)
+  end
+  -- Size of Option Instrument Definition Message
+  if template_id == 12 then
+    return size_of.option_instrument_definition_message(buffer, offset)
   end
   -- Size of Trading Status Update Message
   if template_id == 17 then
@@ -3708,6 +4352,10 @@ size_of.payload = function(buffer, offset, template_id)
   if template_id == 111 then
     return size_of.start_of_spread_instrument_snapshot_message(buffer, offset)
   end
+  -- Size of Start Of Option Instrument Snapshot Message
+  if template_id == 112 then
+    return size_of.start_of_option_instrument_snapshot_message(buffer, offset)
+  end
   -- Size of Order Snapshot Message
   if template_id == 120 then
     return size_of.order_snapshot_message(buffer, offset)
@@ -3742,6 +4390,10 @@ dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Spread Instrument Definition Message
   if template_id == 11 then
     return dissect.spread_instrument_definition_message(buffer, offset, packet, parent)
+  end
+  -- Dissect Option Instrument Definition Message
+  if template_id == 12 then
+    return dissect.option_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Update Message
   if template_id == 17 then
@@ -3799,6 +4451,10 @@ dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   if template_id == 111 then
     return dissect.start_of_spread_instrument_snapshot_message(buffer, offset, packet, parent)
   end
+  -- Dissect Start Of Option Instrument Snapshot Message
+  if template_id == 112 then
+    return dissect.start_of_option_instrument_snapshot_message(buffer, offset, packet, parent)
+  end
   -- Dissect Order Snapshot Message
   if template_id == 120 then
     return dissect.order_snapshot_message(buffer, offset, packet, parent)
@@ -3834,7 +4490,7 @@ dissect.payload = function(buffer, offset, packet, parent, template_id)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.payload, range, display)
+  local element = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
@@ -3854,7 +4510,7 @@ dissect.version = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.version(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.version, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.version, range, value, display)
 
   return offset + length, value
 end
@@ -3874,7 +4530,7 @@ dissect.schema_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.schema_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.schema_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.schema_id, range, value, display)
 
   return offset + length, value
 end
@@ -3889,6 +4545,9 @@ display.template_id = function(value)
   end
   if value == 11 then
     return "Template Id: Spread Instrument Definition Message (11)"
+  end
+  if value == 12 then
+    return "Template Id: Option Instrument Definition Message (12)"
   end
   if value == 17 then
     return "Template Id: Trading Status Update Message (17)"
@@ -3932,6 +4591,9 @@ display.template_id = function(value)
   if value == 111 then
     return "Template Id: Start Of Spread Instrument Snapshot Message (111)"
   end
+  if value == 112 then
+    return "Template Id: Start Of Option Instrument Snapshot Message (112)"
+  end
   if value == 120 then
     return "Template Id: Order Snapshot Message (120)"
   end
@@ -3955,7 +4617,7 @@ dissect.template_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.template_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.template_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.template_id, range, value, display)
 
   return offset + length, value
 end
@@ -3975,7 +4637,7 @@ dissect.block_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.block_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.block_length, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.block_length, range, value, display)
 
   return offset + length, value
 end
@@ -3995,7 +4657,7 @@ dissect.frame_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.frame_length(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.frame_length, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.frame_length, range, value, display)
 
   return offset + length, value
 end
@@ -4032,7 +4694,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Block Length: 2 Byte Unsigned Fixed Width Integer
   index, block_length = dissect.block_length(buffer, index, packet, parent)
 
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 20 values
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 22 values
   index, template_id = dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
@@ -4051,7 +4713,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.message_header, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -4072,7 +4734,7 @@ dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sb
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
-  -- Payload: Runtime Type with 20 branches
+  -- Payload: Runtime Type with 22 branches
   index = dissect.payload(buffer, index, packet, parent, template_id)
 
   -- Dependency element: Frame Length
@@ -4093,7 +4755,7 @@ dissect.sbe_message = function(buffer, offset, packet, parent, size_of_sbe_messa
   if show.sbe_message then
     local range = buffer(offset, size_of_sbe_message)
     local display = display.sbe_message(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.sbe_message, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sbe_message, range, display)
   end
 
   dissect.sbe_message_fields(buffer, offset, packet, parent, size_of_sbe_message)
@@ -4116,7 +4778,7 @@ dissect.snapshot_instrument_id = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.snapshot_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.snapshot_instrument_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.snapshot_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -4136,7 +4798,7 @@ dissect.packet_flags = function(buffer, offset, packet, parent)
   local value = range:uint()
   local display = display.packet_flags(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.packet_flags, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.packet_flags, range, value, display)
 
   return offset + length, value
 end
@@ -4156,7 +4818,7 @@ dissect.channel_id = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.channel_id(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.channel_id, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.channel_id, range, value, display)
 
   return offset + length, value
 end
@@ -4176,7 +4838,7 @@ dissect.seq_num = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.seq_num(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.seq_num, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.seq_num, range, value, display)
 
   return offset + length, value
 end
@@ -4200,7 +4862,7 @@ dissect.sending_time = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.sending_time(value, buffer, offset, packet, parent)
 
-  parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.sending_time, range, value, display)
+  parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.sending_time, range, value, display)
 
   return offset + length, value
 end
@@ -4261,7 +4923,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
     local length = size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(fairx_futures_marketdataapi_sbe_v1_2.fields.packet_header, range, display)
+    parent = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -4296,23 +4958,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function fairx_futures_marketdataapi_sbe_v1_2.init()
+function coinbase_derivatives_marketdataapi_sbe_v1_3.init()
 end
 
--- Dissector for Fairx Futures MarketDataApi Sbe 1.2
-function fairx_futures_marketdataapi_sbe_v1_2.dissector(buffer, packet, parent)
+-- Dissector for Coinbase Derivatives MarketDataApi Sbe 1.3
+function coinbase_derivatives_marketdataapi_sbe_v1_3.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = fairx_futures_marketdataapi_sbe_v1_2.name
+  packet.cols.protocol = coinbase_derivatives_marketdataapi_sbe_v1_3.name
 
   -- Dissect protocol
-  local protocol = parent:add(fairx_futures_marketdataapi_sbe_v1_2, buffer(), fairx_futures_marketdataapi_sbe_v1_2.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3, buffer(), coinbase_derivatives_marketdataapi_sbe_v1_3.description, "("..buffer:len().." Bytes)")
   return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, fairx_futures_marketdataapi_sbe_v1_2)
+udp_table:add(65333, coinbase_derivatives_marketdataapi_sbe_v1_3)
 
 
 -----------------------------------------------------------------------
@@ -4320,7 +4982,7 @@ udp_table:add(65333, fairx_futures_marketdataapi_sbe_v1_2)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.fairx_futures_marketdataapi_sbe_v1_2_packet_size = function(buffer)
+verify.coinbase_derivatives_marketdataapi_sbe_v1_3_packet_size = function(buffer)
 
   return true
 end
@@ -4342,17 +5004,17 @@ verify.version = function(buffer)
   -- Attempt to read field
   local value = buffer(32, 2):le_uint()
 
-  if value == 2 then
+  if value == 3 then
     return true
   end
 
   return false
 end
 
--- Dissector Heuristic for Fairx Futures MarketDataApi Sbe 1.2
-local function fairx_futures_marketdataapi_sbe_v1_2_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.3
+local function coinbase_derivatives_marketdataapi_sbe_v1_3_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.fairx_futures_marketdataapi_sbe_v1_2_packet_size(buffer) then return false end
+  if not verify.coinbase_derivatives_marketdataapi_sbe_v1_3_packet_size(buffer) then return false end
 
   -- Verify Schema Id
   if not verify.schema_id(buffer) then return false end
@@ -4361,14 +5023,14 @@ local function fairx_futures_marketdataapi_sbe_v1_2_heuristic(buffer, packet, pa
   if not verify.version(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = fairx_futures_marketdataapi_sbe_v1_2
-  fairx_futures_marketdataapi_sbe_v1_2.dissector(buffer, packet, parent)
+  packet.conversation = coinbase_derivatives_marketdataapi_sbe_v1_3
+  coinbase_derivatives_marketdataapi_sbe_v1_3.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Fairx Futures MarketDataApi Sbe 1.2
-fairx_futures_marketdataapi_sbe_v1_2:register_heuristic("udp", fairx_futures_marketdataapi_sbe_v1_2_heuristic)
+-- Register Heuristic for Coinbase Derivatives MarketDataApi Sbe 1.3
+coinbase_derivatives_marketdataapi_sbe_v1_3:register_heuristic("udp", coinbase_derivatives_marketdataapi_sbe_v1_3_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -4376,10 +5038,9 @@ fairx_futures_marketdataapi_sbe_v1_2:register_heuristic("udp", fairx_futures_mar
 -----------------------------------------------------------------------
 -- 
 -- Protocol:
---   Organization: Fair Exchange
---   Version: 1.2
+--   Organization: Coinbase
+--   Version: 1.3
 --   Date: Monday, July 27, 2020
---   Specification: FairX_UDP_MarketData_API_V1.2.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
