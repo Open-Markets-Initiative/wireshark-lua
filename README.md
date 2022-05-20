@@ -48,8 +48,8 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Cme][Cme.Directory] | Futures | [Mdp3][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | Sbe | [1.11][Cme.Futures.Mdp3.Sbe.v1.11.Dissector] | 3/3/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [Settlements][Cme.Futures.Settlements.Sbe.v7.0.Dissector] | Sbe | [7.0][Cme.Futures.Settlements.Sbe.v7.0.Dissector] | 12/3/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [Streamlined][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | Sbe | [5.9][Cme.Futures.Streamlined.Sbe.v5.9.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Coinbase][Coinbase.Directory] | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.3.Dissector] | Sbe | [1.3][Coinbase.Derivatives.MarketDataApi.Sbe.v1.3.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Coinbase][Coinbase.Directory] | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.2.Dissector] | Sbe | [1.2][Coinbase.Derivatives.MarketDataApi.Sbe.v1.2.Dissector] | 7/27/2020 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Coinbase][Coinbase.Directory] | Derivatives | [MarketDataApi][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | Sbe | [1.7][Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | Sbe | [1.5][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Dissector] | Sbe | [1.4][Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Dissector] | 7/27/2020 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.3.Dissector] | Sbe | [1.3][Coinbase.Derivatives.OrdersApi.Sbe.v1.3.Dissector] | 7/27/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v9.1.Dissector] | T7 | [9.1][Eurex.Cash.Eti.T7.v9.1.Dissector] | 4/6/2021 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -130,7 +130,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 154 | 1,361,867 |
+| 156 | 1,372,034 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -201,10 +201,10 @@ Enjoy.
 [Cme.Futures.Streamlined.Sbe.v5.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Streamlined.Sbe.v5.9.Script.Dissector.lua "Cme Futures Streamlined Sbe v5.9 Lua Wireshark Dissector"
 [Cme.Futures.Settlements.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Settlements.Sbe.v7.0.Script.Dissector.lua "Cme Futures Settlements Sbe v7.0 Lua Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.iLink3.Sbe.v8.7.Script.Dissector.lua "Cme Futures iLink3 Sbe v8.7 Lua Wireshark Dissector"
-[Coinbase.Derivatives.MarketDataApi.Sbe.v1.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.MarketDataApi.Sbe.v1.2.Script.Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.2 Lua Wireshark Dissector"
-[Coinbase.Derivatives.MarketDataApi.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.MarketDataApi.Sbe.v1.3.Script.Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.3 Lua Wireshark Dissector"
+[Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Script.Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.7 Lua Wireshark Dissector"
 [Coinbase.Derivatives.OrdersApi.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.OrdersApi.Sbe.v1.3.Script.Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.3 Lua Wireshark Dissector"
 [Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.OrdersApi.Sbe.v1.4.Script.Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.4 Lua Wireshark Dissector"
+[Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Script.Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.5 Lua Wireshark Dissector"
 [Eurex.Cash.Eti.T7.v9.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Cash.Eti.T7.v9.1.Script.Dissector.lua "Eurex Cash Eti T7 v9.1 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v9.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eti.T7.v9.1.Script.Dissector.lua "Eurex Derivatives Eti T7 v9.1 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v9.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eobi.T7.v9.1.Script.Dissector.lua "Eurex Derivatives Eobi T7 v9.1 Lua Wireshark Dissector"
