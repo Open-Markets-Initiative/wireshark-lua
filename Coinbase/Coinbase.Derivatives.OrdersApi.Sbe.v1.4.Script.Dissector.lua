@@ -46,6 +46,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4.fields.filled_vwap = ProtoField.new("Fil
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.flags = ProtoField.new("Flags", "coinbase.derivatives.ordersapi.sbe.v1.4.flags", ftypes.UINT8)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.from_sequence_number = ProtoField.new("From Sequence Number", "coinbase.derivatives.ordersapi.sbe.v1.4.fromsequencenumber", ftypes.UINT32)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_message = ProtoField.new("Gap Fill Message", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillmessage", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding = ProtoField.new("Gap Fill Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.gapfillpadding", ftypes.UINT32)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_interval_seconds = ProtoField.new("Heartbeat Interval Seconds", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatintervalseconds", ftypes.INT32)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.heartbeat_message = ProtoField.new("Heartbeat Message", "coinbase.derivatives.ordersapi.sbe.v1.4.heartbeatmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.instrument_id = ProtoField.new("Instrument Id", "coinbase.derivatives.ordersapi.sbe.v1.4.instrumentid", ftypes.INT32)
@@ -84,7 +85,7 @@ coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_id = ProtoField.new("Order 
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_reject_message = ProtoField.new("Order Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderrejectmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.order_replaced_message = ProtoField.new("Order Replaced Message", "coinbase.derivatives.ordersapi.sbe.v1.4.orderreplacedmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.packet = ProtoField.new("Packet", "coinbase.derivatives.ordersapi.sbe.v1.4.packet", ftypes.STRING)
-coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.padding", ftypes.UINT32)
+coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding = ProtoField.new("Padding", "coinbase.derivatives.ordersapi.sbe.v1.4.padding", ftypes.BYTES)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.password = ProtoField.new("Password", "coinbase.derivatives.ordersapi.sbe.v1.4.password", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.payload = ProtoField.new("Payload", "coinbase.derivatives.ordersapi.sbe.v1.4.payload", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_4.fields.ping_message = ProtoField.new("Ping Message", "coinbase.derivatives.ordersapi.sbe.v1.4.pingmessage", ftypes.STRING)
@@ -413,7 +414,7 @@ end
 -- Dissect runtime sized field: Padding
 dissect.padding = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
-  local value = range:le_uint()
+  local value = range:bytes():tohex(false, " ")
   local display = display.padding(value, buffer, offset, packet, parent, size)
 
   parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.padding, range, value, display)
@@ -3303,6 +3304,26 @@ dissect.ping_message = function(buffer, offset, packet, parent)
   return dissect.ping_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Gap Fill Padding
+size_of.gap_fill_padding = 4
+
+-- Display: Gap Fill Padding
+display.gap_fill_padding = function(value)
+  return "Gap Fill Padding: "..value
+end
+
+-- Dissect: Gap Fill Padding
+dissect.gap_fill_padding = function(buffer, offset, packet, parent)
+  local length = size_of.gap_fill_padding
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.gap_fill_padding(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_4.fields.gap_fill_padding, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: New Sequence Number
 size_of.new_sequence_number = 4
 
@@ -3329,8 +3350,7 @@ size_of.gap_fill_message = function(buffer, offset)
 
   index = index + size_of.new_sequence_number
 
-  -- Parse runtime size of: Padding
-  index = index + buffer(offset + index - 34, 2):le_uint()
+  index = index + size_of.gap_fill_padding
 
   return index
 end
@@ -3347,21 +3367,15 @@ dissect.gap_fill_message_fields = function(buffer, offset, packet, parent)
   -- New Sequence Number: 4 Byte Unsigned Fixed Width Integer
   index, new_sequence_number = dissect.new_sequence_number(buffer, index, packet, parent)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 30, 2):le_uint()
-
-  -- Runtime Size Of: Padding
-  local size_of_padding = message_length - (index - offset)
-
-  -- Padding: 4 Byte Unsigned Fixed Width Integer
-  index = dissect.padding(buffer, index, packet, parent, size_of_padding)
+  -- Gap Fill Padding: 4 Byte Unsigned Fixed Width Integer
+  index, gap_fill_padding = dissect.gap_fill_padding(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Gap Fill Message
 dissect.gap_fill_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.gap_fill_message then
     local length = size_of.gap_fill_message(buffer, offset)
     local range = buffer(offset, length)
@@ -4601,7 +4615,7 @@ dissect.sbe_message_fields = function(buffer, offset, packet, parent, size_of_sb
   -- Runtime Size Of: Padding
   local size_of_padding = message_length - (index - offset)
 
-  -- Padding: 4 Byte Unsigned Fixed Width Integer
+  -- Padding: 0 Byte
   index = dissect.padding(buffer, index, packet, parent, size_of_padding)
 
   return index
