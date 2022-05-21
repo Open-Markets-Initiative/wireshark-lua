@@ -27,7 +27,7 @@ Tmx: [website](https://www.tmx.com/ "Go to Tmx Group")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Wireshark Dissector"
-[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf]:  "Specification pdf"
+[Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Tmx/ReadMe.md "Tmx Group 1.11 Pdf"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Script.Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.1 Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Tmx/ReadMe.md "Tmx Group 2.1 Pdf"
 [Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Script.Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v3.6 Wireshark Dissector"
