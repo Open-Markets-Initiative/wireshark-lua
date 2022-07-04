@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+|  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | Ouch | [5.0][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | 7/1/2021 | 4918 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Equities.Orders.Ouch.v5.0.Url] - [pdf][Nasdaq.Equities.Orders.Ouch.v5.0.Pdf] |
 |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3477 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Equities.Orders.Ouch.v4.2.Pdf] |
 | Bx Equities | [TotalView][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | 3760 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Url] - [pdf][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Pdf] |
 | Bx Equities | [Orders][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | 3244 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Url] - [pdf][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Pdf] |
@@ -110,6 +111,9 @@ Nasdaq: [website](https://www.nasdaq.com "Go to National Association of Securiti
 [Nasdaq.Equities.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Orders.Ouch.v4.2.Script.Dissector.lua "Nasdaq Equities Orders Ouch v4.2 Wireshark Dissector"
 [Nasdaq.Equities.Orders.Ouch.v4.2.Url]: https://nasdaqtrader.com/Trader.aspx?id=TradingSpecs "National Association of Securities Dealers Automated Quotations 4.2 Url"
 [Nasdaq.Equities.Orders.Ouch.v4.2.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Nasdaq/Nasdaq.Equities.Orders.Ouch.v4.2.pdf "National Association of Securities Dealers Automated Quotations 4.2 Pdf"
+[Nasdaq.Equities.Orders.Ouch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Orders.Ouch.v5.0.Script.Dissector.lua "Nasdaq Equities Orders Ouch v5.0 Wireshark Dissector"
+[Nasdaq.Equities.Orders.Ouch.v5.0.Url]: https://nasdaqtrader.com/Trader.aspx?id=TradingSpecs "National Association of Securities Dealers Automated Quotations 5.0 Url"
+[Nasdaq.Equities.Orders.Ouch.v5.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Nasdaq/Nasdaq.Equities.Orders.Ouch.v5.0.Pdf.xml "National Association of Securities Dealers Automated Quotations 5.0 Pdf"
 [Nasdaq.Equities.TotalView.Itch.v4.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.TotalView.Itch.v4.1.Script.Dissector.lua "Nasdaq Equities TotalView Itch v4.1 Wireshark Dissector"
 [Nasdaq.Equities.TotalView.Itch.v4.1.Url]: http://www.nasdaqtrader.com/Trader.aspx?id=dpspecs "National Association of Securities Dealers Automated Quotations 4.1 Url"
 [Nasdaq.Equities.TotalView.Itch.v4.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Nasdaq/Nasdaq.Equities.TotalView.Itch.v4.1.pdf "National Association of Securities Dealers Automated Quotations 4.1 Pdf"

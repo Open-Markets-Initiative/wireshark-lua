@@ -75,6 +75,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Miax][Miax.Directory] | Pearl Equities | [DepthOfMarket][Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector] | Mach | [1.3.a][Miax.Pearl.Equities.DepthOfMarket.Mach.v1.3.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Miax][Miax.Directory] | Pearl Equities | [TopOfMarket][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | Mach | [1.1.a][Miax.Pearl.Equities.TopOfMarket.Mach.v1.1.a.Dissector] | 11/5/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Miax][Miax.Directory] | Pearl Options | [TopOfMarket][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | Mach | [1.0][Miax.Pearl.Options.TopOfMarket.Mach.v1.0.Dissector] | 2/27/2017 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Nasdaq][Nasdaq.Directory] |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | Ouch | [5.0][Nasdaq.Equities.Orders.Ouch.v5.0.Dissector] | 7/1/2021 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nasdaq][Nasdaq.Directory] |  Equities | [Orders][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | [TotalView][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | Itch | [5.0][Nasdaq.Bx.Equities.TotalView.Itch.v5.0.Dissector] | 5/23/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nasdaq][Nasdaq.Directory] | Bx Equities | [Orders][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | Ouch | [4.2][Nasdaq.Bx.Equities.Orders.Ouch.v4.2.Dissector] | 7/8/2019 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -128,7 +129,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 164 | 1,506,236 |
+| 165 | 1,511,154 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -246,6 +247,7 @@ Enjoy.
 [Nasdaq.Equities.Level2.Itch.v2.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Level2.Itch.v2.0.Script.Dissector.lua "Nasdaq Equities Level2 Itch v2.0 Lua Wireshark Dissector"
 [Nasdaq.Equities.Noi.Itch.v3.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Noi.Itch.v3.0.Script.Dissector.lua "Nasdaq Equities Noi Itch v3.0 Lua Wireshark Dissector"
 [Nasdaq.Equities.Orders.Ouch.v4.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Orders.Ouch.v4.2.Script.Dissector.lua "Nasdaq Equities Orders Ouch v4.2 Lua Wireshark Dissector"
+[Nasdaq.Equities.Orders.Ouch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.Orders.Ouch.v5.0.Script.Dissector.lua "Nasdaq Equities Orders Ouch v5.0 Lua Wireshark Dissector"
 [Nasdaq.Equities.TotalView.Itch.v5.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Equities.TotalView.Itch.v5.0.Script.Dissector.lua "Nasdaq Equities TotalView Itch v5.0 Lua Wireshark Dissector"
 [Nasdaq.Uqdf.Output.Utp.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Uqdf.Output.Utp.v1.5.Script.Dissector.lua "Nasdaq Uqdf Output Utp v1.5 Lua Wireshark Dissector"
 [Nasdaq.Utdf.Output.Utp.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nasdaq/Nasdaq.Utdf.Output.Utp.v1.5.Script.Dissector.lua "Nasdaq Utdf Output Utp v1.5 Lua Wireshark Dissector"
