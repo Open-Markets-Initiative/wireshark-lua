@@ -5,7 +5,8 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [Memo][Memx.Equities.Memo.Sbe.v1.6.Dissector] | Sbe | [1.6][Memx.Equities.Memo.Sbe.v1.6.Dissector] | 7/12/2021 | 6383 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.6.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.6.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.6.Xml] |
+| Equities | [Memo][Memx.Equities.Memo.Sbe.v1.9.Dissector] | Sbe | [1.9][Memx.Equities.Memo.Sbe.v1.9.Dissector] | 5/25/2022 | 6559 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.9.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.9.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.9.Xml] |
+| Equities | [Memo][Memx.Equities.Memo.Sbe.v1.6.Dissector] | Sbe | [1.6][Memx.Equities.Memo.Sbe.v1.6.Dissector] | 7/12/2021 | 6383 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.6.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.6.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.6.Xml] |
 | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.2.Dissector] | Sbe | [1.2][Memx.Equities.Memo.Sbe.v1.2.Dissector] | 9/23/2020 | 6270 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.2.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.2.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.2.Xml] |
 | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.10.Dissector] | Sbe | [1.10][Memx.Equities.Memo.Sbe.v1.10.Dissector] | 5/31/2022 | 6605 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.10.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.10.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.10.Xml] |
 | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.1.Dissector] | Sbe | [1.1][Memx.Equities.Memo.Sbe.v1.1.Dissector] | 7/27/2020 | 6218 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Equities.Memo.Sbe.v1.1.Url] - [pdf][Memx.Equities.Memo.Sbe.v1.1.Pdf] - [xml][Memx.Equities.Memo.Sbe.v1.1.Xml] |
@@ -36,22 +37,22 @@ Memx: [website](https://memx.com "Go to Members Exchange")
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Url]: https://memxtrading.com/ "Members Exchange 1.1 Url"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.1.pdf "Members Exchange 1.1 Pdf"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.1.xml "Members Exchange 1.1 Xml"
-[Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.Script.Dissector.lua "Memx Equities MemoirLastSale Sbe v1.1 Wireshark Dissector"
-[Memx.Equities.MemoirLastSale.Sbe.v1.1.Url]: https://memxtrading.com/ "Members Exchange 1.1 Url"
-[Memx.Equities.MemoirLastSale.Sbe.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.pdf "Members Exchange 1.1 Pdf"
-[Memx.Equities.MemoirLastSale.Sbe.v1.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.xml "Members Exchange 1.1 Xml"
-[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Script.Dissector.lua "Memx Equities MemoirTopOfBook Sbe v1.1 Wireshark Dissector"
-[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Url]: https://memxtrading.com/ "Members Exchange 1.1 Url"
-[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.pdf "Members Exchange 1.1 Pdf"
-[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.xml "Members Exchange 1.1 Xml"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Script.Dissector.lua "Memx Equities MemoirDepthFeed Sbe v1.3 Wireshark Dissector"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
 [Memx.Equities.MemoirDepthFeed.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirDepthFeed.Sbe.v1.3.xml "Members Exchange 1.3 Xml"
+[Memx.Equities.MemoirLastSale.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.Script.Dissector.lua "Memx Equities MemoirLastSale Sbe v1.1 Wireshark Dissector"
+[Memx.Equities.MemoirLastSale.Sbe.v1.1.Url]: https://memxtrading.com/ "Members Exchange 1.1 Url"
+[Memx.Equities.MemoirLastSale.Sbe.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.pdf "Members Exchange 1.1 Pdf"
+[Memx.Equities.MemoirLastSale.Sbe.v1.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.xml "Members Exchange 1.1 Xml"
 [Memx.Equities.MemoirLastSale.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.3.Script.Dissector.lua "Memx Equities MemoirLastSale Sbe v1.3 Wireshark Dissector"
 [Memx.Equities.MemoirLastSale.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
 [Memx.Equities.MemoirLastSale.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
 [Memx.Equities.MemoirLastSale.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.3.xml "Members Exchange 1.3 Xml"
+[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Script.Dissector.lua "Memx Equities MemoirTopOfBook Sbe v1.1 Wireshark Dissector"
+[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Url]: https://memxtrading.com/ "Members Exchange 1.1 Url"
+[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.1.pdf "Members Exchange 1.1 Pdf"
+[Memx.Equities.MemoirTopOfBook.Sbe.v1.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.1.xml "Members Exchange 1.1 Xml"
 [Memx.Equities.MemoirTopOfBook.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.MemoirTopOfBook.Sbe.v1.3.Script.Dissector.lua "Memx Equities MemoirTopOfBook Sbe v1.3 Wireshark Dissector"
 [Memx.Equities.MemoirTopOfBook.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
 [Memx.Equities.MemoirTopOfBook.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.MemoirLastSale.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
@@ -68,6 +69,10 @@ Memx: [website](https://memx.com "Go to Members Exchange")
 [Memx.Equities.Memo.Sbe.v1.6.Url]: https://memxtrading.com/ "Members Exchange 1.6 Url"
 [Memx.Equities.Memo.Sbe.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.Memo.Sbe.v1.6.pdf "Members Exchange 1.6 Pdf"
 [Memx.Equities.Memo.Sbe.v1.6.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.Memo.Sbe.v1.6.xml "Members Exchange 1.6 Xml"
+[Memx.Equities.Memo.Sbe.v1.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.Memo.Sbe.v1.9.Script.Dissector.lua "Memx Equities Memo Sbe v1.9 Wireshark Dissector"
+[Memx.Equities.Memo.Sbe.v1.9.Url]: https://memxtrading.com/ "Members Exchange 1.9 Url"
+[Memx.Equities.Memo.Sbe.v1.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.Memo.Sbe.v1.9.pdf "Members Exchange 1.9 Pdf"
+[Memx.Equities.Memo.Sbe.v1.9.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.Memo.Sbe.v1.9.xml "Members Exchange 1.9 Xml"
 [Memx.Equities.Memo.Sbe.v1.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Equities.Memo.Sbe.v1.10.Script.Dissector.lua "Memx Equities Memo Sbe v1.10 Wireshark Dissector"
 [Memx.Equities.Memo.Sbe.v1.10.Url]: https://memxtrading.com/ "Members Exchange 1.10 Url"
 [Memx.Equities.Memo.Sbe.v1.10.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Memx/Memx.Equities.Memo.Sbe.v1.10.pdf "Members Exchange 1.10 Pdf"
