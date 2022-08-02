@@ -309,6 +309,7 @@ cme_futures_ilink3_sbe_v8_8.fields.requesting_party_role = ProtoField.new("Reque
 cme_futures_ilink3_sbe_v8_8.fields.reservation_price = ProtoField.new("Reservation Price", "cme.futures.ilink3.sbe.v8.8.reservationprice", ftypes.DOUBLE)
 cme_futures_ilink3_sbe_v8_8.fields.reserved = ProtoField.new("Reserved", "cme.futures.ilink3.sbe.v8.8.reserved", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_8.fields.reserved_1 = ProtoField.new("Reserved 1", "cme.futures.ilink3.sbe.v8.8.reserved1", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cme_futures_ilink3_sbe_v8_8.fields.reserved_1_string_30 = ProtoField.new("Reserved 1 String 30", "cme.futures.ilink3.sbe.v8.8.reserved1string30", ftypes.STRING)
 cme_futures_ilink3_sbe_v8_8.fields.reserved_2 = ProtoField.new("Reserved 2", "cme.futures.ilink3.sbe.v8.8.reserved2", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cme_futures_ilink3_sbe_v8_8.fields.reserved_3 = ProtoField.new("Reserved 3", "cme.futures.ilink3.sbe.v8.8.reserved3", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cme_futures_ilink3_sbe_v8_8.fields.reserved_4 = ProtoField.new("Reserved 4", "cme.futures.ilink3.sbe.v8.8.reserved4", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
@@ -7080,7 +7081,7 @@ dissect.exec_inst_bits = function(buffer, offset, packet, parent)
   -- Reserved 2: 1 Bit
   parent:add(cme_futures_ilink3_sbe_v8_8.fields.reserved_2, buffer(offset, 1))
 
-  -- Reserved 1: 1 Bit Nullable
+  -- Reserved 1: 1 Bit
   parent:add(cme_futures_ilink3_sbe_v8_8.fields.reserved_1, buffer(offset, 1))
 
   -- Nh: 1 Bit
@@ -15660,6 +15661,42 @@ dissect.mass_quote_entry_groups = function(buffer, offset, packet, parent)
   return dissect.mass_quote_entry_groups_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Reserved 1 String 30
+size_of.reserved_1_string_30 = 30
+
+-- Display: Reserved 1 String 30
+display.reserved_1_string_30 = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Reserved 1 String 30: No Value"
+  end
+
+  return "Reserved 1 String 30: "..value
+end
+
+-- Dissect: Reserved 1 String 30
+dissect.reserved_1_string_30 = function(buffer, offset, packet, parent)
+  local length = size_of.reserved_1_string_30
+  local range = buffer(offset, length)
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
+  local display = display.reserved_1_string_30(value, buffer, offset, packet, parent)
+
+  parent:add(cme_futures_ilink3_sbe_v8_8.fields.reserved_1_string_30, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Reserved
 size_of.reserved = 30
 
@@ -15716,85 +15753,116 @@ dissect.tot_no_quote_entries = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Mass Quote
-size_of.mass_quote = 134
+-- Calculate size of: Mass Quote
+size_of.mass_quote = function(buffer, offset)
+  local index = 0
 
--- Display: Mass Quote
-display.mass_quote = function(buffer, packet, parent)
-  local display = ""
+  index = index + size_of.party_details_list_req_id
 
-  -- Is Reserved 1 flag set?
-  if buffer:bitfield(736) > 0 then
-    display = display.."Reserved 1|"
-  end
+  index = index + size_of.sending_time_epoch
 
-  return display:sub(1, -2)
+  index = index + size_of.manual_order_indicator
+
+  index = index + size_of.seq_num
+
+  index = index + size_of.sender_id
+
+  index = index + size_of.quote_req_id_optional
+
+  index = index + size_of.location
+
+  index = index + size_of.quote_id
+
+  index = index + size_of.tot_no_quote_entries
+
+  index = index + size_of.mm_protection_reset
+
+  index = index + size_of.liquidity_flag
+
+  index = index + size_of.short_sale_type
+
+  index = index + size_of.reserved
+
+  index = index + size_of.reserved_1_string_30
+
+  index = index + size_of.quote_entry_open
+
+  index = index + size_of.mass_quote_entry_groups(buffer, offset + index)
+
+  return index
 end
 
--- Dissect Bit Fields: Mass Quote
-dissect.mass_quote_bits = function(buffer, offset, packet, parent)
+-- Display: Mass Quote
+display.mass_quote = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Mass Quote
+dissect.mass_quote_fields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Party Details List Req Id: 8 Byte Unsigned Fixed Width Integer
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.party_details_list_req_id, buffer(offset, 134))
+  index, party_details_list_req_id = dissect.party_details_list_req_id(buffer, index, packet, parent)
 
   -- Sending Time Epoch: 8 Byte Unsigned Fixed Width Integer
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.sending_time_epoch, buffer(offset, 134))
+  index, sending_time_epoch = dissect.sending_time_epoch(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.manual_order_indicator, buffer(offset, 134))
+  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.seq_num, buffer(offset, 134))
+  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
 
   -- Sender Id: 20 Byte Ascii String
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.sender_id, buffer(offset, 134))
+  index, sender_id = dissect.sender_id(buffer, index, packet, parent)
 
   -- Quote Req Id Optional: 8 Byte Unsigned Fixed Width Integer Nullable
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.quote_req_id_optional, buffer(offset, 134))
+  index, quote_req_id_optional = dissect.quote_req_id_optional(buffer, index, packet, parent)
 
   -- Location: 5 Byte Ascii String
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.location, buffer(offset, 134))
+  index, location = dissect.location(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.quote_id, buffer(offset, 134))
+  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
 
   -- Tot No Quote Entries: 1 Byte Unsigned Fixed Width Integer
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.tot_no_quote_entries, buffer(offset, 134))
+  index, tot_no_quote_entries = dissect.tot_no_quote_entries(buffer, index, packet, parent)
 
   -- Mm Protection Reset: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.mm_protection_reset, buffer(offset, 134))
+  index, mm_protection_reset = dissect.mm_protection_reset(buffer, index, packet, parent)
 
   -- Liquidity Flag: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.liquidity_flag, buffer(offset, 134))
+  index, liquidity_flag = dissect.liquidity_flag(buffer, index, packet, parent)
 
   -- Short Sale Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.short_sale_type, buffer(offset, 134))
+  index, short_sale_type = dissect.short_sale_type(buffer, index, packet, parent)
 
   -- Reserved: 30 Byte Ascii String Nullable
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.reserved, buffer(offset, 134))
+  index, reserved = dissect.reserved(buffer, index, packet, parent)
 
-  -- Reserved 1: 1 Bit Nullable
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.reserved_1, buffer(offset, 134))
+  -- Reserved 1 String 30: 30 Byte Ascii String Nullable
+  index, reserved_1_string_30 = dissect.reserved_1_string_30(buffer, index, packet, parent)
 
   -- Quote Entry Open: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.quote_entry_open, buffer(offset, 134))
+  index, quote_entry_open = dissect.quote_entry_open(buffer, index, packet, parent)
 
   -- Mass Quote Entry Groups: Struct of 2 fields
-  parent:add(cme_futures_ilink3_sbe_v8_8.fields.mass_quote_entry_groups, buffer(offset, 134))
+  index, mass_quote_entry_groups = dissect.mass_quote_entry_groups(buffer, index, packet, parent)
+
+  return index
 end
 
 -- Dissect: Mass Quote
 dissect.mass_quote = function(buffer, offset, packet, parent)
-  local size = 134
-  local range = buffer(offset, size)
-  local display = display.mass_quote(range, packet, parent)
-  local element = parent:add(cme_futures_ilink3_sbe_v8_8.fields.mass_quote, range, display)
-
+  -- Optionally add dynamic struct element to protocol tree
   if show.mass_quote then
-    dissect.mass_quote_bits(buffer, offset, packet, element)
+    local length = size_of.mass_quote(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.mass_quote(buffer, packet, parent)
+    parent = parent:add(cme_futures_ilink3_sbe_v8_8.fields.mass_quote, range, display)
   end
 
-  return offset + 134, range
+  return dissect.mass_quote_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id Optional
