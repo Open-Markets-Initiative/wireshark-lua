@@ -1,0 +1,26 @@
+name: Wireshark Lua Github Action
+on:
+  push:
+    branches: [ master ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  sanity-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Update ubuntu and install tshark
+        run: sudo apt-get update && sudo apt-get install -y tshark
+
+      - name: Setup PATH environment variable
+        run: export PATH=/usr/local/bin:$PATH
+
+      - name: Clone OMI data
+        run: git clone --depth=1 https://github.com/Open-Markets-Initiative/Data.git
+
+      - name: Running Test
+        run: bash -x Test.sh
