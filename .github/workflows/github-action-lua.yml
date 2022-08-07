@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sanity-test:
+  tshark-end-to-end-test:
     runs-on: ubuntu-latest
 
     steps:
