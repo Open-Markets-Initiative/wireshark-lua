@@ -1,7 +1,7 @@
 name: Wireshark Lua Github Action
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
