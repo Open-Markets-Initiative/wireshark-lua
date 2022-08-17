@@ -1,4 +1,4 @@
-name: Wireshark Lua Github Action
+name: Tests
 
 on:
   push:

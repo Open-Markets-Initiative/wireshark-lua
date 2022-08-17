@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Cboe Options ComplexDepthOfBook Pitch 2.1.18 Protocol
-local cboe_options_complexdepthofbook_pitch_v2_1_18 = Proto("Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Lua", "Cboe Options ComplexDepthOfBook Pitch 2.1.18")
+-- Cboe Options Complex Pitch 2.1.37 Protocol
+local cboe_options_complex_pitch_v2_1_37 = Proto("Cboe.Options.Complex.Pitch.v2.1.37.Lua", "Cboe Options Complex Pitch 2.1.37")
 
 -- Component Tables
 local show = {}
@@ -19,99 +19,99 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Cboe Options ComplexDepthOfBook Pitch 2.1.18 Fields
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.addorderexpandedmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.addorderlongmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.addordershortmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctioncancelmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionendoffset", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_id = ProtoField.new("Auction Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionid", ftypes.UINT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionnotificationmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctiononlyprice", ftypes.INT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionopeningtype", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionsummarymessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctiontrademessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_type = ProtoField.new("Auction Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctiontype", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.auctionupdatemessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.options.complexdepthofbook.pitch.v2.1.18.buycontracts", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.options.complexdepthofbook.pitch.v2.1.18.canceledquantity", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.options.complexdepthofbook.pitch.v2.1.18.canceledquantityshort", ftypes.UINT16)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.client_id = ProtoField.new("Client Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.clientid", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_auction_reserved_bytes = ProtoField.new("Complex Auction Reserved Bytes", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexauctionreservedbytes", ftypes.BYTES)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_auction_type = ProtoField.new("Complex Auction Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexauctiontype", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumentid", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_id_8 = ProtoField.new("Complex Instrument Id 8", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumentid8", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_leg = ProtoField.new("Complex Instrument Leg", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumentleg", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumenttype", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexinstrumentunderlying", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_symbol_id = ProtoField.new("Complex Symbol Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.complexsymbolid", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.compositemarketbidprice", ftypes.INT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.compositemarketofferprice", ftypes.INT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.count = ProtoField.new("Count", "cboe.options.complexdepthofbook.pitch.v2.1.18.count", ftypes.UINT8)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.options.complexdepthofbook.pitch.v2.1.18.customerindicator", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.deleteordermessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.endofsessionmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.options.complexdepthofbook.pitch.v2.1.18.executedquantity", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.execution_id = ProtoField.new("Execution Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.executionid", ftypes.UINT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.options.complexdepthofbook.pitch.v2.1.18.feedsymbol", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.options.complexdepthofbook.pitch.v2.1.18.gthtradingstatus", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.indicativeprice", ftypes.INT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_count = ProtoField.new("Leg Count", "cboe.options.complexdepthofbook.pitch.v2.1.18.legcount", ftypes.UINT8)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.options.complexdepthofbook.pitch.v2.1.18.legratio", ftypes.INT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.legsecuritytype", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.options.complexdepthofbook.pitch.v2.1.18.legsymbol", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.length = ProtoField.new("Length", "cboe.options.complexdepthofbook.pitch.v2.1.18.length", ftypes.UINT16)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message = ProtoField.new("Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.message", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_header = ProtoField.new("Message Header", "cboe.options.complexdepthofbook.pitch.v2.1.18.messageheader", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_length = ProtoField.new("Message Length", "cboe.options.complexdepthofbook.pitch.v2.1.18.messagelength", ftypes.UINT8)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_type = ProtoField.new("Message Type", "cboe.options.complexdepthofbook.pitch.v2.1.18.messagetype", ftypes.UINT8)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.modifyorderlongmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.modifyordershortmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.options.complexdepthofbook.pitch.v2.1.18.openingcondition", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.orderexecutedatpricesizemessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.orderexecutedmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_id = ProtoField.new("Order Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.orderid", ftypes.UINT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.options.complexdepthofbook.pitch.v2.1.18.osisymbol", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.packet = ProtoField.new("Packet", "cboe.options.complexdepthofbook.pitch.v2.1.18.packet", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.complexdepthofbook.pitch.v2.1.18.packetheader", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.padding = ProtoField.new("Padding", "cboe.options.complexdepthofbook.pitch.v2.1.18.padding", ftypes.BYTES)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.participant_id = ProtoField.new("Participant Id", "cboe.options.complexdepthofbook.pitch.v2.1.18.participantid", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.payload = ProtoField.new("Payload", "cboe.options.complexdepthofbook.pitch.v2.1.18.payload", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.price = ProtoField.new("Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.price", ftypes.INT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.price_short = ProtoField.new("Price Short", "cboe.options.complexdepthofbook.pitch.v2.1.18.priceshort", ftypes.INT16)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.quantity = ProtoField.new("Quantity", "cboe.options.complexdepthofbook.pitch.v2.1.18.quantity", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.options.complexdepthofbook.pitch.v2.1.18.quantityshort", ftypes.UINT16)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.reducesizelongmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.reducesizeshortmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reference_price = ProtoField.new("Reference Price", "cboe.options.complexdepthofbook.pitch.v2.1.18.referenceprice", ftypes.UINT64)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.options.complexdepthofbook.pitch.v2.1.18.remainingquantity", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reserved = ProtoField.new("Reserved", "cboe.options.complexdepthofbook.pitch.v2.1.18.reserved", ftypes.BYTES)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.options.complexdepthofbook.pitch.v2.1.18.sellcontracts", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.sequence = ProtoField.new("Sequence", "cboe.options.complexdepthofbook.pitch.v2.1.18.sequence", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.options.complexdepthofbook.pitch.v2.1.18.sideindicator", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.options.complexdepthofbook.pitch.v2.1.18.symbolcondition", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.symbolmappingmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time = ProtoField.new("Time", "cboe.options.complexdepthofbook.pitch.v2.1.18.time", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time_message = ProtoField.new("Time Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.timemessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time_offset = ProtoField.new("Time Offset", "cboe.options.complexdepthofbook.pitch.v2.1.18.timeoffset", ftypes.UINT32)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.options.complexdepthofbook.pitch.v2.1.18.tradecondition", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.tradelongmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.tradeshortmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trading_status = ProtoField.new("Trading Status", "cboe.options.complexdepthofbook.pitch.v2.1.18.tradingstatus", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.tradingstatusmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.transaction_begin = ProtoField.new("Transaction Begin", "cboe.options.complexdepthofbook.pitch.v2.1.18.transactionbegin", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.transactionendmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.underlying = ProtoField.new("Underlying", "cboe.options.complexdepthofbook.pitch.v2.1.18.underlying", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unit = ProtoField.new("Unit", "cboe.options.complexdepthofbook.pitch.v2.1.18.unit", ftypes.UINT8)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.options.complexdepthofbook.pitch.v2.1.18.unitclearmessage", ftypes.STRING)
-cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unused = ProtoField.new("Unused", "cboe.options.complexdepthofbook.pitch.v2.1.18.unused", ftypes.BYTES)
+-- Cboe Options Complex Pitch 2.1.37 Fields
+cboe_options_complex_pitch_v2_1_37.fields.add_order_expanded_message = ProtoField.new("Add Order Expanded Message", "cboe.options.complex.pitch.v2.1.37.addorderexpandedmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.add_order_long_message = ProtoField.new("Add Order Long Message", "cboe.options.complex.pitch.v2.1.37.addorderlongmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.add_order_short_message = ProtoField.new("Add Order Short Message", "cboe.options.complex.pitch.v2.1.37.addordershortmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_cancel_message = ProtoField.new("Auction Cancel Message", "cboe.options.complex.pitch.v2.1.37.auctioncancelmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.options.complex.pitch.v2.1.37.auctionendoffset", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.auction_id = ProtoField.new("Auction Id", "cboe.options.complex.pitch.v2.1.37.auctionid", ftypes.UINT64)
+cboe_options_complex_pitch_v2_1_37.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.options.complex.pitch.v2.1.37.auctionnotificationmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.options.complex.pitch.v2.1.37.auctiononlyprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.options.complex.pitch.v2.1.37.auctionopeningtype", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.options.complex.pitch.v2.1.37.auctionsummarymessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.options.complex.pitch.v2.1.37.auctiontrademessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_type = ProtoField.new("Auction Type", "cboe.options.complex.pitch.v2.1.37.auctiontype", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.auction_update_message = ProtoField.new("Auction Update Message", "cboe.options.complex.pitch.v2.1.37.auctionupdatemessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.buy_contracts = ProtoField.new("Buy Contracts", "cboe.options.complex.pitch.v2.1.37.buycontracts", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.options.complex.pitch.v2.1.37.canceledquantity", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.options.complex.pitch.v2.1.37.canceledquantityshort", ftypes.UINT16)
+cboe_options_complex_pitch_v2_1_37.fields.client_id = ProtoField.new("Client Id", "cboe.options.complex.pitch.v2.1.37.clientid", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_auction_reserved_bytes = ProtoField.new("Complex Auction Reserved Bytes", "cboe.options.complex.pitch.v2.1.37.complexauctionreservedbytes", ftypes.BYTES)
+cboe_options_complex_pitch_v2_1_37.fields.complex_auction_type = ProtoField.new("Complex Auction Type", "cboe.options.complex.pitch.v2.1.37.complexauctiontype", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_definition_expanded_message = ProtoField.new("Complex Instrument Definition Expanded Message", "cboe.options.complex.pitch.v2.1.37.complexinstrumentdefinitionexpandedmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_id = ProtoField.new("Complex Instrument Id", "cboe.options.complex.pitch.v2.1.37.complexinstrumentid", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_id_8 = ProtoField.new("Complex Instrument Id 8", "cboe.options.complex.pitch.v2.1.37.complexinstrumentid8", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_leg = ProtoField.new("Complex Instrument Leg", "cboe.options.complex.pitch.v2.1.37.complexinstrumentleg", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.options.complex.pitch.v2.1.37.complexinstrumenttype", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.options.complex.pitch.v2.1.37.complexinstrumentunderlying", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.complex_symbol_id = ProtoField.new("Complex Symbol Id", "cboe.options.complex.pitch.v2.1.37.complexsymbolid", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.options.complex.pitch.v2.1.37.compositemarketbidprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.options.complex.pitch.v2.1.37.compositemarketofferprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.count = ProtoField.new("Count", "cboe.options.complex.pitch.v2.1.37.count", ftypes.UINT8)
+cboe_options_complex_pitch_v2_1_37.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.options.complex.pitch.v2.1.37.customerindicator", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.options.complex.pitch.v2.1.37.deleteordermessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.end_of_session_message = ProtoField.new("End Of Session Message", "cboe.options.complex.pitch.v2.1.37.endofsessionmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.options.complex.pitch.v2.1.37.executedquantity", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.execution_id = ProtoField.new("Execution Id", "cboe.options.complex.pitch.v2.1.37.executionid", ftypes.UINT64)
+cboe_options_complex_pitch_v2_1_37.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.options.complex.pitch.v2.1.37.feedsymbol", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.options.complex.pitch.v2.1.37.gthtradingstatus", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.options.complex.pitch.v2.1.37.indicativeprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.leg_count = ProtoField.new("Leg Count", "cboe.options.complex.pitch.v2.1.37.legcount", ftypes.UINT8)
+cboe_options_complex_pitch_v2_1_37.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.options.complex.pitch.v2.1.37.legratio", ftypes.INT32)
+cboe_options_complex_pitch_v2_1_37.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.options.complex.pitch.v2.1.37.legsecuritytype", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.options.complex.pitch.v2.1.37.legsymbol", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.length = ProtoField.new("Length", "cboe.options.complex.pitch.v2.1.37.length", ftypes.UINT16)
+cboe_options_complex_pitch_v2_1_37.fields.message = ProtoField.new("Message", "cboe.options.complex.pitch.v2.1.37.message", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.message_header = ProtoField.new("Message Header", "cboe.options.complex.pitch.v2.1.37.messageheader", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.message_length = ProtoField.new("Message Length", "cboe.options.complex.pitch.v2.1.37.messagelength", ftypes.UINT8)
+cboe_options_complex_pitch_v2_1_37.fields.message_type = ProtoField.new("Message Type", "cboe.options.complex.pitch.v2.1.37.messagetype", ftypes.UINT8)
+cboe_options_complex_pitch_v2_1_37.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.options.complex.pitch.v2.1.37.modifyorderlongmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.options.complex.pitch.v2.1.37.modifyordershortmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.options.complex.pitch.v2.1.37.openingcondition", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.options.complex.pitch.v2.1.37.orderexecutedatpricesizemessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.options.complex.pitch.v2.1.37.orderexecutedmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.order_id = ProtoField.new("Order Id", "cboe.options.complex.pitch.v2.1.37.orderid", ftypes.UINT64)
+cboe_options_complex_pitch_v2_1_37.fields.osi_symbol = ProtoField.new("Osi Symbol", "cboe.options.complex.pitch.v2.1.37.osisymbol", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.packet = ProtoField.new("Packet", "cboe.options.complex.pitch.v2.1.37.packet", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.packet_header = ProtoField.new("Packet Header", "cboe.options.complex.pitch.v2.1.37.packetheader", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.padding = ProtoField.new("Padding", "cboe.options.complex.pitch.v2.1.37.padding", ftypes.BYTES)
+cboe_options_complex_pitch_v2_1_37.fields.participant_id = ProtoField.new("Participant Id", "cboe.options.complex.pitch.v2.1.37.participantid", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.payload = ProtoField.new("Payload", "cboe.options.complex.pitch.v2.1.37.payload", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.price = ProtoField.new("Price", "cboe.options.complex.pitch.v2.1.37.price", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.price_short = ProtoField.new("Price Short", "cboe.options.complex.pitch.v2.1.37.priceshort", ftypes.INT16)
+cboe_options_complex_pitch_v2_1_37.fields.quantity = ProtoField.new("Quantity", "cboe.options.complex.pitch.v2.1.37.quantity", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.options.complex.pitch.v2.1.37.quantityshort", ftypes.UINT16)
+cboe_options_complex_pitch_v2_1_37.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.options.complex.pitch.v2.1.37.reducesizelongmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.options.complex.pitch.v2.1.37.reducesizeshortmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.reference_price = ProtoField.new("Reference Price", "cboe.options.complex.pitch.v2.1.37.referenceprice", ftypes.UINT64)
+cboe_options_complex_pitch_v2_1_37.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.options.complex.pitch.v2.1.37.remainingquantity", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.reserved = ProtoField.new("Reserved", "cboe.options.complex.pitch.v2.1.37.reserved", ftypes.BYTES)
+cboe_options_complex_pitch_v2_1_37.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.options.complex.pitch.v2.1.37.sellcontracts", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.sequence = ProtoField.new("Sequence", "cboe.options.complex.pitch.v2.1.37.sequence", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.options.complex.pitch.v2.1.37.sideindicator", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.options.complex.pitch.v2.1.37.symbolcondition", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.options.complex.pitch.v2.1.37.symbolmappingmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.time = ProtoField.new("Time", "cboe.options.complex.pitch.v2.1.37.time", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.time_message = ProtoField.new("Time Message", "cboe.options.complex.pitch.v2.1.37.timemessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.time_offset = ProtoField.new("Time Offset", "cboe.options.complex.pitch.v2.1.37.timeoffset", ftypes.UINT32)
+cboe_options_complex_pitch_v2_1_37.fields.trade_condition = ProtoField.new("Trade Condition", "cboe.options.complex.pitch.v2.1.37.tradecondition", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.options.complex.pitch.v2.1.37.tradelongmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.trade_short_message = ProtoField.new("Trade Short Message", "cboe.options.complex.pitch.v2.1.37.tradeshortmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.trading_status = ProtoField.new("Trading Status", "cboe.options.complex.pitch.v2.1.37.tradingstatus", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.trading_status_message = ProtoField.new("Trading Status Message", "cboe.options.complex.pitch.v2.1.37.tradingstatusmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.transaction_begin = ProtoField.new("Transaction Begin", "cboe.options.complex.pitch.v2.1.37.transactionbegin", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.transaction_end_message = ProtoField.new("Transaction End Message", "cboe.options.complex.pitch.v2.1.37.transactionendmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.underlying = ProtoField.new("Underlying", "cboe.options.complex.pitch.v2.1.37.underlying", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.unit = ProtoField.new("Unit", "cboe.options.complex.pitch.v2.1.37.unit", ftypes.UINT8)
+cboe_options_complex_pitch_v2_1_37.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.options.complex.pitch.v2.1.37.unitclearmessage", ftypes.STRING)
+cboe_options_complex_pitch_v2_1_37.fields.unused = ProtoField.new("Unused", "cboe.options.complex.pitch.v2.1.37.unused", ftypes.BYTES)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Cboe Options ComplexDepthOfBook Pitch 2.1.18 Element Dissection Options
+-- Cboe Options Complex Pitch 2.1.37 Element Dissection Options
 show.add_order_expanded_message = true
 show.add_order_long_message = true
 show.add_order_short_message = true
@@ -145,171 +145,171 @@ show.transaction_end_message = true
 show.unit_clear_message = true
 show.payload = false
 
--- Register Cboe Options ComplexDepthOfBook Pitch 2.1.18 Show Options
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_definition_expanded_message = Pref.bool("Show Complex Instrument Definition Expanded Message", show.complex_instrument_definition_expanded_message, "Parse and add Complex Instrument Definition Expanded Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_leg = Pref.bool("Show Complex Instrument Leg", show.complex_instrument_leg, "Parse and add Complex Instrument Leg to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_type = Pref.bool("Show Complex Instrument Type", show.complex_instrument_type, "Parse and add Complex Instrument Type to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_symbol_mapping_message = Pref.bool("Show Symbol Mapping Message", show.symbol_mapping_message, "Parse and add Symbol Mapping Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_begin = Pref.bool("Show Transaction Begin", show.transaction_begin, "Parse and add Transaction Begin to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_end_message = Pref.bool("Show Transaction End Message", show.transaction_end_message, "Parse and add Transaction End Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
-cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
+-- Register Cboe Options Complex Pitch 2.1.37 Show Options
+cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message = Pref.bool("Show Add Order Expanded Message", show.add_order_expanded_message, "Parse and add Add Order Expanded Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message = Pref.bool("Show Add Order Long Message", show.add_order_long_message, "Parse and add Add Order Long Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message = Pref.bool("Show Add Order Short Message", show.add_order_short_message, "Parse and add Add Order Short Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message = Pref.bool("Show Auction Cancel Message", show.auction_cancel_message, "Parse and add Auction Cancel Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message = Pref.bool("Show Auction Notification Message", show.auction_notification_message, "Parse and add Auction Notification Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message = Pref.bool("Show Auction Trade Message", show.auction_trade_message, "Parse and add Auction Trade Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message = Pref.bool("Show Complex Instrument Definition Expanded Message", show.complex_instrument_definition_expanded_message, "Parse and add Complex Instrument Definition Expanded Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg = Pref.bool("Show Complex Instrument Leg", show.complex_instrument_leg, "Parse and add Complex Instrument Leg to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type = Pref.bool("Show Complex Instrument Type", show.complex_instrument_type, "Parse and add Complex Instrument Type to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message = Pref.bool("Show End Of Session Message", show.end_of_session_message, "Parse and add End Of Session Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message = Pref.bool("Show Modify Order Short Message", show.modify_order_short_message, "Parse and add Modify Order Short Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message = Pref.bool("Show Order Executed At Price Size Message", show.order_executed_at_price_size_message, "Parse and add Order Executed At Price Size Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message = Pref.bool("Show Reduce Size Long Message", show.reduce_size_long_message, "Parse and add Reduce Size Long Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message = Pref.bool("Show Reduce Size Short Message", show.reduce_size_short_message, "Parse and add Reduce Size Short Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message = Pref.bool("Show Symbol Mapping Message", show.symbol_mapping_message, "Parse and add Symbol Mapping Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_time_message = Pref.bool("Show Time Message", show.time_message, "Parse and add Time Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_trade_long_message = Pref.bool("Show Trade Long Message", show.trade_long_message, "Parse and add Trade Long Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_trade_short_message = Pref.bool("Show Trade Short Message", show.trade_short_message, "Parse and add Trade Short Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_trading_status_message = Pref.bool("Show Trading Status Message", show.trading_status_message, "Parse and add Trading Status Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_begin = Pref.bool("Show Transaction Begin", show.transaction_begin, "Parse and add Transaction Begin to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message = Pref.bool("Show Transaction End Message", show.transaction_end_message, "Parse and add Transaction End Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message = Pref.bool("Show Unit Clear Message", show.unit_clear_message, "Parse and add Unit Clear Message to protocol tree")
+cboe_options_complex_pitch_v2_1_37.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
-function cboe_options_complexdepthofbook_pitch_v2_1_18.prefs_changed()
+function cboe_options_complex_pitch_v2_1_37.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_expanded_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_expanded_message then
-    show.add_order_expanded_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_expanded_message
+  if show.add_order_expanded_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message then
+    show.add_order_expanded_message = cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_expanded_message
     changed = true
   end
-  if show.add_order_long_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_long_message then
-    show.add_order_long_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_long_message
+  if show.add_order_long_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message then
+    show.add_order_long_message = cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_long_message
     changed = true
   end
-  if show.add_order_short_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_short_message then
-    show.add_order_short_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_add_order_short_message
+  if show.add_order_short_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message then
+    show.add_order_short_message = cboe_options_complex_pitch_v2_1_37.prefs.show_add_order_short_message
     changed = true
   end
-  if show.auction_cancel_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_cancel_message then
-    show.auction_cancel_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_cancel_message
+  if show.auction_cancel_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message then
+    show.auction_cancel_message = cboe_options_complex_pitch_v2_1_37.prefs.show_auction_cancel_message
     changed = true
   end
-  if show.auction_notification_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_notification_message then
-    show.auction_notification_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_notification_message
+  if show.auction_notification_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message then
+    show.auction_notification_message = cboe_options_complex_pitch_v2_1_37.prefs.show_auction_notification_message
     changed = true
   end
-  if show.auction_summary_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_summary_message then
-    show.auction_summary_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_summary_message
+  if show.auction_summary_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message then
+    show.auction_summary_message = cboe_options_complex_pitch_v2_1_37.prefs.show_auction_summary_message
     changed = true
   end
-  if show.auction_trade_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_trade_message then
-    show.auction_trade_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_trade_message
+  if show.auction_trade_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message then
+    show.auction_trade_message = cboe_options_complex_pitch_v2_1_37.prefs.show_auction_trade_message
     changed = true
   end
-  if show.auction_update_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_update_message then
-    show.auction_update_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_auction_update_message
+  if show.auction_update_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_auction_update_message then
+    show.auction_update_message = cboe_options_complex_pitch_v2_1_37.prefs.show_auction_update_message
     changed = true
   end
-  if show.complex_instrument_definition_expanded_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_definition_expanded_message then
-    show.complex_instrument_definition_expanded_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_definition_expanded_message
+  if show.complex_instrument_definition_expanded_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message then
+    show.complex_instrument_definition_expanded_message = cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_definition_expanded_message
     changed = true
   end
-  if show.complex_instrument_leg ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_leg then
-    show.complex_instrument_leg = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_leg
+  if show.complex_instrument_leg ~= cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg then
+    show.complex_instrument_leg = cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_leg
     changed = true
   end
-  if show.complex_instrument_type ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_type then
-    show.complex_instrument_type = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_complex_instrument_type
+  if show.complex_instrument_type ~= cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type then
+    show.complex_instrument_type = cboe_options_complex_pitch_v2_1_37.prefs.show_complex_instrument_type
     changed = true
   end
-  if show.delete_order_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_delete_order_message then
-    show.delete_order_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_delete_order_message
+  if show.delete_order_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_delete_order_message then
+    show.delete_order_message = cboe_options_complex_pitch_v2_1_37.prefs.show_delete_order_message
     changed = true
   end
-  if show.end_of_session_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_end_of_session_message then
-    show.end_of_session_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_end_of_session_message
+  if show.end_of_session_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message then
+    show.end_of_session_message = cboe_options_complex_pitch_v2_1_37.prefs.show_end_of_session_message
     changed = true
   end
-  if show.message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message then
-    show.message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message
+  if show.message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_message then
+    show.message = cboe_options_complex_pitch_v2_1_37.prefs.show_message
     changed = true
   end
-  if show.message_header ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message_header then
-    show.message_header = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_message_header
+  if show.message_header ~= cboe_options_complex_pitch_v2_1_37.prefs.show_message_header then
+    show.message_header = cboe_options_complex_pitch_v2_1_37.prefs.show_message_header
     changed = true
   end
-  if show.modify_order_long_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_long_message then
-    show.modify_order_long_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_long_message
+  if show.modify_order_long_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message then
+    show.modify_order_long_message = cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_long_message
     changed = true
   end
-  if show.modify_order_short_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_short_message then
-    show.modify_order_short_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_modify_order_short_message
+  if show.modify_order_short_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message then
+    show.modify_order_short_message = cboe_options_complex_pitch_v2_1_37.prefs.show_modify_order_short_message
     changed = true
   end
-  if show.order_executed_at_price_size_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_at_price_size_message then
-    show.order_executed_at_price_size_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_at_price_size_message
+  if show.order_executed_at_price_size_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message then
+    show.order_executed_at_price_size_message = cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_at_price_size_message
     changed = true
   end
-  if show.order_executed_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_message then
-    show.order_executed_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_order_executed_message
+  if show.order_executed_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_message then
+    show.order_executed_message = cboe_options_complex_pitch_v2_1_37.prefs.show_order_executed_message
     changed = true
   end
-  if show.packet ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet then
-    show.packet = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet
+  if show.packet ~= cboe_options_complex_pitch_v2_1_37.prefs.show_packet then
+    show.packet = cboe_options_complex_pitch_v2_1_37.prefs.show_packet
     changed = true
   end
-  if show.packet_header ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet_header then
-    show.packet_header = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_packet_header
+  if show.packet_header ~= cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header then
+    show.packet_header = cboe_options_complex_pitch_v2_1_37.prefs.show_packet_header
     changed = true
   end
-  if show.reduce_size_long_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_long_message then
-    show.reduce_size_long_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_long_message
+  if show.reduce_size_long_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message then
+    show.reduce_size_long_message = cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_long_message
     changed = true
   end
-  if show.reduce_size_short_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_short_message then
-    show.reduce_size_short_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_reduce_size_short_message
+  if show.reduce_size_short_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message then
+    show.reduce_size_short_message = cboe_options_complex_pitch_v2_1_37.prefs.show_reduce_size_short_message
     changed = true
   end
-  if show.symbol_mapping_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_symbol_mapping_message then
-    show.symbol_mapping_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_symbol_mapping_message
+  if show.symbol_mapping_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message then
+    show.symbol_mapping_message = cboe_options_complex_pitch_v2_1_37.prefs.show_symbol_mapping_message
     changed = true
   end
-  if show.time_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_time_message then
-    show.time_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_time_message
+  if show.time_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_time_message then
+    show.time_message = cboe_options_complex_pitch_v2_1_37.prefs.show_time_message
     changed = true
   end
-  if show.trade_long_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_long_message then
-    show.trade_long_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_long_message
+  if show.trade_long_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_trade_long_message then
+    show.trade_long_message = cboe_options_complex_pitch_v2_1_37.prefs.show_trade_long_message
     changed = true
   end
-  if show.trade_short_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_short_message then
-    show.trade_short_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trade_short_message
+  if show.trade_short_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_trade_short_message then
+    show.trade_short_message = cboe_options_complex_pitch_v2_1_37.prefs.show_trade_short_message
     changed = true
   end
-  if show.trading_status_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trading_status_message then
-    show.trading_status_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_trading_status_message
+  if show.trading_status_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_trading_status_message then
+    show.trading_status_message = cboe_options_complex_pitch_v2_1_37.prefs.show_trading_status_message
     changed = true
   end
-  if show.transaction_begin ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_begin then
-    show.transaction_begin = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_begin
+  if show.transaction_begin ~= cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_begin then
+    show.transaction_begin = cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_begin
     changed = true
   end
-  if show.transaction_end_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_end_message then
-    show.transaction_end_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_transaction_end_message
+  if show.transaction_end_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message then
+    show.transaction_end_message = cboe_options_complex_pitch_v2_1_37.prefs.show_transaction_end_message
     changed = true
   end
-  if show.unit_clear_message ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_unit_clear_message then
-    show.unit_clear_message = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_unit_clear_message
+  if show.unit_clear_message ~= cboe_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message then
+    show.unit_clear_message = cboe_options_complex_pitch_v2_1_37.prefs.show_unit_clear_message
     changed = true
   end
-  if show.payload ~= cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_payload then
-    show.payload = cboe_options_complexdepthofbook_pitch_v2_1_18.prefs.show_payload
+  if show.payload ~= cboe_options_complex_pitch_v2_1_37.prefs.show_payload then
+    show.payload = cboe_options_complex_pitch_v2_1_37.prefs.show_payload
     changed = true
   end
 
@@ -321,7 +321,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Cboe Options ComplexDepthOfBook Pitch 2.1.18
+-- Dissect Cboe Options Complex Pitch 2.1.37
 -----------------------------------------------------------------------
 
 -- Size: Time Offset
@@ -339,7 +339,7 @@ dissect.time_offset = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.time_offset(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time_offset, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.time_offset, range, value, display)
 
   return offset + length, value
 end
@@ -375,7 +375,7 @@ dissect.end_of_session_message = function(buffer, offset, packet, parent)
     local length = size_of.end_of_session_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.end_of_session_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.end_of_session_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.end_of_session_message, range, display)
   end
 
   return dissect.end_of_session_message_fields(buffer, offset, packet, parent)
@@ -396,7 +396,7 @@ dissect.quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.quantity, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -416,7 +416,7 @@ dissect.price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -446,7 +446,7 @@ dissect.auction_opening_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_opening_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_opening_type, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_opening_type, range, value, display)
 
   return offset + length, value
 end
@@ -466,7 +466,7 @@ dissect.complex_instrument_id_8 = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_instrument_id_8(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_id_8, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_id_8, range, value, display)
 
   return offset + length, value
 end
@@ -522,7 +522,7 @@ dissect.auction_summary_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_summary_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_summary_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_summary_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_summary_message, range, display)
   end
 
   return dissect.auction_summary_message_fields(buffer, offset, packet, parent)
@@ -543,7 +543,7 @@ dissect.composite_market_offer_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.composite_market_offer_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.composite_market_offer_price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price, range, value, display)
 
   return offset + length, value
 end
@@ -563,7 +563,7 @@ dissect.composite_market_bid_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.composite_market_bid_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.composite_market_bid_price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price, range, value, display)
 
   return offset + length, value
 end
@@ -583,7 +583,7 @@ dissect.opening_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.opening_condition(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.opening_condition, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.opening_condition, range, value, display)
 
   return offset + length, value
 end
@@ -603,7 +603,7 @@ dissect.auction_only_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.auction_only_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_only_price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_only_price, range, value, display)
 
   return offset + length, value
 end
@@ -623,7 +623,7 @@ dissect.indicative_price = function(buffer, offset, packet, parent)
   local value = range:le_int64()
   local display = display.indicative_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.indicative_price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.indicative_price, range, value, display)
 
   return offset + length, value
 end
@@ -643,7 +643,7 @@ dissect.sell_contracts = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sell_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.sell_contracts, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.sell_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -663,7 +663,7 @@ dissect.buy_contracts = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.buy_contracts(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.buy_contracts, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.buy_contracts, range, value, display)
 
   return offset + length, value
 end
@@ -683,7 +683,7 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reference_price, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
 
   return offset + length, value
 end
@@ -769,7 +769,7 @@ dissect.auction_update_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_update_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_update_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_update_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_update_message, range, display)
   end
 
   return dissect.auction_update_message_fields(buffer, offset, packet, parent)
@@ -790,7 +790,7 @@ dissect.padding = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.padding(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.padding, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.padding, range, value, display)
 
   return offset + length, value
 end
@@ -820,7 +820,7 @@ dissect.gth_trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.gth_trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.gth_trading_status, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.gth_trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -840,7 +840,7 @@ dissect.reserved = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.reserved(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reserved, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.reserved, range, value, display)
 
   return offset + length, value
 end
@@ -857,7 +857,7 @@ display.trading_status = function(value)
     return "Trading Status: Quote Only (Q)"
   end
   if value == "T" then
-    return "Trading Status: Trading (T)"
+    return "Trading Status: Rth Trading (T)"
   end
 
   return "Trading Status: Unknown("..value..")"
@@ -870,7 +870,7 @@ dissect.trading_status = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trading_status(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trading_status, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.trading_status, range, value, display)
 
   return offset + length, value
 end
@@ -890,7 +890,7 @@ dissect.unused = function(buffer, offset, packet, parent)
   local value = range:bytes():tohex(false, " ")
   local display = display.unused(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unused, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.unused, range, value, display)
 
   return offset + length, value
 end
@@ -910,7 +910,7 @@ dissect.complex_symbol_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_symbol_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_symbol_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_symbol_id, range, value, display)
 
   return offset + length, value
 end
@@ -976,7 +976,7 @@ dissect.trading_status_message = function(buffer, offset, packet, parent)
     local length = size_of.trading_status_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trading_status_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trading_status_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.trading_status_message, range, display)
   end
 
   return dissect.trading_status_message_fields(buffer, offset, packet, parent)
@@ -997,7 +997,7 @@ dissect.execution_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.execution_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.execution_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.execution_id, range, value, display)
 
   return offset + length, value
 end
@@ -1017,7 +1017,7 @@ dissect.auction_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.auction_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_id, range, value, display)
 
   return offset + length, value
 end
@@ -1073,7 +1073,7 @@ dissect.auction_trade_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_trade_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_trade_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_trade_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_trade_message, range, display)
   end
 
   return dissect.auction_trade_message_fields(buffer, offset, packet, parent)
@@ -1115,7 +1115,7 @@ dissect.auction_cancel_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_cancel_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_cancel_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_cancel_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_cancel_message, range, display)
   end
 
   return dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
@@ -1136,7 +1136,7 @@ dissect.client_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.client_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.client_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.client_id, range, value, display)
 
   return offset + length, value
 end
@@ -1156,7 +1156,7 @@ dissect.auction_end_offset = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.auction_end_offset(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_end_offset, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_end_offset, range, value, display)
 
   return offset + length, value
 end
@@ -1176,7 +1176,7 @@ dissect.participant_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.participant_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.participant_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.participant_id, range, value, display)
 
   return offset + length, value
 end
@@ -1203,7 +1203,7 @@ dissect.customer_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.customer_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.customer_indicator, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.customer_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1230,7 +1230,7 @@ dissect.side_indicator = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.side_indicator(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.side_indicator, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.side_indicator, range, value, display)
 
   return offset + length, value
 end
@@ -1249,9 +1249,6 @@ display.auction_type = function(value)
   if value == "B" then
     return "Auction Type: Complex Aim (B)"
   end
-  if value == "O" then
-    return "Auction Type: Coa All Or None (O)"
-  end
 
   return "Auction Type: Unknown("..value..")"
 end
@@ -1263,7 +1260,7 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_type, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -1283,7 +1280,7 @@ dissect.complex_instrument_id = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_instrument_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_id, range, value, display)
 
   return offset + length, value
 end
@@ -1335,7 +1332,7 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = dissect.auction_id(buffer, index, packet, parent)
 
-  -- Auction Type: 1 Byte Ascii String Enum with 4 values
+  -- Auction Type: 1 Byte Ascii String Enum with 3 values
   index, auction_type = dissect.auction_type(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
@@ -1369,7 +1366,7 @@ dissect.auction_notification_message = function(buffer, offset, packet, parent)
     local length = size_of.auction_notification_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.auction_notification_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.auction_notification_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_notification_message, range, display)
   end
 
   return dissect.auction_notification_message_fields(buffer, offset, packet, parent)
@@ -1387,13 +1384,16 @@ display.trade_condition = function(value)
     return "Trade Condition: Complex Auction Trade (g)"
   end
   if value == "h" then
-    return "Trade Condition: Complex Cross (h)"
+    return "Trade Condition: Complex (h)"
   end
   if value == "j" then
     return "Trade Condition: Complex Electronic Trade Against Single (j)"
   end
   if value == "k" then
     return "Trade Condition: Complex With Stock Options Auction Trade (k)"
+  end
+  if value == "m" then
+    return "Trade Condition: Complex Floor Trade Against Single Leg (m)"
   end
   if value == "n" then
     return "Trade Condition: Complex With Stock Electronic Trade (n)"
@@ -1403,6 +1403,18 @@ display.trade_condition = function(value)
   end
   if value == "l" then
     return "Trade Condition: Electronic Trade (l)"
+  end
+  if value == "p" then
+    return "Trade Condition: Complex With Stock Floor Trade (p)"
+  end
+  if value == "t" then
+    return "Trade Condition: Complex Combo Order Floor Trade (t)"
+  end
+  if value == "v" then
+    return "Trade Condition: Extended Hours Trade (v)"
+  end
+  if value == "I" then
+    return "Trade Condition: Electronic Trade (I)"
   end
   if value == "O" then
     return "Trade Condition: Opening Trade (O)"
@@ -1418,7 +1430,7 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.trade_condition(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_condition, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.trade_condition, range, value, display)
 
   return offset + length, value
 end
@@ -1438,7 +1450,7 @@ dissect.price_short = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.price_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.price_short, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.price_short, range, value, display)
 
   return offset + length, value
 end
@@ -1458,7 +1470,7 @@ dissect.quantity_short = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.quantity_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.quantity_short, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1478,7 +1490,7 @@ dissect.order_id = function(buffer, offset, packet, parent)
   local value = range:le_uint64()
   local display = display.order_id(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_id, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.order_id, range, value, display)
 
   return offset + length, value
 end
@@ -1536,7 +1548,7 @@ dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -1549,7 +1561,7 @@ dissect.trade_short_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_short_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.trade_short_message, range, display)
   end
 
   return dissect.trade_short_message_fields(buffer, offset, packet, parent)
@@ -1608,7 +1620,7 @@ dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -1621,7 +1633,7 @@ dissect.trade_long_message = function(buffer, offset, packet, parent)
     local length = size_of.trade_long_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.trade_long_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.trade_long_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.trade_long_message, range, display)
   end
 
   return dissect.trade_long_message_fields(buffer, offset, packet, parent)
@@ -1663,7 +1675,7 @@ dissect.delete_order_message = function(buffer, offset, packet, parent)
     local length = size_of.delete_order_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.delete_order_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.delete_order_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.delete_order_message, range, display)
   end
 
   return dissect.delete_order_message_fields(buffer, offset, packet, parent)
@@ -1720,7 +1732,7 @@ dissect.modify_order_short_message = function(buffer, offset, packet, parent)
     local length = size_of.modify_order_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.modify_order_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.modify_order_short_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.modify_order_short_message, range, display)
   end
 
   return dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
@@ -1777,7 +1789,7 @@ dissect.modify_order_long_message = function(buffer, offset, packet, parent)
     local length = size_of.modify_order_long_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.modify_order_long_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.modify_order_long_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.modify_order_long_message, range, display)
   end
 
   return dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
@@ -1798,7 +1810,7 @@ dissect.canceled_quantity_short = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.canceled_quantity_short(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.canceled_quantity_short, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.canceled_quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1844,7 +1856,7 @@ dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
     local length = size_of.reduce_size_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.reduce_size_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reduce_size_short_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.reduce_size_short_message, range, display)
   end
 
   return dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
@@ -1865,7 +1877,7 @@ dissect.canceled_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.canceled_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.canceled_quantity, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.canceled_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1911,7 +1923,7 @@ dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
     local length = size_of.reduce_size_long_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.reduce_size_long_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.reduce_size_long_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.reduce_size_long_message, range, display)
   end
 
   return dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
@@ -1932,7 +1944,7 @@ dissect.remaining_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.remaining_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.remaining_quantity, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.remaining_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -1952,7 +1964,7 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.executed_quantity(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.executed_quantity, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.executed_quantity, range, value, display)
 
   return offset + length, value
 end
@@ -2005,7 +2017,7 @@ dissect.order_executed_at_price_size_message_fields = function(buffer, offset, p
   -- Price: 8 Byte Signed Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -2018,7 +2030,7 @@ dissect.order_executed_at_price_size_message = function(buffer, offset, packet, 
     local length = size_of.order_executed_at_price_size_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_executed_at_price_size_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_executed_at_price_size_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.order_executed_at_price_size_message, range, display)
   end
 
   return dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
@@ -2062,7 +2074,7 @@ dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
   index, execution_id = dissect.execution_id(buffer, index, packet, parent)
 
-  -- Trade Condition: 1 Byte Ascii String Enum with 9 values
+  -- Trade Condition: 1 Byte Ascii String Enum with 14 values
   index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
 
   return index
@@ -2075,7 +2087,7 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
     local length = size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.order_executed_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.order_executed_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.order_executed_message, range, display)
   end
 
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
@@ -2157,7 +2169,7 @@ dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
     local length = size_of.add_order_expanded_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.add_order_expanded_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_expanded_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.add_order_expanded_message, range, display)
   end
 
   return dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
@@ -2224,7 +2236,7 @@ dissect.add_order_short_message = function(buffer, offset, packet, parent)
     local length = size_of.add_order_short_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.add_order_short_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_short_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.add_order_short_message, range, display)
   end
 
   return dissect.add_order_short_message_fields(buffer, offset, packet, parent)
@@ -2291,7 +2303,7 @@ dissect.add_order_long_message = function(buffer, offset, packet, parent)
     local length = size_of.add_order_long_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.add_order_long_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.add_order_long_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.add_order_long_message, range, display)
   end
 
   return dissect.add_order_long_message_fields(buffer, offset, packet, parent)
@@ -2312,7 +2324,7 @@ dissect.underlying = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.underlying(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.underlying, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.underlying, range, value, display)
 
   return offset + length, value
 end
@@ -2339,7 +2351,7 @@ dissect.symbol_condition = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.symbol_condition(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.symbol_condition, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.symbol_condition, range, value, display)
 
   return offset + length, value
 end
@@ -2359,7 +2371,7 @@ dissect.osi_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.osi_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.osi_symbol, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.osi_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2379,7 +2391,7 @@ dissect.feed_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.feed_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.feed_symbol, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.feed_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2430,7 +2442,7 @@ dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
     local length = size_of.symbol_mapping_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.symbol_mapping_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.symbol_mapping_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.symbol_mapping_message, range, display)
   end
 
   return dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
@@ -2458,7 +2470,7 @@ dissect.leg_security_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_security_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_security_type, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.leg_security_type, range, value, display)
 
   return offset + length, value
 end
@@ -2478,7 +2490,7 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local value = range:le_int()
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_ratio, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.leg_ratio, range, value, display)
 
   return offset + length, value
 end
@@ -2498,7 +2510,7 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.leg_symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_symbol, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.leg_symbol, range, value, display)
 
   return offset + length, value
 end
@@ -2544,7 +2556,7 @@ dissect.complex_instrument_leg = function(buffer, offset, packet, parent)
     local length = size_of.complex_instrument_leg(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_instrument_leg(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_leg, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_leg, range, display)
   end
 
   return dissect.complex_instrument_leg_fields(buffer, offset, packet, parent)
@@ -2565,7 +2577,7 @@ dissect.leg_count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.leg_count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.leg_count, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.leg_count, range, value, display)
 
   return offset + length, value
 end
@@ -2585,7 +2597,7 @@ dissect.complex_auction_reserved_bytes = function(buffer, offset, packet, parent
   local value = range:bytes():tohex(false, " ")
   local display = display.complex_auction_reserved_bytes(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_auction_reserved_bytes, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_auction_reserved_bytes, range, value, display)
 
   return offset + length, value
 end
@@ -2605,7 +2617,7 @@ dissect.complex_auction_type = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_auction_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_auction_type, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_auction_type, range, value, display)
 
   return offset + length, value
 end
@@ -2647,7 +2659,7 @@ dissect.complex_instrument_type = function(buffer, offset, packet, parent)
     local range = buffer(offset, length)
     local value = range:string()
     local display = display.complex_instrument_type(buffer, offset, value, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_type, range, value, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_type, range, value, display)
   end
 
   return dissect.complex_instrument_type_fields(buffer, offset, packet, parent)
@@ -2668,7 +2680,7 @@ dissect.complex_instrument_underlying = function(buffer, offset, packet, parent)
   local value = range:string()
   local display = display.complex_instrument_underlying(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_underlying, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying, range, value, display)
 
   return offset + length, value
 end
@@ -2733,7 +2745,7 @@ dissect.complex_instrument_definition_expanded_message = function(buffer, offset
     local length = size_of.complex_instrument_definition_expanded_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.complex_instrument_definition_expanded_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.complex_instrument_definition_expanded_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_definition_expanded_message, range, display)
   end
 
   return dissect.complex_instrument_definition_expanded_message_fields(buffer, offset, packet, parent)
@@ -2770,7 +2782,7 @@ dissect.transaction_end_message = function(buffer, offset, packet, parent)
     local length = size_of.transaction_end_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.transaction_end_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.transaction_end_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.transaction_end_message, range, display)
   end
 
   return dissect.transaction_end_message_fields(buffer, offset, packet, parent)
@@ -2807,7 +2819,7 @@ dissect.transaction_begin = function(buffer, offset, packet, parent)
     local length = size_of.transaction_begin(buffer, offset)
     local range = buffer(offset, length)
     local display = display.transaction_begin(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.transaction_begin, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.transaction_begin, range, display)
   end
 
   return dissect.transaction_begin_fields(buffer, offset, packet, parent)
@@ -2844,7 +2856,7 @@ dissect.unit_clear_message = function(buffer, offset, packet, parent)
     local length = size_of.unit_clear_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.unit_clear_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unit_clear_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.unit_clear_message, range, display)
   end
 
   return dissect.unit_clear_message_fields(buffer, offset, packet, parent)
@@ -2865,7 +2877,7 @@ dissect.time = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.time(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.time, range, value, display)
 
   return offset + length, value
 end
@@ -2901,7 +2913,7 @@ dissect.time_message = function(buffer, offset, packet, parent)
     local length = size_of.time_message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.time_message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.time_message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.time_message, range, display)
   end
 
   return dissect.time_message_fields(buffer, offset, packet, parent)
@@ -3139,7 +3151,7 @@ dissect.payload = function(buffer, offset, packet, parent, message_type)
   -- Dissect Element
   local range = buffer(offset, size)
   local display = display.payload(buffer, packet, parent)
-  local element = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.payload, range, display)
+  local element = parent:add(cboe_options_complex_pitch_v2_1_37.fields.payload, range, display)
 
   return dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
@@ -3235,7 +3247,7 @@ dissect.message_type = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_type(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_type, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.message_type, range, value, display)
 
   return offset + length, value
 end
@@ -3255,7 +3267,7 @@ dissect.message_length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.message_length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_length, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.message_length, range, value, display)
 
   return offset + length, value
 end
@@ -3296,7 +3308,7 @@ dissect.message_header = function(buffer, offset, packet, parent)
     local length = size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message_header(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message_header, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.message_header, range, display)
   end
 
   return dissect.message_header_fields(buffer, offset, packet, parent)
@@ -3344,7 +3356,7 @@ dissect.message = function(buffer, offset, packet, parent)
     local length = size_of.message(buffer, offset)
     local range = buffer(offset, length)
     local display = display.message(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.message, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.message, range, display)
   end
 
   return dissect.message_fields(buffer, offset, packet, parent)
@@ -3365,7 +3377,7 @@ dissect.sequence = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.sequence(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.sequence, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.sequence, range, value, display)
 
   return offset + length, value
 end
@@ -3385,7 +3397,7 @@ dissect.unit = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.unit(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.unit, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.unit, range, value, display)
 
   return offset + length, value
 end
@@ -3405,7 +3417,7 @@ dissect.count = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.count(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.count, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.count, range, value, display)
 
   return offset + length, value
 end
@@ -3425,7 +3437,7 @@ dissect.length = function(buffer, offset, packet, parent)
   local value = range:le_uint()
   local display = display.length(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.length, range, value, display)
+  parent:add(cboe_options_complex_pitch_v2_1_37.fields.length, range, value, display)
 
   return offset + length, value
 end
@@ -3476,7 +3488,7 @@ dissect.packet_header = function(buffer, offset, packet, parent)
     local length = size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
     local display = display.packet_header(buffer, packet, parent)
-    parent = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18.fields.packet_header, range, display)
+    parent = parent:add(cboe_options_complex_pitch_v2_1_37.fields.packet_header, range, display)
   end
 
   return dissect.packet_header_fields(buffer, offset, packet, parent)
@@ -3506,23 +3518,23 @@ end
 -----------------------------------------------------------------------
 
 -- Initialize Dissector
-function cboe_options_complexdepthofbook_pitch_v2_1_18.init()
+function cboe_options_complex_pitch_v2_1_37.init()
 end
 
--- Dissector for Cboe Options ComplexDepthOfBook Pitch 2.1.18
-function cboe_options_complexdepthofbook_pitch_v2_1_18.dissector(buffer, packet, parent)
+-- Dissector for Cboe Options Complex Pitch 2.1.37
+function cboe_options_complex_pitch_v2_1_37.dissector(buffer, packet, parent)
 
   -- Set protocol name
-  packet.cols.protocol = cboe_options_complexdepthofbook_pitch_v2_1_18.name
+  packet.cols.protocol = cboe_options_complex_pitch_v2_1_37.name
 
   -- Dissect protocol
-  local protocol = parent:add(cboe_options_complexdepthofbook_pitch_v2_1_18, buffer(), cboe_options_complexdepthofbook_pitch_v2_1_18.description, "("..buffer:len().." Bytes)")
+  local protocol = parent:add(cboe_options_complex_pitch_v2_1_37, buffer(), cboe_options_complex_pitch_v2_1_37.description, "("..buffer:len().." Bytes)")
   return dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table
 local udp_table = DissectorTable.get("udp.port")
-udp_table:add(65333, cboe_options_complexdepthofbook_pitch_v2_1_18)
+udp_table:add(65333, cboe_options_complex_pitch_v2_1_37)
 
 
 -----------------------------------------------------------------------
@@ -3530,25 +3542,25 @@ udp_table:add(65333, cboe_options_complexdepthofbook_pitch_v2_1_18)
 -----------------------------------------------------------------------
 
 -- Verify size of packet
-verify.cboe_options_complexdepthofbook_pitch_v2_1_18_packet_size = function(buffer)
+verify.cboe_options_complex_pitch_v2_1_37_packet_size = function(buffer)
 
   return true
 end
 
--- Dissector Heuristic for Cboe Options ComplexDepthOfBook Pitch 2.1.18
-local function cboe_options_complexdepthofbook_pitch_v2_1_18_heuristic(buffer, packet, parent)
+-- Dissector Heuristic for Cboe Options Complex Pitch 2.1.37
+local function cboe_options_complex_pitch_v2_1_37_heuristic(buffer, packet, parent)
   -- Verify packet length
-  if not verify.cboe_options_complexdepthofbook_pitch_v2_1_18_packet_size(buffer) then return false end
+  if not verify.cboe_options_complex_pitch_v2_1_37_packet_size(buffer) then return false end
 
   -- Protocol is valid, set conversation and dissect this packet
-  packet.conversation = cboe_options_complexdepthofbook_pitch_v2_1_18
-  cboe_options_complexdepthofbook_pitch_v2_1_18.dissector(buffer, packet, parent)
+  packet.conversation = cboe_options_complex_pitch_v2_1_37
+  cboe_options_complex_pitch_v2_1_37.dissector(buffer, packet, parent)
 
   return true
 end
 
--- Register Heuristic for Cboe Options ComplexDepthOfBook Pitch 2.1.18
-cboe_options_complexdepthofbook_pitch_v2_1_18:register_heuristic("udp", cboe_options_complexdepthofbook_pitch_v2_1_18_heuristic)
+-- Register Heuristic for Cboe Options Complex Pitch 2.1.37
+cboe_options_complex_pitch_v2_1_37:register_heuristic("udp", cboe_options_complex_pitch_v2_1_37_heuristic)
 
 -----------------------------------------------------------------------
 -- Lua dissectors are an easily edited and modified cross platform dissection solution.
@@ -3557,8 +3569,8 @@ cboe_options_complexdepthofbook_pitch_v2_1_18:register_heuristic("udp", cboe_opt
 -- 
 -- Protocol:
 --   Organization: Chicago Board Options Exchange
---   Version: 2.1.18
---   Date: Friday, January 31, 2020
+--   Version: 2.1.37
+--   Date: Tuesday, March 1, 2022
 --   Specification: US_OPTIONS_COMPLEX_MULTICAST_PITCH_SPECIFICATION.pdf
 -- 
 -- Script:

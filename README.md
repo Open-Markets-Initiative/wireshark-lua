@@ -1,6 +1,6 @@
 # Omi Lua Wireshark Dissectors
 
-[![Open-Markets-Initiative](https://github.com/Open-Markets-Initiative/wireshark-lua/actions/workflows/github-action-lua.yml/badge.svg)](https://github.com/Open-Markets-Initiative/wireshark-lua/actions)
+[![Tests](https://github.com/Open-Markets-Initiative/wireshark-lua/actions/workflows/github-action-lua.yml/badge.svg)](https://github.com/Open-Markets-Initiative/wireshark-lua/actions//workflows/github-action-lua.yml)
 
 Omi Lua Wireshark dissector scripts provide easily customized cross platform dissection solutions for viewing common binary exchange protocols.
 
@@ -35,12 +35,14 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Cboe][Cboe.Directory] | Bzx Options | [OrderEntry][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | C1 Options | [OrderEntry][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | C1 Options | [AuctionFeed][Cboe.C1.Options.AuctionFeed.Pitch.v1.1.1.Dissector] | Pitch | [1.1.1][Cboe.C1.Options.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Cboe][Cboe.Directory] | C1 Options | [Complex][Cboe.C1.Options.Complex.Pitch.v2.1.37.Dissector] | Pitch | [2.1.37][Cboe.C1.Options.Complex.Pitch.v2.1.37.Dissector] | 3/1/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Edgx Equities | [OrderEntry][Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Dissector] | Boe | [2.3][Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | Edgx Options | [OrderEntry][Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | [Incomplete][Omi.Glossary.Testing.Incomplete] |
 | [Cboe][Cboe.Directory] | Edgx Options | [AuctionFeed][Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Dissector] | Pitch | [1.1.1][Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Dissector] | 12/6/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Futures | [OrderEntry][Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector] | Boe3 | [1.0][Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector] | 5/21/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Futures | [DepthOfBook][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | Pitch | [1.1.12][Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector] | 1/12/2021 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Cboe][Cboe.Directory] | Options | [ComplexDepthOfBook][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | Pitch | [2.1.18][Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector] | 1/31/2020 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | Pitch | [2.1.37][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | 3/1/2022 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | Pitch | [2.1.18][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | 1/31/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Options | [DepthOfBook][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cme][Cme.Directory] | Ebs | [Spectrum][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | 4/8/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [Derived][Cme.Futures.Derived.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Futures.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -132,7 +134,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 169 | 1,545,052 |
+| 171 | 1,552,368 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -190,12 +192,14 @@ Enjoy.
 [Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Edgx.Equities.OrderEntry.Boe.v2.3.Script.Dissector.lua "Cboe Edgx Equities OrderEntry Boe v2.3 Lua Wireshark Dissector"
 [Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Futures.DepthOfBook.Pitch.v1.1.12.Script.Dissector.lua "Cboe Futures DepthOfBook Pitch v1.1.12 Lua Wireshark Dissector"
 [Cboe.Futures.OrderEntry.Boe3.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Futures.OrderEntry.Boe3.v1.0.Script.Dissector.lua "Cboe Futures OrderEntry Boe3 v1.0 Lua Wireshark Dissector"
-[Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Options.ComplexDepthOfBook.Pitch.v2.1.18.Script.Dissector.lua "Cboe Options ComplexDepthOfBook Pitch v2.1.18 Lua Wireshark Dissector"
 [Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Script.Dissector.lua "Cboe Bzx Options OrderEntry Boe v2.10 Lua Wireshark Dissector"
 [Cboe.C1.Options.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.C1.Options.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Cboe C1 Options AuctionFeed Pitch v1.1.1 Lua Wireshark Dissector"
 [Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.C1.Options.OrderEntry.Boe.v2.10.Script.Dissector.lua "Cboe C1 Options OrderEntry Boe v2.10 Lua Wireshark Dissector"
+[Cboe.C1.Options.Complex.Pitch.v2.1.37.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.C1.Options.Complex.Pitch.v2.1.37.Script.Dissector.lua "Cboe C1 Options Complex Pitch v2.1.37 Lua Wireshark Dissector"
 [Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Edgx.Options.AuctionFeed.Pitch.v1.1.1.Script.Dissector.lua "Cboe Edgx Options AuctionFeed Pitch v1.1.1 Lua Wireshark Dissector"
 [Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Edgx.Options.OrderEntry.Boe.v2.10.Script.Dissector.lua "Cboe Edgx Options OrderEntry Boe v2.10 Lua Wireshark Dissector"
+[Cboe.Options.Complex.Pitch.v2.1.18.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Options.Complex.Pitch.v2.1.18.Script.Dissector.lua "Cboe Options Complex Pitch v2.1.18 Lua Wireshark Dissector"
+[Cboe.Options.Complex.Pitch.v2.1.37.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Options.Complex.Pitch.v2.1.37.Script.Dissector.lua "Cboe Options Complex Pitch v2.1.37 Lua Wireshark Dissector"
 [Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Options.DepthOfBook.Pitch.v2.39.4.Script.Dissector.lua "Cboe Options DepthOfBook Pitch v2.39.4 Lua Wireshark Dissector"
 [Cme.Futures.Mdp3.Sbe.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Mdp3.Sbe.v1.11.Script.Dissector.lua "Cme Futures Mdp3 Sbe v1.11 Lua Wireshark Dissector"
 [Cme.Futures.Mdp3.Sbe.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Mdp3.Sbe.v1.12.Script.Dissector.lua "Cme Futures Mdp3 Sbe v1.12 Lua Wireshark Dissector"
