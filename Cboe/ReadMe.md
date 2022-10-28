@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Byx Equities | [DepthOfBook][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | Pitch | [2.41.29][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | 4/20/2022 | 2712 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Url] - [pdf][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Pdf] |
 | Bzx Equities | [OrderEntry][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector] | Boe | [2.3][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector] | 3/11/2019 | 28991 | [Active][Omi.Glossary.Status.Active] | [Incomplete][Omi.Glossary.Testing.Incomplete] | [url][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Url] - [pdf][Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Pdf] |
 | Bzx Options | [OrderEntry][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 30269 | [Active][Omi.Glossary.Status.Active] | [Incomplete][Omi.Glossary.Testing.Incomplete] | [url][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.Bzx.Options.OrderEntry.Boe.v2.10.Pdf] |
 | C1 Options | [OrderEntry][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | Boe | [2.10][Cboe.C1.Options.OrderEntry.Boe.v2.10.Dissector] | 12/3/2019 | 46148 | [Active][Omi.Glossary.Status.Active] | [Incomplete][Omi.Glossary.Testing.Incomplete] | [url][Cboe.C1.Options.OrderEntry.Boe.v2.10.Url] - [pdf][Cboe.C1.Options.OrderEntry.Boe.v2.10.Pdf] |
@@ -40,6 +41,9 @@ Cboe: [website](https://www.cboe.com "Go to Chicago Board Options Exchange")
 [Omi.Glossary.Testing.Beta]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested and structure is speculative"
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
+[Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Script.Dissector.lua "Cboe Byx Equities DepthOfBook Pitch v2.41.29 Wireshark Dissector"
+[Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Url]: http://markets.cboe.com/us/options/support/technical "Chicago Board Options Exchange 2.41.29 Url"
+[Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Cboe/Cboe.Options.Multicast.Pitch.v2.41.29.pdf "Chicago Board Options Exchange 2.41.29 Pdf"
 [Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Script.Dissector.lua "Cboe Bzx Equities OrderEntry Boe v2.3 Wireshark Dissector"
 [Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Url]: http://markets.cboe.com/us/equities/support/technical/ "Chicago Board Options Exchange 2.3 Url"
 [Cboe.Bzx.Equities.OrderEntry.Boe.v2.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Cboe/Cboe.Equities.OrderEntry.Boe.v2.3.pdf "Chicago Board Options Exchange 2.3 Pdf"
