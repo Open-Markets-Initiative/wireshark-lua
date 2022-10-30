@@ -118,7 +118,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Nyse][Nyse.Directory] | Options | [DeepFeed][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | Xdp | [1.3.a][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nyse][Nyse.Directory] | Options | [TopFeed][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | Xdp | [1.3.a][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Otc][Otc.Directory] | Markets | [Headers][Otc.Markets.Headers.Ats.v1.0.Dissector] | Ats | [1.0][Otc.Markets.Headers.Ats.v1.0.Dissector] | 12/11/2019 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Otc][Otc.Directory] | Markets | [Multicast][Otc.Markets.Multicast.Ats.v4.3.Dissector] | Ats | [4.3][Otc.Markets.Multicast.Ats.v4.3.Dissector] | 12/11/2019 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Otc][Otc.Directory] | Markets | [Multicast][Otc.Markets.Multicast.Ats.v4.5.Dissector] | Ats | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Siac][Siac.Directory] | Cqs | [Output][Siac.Cqs.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Siac][Siac.Directory] | Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.1.Dissector] | Obi | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -135,7 +135,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 179 | 1,633,891 |
+| 180 | 1,637,677 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -275,8 +275,7 @@ Enjoy.
 [Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.Script.Dissector.lua "Nyse Arca Options TopFeed Pillar v1.2.c Lua Wireshark Dissector"
 [Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Script.Dissector.lua "Nyse Arca Options ComplexFeed Pillar v1.0.d Lua Wireshark Dissector"
 [Nyse.Arca.Options.Feed.Pillar.v1.2.f.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.Feed.Pillar.v1.2.f.Script.Dissector.lua "Nyse Arca Options Feed Pillar v1.2.f Lua Wireshark Dissector"
-[Otc.Markets.Headers.Ats.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Headers.Ats.v1.0.Script.Dissector.lua "Otc Markets Headers Ats v1.0 Lua Wireshark Dissector"
-[Otc.Markets.Multicast.Ats.v4.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Multicast.Ats.v4.3.Script.Dissector.lua "Otc Markets Multicast Ats v4.3 Lua Wireshark Dissector"
+[Otc.Markets.Multicast.Ats.v4.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Multicast.Ats.v4.5.Script.Dissector.lua "Otc Markets Multicast Ats v4.5 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v4.0.Script.Dissector.lua "Siac Opra Recipient Obi v4.0 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v6.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v6.1.Script.Dissector.lua "Siac Opra Recipient Obi v6.1 Lua Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cqs.Output.Cta.v1.91.Script.Dissector.lua "Siac Cqs Output Cta v1.91 Lua Wireshark Dissector"
@@ -284,3 +283,4 @@ Enjoy.
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Script.Dissector.lua "Tmx QuantumFeed AlphaLevel1 Xmt v2.1 Lua Wireshark Dissector"
 [Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Script.Dissector.lua "Tmx QuantumFeed TsxTsxvLevel2 Xmt v3.6 Lua Wireshark Dissector"
+[Otc.Markets.Headers.Ats.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Headers.Ats.v1.0.Script.Dissector.lua "Otc Markets Headers Ats v1.0 Lua Wireshark Dissector"
