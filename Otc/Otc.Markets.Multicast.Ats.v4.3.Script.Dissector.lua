@@ -39,6 +39,7 @@ otc_markets_multicast_ats_v4_3.fields.bid_qap = ProtoField.new("Bid Qap", "otc.m
 otc_markets_multicast_ats_v4_3.fields.bid_size = ProtoField.new("Bid Size", "otc.markets.multicast.ats.v4.3.bidsize", ftypes.UINT32)
 otc_markets_multicast_ats_v4_3.fields.bid_time_milli = ProtoField.new("Bid Time Milli", "otc.markets.multicast.ats.v4.3.bidtimemilli", ftypes.UINT64)
 otc_markets_multicast_ats_v4_3.fields.bid_unsolicited = ProtoField.new("Bid Unsolicited", "otc.markets.multicast.ats.v4.3.bidunsolicited", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+otc_markets_multicast_ats_v4_3.fields.callable = ProtoField.new("Callable", "otc.markets.multicast.ats.v4.3.callable", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0400")
 otc_markets_multicast_ats_v4_3.fields.callable_date_milli = ProtoField.new("Callable Date Milli", "otc.markets.multicast.ats.v4.3.callabledatemilli", ftypes.UINT64)
 otc_markets_multicast_ats_v4_3.fields.caveat_emptor_warning = ProtoField.new("Caveat Emptor Warning", "otc.markets.multicast.ats.v4.3.caveatemptorwarning", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 otc_markets_multicast_ats_v4_3.fields.channel_seq_num = ProtoField.new("Channel Seq Num", "otc.markets.multicast.ats.v4.3.channelseqnum", ftypes.UINT32)
@@ -48,12 +49,14 @@ otc_markets_multicast_ats_v4_3.fields.deprecated = ProtoField.new("Deprecated", 
 otc_markets_multicast_ats_v4_3.fields.disclosure_status = ProtoField.new("Disclosure Status", "otc.markets.multicast.ats.v4.3.disclosurestatus", ftypes.UINT8)
 otc_markets_multicast_ats_v4_3.fields.end_of_spin_message = ProtoField.new("End Of Spin Message", "otc.markets.multicast.ats.v4.3.endofspinmessage", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.extended_quote_flags = ProtoField.new("Extended Quote Flags", "otc.markets.multicast.ats.v4.3.extendedquoteflags", ftypes.STRING)
+otc_markets_multicast_ats_v4_3.fields.extended_security_flags = ProtoField.new("Extended Security Flags", "otc.markets.multicast.ats.v4.3.extendedsecurityflags", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.extended_security_message = ProtoField.new("Extended Security Message", "otc.markets.multicast.ats.v4.3.extendedsecuritymessage", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.extended_security_no_cusip_message = ProtoField.new("Extended Security No Cusip Message", "otc.markets.multicast.ats.v4.3.extendedsecuritynocusipmessage", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.heartbeat = ProtoField.new("Heartbeat", "otc.markets.multicast.ats.v4.3.heartbeat", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 otc_markets_multicast_ats_v4_3.fields.inside_id = ProtoField.new("Inside Id", "otc.markets.multicast.ats.v4.3.insideid", ftypes.UINT32)
 otc_markets_multicast_ats_v4_3.fields.inside_time_milli = ProtoField.new("Inside Time Milli", "otc.markets.multicast.ats.v4.3.insidetimemilli", ftypes.UINT64)
 otc_markets_multicast_ats_v4_3.fields.inside_update_message = ProtoField.new("Inside Update Message", "otc.markets.multicast.ats.v4.3.insideupdatemessage", ftypes.STRING)
+otc_markets_multicast_ats_v4_3.fields.investment_grade = ProtoField.new("Investment Grade", "otc.markets.multicast.ats.v4.3.investmentgrade", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0100")
 otc_markets_multicast_ats_v4_3.fields.irregular = ProtoField.new("Irregular", "otc.markets.multicast.ats.v4.3.irregular", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 otc_markets_multicast_ats_v4_3.fields.issuer_name = ProtoField.new("Issuer Name", "otc.markets.multicast.ats.v4.3.issuername", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.issuer_size = ProtoField.new("Issuer Size", "otc.markets.multicast.ats.v4.3.issuersize", ftypes.UINT8)
@@ -104,6 +107,7 @@ otc_markets_multicast_ats_v4_3.fields.reference_price_update_message = ProtoFiel
 otc_markets_multicast_ats_v4_3.fields.replay = ProtoField.new("Replay", "otc.markets.multicast.ats.v4.3.replay", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 otc_markets_multicast_ats_v4_3.fields.reporting_status = ProtoField.new("Reporting Status", "otc.markets.multicast.ats.v4.3.reportingstatus", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.reserved_extended_quote_flag_bits = ProtoField.new("Reserved Extended Quote Flag Bits", "otc.markets.multicast.ats.v4.3.reservedextendedquoteflagbits", ftypes.UINT8, nil, base.DEC, "0xF0")
+otc_markets_multicast_ats_v4_3.fields.reserved_extended_security_flag_bits = ProtoField.new("Reserved Extended Security Flag Bits", "otc.markets.multicast.ats.v4.3.reservedextendedsecurityflagbits", ftypes.UINT16, nil, base.DEC, "0xF800")
 otc_markets_multicast_ats_v4_3.fields.reserved_packet_flags = ProtoField.new("Reserved Packet Flags", "otc.markets.multicast.ats.v4.3.reservedpacketflags", ftypes.UINT8, nil, base.DEC, "0x3C")
 otc_markets_multicast_ats_v4_3.fields.reserved_trade_status_bits = ProtoField.new("Reserved Trade Status Bits", "otc.markets.multicast.ats.v4.3.reservedtradestatusbits", ftypes.UINT8, nil, base.DEC, "0xFE")
 otc_markets_multicast_ats_v4_3.fields.saturation_eligible = ProtoField.new("Saturation Eligible", "otc.markets.multicast.ats.v4.3.saturationeligible", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -125,6 +129,7 @@ otc_markets_multicast_ats_v4_3.fields.spin_last_seq_num = ProtoField.new("Spin L
 otc_markets_multicast_ats_v4_3.fields.spin_msg_ct = ProtoField.new("Spin Msg Ct", "otc.markets.multicast.ats.v4.3.spinmsgct", ftypes.UINT32)
 otc_markets_multicast_ats_v4_3.fields.spin_start_time_milli = ProtoField.new("Spin Start Time Milli", "otc.markets.multicast.ats.v4.3.spinstarttimemilli", ftypes.UINT64)
 otc_markets_multicast_ats_v4_3.fields.spin_type = ProtoField.new("Spin Type", "otc.markets.multicast.ats.v4.3.spintype", ftypes.UINT8)
+otc_markets_multicast_ats_v4_3.fields.sponsored_status = ProtoField.new("Sponsored Status", "otc.markets.multicast.ats.v4.3.sponsoredstatus", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0010")
 otc_markets_multicast_ats_v4_3.fields.start_of_spin_message = ProtoField.new("Start Of Spin Message", "otc.markets.multicast.ats.v4.3.startofspinmessage", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.state = ProtoField.new("State", "otc.markets.multicast.ats.v4.3.state", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 otc_markets_multicast_ats_v4_3.fields.symbol = ProtoField.new("Symbol", "otc.markets.multicast.ats.v4.3.symbol", ftypes.STRING)
@@ -139,6 +144,7 @@ otc_markets_multicast_ats_v4_3.fields.trade_price = ProtoField.new("Trade Price"
 otc_markets_multicast_ats_v4_3.fields.trade_size = ProtoField.new("Trade Size", "otc.markets.multicast.ats.v4.3.tradesize", ftypes.UINT32)
 otc_markets_multicast_ats_v4_3.fields.trade_status = ProtoField.new("Trade Status", "otc.markets.multicast.ats.v4.3.tradestatus", ftypes.STRING)
 otc_markets_multicast_ats_v4_3.fields.trade_time_milli = ProtoField.new("Trade Time Milli", "otc.markets.multicast.ats.v4.3.tradetimemilli", ftypes.UINT64)
+otc_markets_multicast_ats_v4_3.fields.trading_flat = ProtoField.new("Trading Flat", "otc.markets.multicast.ats.v4.3.tradingflat", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0200")
 otc_markets_multicast_ats_v4_3.fields.unsolicited_only = ProtoField.new("Unsolicited Only", "otc.markets.multicast.ats.v4.3.unsolicitedonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 otc_markets_multicast_ats_v4_3.fields.update_side = ProtoField.new("Update Side", "otc.markets.multicast.ats.v4.3.updateside", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 
@@ -149,6 +155,7 @@ otc_markets_multicast_ats_v4_3.fields.update_side = ProtoField.new("Update Side"
 -- Otc Markets Multicast Ats 4.3 Element Dissection Options
 show.end_of_spin_message = true
 show.extended_quote_flags = true
+show.extended_security_flags = true
 show.extended_security_message = true
 show.extended_security_no_cusip_message = true
 show.inside_update_message = true
@@ -174,6 +181,7 @@ show.payload = false
 -- Register Otc Markets Multicast Ats 4.3 Show Options
 otc_markets_multicast_ats_v4_3.prefs.show_end_of_spin_message = Pref.bool("Show End Of Spin Message", show.end_of_spin_message, "Parse and add End Of Spin Message to protocol tree")
 otc_markets_multicast_ats_v4_3.prefs.show_extended_quote_flags = Pref.bool("Show Extended Quote Flags", show.extended_quote_flags, "Parse and add Extended Quote Flags to protocol tree")
+otc_markets_multicast_ats_v4_3.prefs.show_extended_security_flags = Pref.bool("Show Extended Security Flags", show.extended_security_flags, "Parse and add Extended Security Flags to protocol tree")
 otc_markets_multicast_ats_v4_3.prefs.show_extended_security_message = Pref.bool("Show Extended Security Message", show.extended_security_message, "Parse and add Extended Security Message to protocol tree")
 otc_markets_multicast_ats_v4_3.prefs.show_extended_security_no_cusip_message = Pref.bool("Show Extended Security No Cusip Message", show.extended_security_no_cusip_message, "Parse and add Extended Security No Cusip Message to protocol tree")
 otc_markets_multicast_ats_v4_3.prefs.show_inside_update_message = Pref.bool("Show Inside Update Message", show.inside_update_message, "Parse and add Inside Update Message to protocol tree")
@@ -207,6 +215,10 @@ function otc_markets_multicast_ats_v4_3.prefs_changed()
   end
   if show.extended_quote_flags ~= otc_markets_multicast_ats_v4_3.prefs.show_extended_quote_flags then
     show.extended_quote_flags = otc_markets_multicast_ats_v4_3.prefs.show_extended_quote_flags
+    changed = true
+  end
+  if show.extended_security_flags ~= otc_markets_multicast_ats_v4_3.prefs.show_extended_security_flags then
+    show.extended_security_flags = otc_markets_multicast_ats_v4_3.prefs.show_extended_security_flags
     changed = true
   end
   if show.extended_security_message ~= otc_markets_multicast_ats_v4_3.prefs.show_extended_security_message then
@@ -1457,6 +1469,115 @@ dissect.cusip = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Extended Security Flags
+size_of.extended_security_flags = 2
+
+-- Display: Extended Security Flags
+display.extended_security_flags = function(buffer, packet, parent)
+  local display = ""
+
+  -- Is Callable flag set?
+  if buffer:bitfield(5) > 0 then
+    display = display.."Callable|"
+  end
+  -- Is Trading Flat flag set?
+  if buffer:bitfield(6) > 0 then
+    display = display.."Trading Flat|"
+  end
+  -- Is Investment Grade flag set?
+  if buffer:bitfield(7) > 0 then
+    display = display.."Investment Grade|"
+  end
+  -- Is Saturation Eligible flag set?
+  if buffer:bitfield(8) > 0 then
+    display = display.."Saturation Eligible|"
+  end
+  -- Is Otc Link Messaging Disabled flag set?
+  if buffer:bitfield(9) > 0 then
+    display = display.."Otc Link Messaging Disabled|"
+  end
+  -- Is Otc Link Ecn Eligible flag set?
+  if buffer:bitfield(10) > 0 then
+    display = display.."Otc Link Ecn Eligible|"
+  end
+  -- Is Sponsored Status flag set?
+  if buffer:bitfield(11) > 0 then
+    display = display.."Sponsored Status|"
+  end
+  -- Is Unsolicited Only flag set?
+  if buffer:bitfield(12) > 0 then
+    display = display.."Unsolicited Only|"
+  end
+  -- Is Qualified Institutional Buyers Only flag set?
+  if buffer:bitfield(13) > 0 then
+    display = display.."Qualified Institutional Buyers Only|"
+  end
+  -- Is Caveat Emptor Warning flag set?
+  if buffer:bitfield(14) > 0 then
+    display = display.."Caveat Emptor Warning|"
+  end
+  -- Is Piggyback flag set?
+  if buffer:bitfield(15) > 0 then
+    display = display.."Piggyback|"
+  end
+
+  return display:sub(1, -2)
+end
+
+-- Dissect Bit Fields: Extended Security Flags
+dissect.extended_security_flags_bits = function(buffer, offset, packet, parent)
+
+  -- Reserved Extended Security Flag Bits: 5 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.reserved_extended_security_flag_bits, buffer(offset, 2))
+
+  -- Callable: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.callable, buffer(offset, 2))
+
+  -- Trading Flat: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.trading_flat, buffer(offset, 2))
+
+  -- Investment Grade: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.investment_grade, buffer(offset, 2))
+
+  -- Saturation Eligible: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.saturation_eligible, buffer(offset, 2))
+
+  -- Otc Link Messaging Disabled: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.otc_link_messaging_disabled, buffer(offset, 2))
+
+  -- Otc Link Ecn Eligible: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.otc_link_ecn_eligible, buffer(offset, 2))
+
+  -- Sponsored Status: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.sponsored_status, buffer(offset, 2))
+
+  -- Unsolicited Only: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.unsolicited_only, buffer(offset, 2))
+
+  -- Qualified Institutional Buyers Only: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.qualified_institutional_buyers_only, buffer(offset, 2))
+
+  -- Caveat Emptor Warning: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.caveat_emptor_warning, buffer(offset, 2))
+
+  -- Piggyback: 1 Bit
+  parent:add(otc_markets_multicast_ats_v4_3.fields.piggyback, buffer(offset, 2))
+end
+
+-- Dissect: Extended Security Flags
+dissect.extended_security_flags = function(buffer, offset, packet, parent)
+  local size = 2
+  local range = buffer(offset, size)
+  local display = display.extended_security_flags(range, packet, parent)
+  local element = parent:add(otc_markets_multicast_ats_v4_3.fields.extended_security_flags, range, display)
+
+  if show.extended_security_flags then
+    dissect.extended_security_flags_bits(buffer, offset, packet, element)
+  end
+
+  return offset + 2, range
+end
+
 -- Calculate size of: Extended Security Message
 size_of.extended_security_message = function(buffer, offset)
   local index = 0
@@ -1483,7 +1604,7 @@ size_of.extended_security_message = function(buffer, offset)
 
   index = index + size_of.security_id
 
-  index = index + size_of.security_flags
+  index = index + size_of.extended_security_flags
 
   index = index + size_of.tier
 
@@ -1562,8 +1683,8 @@ dissect.extended_security_message_fields = function(buffer, offset, packet, pare
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
   index, security_id = dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Flags: Struct of 8 fields
-  index, security_flags = dissect.security_flags(buffer, index, packet, parent)
+  -- Extended Security Flags: Struct of 12 fields
+  index, extended_security_flags = dissect.extended_security_flags(buffer, index, packet, parent)
 
   -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
   index, tier = dissect.tier(buffer, index, packet, parent)
