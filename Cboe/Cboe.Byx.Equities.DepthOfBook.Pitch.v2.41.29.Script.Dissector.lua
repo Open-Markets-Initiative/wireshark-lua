@@ -32,11 +32,11 @@ cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.auction_update_message = Pro
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.buy_shares = ProtoField.new("Buy Shares", "cboe.byx.equities.depthofbook.pitch.v2.41.29.buyshares", ftypes.UINT32)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.byx.equities.depthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.byx.equities.depthofbook.pitch.v2.41.29.canceledquantityshort", ftypes.UINT16)
-cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.client_id = ProtoField.new("Client Id", "cboe.byx.equities.depthofbook.pitch.v2.41.29.clientid", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.byx.equities.depthofbook.pitch.v2.41.29.count", ftypes.UINT8)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.byx.equities.depthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.byx.equities.depthofbook.pitch.v2.41.29.deleteordermessage", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.display = ProtoField.new("Display", "cboe.byx.equities.depthofbook.pitch.v2.41.29.display", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session = ProtoField.new("End Of Session", "cboe.byx.equities.depthofbook.pitch.v2.41.29.endofsession", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField.new("Executed Quantity", "cboe.byx.equities.depthofbook.pitch.v2.41.29.executedquantity", ftypes.UINT32)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.byx.equities.depthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.byx.equities.depthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64)
@@ -76,6 +76,7 @@ cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.symbol_extended = ProtoField
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.time = ProtoField.new("Time", "cboe.byx.equities.depthofbook.pitch.v2.41.29.time", ftypes.UINT32)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.time_message = ProtoField.new("Time Message", "cboe.byx.equities.depthofbook.pitch.v2.41.29.timemessage", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.time_offset = ProtoField.new("Time Offset", "cboe.byx.equities.depthofbook.pitch.v2.41.29.timeoffset", ftypes.UINT32)
+cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.timestamp = ProtoField.new("Timestamp", "cboe.byx.equities.depthofbook.pitch.v2.41.29.timestamp", ftypes.UINT32)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.trade_break_message = ProtoField.new("Trade Break Message", "cboe.byx.equities.depthofbook.pitch.v2.41.29.tradebreakmessage", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.trade_expanded_message = ProtoField.new("Trade Expanded Message", "cboe.byx.equities.depthofbook.pitch.v2.41.29.tradeexpandedmessage", ftypes.STRING)
 cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.trade_long_message = ProtoField.new("Trade Long Message", "cboe.byx.equities.depthofbook.pitch.v2.41.29.tradelongmessage", ftypes.STRING)
@@ -97,6 +98,7 @@ show.add_order_short_message = true
 show.auction_summary_message = true
 show.auction_update_message = true
 show.delete_order_message = true
+show.end_of_session = true
 show.message = true
 show.message_header = true
 show.modify_order_long_message = true
@@ -125,6 +127,7 @@ cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_add_order_short_message 
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_summary_message = Pref.bool("Show Auction Summary Message", show.auction_summary_message, "Parse and add Auction Summary Message to protocol tree")
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_auction_update_message = Pref.bool("Show Auction Update Message", show.auction_update_message, "Parse and add Auction Update Message to protocol tree")
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message = Pref.bool("Show Delete Order Message", show.delete_order_message, "Parse and add Delete Order Message to protocol tree")
+cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session = Pref.bool("Show End Of Session", show.end_of_session, "Parse and add End Of Session to protocol tree")
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_modify_order_long_message = Pref.bool("Show Modify Order Long Message", show.modify_order_long_message, "Parse and add Modify Order Long Message to protocol tree")
@@ -176,6 +179,10 @@ function cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs_changed()
   end
   if show.delete_order_message ~= cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message then
     show.delete_order_message = cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_delete_order_message
+    changed = true
+  end
+  if show.end_of_session ~= cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session then
+    show.end_of_session = cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_end_of_session
     changed = true
   end
   if show.message ~= cboe_byx_equities_depthofbook_pitch_v2_41_29.prefs.show_message then
@@ -855,6 +862,63 @@ dissect.trading_status_message = function(buffer, offset, packet, parent)
   end
 
   return dissect.trading_status_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Timestamp
+size_of.timestamp = 4
+
+-- Display: Timestamp
+display.timestamp = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = size_of.timestamp
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.timestamp(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: End Of Session
+size_of.end_of_session = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.timestamp
+
+  return index
+end
+
+-- Display: End Of Session
+display.end_of_session = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: End Of Session
+dissect.end_of_session_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Timestamp: 4 Byte Unsigned Fixed Width Integer
+  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: End Of Session
+dissect.end_of_session = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.end_of_session then
+    local length = size_of.end_of_session(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.end_of_session(buffer, packet, parent)
+    parent = parent:add(cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.end_of_session, range, display)
+  end
+
+  return dissect.end_of_session_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Execution Id
@@ -1691,26 +1755,6 @@ dissect.order_executed_message = function(buffer, offset, packet, parent)
   return dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Client Id
-size_of.client_id = 4
-
--- Display: Client Id
-display.client_id = function(value)
-  return "Client Id: "..value
-end
-
--- Dissect: Client Id
-dissect.client_id = function(buffer, offset, packet, parent)
-  local length = size_of.client_id
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.client_id(value, buffer, offset, packet, parent)
-
-  parent:add(cboe_byx_equities_depthofbook_pitch_v2_41_29.fields.client_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Customer Indicator
 size_of.customer_indicator = 1
 
@@ -1812,8 +1856,6 @@ size_of.add_order_expanded_message = function(buffer, offset)
 
   index = index + size_of.customer_indicator
 
-  index = index + size_of.client_id
-
   return index
 end
 
@@ -1852,9 +1894,6 @@ dissect.add_order_expanded_message_fields = function(buffer, offset, packet, par
 
   -- Customer Indicator: 1 Byte Ascii String
   index, customer_indicator = dissect.customer_indicator(buffer, index, packet, parent)
-
-  -- Client Id: 4 Byte Ascii String
-  index, client_id = dissect.client_id(buffer, index, packet, parent)
 
   return index
 end
@@ -2166,6 +2205,10 @@ size_of.payload = function(buffer, offset, message_type)
   if message_type == 0x2C then
     return size_of.trade_break_message(buffer, offset)
   end
+  -- Size of End Of Session
+  if message_type == 0x2D then
+    return size_of.end_of_session(buffer, offset)
+  end
   -- Size of Trading Status Message
   if message_type == 0x31 then
     return size_of.trading_status_message(buffer, offset)
@@ -2256,6 +2299,10 @@ dissect.payload_branches = function(buffer, offset, packet, parent, message_type
   -- Dissect Trade Break Message
   if message_type == 0x2C then
     return dissect.trade_break_message(buffer, offset, packet, parent)
+  end
+  -- Dissect End Of Session
+  if message_type == 0x2D then
+    return dissect.end_of_session(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
@@ -2350,6 +2397,9 @@ display.message_type = function(value)
   if value == 0x2C then
     return "Message Type: Trade Break Message (0x2C)"
   end
+  if value == 0x2D then
+    return "Message Type: End Of Session (0x2D)"
+  end
   if value == 0x31 then
     return "Message Type: Trading Status Message (0x31)"
   end
@@ -2421,7 +2471,7 @@ dissect.message_header_fields = function(buffer, offset, packet, parent)
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
   index, message_length = dissect.message_length(buffer, index, packet, parent)
 
-  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
+  -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
   index, message_type = dissect.message_type(buffer, index, packet, parent)
 
   return index
@@ -2469,7 +2519,7 @@ dissect.message_fields = function(buffer, offset, packet, parent)
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
-  -- Payload: Runtime Type with 20 branches
+  -- Payload: Runtime Type with 21 branches
   index = dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
