@@ -86,7 +86,7 @@ cboe_c1_options_complex_pitch_v2_1_37.fields.quantity = ProtoField.new("Quantity
 cboe_c1_options_complex_pitch_v2_1_37.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1.options.complex.pitch.v2.1.37.quantityshort", ftypes.UINT16)
 cboe_c1_options_complex_pitch_v2_1_37.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.c1.options.complex.pitch.v2.1.37.reducesizelongmessage", ftypes.STRING)
 cboe_c1_options_complex_pitch_v2_1_37.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.c1.options.complex.pitch.v2.1.37.reducesizeshortmessage", ftypes.STRING)
-cboe_c1_options_complex_pitch_v2_1_37.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1.options.complex.pitch.v2.1.37.referenceprice", ftypes.UINT64)
+cboe_c1_options_complex_pitch_v2_1_37.fields.reference_price = ProtoField.new("Reference Price", "cboe.c1.options.complex.pitch.v2.1.37.referenceprice", ftypes.INT64)
 cboe_c1_options_complex_pitch_v2_1_37.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.c1.options.complex.pitch.v2.1.37.remainingquantity", ftypes.UINT32)
 cboe_c1_options_complex_pitch_v2_1_37.fields.reserved = ProtoField.new("Reserved", "cboe.c1.options.complex.pitch.v2.1.37.reserved", ftypes.BYTES)
 cboe_c1_options_complex_pitch_v2_1_37.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c1.options.complex.pitch.v2.1.37.sellcontracts", ftypes.UINT32)
@@ -690,7 +690,7 @@ end
 dissect.reference_price = function(buffer, offset, packet, parent)
   local length = size_of.reference_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local value = range:le_int64()
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
@@ -745,7 +745,7 @@ dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
   -- Auction Opening Type: 1 Byte Ascii String Enum with 3 values
   index, auction_opening_type = dissect.auction_opening_type(buffer, index, packet, parent)
 
-  -- Reference Price: 8 Byte Unsigned Fixed Width Integer
+  -- Reference Price: 8 Byte Signed Fixed Width Integer
   index, reference_price = dissect.reference_price(buffer, index, packet, parent)
 
   -- Buy Contracts: 4 Byte Unsigned Fixed Width Integer

@@ -57,9 +57,9 @@ cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.reference_price = ProtoField.new
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.c1.options.auctionfeed.pitch.v1.1.1.sellcontracts", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.sequence = ProtoField.new("Sequence", "cboe.c1.options.auctionfeed.pitch.v1.1.1.sequence", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side", "cboe.c1.options.auctionfeed.pitch.v1.1.1.side", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_6 = ProtoField.new("Symbol 6", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbol6", ftypes.STRING)
-cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_8 = ProtoField.new("Symbol 8", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbol8", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_condition = ProtoField.new("Symbol Condition", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolcondition", ftypes.STRING)
+cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_extended = ProtoField.new("Symbol Extended", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolextended", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_mapping_message = ProtoField.new("Symbol Mapping Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.symbolmappingmessage", ftypes.STRING)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time = ProtoField.new("Time", "cboe.c1.options.auctionfeed.pitch.v1.1.1.time", ftypes.UINT32)
 cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.time_message = ProtoField.new("Time Message", "cboe.c1.options.auctionfeed.pitch.v1.1.1.timemessage", ftypes.STRING)
@@ -574,22 +574,22 @@ dissect.opening_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Symbol 8
-size_of.symbol_8 = 8
+-- Size: Symbol Extended
+size_of.symbol_extended = 8
 
--- Display: Symbol 8
-display.symbol_8 = function(value)
-  return "Symbol 8: "..value
+-- Display: Symbol Extended
+display.symbol_extended = function(value)
+  return "Symbol Extended: "..value
 end
 
--- Dissect: Symbol 8
-dissect.symbol_8 = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_8
+-- Dissect: Symbol Extended
+dissect.symbol_extended = function(buffer, offset, packet, parent)
+  local length = size_of.symbol_extended
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol_8(value, buffer, offset, packet, parent)
+  local display = display.symbol_extended(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_8, range, value, display)
+  parent:add(cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_extended, range, value, display)
 
   return offset + length, value
 end
@@ -600,7 +600,7 @@ size_of.auction_summary_message = function(buffer, offset)
 
   index = index + size_of.time_offset
 
-  index = index + size_of.symbol_8
+  index = index + size_of.symbol_extended
 
   index = index + size_of.opening_type
 
@@ -623,8 +623,8 @@ dissect.auction_summary_message_fields = function(buffer, offset, packet, parent
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol 8: 8 Byte Ascii String
-  index, symbol_8 = dissect.symbol_8(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Opening Type: 1 Byte Ascii String Enum with 4 values
   index, opening_type = dissect.opening_type(buffer, index, packet, parent)
@@ -777,7 +777,7 @@ size_of.auction_update_message = function(buffer, offset)
 
   index = index + size_of.time_offset
 
-  index = index + size_of.symbol_8
+  index = index + size_of.symbol_extended
 
   index = index + size_of.opening_type
 
@@ -808,8 +808,8 @@ dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol 8: 8 Byte Ascii String
-  index, symbol_8 = dissect.symbol_8(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Opening Type: 1 Byte Ascii String Enum with 4 values
   index, opening_type = dissect.opening_type(buffer, index, packet, parent)
@@ -1154,22 +1154,22 @@ dissect.auction_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Symbol 6
-size_of.symbol_6 = 6
+-- Size: Symbol
+size_of.symbol = 6
 
--- Display: Symbol 6
-display.symbol_6 = function(value)
-  return "Symbol 6: "..value
+-- Display: Symbol
+display.symbol = function(value)
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol 6
-dissect.symbol_6 = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_6
+-- Dissect: Symbol
+dissect.symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol_6(value, buffer, offset, packet, parent)
+  local display = display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol_6, range, value, display)
+  parent:add(cboe_c1_options_auctionfeed_pitch_v1_1_1.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1180,7 +1180,7 @@ size_of.auction_notification_message = function(buffer, offset)
 
   index = index + size_of.time_offset
 
-  index = index + size_of.symbol_6
+  index = index + size_of.symbol
 
   index = index + size_of.auction_id
 
@@ -1215,8 +1215,8 @@ dissect.auction_notification_message_fields = function(buffer, offset, packet, p
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
   index, time_offset = dissect.time_offset(buffer, index, packet, parent)
 
-  -- Symbol 6: 6 Byte Ascii String
-  index, symbol_6 = dissect.symbol_6(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = dissect.symbol(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = dissect.auction_id(buffer, index, packet, parent)

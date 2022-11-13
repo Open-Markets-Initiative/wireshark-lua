@@ -1915,7 +1915,7 @@ size_of.trade_expanded_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_extended
 
   index = index + size_of.price
 
@@ -1945,8 +1945,8 @@ dissect.trade_expanded_message_fields = function(buffer, offset, packet, parent)
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
@@ -2764,7 +2764,7 @@ size_of.add_order_expanded_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_extended
 
   index = index + size_of.price
 
@@ -2800,8 +2800,8 @@ dissect.add_order_expanded_message_fields = function(buffer, offset, packet, par
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)

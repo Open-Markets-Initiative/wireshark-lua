@@ -563,26 +563,6 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Symbol
-size_of.symbol = 6
-
--- Display: Symbol
-display.symbol = function(value)
-  return "Symbol: "..value
-end
-
--- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
-  local range = buffer(offset, length)
-  local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
-
-  parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Quantity
 size_of.quantity = 4
 
@@ -662,7 +642,7 @@ size_of.trade_expanded_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_extended
 
   index = index + size_of.price
 
@@ -692,8 +672,8 @@ dissect.trade_expanded_message_fields = function(buffer, offset, packet, parent)
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
@@ -733,6 +713,26 @@ dissect.price_short = function(buffer, offset, packet, parent)
   local display = display.price_short(value, buffer, offset, packet, parent)
 
   parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price_short, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Symbol
+size_of.symbol = 6
+
+-- Display: Symbol
+display.symbol = function(value)
+  return "Symbol: "..value
+end
+
+-- Dissect: Symbol
+dissect.symbol = function(buffer, offset, packet, parent)
+  local length = size_of.symbol
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.symbol(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -1451,7 +1451,7 @@ size_of.add_order_expanded_message = function(buffer, offset)
 
   index = index + size_of.quantity
 
-  index = index + size_of.symbol
+  index = index + size_of.symbol_extended
 
   index = index + size_of.price
 
@@ -1485,8 +1485,8 @@ dissect.add_order_expanded_message_fields = function(buffer, offset, packet, par
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = dissect.quantity(buffer, index, packet, parent)
 
-  -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  -- Symbol Extended: 8 Byte Ascii String
+  index, symbol_extended = dissect.symbol_extended(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
   index, price = dissect.price(buffer, index, packet, parent)
