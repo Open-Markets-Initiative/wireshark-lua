@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -27,7 +28,7 @@ cboe_options_complex_pitch_v2_1_37.fields.auction_cancel_message = ProtoField.ne
 cboe_options_complex_pitch_v2_1_37.fields.auction_end_offset = ProtoField.new("Auction End Offset", "cboe.options.complex.pitch.v2.1.37.auctionendoffset", ftypes.UINT32)
 cboe_options_complex_pitch_v2_1_37.fields.auction_id = ProtoField.new("Auction Id", "cboe.options.complex.pitch.v2.1.37.auctionid", ftypes.UINT64)
 cboe_options_complex_pitch_v2_1_37.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.options.complex.pitch.v2.1.37.auctionnotificationmessage", ftypes.STRING)
-cboe_options_complex_pitch_v2_1_37.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.options.complex.pitch.v2.1.37.auctiononlyprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.options.complex.pitch.v2.1.37.auctiononlyprice", ftypes.DOUBLE)
 cboe_options_complex_pitch_v2_1_37.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.options.complex.pitch.v2.1.37.auctionopeningtype", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.options.complex.pitch.v2.1.37.auctionsummarymessage", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.options.complex.pitch.v2.1.37.auctiontrademessage", ftypes.STRING)
@@ -46,8 +47,8 @@ cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_leg = ProtoField.ne
 cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_type = ProtoField.new("Complex Instrument Type", "cboe.options.complex.pitch.v2.1.37.complexinstrumenttype", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.complex_instrument_underlying = ProtoField.new("Complex Instrument Underlying", "cboe.options.complex.pitch.v2.1.37.complexinstrumentunderlying", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.complex_symbol_id = ProtoField.new("Complex Symbol Id", "cboe.options.complex.pitch.v2.1.37.complexsymbolid", ftypes.STRING)
-cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.options.complex.pitch.v2.1.37.compositemarketbidprice", ftypes.INT64)
-cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.options.complex.pitch.v2.1.37.compositemarketofferprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.options.complex.pitch.v2.1.37.compositemarketbidprice", ftypes.DOUBLE)
+cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.options.complex.pitch.v2.1.37.compositemarketofferprice", ftypes.DOUBLE)
 cboe_options_complex_pitch_v2_1_37.fields.count = ProtoField.new("Count", "cboe.options.complex.pitch.v2.1.37.count", ftypes.UINT8)
 cboe_options_complex_pitch_v2_1_37.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.options.complex.pitch.v2.1.37.customerindicator", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.delete_order_message = ProtoField.new("Delete Order Message", "cboe.options.complex.pitch.v2.1.37.deleteordermessage", ftypes.STRING)
@@ -56,7 +57,7 @@ cboe_options_complex_pitch_v2_1_37.fields.executed_quantity = ProtoField.new("Ex
 cboe_options_complex_pitch_v2_1_37.fields.execution_id = ProtoField.new("Execution Id", "cboe.options.complex.pitch.v2.1.37.executionid", ftypes.UINT64)
 cboe_options_complex_pitch_v2_1_37.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.options.complex.pitch.v2.1.37.feedsymbol", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.options.complex.pitch.v2.1.37.gthtradingstatus", ftypes.STRING)
-cboe_options_complex_pitch_v2_1_37.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.options.complex.pitch.v2.1.37.indicativeprice", ftypes.INT64)
+cboe_options_complex_pitch_v2_1_37.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.options.complex.pitch.v2.1.37.indicativeprice", ftypes.DOUBLE)
 cboe_options_complex_pitch_v2_1_37.fields.leg_count = ProtoField.new("Leg Count", "cboe.options.complex.pitch.v2.1.37.legcount", ftypes.UINT8)
 cboe_options_complex_pitch_v2_1_37.fields.leg_ratio = ProtoField.new("Leg Ratio", "cboe.options.complex.pitch.v2.1.37.legratio", ftypes.INT32)
 cboe_options_complex_pitch_v2_1_37.fields.leg_security_type = ProtoField.new("Leg Security Type", "cboe.options.complex.pitch.v2.1.37.legsecuritytype", ftypes.STRING)
@@ -78,13 +79,13 @@ cboe_options_complex_pitch_v2_1_37.fields.packet_header = ProtoField.new("Packet
 cboe_options_complex_pitch_v2_1_37.fields.padding = ProtoField.new("Padding", "cboe.options.complex.pitch.v2.1.37.padding", ftypes.BYTES)
 cboe_options_complex_pitch_v2_1_37.fields.participant_id = ProtoField.new("Participant Id", "cboe.options.complex.pitch.v2.1.37.participantid", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.payload = ProtoField.new("Payload", "cboe.options.complex.pitch.v2.1.37.payload", ftypes.STRING)
-cboe_options_complex_pitch_v2_1_37.fields.price = ProtoField.new("Price", "cboe.options.complex.pitch.v2.1.37.price", ftypes.INT64)
-cboe_options_complex_pitch_v2_1_37.fields.price_short = ProtoField.new("Price Short", "cboe.options.complex.pitch.v2.1.37.priceshort", ftypes.INT16)
+cboe_options_complex_pitch_v2_1_37.fields.price = ProtoField.new("Price", "cboe.options.complex.pitch.v2.1.37.price", ftypes.DOUBLE)
+cboe_options_complex_pitch_v2_1_37.fields.price_short = ProtoField.new("Price Short", "cboe.options.complex.pitch.v2.1.37.priceshort", ftypes.DOUBLE)
 cboe_options_complex_pitch_v2_1_37.fields.quantity = ProtoField.new("Quantity", "cboe.options.complex.pitch.v2.1.37.quantity", ftypes.UINT32)
 cboe_options_complex_pitch_v2_1_37.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.options.complex.pitch.v2.1.37.quantityshort", ftypes.UINT16)
 cboe_options_complex_pitch_v2_1_37.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.options.complex.pitch.v2.1.37.reducesizelongmessage", ftypes.STRING)
 cboe_options_complex_pitch_v2_1_37.fields.reduce_size_short_message = ProtoField.new("Reduce Size Short Message", "cboe.options.complex.pitch.v2.1.37.reducesizeshortmessage", ftypes.STRING)
-cboe_options_complex_pitch_v2_1_37.fields.reference_price = ProtoField.new("Reference Price", "cboe.options.complex.pitch.v2.1.37.referenceprice", ftypes.UINT64)
+cboe_options_complex_pitch_v2_1_37.fields.reference_price = ProtoField.new("Reference Price", "cboe.options.complex.pitch.v2.1.37.referenceprice", ftypes.DOUBLE)
 cboe_options_complex_pitch_v2_1_37.fields.remaining_quantity = ProtoField.new("Remaining Quantity", "cboe.options.complex.pitch.v2.1.37.remainingquantity", ftypes.UINT32)
 cboe_options_complex_pitch_v2_1_37.fields.reserved = ProtoField.new("Reserved", "cboe.options.complex.pitch.v2.1.37.reserved", ftypes.BYTES)
 cboe_options_complex_pitch_v2_1_37.fields.sell_contracts = ProtoField.new("Sell Contracts", "cboe.options.complex.pitch.v2.1.37.sellcontracts", ftypes.UINT32)
@@ -409,11 +410,17 @@ display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.price, range, value, display)
@@ -536,11 +543,17 @@ display.composite_market_offer_price = function(value)
   return "Composite Market Offer Price: "..value
 end
 
+-- Translate: Composite Market Offer Price
+translate.composite_market_offer_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Composite Market Offer Price
 dissect.composite_market_offer_price = function(buffer, offset, packet, parent)
   local length = size_of.composite_market_offer_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.composite_market_offer_price(raw)
   local display = display.composite_market_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.composite_market_offer_price, range, value, display)
@@ -556,11 +569,17 @@ display.composite_market_bid_price = function(value)
   return "Composite Market Bid Price: "..value
 end
 
+-- Translate: Composite Market Bid Price
+translate.composite_market_bid_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Composite Market Bid Price
 dissect.composite_market_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.composite_market_bid_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.composite_market_bid_price(raw)
   local display = display.composite_market_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.composite_market_bid_price, range, value, display)
@@ -596,11 +615,17 @@ display.auction_only_price = function(value)
   return "Auction Only Price: "..value
 end
 
+-- Translate: Auction Only Price
+translate.auction_only_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Auction Only Price
 dissect.auction_only_price = function(buffer, offset, packet, parent)
   local length = size_of.auction_only_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.auction_only_price(raw)
   local display = display.auction_only_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.auction_only_price, range, value, display)
@@ -616,11 +641,17 @@ display.indicative_price = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+translate.indicative_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Indicative Price
 dissect.indicative_price = function(buffer, offset, packet, parent)
   local length = size_of.indicative_price
   local range = buffer(offset, length)
-  local value = range:le_int64()
+  local raw = range:le_int64()
+  local value = translate.indicative_price(raw)
   local display = display.indicative_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.indicative_price, range, value, display)
@@ -676,11 +707,17 @@ display.reference_price = function(value)
   return "Reference Price: "..value
 end
 
+-- Translate: Reference Price
+translate.reference_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Reference Price
 dissect.reference_price = function(buffer, offset, packet, parent)
   local length = size_of.reference_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.reference_price(raw)
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.reference_price, range, value, display)
@@ -1443,11 +1480,17 @@ display.price_short = function(value)
   return "Price Short: "..value
 end
 
+-- Translate: Price Short
+translate.price_short = function(raw)
+  return raw*100
+end
+
 -- Dissect: Price Short
 dissect.price_short = function(buffer, offset, packet, parent)
   local length = size_of.price_short
   local range = buffer(offset, length)
-  local value = range:le_int()
+  local raw = range:le_int()
+  local value = translate.price_short(raw)
   local display = display.price_short(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_complex_pitch_v2_1_37.fields.price_short, range, value, display)

@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -48,8 +49,8 @@ cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.padding = ProtoField.new("Padding", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.padding", ftypes.BYTES)
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.payload = ProtoField.new("Payload", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.payload", ftypes.STRING)
-cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.price", ftypes.UINT64)
-cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.priceshort", ftypes.UINT16)
+cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
+cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.quantity = ProtoField.new("Quantity", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.quantity", ftypes.UINT32)
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
 cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.edgx.equities.depthofbook.pitch.v2.41.29.reducesizelongmessage", ftypes.STRING)
@@ -551,11 +552,17 @@ display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price, range, value, display)
@@ -705,11 +712,17 @@ display.price_short = function(value)
   return "Price Short: "..value
 end
 
+-- Translate: Price Short
+translate.price_short = function(raw)
+  return raw*100
+end
+
 -- Dissect: Price Short
 dissect.price_short = function(buffer, offset, packet, parent)
   local length = size_of.price_short
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.price_short(raw)
   local display = display.price_short(value, buffer, offset, packet, parent)
 
   parent:add(cboe_edgx_equities_depthofbook_pitch_v2_41_29.fields.price_short, range, value, display)

@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -30,7 +31,7 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_end_offset = ProtoFiel
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_id = ProtoField.new("Auction Id", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctionid", ftypes.UINT64)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_notification_message = ProtoField.new("Auction Notification Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctionnotificationmessage", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_notification_type = ProtoField.new("Auction Notification Type", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctionnotificationtype", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctiononlyprice", ftypes.UINT64)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_only_price = ProtoField.new("Auction Only Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctiononlyprice", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_opening_type = ProtoField.new("Auction Opening Type", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctionopeningtype", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_summary_message = ProtoField.new("Auction Summary Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctionsummarymessage", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_trade_message = ProtoField.new("Auction Trade Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.auctiontrademessage", ftypes.STRING)
@@ -40,8 +41,8 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.buy_contracts = ProtoField.new
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.canceled_quantity = ProtoField.new("Canceled Quantity", "cboe.c1.options.depthofbook.pitch.v2.41.29.canceledquantity", ftypes.UINT32)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.canceled_quantity_short = ProtoField.new("Canceled Quantity Short", "cboe.c1.options.depthofbook.pitch.v2.41.29.canceledquantityshort", ftypes.UINT16)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.client_id = ProtoField.new("Client Id", "cboe.c1.options.depthofbook.pitch.v2.41.29.clientid", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.compositemarketbidprice", ftypes.UINT64)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.compositemarketofferprice", ftypes.UINT64)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_bid_price = ProtoField.new("Composite Market Bid Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.compositemarketbidprice", ftypes.DOUBLE)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_offer_price = ProtoField.new("Composite Market Offer Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.compositemarketofferprice", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.contracts = ProtoField.new("Contracts", "cboe.c1.options.depthofbook.pitch.v2.41.29.contracts", ftypes.UINT32)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.count = ProtoField.new("Count", "cboe.c1.options.depthofbook.pitch.v2.41.29.count", ftypes.UINT8)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.customer_indicator = ProtoField.new("Customer Indicator", "cboe.c1.options.depthofbook.pitch.v2.41.29.customerindicator", ftypes.STRING)
@@ -53,9 +54,9 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.executed_quantity = ProtoField
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.execution_id = ProtoField.new("Execution Id", "cboe.c1.options.depthofbook.pitch.v2.41.29.executionid", ftypes.UINT64)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.feed_symbol = ProtoField.new("Feed Symbol", "cboe.c1.options.depthofbook.pitch.v2.41.29.feedsymbol", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.gth_trading_status = ProtoField.new("Gth Trading Status", "cboe.c1.options.depthofbook.pitch.v2.41.29.gthtradingstatus", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.indicativeprice", ftypes.UINT64)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.indicative_price = ProtoField.new("Indicative Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.indicativeprice", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.length = ProtoField.new("Length", "cboe.c1.options.depthofbook.pitch.v2.41.29.length", ftypes.UINT16)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.lower_strike_price = ProtoField.new("Lower Strike Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.lowerstrikeprice", ftypes.UINT64)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.lower_strike_price = ProtoField.new("Lower Strike Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.lowerstrikeprice", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message = ProtoField.new("Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.message", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message_header = ProtoField.new("Message Header", "cboe.c1.options.depthofbook.pitch.v2.41.29.messageheader", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message_length = ProtoField.new("Message Length", "cboe.c1.options.depthofbook.pitch.v2.41.29.messagelength", ftypes.UINT8)
@@ -63,7 +64,7 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.message_type = ProtoField.new(
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.midnight_reference = ProtoField.new("Midnight Reference", "cboe.c1.options.depthofbook.pitch.v2.41.29.midnightreference", ftypes.UINT32)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.modify_order_long_message = ProtoField.new("Modify Order Long Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.modifyorderlongmessage", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.modify_order_short_message = ProtoField.new("Modify Order Short Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.modifyordershortmessage", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.multiplier = ProtoField.new("Multiplier", "cboe.c1.options.depthofbook.pitch.v2.41.29.multiplier", ftypes.UINT32)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.multiplier = ProtoField.new("Multiplier", "cboe.c1.options.depthofbook.pitch.v2.41.29.multiplier", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.opening_condition = ProtoField.new("Opening Condition", "cboe.c1.options.depthofbook.pitch.v2.41.29.openingcondition", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.order_executed_at_price_size_message = ProtoField.new("Order Executed At Price Size Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.orderexecutedatpricesizemessage", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.order_executed_message = ProtoField.new("Order Executed Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.orderexecutedmessage", ftypes.STRING)
@@ -74,8 +75,8 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.packet_header = ProtoField.new
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.padding = ProtoField.new("Padding", "cboe.c1.options.depthofbook.pitch.v2.41.29.padding", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.participant_id = ProtoField.new("Participant Id", "cboe.c1.options.depthofbook.pitch.v2.41.29.participantid", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.payload = ProtoField.new("Payload", "cboe.c1.options.depthofbook.pitch.v2.41.29.payload", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.price", ftypes.UINT64)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.c1.options.depthofbook.pitch.v2.41.29.priceshort", ftypes.UINT16)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price = ProtoField.new("Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.price", ftypes.DOUBLE)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price_short = ProtoField.new("Price Short", "cboe.c1.options.depthofbook.pitch.v2.41.29.priceshort", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.quantity = ProtoField.new("Quantity", "cboe.c1.options.depthofbook.pitch.v2.41.29.quantity", ftypes.UINT32)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.quantity_short = ProtoField.new("Quantity Short", "cboe.c1.options.depthofbook.pitch.v2.41.29.quantityshort", ftypes.UINT16)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.reduce_size_long_message = ProtoField.new("Reduce Size Long Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.reducesizelongmessage", ftypes.STRING)
@@ -116,7 +117,7 @@ cboe_c1_options_depthofbook_pitch_v2_41_29.fields.transaction_end = ProtoField.n
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.underlying = ProtoField.new("Underlying", "cboe.c1.options.depthofbook.pitch.v2.41.29.underlying", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.unit = ProtoField.new("Unit", "cboe.c1.options.depthofbook.pitch.v2.41.29.unit", ftypes.UINT8)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.unit_clear_message = ProtoField.new("Unit Clear Message", "cboe.c1.options.depthofbook.pitch.v2.41.29.unitclearmessage", ftypes.STRING)
-cboe_c1_options_depthofbook_pitch_v2_41_29.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.upperstrikeprice", ftypes.UINT64)
+cboe_c1_options_depthofbook_pitch_v2_41_29.fields.upper_strike_price = ProtoField.new("Upper Strike Price", "cboe.c1.options.depthofbook.pitch.v2.41.29.upperstrikeprice", ftypes.DOUBLE)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.width_type = ProtoField.new("Width Type", "cboe.c1.options.depthofbook.pitch.v2.41.29.widthtype", ftypes.STRING)
 cboe_c1_options_depthofbook_pitch_v2_41_29.fields.width_update = ProtoField.new("Width Update", "cboe.c1.options.depthofbook.pitch.v2.41.29.widthupdate", ftypes.STRING)
 
@@ -363,11 +364,17 @@ display.upper_strike_price = function(value)
   return "Upper Strike Price: "..value
 end
 
+-- Translate: Upper Strike Price
+translate.upper_strike_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Upper Strike Price
 dissect.upper_strike_price = function(buffer, offset, packet, parent)
   local length = size_of.upper_strike_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.upper_strike_price(raw)
   local display = display.upper_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.upper_strike_price, range, value, display)
@@ -383,11 +390,17 @@ display.lower_strike_price = function(value)
   return "Lower Strike Price: "..value
 end
 
+-- Translate: Lower Strike Price
+translate.lower_strike_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Lower Strike Price
 dissect.lower_strike_price = function(buffer, offset, packet, parent)
   local length = size_of.lower_strike_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.lower_strike_price(raw)
   local display = display.lower_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.lower_strike_price, range, value, display)
@@ -515,11 +528,17 @@ display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price, range, value, display)
@@ -1038,11 +1057,17 @@ display.composite_market_offer_price = function(value)
   return "Composite Market Offer Price: "..value
 end
 
+-- Translate: Composite Market Offer Price
+translate.composite_market_offer_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Composite Market Offer Price
 dissect.composite_market_offer_price = function(buffer, offset, packet, parent)
   local length = size_of.composite_market_offer_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.composite_market_offer_price(raw)
   local display = display.composite_market_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_offer_price, range, value, display)
@@ -1058,11 +1083,17 @@ display.composite_market_bid_price = function(value)
   return "Composite Market Bid Price: "..value
 end
 
+-- Translate: Composite Market Bid Price
+translate.composite_market_bid_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Composite Market Bid Price
 dissect.composite_market_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.composite_market_bid_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.composite_market_bid_price(raw)
   local display = display.composite_market_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.composite_market_bid_price, range, value, display)
@@ -1098,11 +1129,17 @@ display.auction_only_price = function(value)
   return "Auction Only Price: "..value
 end
 
+-- Translate: Auction Only Price
+translate.auction_only_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Auction Only Price
 dissect.auction_only_price = function(buffer, offset, packet, parent)
   local length = size_of.auction_only_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.auction_only_price(raw)
   local display = display.auction_only_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.auction_only_price, range, value, display)
@@ -1118,11 +1155,17 @@ display.indicative_price = function(value)
   return "Indicative Price: "..value
 end
 
+-- Translate: Indicative Price
+translate.indicative_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Indicative Price
 dissect.indicative_price = function(buffer, offset, packet, parent)
   local length = size_of.indicative_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.indicative_price(raw)
   local display = display.indicative_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.indicative_price, range, value, display)
@@ -1318,11 +1361,17 @@ display.multiplier = function(value)
   return "Multiplier: "..value
 end
 
+-- Translate: Multiplier
+translate.multiplier = function(raw)
+  return raw*10
+end
+
 -- Dissect: Multiplier
 dissect.multiplier = function(buffer, offset, packet, parent)
   local length = size_of.multiplier
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.multiplier(raw)
   local display = display.multiplier(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.multiplier, range, value, display)
@@ -2062,11 +2111,17 @@ display.price_short = function(value)
   return "Price Short: "..value
 end
 
+-- Translate: Price Short
+translate.price_short = function(raw)
+  return raw*100
+end
+
 -- Dissect: Price Short
 dissect.price_short = function(buffer, offset, packet, parent)
   local length = size_of.price_short
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.price_short(raw)
   local display = display.price_short(value, buffer, offset, packet, parent)
 
   parent:add(cboe_c1_options_depthofbook_pitch_v2_41_29.fields.price_short, range, value, display)

@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -54,7 +55,7 @@ cboe_futures_depthofbook_pitch_v1_1_12.fields.leg_ratio = ProtoField.new("Leg Ra
 cboe_futures_depthofbook_pitch_v1_1_12.fields.leg_symbol = ProtoField.new("Leg Symbol", "cboe.futures.depthofbook.pitch.v1.1.12.legsymbol", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.length = ProtoField.new("Length", "cboe.futures.depthofbook.pitch.v1.1.12.length", ftypes.UINT16)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.listing_state = ProtoField.new("Listing State", "cboe.futures.depthofbook.pitch.v1.1.12.listingstate", ftypes.STRING)
-cboe_futures_depthofbook_pitch_v1_1_12.fields.long_price = ProtoField.new("Long Price", "cboe.futures.depthofbook.pitch.v1.1.12.longprice", ftypes.UINT64)
+cboe_futures_depthofbook_pitch_v1_1_12.fields.long_price = ProtoField.new("Long Price", "cboe.futures.depthofbook.pitch.v1.1.12.longprice", ftypes.DOUBLE)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.long_quantity = ProtoField.new("Long Quantity", "cboe.futures.depthofbook.pitch.v1.1.12.longquantity", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.low_price = ProtoField.new("Low Price", "cboe.futures.depthofbook.pitch.v1.1.12.lowprice", ftypes.UINT64)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.low_price_is_offer = ProtoField.new("Low Price Is Offer", "cboe.futures.depthofbook.pitch.v1.1.12.lowpriceisoffer", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x0080")
@@ -89,7 +90,7 @@ cboe_futures_depthofbook_pitch_v1_1_12.fields.reserved_flags = ProtoField.new("R
 cboe_futures_depthofbook_pitch_v1_1_12.fields.sequence = ProtoField.new("Sequence", "cboe.futures.depthofbook.pitch.v1.1.12.sequence", ftypes.UINT32)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.settlement_message = ProtoField.new("Settlement Message", "cboe.futures.depthofbook.pitch.v1.1.12.settlementmessage", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.settlement_price = ProtoField.new("Settlement Price", "cboe.futures.depthofbook.pitch.v1.1.12.settlementprice", ftypes.UINT64)
-cboe_futures_depthofbook_pitch_v1_1_12.fields.short_price = ProtoField.new("Short Price", "cboe.futures.depthofbook.pitch.v1.1.12.shortprice", ftypes.UINT16)
+cboe_futures_depthofbook_pitch_v1_1_12.fields.short_price = ProtoField.new("Short Price", "cboe.futures.depthofbook.pitch.v1.1.12.shortprice", ftypes.DOUBLE)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.short_quantity = ProtoField.new("Short Quantity", "cboe.futures.depthofbook.pitch.v1.1.12.shortquantity", ftypes.UINT16)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.side_indicator = ProtoField.new("Side Indicator", "cboe.futures.depthofbook.pitch.v1.1.12.sideindicator", ftypes.STRING)
 cboe_futures_depthofbook_pitch_v1_1_12.fields.standard = ProtoField.new("Standard", "cboe.futures.depthofbook.pitch.v1.1.12.standard", ftypes.STRING)
@@ -1159,11 +1160,17 @@ display.short_price = function(value)
   return "Short Price: "..value
 end
 
+-- Translate: Short Price
+translate.short_price = function(raw)
+  return raw*100
+end
+
 -- Dissect: Short Price
 dissect.short_price = function(buffer, offset, packet, parent)
   local length = size_of.short_price
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local raw = range:le_uint()
+  local value = translate.short_price(raw)
   local display = display.short_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_12.fields.short_price, range, value, display)
@@ -1318,11 +1325,17 @@ display.long_price = function(value)
   return "Long Price: "..value
 end
 
+-- Translate: Long Price
+translate.long_price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Long Price
 dissect.long_price = function(buffer, offset, packet, parent)
   local length = size_of.long_price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.long_price(raw)
   local display = display.long_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_12.fields.long_price, range, value, display)

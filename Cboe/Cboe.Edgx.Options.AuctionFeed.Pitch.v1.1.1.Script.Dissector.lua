@@ -14,6 +14,7 @@ local display = {}
 local dissect = {}
 local size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -42,7 +43,7 @@ cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet = ProtoField.new("Packe
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.packet_header = ProtoField.new("Packet Header", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.packetheader", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.participant_id = ProtoField.new("Participant Id", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.participantid", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.payload = ProtoField.new("Payload", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.payload", ftypes.STRING)
-cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.price = ProtoField.new("Price", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.price", ftypes.UINT64)
+cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.price = ProtoField.new("Price", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.price", ftypes.DOUBLE)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.sequence = ProtoField.new("Sequence", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.sequence", ftypes.UINT32)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.side = ProtoField.new("Side", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.side", ftypes.STRING)
 cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.symbol = ProtoField.new("Symbol", "cboe.edgx.options.auctionfeed.pitch.v1.1.1.symbol", ftypes.STRING)
@@ -344,11 +345,17 @@ display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()*10000
+end
+
 -- Dissect: Price
 dissect.price = function(buffer, offset, packet, parent)
   local length = size_of.price
   local range = buffer(offset, length)
-  local value = range:le_uint64()
+  local raw = range:le_uint64()
+  local value = translate.price(raw)
   local display = display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_edgx_options_auctionfeed_pitch_v1_1_1.fields.price, range, value, display)
