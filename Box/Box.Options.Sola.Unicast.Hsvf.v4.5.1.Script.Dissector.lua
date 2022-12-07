@@ -542,6 +542,11 @@ dissect.improvement_phase_sequential_number = function(buffer, offset, packet, p
   local length = size_of.improvement_phase_sequential_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.improvement_phase_sequential_number(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_phase_sequential_number, range, value, display)
@@ -589,6 +594,11 @@ dissect.order_sequence_number = function(buffer, offset, packet, parent)
   local length = size_of.order_sequence_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.order_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.order_sequence_number, range, value, display)
@@ -776,6 +786,11 @@ dissect.expiry_day = function(buffer, offset, packet, parent)
   local length = size_of.expiry_day
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.expiry_day(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_day, range, value, display)
@@ -796,6 +811,11 @@ dissect.expiry_year = function(buffer, offset, packet, parent)
   local length = size_of.expiry_year
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.expiry_year(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.expiry_year, range, value, display)
@@ -836,6 +856,11 @@ dissect.strike_price = function(buffer, offset, packet, parent)
   local length = size_of.strike_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.strike_price, range, value, display)
@@ -1124,6 +1149,11 @@ dissect.end_of_the_exposition = function(buffer, offset, packet, parent)
   local length = size_of.end_of_the_exposition
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.end_of_the_exposition(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.end_of_the_exposition, range, value, display)
@@ -1536,6 +1566,11 @@ dissect.improvement_process_expiry_duration = function(buffer, offset, packet, p
   local length = size_of.improvement_process_expiry_duration
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.improvement_process_expiry_duration(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.improvement_process_expiry_duration, range, value, display)
@@ -1643,6 +1678,11 @@ dissect.initial_order_price = function(buffer, offset, packet, parent)
   local length = size_of.initial_order_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.initial_order_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.initial_order_price, range, value, display)
@@ -1884,6 +1924,11 @@ dissect.time = function(buffer, offset, packet, parent)
   local length = size_of.time
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.time(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.time, range, value, display)
@@ -2251,6 +2296,11 @@ dissect.scheduled_time = function(buffer, offset, packet, parent)
   local length = size_of.scheduled_time
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.scheduled_time(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.scheduled_time, range, value, display)
@@ -2397,6 +2447,11 @@ dissect.volume = function(buffer, offset, packet, parent)
   local length = size_of.volume
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.volume(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.volume, range, value, display)
@@ -2437,6 +2492,11 @@ dissect.net_change = function(buffer, offset, packet, parent)
   local length = size_of.net_change
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.net_change(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.net_change, range, value, display)
@@ -2504,6 +2564,11 @@ dissect.low_price = function(buffer, offset, packet, parent)
   local length = size_of.low_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.low_price, range, value, display)
@@ -2571,6 +2636,11 @@ dissect.high_price = function(buffer, offset, packet, parent)
   local length = size_of.high_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.high_price, range, value, display)
@@ -2638,6 +2708,11 @@ dissect.open_price = function(buffer, offset, packet, parent)
   local length = size_of.open_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_price, range, value, display)
@@ -2705,6 +2780,11 @@ dissect.last_price = function(buffer, offset, packet, parent)
   local length = size_of.last_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.last_price, range, value, display)
@@ -2765,6 +2845,11 @@ dissect.ask_price_fraction_indicator = function(buffer, offset, packet, parent)
   local length = size_of.ask_price_fraction_indicator
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.ask_price_fraction_indicator(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price_fraction_indicator, range, value, display)
@@ -2785,6 +2870,11 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local length = size_of.ask_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.ask_price, range, value, display)
@@ -2872,6 +2962,11 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local length = size_of.bid_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.bid_price, range, value, display)
@@ -3094,6 +3189,11 @@ dissect.reference_price = function(buffer, offset, packet, parent)
   local length = size_of.reference_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reference_price, range, value, display)
@@ -3248,6 +3348,11 @@ dissect.open_interest = function(buffer, offset, packet, parent)
   local length = size_of.open_interest
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.open_interest, range, value, display)
@@ -3450,6 +3555,11 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
   local length = size_of.leg_ratio
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.leg_ratio, range, value, display)
@@ -3544,6 +3654,11 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
   local length = size_of.number_of_legs
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.number_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_legs, range, value, display)
@@ -3674,6 +3789,11 @@ dissect.tick_increment_fraction_indicator = function(buffer, offset, packet, par
   local length = size_of.tick_increment_fraction_indicator
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.tick_increment_fraction_indicator(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.tick_increment_fraction_indicator, range, value, display)
@@ -4575,6 +4695,11 @@ dissect.timestamp = function(buffer, offset, packet, parent)
   local length = size_of.timestamp
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.timestamp, range, value, display)
@@ -4635,6 +4760,11 @@ dissect.trade_price = function(buffer, offset, packet, parent)
   local length = size_of.trade_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trade_price, range, value, display)
@@ -5007,6 +5137,11 @@ dissect.number_of_levels = function(buffer, offset, packet, parent)
   local length = size_of.number_of_levels
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.number_of_levels(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_levels, range, value, display)
@@ -5765,6 +5900,11 @@ dissect.trading_engine_timestamp = function(buffer, offset, packet, parent)
   local length = size_of.trading_engine_timestamp
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.trading_engine_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.trading_engine_timestamp, range, value, display)
@@ -5958,6 +6098,11 @@ dissect.number_of_option_classes_requested = function(buffer, offset, packet, pa
   local length = size_of.number_of_option_classes_requested
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.number_of_option_classes_requested(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.number_of_option_classes_requested, range, value, display)
@@ -6151,6 +6296,11 @@ dissect.reset_sequence = function(buffer, offset, packet, parent)
   local length = size_of.reset_sequence
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.reset_sequence(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.reset_sequence, range, value, display)
@@ -6652,6 +6802,11 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
   local length = size_of.sequence_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(box_options_sola_unicast_hsvf_v4_5_1.fields.sequence_number, range, value, display)

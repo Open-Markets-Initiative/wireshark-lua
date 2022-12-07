@@ -532,6 +532,11 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
   local length = size_of.message_sequence_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.message_sequence_number, range, value, display)
@@ -1552,6 +1557,11 @@ dissect.inside_ask_size = function(buffer, offset, packet, parent)
   local length = size_of.inside_ask_size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.inside_ask_size(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_size, range, value, display)
@@ -1572,6 +1582,11 @@ dissect.inside_ask_price = function(buffer, offset, packet, parent)
   local length = size_of.inside_ask_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.inside_ask_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_ask_price, range, value, display)
@@ -1612,6 +1627,11 @@ dissect.inside_bid_size = function(buffer, offset, packet, parent)
   local length = size_of.inside_bid_size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.inside_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_size, range, value, display)
@@ -1632,6 +1652,11 @@ dissect.inside_bid_price = function(buffer, offset, packet, parent)
   local length = size_of.inside_bid_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.inside_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.inside_bid_price, range, value, display)
@@ -1816,6 +1841,11 @@ dissect.ask_size = function(buffer, offset, packet, parent)
   local length = size_of.ask_size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.ask_size(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.ask_size, range, value, display)
@@ -1836,6 +1866,11 @@ dissect.ask_price = function(buffer, offset, packet, parent)
   local length = size_of.ask_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.ask_price, range, value, display)
@@ -1876,6 +1911,11 @@ dissect.bid_size = function(buffer, offset, packet, parent)
   local length = size_of.bid_size
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.bid_size, range, value, display)
@@ -1896,6 +1936,11 @@ dissect.bid_price = function(buffer, offset, packet, parent)
   local length = size_of.bid_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
+
+  if value == nil then
+    value =  "Not Applicable"
+  end
+
   local display = display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_otc_bbds_dfi_v2018_1a.fields.bid_price, range, value, display)
