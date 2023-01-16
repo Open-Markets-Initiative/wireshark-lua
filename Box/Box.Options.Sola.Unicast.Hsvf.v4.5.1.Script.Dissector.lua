@@ -3494,7 +3494,7 @@ dissect.option_summary_message_fields = function(buffer, offset, packet, parent)
   -- Low Price Fraction Indicator: 1 Byte Ascii String
   index, low_price_fraction_indicator = dissect.low_price_fraction_indicator(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String: Struct of 2 fields
+  -- Option Marker: Struct of 2 fields
   index, option_marker = dissect.option_marker(buffer, index, packet, parent)
 
   -- Underlying Symbol: 10 Byte Ascii String
@@ -4594,7 +4594,7 @@ dissect.option_instrument_keys_message_fields = function(buffer, offset, packet,
   -- Option Type: 1 Byte Ascii String Enum with 2 values
   index, option_type = dissect.option_type(buffer, index, packet, parent)
 
-  -- Market Flow Indicator: 2 Byte Ascii String: Struct of 2 fields
+  -- Market Flow Indicator: Struct of 2 fields
   index, market_flow_indicator = dissect.market_flow_indicator(buffer, index, packet, parent)
 
   -- Group Instrument: 2 Byte Ascii String
@@ -4606,7 +4606,7 @@ dissect.option_instrument_keys_message_fields = function(buffer, offset, packet,
   -- Instrument External Code: 30 Byte Ascii String
   index, instrument_external_code = dissect.instrument_external_code(buffer, index, packet, parent)
 
-  -- Option Marker: 2 Byte Ascii String: Struct of 2 fields
+  -- Option Marker: Struct of 2 fields
   index, option_marker = dissect.option_marker(buffer, index, packet, parent)
 
   -- Underlying Symbol Root: 10 Byte Ascii String
@@ -5243,7 +5243,7 @@ dissect.complex_order_market_depth_message_fields = function(buffer, offset, pac
   -- Number Of Levels: 1 Byte Ascii String
   index, number_of_levels = dissect.number_of_levels(buffer, index, packet, parent)
 
-  -- Complex Market Depth Level: 1 Byte Ascii String: Struct of 11 fields
+  -- Complex Market Depth Level: Struct of 11 fields
   for i = 1, number_of_levels do
     index = dissect.complex_market_depth_level(buffer, index, packet, parent)
   end

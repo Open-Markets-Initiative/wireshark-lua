@@ -2783,7 +2783,7 @@ dissect.complex_instrument_definition_expanded_message_fields = function(buffer,
   -- Complex Instrument Underlying: 8 Byte Ascii String
   index, complex_instrument_underlying = dissect.complex_instrument_underlying(buffer, index, packet, parent)
 
-  -- Complex Instrument Type: 4 Byte Ascii String: Struct of 2 fields
+  -- Complex Instrument Type: Struct of 2 fields
   index, complex_instrument_type = dissect.complex_instrument_type(buffer, index, packet, parent)
 
   -- Leg Count: 1 Byte Unsigned Fixed Width Integer

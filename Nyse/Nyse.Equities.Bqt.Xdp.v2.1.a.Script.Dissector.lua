@@ -2700,7 +2700,7 @@ dissect.consolidated_trading_session_change_message_fields = function(buffer, of
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- Trade Session: 1 Byte Unsigned Fixed Width Integer: Struct of 4 fields
+  -- Trade Session: Struct of 4 fields
   index, trade_session = dissect.trade_session(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values

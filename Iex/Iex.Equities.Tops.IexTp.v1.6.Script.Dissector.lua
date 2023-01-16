@@ -843,7 +843,7 @@ end
 dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sale Condition Flags: 1 Byte Ascii String: Struct of 6 fields
+  -- Sale Condition Flags: Struct of 6 fields
   index, sale_condition_flags = dissect.sale_condition_flags(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Signed Fixed Width Integer
@@ -1010,7 +1010,7 @@ end
 dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Sale Condition Flags: 1 Byte Ascii String: Struct of 6 fields
+  -- Sale Condition Flags: Struct of 6 fields
   index, sale_condition_flags = dissect.sale_condition_flags(buffer, index, packet, parent)
 
   -- Timestamp: 8 Byte Signed Fixed Width Integer

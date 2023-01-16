@@ -1402,7 +1402,7 @@ dissect.open_high_low_last_trade_adjustment_fields = function(buffer, offset, pa
   -- Total Trades: 4 Byte Unsigned Fixed Width Integer
   index, total_trades = dissect.total_trades(buffer, index, packet, parent)
 
-  -- Market Updates: 1 Byte Unsigned Fixed Width Integer: Struct of 7 fields
+  -- Market Updates: Struct of 7 fields
   index, market_updates = dissect.market_updates(buffer, index, packet, parent)
 
   return index
@@ -5932,7 +5932,7 @@ end
 dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Session: 10 Byte Ascii String: Struct of 4 fields
+  -- Session: Struct of 4 fields
   index, session = dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
