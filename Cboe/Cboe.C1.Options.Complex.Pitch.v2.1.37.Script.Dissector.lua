@@ -3501,27 +3501,13 @@ dissect.message_header = function(buffer, offset, packet, parent)
   return dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Message
-size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header(buffer, offset + index)
-
-  -- Calculate runtime size of Payload field
-  local payload_offset = offset + index
-  local payload_type = buffer(payload_offset - 1, 1):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
-
-  return index
-end
-
 -- Display: Message
 display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
@@ -3537,16 +3523,17 @@ dissect.message_fields = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = display.message(buffer, packet, parent)
     parent = parent:add(cboe_c1_options_complex_pitch_v2_1_37.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
 end
 
 -- Size: Sequence
@@ -3693,7 +3680,12 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+
+    -- Dependency element: Message Length
+    local message_length = buffer(index, 1):le_uint()
+
+    -- Message: Struct of 2 fields
+    index = dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index
