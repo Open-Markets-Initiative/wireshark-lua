@@ -134,7 +134,7 @@ cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_no_quote = P
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_eris_reference_data_and_daily_statistics = ProtoField.new("Md Incremental Refresh Eris Reference Data And Daily Statistics", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefresherisreferencedataanddailystatistics", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_indices = ProtoField.new("Md Incremental Refresh Indices", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshindices", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_otc = ProtoField.new("Md Incremental Refresh Otc", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshotc", ftypes.STRING)
-cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_otc_356_no_reference = ProtoField.new("Md Incremental Refresh Otc 356 No Reference", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshotc356noreference", ftypes.STRING)
+cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_otc_no_reference = ProtoField.new("Md Incremental Refresh Otc No Reference", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshotcnoreference", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_365 = ProtoField.new("Md Incremental Refresh Trade Blocks 365", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshtradeblocks365", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_no_date = ProtoField.new("Md Incremental Refresh Trade Blocks No Date", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshtradeblocksnodate", ftypes.STRING)
 cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_trade_blocks_short = ProtoField.new("Md Incremental Refresh Trade Blocks Short", "cme.futures.streamlined.sbe.v5.9.mdincrementalrefreshtradeblocksshort", ftypes.STRING)
@@ -308,7 +308,7 @@ show.md_incremental_refresh_eris_no_quote = true
 show.md_incremental_refresh_eris_reference_data_and_daily_statistics = true
 show.md_incremental_refresh_indices = true
 show.md_incremental_refresh_otc = true
-show.md_incremental_refresh_otc_356_no_reference = true
+show.md_incremental_refresh_otc_no_reference = true
 show.md_incremental_refresh_trade_blocks_365 = true
 show.md_incremental_refresh_trade_blocks_no_date = true
 show.md_incremental_refresh_trade_blocks_short = true
@@ -404,7 +404,7 @@ cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_eris_no_quote
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_eris_reference_data_and_daily_statistics = Pref.bool("Show Md Incremental Refresh Eris Reference Data And Daily Statistics", show.md_incremental_refresh_eris_reference_data_and_daily_statistics, "Parse and add Md Incremental Refresh Eris Reference Data And Daily Statistics to protocol tree")
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_indices = Pref.bool("Show Md Incremental Refresh Indices", show.md_incremental_refresh_indices, "Parse and add Md Incremental Refresh Indices to protocol tree")
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc = Pref.bool("Show Md Incremental Refresh Otc", show.md_incremental_refresh_otc, "Parse and add Md Incremental Refresh Otc to protocol tree")
-cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_356_no_reference = Pref.bool("Show Md Incremental Refresh Otc 356 No Reference", show.md_incremental_refresh_otc_356_no_reference, "Parse and add Md Incremental Refresh Otc 356 No Reference to protocol tree")
+cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_no_reference = Pref.bool("Show Md Incremental Refresh Otc No Reference", show.md_incremental_refresh_otc_no_reference, "Parse and add Md Incremental Refresh Otc No Reference to protocol tree")
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_365 = Pref.bool("Show Md Incremental Refresh Trade Blocks 365", show.md_incremental_refresh_trade_blocks_365, "Parse and add Md Incremental Refresh Trade Blocks 365 to protocol tree")
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_no_date = Pref.bool("Show Md Incremental Refresh Trade Blocks No Date", show.md_incremental_refresh_trade_blocks_no_date, "Parse and add Md Incremental Refresh Trade Blocks No Date to protocol tree")
 cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_short = Pref.bool("Show Md Incremental Refresh Trade Blocks Short", show.md_incremental_refresh_trade_blocks_short, "Parse and add Md Incremental Refresh Trade Blocks Short to protocol tree")
@@ -684,8 +684,8 @@ function cme_futures_streamlined_sbe_v5_9.prefs_changed()
     show.md_incremental_refresh_otc = cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc
     changed = true
   end
-  if show.md_incremental_refresh_otc_356_no_reference ~= cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_356_no_reference then
-    show.md_incremental_refresh_otc_356_no_reference = cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_356_no_reference
+  if show.md_incremental_refresh_otc_no_reference ~= cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_no_reference then
+    show.md_incremental_refresh_otc_no_reference = cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_otc_no_reference
     changed = true
   end
   if show.md_incremental_refresh_trade_blocks_365 ~= cme_futures_streamlined_sbe_v5_9.prefs.show_md_incremental_refresh_trade_blocks_365 then
@@ -5099,8 +5099,8 @@ dissect.m_d_incremental_refresh_ot_c_356_groups = function(buffer, offset, packe
   return dissect.m_d_incremental_refresh_ot_c_356_groups_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Md Incremental Refresh Otc 356 No Reference
-size_of.md_incremental_refresh_otc_356_no_reference = function(buffer, offset)
+-- Calculate size of: Md Incremental Refresh Otc No Reference
+size_of.md_incremental_refresh_otc_no_reference = function(buffer, offset)
   local index = 0
 
   index = index + size_of.transact_time
@@ -5116,13 +5116,13 @@ size_of.md_incremental_refresh_otc_356_no_reference = function(buffer, offset)
   return index
 end
 
--- Display: Md Incremental Refresh Otc 356 No Reference
-display.md_incremental_refresh_otc_356_no_reference = function(buffer, offset, size, packet, parent)
+-- Display: Md Incremental Refresh Otc No Reference
+display.md_incremental_refresh_otc_no_reference = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Md Incremental Refresh Otc 356 No Reference
-dissect.md_incremental_refresh_otc_356_no_reference_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Md Incremental Refresh Otc No Reference
+dissect.md_incremental_refresh_otc_no_reference_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
@@ -5143,17 +5143,17 @@ dissect.md_incremental_refresh_otc_356_no_reference_fields = function(buffer, of
   return index
 end
 
--- Dissect: Md Incremental Refresh Otc 356 No Reference
-dissect.md_incremental_refresh_otc_356_no_reference = function(buffer, offset, packet, parent)
+-- Dissect: Md Incremental Refresh Otc No Reference
+dissect.md_incremental_refresh_otc_no_reference = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
-  if show.md_incremental_refresh_otc_356_no_reference then
-    local length = size_of.md_incremental_refresh_otc_356_no_reference(buffer, offset)
+  if show.md_incremental_refresh_otc_no_reference then
+    local length = size_of.md_incremental_refresh_otc_no_reference(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_incremental_refresh_otc_356_no_reference(buffer, packet, parent)
-    parent = parent:add(cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_otc_356_no_reference, range, display)
+    local display = display.md_incremental_refresh_otc_no_reference(buffer, packet, parent)
+    parent = parent:add(cme_futures_streamlined_sbe_v5_9.fields.md_incremental_refresh_otc_no_reference, range, display)
   end
 
-  return dissect.md_incremental_refresh_otc_356_no_reference_fields(buffer, offset, packet, parent)
+  return dissect.md_incremental_refresh_otc_no_reference_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Quote Type
@@ -9543,9 +9543,9 @@ size_of.payload = function(buffer, offset, template_id)
   if template_id == 353 then
     return size_of.md_incremental_refresh_eris(buffer, offset)
   end
-  -- Size of Md Incremental Refresh Otc 356 No Reference
+  -- Size of Md Incremental Refresh Otc No Reference
   if template_id == 356 then
-    return size_of.md_incremental_refresh_otc_356_no_reference(buffer, offset)
+    return size_of.md_incremental_refresh_otc_no_reference(buffer, offset)
   end
   -- Size of Md Instrument Definition Eris
   if template_id == 363 then
@@ -9617,9 +9617,9 @@ dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   if template_id == 353 then
     return dissect.md_incremental_refresh_eris(buffer, offset, packet, parent)
   end
-  -- Dissect Md Incremental Refresh Otc 356 No Reference
+  -- Dissect Md Incremental Refresh Otc No Reference
   if template_id == 356 then
-    return dissect.md_incremental_refresh_otc_356_no_reference(buffer, offset, packet, parent)
+    return dissect.md_incremental_refresh_otc_no_reference(buffer, offset, packet, parent)
   end
   -- Dissect Md Instrument Definition Eris
   if template_id == 363 then
