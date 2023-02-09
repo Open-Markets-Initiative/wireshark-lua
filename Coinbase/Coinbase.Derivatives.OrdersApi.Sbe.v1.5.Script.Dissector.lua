@@ -61,6 +61,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.fields.last_processed_fill_id = ProtoFie
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.last_processed_seq_no = ProtoField.new("Last Processed Seq No", "coinbase.derivatives.ordersapi.sbe.v1.5.lastprocessedseqno", ftypes.UINT32)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.leg_1_fill_price = ProtoField.new("Leg 1 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.5.leg1fillprice", ftypes.DOUBLE)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.leg_2_fill_price = ProtoField.new("Leg 2 Fill Price", "coinbase.derivatives.ordersapi.sbe.v1.5.leg2fillprice", ftypes.DOUBLE)
+coinbase_derivatives_ordersapi_sbe_v1_5.fields.length = ProtoField.new("Length", "coinbase.derivatives.ordersapi.sbe.v1.5.length", ftypes.UINT8)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.limit_price = ProtoField.new("Limit Price", "coinbase.derivatives.ordersapi.sbe.v1.5.limitprice", ftypes.DOUBLE)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.logged_out_message = ProtoField.new("Logged Out Message", "coinbase.derivatives.ordersapi.sbe.v1.5.loggedoutmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.logon_conf_message = ProtoField.new("Logon Conf Message", "coinbase.derivatives.ordersapi.sbe.v1.5.logonconfmessage", ftypes.STRING)
@@ -127,6 +128,7 @@ coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_ack_message = Prot
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_message = ProtoField.new("Unlock Trading Message", "coinbase.derivatives.ordersapi.sbe.v1.5.unlocktradingmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.unlock_trading_reject_message = ProtoField.new("Unlock Trading Reject Message", "coinbase.derivatives.ordersapi.sbe.v1.5.unlocktradingrejectmessage", ftypes.STRING)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.username = ProtoField.new("Username", "coinbase.derivatives.ordersapi.sbe.v1.5.username", ftypes.STRING)
+coinbase_derivatives_ordersapi_sbe_v1_5.fields.var_data = ProtoField.new("Var Data", "coinbase.derivatives.ordersapi.sbe.v1.5.vardata", ftypes.BYTES)
 coinbase_derivatives_ordersapi_sbe_v1_5.fields.version = ProtoField.new("Version", "coinbase.derivatives.ordersapi.sbe.v1.5.version", ftypes.UINT16)
 
 -----------------------------------------------------------------------
@@ -3109,6 +3111,42 @@ dissect.instrument_info_request_message = function(buffer, offset, packet, paren
   return dissect.instrument_info_request_message_fields(buffer, offset, packet, parent)
 end
 
+-- Display: Var Data
+display.var_data = function(value)
+  return "Var Data: "..value
+end
+
+-- Dissect runtime sized field: Var Data
+dissect.var_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = display.var_data(value, buffer, offset, packet, parent, size)
+
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_5.fields.var_data, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Length
+size_of.length = 1
+
+-- Display: Length
+display.length = function(value)
+  return "Length: "..value
+end
+
+-- Dissect: Length
+dissect.length = function(buffer, offset, packet, parent)
+  local length = size_of.length
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = display.length(value, buffer, offset, packet, parent)
+
+  parent:add(coinbase_derivatives_ordersapi_sbe_v1_5.fields.length, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Data
 size_of.data = function(buffer, offset)
   local index = 0
@@ -3116,7 +3154,7 @@ size_of.data = function(buffer, offset)
   index = index + size_of.length
 
   -- Parse runtime size of: Var Data
-  index = index + buffer(offset + index - 0, 0):bytes():tohex(false, " ")
+  index = index + buffer(offset + index - 1, 1):le_uint()
 
   return index
 end
@@ -3130,10 +3168,10 @@ end
 dissect.data_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length
+  -- Length: 1 Byte Unsigned Fixed Width Integer
   index, length = dissect.length(buffer, index, packet, parent)
 
-  -- Var Data
+  -- Var Data: 0 Byte
   index = dissect.var_data(buffer, index, packet, parent, length)
 
   return index

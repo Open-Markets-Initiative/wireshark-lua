@@ -22,8 +22,17 @@ local verify = {}
 -- Siac Opra Recipient Obi 6.1 Fields
 siac_opra_recipient_obi_v6_1.fields.administrative_message = ProtoField.new("Administrative Message", "siac.opra.recipient.obi.v6.1.administrativemessage", ftypes.STRING)
 siac_opra_recipient_obi_v6_1.fields.bbo_indicator = ProtoField.new("Bbo Indicator", "siac.opra.recipient.obi.v6.1.bboindicator", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_bid_and_offer_appendage = ProtoField.new("Best Bid And Offer Appendage", "siac.opra.recipient.obi.v6.1.bestbidandofferappendage", ftypes.STRING)
 siac_opra_recipient_obi_v6_1.fields.best_bid_appendage = ProtoField.new("Best Bid Appendage", "siac.opra.recipient.obi.v6.1.bestbidappendage", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_bid_denominator_code = ProtoField.new("Best Bid Denominator Code", "siac.opra.recipient.obi.v6.1.bestbiddenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_bid_participant_id = ProtoField.new("Best Bid Participant Id", "siac.opra.recipient.obi.v6.1.bestbidparticipantid", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_bid_price = ProtoField.new("Best Bid Price", "siac.opra.recipient.obi.v6.1.bestbidprice", ftypes.INT32)
+siac_opra_recipient_obi_v6_1.fields.best_bid_size = ProtoField.new("Best Bid Size", "siac.opra.recipient.obi.v6.1.bestbidsize", ftypes.UINT32)
 siac_opra_recipient_obi_v6_1.fields.best_offer_appendage = ProtoField.new("Best Offer Appendage", "siac.opra.recipient.obi.v6.1.bestofferappendage", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_offer_denominator_code = ProtoField.new("Best Offer Denominator Code", "siac.opra.recipient.obi.v6.1.bestofferdenominatorcode", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_offer_participant_id = ProtoField.new("Best Offer Participant Id", "siac.opra.recipient.obi.v6.1.bestofferparticipantid", ftypes.STRING)
+siac_opra_recipient_obi_v6_1.fields.best_offer_price = ProtoField.new("Best Offer Price", "siac.opra.recipient.obi.v6.1.bestofferprice", ftypes.INT32)
+siac_opra_recipient_obi_v6_1.fields.best_offer_size = ProtoField.new("Best Offer Size", "siac.opra.recipient.obi.v6.1.bestoffersize", ftypes.UINT32)
 siac_opra_recipient_obi_v6_1.fields.bid_index_value = ProtoField.new("Bid Index Value", "siac.opra.recipient.obi.v6.1.bidindexvalue", ftypes.INT32)
 siac_opra_recipient_obi_v6_1.fields.bid_price = ProtoField.new("Bid Price", "siac.opra.recipient.obi.v6.1.bidprice", ftypes.INT32)
 siac_opra_recipient_obi_v6_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "siac.opra.recipient.obi.v6.1.bidpriceshort", ftypes.INT16)
@@ -106,6 +115,7 @@ siac_opra_recipient_obi_v6_1.fields.volume = ProtoField.new("Volume", "siac.opra
 
 -- Siac Opra Recipient Obi 6.1 Element Dissection Options
 show.administrative_message = true
+show.best_bid_and_offer_appendage = true
 show.best_bid_appendage = true
 show.best_offer_appendage = true
 show.block_header = true
@@ -127,6 +137,7 @@ show.underlying_value_message_payload = false
 
 -- Register Siac Opra Recipient Obi 6.1 Show Options
 siac_opra_recipient_obi_v6_1.prefs.show_administrative_message = Pref.bool("Show Administrative Message", show.administrative_message, "Parse and add Administrative Message to protocol tree")
+siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage = Pref.bool("Show Best Bid And Offer Appendage", show.best_bid_and_offer_appendage, "Parse and add Best Bid And Offer Appendage to protocol tree")
 siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage = Pref.bool("Show Best Bid Appendage", show.best_bid_appendage, "Parse and add Best Bid Appendage to protocol tree")
 siac_opra_recipient_obi_v6_1.prefs.show_best_offer_appendage = Pref.bool("Show Best Offer Appendage", show.best_offer_appendage, "Parse and add Best Offer Appendage to protocol tree")
 siac_opra_recipient_obi_v6_1.prefs.show_block_header = Pref.bool("Show Block Header", show.block_header, "Parse and add Block Header to protocol tree")
@@ -153,6 +164,10 @@ function siac_opra_recipient_obi_v6_1.prefs_changed()
   -- Check if show options have changed
   if show.administrative_message ~= siac_opra_recipient_obi_v6_1.prefs.show_administrative_message then
     show.administrative_message = siac_opra_recipient_obi_v6_1.prefs.show_administrative_message
+    changed = true
+  end
+  if show.best_bid_and_offer_appendage ~= siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage then
+    show.best_bid_and_offer_appendage = siac_opra_recipient_obi_v6_1.prefs.show_best_bid_and_offer_appendage
     changed = true
   end
   if show.best_bid_appendage ~= siac_opra_recipient_obi_v6_1.prefs.show_best_bid_appendage then
@@ -1766,6 +1781,398 @@ dissect.short_equity_and_index_quote_message = function(buffer, offset, packet, 
   return dissect.short_equity_and_index_quote_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Best Offer Size
+size_of.best_offer_size = 4
+
+-- Display: Best Offer Size
+display.best_offer_size = function(value)
+  return "Best Offer Size: "..value
+end
+
+-- Dissect: Best Offer Size
+dissect.best_offer_size = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_offer_size(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Price
+size_of.best_offer_price = 4
+
+-- Display: Best Offer Price
+display.best_offer_price = function(value)
+  return "Best Offer Price: "..value
+end
+
+-- Dissect: Best Offer Price
+dissect.best_offer_price = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_price
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = display.best_offer_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Denominator Code
+size_of.best_offer_denominator_code = 1
+
+-- Display: Best Offer Denominator Code
+display.best_offer_denominator_code = function(value)
+  if value == "A" then
+    return "Best Offer Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Best Offer Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Best Offer Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Best Offer Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Best Offer Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "F" then
+    return "Best Offer Denominator Code: Million (F)"
+  end
+  if value == "G" then
+    return "Best Offer Denominator Code: Ten Million (G)"
+  end
+  if value == "H" then
+    return "Best Offer Denominator Code: Hundred Million (H)"
+  end
+  if value == "I" then
+    return "Best Offer Denominator Code: No Fraction (I)"
+  end
+
+  return "Best Offer Denominator Code: Unknown("..value..")"
+end
+
+-- Dissect: Best Offer Denominator Code
+dissect.best_offer_denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_denominator_code
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_offer_denominator_code(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_denominator_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Offer Participant Id
+size_of.best_offer_participant_id = 1
+
+-- Display: Best Offer Participant Id
+display.best_offer_participant_id = function(value)
+  if value == "A" then
+    return "Best Offer Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Best Offer Participant Id: Boston Options Exchange (B)"
+  end
+  if value == "C" then
+    return "Best Offer Participant Id: Cboe Options Exchange (C)"
+  end
+  if value == "D" then
+    return "Best Offer Participant Id: Miax Emerald (D)"
+  end
+  if value == "E" then
+    return "Best Offer Participant Id: Cboe Edgx Options (E)"
+  end
+  if value == "H" then
+    return "Best Offer Participant Id: Nasdaq Gemx (H)"
+  end
+  if value == "I" then
+    return "Best Offer Participant Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Best Offer Participant Id: Nasdaq Mrx (J)"
+  end
+  if value == "M" then
+    return "Best Offer Participant Id: Miami International Securities Exchange (M)"
+  end
+  if value == "N" then
+    return "Best Offer Participant Id: Nyse Arca (N)"
+  end
+  if value == "O" then
+    return "Best Offer Participant Id: Options Price Reporting Authority (O)"
+  end
+  if value == "P" then
+    return "Best Offer Participant Id: Miax Pearl (P)"
+  end
+  if value == "Q" then
+    return "Best Offer Participant Id: Nasdaq Options Market (Q)"
+  end
+  if value == "T" then
+    return "Best Offer Participant Id: Nasdaq Bx Options (T)"
+  end
+  if value == "W" then
+    return "Best Offer Participant Id: Cboe C 2 Options (W)"
+  end
+  if value == "X" then
+    return "Best Offer Participant Id: Nasdaq Phlx (X)"
+  end
+  if value == "Z" then
+    return "Best Offer Participant Id: Cboe Bzx Options Exchange (Z)"
+  end
+
+  return "Best Offer Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Best Offer Participant Id
+dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
+  local length = size_of.best_offer_participant_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_offer_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Size
+size_of.best_bid_size = 4
+
+-- Display: Best Bid Size
+display.best_bid_size = function(value)
+  return "Best Bid Size: "..value
+end
+
+-- Dissect: Best Bid Size
+dissect.best_bid_size = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = display.best_bid_size(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_size, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Price
+size_of.best_bid_price = 4
+
+-- Display: Best Bid Price
+display.best_bid_price = function(value)
+  return "Best Bid Price: "..value
+end
+
+-- Dissect: Best Bid Price
+dissect.best_bid_price = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_price
+  local range = buffer(offset, length)
+  local value = range:int()
+  local display = display.best_bid_price(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Denominator Code
+size_of.best_bid_denominator_code = 1
+
+-- Display: Best Bid Denominator Code
+display.best_bid_denominator_code = function(value)
+  if value == "A" then
+    return "Best Bid Denominator Code: Ten (A)"
+  end
+  if value == "B" then
+    return "Best Bid Denominator Code: Hundred (B)"
+  end
+  if value == "C" then
+    return "Best Bid Denominator Code: Thousand (C)"
+  end
+  if value == "D" then
+    return "Best Bid Denominator Code: Ten Thousand (D)"
+  end
+  if value == "E" then
+    return "Best Bid Denominator Code: Hundred Thousand (E)"
+  end
+  if value == "F" then
+    return "Best Bid Denominator Code: Million (F)"
+  end
+  if value == "G" then
+    return "Best Bid Denominator Code: Ten Million (G)"
+  end
+  if value == "H" then
+    return "Best Bid Denominator Code: Hundred Million (H)"
+  end
+  if value == "I" then
+    return "Best Bid Denominator Code: No Fraction (I)"
+  end
+
+  return "Best Bid Denominator Code: Unknown("..value..")"
+end
+
+-- Dissect: Best Bid Denominator Code
+dissect.best_bid_denominator_code = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_denominator_code
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_bid_denominator_code(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_denominator_code, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Best Bid Participant Id
+size_of.best_bid_participant_id = 1
+
+-- Display: Best Bid Participant Id
+display.best_bid_participant_id = function(value)
+  if value == "A" then
+    return "Best Bid Participant Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Best Bid Participant Id: Boston Options Exchange (B)"
+  end
+  if value == "C" then
+    return "Best Bid Participant Id: Cboe Options Exchange (C)"
+  end
+  if value == "D" then
+    return "Best Bid Participant Id: Miax Emerald (D)"
+  end
+  if value == "E" then
+    return "Best Bid Participant Id: Cboe Edgx Options (E)"
+  end
+  if value == "H" then
+    return "Best Bid Participant Id: Nasdaq Gemx (H)"
+  end
+  if value == "I" then
+    return "Best Bid Participant Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Best Bid Participant Id: Nasdaq Mrx (J)"
+  end
+  if value == "M" then
+    return "Best Bid Participant Id: Miami International Securities Exchange (M)"
+  end
+  if value == "N" then
+    return "Best Bid Participant Id: Nyse Arca (N)"
+  end
+  if value == "O" then
+    return "Best Bid Participant Id: Options Price Reporting Authority (O)"
+  end
+  if value == "P" then
+    return "Best Bid Participant Id: Miax Pearl (P)"
+  end
+  if value == "Q" then
+    return "Best Bid Participant Id: Nasdaq Options Market (Q)"
+  end
+  if value == "T" then
+    return "Best Bid Participant Id: Nasdaq Bx Options (T)"
+  end
+  if value == "W" then
+    return "Best Bid Participant Id: Cboe C 2 Options (W)"
+  end
+  if value == "X" then
+    return "Best Bid Participant Id: Nasdaq Phlx (X)"
+  end
+  if value == "Z" then
+    return "Best Bid Participant Id: Cboe Bzx Options Exchange (Z)"
+  end
+
+  return "Best Bid Participant Id: Unknown("..value..")"
+end
+
+-- Dissect: Best Bid Participant Id
+dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
+  local length = size_of.best_bid_participant_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_participant_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Best Bid And Offer Appendage
+size_of.best_bid_and_offer_appendage = function(buffer, offset)
+  local index = 0
+
+  index = index + size_of.best_bid_participant_id
+
+  index = index + size_of.best_bid_denominator_code
+
+  index = index + size_of.best_bid_price
+
+  index = index + size_of.best_bid_size
+
+  index = index + size_of.best_offer_participant_id
+
+  index = index + size_of.best_offer_denominator_code
+
+  index = index + size_of.best_offer_price
+
+  index = index + size_of.best_offer_size
+
+  return index
+end
+
+-- Display: Best Bid And Offer Appendage
+display.best_bid_and_offer_appendage = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Best Bid And Offer Appendage
+dissect.best_bid_and_offer_appendage_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Best Bid Participant Id: 1 Byte Ascii String Enum with 17 values
+  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+
+  -- Best Bid Denominator Code: 1 Byte Ascii String Enum with 9 values
+  index, best_bid_denominator_code = dissect.best_bid_denominator_code(buffer, index, packet, parent)
+
+  -- Best Bid Price: 4 Byte Signed Fixed Width Integer
+  index, best_bid_price = dissect.best_bid_price(buffer, index, packet, parent)
+
+  -- Best Bid Size: 4 Byte Unsigned Fixed Width Integer
+  index, best_bid_size = dissect.best_bid_size(buffer, index, packet, parent)
+
+  -- Best Offer Participant Id: 1 Byte Ascii String Enum with 17 values
+  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
+
+  -- Best Offer Denominator Code: 1 Byte Ascii String Enum with 9 values
+  index, best_offer_denominator_code = dissect.best_offer_denominator_code(buffer, index, packet, parent)
+
+  -- Best Offer Price: 4 Byte Signed Fixed Width Integer
+  index, best_offer_price = dissect.best_offer_price(buffer, index, packet, parent)
+
+  -- Best Offer Size: 4 Byte Unsigned Fixed Width Integer
+  index, best_offer_size = dissect.best_offer_size(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Best Bid And Offer Appendage
+dissect.best_bid_and_offer_appendage = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.best_bid_and_offer_appendage then
+    local length = size_of.best_bid_and_offer_appendage(buffer, offset)
+    local range = buffer(offset, length)
+    local display = display.best_bid_and_offer_appendage(buffer, packet, parent)
+    parent = parent:add(siac_opra_recipient_obi_v6_1.fields.best_bid_and_offer_appendage, range, display)
+  end
+
+  return dissect.best_bid_and_offer_appendage_fields(buffer, offset, packet, parent)
+end
+
 -- Size: Offer Size
 size_of.offer_size = 4
 
@@ -1993,7 +2400,7 @@ size_of.long_equity_and_index_quote_message = function(buffer, offset)
   end
 
   if bbo_indicator == "O" then
-    index = index + size_of.best_bid_and_offer_appendage
+    index = index + size_of.best_bid_and_offer_appendage(buffer, offset + index)
 
   end
 

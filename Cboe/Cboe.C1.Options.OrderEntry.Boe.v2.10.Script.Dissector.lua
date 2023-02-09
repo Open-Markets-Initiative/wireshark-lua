@@ -81,7 +81,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_cross_id_exists = Pr
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_echo_text_exists = ProtoField.new("Cancel Rejected Echo Text Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedechotextexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_exec_inst_exists = ProtoField.new("Cancel Rejected Exec Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedexecinstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_give_up_firm_id_exists = ProtoField.new("Cancel Rejected Give Up Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedgiveupfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_market_fee_code_exists = ProtoField.new("Cancel Rejected Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_marketing_fee_code_exists = ProtoField.new("Cancel Rejected Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_mass_cancel_id_exists = ProtoField.new("Cancel Rejected Mass Cancel Id Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedmasscancelidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_maturity_date_exists = ProtoField.new("Cancel Rejected Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_max_remove_pct_exists = ProtoField.new("Cancel Rejected Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.cancelrejectedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -462,7 +462,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cmta_number_exists = Proto
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_complex_message = ProtoField.new("New Order Complex Message", "cboe.c1.options.orderentry.boe.v2.10.newordercomplexmessage", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_compression_exists = ProtoField.new("New Order Compression Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercompressionexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_account_exists = ProtoField.new("New Order Cross Account Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossaccountexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_attribute_quote_exists = ProtoField.new("New Order Cross Attribute Quote Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossattributequoteexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_attributed_quote_exists = ProtoField.new("New Order Cross Attributed Quote Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossattributedquoteexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_auto_match_exists = ProtoField.new("New Order Cross Auto Match Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossautomatchexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_auto_match_price_exists = ProtoField.new("New Order Cross Auto Match Price Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossautomatchpriceexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_bitfield_count = ProtoField.new("New Order Cross Bitfield Count", "cboe.c1.options.orderentry.boe.v2.10.newordercrossbitfieldcount", ftypes.UINT8)
@@ -487,7 +487,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_last_priority_exists
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_maturity_date_exists = ProtoField.new("New Order Cross Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_message = ProtoField.new("New Order Cross Message", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmessage", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_account_exists = ProtoField.new("New Order Cross Multileg Account Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegaccountexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_attribute_quote_exists = ProtoField.new("New Order Cross Multileg Attribute Quote Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegattributequoteexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
+cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_attributed_quote_exists = ProtoField.new("New Order Cross Multileg Attributed Quote Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegattributedquoteexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_auto_match_exists = ProtoField.new("New Order Cross Multileg Auto Match Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegautomatchexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_auto_match_price_exists = ProtoField.new("New Order Cross Multileg Auto Match Price Exists", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegautomatchpriceexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_bitfield_count = ProtoField.new("New Order Cross Multileg Bitfield Count", "cboe.c1.options.orderentry.boe.v2.10.newordercrossmultilegbitfieldcount", ftypes.UINT8)
@@ -579,8 +579,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.new_order_reserved_bit_6_exists = Pr
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_reserved_bit_7_exists = ProtoField.new("New Order Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_reserved_bit_8_exists = ProtoField.new("New Order Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_risk_reset_exists = ProtoField.new("New Order Risk Reset Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderriskresetexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
+cboe_c1_options_orderentry_boe_v2_10.fields.new_order_rout_strategy_exists = ProtoField.new("New Order Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_route_delivery_method_exists = ProtoField.new("New Order Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
-cboe_c1_options_orderentry_boe_v2_10.fields.new_order_route_strategy_exists = ProtoField.new("New Order Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_routing_firm_id_exists = ProtoField.new("New Order Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_routing_inst_exists = ProtoField.new("New Order Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.neworderroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.new_order_session_eligibility_exists = ProtoField.new("New Order Session Eligibility Exists", "cboe.c1.options.orderentry.boe.v2.10.newordersessioneligibilityexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -648,7 +648,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_give_up_firm_id
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_last_px_exists = ProtoField.new("Order Acknowledgment Last Px Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentlastpxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_last_shares_exists = ProtoField.new("Order Acknowledgment Last Shares Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentlastsharesexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_leaves_qty_exists = ProtoField.new("Order Acknowledgment Leaves Qty Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_market_fee_code_exists = ProtoField.new("Order Acknowledgment Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_marketing_fee_code_exists = ProtoField.new("Order Acknowledgment Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_maturity_date_exists = ProtoField.new("Order Acknowledgment Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_max_floor_exists = ProtoField.new("Order Acknowledgment Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_max_remove_pct_exists = ProtoField.new("Order Acknowledgment Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -675,8 +675,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_reserved_bit_6_
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_reserved_bit_7_exists = ProtoField.new("Order Acknowledgment Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_reserved_bit_8_exists = ProtoField.new("Order Acknowledgment Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_return_bitfields = ProtoField.new("Order Acknowledgment Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_rout_strategy_exists = ProtoField.new("Order Acknowledgment Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_route_delivery_method_exists = ProtoField.new("Order Acknowledgment Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_route_strategy_exists = ProtoField.new("Order Acknowledgment Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_routing_firm_id_exists = ProtoField.new("Order Acknowledgment Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_routing_inst_exists = ProtoField.new("Order Acknowledgment Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_secondary_order_id_exists = ProtoField.new("Order Acknowledgment Secondary Order Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderacknowledgmentsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -737,7 +737,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_give_up_firm_id_exis
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_last_px_exists = ProtoField.new("Order Cancelled Last Px Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledlastpxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_last_shares_exists = ProtoField.new("Order Cancelled Last Shares Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledlastsharesexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_leaves_qty_exists = ProtoField.new("Order Cancelled Leaves Qty Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_market_fee_code_exists = ProtoField.new("Order Cancelled Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_marketing_fee_code_exists = ProtoField.new("Order Cancelled Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_maturity_date_exists = ProtoField.new("Order Cancelled Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_max_floor_exists = ProtoField.new("Order Cancelled Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_max_remove_pct_exists = ProtoField.new("Order Cancelled Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -763,8 +763,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_reserved_bit_6_exist
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_reserved_bit_7_exists = ProtoField.new("Order Cancelled Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_reserved_bit_8_exists = ProtoField.new("Order Cancelled Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_return_bitfields = ProtoField.new("Order Cancelled Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_rout_strategy_exists = ProtoField.new("Order Cancelled Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_route_delivery_method_exists = ProtoField.new("Order Cancelled Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_route_strategy_exists = ProtoField.new("Order Cancelled Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_routing_firm_id_exists = ProtoField.new("Order Cancelled Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_routing_inst_exists = ProtoField.new("Order Cancelled Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_secondary_order_id_exists = ProtoField.new("Order Cancelled Secondary Order Id Exists", "cboe.c1.options.orderentry.boe.v2.10.ordercancelledsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -830,7 +830,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_floor_routing_inst_e
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_floor_trader_acronym_exists = ProtoField.new("Order Execution Floor Trader Acronym Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionfloortraderacronymexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_frequent_trader_id_exists = ProtoField.new("Order Execution Frequent Trader Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionfrequenttraderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_give_up_firm_id_exists = ProtoField.new("Order Execution Give Up Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutiongiveupfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_market_fee_code_exists = ProtoField.new("Order Execution Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_marketing_fee_code_exists = ProtoField.new("Order Execution Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_maturity_date_exists = ProtoField.new("Order Execution Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_max_floor_exists = ProtoField.new("Order Execution Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_max_remove_pct_exists = ProtoField.new("Order Execution Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -854,8 +854,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_reserved_bit_6_exist
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_reserved_bit_7_exists = ProtoField.new("Order Execution Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_reserved_bit_8_exists = ProtoField.new("Order Execution Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_return_bitfields = ProtoField.new("Order Execution Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_rout_strategy_exists = ProtoField.new("Order Execution Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_route_delivery_method_exists = ProtoField.new("Order Execution Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_route_strategy_exists = ProtoField.new("Order Execution Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_routing_firm_id_exists = ProtoField.new("Order Execution Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_routing_inst_exists = ProtoField.new("Order Execution Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_secondary_exec_id_exists = ProtoField.new("Order Execution Secondary Exec Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderexecutionsecondaryexecidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
@@ -918,7 +918,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_give_up_firm_id_exist
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_last_px_exists = ProtoField.new("Order Modified Last Px Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedlastpxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_last_shares_exists = ProtoField.new("Order Modified Last Shares Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedlastsharesexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_leaves_qty_exists = ProtoField.new("Order Modified Leaves Qty Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_market_fee_code_exists = ProtoField.new("Order Modified Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_marketing_fee_code_exists = ProtoField.new("Order Modified Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_maturity_date_exists = ProtoField.new("Order Modified Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_max_floor_exists = ProtoField.new("Order Modified Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_max_remove_pct_exists = ProtoField.new("Order Modified Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -945,8 +945,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_reserved_bit_6_exists
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_reserved_bit_7_exists = ProtoField.new("Order Modified Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_reserved_bit_8_exists = ProtoField.new("Order Modified Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_return_bitfields = ProtoField.new("Order Modified Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_rout_strategy_exists = ProtoField.new("Order Modified Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_route_delivery_method_exists = ProtoField.new("Order Modified Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_route_strategy_exists = ProtoField.new("Order Modified Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_routing_firm_id_exists = ProtoField.new("Order Modified Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_routing_inst_exists = ProtoField.new("Order Modified Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_secondary_order_id_exists = ProtoField.new("Order Modified Secondary Order Id Exists", "cboe.c1.options.orderentry.boe.v2.10.ordermodifiedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -1005,7 +1005,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_floor_destination_exi
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_floor_routing_inst_exists = ProtoField.new("Order Rejected Floor Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedfloorroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_frequent_trader_id_exists = ProtoField.new("Order Rejected Frequent Trader Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedfrequenttraderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_give_up_firm_id_exists = ProtoField.new("Order Rejected Give Up Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedgiveupfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_market_fee_code_exists = ProtoField.new("Order Rejected Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_marketing_fee_code_exists = ProtoField.new("Order Rejected Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_maturity_date_exists = ProtoField.new("Order Rejected Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_max_floor_exists = ProtoField.new("Order Rejected Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_max_remove_pct_exists = ProtoField.new("Order Rejected Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -1031,8 +1031,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_reserved_bit_6_exists
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_reserved_bit_7_exists = ProtoField.new("Order Rejected Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_reserved_bit_8_exists = ProtoField.new("Order Rejected Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_return_bitfields = ProtoField.new("Order Rejected Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_rout_strategy_exists = ProtoField.new("Order Rejected Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_route_delivery_method_exists = ProtoField.new("Order Rejected Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_route_strategy_exists = ProtoField.new("Order Rejected Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_routing_firm_id_exists = ProtoField.new("Order Rejected Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_routing_inst_exists = ProtoField.new("Order Rejected Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_secondary_order_id_exists = ProtoField.new("Order Rejected Secondary Order Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrejectedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -1091,7 +1091,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_give_up_firm_id_exist
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_last_px_exists = ProtoField.new("Order Restated Last Px Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedlastpxexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_last_shares_exists = ProtoField.new("Order Restated Last Shares Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedlastsharesexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_leaves_qty_exists = ProtoField.new("Order Restated Leaves Qty Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedleavesqtyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_market_fee_code_exists = ProtoField.new("Order Restated Market Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedmarketfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
+cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_marketing_fee_code_exists = ProtoField.new("Order Restated Marketing Fee Code Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedmarketingfeecodeexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_maturity_date_exists = ProtoField.new("Order Restated Maturity Date Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedmaturitydateexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_max_floor_exists = ProtoField.new("Order Restated Max Floor Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedmaxfloorexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_max_remove_pct_exists = ProtoField.new("Order Restated Max Remove Pct Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedmaxremovepctexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
@@ -1118,8 +1118,8 @@ cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_reserved_bit_6_exists
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_reserved_bit_7_exists = ProtoField.new("Order Restated Reserved Bit 7 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedreservedbit7exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_reserved_bit_8_exists = ProtoField.new("Order Restated Reserved Bit 8 Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedreservedbit8exists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x80")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_return_bitfields = ProtoField.new("Order Restated Return Bitfields", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedreturnbitfields", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_rout_strategy_exists = ProtoField.new("Order Restated Rout Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedroutstrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_route_delivery_method_exists = ProtoField.new("Order Restated Route Delivery Method Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedroutedeliverymethodexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x20")
-cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_route_strategy_exists = ProtoField.new("Order Restated Route Strategy Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedroutestrategyexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x10")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_routing_firm_id_exists = ProtoField.new("Order Restated Routing Firm Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedroutingfirmidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_routing_inst_exists = ProtoField.new("Order Restated Routing Inst Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedroutinginstexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x08")
 cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_secondary_order_id_exists = ProtoField.new("Order Restated Secondary Order Id Exists", "cboe.c1.options.orderentry.boe.v2.10.orderrestatedsecondaryorderidexists", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x01")
@@ -1210,6 +1210,7 @@ cboe_c1_options_orderentry_boe_v2_10.fields.risk_reset_message = ProtoField.new(
 cboe_c1_options_orderentry_boe_v2_10.fields.risk_reset_result = ProtoField.new("Risk Reset Result", "cboe.c1.options.orderentry.boe.v2.10.riskresetresult", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.risk_root = ProtoField.new("Risk Root", "cboe.c1.options.orderentry.boe.v2.10.riskroot", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.risk_status_id = ProtoField.new("Risk Status Id", "cboe.c1.options.orderentry.boe.v2.10.riskstatusid", ftypes.STRING)
+cboe_c1_options_orderentry_boe_v2_10.fields.rout_strategy = ProtoField.new("Rout Strategy", "cboe.c1.options.orderentry.boe.v2.10.routstrategy", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.route_delivery_method = ProtoField.new("Route Delivery Method", "cboe.c1.options.orderentry.boe.v2.10.routedeliverymethod", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.routing_firm_id = ProtoField.new("Routing Firm Id", "cboe.c1.options.orderentry.boe.v2.10.routingfirmid", ftypes.STRING)
 cboe_c1_options_orderentry_boe_v2_10.fields.routing_inst = ProtoField.new("Routing Inst", "cboe.c1.options.orderentry.boe.v2.10.routinginst", ftypes.STRING)
@@ -13632,9 +13633,9 @@ display.cancel_rejected_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Cancel Rejected Target Party Id Exists|"
   end
-  -- Is Cancel Rejected Market Fee Code Exists flag set?
+  -- Is Cancel Rejected Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Cancel Rejected Market Fee Code Exists|"
+    display = display.."Cancel Rejected Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -13664,8 +13665,8 @@ dissect.cancel_rejected_byte_9_bits = function(buffer, offset, packet, parent)
   -- Cancel Rejected Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_target_party_id_exists, buffer(offset, 1))
 
-  -- Cancel Rejected Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_market_fee_code_exists, buffer(offset, 1))
+  -- Cancel Rejected Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.cancel_rejected_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Cancel Rejected Byte 9
@@ -14692,12 +14693,12 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
     index = dissect.stop_px(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = cancel_rejected_bitfield_count >= 9 and cancel_rejected_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = cancel_rejected_bitfield_count >= 9 and cancel_rejected_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -17428,6 +17429,26 @@ dissect.route_delivery_method = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
+-- Size: Rout Strategy
+size_of.rout_strategy = 6
+
+-- Display: Rout Strategy
+display.rout_strategy = function(value)
+  return "Rout Strategy: "..value
+end
+
+-- Dissect: Rout Strategy
+dissect.rout_strategy = function(buffer, offset, packet, parent)
+  local length = size_of.rout_strategy
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.rout_strategy(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.rout_strategy, range, value, display)
+
+  return offset + length, value
+end
+
 -- Size: Routing Inst
 size_of.routing_inst = 4
 
@@ -18316,9 +18337,9 @@ display.order_cancelled_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Cancelled Target Party Id Exists|"
   end
-  -- Is Order Cancelled Market Fee Code Exists flag set?
+  -- Is Order Cancelled Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Cancelled Market Fee Code Exists|"
+    display = display.."Order Cancelled Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -18348,8 +18369,8 @@ dissect.order_cancelled_byte_9_bits = function(buffer, offset, packet, parent)
   -- Order Cancelled Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Cancelled Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_market_fee_code_exists, buffer(offset, 1))
+  -- Order Cancelled Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Cancelled Byte 9
@@ -18385,9 +18406,9 @@ display.order_cancelled_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Cancelled Route Delivery Method Exists|"
   end
-  -- Is Order Cancelled Route Strategy Exists flag set?
+  -- Is Order Cancelled Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Cancelled Route Strategy Exists|"
+    display = display.."Order Cancelled Rout Strategy Exists|"
   end
   -- Is Order Cancelled Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -18421,8 +18442,8 @@ dissect.order_cancelled_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Cancelled Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Cancelled Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_route_strategy_exists, buffer(offset, 1))
+  -- Order Cancelled Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Cancelled Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_cancelled_routing_inst_exists, buffer(offset, 1))
@@ -19528,12 +19549,12 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_cancelled_bitfield_count >= 8 and order_cancelled_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -19552,12 +19573,12 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = order_cancelled_bitfield_count >= 9 and order_cancelled_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = order_cancelled_bitfield_count >= 9 and order_cancelled_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -22482,9 +22503,9 @@ display.order_restated_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Restated Target Party Id Exists|"
   end
-  -- Is Order Restated Market Fee Code Exists flag set?
+  -- Is Order Restated Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Restated Market Fee Code Exists|"
+    display = display.."Order Restated Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -22514,8 +22535,8 @@ dissect.order_restated_byte_9_bits = function(buffer, offset, packet, parent)
   -- Order Restated Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Restated Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_market_fee_code_exists, buffer(offset, 1))
+  -- Order Restated Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Restated Byte 9
@@ -22551,9 +22572,9 @@ display.order_restated_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Restated Route Delivery Method Exists|"
   end
-  -- Is Order Restated Route Strategy Exists flag set?
+  -- Is Order Restated Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Restated Route Strategy Exists|"
+    display = display.."Order Restated Rout Strategy Exists|"
   end
   -- Is Order Restated Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -22587,8 +22608,8 @@ dissect.order_restated_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Restated Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Restated Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_route_strategy_exists, buffer(offset, 1))
+  -- Order Restated Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Restated Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_restated_routing_inst_exists, buffer(offset, 1))
@@ -23694,12 +23715,12 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_restated_bitfield_count >= 8 and order_restated_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -23718,12 +23739,12 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = order_restated_bitfield_count >= 9 and order_restated_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = order_restated_bitfield_count >= 9 and order_restated_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -24760,9 +24781,9 @@ display.order_modified_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Modified Target Party Id Exists|"
   end
-  -- Is Order Modified Market Fee Code Exists flag set?
+  -- Is Order Modified Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Modified Market Fee Code Exists|"
+    display = display.."Order Modified Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -24792,8 +24813,8 @@ dissect.order_modified_byte_9_bits = function(buffer, offset, packet, parent)
   -- Order Modified Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Modified Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_market_fee_code_exists, buffer(offset, 1))
+  -- Order Modified Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Modified Byte 9
@@ -24829,9 +24850,9 @@ display.order_modified_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Modified Route Delivery Method Exists|"
   end
-  -- Is Order Modified Route Strategy Exists flag set?
+  -- Is Order Modified Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Modified Route Strategy Exists|"
+    display = display.."Order Modified Rout Strategy Exists|"
   end
   -- Is Order Modified Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -24865,8 +24886,8 @@ dissect.order_modified_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Modified Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Modified Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_route_strategy_exists, buffer(offset, 1))
+  -- Order Modified Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Modified Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_modified_routing_inst_exists, buffer(offset, 1))
@@ -25980,12 +26001,12 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_modified_bitfield_count >= 8 and order_modified_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -26004,12 +26025,12 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = order_modified_bitfield_count >= 9 and order_modified_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = order_modified_bitfield_count >= 9 and order_modified_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -28978,9 +28999,9 @@ display.order_rejected_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Rejected Target Party Id Exists|"
   end
-  -- Is Order Rejected Market Fee Code Exists flag set?
+  -- Is Order Rejected Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Rejected Market Fee Code Exists|"
+    display = display.."Order Rejected Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -29010,8 +29031,8 @@ dissect.order_rejected_byte_9_bits = function(buffer, offset, packet, parent)
   -- Order Rejected Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Rejected Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_market_fee_code_exists, buffer(offset, 1))
+  -- Order Rejected Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Rejected Byte 9
@@ -29047,9 +29068,9 @@ display.order_rejected_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Rejected Route Delivery Method Exists|"
   end
-  -- Is Order Rejected Route Strategy Exists flag set?
+  -- Is Order Rejected Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Rejected Route Strategy Exists|"
+    display = display.."Order Rejected Rout Strategy Exists|"
   end
   -- Is Order Rejected Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -29083,8 +29104,8 @@ dissect.order_rejected_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Rejected Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Rejected Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_route_strategy_exists, buffer(offset, 1))
+  -- Order Rejected Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Rejected Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_rejected_routing_inst_exists, buffer(offset, 1))
@@ -30126,12 +30147,12 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_rejected_bitfield_count >= 8 and order_rejected_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -30150,12 +30171,12 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = order_rejected_bitfield_count >= 9 and order_rejected_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = order_rejected_bitfield_count >= 9 and order_rejected_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -33308,9 +33329,9 @@ display.order_acknowledgment_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Acknowledgment Target Party Id Exists|"
   end
-  -- Is Order Acknowledgment Market Fee Code Exists flag set?
+  -- Is Order Acknowledgment Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Acknowledgment Market Fee Code Exists|"
+    display = display.."Order Acknowledgment Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -33340,8 +33361,8 @@ dissect.order_acknowledgment_byte_9_bits = function(buffer, offset, packet, pare
   -- Order Acknowledgment Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Acknowledgment Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_market_fee_code_exists, buffer(offset, 1))
+  -- Order Acknowledgment Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Acknowledgment Byte 9
@@ -33377,9 +33398,9 @@ display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Acknowledgment Route Delivery Method Exists|"
   end
-  -- Is Order Acknowledgment Route Strategy Exists flag set?
+  -- Is Order Acknowledgment Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Acknowledgment Route Strategy Exists|"
+    display = display.."Order Acknowledgment Rout Strategy Exists|"
   end
   -- Is Order Acknowledgment Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -33413,8 +33434,8 @@ dissect.order_acknowledgment_byte_8_bits = function(buffer, offset, packet, pare
   -- Order Acknowledgment Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Acknowledgment Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_route_strategy_exists, buffer(offset, 1))
+  -- Order Acknowledgment Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Acknowledgment Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_acknowledgment_routing_inst_exists, buffer(offset, 1))
@@ -34528,12 +34549,12 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
     index = dissect.routing_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(3) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = order_acknowledgment_bitfield_count >= 8 and order_acknowledgment_byte_8:bitfield(3) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -34552,12 +34573,12 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Market Fee Code
-  local market_fee_code_exists = order_acknowledgment_bitfield_count >= 9 and order_acknowledgment_byte_9:bitfield(7) > 0
+  -- Runtime optional field exists: Marketing Fee Code
+  local marketing_fee_code_exists = order_acknowledgment_bitfield_count >= 9 and order_acknowledgment_byte_9:bitfield(7) > 0
 
-  -- Runtime optional field: Market Fee Code
-  if market_fee_code_exists then
-    index = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field: Marketing Fee Code
+  if marketing_fee_code_exists then
+    index = dissect.marketing_fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -37298,9 +37319,9 @@ display.new_order_cross_multileg_byte_1 = function(buffer, packet, parent)
   if buffer:bitfield(1) > 0 then
     display = display.."New Order Cross Multileg Target Party Id Exists|"
   end
-  -- Is New Order Cross Multileg Attribute Quote Exists flag set?
+  -- Is New Order Cross Multileg Attributed Quote Exists flag set?
   if buffer:bitfield(2) > 0 then
-    display = display.."New Order Cross Multileg Attribute Quote Exists|"
+    display = display.."New Order Cross Multileg Attributed Quote Exists|"
   end
   -- Is New Order Cross Multileg Exec Inst Exists flag set?
   if buffer:bitfield(3) > 0 then
@@ -37335,8 +37356,8 @@ dissect.new_order_cross_multileg_byte_1_bits = function(buffer, offset, packet, 
   -- New Order Cross Multileg Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_target_party_id_exists, buffer(offset, 1))
 
-  -- New Order Cross Multileg Attribute Quote Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_attribute_quote_exists, buffer(offset, 1))
+  -- New Order Cross Multileg Attributed Quote Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_attributed_quote_exists, buffer(offset, 1))
 
   -- New Order Cross Multileg Exec Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_multileg_exec_inst_exists, buffer(offset, 1))
@@ -37466,12 +37487,12 @@ dissect.new_order_cross_multileg_optional_fields_fields = function(buffer, offse
     index = dissect.exec_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attribute Quote
-  local attribute_quote_exists = new_order_cross_multileg_bitfield_count >= 1 and new_order_cross_multileg_byte_1:bitfield(2) > 0
+  -- Runtime optional field exists: Attributed Quote
+  local attributed_quote_exists = new_order_cross_multileg_bitfield_count >= 1 and new_order_cross_multileg_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Attribute Quote
-  if attribute_quote_exists then
-    index = dissect.attribute_quote(buffer, index, packet, parent)
+  -- Runtime optional field: Attributed Quote
+  if attributed_quote_exists then
+    index = dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -37766,14 +37787,8 @@ dissect.new_order_complex_message_fields = function(buffer, offset, packet, pare
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Runtime Size Of: New Order Complex Optional Fields
-  local size_of_new_order_complex_optional_fields = message_length - (index - offset) - 8
-
   -- New Order Complex Optional Fields
-  index = dissect.new_order_complex_optional_fields(buffer, index, packet, parent, size_of_new_order_complex_optional_fields)
+  index, new_order_complex_optional_fields = dissect.new_order_complex_optional_fields(buffer, index, packet, parent)
 
   return index
 end
@@ -38069,9 +38084,9 @@ display.new_order_cross_byte_1 = function(buffer, packet, parent)
   if buffer:bitfield(1) > 0 then
     display = display.."New Order Cross Target Party Id Exists|"
   end
-  -- Is New Order Cross Attribute Quote Exists flag set?
+  -- Is New Order Cross Attributed Quote Exists flag set?
   if buffer:bitfield(2) > 0 then
-    display = display.."New Order Cross Attribute Quote Exists|"
+    display = display.."New Order Cross Attributed Quote Exists|"
   end
   -- Is New Order Cross Exec Inst Exists flag set?
   if buffer:bitfield(3) > 0 then
@@ -38106,8 +38121,8 @@ dissect.new_order_cross_byte_1_bits = function(buffer, offset, packet, parent)
   -- New Order Cross Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_target_party_id_exists, buffer(offset, 1))
 
-  -- New Order Cross Attribute Quote Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_attribute_quote_exists, buffer(offset, 1))
+  -- New Order Cross Attributed Quote Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_attributed_quote_exists, buffer(offset, 1))
 
   -- New Order Cross Exec Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_cross_exec_inst_exists, buffer(offset, 1))
@@ -38251,12 +38266,12 @@ dissect.new_order_cross_optional_fields_fields = function(buffer, offset, packet
     index = dissect.exec_inst(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Attribute Quote
-  local attribute_quote_exists = new_order_cross_bitfield_count >= 1 and new_order_cross_byte_1:bitfield(2) > 0
+  -- Runtime optional field exists: Attributed Quote
+  local attributed_quote_exists = new_order_cross_bitfield_count >= 1 and new_order_cross_byte_1:bitfield(2) > 0
 
-  -- Runtime optional field: Attribute Quote
-  if attribute_quote_exists then
-    index = dissect.attribute_quote(buffer, index, packet, parent)
+  -- Runtime optional field: Attributed Quote
+  if attributed_quote_exists then
+    index = dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Target Party Id
@@ -38803,9 +38818,9 @@ display.new_order_byte_6 = function(buffer, packet, parent)
   if buffer:bitfield(4) > 0 then
     display = display.."New Order Route Delivery Method Exists|"
   end
-  -- Is New Order Route Strategy Exists flag set?
+  -- Is New Order Rout Strategy Exists flag set?
   if buffer:bitfield(5) > 0 then
-    display = display.."New Order Route Strategy Exists|"
+    display = display.."New Order Rout Strategy Exists|"
   end
   -- Is New Order Stop Px Exists flag set?
   if buffer:bitfield(6) > 0 then
@@ -38837,8 +38852,8 @@ dissect.new_order_byte_6_bits = function(buffer, offset, packet, parent)
   -- New Order Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_route_delivery_method_exists, buffer(offset, 1))
 
-  -- New Order Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_route_strategy_exists, buffer(offset, 1))
+  -- New Order Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_rout_strategy_exists, buffer(offset, 1))
 
   -- New Order Stop Px Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.new_order_stop_px_exists, buffer(offset, 1))
@@ -39616,12 +39631,12 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
     index = dissect.stop_px(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Route Strategy
-  local route_strategy_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(5) > 0
+  -- Runtime optional field exists: Rout Strategy
+  local rout_strategy_exists = new_order_bitfield_count >= 6 and new_order_byte_6:bitfield(5) > 0
 
-  -- Runtime optional field: Route Strategy
-  if route_strategy_exists then
-    index = dissect.route_strategy(buffer, index, packet, parent)
+  -- Runtime optional field: Rout Strategy
+  if rout_strategy_exists then
+    index = dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -41576,9 +41591,9 @@ display.order_execution_byte_9 = function(buffer, packet, parent)
   if buffer:bitfield(6) > 0 then
     display = display.."Order Execution Target Party Id Exists|"
   end
-  -- Is Order Execution Market Fee Code Exists flag set?
+  -- Is Order Execution Marketing Fee Code Exists flag set?
   if buffer:bitfield(7) > 0 then
-    display = display.."Order Execution Market Fee Code Exists|"
+    display = display.."Order Execution Marketing Fee Code Exists|"
   end
 
   return display:sub(1, -2)
@@ -41608,8 +41623,8 @@ dissect.order_execution_byte_9_bits = function(buffer, offset, packet, parent)
   -- Order Execution Target Party Id Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_target_party_id_exists, buffer(offset, 1))
 
-  -- Order Execution Market Fee Code Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_market_fee_code_exists, buffer(offset, 1))
+  -- Order Execution Marketing Fee Code Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_marketing_fee_code_exists, buffer(offset, 1))
 end
 
 -- Dissect: Order Execution Byte 9
@@ -41645,9 +41660,9 @@ display.order_execution_byte_8 = function(buffer, packet, parent)
   if buffer:bitfield(2) > 0 then
     display = display.."Order Execution Route Delivery Method Exists|"
   end
-  -- Is Order Execution Route Strategy Exists flag set?
+  -- Is Order Execution Rout Strategy Exists flag set?
   if buffer:bitfield(3) > 0 then
-    display = display.."Order Execution Route Strategy Exists|"
+    display = display.."Order Execution Rout Strategy Exists|"
   end
   -- Is Order Execution Routing Inst Exists flag set?
   if buffer:bitfield(4) > 0 then
@@ -41681,8 +41696,8 @@ dissect.order_execution_byte_8_bits = function(buffer, offset, packet, parent)
   -- Order Execution Route Delivery Method Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_route_delivery_method_exists, buffer(offset, 1))
 
-  -- Order Execution Route Strategy Exists: 1 Bit
-  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_route_strategy_exists, buffer(offset, 1))
+  -- Order Execution Rout Strategy Exists: 1 Bit
+  parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_rout_strategy_exists, buffer(offset, 1))
 
   -- Order Execution Routing Inst Exists: 1 Bit
   parent:add(cboe_c1_options_orderentry_boe_v2_10.fields.order_execution_routing_inst_exists, buffer(offset, 1))

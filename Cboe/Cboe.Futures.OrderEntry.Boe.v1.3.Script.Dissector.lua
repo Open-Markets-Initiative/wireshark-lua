@@ -106,12 +106,14 @@ cboe_futures_orderentry_boe_v1_3.fields.corrected_size = ProtoField.new("Correct
 cboe_futures_orderentry_boe_v1_3.fields.cti_code = ProtoField.new("Cti Code", "cboe.futures.orderentry.boe.v1.3.cticode", ftypes.STRING)
 cboe_futures_orderentry_boe_v1_3.fields.cum_qty = ProtoField.new("Cum Qty", "cboe.futures.orderentry.boe.v1.3.cumqty", ftypes.UINT32)
 cboe_futures_orderentry_boe_v1_3.fields.custom_group_id = ProtoField.new("Custom Group Id", "cboe.futures.orderentry.boe.v1.3.customgroupid", ftypes.UINT16)
+cboe_futures_orderentry_boe_v1_3.fields.day_avg_px = ProtoField.new("Day Avg Px", "cboe.futures.orderentry.boe.v1.3.dayavgpx", ftypes.INT64)
 cboe_futures_orderentry_boe_v1_3.fields.day_cum_qty = ProtoField.new("Day Cum Qty", "cboe.futures.orderentry.boe.v1.3.daycumqty", ftypes.UINT32)
 cboe_futures_orderentry_boe_v1_3.fields.day_order_qty = ProtoField.new("Day Order Qty", "cboe.futures.orderentry.boe.v1.3.dayorderqty", ftypes.UINT32)
 cboe_futures_orderentry_boe_v1_3.fields.exec_id = ProtoField.new("Exec Id", "cboe.futures.orderentry.boe.v1.3.execid", ftypes.UINT64)
 cboe_futures_orderentry_boe_v1_3.fields.exec_ref_id = ProtoField.new("Exec Ref Id", "cboe.futures.orderentry.boe.v1.3.execrefid", ftypes.UINT64)
 cboe_futures_orderentry_boe_v1_3.fields.expire_time = ProtoField.new("Expire Time", "cboe.futures.orderentry.boe.v1.3.expiretime", ftypes.UINT64)
 cboe_futures_orderentry_boe_v1_3.fields.fee_code = ProtoField.new("Fee Code", "cboe.futures.orderentry.boe.v1.3.feecode", ftypes.STRING)
+cboe_futures_orderentry_boe_v1_3.fields.frequent_trader_id = ProtoField.new("Frequent Trader Id", "cboe.futures.orderentry.boe.v1.3.frequenttraderid", ftypes.STRING)
 cboe_futures_orderentry_boe_v1_3.fields.last_px = ProtoField.new("Last Px", "cboe.futures.orderentry.boe.v1.3.lastpx", ftypes.INT64)
 cboe_futures_orderentry_boe_v1_3.fields.last_received_sequence_number = ProtoField.new("Last Received Sequence Number", "cboe.futures.orderentry.boe.v1.3.lastreceivedsequencenumber", ftypes.UINT32)
 cboe_futures_orderentry_boe_v1_3.fields.last_shares = ProtoField.new("Last Shares", "cboe.futures.orderentry.boe.v1.3.lastshares", ftypes.UINT32)
@@ -2703,6 +2705,26 @@ dissect.tas_quote_restatement_message = function(buffer, offset, packet, parent)
   dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent, size_of_tas_quote_restatement_message)
 
   return offset + size_of_tas_quote_restatement_message
+end
+
+-- Size: Frequent Trader Id
+size_of.frequent_trader_id = 6
+
+-- Display: Frequent Trader Id
+display.frequent_trader_id = function(value)
+  return "Frequent Trader Id: "..value
+end
+
+-- Dissect: Frequent Trader Id
+dissect.frequent_trader_id = function(buffer, offset, packet, parent)
+  local length = size_of.frequent_trader_id
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = display.frequent_trader_id(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_orderentry_boe_v1_3.fields.frequent_trader_id, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Secondary Exec Id
@@ -11331,6 +11353,26 @@ dissect.pending_status = function(buffer, offset, packet, parent)
   local display = display.pending_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe_v1_3.fields.pending_status, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Day Avg Px
+size_of.day_avg_px = 8
+
+-- Display: Day Avg Px
+display.day_avg_px = function(value)
+  return "Day Avg Px: "..value
+end
+
+-- Dissect: Day Avg Px
+dissect.day_avg_px = function(buffer, offset, packet, parent)
+  local length = size_of.day_avg_px
+  local range = buffer(offset, length)
+  local value = range:le_int64()
+  local display = display.day_avg_px(value, buffer, offset, packet, parent)
+
+  parent:add(cboe_futures_orderentry_boe_v1_3.fields.day_avg_px, range, value, display)
 
   return offset + length, value
 end
@@ -26519,13 +26561,8 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
     index = dissect.cancel_orig_on_reject(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Exec Inst
-  local exec_inst_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(1) > 0
-
-  -- Runtime optional field: Exec Inst
-  if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
-  end
+  -- Exec Inst
+  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Side
   local side_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(0) > 0
@@ -26535,13 +26572,8 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
     index = dissect.side(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Reserved Bit 1
-  local reserved_bit_1_exists = modify_order_bitfield_count >= 2 and modify_order_byte_2:bitfield(7) > 0
-
-  -- Runtime optional field: Reserved Bit 1
-  if reserved_bit_1_exists then
-    index = dissect.reserved_bit_1(buffer, index, packet, parent)
-  end
+  -- Reserved Bit 1
+  index, reserved_bit_1 = dissect.reserved_bit_1(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Stop Px
   local stop_px_exists = modify_order_bitfield_count >= 2 and modify_order_byte_2:bitfield(6) > 0
@@ -27924,13 +27956,8 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
     index = dissect.oeoid(buffer, index, packet, parent)
   end
 
-  -- Runtime optional field exists: Reserved Bit 2
-  local reserved_bit_2_exists = new_order_bitfield_count >= 8 and new_order_byte_8:bitfield(6) > 0
-
-  -- Runtime optional field: Reserved Bit 2
-  if reserved_bit_2_exists then
-    index = dissect.reserved_bit_2(buffer, index, packet, parent)
-  end
+  -- Reserved Bit 2
+  index, reserved_bit_2 = dissect.reserved_bit_2(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Frequent Trader Id
   local frequent_trader_id_exists = new_order_bitfield_count >= 8 and new_order_byte_8:bitfield(3) > 0

@@ -1207,9 +1207,7 @@ size_of.not_used_group_1_groups = function(buffer, offset)
 
   index = index + size_of.group_size_encoding(buffer, offset + index)
 
-  -- Calculate field size from count
-  local not_used_group_1_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + not_used_group_1_group_count * 0
+  index = index + size_of.not_used_group_1_group
 
   return index
 end
@@ -1226,20 +1224,15 @@ dissect.not_used_group_1_groups_fields = function(buffer, offset, packet, parent
   -- Group Size Encoding: Struct of 2 fields
   index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
   -- Not Used Group 1 Group
-  for i = 1, num_in_group do
-    index = dissect.not_used_group_1_group(buffer, index, packet, parent)
-  end
+  index, not_used_group_1_group = dissect.not_used_group_1_group(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Not Used Group 1 Groups
 dissect.not_used_group_1_groups = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.not_used_group_1_groups then
     local length = size_of.not_used_group_1_groups(buffer, offset)
     local range = buffer(offset, length)
@@ -1633,7 +1626,7 @@ end
 
 -- Dissect: Declaration Entry Reject Message
 dissect.declaration_entry_reject_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.declaration_entry_reject_message then
     local length = size_of.declaration_entry_reject_message(buffer, offset)
     local range = buffer(offset, length)
@@ -2011,9 +2004,7 @@ size_of.not_used_group_2_groups = function(buffer, offset)
 
   index = index + size_of.group_size_encoding(buffer, offset + index)
 
-  -- Calculate field size from count
-  local not_used_group_2_group_count = buffer(offset + index - 1, 1):le_uint()
-  index = index + not_used_group_2_group_count * 0
+  index = index + size_of.not_used_group_2_group
 
   return index
 end
@@ -2030,20 +2021,15 @@ dissect.not_used_group_2_groups_fields = function(buffer, offset, packet, parent
   -- Group Size Encoding: Struct of 2 fields
   index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
 
-  -- Dependency element: Num In Group
-  local num_in_group = buffer(index - 1, 1):le_uint()
-
   -- Not Used Group 2 Group
-  for i = 1, num_in_group do
-    index = dissect.not_used_group_2_group(buffer, index, packet, parent)
-  end
+  index, not_used_group_2_group = dissect.not_used_group_2_group(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Not Used Group 2 Groups
 dissect.not_used_group_2_groups = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.not_used_group_2_groups then
     local length = size_of.not_used_group_2_groups(buffer, offset)
     local range = buffer(offset, length)
@@ -3311,7 +3297,7 @@ end
 
 -- Dissect: Declaration Notice Message
 dissect.declaration_notice_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.declaration_notice_message then
     local length = size_of.declaration_notice_message(buffer, offset)
     local range = buffer(offset, length)
@@ -3398,7 +3384,7 @@ end
 
 -- Dissect: Declaration Entry Ack Message
 dissect.declaration_entry_ack_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.declaration_entry_ack_message then
     local length = size_of.declaration_entry_ack_message(buffer, offset)
     local range = buffer(offset, length)
@@ -3789,7 +3775,7 @@ end
 
 -- Dissect: Declaration Entry Message
 dissect.declaration_entry_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.declaration_entry_message then
     local length = size_of.declaration_entry_message(buffer, offset)
     local range = buffer(offset, length)
@@ -9853,7 +9839,7 @@ end
 
 -- Dissect: User Notification Message
 dissect.user_notification_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.user_notification_message then
     local length = size_of.user_notification_message(buffer, offset)
     local range = buffer(offset, length)
@@ -11906,7 +11892,7 @@ end
 
 -- Dissect: Mass Cancel Message
 dissect.mass_cancel_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.mass_cancel_message then
     local length = size_of.mass_cancel_message(buffer, offset)
     local range = buffer(offset, length)
@@ -12013,7 +11999,7 @@ end
 
 -- Dissect: Cancel Request Message
 dissect.cancel_request_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.cancel_request_message then
     local length = size_of.cancel_request_message(buffer, offset)
     local range = buffer(offset, length)
