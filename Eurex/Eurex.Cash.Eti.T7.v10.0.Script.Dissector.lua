@@ -2048,56 +2048,13 @@ dissect.message_header_in_comp = function(buffer, offset, packet, parent)
   return dissect.message_header_in_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Xetra En Light Update Negotiation Request
-size_of.xetra_en_light_update_negotiation_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.no_target_party_i_ds
-
-  index = index + size_of.number_of_resp_disclosure_instruction
-
-  index = index + size_of.side
-
-  index = index + size_of.quote_cancel_type
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local xetra_en_light_target_parties_comp_count = buffer(offset + index - 148, 1):le_uint()
-  index = index + xetra_en_light_target_parties_comp_count * 16
-
-  return index
-end
-
 -- Display: Xetra En Light Update Negotiation Request
 display.xetra_en_light_update_negotiation_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Update Negotiation Request
-dissect.xetra_en_light_update_negotiation_request_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_update_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_update_negotiation_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -2158,15 +2115,23 @@ end
 
 -- Dissect: Xetra En Light Update Negotiation Request
 dissect.xetra_en_light_update_negotiation_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_update_negotiation_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_update_negotiation_request then
-    local length = size_of.xetra_en_light_update_negotiation_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_update_negotiation_request)
     local display = display.xetra_en_light_update_negotiation_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_update_negotiation_request, range, display)
   end
 
-  return dissect.xetra_en_light_update_negotiation_request_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_update_negotiation_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_update_negotiation_request)
+
+  return offset + size_of_xetra_en_light_update_negotiation_request
 end
 
 -- Size: Pad 3
@@ -2572,30 +2537,13 @@ dissect.message_header_out_comp = function(buffer, offset, packet, parent)
   return dissect.message_header_out_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Xetra En Light Status Broadcast
-size_of.xetra_en_light_status_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.trad_ses_event
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Xetra En Light Status Broadcast
 display.xetra_en_light_status_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Status Broadcast
-dissect.xetra_en_light_status_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_status_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -2618,15 +2566,23 @@ end
 
 -- Dissect: Xetra En Light Status Broadcast
 dissect.xetra_en_light_status_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_status_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_status_broadcast then
-    local length = size_of.xetra_en_light_status_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_status_broadcast)
     local display = display.xetra_en_light_status_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_status_broadcast, range, display)
   end
 
-  return dissect.xetra_en_light_status_broadcast_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_status_broadcast_fields(buffer, offset, packet, parent, size_of_xetra_en_light_status_broadcast)
+
+  return offset + size_of_xetra_en_light_status_broadcast
 end
 
 -- Size: Pad 4
@@ -2682,36 +2638,13 @@ dissect.quoting_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Quoting Status Request
-size_of.xetra_en_light_quoting_status_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.quoting_status
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: Xetra En Light Quoting Status Request
 display.xetra_en_light_quoting_status_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Quoting Status Request
-dissect.xetra_en_light_quoting_status_request_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_quoting_status_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_quoting_status_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -2743,15 +2676,23 @@ end
 
 -- Dissect: Xetra En Light Quoting Status Request
 dissect.xetra_en_light_quoting_status_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_quoting_status_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quoting_status_request then
-    local length = size_of.xetra_en_light_quoting_status_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_quoting_status_request)
     local display = display.xetra_en_light_quoting_status_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_quoting_status_request, range, display)
   end
 
-  return dissect.xetra_en_light_quoting_status_request_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_quoting_status_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_quoting_status_request)
+
+  return offset + size_of_xetra_en_light_quoting_status_request
 end
 
 -- Size: Quote Req Id
@@ -2866,30 +2807,13 @@ dissect.response_header_comp = function(buffer, offset, packet, parent)
   return dissect.response_header_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Xetra En Light Quote Response
-size_of.xetra_en_light_quote_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.quote_req_id
-
-  return index
-end
-
 -- Display: Xetra En Light Quote Response
 display.xetra_en_light_quote_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Quote Response
-dissect.xetra_en_light_quote_response_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_quote_response_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_quote_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -2912,15 +2836,23 @@ end
 
 -- Dissect: Xetra En Light Quote Response
 dissect.xetra_en_light_quote_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_quote_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_response then
-    local length = size_of.xetra_en_light_quote_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_quote_response)
     local display = display.xetra_en_light_quote_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_quote_response, range, display)
   end
 
-  return dissect.xetra_en_light_quote_response_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_quote_response_fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_response)
+
+  return offset + size_of_xetra_en_light_quote_response
 end
 
 -- Size: Party Entering Trader
@@ -3192,40 +3124,13 @@ dissect.trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Quote Requester Notification
-size_of.xetra_en_light_quote_requester_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.trade_id
-
-  index = index + size_of.quote_req_id
-
-  index = index + size_of.no_quote_entries
-
-  index = index + size_of.pad_3
-
-  -- Calculate field size from count
-  local srqs_quote_entry_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + srqs_quote_entry_grp_comp_count * 80
-
-  return index
-end
-
 -- Display: Xetra En Light Quote Requester Notification
 display.xetra_en_light_quote_requester_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Quote Requester Notification
-dissect.xetra_en_light_quote_requester_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_quote_requester_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_quote_requester_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -3262,15 +3167,23 @@ end
 
 -- Dissect: Xetra En Light Quote Requester Notification
 dissect.xetra_en_light_quote_requester_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_quote_requester_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_requester_notification then
-    local length = size_of.xetra_en_light_quote_requester_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_quote_requester_notification)
     local display = display.xetra_en_light_quote_requester_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_quote_requester_notification, range, display)
   end
 
-  return dissect.xetra_en_light_quote_requester_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_quote_requester_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_requester_notification)
+
+  return offset + size_of_xetra_en_light_quote_requester_notification
 end
 
 -- Size: Free Text 4
@@ -3411,62 +3324,13 @@ dissect.trading_capacity = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Quote Notification
-size_of.xetra_en_light_quote_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.secondary_quote_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.quoting_status
-
-  index = index + size_of.quote_event_reason
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.quote_req_id
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: Xetra En Light Quote Notification
 display.xetra_en_light_quote_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Quote Notification
-dissect.xetra_en_light_quote_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_quote_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_quote_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -3537,15 +3401,23 @@ end
 
 -- Dissect: Xetra En Light Quote Notification
 dissect.xetra_en_light_quote_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_quote_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_notification then
-    local length = size_of.xetra_en_light_quote_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_quote_notification)
     local display = display.xetra_en_light_quote_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_quote_notification, range, display)
   end
 
-  return dissect.xetra_en_light_quote_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_quote_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_quote_notification)
+
+  return offset + size_of_xetra_en_light_quote_notification
 end
 
 -- Size: Firm Negotiation Id
@@ -3740,74 +3612,13 @@ dissect.security_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Open Negotiation Requester Notification
-size_of.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.security_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.last_px
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.expire_time
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.number_of_respondents
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.quote_status
-
-  index = index + size_of.no_target_party_i_ds
-
-  index = index + size_of.side
-
-  index = index + size_of.number_of_resp_disclosure_instruction
-
-  index = index + size_of.respondent_type
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.pad_2
-
-  -- Calculate field size from count
-  local xetra_en_light_target_parties_comp_count = buffer(offset + index - 175, 1):le_uint()
-  index = index + xetra_en_light_target_parties_comp_count * 16
-
-  return index
-end
-
 -- Display: Xetra En Light Open Negotiation Requester Notification
 display.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Open Negotiation Requester Notification
-dissect.xetra_en_light_open_negotiation_requester_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_open_negotiation_requester_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_requester_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -3895,15 +3706,23 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Requester Notification
 dissect.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_open_negotiation_requester_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_requester_notification then
-    local length = size_of.xetra_en_light_open_negotiation_requester_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_open_negotiation_requester_notification)
     local display = display.xetra_en_light_open_negotiation_requester_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_open_negotiation_requester_notification, range, display)
   end
 
-  return dissect.xetra_en_light_open_negotiation_requester_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_open_negotiation_requester_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_requester_notification)
+
+  return offset + size_of_xetra_en_light_open_negotiation_requester_notification
 end
 
 -- Size: Value Check Type Quantity
@@ -3980,64 +3799,13 @@ dissect.valid_until_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Open Negotiation Request
-size_of.xetra_en_light_open_negotiation_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.valid_until_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.no_target_party_i_ds
-
-  index = index + size_of.number_of_resp_disclosure_instruction
-
-  index = index + size_of.side
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.respondent_type
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.quote_req_id
-
-  index = index + size_of.pad_7
-
-  -- Calculate field size from count
-  local xetra_en_light_target_parties_comp_count = buffer(offset + index - 176, 1):le_uint()
-  index = index + xetra_en_light_target_parties_comp_count * 16
-
-  return index
-end
-
 -- Display: Xetra En Light Open Negotiation Request
 display.xetra_en_light_open_negotiation_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Open Negotiation Request
-dissect.xetra_en_light_open_negotiation_request_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_open_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -4110,15 +3878,23 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Request
 dissect.xetra_en_light_open_negotiation_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_open_negotiation_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_request then
-    local length = size_of.xetra_en_light_open_negotiation_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_open_negotiation_request)
     local display = display.xetra_en_light_open_negotiation_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_open_negotiation_request, range, display)
   end
 
-  return dissect.xetra_en_light_open_negotiation_request_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_open_negotiation_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_request)
+
+  return offset + size_of_xetra_en_light_open_negotiation_request
 end
 
 -- Size: Leaves Qty
@@ -4167,68 +3943,13 @@ dissect.negotiation_start_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Open Negotiation Notification
-size_of.xetra_en_light_open_negotiation_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.negotiation_start_time
-
-  index = index + size_of.security_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.expire_time
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.number_of_respondents
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.quote_status
-
-  index = index + size_of.side
-
-  index = index + size_of.respondent_type
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.target_party_executing_firm
-
-  index = index + size_of.target_party_executing_trader
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.pad_1
-
-  return index
-end
-
 -- Display: Xetra En Light Open Negotiation Notification
 display.xetra_en_light_open_negotiation_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Open Negotiation Notification
-dissect.xetra_en_light_open_negotiation_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_open_negotiation_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -4308,36 +4029,23 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Notification
 dissect.xetra_en_light_open_negotiation_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_open_negotiation_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_notification then
-    local length = size_of.xetra_en_light_open_negotiation_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_open_negotiation_notification)
     local display = display.xetra_en_light_open_negotiation_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_open_negotiation_notification, range, display)
   end
 
-  return dissect.xetra_en_light_open_negotiation_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.xetra_en_light_open_negotiation_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_notification)
 
--- Calculate size of: Xetra En Light Negotiation Status Notification
-size_of.xetra_en_light_negotiation_status_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.quote_status
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_xetra_en_light_open_negotiation_notification
 end
 
 -- Display: Xetra En Light Negotiation Status Notification
@@ -4346,7 +4054,7 @@ display.xetra_en_light_negotiation_status_notification = function(buffer, offset
 end
 
 -- Dissect Fields: Xetra En Light Negotiation Status Notification
-dissect.xetra_en_light_negotiation_status_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_negotiation_status_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_status_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -4375,15 +4083,23 @@ end
 
 -- Dissect: Xetra En Light Negotiation Status Notification
 dissect.xetra_en_light_negotiation_status_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_negotiation_status_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_status_notification then
-    local length = size_of.xetra_en_light_negotiation_status_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_negotiation_status_notification)
     local display = display.xetra_en_light_negotiation_status_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_negotiation_status_notification, range, display)
   end
 
-  return dissect.xetra_en_light_negotiation_status_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_negotiation_status_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_status_notification)
+
+  return offset + size_of_xetra_en_light_negotiation_status_notification
 end
 
 -- Size: Trd Reg Ts Execution Time
@@ -4406,70 +4122,13 @@ dissect.trd_reg_ts_execution_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Negotiation Requester Notification
-size_of.xetra_en_light_negotiation_requester_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.trd_reg_ts_execution_time
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.last_px
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.number_of_respondents
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.quote_status
-
-  index = index + size_of.no_target_party_i_ds
-
-  index = index + size_of.number_of_resp_disclosure_instruction
-
-  index = index + size_of.side
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.pad_7
-
-  -- Calculate field size from count
-  local xetra_en_light_target_parties_comp_count = buffer(offset + index - 179, 1):le_uint()
-  index = index + xetra_en_light_target_parties_comp_count * 16
-
-  return index
-end
-
 -- Display: Xetra En Light Negotiation Requester Notification
 display.xetra_en_light_negotiation_requester_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Negotiation Requester Notification
-dissect.xetra_en_light_negotiation_requester_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_negotiation_requester_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_requester_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -4551,15 +4210,23 @@ end
 
 -- Dissect: Xetra En Light Negotiation Requester Notification
 dissect.xetra_en_light_negotiation_requester_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_negotiation_requester_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_requester_notification then
-    local length = size_of.xetra_en_light_negotiation_requester_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_negotiation_requester_notification)
     local display = display.xetra_en_light_negotiation_requester_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_negotiation_requester_notification, range, display)
   end
 
-  return dissect.xetra_en_light_negotiation_requester_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_negotiation_requester_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_requester_notification)
+
+  return offset + size_of_xetra_en_light_negotiation_requester_notification
 end
 
 -- Size: Pad 6
@@ -4582,58 +4249,13 @@ dissect.pad_6 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Negotiation Notification
-size_of.xetra_en_light_negotiation_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.number_of_respondents
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.quote_status
-
-  index = index + size_of.side
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.target_party_executing_firm
-
-  index = index + size_of.target_party_executing_trader
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.free_text_5
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: Xetra En Light Negotiation Notification
 display.xetra_en_light_negotiation_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Negotiation Notification
-dissect.xetra_en_light_negotiation_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_negotiation_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -4698,15 +4320,23 @@ end
 
 -- Dissect: Xetra En Light Negotiation Notification
 dissect.xetra_en_light_negotiation_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_negotiation_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_notification then
-    local length = size_of.xetra_en_light_negotiation_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_negotiation_notification)
     local display = display.xetra_en_light_negotiation_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_negotiation_notification, range, display)
   end
 
-  return dissect.xetra_en_light_negotiation_notification_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_negotiation_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_notification)
+
+  return offset + size_of_xetra_en_light_negotiation_notification
 end
 
 -- Size: Firm Trade Id
@@ -4947,70 +4577,13 @@ dissect.price = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Hit Quote Request
-size_of.xetra_en_light_hit_quote_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.price
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.side
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.alloc_method
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.firm_trade_id
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  return index
-end
-
 -- Display: Xetra En Light Hit Quote Request
 display.xetra_en_light_hit_quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Hit Quote Request
-dissect.xetra_en_light_hit_quote_request_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_hit_quote_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_hit_quote_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -5093,68 +4666,23 @@ end
 
 -- Dissect: Xetra En Light Hit Quote Request
 dissect.xetra_en_light_hit_quote_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_hit_quote_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_hit_quote_request then
-    local length = size_of.xetra_en_light_hit_quote_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_hit_quote_request)
     local display = display.xetra_en_light_hit_quote_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_hit_quote_request, range, display)
   end
 
-  return dissect.xetra_en_light_hit_quote_request_fields(buffer, offset, packet, parent)
-end
+  dissect.xetra_en_light_hit_quote_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_hit_quote_request)
 
--- Calculate size of: Xetra En Light Enter Quote Request
-size_of.xetra_en_light_enter_quote_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_xetra_en_light_hit_quote_request
 end
 
 -- Display: Xetra En Light Enter Quote Request
@@ -5163,7 +4691,7 @@ display.xetra_en_light_enter_quote_request = function(buffer, offset, size, pack
 end
 
 -- Dissect Fields: Xetra En Light Enter Quote Request
-dissect.xetra_en_light_enter_quote_request_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_enter_quote_request_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_enter_quote_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -5240,15 +4768,23 @@ end
 
 -- Dissect: Xetra En Light Enter Quote Request
 dissect.xetra_en_light_enter_quote_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_enter_quote_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_enter_quote_request then
-    local length = size_of.xetra_en_light_enter_quote_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_enter_quote_request)
     local display = display.xetra_en_light_enter_quote_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_enter_quote_request, range, display)
   end
 
-  return dissect.xetra_en_light_enter_quote_request_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_enter_quote_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_enter_quote_request)
+
+  return offset + size_of_xetra_en_light_enter_quote_request
 end
 
 -- Size: Secondary Trade Id
@@ -5271,40 +4807,13 @@ dissect.secondary_trade_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Deal Response
-size_of.xetra_en_light_deal_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.trade_id
-
-  index = index + size_of.secondary_trade_id
-
-  index = index + size_of.firm_trade_id
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: Xetra En Light Deal Response
 display.xetra_en_light_deal_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Deal Response
-dissect.xetra_en_light_deal_response_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_deal_response_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_deal_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -5342,15 +4851,23 @@ end
 
 -- Dissect: Xetra En Light Deal Response
 dissect.xetra_en_light_deal_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_deal_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_deal_response then
-    local length = size_of.xetra_en_light_deal_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_deal_response)
     local display = display.xetra_en_light_deal_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_deal_response, range, display)
   end
 
-  return dissect.xetra_en_light_deal_response_fields(buffer, offset, packet, parent)
+  dissect.xetra_en_light_deal_response_fields(buffer, offset, packet, parent, size_of_xetra_en_light_deal_response)
+
+  return offset + size_of_xetra_en_light_deal_response
 end
 
 -- Size: Md Sub Book Type
@@ -5747,92 +5264,13 @@ dissect.trd_rpt_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Xetra En Light Create Deal Notification
-size_of.xetra_en_light_create_deal_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.last_px
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.trade_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.trd_rpt_status
-
-  index = index + size_of.message_event_source
-
-  index = index + size_of.side
-
-  index = index + size_of.alloc_method
-
-  index = index + size_of.no_order_book_items
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.root_party_executing_firm
-
-  index = index + size_of.root_party_executing_trader
-
-  index = index + size_of.root_party_entering_trader
-
-  index = index + size_of.target_party_executing_firm
-
-  index = index + size_of.target_party_executing_trader
-
-  index = index + size_of.target_party_entering_trader
-
-  index = index + size_of.firm_trade_id
-
-  index = index + size_of.firm_negotiation_id
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local order_book_item_grp_comp_count = buffer(offset + index - 119, 1):le_uint()
-  index = index + order_book_item_grp_comp_count * 40
-
-  return index
-end
-
 -- Display: Xetra En Light Create Deal Notification
 display.xetra_en_light_create_deal_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Xetra En Light Create Deal Notification
-dissect.xetra_en_light_create_deal_notification_fields = function(buffer, offset, packet, parent)
+dissect.xetra_en_light_create_deal_notification_fields = function(buffer, offset, packet, parent, size_of_xetra_en_light_create_deal_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -5947,26 +5385,23 @@ end
 
 -- Dissect: Xetra En Light Create Deal Notification
 dissect.xetra_en_light_create_deal_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_xetra_en_light_create_deal_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.xetra_en_light_create_deal_notification then
-    local length = size_of.xetra_en_light_create_deal_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_xetra_en_light_create_deal_notification)
     local display = display.xetra_en_light_create_deal_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.xetra_en_light_create_deal_notification, range, display)
   end
 
-  return dissect.xetra_en_light_create_deal_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.xetra_en_light_create_deal_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_create_deal_notification)
 
--- Calculate size of: User Logout Response
-size_of.user_logout_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_xetra_en_light_create_deal_notification
 end
 
 -- Display: User Logout Response
@@ -5975,7 +5410,7 @@ display.user_logout_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: User Logout Response
-dissect.user_logout_response_fields = function(buffer, offset, packet, parent)
+dissect.user_logout_response_fields = function(buffer, offset, packet, parent, size_of_user_logout_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -5989,15 +5424,23 @@ end
 
 -- Dissect: User Logout Response
 dissect.user_logout_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_user_logout_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.user_logout_response then
-    local length = size_of.user_logout_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_user_logout_response)
     local display = display.user_logout_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.user_logout_response, range, display)
   end
 
-  return dissect.user_logout_response_fields(buffer, offset, packet, parent)
+  dissect.user_logout_response_fields(buffer, offset, packet, parent, size_of_user_logout_response)
+
+  return offset + size_of_user_logout_response
 end
 
 -- Size: Username
@@ -6020,28 +5463,13 @@ dissect.username = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: User Logout Request
-size_of.user_logout_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.username
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: User Logout Request
 display.user_logout_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: User Logout Request
-dissect.user_logout_request_fields = function(buffer, offset, packet, parent)
+dissect.user_logout_request_fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -6061,26 +5489,23 @@ end
 
 -- Dissect: User Logout Request
 dissect.user_logout_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_user_logout_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.user_logout_request then
-    local length = size_of.user_logout_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_user_logout_request)
     local display = display.user_logout_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.user_logout_request, range, display)
   end
 
-  return dissect.user_logout_request_fields(buffer, offset, packet, parent)
-end
+  dissect.user_logout_request_fields(buffer, offset, packet, parent, size_of_user_logout_request)
 
--- Calculate size of: User Login Response
-size_of.user_login_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_user_logout_request
 end
 
 -- Display: User Login Response
@@ -6089,7 +5514,7 @@ display.user_login_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: User Login Response
-dissect.user_login_response_fields = function(buffer, offset, packet, parent)
+dissect.user_login_response_fields = function(buffer, offset, packet, parent, size_of_user_login_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -6103,15 +5528,23 @@ end
 
 -- Dissect: User Login Response
 dissect.user_login_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_user_login_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.user_login_response then
-    local length = size_of.user_login_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_user_login_response)
     local display = display.user_login_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.user_login_response, range, display)
   end
 
-  return dissect.user_login_response_fields(buffer, offset, packet, parent)
+  dissect.user_login_response_fields(buffer, offset, packet, parent, size_of_user_login_response)
+
+  return offset + size_of_user_login_response
 end
 
 -- Size: Password
@@ -6134,30 +5567,13 @@ dissect.password = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: User Login Request
-size_of.user_login_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.username
-
-  index = index + size_of.password
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: User Login Request
 display.user_login_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: User Login Request
-dissect.user_login_request_fields = function(buffer, offset, packet, parent)
+dissect.user_login_request_fields = function(buffer, offset, packet, parent, size_of_user_login_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -6180,26 +5596,23 @@ end
 
 -- Dissect: User Login Request
 dissect.user_login_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_user_login_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.user_login_request then
-    local length = size_of.user_login_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_user_login_request)
     local display = display.user_login_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.user_login_request, range, display)
   end
 
-  return dissect.user_login_request_fields(buffer, offset, packet, parent)
-end
+  dissect.user_login_request_fields(buffer, offset, packet, parent, size_of_user_login_request)
 
--- Calculate size of: Unsubscribe Response
-size_of.unsubscribe_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_user_login_request
 end
 
 -- Display: Unsubscribe Response
@@ -6208,7 +5621,7 @@ display.unsubscribe_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Unsubscribe Response
-dissect.unsubscribe_response_fields = function(buffer, offset, packet, parent)
+dissect.unsubscribe_response_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -6222,15 +5635,23 @@ end
 
 -- Dissect: Unsubscribe Response
 dissect.unsubscribe_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_unsubscribe_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_response then
-    local length = size_of.unsubscribe_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_unsubscribe_response)
     local display = display.unsubscribe_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.unsubscribe_response, range, display)
   end
 
-  return dissect.unsubscribe_response_fields(buffer, offset, packet, parent)
+  dissect.unsubscribe_response_fields(buffer, offset, packet, parent, size_of_unsubscribe_response)
+
+  return offset + size_of_unsubscribe_response
 end
 
 -- Size: Ref Appl Sub Id
@@ -6253,28 +5674,13 @@ dissect.ref_appl_sub_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Unsubscribe Request
-size_of.unsubscribe_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.ref_appl_sub_id
-
-  index = index + size_of.pad_4
-
-  return index
-end
-
 -- Display: Unsubscribe Request
 display.unsubscribe_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unsubscribe Request
-dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent)
+dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -6294,15 +5700,23 @@ end
 
 -- Dissect: Unsubscribe Request
 dissect.unsubscribe_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_unsubscribe_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_request then
-    local length = size_of.unsubscribe_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_unsubscribe_request)
     local display = display.unsubscribe_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.unsubscribe_request, range, display)
   end
 
-  return dissect.unsubscribe_request_fields(buffer, offset, packet, parent)
+  dissect.unsubscribe_request_fields(buffer, offset, packet, parent, size_of_unsubscribe_request)
+
+  return offset + size_of_unsubscribe_request
 end
 
 -- Size: Fix Cl Ord Id
@@ -6860,54 +6274,13 @@ dissect.rbc_header_me_comp = function(buffer, offset, packet, parent)
   return dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Trailing Stop Update Notification
-size_of.trailing_stop_update_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.side
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.pad_7
-
-  return index
-end
-
 -- Display: Trailing Stop Update Notification
 display.trailing_stop_update_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trailing Stop Update Notification
-dissect.trailing_stop_update_notification_fields = function(buffer, offset, packet, parent)
+dissect.trailing_stop_update_notification_fields = function(buffer, offset, packet, parent, size_of_trailing_stop_update_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -6966,15 +6339,23 @@ end
 
 -- Dissect: Trailing Stop Update Notification
 dissect.trailing_stop_update_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_trailing_stop_update_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.trailing_stop_update_notification then
-    local length = size_of.trailing_stop_update_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_trailing_stop_update_notification)
     local display = display.trailing_stop_update_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.trailing_stop_update_notification, range, display)
   end
 
-  return dissect.trailing_stop_update_notification_fields(buffer, offset, packet, parent)
+  dissect.trailing_stop_update_notification_fields(buffer, offset, packet, parent, size_of_trailing_stop_update_notification)
+
+  return offset + size_of_trailing_stop_update_notification
 end
 
 -- Size: Ref Appl Last Msg Id
@@ -6997,34 +6378,13 @@ dissect.ref_appl_last_msg_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Trading Session Status Broadcast
-size_of.trading_session_status_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.trad_ses_event
-
-  index = index + size_of.ref_appl_last_msg_id
-
-  index = index + size_of.pad_7
-
-  return index
-end
-
 -- Display: Trading Session Status Broadcast
 display.trading_session_status_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Session Status Broadcast
-dissect.trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -7053,15 +6413,23 @@ end
 
 -- Dissect: Trading Session Status Broadcast
 dissect.trading_session_status_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_trading_session_status_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.trading_session_status_broadcast then
-    local length = size_of.trading_session_status_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_trading_session_status_broadcast)
     local display = display.trading_session_status_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.trading_session_status_broadcast, range, display)
   end
 
-  return dissect.trading_session_status_broadcast_fields(buffer, offset, packet, parent)
+  dissect.trading_session_status_broadcast_fields(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
+
+  return offset + size_of_trading_session_status_broadcast
 end
 
 -- Size: Root Party Id Execution Venue
@@ -8457,178 +7825,13 @@ dissect.settl_curr_amt = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Trade Broadcast
-size_of.trade_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.last_px
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.settl_curr_amt
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.side_gross_trade_amt
-
-  index = index + size_of.accrued_interes_amt
-
-  index = index + size_of.coupon_rate
-
-  index = index + size_of.root_party_id_client_id
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.root_party_id_investment_decision_maker
-
-  index = index + size_of.trade_id
-
-  index = index + size_of.orig_trade_id
-
-  index = index + size_of.root_party_id_executing_unit
-
-  index = index + size_of.root_party_id_session_id
-
-  index = index + size_of.root_party_id_executing_trader
-
-  index = index + size_of.root_party_id_settlement_unit
-
-  index = index + size_of.root_party_id_clearing_unit
-
-  index = index + size_of.root_party_id_contra_unit
-
-  index = index + size_of.root_party_id_contra_settlement_unit
-
-  index = index + size_of.party_id_specialist_trader
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.side_trade_id
-
-  index = index + size_of.side_trade_report_id
-
-  index = index + size_of.trade_number
-
-  index = index + size_of.match_date
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.trd_match_id
-
-  index = index + size_of.num_days_interest
-
-  index = index + size_of.last_mkt
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.transfer_reason
-
-  index = index + size_of.match_type
-
-  index = index + size_of.match_sub_type
-
-  index = index + size_of.side
-
-  index = index + size_of.side_liquidity_ind
-
-  index = index + size_of.delivery_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.last_coupon_deviation_indicator
-
-  index = index + size_of.refinancing_eligibility_indicator
-
-  index = index + size_of.clearing_instruction
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.root_party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.account
-
-  index = index + size_of.settl_currency
-
-  index = index + size_of.currency
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.order_category
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.root_party_executing_firm
-
-  index = index + size_of.root_party_executing_trader
-
-  index = index + size_of.root_party_clearing_firm
-
-  index = index + size_of.root_party_executing_firm_kv_number
-
-  index = index + size_of.root_party_settlement_account
-
-  index = index + size_of.root_party_settlement_location
-
-  index = index + size_of.root_party_settlement_firm
-
-  index = index + size_of.root_party_contra_firm
-
-  index = index + size_of.root_party_contra_settlement_firm
-
-  index = index + size_of.root_party_contra_firm_kv_number
-
-  index = index + size_of.root_party_contra_settlement_account
-
-  index = index + size_of.root_party_contra_settlement_location
-
-  index = index + size_of.party_specialist_firm
-
-  index = index + size_of.party_specialist_trader
-
-  index = index + size_of.regulatory_trade_id
-
-  index = index + size_of.root_party_id_execution_venue
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Trade Broadcast
 display.trade_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Broadcast
-dissect.trade_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.trade_broadcast_fields = function(buffer, offset, packet, parent, size_of_trade_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -8873,15 +8076,23 @@ end
 
 -- Dissect: Trade Broadcast
 dissect.trade_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_trade_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.trade_broadcast then
-    local length = size_of.trade_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_trade_broadcast)
     local display = display.trade_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.trade_broadcast, range, display)
   end
 
-  return dissect.trade_broadcast_fields(buffer, offset, packet, parent)
+  dissect.trade_broadcast_fields(buffer, offset, packet, parent, size_of_trade_broadcast)
+
+  return offset + size_of_trade_broadcast
 end
 
 -- Size: Throttle Disconnect Limit
@@ -8981,30 +8192,13 @@ dissect.notif_header_comp = function(buffer, offset, packet, parent)
   return dissect.notif_header_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Throttle Update Notification
-size_of.throttle_update_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.notif_header_comp(buffer, offset + index)
-
-  index = index + size_of.throttle_time_interval
-
-  index = index + size_of.throttle_no_msgs
-
-  index = index + size_of.throttle_disconnect_limit
-
-  return index
-end
-
 -- Display: Throttle Update Notification
 display.throttle_update_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Throttle Update Notification
-dissect.throttle_update_notification_fields = function(buffer, offset, packet, parent)
+dissect.throttle_update_notification_fields = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9027,30 +8221,23 @@ end
 
 -- Dissect: Throttle Update Notification
 dissect.throttle_update_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_throttle_update_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.throttle_update_notification then
-    local length = size_of.throttle_update_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_throttle_update_notification)
     local display = display.throttle_update_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.throttle_update_notification, range, display)
   end
 
-  return dissect.throttle_update_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.throttle_update_notification_fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
 
--- Calculate size of: Tm Trading Session Status Broadcast
-size_of.tm_trading_session_status_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.trad_ses_event
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_throttle_update_notification
 end
 
 -- Display: Tm Trading Session Status Broadcast
@@ -9059,7 +8246,7 @@ display.tm_trading_session_status_broadcast = function(buffer, offset, size, pac
 end
 
 -- Dissect Fields: Tm Trading Session Status Broadcast
-dissect.tm_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tm_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9079,32 +8266,23 @@ end
 
 -- Dissect: Tm Trading Session Status Broadcast
 dissect.tm_trading_session_status_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tm_trading_session_status_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tm_trading_session_status_broadcast then
-    local length = size_of.tm_trading_session_status_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tm_trading_session_status_broadcast)
     local display = display.tm_trading_session_status_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tm_trading_session_status_broadcast, range, display)
   end
 
-  return dissect.tm_trading_session_status_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.tm_trading_session_status_broadcast_fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
 
--- Calculate size of: Tes Trading Session Status Broadcast
-size_of.tes_trading_session_status_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.trad_ses_event
-
-  index = index + size_of.pad_3
-
-  return index
+  return offset + size_of_tm_trading_session_status_broadcast
 end
 
 -- Display: Tes Trading Session Status Broadcast
@@ -9113,7 +8291,7 @@ display.tes_trading_session_status_broadcast = function(buffer, offset, size, pa
 end
 
 -- Dissect Fields: Tes Trading Session Status Broadcast
-dissect.tes_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9136,15 +8314,23 @@ end
 
 -- Dissect: Tes Trading Session Status Broadcast
 dissect.tes_trading_session_status_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_trading_session_status_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tes_trading_session_status_broadcast then
-    local length = size_of.tes_trading_session_status_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_trading_session_status_broadcast)
     local display = display.tes_trading_session_status_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_trading_session_status_broadcast, range, display)
   end
 
-  return dissect.tes_trading_session_status_broadcast_fields(buffer, offset, packet, parent)
+  dissect.tes_trading_session_status_broadcast_fields(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
+
+  return offset + size_of_tes_trading_session_status_broadcast
 end
 
 -- Size: Trade Publish Indicator
@@ -9244,152 +8430,13 @@ dissect.package_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Trade Broadcast
-size_of.tes_trade_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.last_px
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.settl_curr_amt
-
-  index = index + size_of.side_gross_trade_amt
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.accrued_interes_amt
-
-  index = index + size_of.coupon_rate
-
-  index = index + size_of.root_party_id_client_id
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.root_party_id_investment_decision_maker
-
-  index = index + size_of.package_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.trade_id
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.side_trade_id
-
-  index = index + size_of.root_party_id_session_id
-
-  index = index + size_of.root_party_id_settlement_unit
-
-  index = index + size_of.root_party_id_contra_unit
-
-  index = index + size_of.root_party_id_contra_settlement_unit
-
-  index = index + size_of.orig_trade_id
-
-  index = index + size_of.root_party_id_executing_unit
-
-  index = index + size_of.root_party_id_executing_trader
-
-  index = index + size_of.root_party_id_clearing_unit
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.num_days_interest
-
-  index = index + size_of.negotiation_id
-
-  index = index + size_of.srqs_related_trade_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.last_mkt
-
-  index = index + size_of.side
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.transfer_reason
-
-  index = index + size_of.trade_publish_indicator
-
-  index = index + size_of.delivery_type
-
-  index = index + size_of.last_coupon_deviation_indicator
-
-  index = index + size_of.refinancing_eligibility_indicator
-
-  index = index + size_of.clearing_instruction
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.root_party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.account
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.settl_currency
-
-  index = index + size_of.root_party_executing_firm
-
-  index = index + size_of.root_party_executing_trader
-
-  index = index + size_of.root_party_clearing_firm
-
-  index = index + size_of.root_party_executing_firm_kv_number
-
-  index = index + size_of.root_party_settlement_account
-
-  index = index + size_of.root_party_settlement_location
-
-  index = index + size_of.root_party_settlement_firm
-
-  index = index + size_of.root_party_contra_firm
-
-  index = index + size_of.root_party_contra_settlement_firm
-
-  index = index + size_of.root_party_contra_firm_kv_number
-
-  index = index + size_of.root_party_contra_settlement_account
-
-  index = index + size_of.root_party_contra_settlement_location
-
-  index = index + size_of.root_party_id_execution_venue
-
-  index = index + size_of.regulatory_trade_id
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Tes Trade Broadcast
 display.tes_trade_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Trade Broadcast
-dissect.tes_trade_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_trade_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9595,15 +8642,23 @@ end
 
 -- Dissect: Tes Trade Broadcast
 dissect.tes_trade_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_trade_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tes_trade_broadcast then
-    local length = size_of.tes_trade_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_trade_broadcast)
     local display = display.tes_trade_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_trade_broadcast, range, display)
   end
 
-  return dissect.tes_trade_broadcast_fields(buffer, offset, packet, parent)
+  dissect.tes_trade_broadcast_fields(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
+
+  return offset + size_of_tes_trade_broadcast
 end
 
 -- Size: Trade Report Id
@@ -9646,28 +8701,13 @@ dissect.tes_exec_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Response
-size_of.tes_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.trade_report_id
-
-  return index
-end
-
 -- Display: Tes Response
 display.tes_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Response
-dissect.tes_response_fields = function(buffer, offset, packet, parent)
+dissect.tes_response_fields = function(buffer, offset, packet, parent, size_of_tes_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9687,15 +8727,23 @@ end
 
 -- Dissect: Tes Response
 dissect.tes_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tes_response then
-    local length = size_of.tes_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_response)
     local display = display.tes_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_response, range, display)
   end
 
-  return dissect.tes_response_fields(buffer, offset, packet, parent)
+  dissect.tes_response_fields(buffer, offset, packet, parent, size_of_tes_response)
+
+  return offset + size_of_tes_response
 end
 
 -- Size: Alloc Id
@@ -9718,46 +8766,13 @@ dissect.alloc_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Execution Broadcast
-size_of.tes_execution_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.package_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.alloc_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.side
-
-  index = index + size_of.trd_rpt_status
-
-  index = index + size_of.message_event_source
-
-  index = index + size_of.pad_2
-
-  return index
-end
-
 -- Display: Tes Execution Broadcast
 display.tes_execution_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Execution Broadcast
-dissect.tes_execution_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_execution_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9804,15 +8819,23 @@ end
 
 -- Dissect: Tes Execution Broadcast
 dissect.tes_execution_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_execution_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tes_execution_broadcast then
-    local length = size_of.tes_execution_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_execution_broadcast)
     local display = display.tes_execution_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_execution_broadcast, range, display)
   end
 
-  return dissect.tes_execution_broadcast_fields(buffer, offset, packet, parent)
+  dissect.tes_execution_broadcast_fields(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
+
+  return offset + size_of_tes_execution_broadcast
 end
 
 -- Size: Delete Reason
@@ -9851,46 +8874,13 @@ dissect.delete_reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Delete Broadcast
-size_of.tes_delete_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.package_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.delete_reason
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.trd_rpt_status
-
-  index = index + size_of.message_event_source
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.pad_2
-
-  return index
-end
-
 -- Display: Tes Delete Broadcast
 display.tes_delete_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Delete Broadcast
-dissect.tes_delete_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_delete_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -9937,15 +8927,23 @@ end
 
 -- Dissect: Tes Delete Broadcast
 dissect.tes_delete_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_delete_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.tes_delete_broadcast then
-    local length = size_of.tes_delete_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_delete_broadcast)
     local display = display.tes_delete_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_delete_broadcast, range, display)
   end
 
-  return dissect.tes_delete_broadcast_fields(buffer, offset, packet, parent)
+  dissect.tes_delete_broadcast_fields(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
+
+  return offset + size_of_tes_delete_broadcast
 end
 
 -- Display: Var Text
@@ -10238,73 +9236,13 @@ dissect.trans_bkd_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Broadcast
-size_of.tes_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.last_px
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.trans_bkd_time
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.package_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.auto_approval_rule_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.trd_rpt_status
-
-  index = index + size_of.no_side_allocs
-
-  index = index + size_of.message_event_source
-
-  index = index + size_of.trade_report_text
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.root_party_executing_firm
-
-  index = index + size_of.root_party_executing_trader
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local side_alloc_grp_bc_comp_count = buffer(offset + index - 54, 1):le_uint()
-  index = index + side_alloc_grp_bc_comp_count * 32
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 90, 2):le_uint()
-
-  return index
-end
-
 -- Display: Tes Broadcast
 display.tes_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Broadcast
-dissect.tes_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -10389,15 +9327,23 @@ end
 
 -- Dissect: Tes Broadcast
 dissect.tes_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.tes_broadcast then
-    local length = size_of.tes_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_broadcast)
     local display = display.tes_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_broadcast, range, display)
   end
 
-  return dissect.tes_broadcast_fields(buffer, offset, packet, parent)
+  dissect.tes_broadcast_fields(buffer, offset, packet, parent, size_of_tes_broadcast)
+
+  return offset + size_of_tes_broadcast
 end
 
 -- Size: Party Id Entering Firm
@@ -10427,95 +9373,13 @@ dissect.party_id_entering_firm = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Tes Approve Broadcast
-size_of.tes_approve_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.last_px
-
-  index = index + size_of.alloc_qty
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.trans_bkd_time
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.package_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.alloc_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.tes_enrichment_rule_id
-
-  index = index + size_of.auto_approval_rule_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.side
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.trd_rpt_status
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.trade_alloc_status
-
-  index = index + size_of.message_event_source
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.root_party_executing_firm
-
-  index = index + size_of.root_party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_7
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 106, 2):le_uint()
-
-  return index
-end
-
 -- Display: Tes Approve Broadcast
 display.tes_approve_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tes Approve Broadcast
-dissect.tes_approve_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.tes_approve_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -10634,30 +9498,23 @@ end
 
 -- Dissect: Tes Approve Broadcast
 dissect.tes_approve_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_tes_approve_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.tes_approve_broadcast then
-    local length = size_of.tes_approve_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_tes_approve_broadcast)
     local display = display.tes_approve_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.tes_approve_broadcast, range, display)
   end
 
-  return dissect.tes_approve_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.tes_approve_broadcast_fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
 
--- Calculate size of: Subscribe Response
-size_of.subscribe_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.appl_sub_id
-
-  index = index + size_of.pad_4
-
-  return index
+  return offset + size_of_tes_approve_broadcast
 end
 
 -- Display: Subscribe Response
@@ -10666,7 +9523,7 @@ display.subscribe_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Subscribe Response
-dissect.subscribe_response_fields = function(buffer, offset, packet, parent)
+dissect.subscribe_response_fields = function(buffer, offset, packet, parent, size_of_subscribe_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -10686,15 +9543,23 @@ end
 
 -- Dissect: Subscribe Response
 dissect.subscribe_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_subscribe_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.subscribe_response then
-    local length = size_of.subscribe_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_subscribe_response)
     local display = display.subscribe_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.subscribe_response, range, display)
   end
 
-  return dissect.subscribe_response_fields(buffer, offset, packet, parent)
+  dissect.subscribe_response_fields(buffer, offset, packet, parent, size_of_subscribe_response)
+
+  return offset + size_of_subscribe_response
 end
 
 -- Size: Ref Appl Id
@@ -10771,30 +9636,13 @@ dissect.subscription_scope = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Subscribe Request
-size_of.subscribe_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.subscription_scope
-
-  index = index + size_of.ref_appl_id
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Subscribe Request
 display.subscribe_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Subscribe Request
-dissect.subscribe_request_fields = function(buffer, offset, packet, parent)
+dissect.subscribe_request_fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -10817,15 +9665,23 @@ end
 
 -- Dissect: Subscribe Request
 dissect.subscribe_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_subscribe_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.subscribe_request then
-    local length = size_of.subscribe_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_subscribe_request)
     local display = display.subscribe_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.subscribe_request, range, display)
   end
 
-  return dissect.subscribe_request_fields(buffer, offset, packet, parent)
+  dissect.subscribe_request_fields(buffer, offset, packet, parent, size_of_subscribe_request)
+
+  return offset + size_of_subscribe_request
 end
 
 -- Size: Security Status Report Id
@@ -10960,26 +9816,13 @@ dissect.nr_response_header_me_comp = function(buffer, offset, packet, parent)
   return dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Specialist Security State Change Response
-size_of.specialist_security_state_change_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_status_report_id
-
-  return index
-end
-
 -- Display: Specialist Security State Change Response
 display.specialist_security_state_change_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Specialist Security State Change Response
-dissect.specialist_security_state_change_response_fields = function(buffer, offset, packet, parent)
+dissect.specialist_security_state_change_response_fields = function(buffer, offset, packet, parent, size_of_specialist_security_state_change_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -10996,15 +9839,23 @@ end
 
 -- Dissect: Specialist Security State Change Response
 dissect.specialist_security_state_change_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_security_state_change_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_security_state_change_response then
-    local length = size_of.specialist_security_state_change_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_security_state_change_response)
     local display = display.specialist_security_state_change_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_security_state_change_response, range, display)
   end
 
-  return dissect.specialist_security_state_change_response_fields(buffer, offset, packet, parent)
+  dissect.specialist_security_state_change_response_fields(buffer, offset, packet, parent, size_of_specialist_security_state_change_response)
+
+  return offset + size_of_specialist_security_state_change_response
 end
 
 -- Size: Event Type
@@ -11067,32 +9918,13 @@ dissect.event_type = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Specialist Security State Change Request
-size_of.specialist_security_state_change_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.event_type
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Specialist Security State Change Request
 display.specialist_security_state_change_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Specialist Security State Change Request
-dissect.specialist_security_state_change_request_fields = function(buffer, offset, packet, parent)
+dissect.specialist_security_state_change_request_fields = function(buffer, offset, packet, parent, size_of_specialist_security_state_change_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -11118,28 +9950,23 @@ end
 
 -- Dissect: Specialist Security State Change Request
 dissect.specialist_security_state_change_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_security_state_change_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_security_state_change_request then
-    local length = size_of.specialist_security_state_change_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_security_state_change_request)
     local display = display.specialist_security_state_change_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_security_state_change_request, range, display)
   end
 
-  return dissect.specialist_security_state_change_request_fields(buffer, offset, packet, parent)
-end
+  dissect.specialist_security_state_change_request_fields(buffer, offset, packet, parent, size_of_specialist_security_state_change_request)
 
--- Calculate size of: Specialist Rfq Reply Response
-size_of.specialist_rfq_reply_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  return index
+  return offset + size_of_specialist_security_state_change_request
 end
 
 -- Display: Specialist Rfq Reply Response
@@ -11148,7 +9975,7 @@ display.specialist_rfq_reply_response = function(buffer, offset, size, packet, p
 end
 
 -- Dissect Fields: Specialist Rfq Reply Response
-dissect.specialist_rfq_reply_response_fields = function(buffer, offset, packet, parent)
+dissect.specialist_rfq_reply_response_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reply_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -11165,44 +9992,23 @@ end
 
 -- Dissect: Specialist Rfq Reply Response
 dissect.specialist_rfq_reply_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_rfq_reply_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_response then
-    local length = size_of.specialist_rfq_reply_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_rfq_reply_response)
     local display = display.specialist_rfq_reply_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_rfq_reply_response, range, display)
   end
 
-  return dissect.specialist_rfq_reply_response_fields(buffer, offset, packet, parent)
-end
+  dissect.specialist_rfq_reply_response_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_response)
 
--- Calculate size of: Specialist Rfq Reply Request
-size_of.specialist_rfq_reply_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_specialist_rfq_reply_response
 end
 
 -- Display: Specialist Rfq Reply Request
@@ -11211,7 +10017,7 @@ display.specialist_rfq_reply_request = function(buffer, offset, size, packet, pa
 end
 
 -- Dissect Fields: Specialist Rfq Reply Request
-dissect.specialist_rfq_reply_request_fields = function(buffer, offset, packet, parent)
+dissect.specialist_rfq_reply_request_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reply_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -11252,46 +10058,23 @@ end
 
 -- Dissect: Specialist Rfq Reply Request
 dissect.specialist_rfq_reply_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_rfq_reply_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_request then
-    local length = size_of.specialist_rfq_reply_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_rfq_reply_request)
     local display = display.specialist_rfq_reply_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_rfq_reply_request, range, display)
   end
 
-  return dissect.specialist_rfq_reply_request_fields(buffer, offset, packet, parent)
-end
+  dissect.specialist_rfq_reply_request_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_request)
 
--- Calculate size of: Specialist Rfq Reply Notification
-size_of.specialist_rfq_reply_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_specialist_rfq_reply_request
 end
 
 -- Display: Specialist Rfq Reply Notification
@@ -11300,7 +10083,7 @@ display.specialist_rfq_reply_notification = function(buffer, offset, size, packe
 end
 
 -- Dissect Fields: Specialist Rfq Reply Notification
-dissect.specialist_rfq_reply_notification_fields = function(buffer, offset, packet, parent)
+dissect.specialist_rfq_reply_notification_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reply_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -11344,15 +10127,23 @@ end
 
 -- Dissect: Specialist Rfq Reply Notification
 dissect.specialist_rfq_reply_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_rfq_reply_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_notification then
-    local length = size_of.specialist_rfq_reply_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_rfq_reply_notification)
     local display = display.specialist_rfq_reply_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_rfq_reply_notification, range, display)
   end
 
-  return dissect.specialist_rfq_reply_notification_fields(buffer, offset, packet, parent)
+  dissect.specialist_rfq_reply_notification_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_notification)
+
+  return offset + size_of_specialist_rfq_reply_notification
 end
 
 -- Size: Quote Request Reject Reason
@@ -11400,36 +10191,13 @@ dissect.quote_request_reject_reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Specialist Rfq Reject Request
-size_of.specialist_rfq_reject_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.quote_request_reject_reason
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: Specialist Rfq Reject Request
 display.specialist_rfq_reject_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Specialist Rfq Reject Request
-dissect.specialist_rfq_reject_request_fields = function(buffer, offset, packet, parent)
+dissect.specialist_rfq_reject_request_fields = function(buffer, offset, packet, parent, size_of_specialist_rfq_reject_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -11461,15 +10229,23 @@ end
 
 -- Dissect: Specialist Rfq Reject Request
 dissect.specialist_rfq_reject_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_rfq_reject_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reject_request then
-    local length = size_of.specialist_rfq_reject_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_rfq_reject_request)
     local display = display.specialist_rfq_reject_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_rfq_reject_request, range, display)
   end
 
-  return dissect.specialist_rfq_reject_request_fields(buffer, offset, packet, parent)
+  dissect.specialist_rfq_reject_request_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reject_request)
+
+  return offset + size_of_specialist_rfq_reject_request
 end
 
 -- Size: Fill Liquidity Ind
@@ -12043,114 +10819,13 @@ dissect.trd_reg_ts_entry_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Specialist Order Book Notification
-size_of.specialist_order_book_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.trd_reg_ts_entry_time
-
-  index = index + size_of.trd_reg_ts_time_priority
-
-  index = index + size_of.price
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.expire_date
-
-  index = index + size_of.party_id_executing_unit
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.party_id_executing_trader
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.no_fills
-
-  index = index + size_of.pad_1
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.order_event_type
-
-  index = index + size_of.match_type
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_session_sub_id
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.triggered
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.party_entering_firm
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.fix_cl_ord_id
-
-  -- Calculate field size from count
-  local fills_grp_comp_count = buffer(offset + index - 60, 1):le_uint()
-  index = index + fills_grp_comp_count * 32
-
-  return index
-end
-
 -- Display: Specialist Order Book Notification
 display.specialist_order_book_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Specialist Order Book Notification
-dissect.specialist_order_book_notification_fields = function(buffer, offset, packet, parent)
+dissect.specialist_order_book_notification_fields = function(buffer, offset, packet, parent, size_of_specialist_order_book_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -12298,36 +10973,23 @@ end
 
 -- Dissect: Specialist Order Book Notification
 dissect.specialist_order_book_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_order_book_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.specialist_order_book_notification then
-    local length = size_of.specialist_order_book_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_order_book_notification)
     local display = display.specialist_order_book_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_order_book_notification, range, display)
   end
 
-  return dissect.specialist_order_book_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.specialist_order_book_notification_fields(buffer, offset, packet, parent, size_of_specialist_order_book_notification)
 
--- Calculate size of: Specialist Instrument Event Notification
-size_of.specialist_instrument_event_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.event_type
-
-  index = index + size_of.pad_3
-
-  return index
+  return offset + size_of_specialist_order_book_notification
 end
 
 -- Display: Specialist Instrument Event Notification
@@ -12336,7 +10998,7 @@ display.specialist_instrument_event_notification = function(buffer, offset, size
 end
 
 -- Dissect Fields: Specialist Instrument Event Notification
-dissect.specialist_instrument_event_notification_fields = function(buffer, offset, packet, parent)
+dissect.specialist_instrument_event_notification_fields = function(buffer, offset, packet, parent, size_of_specialist_instrument_event_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -12365,15 +11027,23 @@ end
 
 -- Dissect: Specialist Instrument Event Notification
 dissect.specialist_instrument_event_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_instrument_event_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.specialist_instrument_event_notification then
-    local length = size_of.specialist_instrument_event_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_instrument_event_notification)
     local display = display.specialist_instrument_event_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_instrument_event_notification, range, display)
   end
 
-  return dissect.specialist_instrument_event_notification_fields(buffer, offset, packet, parent)
+  dissect.specialist_instrument_event_notification_fields(buffer, offset, packet, parent, size_of_specialist_instrument_event_notification)
+
+  return offset + size_of_specialist_instrument_event_notification
 end
 
 -- Size: Not Aff Orig Cl Ord Id
@@ -12675,48 +11345,13 @@ dissect.mass_action_report_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Specialist Delete All Order Broadcast
-size_of.specialist_delete_all_order_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.no_affected_orders
-
-  index = index + size_of.no_not_affected_orders
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.mass_action_reason
-
-  index = index + size_of.pad_2
-
-  -- Calculate field size from count
-  local affected_ord_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + affected_ord_grp_comp_count * 16
-
-  -- Calculate field size from count
-  local not_affected_orders_grp_comp_count = buffer(offset + index - 22, 2):le_uint()
-  index = index + not_affected_orders_grp_comp_count * 16
-
-  return index
-end
-
 -- Display: Specialist Delete All Order Broadcast
 display.specialist_delete_all_order_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Specialist Delete All Order Broadcast
-dissect.specialist_delete_all_order_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.specialist_delete_all_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_specialist_delete_all_order_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -12764,15 +11399,23 @@ end
 
 -- Dissect: Specialist Delete All Order Broadcast
 dissect.specialist_delete_all_order_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_specialist_delete_all_order_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.specialist_delete_all_order_broadcast then
-    local length = size_of.specialist_delete_all_order_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_specialist_delete_all_order_broadcast)
     local display = display.specialist_delete_all_order_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.specialist_delete_all_order_broadcast, range, display)
   end
 
-  return dissect.specialist_delete_all_order_broadcast_fields(buffer, offset, packet, parent)
+  dissect.specialist_delete_all_order_broadcast_fields(buffer, offset, packet, parent, size_of_specialist_delete_all_order_broadcast)
+
+  return offset + size_of_specialist_delete_all_order_broadcast
 end
 
 -- Size: Quote Type
@@ -12888,72 +11531,13 @@ dissect.match_inst_cross_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Single Quote Request
-size_of.single_quote_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.bid_px
-
-  index = index + size_of.bid_size
-
-  index = index + size_of.offer_px
-
-  index = index + size_of.offer_size
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.quote_size_type
-
-  index = index + size_of.quote_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_7
-
-  return index
-end
-
 -- Display: Single Quote Request
 display.single_quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Single Quote Request
-dissect.single_quote_request_fields = function(buffer, offset, packet, parent)
+dissect.single_quote_request_fields = function(buffer, offset, packet, parent, size_of_single_quote_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -13039,15 +11623,23 @@ end
 
 -- Dissect: Single Quote Request
 dissect.single_quote_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_single_quote_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.single_quote_request then
-    local length = size_of.single_quote_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_single_quote_request)
     local display = display.single_quote_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.single_quote_request, range, display)
   end
 
-  return dissect.single_quote_request_fields(buffer, offset, packet, parent)
+  dissect.single_quote_request_fields(buffer, offset, packet, parent, size_of_single_quote_request)
+
+  return offset + size_of_single_quote_request
 end
 
 -- Size: Selective Request For Quote Rtm Service Status
@@ -13181,32 +11773,13 @@ dissect.nrbc_header_comp = function(buffer, offset, packet, parent)
   return dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Service Availability Market Broadcast
-size_of.service_availability_market_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nrbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.selective_request_for_quote_service_trade_date
-
-  index = index + size_of.selective_request_for_quote_service_status
-
-  index = index + size_of.selective_request_for_quote_rtm_service_status
-
-  index = index + size_of.pad_2
-
-  return index
-end
-
 -- Display: Service Availability Market Broadcast
 display.service_availability_market_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Service Availability Market Broadcast
-dissect.service_availability_market_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.service_availability_market_broadcast_fields = function(buffer, offset, packet, parent, size_of_service_availability_market_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -13232,15 +11805,23 @@ end
 
 -- Dissect: Service Availability Market Broadcast
 dissect.service_availability_market_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_service_availability_market_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.service_availability_market_broadcast then
-    local length = size_of.service_availability_market_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_service_availability_market_broadcast)
     local display = display.service_availability_market_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.service_availability_market_broadcast, range, display)
   end
 
-  return dissect.service_availability_market_broadcast_fields(buffer, offset, packet, parent)
+  dissect.service_availability_market_broadcast_fields(buffer, offset, packet, parent, size_of_service_availability_market_broadcast)
+
+  return offset + size_of_service_availability_market_broadcast
 end
 
 -- Size: Pad 5
@@ -13498,48 +12079,13 @@ dissect.matching_engine_trade_date = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Service Availability Broadcast
-size_of.service_availability_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nrbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.matching_engine_trade_date
-
-  index = index + size_of.trade_manager_trade_date
-
-  index = index + size_of.appl_seq_trade_date
-
-  index = index + size_of.t_7_entry_service_trade_date
-
-  index = index + size_of.t_7_entry_service_rtm_trade_date
-
-  index = index + size_of.partition_id
-
-  index = index + size_of.matching_engine_status
-
-  index = index + size_of.trade_manager_status
-
-  index = index + size_of.appl_seq_status
-
-  index = index + size_of.t_7_entry_service_status
-
-  index = index + size_of.t_7_entry_service_rtm_status
-
-  index = index + size_of.pad_5
-
-  return index
-end
-
 -- Display: Service Availability Broadcast
 display.service_availability_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Service Availability Broadcast
-dissect.service_availability_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.service_availability_broadcast_fields = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -13589,15 +12135,23 @@ end
 
 -- Dissect: Service Availability Broadcast
 dissect.service_availability_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_service_availability_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.service_availability_broadcast then
-    local length = size_of.service_availability_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_service_availability_broadcast)
     local display = display.service_availability_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.service_availability_broadcast, range, display)
   end
 
-  return dissect.service_availability_broadcast_fields(buffer, offset, packet, parent)
+  dissect.service_availability_broadcast_fields(buffer, offset, packet, parent, size_of_service_availability_broadcast)
+
+  return offset + size_of_service_availability_broadcast
 end
 
 -- Size: Appl Total Message Count
@@ -13660,32 +12214,13 @@ dissect.appl_end_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Retransmit Response
-size_of.retransmit_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.appl_end_seq_num
-
-  index = index + size_of.ref_appl_last_seq_num
-
-  index = index + size_of.appl_total_message_count
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: Retransmit Response
 display.retransmit_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Retransmit Response
-dissect.retransmit_response_fields = function(buffer, offset, packet, parent)
+dissect.retransmit_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -13711,15 +12246,23 @@ end
 
 -- Dissect: Retransmit Response
 dissect.retransmit_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_retransmit_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.retransmit_response then
-    local length = size_of.retransmit_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_retransmit_response)
     local display = display.retransmit_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.retransmit_response, range, display)
   end
 
-  return dissect.retransmit_response_fields(buffer, offset, packet, parent)
+  dissect.retransmit_response_fields(buffer, offset, packet, parent, size_of_retransmit_response)
+
+  return offset + size_of_retransmit_response
 end
 
 -- Size: Appl Beg Seq Num
@@ -13742,34 +12285,13 @@ dissect.appl_beg_seq_num = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Retransmit Request
-size_of.retransmit_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.appl_beg_seq_num
-
-  index = index + size_of.appl_end_seq_num
-
-  index = index + size_of.partition_id
-
-  index = index + size_of.ref_appl_id
-
-  index = index + size_of.pad_5
-
-  return index
-end
-
 -- Display: Retransmit Request
 display.retransmit_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Retransmit Request
-dissect.retransmit_request_fields = function(buffer, offset, packet, parent)
+dissect.retransmit_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -13798,15 +12320,23 @@ end
 
 -- Dissect: Retransmit Request
 dissect.retransmit_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_retransmit_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.retransmit_request then
-    local length = size_of.retransmit_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_retransmit_request)
     local display = display.retransmit_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.retransmit_request, range, display)
   end
 
-  return dissect.retransmit_request_fields(buffer, offset, packet, parent)
+  dissect.retransmit_request_fields(buffer, offset, packet, parent, size_of_retransmit_request)
+
+  return offset + size_of_retransmit_request
 end
 
 -- Size: Appl End Msg Id
@@ -13829,32 +12359,13 @@ dissect.appl_end_msg_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Retransmit Me Message Response
-size_of.retransmit_me_message_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.appl_total_message_count
-
-  index = index + size_of.appl_end_msg_id
-
-  index = index + size_of.ref_appl_last_msg_id
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: Retransmit Me Message Response
 display.retransmit_me_message_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Retransmit Me Message Response
-dissect.retransmit_me_message_response_fields = function(buffer, offset, packet, parent)
+dissect.retransmit_me_message_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -13880,15 +12391,23 @@ end
 
 -- Dissect: Retransmit Me Message Response
 dissect.retransmit_me_message_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_retransmit_me_message_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_response then
-    local length = size_of.retransmit_me_message_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_retransmit_me_message_response)
     local display = display.retransmit_me_message_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.retransmit_me_message_response, range, display)
   end
 
-  return dissect.retransmit_me_message_response_fields(buffer, offset, packet, parent)
+  dissect.retransmit_me_message_response_fields(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
+
+  return offset + size_of_retransmit_me_message_response
 end
 
 -- Size: Appl Beg Msg Id
@@ -13911,36 +12430,13 @@ dissect.appl_beg_msg_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Retransmit Me Message Request
-size_of.retransmit_me_message_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.subscription_scope
-
-  index = index + size_of.partition_id
-
-  index = index + size_of.ref_appl_id
-
-  index = index + size_of.appl_beg_msg_id
-
-  index = index + size_of.appl_end_msg_id
-
-  index = index + size_of.pad_1
-
-  return index
-end
-
 -- Display: Retransmit Me Message Request
 display.retransmit_me_message_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Retransmit Me Message Request
-dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent)
+dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -13972,15 +12468,23 @@ end
 
 -- Dissect: Retransmit Me Message Request
 dissect.retransmit_me_message_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_retransmit_me_message_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_request then
-    local length = size_of.retransmit_me_message_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_retransmit_me_message_request)
     local display = display.retransmit_me_message_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.retransmit_me_message_request, range, display)
   end
 
-  return dissect.retransmit_me_message_request_fields(buffer, offset, packet, parent)
+  dissect.retransmit_me_message_request_fields(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
+
+  return offset + size_of_retransmit_me_message_request
 end
 
 -- Size: Session Status
@@ -14127,35 +12631,13 @@ dissect.session_reject_reason = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Reject
-size_of.reject = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.session_reject_reason
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.session_status
-
-  index = index + size_of.pad_1
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
-
-  return index
-end
-
 -- Display: Reject
 display.reject = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reject
-dissect.reject_fields = function(buffer, offset, packet, parent)
+dissect.reject_fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14184,42 +12666,23 @@ end
 
 -- Dissect: Reject
 dissect.reject = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_reject = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.reject then
-    local length = size_of.reject(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_reject)
     local display = display.reject(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.reject, range, display)
   end
 
-  return dissect.reject_fields(buffer, offset, packet, parent)
-end
+  dissect.reject_fields(buffer, offset, packet, parent, size_of_reject)
 
--- Calculate size of: Rfq Specialist Broadcast
-size_of.rfq_specialist_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.side
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_reject
 end
 
 -- Display: Rfq Specialist Broadcast
@@ -14228,7 +12691,7 @@ display.rfq_specialist_broadcast = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Rfq Specialist Broadcast
-dissect.rfq_specialist_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.rfq_specialist_broadcast_fields = function(buffer, offset, packet, parent, size_of_rfq_specialist_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14266,28 +12729,23 @@ end
 
 -- Dissect: Rfq Specialist Broadcast
 dissect.rfq_specialist_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_rfq_specialist_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.rfq_specialist_broadcast then
-    local length = size_of.rfq_specialist_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_rfq_specialist_broadcast)
     local display = display.rfq_specialist_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.rfq_specialist_broadcast, range, display)
   end
 
-  return dissect.rfq_specialist_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.rfq_specialist_broadcast_fields(buffer, offset, packet, parent, size_of_rfq_specialist_broadcast)
 
--- Calculate size of: Rfq Response
-size_of.rfq_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.exec_id
-
-  return index
+  return offset + size_of_rfq_specialist_broadcast
 end
 
 -- Display: Rfq Response
@@ -14296,7 +12754,7 @@ display.rfq_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Rfq Response
-dissect.rfq_response_fields = function(buffer, offset, packet, parent)
+dissect.rfq_response_fields = function(buffer, offset, packet, parent, size_of_rfq_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14313,15 +12771,23 @@ end
 
 -- Dissect: Rfq Response
 dissect.rfq_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_rfq_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.rfq_response then
-    local length = size_of.rfq_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_rfq_response)
     local display = display.rfq_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.rfq_response, range, display)
   end
 
-  return dissect.rfq_response_fields(buffer, offset, packet, parent)
+  dissect.rfq_response_fields(buffer, offset, packet, parent, size_of_rfq_response)
+
+  return offset + size_of_rfq_response
 end
 
 -- Size: Rfq Requester Disclosure Instruction
@@ -14390,40 +12856,13 @@ dissect.rfq_publish_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Rfq Request
-size_of.rfq_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.rfq_publish_indicator
-
-  index = index + size_of.rfq_requester_disclosure_instruction
-
-  index = index + size_of.side
-
-  index = index + size_of.pad_1
-
-  return index
-end
-
 -- Display: Rfq Request
 display.rfq_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Rfq Request
-dissect.rfq_request_fields = function(buffer, offset, packet, parent)
+dissect.rfq_request_fields = function(buffer, offset, packet, parent, size_of_rfq_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -14461,40 +12900,23 @@ end
 
 -- Dissect: Rfq Request
 dissect.rfq_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_rfq_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.rfq_request then
-    local length = size_of.rfq_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_rfq_request)
     local display = display.rfq_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.rfq_request, range, display)
   end
 
-  return dissect.rfq_request_fields(buffer, offset, packet, parent)
-end
+  dissect.rfq_request_fields(buffer, offset, packet, parent, size_of_rfq_request)
 
--- Calculate size of: Rfq Reject Notification
-size_of.rfq_reject_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.quote_request_reject_reason
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_rfq_request
 end
 
 -- Display: Rfq Reject Notification
@@ -14503,7 +12925,7 @@ display.rfq_reject_notification = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Rfq Reject Notification
-dissect.rfq_reject_notification_fields = function(buffer, offset, packet, parent)
+dissect.rfq_reject_notification_fields = function(buffer, offset, packet, parent, size_of_rfq_reject_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14538,40 +12960,23 @@ end
 
 -- Dissect: Rfq Reject Notification
 dissect.rfq_reject_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_rfq_reject_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.rfq_reject_notification then
-    local length = size_of.rfq_reject_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_rfq_reject_notification)
     local display = display.rfq_reject_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.rfq_reject_notification, range, display)
   end
 
-  return dissect.rfq_reject_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.rfq_reject_notification_fields(buffer, offset, packet, parent, size_of_rfq_reject_notification)
 
--- Calculate size of: Rfq Broadcast
-size_of.rfq_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.side
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_rfq_reject_notification
 end
 
 -- Display: Rfq Broadcast
@@ -14580,7 +12985,7 @@ display.rfq_broadcast = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Rfq Broadcast
-dissect.rfq_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.rfq_broadcast_fields = function(buffer, offset, packet, parent, size_of_rfq_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14615,15 +13020,23 @@ end
 
 -- Dissect: Rfq Broadcast
 dissect.rfq_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_rfq_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.rfq_broadcast then
-    local length = size_of.rfq_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_rfq_broadcast)
     local display = display.rfq_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.rfq_broadcast, range, display)
   end
 
-  return dissect.rfq_broadcast_fields(buffer, offset, packet, parent)
+  dissect.rfq_broadcast_fields(buffer, offset, packet, parent, size_of_rfq_broadcast)
+
+  return offset + size_of_rfq_broadcast
 end
 
 -- Size: Quote Event Liquidity Ind
@@ -14938,36 +13351,13 @@ dissect.no_quote_events = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Execution Report
-size_of.quote_execution_report = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.no_quote_events
-
-  index = index + size_of.pad_3
-
-  -- Calculate field size from count
-  local quote_event_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + quote_event_grp_comp_count * 48
-
-  return index
-end
-
 -- Display: Quote Execution Report
 display.quote_execution_report = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Execution Report
-dissect.quote_execution_report_fields = function(buffer, offset, packet, parent)
+dissect.quote_execution_report_fields = function(buffer, offset, packet, parent, size_of_quote_execution_report)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -14998,15 +13388,23 @@ end
 
 -- Dissect: Quote Execution Report
 dissect.quote_execution_report = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_quote_execution_report = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.quote_execution_report then
-    local length = size_of.quote_execution_report(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_quote_execution_report)
     local display = display.quote_execution_report(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.quote_execution_report, range, display)
   end
 
-  return dissect.quote_execution_report_fields(buffer, offset, packet, parent)
+  dissect.quote_execution_report_fields(buffer, offset, packet, parent, size_of_quote_execution_report)
+
+  return offset + size_of_quote_execution_report
 end
 
 -- Size: Not Affected Security Id
@@ -15086,34 +13484,13 @@ dissect.no_not_affected_securities = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Activation Response
-size_of.quote_activation_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.no_not_affected_securities
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_comp_count * 8
-
-  return index
-end
-
 -- Display: Quote Activation Response
 display.quote_activation_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Activation Response
-dissect.quote_activation_response_fields = function(buffer, offset, packet, parent)
+dissect.quote_activation_response_fields = function(buffer, offset, packet, parent, size_of_quote_activation_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -15141,15 +13518,23 @@ end
 
 -- Dissect: Quote Activation Response
 dissect.quote_activation_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_quote_activation_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.quote_activation_response then
-    local length = size_of.quote_activation_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_quote_activation_response)
     local display = display.quote_activation_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.quote_activation_response, range, display)
   end
 
-  return dissect.quote_activation_response_fields(buffer, offset, packet, parent)
+  dissect.quote_activation_response_fields(buffer, offset, packet, parent, size_of_quote_activation_response)
+
+  return offset + size_of_quote_activation_response
 end
 
 -- Size: Mass Action Type
@@ -15199,40 +13584,13 @@ dissect.target_party_id_session_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Quote Activation Request
-size_of.quote_activation_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.mass_action_type
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.pad_5
-
-  return index
-end
-
 -- Display: Quote Activation Request
 display.quote_activation_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Activation Request
-dissect.quote_activation_request_fields = function(buffer, offset, packet, parent)
+dissect.quote_activation_request_fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -15270,46 +13628,23 @@ end
 
 -- Dissect: Quote Activation Request
 dissect.quote_activation_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_quote_activation_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.quote_activation_request then
-    local length = size_of.quote_activation_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_quote_activation_request)
     local display = display.quote_activation_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.quote_activation_request, range, display)
   end
 
-  return dissect.quote_activation_request_fields(buffer, offset, packet, parent)
-end
+  dissect.quote_activation_request_fields(buffer, offset, packet, parent, size_of_quote_activation_request)
 
--- Calculate size of: Quote Activation Notification
-size_of.quote_activation_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.no_not_affected_securities
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.mass_action_type
-
-  index = index + size_of.mass_action_reason
-
-  index = index + size_of.pad_3
-
-  -- Calculate field size from count
-  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_comp_count * 8
-
-  return index
+  return offset + size_of_quote_activation_request
 end
 
 -- Display: Quote Activation Notification
@@ -15318,7 +13653,7 @@ display.quote_activation_notification = function(buffer, offset, size, packet, p
 end
 
 -- Dissect Fields: Quote Activation Notification
-dissect.quote_activation_notification_fields = function(buffer, offset, packet, parent)
+dissect.quote_activation_notification_fields = function(buffer, offset, packet, parent, size_of_quote_activation_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -15361,28 +13696,23 @@ end
 
 -- Dissect: Quote Activation Notification
 dissect.quote_activation_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_quote_activation_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.quote_activation_notification then
-    local length = size_of.quote_activation_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_quote_activation_notification)
     local display = display.quote_activation_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.quote_activation_notification, range, display)
   end
 
-  return dissect.quote_activation_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.quote_activation_notification_fields(buffer, offset, packet, parent, size_of_quote_activation_notification)
 
--- Calculate size of: Ping Response
-size_of.ping_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  return index
+  return offset + size_of_quote_activation_notification
 end
 
 -- Display: Ping Response
@@ -15391,7 +13721,7 @@ display.ping_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Ping Response
-dissect.ping_response_fields = function(buffer, offset, packet, parent)
+dissect.ping_response_fields = function(buffer, offset, packet, parent, size_of_ping_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -15408,30 +13738,23 @@ end
 
 -- Dissect: Ping Response
 dissect.ping_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_ping_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.ping_response then
-    local length = size_of.ping_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_ping_response)
     local display = display.ping_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.ping_response, range, display)
   end
 
-  return dissect.ping_response_fields(buffer, offset, packet, parent)
-end
+  dissect.ping_response_fields(buffer, offset, packet, parent, size_of_ping_response)
 
--- Calculate size of: Ping Request
-size_of.ping_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.partition_id
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_ping_response
 end
 
 -- Display: Ping Request
@@ -15440,7 +13763,7 @@ display.ping_request = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Ping Request
-dissect.ping_request_fields = function(buffer, offset, packet, parent)
+dissect.ping_request_fields = function(buffer, offset, packet, parent, size_of_ping_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -15460,15 +13783,23 @@ end
 
 -- Dissect: Ping Request
 dissect.ping_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_ping_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.ping_request then
-    local length = size_of.ping_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_ping_request)
     local display = display.ping_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.ping_request, range, display)
   end
 
-  return dissect.ping_request_fields(buffer, offset, packet, parent)
+  dissect.ping_request_fields(buffer, offset, packet, parent, size_of_ping_request)
+
+  return offset + size_of_ping_request
 end
 
 -- Size: Party Detail Status
@@ -15657,44 +13988,13 @@ dissect.party_detail_id_executing_unit = function(buffer, offset, packet, parent
   return offset + length, value
 end
 
--- Calculate size of: Party Entitlements Update Report
-size_of.party_entitlements_update_report = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.party_detail_id_executing_unit
-
-  index = index + size_of.requesting_party_id_executing_system
-
-  index = index + size_of.market_id
-
-  index = index + size_of.list_update_action
-
-  index = index + size_of.requesting_party_entering_firm
-
-  index = index + size_of.requesting_party_clearing_firm
-
-  index = index + size_of.party_detail_status
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: Party Entitlements Update Report
 display.party_entitlements_update_report = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Party Entitlements Update Report
-dissect.party_entitlements_update_report_fields = function(buffer, offset, packet, parent)
+dissect.party_entitlements_update_report_fields = function(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -15738,15 +14038,23 @@ end
 
 -- Dissect: Party Entitlements Update Report
 dissect.party_entitlements_update_report = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_party_entitlements_update_report = body_len
+
   -- Optionally add struct element to protocol tree
   if show.party_entitlements_update_report then
-    local length = size_of.party_entitlements_update_report(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_party_entitlements_update_report)
     local display = display.party_entitlements_update_report(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.party_entitlements_update_report, range, display)
   end
 
-  return dissect.party_entitlements_update_report_fields(buffer, offset, packet, parent)
+  dissect.party_entitlements_update_report_fields(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
+
+  return offset + size_of_party_entitlements_update_report
 end
 
 -- Size: Requesting Party Id Entering Firm
@@ -15823,42 +14131,13 @@ dissect.requesting_party_id_executing_trader = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Calculate size of: Party Action Report
-size_of.party_action_report = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.trade_date
-
-  index = index + size_of.requesting_party_id_executing_trader
-
-  index = index + size_of.party_id_executing_unit
-
-  index = index + size_of.party_id_executing_trader
-
-  index = index + size_of.requesting_party_id_executing_system
-
-  index = index + size_of.market_id
-
-  index = index + size_of.party_action_type
-
-  index = index + size_of.requesting_party_id_entering_firm
-
-  return index
-end
-
 -- Display: Party Action Report
 display.party_action_report = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Party Action Report
-dissect.party_action_report_fields = function(buffer, offset, packet, parent)
+dissect.party_action_report_fields = function(buffer, offset, packet, parent, size_of_party_action_report)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -15899,15 +14178,23 @@ end
 
 -- Dissect: Party Action Report
 dissect.party_action_report = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_party_action_report = body_len
+
   -- Optionally add struct element to protocol tree
   if show.party_action_report then
-    local length = size_of.party_action_report(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_party_action_report)
     local display = display.party_action_report(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.party_action_report, range, display)
   end
 
-  return dissect.party_action_report_fields(buffer, offset, packet, parent)
+  dissect.party_action_report_fields(buffer, offset, packet, parent, size_of_party_action_report)
+
+  return offset + size_of_party_action_report
 end
 
 -- Size: Order Event Reason
@@ -16245,80 +14532,13 @@ dissect.response_header_me_comp = function(buffer, offset, packet, parent)
   return dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Order Exec Response
-size_of.order_exec_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.trd_reg_ts_entry_time
-
-  index = index + size_of.trd_reg_ts_time_priority
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.match_type
-
-  index = index + size_of.triggered
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.no_fills
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_5
-
-  -- Calculate field size from count
-  local fills_grp_comp_count = buffer(offset + index - 7, 1):le_uint()
-  index = index + fills_grp_comp_count * 32
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 38, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
-end
-
 -- Display: Order Exec Response
 display.order_exec_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Exec Response
-dissect.order_exec_response_fields = function(buffer, offset, packet, parent)
+dissect.order_exec_response_fields = function(buffer, offset, packet, parent, size_of_order_exec_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -16414,15 +14634,23 @@ end
 
 -- Dissect: Order Exec Response
 dissect.order_exec_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_order_exec_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.order_exec_response then
-    local length = size_of.order_exec_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_order_exec_response)
     local display = display.order_exec_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.order_exec_response, range, display)
   end
 
-  return dissect.order_exec_response_fields(buffer, offset, packet, parent)
+  dissect.order_exec_response_fields(buffer, offset, packet, parent, size_of_order_exec_response)
+
+  return offset + size_of_order_exec_response
 end
 
 -- Size: Trade At Close Opt In
@@ -16582,142 +14810,13 @@ dissect.display_low_qty = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Order Exec Report Broadcast
-size_of.order_exec_report_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.trd_reg_ts_entry_time
-
-  index = index + size_of.trd_reg_ts_time_priority
-
-  index = index + size_of.price
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.display_low_qty
-
-  index = index + size_of.display_high_qty
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.volume_discovery_price
-
-  index = index + size_of.peg_offset_value_abs
-
-  index = index + size_of.peg_offset_value_pct
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.expire_date
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.party_id_executing_unit
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.party_id_executing_trader
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.order_event_type
-
-  index = index + size_of.match_type
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_session_sub_id
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.party_entering_firm
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.no_fills
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.triggered
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.trade_at_close_opt_in
-
-  index = index + size_of.pad_3
-
-  -- Calculate field size from count
-  local fills_grp_comp_count = buffer(offset + index - 8, 1):le_uint()
-  index = index + fills_grp_comp_count * 32
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 39, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
-end
-
 -- Display: Order Exec Report Broadcast
 display.order_exec_report_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Exec Report Broadcast
-dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -16906,80 +15005,23 @@ end
 
 -- Dissect: Order Exec Report Broadcast
 dissect.order_exec_report_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_order_exec_report_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.order_exec_report_broadcast then
-    local length = size_of.order_exec_report_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_order_exec_report_broadcast)
     local display = display.order_exec_report_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.order_exec_report_broadcast, range, display)
   end
 
-  return dissect.order_exec_report_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.order_exec_report_broadcast_fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
 
--- Calculate size of: Order Exec Notification
-size_of.order_exec_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.order_event_type
-
-  index = index + size_of.match_type
-
-  index = index + size_of.triggered
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.no_fills
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local fills_grp_comp_count = buffer(offset + index - 3, 1):le_uint()
-  index = index + fills_grp_comp_count * 32
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 34, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
+  return offset + size_of_order_exec_report_broadcast
 end
 
 -- Display: Order Exec Notification
@@ -16988,7 +15030,7 @@ display.order_exec_notification = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Order Exec Notification
-dissect.order_exec_notification_fields = function(buffer, offset, packet, parent)
+dissect.order_exec_notification_fields = function(buffer, offset, packet, parent, size_of_order_exec_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -17081,15 +15123,23 @@ end
 
 -- Dissect: Order Exec Notification
 dissect.order_exec_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_order_exec_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.order_exec_notification then
-    local length = size_of.order_exec_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_order_exec_notification)
     local display = display.order_exec_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.order_exec_notification, range, display)
   end
 
-  return dissect.order_exec_notification_fields(buffer, offset, packet, parent)
+  dissect.order_exec_notification_fields(buffer, offset, packet, parent, size_of_order_exec_notification)
+
+  return offset + size_of_order_exec_notification
 end
 
 -- Size: Headline
@@ -17132,35 +15182,13 @@ dissect.orig_time = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: News Broadcast
-size_of.news_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.orig_time
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.headline
-
-  index = index + size_of.pad_6
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 264, 2):le_uint()
-
-  return index
-end
-
 -- Display: News Broadcast
 display.news_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: News Broadcast
-dissect.news_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.news_broadcast_fields = function(buffer, offset, packet, parent, size_of_news_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -17189,15 +15217,23 @@ end
 
 -- Dissect: News Broadcast
 dissect.news_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_news_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.news_broadcast then
-    local length = size_of.news_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_news_broadcast)
     local display = display.news_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.news_broadcast, range, display)
   end
 
-  return dissect.news_broadcast_fields(buffer, offset, packet, parent)
+  dissect.news_broadcast_fields(buffer, offset, packet, parent, size_of_news_broadcast)
+
+  return offset + size_of_news_broadcast
 end
 
 -- Size: Enrichment Rule Id
@@ -17220,68 +15256,13 @@ dissect.enrichment_rule_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: New Order Single Short Request
-size_of.new_order_single_short_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.enrichment_rule_id
-
-  index = index + size_of.side
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.pad_6
-
-  return index
-end
-
 -- Display: New Order Single Short Request
 display.new_order_single_short_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Order Single Short Request
-dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent)
+dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -17361,108 +15342,23 @@ end
 
 -- Dissect: New Order Single Short Request
 dissect.new_order_single_short_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_new_order_single_short_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.new_order_single_short_request then
-    local length = size_of.new_order_single_short_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_new_order_single_short_request)
     local display = display.new_order_single_short_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.new_order_single_short_request, range, display)
   end
 
-  return dissect.new_order_single_short_request_fields(buffer, offset, packet, parent)
-end
+  dissect.new_order_single_short_request_fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
 
--- Calculate size of: New Order Single Request
-size_of.new_order_single_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.price
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.display_low_qty
-
-  index = index + size_of.display_high_qty
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.volume_discovery_price
-
-  index = index + size_of.peg_offset_value_abs
-
-  index = index + size_of.peg_offset_value_pct
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.expire_date
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_session_sub_id
-
-  index = index + size_of.trade_at_close_opt_in
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.pad_2
-
-  return index
+  return offset + size_of_new_order_single_short_request
 end
 
 -- Display: New Order Single Request
@@ -17471,7 +15367,7 @@ display.new_order_single_request = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: New Order Single Request
-dissect.new_order_single_request_fields = function(buffer, offset, packet, parent)
+dissect.new_order_single_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -17608,64 +15504,23 @@ end
 
 -- Dissect: New Order Single Request
 dissect.new_order_single_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_new_order_single_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.new_order_single_request then
-    local length = size_of.new_order_single_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_new_order_single_request)
     local display = display.new_order_single_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.new_order_single_request, range, display)
   end
 
-  return dissect.new_order_single_request_fields(buffer, offset, packet, parent)
-end
+  dissect.new_order_single_request_fields(buffer, offset, packet, parent, size_of_new_order_single_request)
 
--- Calculate size of: New Order Response
-size_of.new_order_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.trd_reg_ts_entry_time
-
-  index = index + size_of.trd_reg_ts_time_priority
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.triggered
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
+  return offset + size_of_new_order_single_request
 end
 
 -- Display: New Order Response
@@ -17674,7 +15529,7 @@ display.new_order_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: New Order Response
-dissect.new_order_response_fields = function(buffer, offset, packet, parent)
+dissect.new_order_response_fields = function(buffer, offset, packet, parent, size_of_new_order_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -17744,60 +15599,23 @@ end
 
 -- Dissect: New Order Response
 dissect.new_order_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_new_order_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.new_order_response then
-    local length = size_of.new_order_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_new_order_response)
     local display = display.new_order_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.new_order_response, range, display)
   end
 
-  return dissect.new_order_response_fields(buffer, offset, packet, parent)
-end
+  dissect.new_order_response_fields(buffer, offset, packet, parent, size_of_new_order_response)
 
--- Calculate size of: New Order Nr Response
-size_of.new_order_nr_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.triggered
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
+  return offset + size_of_new_order_response
 end
 
 -- Display: New Order Nr Response
@@ -17806,7 +15624,7 @@ display.new_order_nr_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: New Order Nr Response
-dissect.new_order_nr_response_fields = function(buffer, offset, packet, parent)
+dissect.new_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -17870,15 +15688,23 @@ end
 
 -- Dissect: New Order Nr Response
 dissect.new_order_nr_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_new_order_nr_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.new_order_nr_response then
-    local length = size_of.new_order_nr_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_new_order_nr_response)
     local display = display.new_order_nr_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.new_order_nr_response, range, display)
   end
 
-  return dissect.new_order_nr_response_fields(buffer, offset, packet, parent)
+  dissect.new_order_nr_response_fields(buffer, offset, packet, parent, size_of_new_order_nr_response)
+
+  return offset + size_of_new_order_nr_response
 end
 
 -- Calculate size of: Side Alloc Grp Comp
@@ -17948,52 +15774,13 @@ dissect.side_alloc_grp_comp = function(buffer, offset, packet, parent)
   return dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Modify Tes Trade Request
-size_of.modify_tes_trade_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.last_px
-
-  index = index + size_of.trans_bkd_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.package_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.no_side_allocs
-
-  index = index + size_of.trade_report_text
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local side_alloc_grp_comp_count = buffer(offset + index - 45, 1):le_uint()
-  index = index + side_alloc_grp_comp_count * 32
-
-  return index
-end
-
 -- Display: Modify Tes Trade Request
 display.modify_tes_trade_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Tes Trade Request
-dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, parent)
+dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -18048,72 +15835,23 @@ end
 
 -- Dissect: Modify Tes Trade Request
 dissect.modify_tes_trade_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_modify_tes_trade_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.modify_tes_trade_request then
-    local length = size_of.modify_tes_trade_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_modify_tes_trade_request)
     local display = display.modify_tes_trade_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.modify_tes_trade_request, range, display)
   end
 
-  return dissect.modify_tes_trade_request_fields(buffer, offset, packet, parent)
-end
+  dissect.modify_tes_trade_request_fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
 
--- Calculate size of: Modify Order Single Short Request
-size_of.modify_order_single_short_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.enrichment_rule_id
-
-  index = index + size_of.side
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_modify_tes_trade_request
 end
 
 -- Display: Modify Order Single Short Request
@@ -18122,7 +15860,7 @@ display.modify_order_single_short_request = function(buffer, offset, size, packe
 end
 
 -- Dissect Fields: Modify Order Single Short Request
-dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent)
+dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -18205,15 +15943,23 @@ end
 
 -- Dissect: Modify Order Single Short Request
 dissect.modify_order_single_short_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_modify_order_single_short_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_short_request then
-    local length = size_of.modify_order_single_short_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_modify_order_single_short_request)
     local display = display.modify_order_single_short_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.modify_order_single_short_request, range, display)
   end
 
-  return dissect.modify_order_single_short_request_fields(buffer, offset, packet, parent)
+  dissect.modify_order_single_short_request_fields(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
+
+  return offset + size_of_modify_order_single_short_request
 end
 
 -- Size: Ownership Indicator
@@ -18270,110 +16016,13 @@ dissect.stop_px_indicator = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Modify Order Single Request
-size_of.modify_order_single_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.display_low_qty
-
-  index = index + size_of.display_high_qty
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.volume_discovery_price
-
-  index = index + size_of.peg_offset_value_abs
-
-  index = index + size_of.peg_offset_value_pct
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.expire_date
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_session_sub_id
-
-  index = index + size_of.stop_px_indicator
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.ownership_indicator
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.pad_1
-
-  return index
-end
-
 -- Display: Modify Order Single Request
 display.modify_order_single_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Single Request
-dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent)
+dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -18516,70 +16165,23 @@ end
 
 -- Dissect: Modify Order Single Request
 dissect.modify_order_single_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_modify_order_single_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_request then
-    local length = size_of.modify_order_single_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_modify_order_single_request)
     local display = display.modify_order_single_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.modify_order_single_request, range, display)
   end
 
-  return dissect.modify_order_single_request_fields(buffer, offset, packet, parent)
-end
+  dissect.modify_order_single_request_fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
 
--- Calculate size of: Modify Order Response
-size_of.modify_order_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.trd_reg_ts_time_priority
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.triggered
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
+  return offset + size_of_modify_order_single_request
 end
 
 -- Display: Modify Order Response
@@ -18588,7 +16190,7 @@ display.modify_order_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Modify Order Response
-dissect.modify_order_response_fields = function(buffer, offset, packet, parent)
+dissect.modify_order_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -18667,68 +16269,23 @@ end
 
 -- Dissect: Modify Order Response
 dissect.modify_order_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_modify_order_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.modify_order_response then
-    local length = size_of.modify_order_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_modify_order_response)
     local display = display.modify_order_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.modify_order_response, range, display)
   end
 
-  return dissect.modify_order_response_fields(buffer, offset, packet, parent)
-end
+  dissect.modify_order_response_fields(buffer, offset, packet, parent, size_of_modify_order_response)
 
--- Calculate size of: Modify Order Nr Response
-size_of.modify_order_nr_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.crossed_indicator
-
-  index = index + size_of.triggered
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.no_order_events
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local order_event_grp_comp_count = buffer(offset + index - 5, 1):le_uint()
-  index = index + order_event_grp_comp_count * 24
-
-  return index
+  return offset + size_of_modify_order_response
 end
 
 -- Display: Modify Order Nr Response
@@ -18737,7 +16294,7 @@ display.modify_order_nr_response = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Modify Order Nr Response
-dissect.modify_order_nr_response_fields = function(buffer, offset, packet, parent)
+dissect.modify_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -18813,15 +16370,23 @@ end
 
 -- Dissect: Modify Order Nr Response
 dissect.modify_order_nr_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_modify_order_nr_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.modify_order_nr_response then
-    local length = size_of.modify_order_nr_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_modify_order_nr_response)
     local display = display.modify_order_nr_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.modify_order_nr_response, range, display)
   end
 
-  return dissect.modify_order_nr_response_fields(buffer, offset, packet, parent)
+  dissect.modify_order_nr_response_fields(buffer, offset, packet, parent, size_of_modify_order_nr_response)
+
+  return offset + size_of_modify_order_nr_response
 end
 
 -- Size: Quote Entry Status
@@ -19138,38 +16703,13 @@ dissect.quote_response_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Mass Quote Response
-size_of.mass_quote_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.quote_response_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.no_quote_side_entries
-
-  index = index + size_of.pad_3
-
-  -- Calculate field size from count
-  local quote_entry_ack_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + quote_entry_ack_grp_comp_count * 24
-
-  return index
-end
-
 -- Display: Mass Quote Response
 display.mass_quote_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Quote Response
-dissect.mass_quote_response_fields = function(buffer, offset, packet, parent)
+dissect.mass_quote_response_fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -19203,15 +16743,23 @@ end
 
 -- Dissect: Mass Quote Response
 dissect.mass_quote_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_mass_quote_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.mass_quote_response then
-    local length = size_of.mass_quote_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_mass_quote_response)
     local display = display.mass_quote_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.mass_quote_response, range, display)
   end
 
-  return dissect.mass_quote_response_fields(buffer, offset, packet, parent)
+  dissect.mass_quote_response_fields(buffer, offset, packet, parent, size_of_mass_quote_response)
+
+  return offset + size_of_mass_quote_response
 end
 
 -- Calculate size of: Quote Entry Grp Comp
@@ -19271,62 +16819,13 @@ dissect.quote_entry_grp_comp = function(buffer, offset, packet, parent)
   return dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Mass Quote Request
-size_of.mass_quote_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.enrichment_rule_id
-
-  index = index + size_of.price_validity_check_type
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.quote_size_type
-
-  index = index + size_of.quote_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.no_quote_entries
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local quote_entry_grp_comp_count = buffer(offset + index - 7, 1):le_uint()
-  index = index + quote_entry_grp_comp_count * 40
-
-  return index
-end
-
 -- Display: Mass Quote Request
 display.mass_quote_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Quote Request
-dissect.mass_quote_request_fields = function(buffer, offset, packet, parent)
+dissect.mass_quote_request_fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -19396,26 +16895,23 @@ end
 
 -- Dissect: Mass Quote Request
 dissect.mass_quote_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_mass_quote_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.mass_quote_request then
-    local length = size_of.mass_quote_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_mass_quote_request)
     local display = display.mass_quote_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.mass_quote_request, range, display)
   end
 
-  return dissect.mass_quote_request_fields(buffer, offset, packet, parent)
-end
+  dissect.mass_quote_request_fields(buffer, offset, packet, parent, size_of_mass_quote_request)
 
--- Calculate size of: Logout Response
-size_of.logout_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_mass_quote_request
 end
 
 -- Display: Logout Response
@@ -19424,7 +16920,7 @@ display.logout_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Logout Response
-dissect.logout_response_fields = function(buffer, offset, packet, parent)
+dissect.logout_response_fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -19438,26 +16934,23 @@ end
 
 -- Dissect: Logout Response
 dissect.logout_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_logout_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.logout_response then
-    local length = size_of.logout_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_logout_response)
     local display = display.logout_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.logout_response, range, display)
   end
 
-  return dissect.logout_response_fields(buffer, offset, packet, parent)
-end
+  dissect.logout_response_fields(buffer, offset, packet, parent, size_of_logout_response)
 
--- Calculate size of: Logout Request
-size_of.logout_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_logout_response
 end
 
 -- Display: Logout Request
@@ -19466,7 +16959,7 @@ display.logout_request = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Logout Request
-dissect.logout_request_fields = function(buffer, offset, packet, parent)
+dissect.logout_request_fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -19480,15 +16973,23 @@ end
 
 -- Dissect: Logout Request
 dissect.logout_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_logout_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.logout_request then
-    local length = size_of.logout_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_logout_request)
     local display = display.logout_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.logout_request, range, display)
   end
 
-  return dissect.logout_request_fields(buffer, offset, packet, parent)
+  dissect.logout_request_fields(buffer, offset, packet, parent, size_of_logout_request)
+
+  return offset + size_of_logout_request
 end
 
 -- Size: Default Cstm Appl Ver Sub Id
@@ -19611,44 +17112,13 @@ dissect.heart_bt_int = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Logon Response
-size_of.logon_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.throttle_time_interval
-
-  index = index + size_of.throttle_no_msgs
-
-  index = index + size_of.throttle_disconnect_limit
-
-  index = index + size_of.heart_bt_int
-
-  index = index + size_of.session_instance_id
-
-  index = index + size_of.market_id
-
-  index = index + size_of.trad_ses_mode
-
-  index = index + size_of.default_cstm_appl_ver_id
-
-  index = index + size_of.default_cstm_appl_ver_sub_id
-
-  index = index + size_of.pad_2
-
-  return index
-end
-
 -- Display: Logon Response
 display.logon_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Logon Response
-dissect.logon_response_fields = function(buffer, offset, packet, parent)
+dissect.logon_response_fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -19692,15 +17162,23 @@ end
 
 -- Dissect: Logon Response
 dissect.logon_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_logon_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.logon_response then
-    local length = size_of.logon_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_logon_response)
     local display = display.logon_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.logon_response, range, display)
   end
 
-  return dissect.logon_response_fields(buffer, offset, packet, parent)
+  dissect.logon_response_fields(buffer, offset, packet, parent, size_of_logon_response)
+
+  return offset + size_of_logon_response
 end
 
 -- Size: Application System Vendor
@@ -19916,52 +17394,13 @@ dissect.appl_usage_orders = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Logon Request
-size_of.logon_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.heart_bt_int
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.default_cstm_appl_ver_id
-
-  index = index + size_of.password
-
-  index = index + size_of.appl_usage_orders
-
-  index = index + size_of.appl_usage_quotes
-
-  index = index + size_of.order_routing_indicator
-
-  index = index + size_of.fix_engine_name
-
-  index = index + size_of.fix_engine_version
-
-  index = index + size_of.fix_engine_vendor
-
-  index = index + size_of.application_system_name
-
-  index = index + size_of.application_system_version
-
-  index = index + size_of.application_system_vendor
-
-  index = index + size_of.pad_3
-
-  return index
-end
-
 -- Display: Logon Request
 display.logon_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Logon Request
-dissect.logon_request_fields = function(buffer, offset, packet, parent)
+dissect.logon_request_fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -20017,15 +17456,23 @@ end
 
 -- Dissect: Logon Request
 dissect.logon_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_logon_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.logon_request then
-    local length = size_of.logon_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_logon_request)
     local display = display.logon_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.logon_request, range, display)
   end
 
-  return dissect.logon_request_fields(buffer, offset, packet, parent)
+  dissect.logon_request_fields(buffer, offset, packet, parent, size_of_logon_request)
+
+  return offset + size_of_logon_request
 end
 
 -- Size: User Status
@@ -20058,35 +17505,13 @@ dissect.user_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Legal Notification Broadcast
-size_of.legal_notification_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_comp(buffer, offset + index)
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.user_status
-
-  index = index + size_of.pad_5
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 8, 2):le_uint()
-
-  return index
-end
-
 -- Display: Legal Notification Broadcast
 display.legal_notification_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Legal Notification Broadcast
-dissect.legal_notification_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.legal_notification_broadcast_fields = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -20115,28 +17540,23 @@ end
 
 -- Dissect: Legal Notification Broadcast
 dissect.legal_notification_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_legal_notification_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.legal_notification_broadcast then
-    local length = size_of.legal_notification_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_legal_notification_broadcast)
     local display = display.legal_notification_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.legal_notification_broadcast, range, display)
   end
 
-  return dissect.legal_notification_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.legal_notification_broadcast_fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
 
--- Calculate size of: Issuer Security State Change Response
-size_of.issuer_security_state_change_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_status_report_id
-
-  return index
+  return offset + size_of_legal_notification_broadcast
 end
 
 -- Display: Issuer Security State Change Response
@@ -20145,7 +17565,7 @@ display.issuer_security_state_change_response = function(buffer, offset, size, p
 end
 
 -- Dissect Fields: Issuer Security State Change Response
-dissect.issuer_security_state_change_response_fields = function(buffer, offset, packet, parent)
+dissect.issuer_security_state_change_response_fields = function(buffer, offset, packet, parent, size_of_issuer_security_state_change_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -20162,15 +17582,23 @@ end
 
 -- Dissect: Issuer Security State Change Response
 dissect.issuer_security_state_change_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_issuer_security_state_change_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.issuer_security_state_change_response then
-    local length = size_of.issuer_security_state_change_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_issuer_security_state_change_response)
     local display = display.issuer_security_state_change_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.issuer_security_state_change_response, range, display)
   end
 
-  return dissect.issuer_security_state_change_response_fields(buffer, offset, packet, parent)
+  dissect.issuer_security_state_change_response_fields(buffer, offset, packet, parent, size_of_issuer_security_state_change_response)
+
+  return offset + size_of_issuer_security_state_change_response
 end
 
 -- Size: Event Date
@@ -20348,42 +17776,13 @@ dissect.no_events = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Issuer Security State Change Request
-size_of.issuer_security_state_change_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.no_events
-
-  index = index + size_of.security_status
-
-  index = index + size_of.sold_out_indicator
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local security_status_event_grp_comp_count = buffer(offset + index - 4, 1):le_uint()
-  index = index + security_status_event_grp_comp_count * 16
-
-  return index
-end
-
 -- Display: Issuer Security State Change Request
 display.issuer_security_state_change_request = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Issuer Security State Change Request
-dissect.issuer_security_state_change_request_fields = function(buffer, offset, packet, parent)
+dissect.issuer_security_state_change_request_fields = function(buffer, offset, packet, parent, size_of_issuer_security_state_change_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -20423,15 +17822,23 @@ end
 
 -- Dissect: Issuer Security State Change Request
 dissect.issuer_security_state_change_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_issuer_security_state_change_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.issuer_security_state_change_request then
-    local length = size_of.issuer_security_state_change_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_issuer_security_state_change_request)
     local display = display.issuer_security_state_change_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.issuer_security_state_change_request, range, display)
   end
 
-  return dissect.issuer_security_state_change_request_fields(buffer, offset, packet, parent)
+  dissect.issuer_security_state_change_request_fields(buffer, offset, packet, parent, size_of_issuer_security_state_change_request)
+
+  return offset + size_of_issuer_security_state_change_request
 end
 
 -- Size: Security Trading Status
@@ -20513,44 +17920,13 @@ dissect.potential_exec_volume = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Issuer Notification
-size_of.issuer_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.transact_time
-
-  index = index + size_of.last_px
-
-  index = index + size_of.potential_exec_volume
-
-  index = index + size_of.last_qty
-
-  index = index + size_of.imbalance_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.security_trading_status
-
-  index = index + size_of.pad_7
-
-  return index
-end
-
 -- Display: Issuer Notification
 display.issuer_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Issuer Notification
-dissect.issuer_notification_fields = function(buffer, offset, packet, parent)
+dissect.issuer_notification_fields = function(buffer, offset, packet, parent, size_of_issuer_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -20594,15 +17970,23 @@ end
 
 -- Dissect: Issuer Notification
 dissect.issuer_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_issuer_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.issuer_notification then
-    local length = size_of.issuer_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_issuer_notification)
     local display = display.issuer_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.issuer_notification, range, display)
   end
 
-  return dissect.issuer_notification_fields(buffer, offset, packet, parent)
+  dissect.issuer_notification_fields(buffer, offset, packet, parent, size_of_issuer_notification)
+
+  return offset + size_of_issuer_notification
 end
 
 -- Size: Party Detail Desk Id
@@ -20797,34 +18181,13 @@ dissect.last_entity_processed = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Inquire User Response
-size_of.inquire_user_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.last_entity_processed
-
-  index = index + size_of.no_party_details
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local party_details_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + party_details_grp_comp_count * 16
-
-  return index
-end
-
 -- Display: Inquire User Response
 display.inquire_user_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Inquire User Response
-dissect.inquire_user_response_fields = function(buffer, offset, packet, parent)
+dissect.inquire_user_response_fields = function(buffer, offset, packet, parent, size_of_inquire_user_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -20852,28 +18215,23 @@ end
 
 -- Dissect: Inquire User Response
 dissect.inquire_user_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_user_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.inquire_user_response then
-    local length = size_of.inquire_user_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_user_response)
     local display = display.inquire_user_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_user_response, range, display)
   end
 
-  return dissect.inquire_user_response_fields(buffer, offset, packet, parent)
-end
+  dissect.inquire_user_response_fields(buffer, offset, packet, parent, size_of_inquire_user_response)
 
--- Calculate size of: Inquire User Request
-size_of.inquire_user_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.last_entity_processed
-
-  return index
+  return offset + size_of_inquire_user_response
 end
 
 -- Display: Inquire User Request
@@ -20882,7 +18240,7 @@ display.inquire_user_request = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Inquire User Request
-dissect.inquire_user_request_fields = function(buffer, offset, packet, parent)
+dissect.inquire_user_request_fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -20899,15 +18257,23 @@ end
 
 -- Dissect: Inquire User Request
 dissect.inquire_user_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_user_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.inquire_user_request then
-    local length = size_of.inquire_user_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_user_request)
     local display = display.inquire_user_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_user_request, range, display)
   end
 
-  return dissect.inquire_user_request_fields(buffer, offset, packet, parent)
+  dissect.inquire_user_request_fields(buffer, offset, packet, parent, size_of_inquire_user_request)
+
+  return offset + size_of_inquire_user_request
 end
 
 -- Size: Session Sub Mode
@@ -21042,32 +18408,13 @@ dissect.no_sessions = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Inquire Session List Response
-size_of.inquire_session_list_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.no_sessions
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local sessions_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + sessions_grp_comp_count * 8
-
-  return index
-end
-
 -- Display: Inquire Session List Response
 display.inquire_session_list_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Inquire Session List Response
-dissect.inquire_session_list_response_fields = function(buffer, offset, packet, parent)
+dissect.inquire_session_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21092,26 +18439,23 @@ end
 
 -- Dissect: Inquire Session List Response
 dissect.inquire_session_list_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_session_list_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.inquire_session_list_response then
-    local length = size_of.inquire_session_list_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_session_list_response)
     local display = display.inquire_session_list_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_session_list_response, range, display)
   end
 
-  return dissect.inquire_session_list_response_fields(buffer, offset, packet, parent)
-end
+  dissect.inquire_session_list_response_fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
 
--- Calculate size of: Inquire Session List Request
-size_of.inquire_session_list_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_inquire_session_list_response
 end
 
 -- Display: Inquire Session List Request
@@ -21120,7 +18464,7 @@ display.inquire_session_list_request = function(buffer, offset, size, packet, pa
 end
 
 -- Dissect Fields: Inquire Session List Request
-dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent)
+dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -21134,15 +18478,23 @@ end
 
 -- Dissect: Inquire Session List Request
 dissect.inquire_session_list_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_session_list_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_request then
-    local length = size_of.inquire_session_list_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_session_list_request)
     local display = display.inquire_session_list_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_session_list_request, range, display)
   end
 
-  return dissect.inquire_session_list_request_fields(buffer, offset, packet, parent)
+  dissect.inquire_session_list_request_fields(buffer, offset, packet, parent, size_of_inquire_session_list_request)
+
+  return offset + size_of_inquire_session_list_request
 end
 
 -- Calculate size of: Enrichment Rules Grp Comp
@@ -21222,34 +18574,13 @@ dissect.no_enrichment_rules = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Inquire Enrichment Rule Id List Response
-size_of.inquire_enrichment_rule_id_list_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_comp(buffer, offset + index)
-
-  index = index + size_of.last_entity_processed
-
-  index = index + size_of.no_enrichment_rules
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local enrichment_rules_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + enrichment_rules_grp_comp_count * 48
-
-  return index
-end
-
 -- Display: Inquire Enrichment Rule Id List Response
 display.inquire_enrichment_rule_id_list_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Inquire Enrichment Rule Id List Response
-dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offset, packet, parent)
+dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21277,28 +18608,23 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Response
 dissect.inquire_enrichment_rule_id_list_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_enrichment_rule_id_list_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_response then
-    local length = size_of.inquire_enrichment_rule_id_list_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_enrichment_rule_id_list_response)
     local display = display.inquire_enrichment_rule_id_list_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_enrichment_rule_id_list_response, range, display)
   end
 
-  return dissect.inquire_enrichment_rule_id_list_response_fields(buffer, offset, packet, parent)
-end
+  dissect.inquire_enrichment_rule_id_list_response_fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
 
--- Calculate size of: Inquire Enrichment Rule Id List Request
-size_of.inquire_enrichment_rule_id_list_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.last_entity_processed
-
-  return index
+  return offset + size_of_inquire_enrichment_rule_id_list_response
 end
 
 -- Display: Inquire Enrichment Rule Id List Request
@@ -21307,7 +18633,7 @@ display.inquire_enrichment_rule_id_list_request = function(buffer, offset, size,
 end
 
 -- Dissect Fields: Inquire Enrichment Rule Id List Request
-dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent)
+dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -21324,26 +18650,23 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Request
 dissect.inquire_enrichment_rule_id_list_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_inquire_enrichment_rule_id_list_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_request then
-    local length = size_of.inquire_enrichment_rule_id_list_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_inquire_enrichment_rule_id_list_request)
     local display = display.inquire_enrichment_rule_id_list_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.inquire_enrichment_rule_id_list_request, range, display)
   end
 
-  return dissect.inquire_enrichment_rule_id_list_request_fields(buffer, offset, packet, parent)
-end
+  dissect.inquire_enrichment_rule_id_list_request_fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
 
--- Calculate size of: Heartbeat Notification
-size_of.heartbeat_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.notif_header_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_inquire_enrichment_rule_id_list_request
 end
 
 -- Display: Heartbeat Notification
@@ -21352,7 +18675,7 @@ display.heartbeat_notification = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Heartbeat Notification
-dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent)
+dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21366,24 +18689,23 @@ end
 
 -- Dissect: Heartbeat Notification
 dissect.heartbeat_notification = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_heartbeat_notification = body_len
+
   -- Optionally add struct element to protocol tree
   if show.heartbeat_notification then
-    local length = size_of.heartbeat_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_heartbeat_notification)
     local display = display.heartbeat_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.heartbeat_notification, range, display)
   end
 
-  return dissect.heartbeat_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.heartbeat_notification_fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
 
--- Calculate size of: Heartbeat
-size_of.heartbeat = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  return index
+  return offset + size_of_heartbeat_notification
 end
 
 -- Display: Heartbeat
@@ -21392,7 +18714,7 @@ display.heartbeat = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Heartbeat
-dissect.heartbeat_fields = function(buffer, offset, packet, parent)
+dissect.heartbeat_fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -21403,37 +18725,23 @@ end
 
 -- Dissect: Heartbeat
 dissect.heartbeat = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_heartbeat = body_len
+
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
-    local length = size_of.heartbeat(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_heartbeat)
     local display = display.heartbeat(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.heartbeat, range, display)
   end
 
-  return dissect.heartbeat_fields(buffer, offset, packet, parent)
-end
+  dissect.heartbeat_fields(buffer, offset, packet, parent, size_of_heartbeat)
 
--- Calculate size of: Forced User Logout Notification
-size_of.forced_user_logout_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.notif_header_comp(buffer, offset + index)
-
-  index = index + size_of.username
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.user_status
-
-  index = index + size_of.pad_1
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 4, 2):le_uint()
-
-  return index
+  return offset + size_of_heartbeat
 end
 
 -- Display: Forced User Logout Notification
@@ -21442,7 +18750,7 @@ display.forced_user_logout_notification = function(buffer, offset, size, packet,
 end
 
 -- Dissect Fields: Forced User Logout Notification
-dissect.forced_user_logout_notification_fields = function(buffer, offset, packet, parent)
+dissect.forced_user_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21471,33 +18779,23 @@ end
 
 -- Dissect: Forced User Logout Notification
 dissect.forced_user_logout_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_forced_user_logout_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.forced_user_logout_notification then
-    local length = size_of.forced_user_logout_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_forced_user_logout_notification)
     local display = display.forced_user_logout_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.forced_user_logout_notification, range, display)
   end
 
-  return dissect.forced_user_logout_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.forced_user_logout_notification_fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
 
--- Calculate size of: Forced Logout Notification
-size_of.forced_logout_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.notif_header_comp(buffer, offset + index)
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.pad_6
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 8, 2):le_uint()
-
-  return index
+  return offset + size_of_forced_user_logout_notification
 end
 
 -- Display: Forced Logout Notification
@@ -21506,7 +18804,7 @@ display.forced_logout_notification = function(buffer, offset, size, packet, pare
 end
 
 -- Dissect Fields: Forced Logout Notification
-dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent)
+dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21529,120 +18827,23 @@ end
 
 -- Dissect: Forced Logout Notification
 dissect.forced_logout_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_forced_logout_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.forced_logout_notification then
-    local length = size_of.forced_logout_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_forced_logout_notification)
     local display = display.forced_logout_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.forced_logout_notification, range, display)
   end
 
-  return dissect.forced_logout_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.forced_logout_notification_fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
 
--- Calculate size of: Extended Deletion Report
-size_of.extended_deletion_report = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.trd_reg_ts_entry_time
-
-  index = index + size_of.price
-
-  index = index + size_of.leaves_qty
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.display_qty
-
-  index = index + size_of.display_low_qty
-
-  index = index + size_of.display_high_qty
-
-  index = index + size_of.stop_px
-
-  index = index + size_of.volume_discovery_price
-
-  index = index + size_of.peg_offset_value_abs
-
-  index = index + size_of.peg_offset_value_pct
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.expire_date
-
-  index = index + size_of.match_inst_cross_id
-
-  index = index + size_of.party_id_executing_unit
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.party_id_executing_trader
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.side
-
-  index = index + size_of.ord_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.time_in_force
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.trading_session_sub_id
-
-  index = index + size_of.appl_seq_indicator
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.party_entering_firm
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.triggered
-
-  index = index + size_of.pad_2
-
-  return index
+  return offset + size_of_forced_logout_notification
 end
 
 -- Display: Extended Deletion Report
@@ -21651,7 +18852,7 @@ display.extended_deletion_report = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Extended Deletion Report
-dissect.extended_deletion_report_fields = function(buffer, offset, packet, parent)
+dissect.extended_deletion_report_fields = function(buffer, offset, packet, parent, size_of_extended_deletion_report)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -21806,54 +19007,23 @@ end
 
 -- Dissect: Extended Deletion Report
 dissect.extended_deletion_report = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_extended_deletion_report = body_len
+
   -- Optionally add struct element to protocol tree
   if show.extended_deletion_report then
-    local length = size_of.extended_deletion_report(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_extended_deletion_report)
     local display = display.extended_deletion_report(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.extended_deletion_report, range, display)
   end
 
-  return dissect.extended_deletion_report_fields(buffer, offset, packet, parent)
-end
+  dissect.extended_deletion_report_fields(buffer, offset, packet, parent, size_of_extended_deletion_report)
 
--- Calculate size of: Enter Tes Trade Request
-size_of.enter_tes_trade_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.last_px
-
-  index = index + size_of.trans_bkd_time
-
-  index = index + size_of.settl_curr_fx_rate
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.settl_date
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.no_side_allocs
-
-  index = index + size_of.trade_report_text
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.pad_4
-
-  -- Calculate field size from count
-  local side_alloc_grp_comp_count = buffer(offset + index - 45, 1):le_uint()
-  index = index + side_alloc_grp_comp_count * 32
-
-  return index
+  return offset + size_of_extended_deletion_report
 end
 
 -- Display: Enter Tes Trade Request
@@ -21862,7 +19032,7 @@ display.enter_tes_trade_request = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Enter Tes Trade Request
-dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent)
+dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -21917,40 +19087,23 @@ end
 
 -- Dissect: Enter Tes Trade Request
 dissect.enter_tes_trade_request = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_enter_tes_trade_request = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.enter_tes_trade_request then
-    local length = size_of.enter_tes_trade_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_enter_tes_trade_request)
     local display = display.enter_tes_trade_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.enter_tes_trade_request, range, display)
   end
 
-  return dissect.enter_tes_trade_request_fields(buffer, offset, packet, parent)
-end
+  dissect.enter_tes_trade_request_fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
 
--- Calculate size of: Delete Tes Trade Request
-size_of.delete_tes_trade_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.package_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.pad_5
-
-  return index
+  return offset + size_of_enter_tes_trade_request
 end
 
 -- Display: Delete Tes Trade Request
@@ -21959,7 +19112,7 @@ display.delete_tes_trade_request = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Delete Tes Trade Request
-dissect.delete_tes_trade_request_fields = function(buffer, offset, packet, parent)
+dissect.delete_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -21994,56 +19147,23 @@ end
 
 -- Dissect: Delete Tes Trade Request
 dissect.delete_tes_trade_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_tes_trade_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_tes_trade_request then
-    local length = size_of.delete_tes_trade_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_tes_trade_request)
     local display = display.delete_tes_trade_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_tes_trade_request, range, display)
   end
 
-  return dissect.delete_tes_trade_request_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_tes_trade_request_fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
 
--- Calculate size of: Delete Order Single Request
-size_of.delete_order_single_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_delete_tes_trade_request
 end
 
 -- Display: Delete Order Single Request
@@ -22052,7 +19172,7 @@ display.delete_order_single_request = function(buffer, offset, size, packet, par
 end
 
 -- Dissect Fields: Delete Order Single Request
-dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent)
+dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -22111,52 +19231,23 @@ end
 
 -- Dissect: Delete Order Single Request
 dissect.delete_order_single_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_order_single_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_order_single_request then
-    local length = size_of.delete_order_single_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_order_single_request)
     local display = display.delete_order_single_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_order_single_request, range, display)
   end
 
-  return dissect.delete_order_single_request_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_order_single_request_fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
 
--- Calculate size of: Delete Order Response
-size_of.delete_order_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_delete_order_single_request
 end
 
 -- Display: Delete Order Response
@@ -22165,7 +19256,7 @@ display.delete_order_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Delete Order Response
-dissect.delete_order_response_fields = function(buffer, offset, packet, parent)
+dissect.delete_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22218,52 +19309,23 @@ end
 
 -- Dissect: Delete Order Response
 dissect.delete_order_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_order_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_order_response then
-    local length = size_of.delete_order_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_order_response)
     local display = display.delete_order_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_order_response, range, display)
   end
 
-  return dissect.delete_order_response_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_order_response_fields(buffer, offset, packet, parent, size_of_delete_order_response)
 
--- Calculate size of: Delete Order Nr Response
-size_of.delete_order_nr_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.transaction_delay_indicator
-
-  index = index + size_of.pad_7
-
-  return index
+  return offset + size_of_delete_order_response
 end
 
 -- Display: Delete Order Nr Response
@@ -22272,7 +19334,7 @@ display.delete_order_nr_response = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Delete Order Nr Response
-dissect.delete_order_nr_response_fields = function(buffer, offset, packet, parent)
+dissect.delete_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22325,70 +19387,23 @@ end
 
 -- Dissect: Delete Order Nr Response
 dissect.delete_order_nr_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_order_nr_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_order_nr_response then
-    local length = size_of.delete_order_nr_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_order_nr_response)
     local display = display.delete_order_nr_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_order_nr_response, range, display)
   end
 
-  return dissect.delete_order_nr_response_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_order_nr_response_fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
 
--- Calculate size of: Delete Order Broadcast
-size_of.delete_order_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.order_id
-
-  index = index + size_of.cl_ord_id
-
-  index = index + size_of.orig_cl_ord_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.exec_id
-
-  index = index + size_of.cum_qty
-
-  index = index + size_of.cxl_qty
-
-  index = index + size_of.quote_id
-
-  index = index + size_of.order_id_sfx
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.party_id_session_id
-
-  index = index + size_of.exec_restatement_reason
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.ord_status
-
-  index = index + size_of.exec_type
-
-  index = index + size_of.side
-
-  index = index + size_of.order_event_type
-
-  index = index + size_of.fix_cl_ord_id
-
-  index = index + size_of.party_entering_firm
-
-  index = index + size_of.party_entering_trader
-
-  index = index + size_of.pad_2
-
-  return index
+  return offset + size_of_delete_order_nr_response
 end
 
 -- Display: Delete Order Broadcast
@@ -22397,7 +19412,7 @@ display.delete_order_broadcast = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Delete Order Broadcast
-dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22477,36 +19492,23 @@ end
 
 -- Dissect: Delete Order Broadcast
 dissect.delete_order_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_order_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_order_broadcast then
-    local length = size_of.delete_order_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_order_broadcast)
     local display = display.delete_order_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_order_broadcast, range, display)
   end
 
-  return dissect.delete_order_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_order_broadcast_fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
 
--- Calculate size of: Delete All Quote Response
-size_of.delete_all_quote_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.no_not_affected_securities
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_comp_count * 8
-
-  return index
+  return offset + size_of_delete_order_broadcast
 end
 
 -- Display: Delete All Quote Response
@@ -22515,7 +19517,7 @@ display.delete_all_quote_response = function(buffer, offset, size, packet, paren
 end
 
 -- Dissect Fields: Delete All Quote Response
-dissect.delete_all_quote_response_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_quote_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22543,40 +19545,23 @@ end
 
 -- Dissect: Delete All Quote Response
 dissect.delete_all_quote_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_quote_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.delete_all_quote_response then
-    local length = size_of.delete_all_quote_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_quote_response)
     local display = display.delete_all_quote_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_quote_response, range, display)
   end
 
-  return dissect.delete_all_quote_response_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_quote_response_fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
 
--- Calculate size of: Delete All Quote Request
-size_of.delete_all_quote_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_delete_all_quote_response
 end
 
 -- Display: Delete All Quote Request
@@ -22585,7 +19570,7 @@ display.delete_all_quote_request = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Delete All Quote Request
-dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -22620,15 +19605,23 @@ end
 
 -- Dissect: Delete All Quote Request
 dissect.delete_all_quote_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_quote_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_request then
-    local length = size_of.delete_all_quote_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_quote_request)
     local display = display.delete_all_quote_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_quote_request, range, display)
   end
 
-  return dissect.delete_all_quote_request_fields(buffer, offset, packet, parent)
+  dissect.delete_all_quote_request_fields(buffer, offset, packet, parent, size_of_delete_all_quote_request)
+
+  return offset + size_of_delete_all_quote_request
 end
 
 -- Size: Target Party Id Desk Id
@@ -22651,50 +19644,13 @@ dissect.target_party_id_desk_id = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Delete All Quote Broadcast
-size_of.delete_all_quote_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.target_party_id_executing_trader
-
-  index = index + size_of.no_not_affected_securities
-
-  index = index + size_of.mass_action_reason
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.target_party_id_desk_id
-
-  index = index + size_of.pad_1
-
-  -- Calculate field size from count
-  local not_affected_securities_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_securities_grp_comp_count * 8
-
-  return index
-end
-
 -- Display: Delete All Quote Broadcast
 display.delete_all_quote_broadcast = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Delete All Quote Broadcast
-dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22746,15 +19702,23 @@ end
 
 -- Dissect: Delete All Quote Broadcast
 dissect.delete_all_quote_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_quote_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.delete_all_quote_broadcast then
-    local length = size_of.delete_all_quote_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_quote_broadcast)
     local display = display.delete_all_quote_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_quote_broadcast, range, display)
   end
 
-  return dissect.delete_all_quote_broadcast_fields(buffer, offset, packet, parent)
+  dissect.delete_all_quote_broadcast_fields(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
+
+  return offset + size_of_delete_all_quote_broadcast
 end
 
 -- Size: Affected Order Request Id
@@ -22839,46 +19803,13 @@ dissect.no_affected_order_requests = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Delete All Order Response
-size_of.delete_all_order_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.no_not_affected_orders
-
-  index = index + size_of.no_affected_orders
-
-  index = index + size_of.no_affected_order_requests
-
-  index = index + size_of.pad_2
-
-  -- Calculate field size from count
-  local not_affected_orders_grp_comp_count = buffer(offset + index - 8, 2):le_uint()
-  index = index + not_affected_orders_grp_comp_count * 16
-
-  -- Calculate field size from count
-  local affected_ord_grp_comp_count = buffer(offset + index - 22, 2):le_uint()
-  index = index + affected_ord_grp_comp_count * 16
-
-  -- Calculate field size from count
-  local affected_order_requests_grp_comp_count = buffer(offset + index - 36, 2):le_uint()
-  index = index + affected_order_requests_grp_comp_count * 8
-
-  return index
-end
-
 -- Display: Delete All Order Response
 display.delete_all_order_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Delete All Order Response
-dissect.delete_all_order_response_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -22922,48 +19853,23 @@ end
 
 -- Dissect: Delete All Order Response
 dissect.delete_all_order_response = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_order_response = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.delete_all_order_response then
-    local length = size_of.delete_all_order_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_order_response)
     local display = display.delete_all_order_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_order_response, range, display)
   end
 
-  return dissect.delete_all_order_response_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_order_response_fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
 
--- Calculate size of: Delete All Order Request
-size_of.delete_all_order_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.target_party_id_executing_trader
-
-  index = index + size_of.side
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  return index
+  return offset + size_of_delete_all_order_response
 end
 
 -- Display: Delete All Order Request
@@ -22972,7 +19878,7 @@ display.delete_all_order_request = function(buffer, offset, size, packet, parent
 end
 
 -- Dissect Fields: Delete All Order Request
-dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -23019,38 +19925,23 @@ end
 
 -- Dissect: Delete All Order Request
 dissect.delete_all_order_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_order_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_request then
-    local length = size_of.delete_all_order_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_order_request)
     local display = display.delete_all_order_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_order_request, range, display)
   end
 
-  return dissect.delete_all_order_request_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_order_request_fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
 
--- Calculate size of: Delete All Order Quote Event Broadcast
-size_of.delete_all_order_quote_event_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.mass_action_reason
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.pad_2
-
-  return index
+  return offset + size_of_delete_all_order_request
 end
 
 -- Display: Delete All Order Quote Event Broadcast
@@ -23059,7 +19950,7 @@ display.delete_all_order_quote_event_broadcast = function(buffer, offset, size, 
 end
 
 -- Dissect Fields: Delete All Order Quote Event Broadcast
-dissect.delete_all_order_quote_event_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_order_quote_event_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -23091,28 +19982,23 @@ end
 
 -- Dissect: Delete All Order Quote Event Broadcast
 dissect.delete_all_order_quote_event_broadcast = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_order_quote_event_broadcast = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_quote_event_broadcast then
-    local length = size_of.delete_all_order_quote_event_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_order_quote_event_broadcast)
     local display = display.delete_all_order_quote_event_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_order_quote_event_broadcast, range, display)
   end
 
-  return dissect.delete_all_order_quote_event_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_order_quote_event_broadcast_fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
 
--- Calculate size of: Delete All Order Nr Response
-size_of.delete_all_order_nr_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  return index
+  return offset + size_of_delete_all_order_quote_event_broadcast
 end
 
 -- Display: Delete All Order Nr Response
@@ -23121,7 +20007,7 @@ display.delete_all_order_nr_response = function(buffer, offset, size, packet, pa
 end
 
 -- Dissect Fields: Delete All Order Nr Response
-dissect.delete_all_order_nr_response_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -23138,68 +20024,23 @@ end
 
 -- Dissect: Delete All Order Nr Response
 dissect.delete_all_order_nr_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_order_nr_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_nr_response then
-    local length = size_of.delete_all_order_nr_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_order_nr_response)
     local display = display.delete_all_order_nr_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_order_nr_response, range, display)
   end
 
-  return dissect.delete_all_order_nr_response_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_order_nr_response_fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
 
--- Calculate size of: Delete All Order Broadcast
-size_of.delete_all_order_broadcast = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.rbc_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.mass_action_report_id
-
-  index = index + size_of.security_id
-
-  index = index + size_of.price
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.target_party_id_session_id
-
-  index = index + size_of.target_party_id_executing_trader
-
-  index = index + size_of.party_id_entering_trader
-
-  index = index + size_of.no_not_affected_orders
-
-  index = index + size_of.no_affected_orders
-
-  index = index + size_of.no_affected_order_requests
-
-  index = index + size_of.party_id_entering_firm
-
-  index = index + size_of.mass_action_reason
-
-  index = index + size_of.exec_inst
-
-  index = index + size_of.side
-
-  index = index + size_of.pad_6
-
-  -- Calculate field size from count
-  local not_affected_orders_grp_comp_count = buffer(offset + index - 16, 2):le_uint()
-  index = index + not_affected_orders_grp_comp_count * 16
-
-  -- Calculate field size from count
-  local affected_ord_grp_comp_count = buffer(offset + index - 30, 2):le_uint()
-  index = index + affected_ord_grp_comp_count * 16
-
-  -- Calculate field size from count
-  local affected_order_requests_grp_comp_count = buffer(offset + index - 44, 2):le_uint()
-  index = index + affected_order_requests_grp_comp_count * 8
-
-  return index
+  return offset + size_of_delete_all_order_nr_response
 end
 
 -- Display: Delete All Order Broadcast
@@ -23208,7 +20049,7 @@ display.delete_all_order_broadcast = function(buffer, offset, size, packet, pare
 end
 
 -- Dissect Fields: Delete All Order Broadcast
-dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, parent)
+dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -23282,28 +20123,23 @@ end
 
 -- Dissect: Delete All Order Broadcast
 dissect.delete_all_order_broadcast = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_delete_all_order_broadcast = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.delete_all_order_broadcast then
-    local length = size_of.delete_all_order_broadcast(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_delete_all_order_broadcast)
     local display = display.delete_all_order_broadcast(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.delete_all_order_broadcast, range, display)
   end
 
-  return dissect.delete_all_order_broadcast_fields(buffer, offset, packet, parent)
-end
+  dissect.delete_all_order_broadcast_fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
 
--- Calculate size of: Cross Request Response
-size_of.cross_request_response = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.nr_response_header_me_comp(buffer, offset + index)
-
-  index = index + size_of.exec_id
-
-  return index
+  return offset + size_of_delete_all_order_broadcast
 end
 
 -- Display: Cross Request Response
@@ -23312,7 +20148,7 @@ display.cross_request_response = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Cross Request Response
-dissect.cross_request_response_fields = function(buffer, offset, packet, parent)
+dissect.cross_request_response_fields = function(buffer, offset, packet, parent, size_of_cross_request_response)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -23329,34 +20165,23 @@ end
 
 -- Dissect: Cross Request Response
 dissect.cross_request_response = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_cross_request_response = body_len
+
   -- Optionally add struct element to protocol tree
   if show.cross_request_response then
-    local length = size_of.cross_request_response(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_cross_request_response)
     local display = display.cross_request_response(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.cross_request_response, range, display)
   end
 
-  return dissect.cross_request_response_fields(buffer, offset, packet, parent)
-end
+  dissect.cross_request_response_fields(buffer, offset, packet, parent, size_of_cross_request_response)
 
--- Calculate size of: Cross Request
-size_of.cross_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.security_id
-
-  index = index + size_of.order_qty
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.pad_4
-
-  return index
+  return offset + size_of_cross_request_response
 end
 
 -- Display: Cross Request
@@ -23365,7 +20190,7 @@ display.cross_request = function(buffer, offset, size, packet, parent)
 end
 
 -- Dissect Fields: Cross Request
-dissect.cross_request_fields = function(buffer, offset, packet, parent)
+dissect.cross_request_fields = function(buffer, offset, packet, parent, size_of_cross_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -23391,15 +20216,23 @@ end
 
 -- Dissect: Cross Request
 dissect.cross_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_cross_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.cross_request then
-    local length = size_of.cross_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_cross_request)
     local display = display.cross_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.cross_request, range, display)
   end
 
-  return dissect.cross_request_fields(buffer, offset, packet, parent)
+  dissect.cross_request_fields(buffer, offset, packet, parent, size_of_cross_request)
+
+  return offset + size_of_cross_request
 end
 
 -- Size: Appl Id Status
@@ -23426,39 +20259,13 @@ dissect.appl_id_status = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Calculate size of: Broadcast Error Notification
-size_of.broadcast_error_notification = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_out_comp(buffer, offset + index)
-
-  index = index + size_of.notif_header_comp(buffer, offset + index)
-
-  index = index + size_of.appl_id_status
-
-  index = index + size_of.ref_appl_sub_id
-
-  index = index + size_of.var_text_len
-
-  index = index + size_of.ref_appl_id
-
-  index = index + size_of.session_status
-
-  index = index + size_of.pad_4
-
-  -- Parse runtime size of: Var Text
-  index = index + buffer(offset + index - 8, 2):le_uint()
-
-  return index
-end
-
 -- Display: Broadcast Error Notification
 display.broadcast_error_notification = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Broadcast Error Notification
-dissect.broadcast_error_notification_fields = function(buffer, offset, packet, parent)
+dissect.broadcast_error_notification_fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
   local index = offset
 
   -- Message Header Out Comp: Struct of 3 fields
@@ -23493,76 +20300,23 @@ end
 
 -- Dissect: Broadcast Error Notification
 dissect.broadcast_error_notification = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_broadcast_error_notification = body_len
+
+  -- Optionally add struct element to protocol tree
   if show.broadcast_error_notification then
-    local length = size_of.broadcast_error_notification(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_broadcast_error_notification)
     local display = display.broadcast_error_notification(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.broadcast_error_notification, range, display)
   end
 
-  return dissect.broadcast_error_notification_fields(buffer, offset, packet, parent)
-end
+  dissect.broadcast_error_notification_fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
 
--- Calculate size of: Approve Tes Trade Request
-size_of.approve_tes_trade_request = function(buffer, offset)
-  local index = 0
-
-  index = index + size_of.message_header_in_comp(buffer, offset + index)
-
-  index = index + size_of.request_header_comp(buffer, offset + index)
-
-  index = index + size_of.party_id_client_id
-
-  index = index + size_of.party_id_investment_decision_maker
-
-  index = index + size_of.executing_trader
-
-  index = index + size_of.alloc_qty
-
-  index = index + size_of.package_id
-
-  index = index + size_of.alloc_id
-
-  index = index + size_of.tes_exec_id
-
-  index = index + size_of.market_segment_id
-
-  index = index + size_of.trd_type
-
-  index = index + size_of.trading_capacity
-
-  index = index + size_of.trade_report_type
-
-  index = index + size_of.side
-
-  index = index + size_of.value_check_type_value
-
-  index = index + size_of.value_check_type_quantity
-
-  index = index + size_of.order_attribute_liquidity_provision
-
-  index = index + size_of.party_id_investment_decision_maker_qualifier
-
-  index = index + size_of.executing_trader_qualifier
-
-  index = index + size_of.order_origination
-
-  index = index + size_of.trade_report_id
-
-  index = index + size_of.party_executing_firm
-
-  index = index + size_of.party_executing_trader
-
-  index = index + size_of.free_text_1
-
-  index = index + size_of.free_text_2
-
-  index = index + size_of.free_text_4
-
-  index = index + size_of.pad_6
-
-  return index
+  return offset + size_of_broadcast_error_notification
 end
 
 -- Display: Approve Tes Trade Request
@@ -23571,7 +20325,7 @@ display.approve_tes_trade_request = function(buffer, offset, size, packet, paren
 end
 
 -- Dissect Fields: Approve Tes Trade Request
-dissect.approve_tes_trade_request_fields = function(buffer, offset, packet, parent)
+dissect.approve_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
   local index = offset
 
   -- Message Header In Comp: Struct of 4 fields
@@ -23660,15 +20414,23 @@ end
 
 -- Dissect: Approve Tes Trade Request
 dissect.approve_tes_trade_request = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(index, 4):le_uint()
+
+  -- Parse runtime struct size
+  local size_of_approve_tes_trade_request = body_len
+
   -- Optionally add struct element to protocol tree
   if show.approve_tes_trade_request then
-    local length = size_of.approve_tes_trade_request(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_approve_tes_trade_request)
     local display = display.approve_tes_trade_request(buffer, packet, parent)
     parent = parent:add(eurex_cash_eti_t7_v10_0.fields.approve_tes_trade_request, range, display)
   end
 
-  return dissect.approve_tes_trade_request_fields(buffer, offset, packet, parent)
+  dissect.approve_tes_trade_request_fields(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
+
+  return offset + size_of_approve_tes_trade_request
 end
 
 -- Dissect Packet
