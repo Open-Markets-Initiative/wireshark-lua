@@ -1073,7 +1073,23 @@ size_of.market_state = 1
 
 -- Display: Market State
 display.market_state = function(value)
-  return "Market State: "..value
+  if value == "P" then
+    return "Market State: Preopening (P)"
+  end
+  if value == "E" then
+    return "Market State: Early Session (E)"
+  end
+  if value == "O" then
+    return "Market State: Core Session (O)"
+  end
+  if value == "L" then
+    return "Market State: Late Session (L)"
+  end
+  if value == "X" then
+    return "Market State: Closed (X)"
+  end
+
+  return "Market State: Unknown("..value..")"
 end
 
 -- Dissect: Market State
@@ -1093,7 +1109,14 @@ size_of.ssr_state = 1
 
 -- Display: Ssr State
 display.ssr_state = function(value)
-  return "Ssr State: "..value
+  if value == "~" then
+    return "Ssr State: No Short Sale Restriction In Effect (~)"
+  end
+  if value == "E" then
+    return "Ssr State: Short Sale Restriction In Effect (E)"
+  end
+
+  return "Ssr State: Unknown("..value..")"
 end
 
 -- Dissect: Ssr State
@@ -1153,7 +1176,65 @@ size_of.ssr_triggering_exchange_id = 1
 
 -- Display: Ssr Triggering Exchange Id
 display.ssr_triggering_exchange_id = function(value)
-  return "Ssr Triggering Exchange Id: "..value
+  if value == "A" then
+    return "Ssr Triggering Exchange Id: Nyse American (A)"
+  end
+  if value == "B" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Bx (B)"
+  end
+  if value == "C" then
+    return "Ssr Triggering Exchange Id: Nyse National (C)"
+  end
+  if value == "H" then
+    return "Ssr Triggering Exchange Id: Miami Pearl (H)"
+  end
+  if value == "I" then
+    return "Ssr Triggering Exchange Id: Nasdaq Ise (I)"
+  end
+  if value == "J" then
+    return "Ssr Triggering Exchange Id: Cboe Edga (J)"
+  end
+  if value == "K" then
+    return "Ssr Triggering Exchange Id: Cboe Edgx (K)"
+  end
+  if value == "L" then
+    return "Ssr Triggering Exchange Id: Ltse (L)"
+  end
+  if value == "M" then
+    return "Ssr Triggering Exchange Id: Nyse Chicago (M)"
+  end
+  if value == "N" then
+    return "Ssr Triggering Exchange Id: Nyse (N)"
+  end
+  if value == "P" then
+    return "Ssr Triggering Exchange Id: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Ssr Triggering Exchange Id: Nasdaq (Q)"
+  end
+  if value == "T" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx (T)"
+  end
+  if value == "U" then
+    return "Ssr Triggering Exchange Id: Memx (U)"
+  end
+  if value == "V" then
+    return "Ssr Triggering Exchange Id: Iex (V)"
+  end
+  if value == "W" then
+    return "Ssr Triggering Exchange Id: Cbsx (W)"
+  end
+  if value == "X" then
+    return "Ssr Triggering Exchange Id: Nasdaq Omx Psx (X)"
+  end
+  if value == "Y" then
+    return "Ssr Triggering Exchange Id: Cboe Byx (Y)"
+  end
+  if value == "Z" then
+    return "Ssr Triggering Exchange Id: Cboe Bzx (Z)"
+  end
+
+  return "Ssr Triggering Exchange Id: Unknown("..value..")"
 end
 
 -- Dissect: Ssr Triggering Exchange Id
@@ -1233,7 +1314,56 @@ size_of.halt_condition = 1
 
 -- Display: Halt Condition
 display.halt_condition = function(value)
-  return "Halt Condition: "..value
+  if value == "~" then
+    return "Halt Condition: Security Not Delayedhalted (~)"
+  end
+  if value == "D" then
+    return "Halt Condition: News Dissemination (D)"
+  end
+  if value == "I" then
+    return "Halt Condition: Order Imbalance (I)"
+  end
+  if value == "P" then
+    return "Halt Condition: News Pending (P)"
+  end
+  if value == "M" then
+    return "Halt Condition: Luld Pause (M)"
+  end
+  if value == "X" then
+    return "Halt Condition: Equipment Changeover (X)"
+  end
+  if value == "A" then
+    return "Halt Condition: Additional Information Requested (A)"
+  end
+  if value == "C" then
+    return "Halt Condition: Regulatory Concern (C)"
+  end
+  if value == "E" then
+    return "Halt Condition: Merger Effective (E)"
+  end
+  if value == "F" then
+    return "Halt Condition: Etf Component Prices Not Available (F)"
+  end
+  if value == "N" then
+    return "Halt Condition: Corporate Action (N)"
+  end
+  if value == "O" then
+    return "Halt Condition: New Security Offering (O)"
+  end
+  if value == "V" then
+    return "Halt Condition: Intraday Indicative Value Not Available (V)"
+  end
+  if value == "1" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 1 (1)"
+  end
+  if value == "2" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 2 (2)"
+  end
+  if value == "3" then
+    return "Halt Condition: Market Wide Circuit Breaker Halt Level 3 (3)"
+  end
+
+  return "Halt Condition: Unknown("..value..")"
 end
 
 -- Dissect: Halt Condition
@@ -1253,7 +1383,44 @@ size_of.security_status = 1
 
 -- Display: Security Status
 display.security_status = function(value)
-  return "Security Status: "..value
+  if value == "4" then
+    return "Security Status: Trading Halt (4)"
+  end
+  if value == "5" then
+    return "Security Status: Resume (5)"
+  end
+  if value == "A" then
+    return "Security Status: Short Sale Restriction Activated Day 1 (A)"
+  end
+  if value == "C" then
+    return "Security Status: Short Sale Restriction Continued Day 2 (C)"
+  end
+  if value == "D" then
+    return "Security Status: Short Sale Restriction Deactivated (D)"
+  end
+  if value == "P" then
+    return "Security Status: Preopening (P)"
+  end
+  if value == "E" then
+    return "Security Status: Early Session (E)"
+  end
+  if value == "O" then
+    return "Security Status: Core Session (O)"
+  end
+  if value == "L" then
+    return "Security Status: Late Session Non Nyse Only (L)"
+  end
+  if value == "X" then
+    return "Security Status: Closed (X)"
+  end
+  if value == "I" then
+    return "Security Status: Price Indication (I)"
+  end
+  if value == "G" then
+    return "Security Status: Pre Opening Price Indication (G)"
+  end
+
+  return "Security Status: Unknown("..value..")"
 end
 
 -- Dissect: Security Status
@@ -1326,10 +1493,10 @@ dissect.security_status_message_fields = function(buffer, offset, packet, parent
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
   index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
 
-  -- Security Status: 1 Byte Ascii String
+  -- Security Status: 1 Byte Ascii String Enum with 12 values
   index, security_status = dissect.security_status(buffer, index, packet, parent)
 
-  -- Halt Condition: 1 Byte Ascii String
+  -- Halt Condition: 1 Byte Ascii String Enum with 16 values
   index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 4: 4 Byte
@@ -1341,7 +1508,7 @@ dissect.security_status_message_fields = function(buffer, offset, packet, parent
   -- Price 2: 4 Byte Unsigned Fixed Width Integer
   index, price_2 = dissect.price_2(buffer, index, packet, parent)
 
-  -- Ssr Triggering Exchange Id: 1 Byte Ascii String
+  -- Ssr Triggering Exchange Id: 1 Byte Ascii String Enum with 19 values
   index, ssr_triggering_exchange_id = dissect.ssr_triggering_exchange_id(buffer, index, packet, parent)
 
   -- Ssr Triggering Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1350,10 +1517,10 @@ dissect.security_status_message_fields = function(buffer, offset, packet, parent
   -- Time: 4 Byte Unsigned Fixed Width Integer
   index, time = dissect.time(buffer, index, packet, parent)
 
-  -- Ssr State: 1 Byte Ascii String
+  -- Ssr State: 1 Byte Ascii String Enum with 2 values
   index, ssr_state = dissect.ssr_state(buffer, index, packet, parent)
 
-  -- Market State: 1 Byte Ascii String
+  -- Market State: 1 Byte Ascii String Enum with 5 values
   index, market_state = dissect.market_state(buffer, index, packet, parent)
 
   -- Session State: 1 Byte Ascii String
@@ -1770,7 +1937,38 @@ size_of.status = 1
 
 -- Display: Status
 display.status = function(value)
-  return "Status: "..value
+  if value == "0" then
+    return "Status: Message Was Accepted (0)"
+  end
+  if value == "1" then
+    return "Status: Rejected Due To An Invalid Source Id (1)"
+  end
+  if value == "2" then
+    return "Status: Invalid Sequence Range (2)"
+  end
+  if value == "3" then
+    return "Status: Maximum Sequence Range (3)"
+  end
+  if value == "4" then
+    return "Status: Maximum Request In A Day (4)"
+  end
+  if value == "5" then
+    return "Status: Maximum Refresh Requests In A Day (5)"
+  end
+  if value == "6" then
+    return "Status: Old Seq Num Ttl (6)"
+  end
+  if value == "7" then
+    return "Status: Invalid Channel Id (7)"
+  end
+  if value == "8" then
+    return "Status: Invalid Product Id (8)"
+  end
+  if value == "9" then
+    return "Status: 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+  end
+
+  return "Status: Unknown("..value..")"
 end
 
 -- Dissect: Status
@@ -1853,7 +2051,7 @@ dissect.request_response_message_fields = function(buffer, offset, packet, paren
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String
+  -- Status: 1 Byte Ascii String Enum with 10 values
   index, status = dissect.status(buffer, index, packet, parent)
 
   return index
@@ -1994,7 +2192,14 @@ size_of.round_lot = 1
 
 -- Display: Round Lot
 display.round_lot = function(value)
-  return "Round Lot: "..value
+  if value == "Y" then
+    return "Round Lot: Yes (Y)"
+  end
+  if value == "N" then
+    return "Round Lot: No (N)"
+  end
+
+  return "Round Lot: Unknown("..value..")"
 end
 
 -- Dissect: Round Lot
@@ -2014,7 +2219,17 @@ size_of.price_resolution = 1
 
 -- Display: Price Resolution
 display.price_resolution = function(value)
-  return "Price Resolution: "..value
+  if value == 0 then
+    return "Price Resolution: All Penny (0)"
+  end
+  if value == 1 then
+    return "Price Resolution: Penny Nickel (1)"
+  end
+  if value == 5 then
+    return "Price Resolution: Nickel Dime (5)"
+  end
+
+  return "Price Resolution: Unknown("..value..")"
 end
 
 -- Dissect: Price Resolution
@@ -2094,7 +2309,56 @@ size_of.security_type = 1
 
 -- Display: Security Type
 display.security_type = function(value)
-  return "Security Type: "..value
+  if value == "A" then
+    return "Security Type: Adr (A)"
+  end
+  if value == "C" then
+    return "Security Type: Common Stock (C)"
+  end
+  if value == "D" then
+    return "Security Type: Debentures (D)"
+  end
+  if value == "E" then
+    return "Security Type: Etf (E)"
+  end
+  if value == "F" then
+    return "Security Type: Foreign (F)"
+  end
+  if value == "H" then
+    return "Security Type: Us Depositary Shares (H)"
+  end
+  if value == "I" then
+    return "Security Type: Units (I)"
+  end
+  if value == "L" then
+    return "Security Type: Index Linked Notes (L)"
+  end
+  if value == "M" then
+    return "Security Type: Miscliquid Trust (M)"
+  end
+  if value == "O" then
+    return "Security Type: Ordinary Shares (O)"
+  end
+  if value == "P" then
+    return "Security Type: Preferred Stock (P)"
+  end
+  if value == "R" then
+    return "Security Type: Rights (R)"
+  end
+  if value == "S" then
+    return "Security Type: Shares Of Beneficiary Interest (S)"
+  end
+  if value == "T" then
+    return "Security Type: Test (T)"
+  end
+  if value == "U" then
+    return "Security Type: Closed End Fund (U)"
+  end
+  if value == "W" then
+    return "Security Type: Warrant (W)"
+  end
+
+  return "Security Type: Unknown("..value..")"
 end
 
 -- Dissect: Security Type
@@ -2134,7 +2398,29 @@ size_of.exchange_code = 1
 
 -- Display: Exchange Code
 display.exchange_code = function(value)
-  return "Exchange Code: "..value
+  if value == "A" then
+    return "Exchange Code: Nyse American (A)"
+  end
+  if value == "L" then
+    return "Exchange Code: Ltse (L)"
+  end
+  if value == "N" then
+    return "Exchange Code: Nyse (N)"
+  end
+  if value == "P" then
+    return "Exchange Code: Nyse Arca (P)"
+  end
+  if value == "Q" then
+    return "Exchange Code: Nasdaq (Q)"
+  end
+  if value == "V" then
+    return "Exchange Code: Iex (V)"
+  end
+  if value == "Z" then
+    return "Exchange Code: Cboe (Z)"
+  end
+
+  return "Exchange Code: Unknown("..value..")"
 end
 
 -- Dissect: Exchange Code
@@ -2174,7 +2460,32 @@ size_of.market_id = 2
 
 -- Display: Market Id
 display.market_id = function(value)
-  return "Market Id: "..value
+  if value == 1 then
+    return "Market Id: Nyse Equities (1)"
+  end
+  if value == 3 then
+    return "Market Id: Nyse Arca Equities (3)"
+  end
+  if value == 4 then
+    return "Market Id: Nyse Arca Options (4)"
+  end
+  if value == 5 then
+    return "Market Id: Nyse Bonds (5)"
+  end
+  if value == 8 then
+    return "Market Id: Nyse Amex Options (8)"
+  end
+  if value == 9 then
+    return "Market Id: Nyse American Equities (9)"
+  end
+  if value == 10 then
+    return "Market Id: Nyse National Equities (10)"
+  end
+  if value == 11 then
+    return "Market Id: Nyse Chicago (11)"
+  end
+
+  return "Market Id: Unknown("..value..")"
 end
 
 -- Dissect: Market Id
@@ -2286,19 +2597,19 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Reserved 1: 1 Byte
   index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
 
-  -- Market Id: 2 Byte Unsigned Fixed Width Integer
+  -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 8 values
   index, market_id = dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
   index, system_id = dissect.system_id(buffer, index, packet, parent)
 
-  -- Exchange Code: 1 Byte Ascii String
+  -- Exchange Code: 1 Byte Ascii String Enum with 7 values
   index, exchange_code = dissect.exchange_code(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
   index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
 
-  -- Security Type: 1 Byte Ascii String
+  -- Security Type: 1 Byte Ascii String Enum with 16 values
   index, security_type = dissect.security_type(buffer, index, packet, parent)
 
   -- Lot Size: 2 Byte Unsigned Fixed Width Integer
@@ -2310,10 +2621,10 @@ dissect.symbol_index_mapping_message_fields = function(buffer, offset, packet, p
   -- Prev Close Volume: 4 Byte Unsigned Fixed Width Integer
   index, prev_close_volume = dissect.prev_close_volume(buffer, index, packet, parent)
 
-  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer
+  -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, price_resolution = dissect.price_resolution(buffer, index, packet, parent)
 
-  -- Round Lot: 1 Byte Ascii String
+  -- Round Lot: 1 Byte Ascii String Enum with 2 values
   index, round_lot = dissect.round_lot(buffer, index, packet, parent)
 
   -- Mpv: 2 Byte Unsigned Fixed Width Integer
