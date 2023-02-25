@@ -1943,9 +1943,6 @@ display.status = function(value)
   if value == "1" then
     return "Status: Rejected Due To An Invalid Source Id (1)"
   end
-  if value == "2" then
-    return "Status: Invalid Sequence Range (2)"
-  end
   if value == "3" then
     return "Status: Maximum Sequence Range (3)"
   end
@@ -1965,7 +1962,7 @@ display.status = function(value)
     return "Status: Invalid Product Id (8)"
   end
   if value == "9" then
-    return "Status: 1 Invalid Msg Type Or 2 Mismatch Between Msg Type And Msg Size (9)"
+    return "Status: Invalid Msg Type Or Msg Size Mismatch (9)"
   end
 
   return "Status: Unknown("..value..")"
@@ -2051,7 +2048,7 @@ dissect.request_response_message_fields = function(buffer, offset, packet, paren
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
   index, channel_id = dissect.channel_id(buffer, index, packet, parent)
 
-  -- Status: 1 Byte Ascii String Enum with 10 values
+  -- Status: 1 Byte Ascii String Enum with 9 values
   index, status = dissect.status(buffer, index, packet, parent)
 
   return index
