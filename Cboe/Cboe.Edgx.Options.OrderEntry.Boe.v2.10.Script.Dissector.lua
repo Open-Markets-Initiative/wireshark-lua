@@ -36700,8 +36700,14 @@ dissect.new_order_complex_message_fields = function(buffer, offset, packet, pare
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = dissect.order_qty(buffer, index, packet, parent)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  -- Runtime Size Of: New Order Complex Optional Fields
+  local size_of_new_order_complex_optional_fields = message_length - (index - offset) - 8
+
   -- New Order Complex Optional Fields
-  index, new_order_complex_optional_fields = dissect.new_order_complex_optional_fields(buffer, index, packet, parent)
+  index = dissect.new_order_complex_optional_fields(buffer, index, packet, parent, size_of_new_order_complex_optional_fields)
 
   return index
 end

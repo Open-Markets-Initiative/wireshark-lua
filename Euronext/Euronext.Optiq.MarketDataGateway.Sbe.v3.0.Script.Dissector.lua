@@ -10732,7 +10732,9 @@ size_of.not_used_group_1_groups = function(buffer, offset)
 
   index = index + size_of.group_size_encoding(buffer, offset + index)
 
-  index = index + size_of.not_used_group_1_group
+  -- Calculate field size from count
+  local not_used_group_1_group_count = buffer(offset + index - 1, 1):le_uint()
+  index = index + not_used_group_1_group_count * 0
 
   return index
 end
@@ -10749,15 +10751,20 @@ dissect.not_used_group_1_groups_fields = function(buffer, offset, packet, parent
   -- Group Size Encoding: Struct of 2 fields
   index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
 
+  -- Dependency element: Num In Group
+  local num_in_group = buffer(index - 1, 1):le_uint()
+
   -- Not Used Group 1 Group
-  index, not_used_group_1_group = dissect.not_used_group_1_group(buffer, index, packet, parent)
+  for i = 1, num_in_group do
+    index = dissect.not_used_group_1_group(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Not Used Group 1 Groups
 dissect.not_used_group_1_groups = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.not_used_group_1_groups then
     local length = size_of.not_used_group_1_groups(buffer, offset)
     local range = buffer(offset, length)
@@ -11944,7 +11951,7 @@ end
 
 -- Dissect: Full Trade Information Message
 dissect.full_trade_information_message = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.full_trade_information_message then
     local length = size_of.full_trade_information_message(buffer, offset)
     local range = buffer(offset, length)

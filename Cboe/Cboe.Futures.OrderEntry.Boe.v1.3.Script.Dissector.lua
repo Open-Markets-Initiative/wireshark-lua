@@ -26561,8 +26561,13 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
     index = dissect.cancel_orig_on_reject(buffer, index, packet, parent)
   end
 
-  -- Exec Inst
-  index, exec_inst = dissect.exec_inst(buffer, index, packet, parent)
+  -- Runtime optional field exists: Exec Inst
+  local exec_inst_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(1) > 0
+
+  -- Runtime optional field: Exec Inst
+  if exec_inst_exists then
+    index = dissect.exec_inst(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Side
   local side_exists = modify_order_bitfield_count >= 1 and modify_order_byte_1:bitfield(0) > 0
@@ -26572,8 +26577,13 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
     index = dissect.side(buffer, index, packet, parent)
   end
 
-  -- Reserved Bit 1
-  index, reserved_bit_1 = dissect.reserved_bit_1(buffer, index, packet, parent)
+  -- Runtime optional field exists: Reserved Bit 1
+  local reserved_bit_1_exists = modify_order_bitfield_count >= 2 and modify_order_byte_2:bitfield(7) > 0
+
+  -- Runtime optional field: Reserved Bit 1
+  if reserved_bit_1_exists then
+    index = dissect.reserved_bit_1(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Stop Px
   local stop_px_exists = modify_order_bitfield_count >= 2 and modify_order_byte_2:bitfield(6) > 0
@@ -27956,8 +27966,13 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
     index = dissect.oeoid(buffer, index, packet, parent)
   end
 
-  -- Reserved Bit 2
-  index, reserved_bit_2 = dissect.reserved_bit_2(buffer, index, packet, parent)
+  -- Runtime optional field exists: Reserved Bit 2
+  local reserved_bit_2_exists = new_order_bitfield_count >= 8 and new_order_byte_8:bitfield(6) > 0
+
+  -- Runtime optional field: Reserved Bit 2
+  if reserved_bit_2_exists then
+    index = dissect.reserved_bit_2(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Frequent Trader Id
   local frequent_trader_id_exists = new_order_bitfield_count >= 8 and new_order_byte_8:bitfield(3) > 0

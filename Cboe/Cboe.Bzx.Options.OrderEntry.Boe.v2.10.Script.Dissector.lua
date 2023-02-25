@@ -8934,8 +8934,13 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
     index = dissect.stop_px(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = cancel_rejected_bitfield_count >= 9 and cancel_rejected_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cmta Number
   local cmta_number_exists = cancel_rejected_bitfield_count >= 9 and cancel_rejected_byte_9:bitfield(2) > 0
@@ -11644,8 +11649,13 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = order_cancelled_bitfield_count >= 9 and order_cancelled_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cmta Number
   local cmta_number_exists = order_cancelled_bitfield_count >= 9 and order_cancelled_byte_9:bitfield(2) > 0
@@ -15645,8 +15655,13 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = order_restated_bitfield_count >= 9 and order_restated_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cmta Number
   local cmta_number_exists = order_restated_bitfield_count >= 9 and order_restated_byte_9:bitfield(2) > 0
@@ -17797,8 +17812,13 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = order_modified_bitfield_count >= 9 and order_modified_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cross Id
   local cross_id_exists = order_modified_bitfield_count >= 10 and order_modified_byte_10:bitfield(7) > 0
@@ -18196,8 +18216,14 @@ dissect.cross_order_rejected_message_fields = function(buffer, offset, packet, p
   -- Reserved Internal: 1 Byte Ascii String
   index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
 
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  -- Runtime Size Of: Cross Order Rejected Optional Fields
+  local size_of_cross_order_rejected_optional_fields = message_length - (index - offset) - 8
+
   -- Cross Order Rejected Optional Fields
-  index, cross_order_rejected_optional_fields = dissect.cross_order_rejected_optional_fields(buffer, index, packet, parent)
+  index = dissect.cross_order_rejected_optional_fields(buffer, index, packet, parent, size_of_cross_order_rejected_optional_fields)
 
   return index
 end
@@ -20110,8 +20136,13 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = order_rejected_bitfield_count >= 9 and order_rejected_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cmta Number
   local cmta_number_exists = order_rejected_bitfield_count >= 9 and order_rejected_byte_9:bitfield(2) > 0
@@ -20145,8 +20176,13 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
     index = dissect.session_eligibility(buffer, index, packet, parent)
   end
 
-  -- Reserved Bit 4
-  index, reserved_bit_4 = dissect.reserved_bit_4(buffer, index, packet, parent)
+  -- Runtime optional field exists: Reserved Bit 4
+  local reserved_bit_4_exists = order_rejected_bitfield_count >= 16 and order_rejected_byte_17:bitfield(4) > 0
+
+  -- Runtime optional field: Reserved Bit 4
+  if reserved_bit_4_exists then
+    index = dissect.reserved_bit_4(buffer, index, packet, parent)
+  end
 
   return index
 end
@@ -22434,8 +22470,13 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
     index = dissect.ex_destination(buffer, index, packet, parent)
   end
 
-  -- Market Fee Code
-  index, market_fee_code = dissect.market_fee_code(buffer, index, packet, parent)
+  -- Runtime optional field exists: Market Fee Code
+  local market_fee_code_exists = order_acknowledgment_bitfield_count >= 9 and order_acknowledgment_byte_9:bitfield(7) > 0
+
+  -- Runtime optional field: Market Fee Code
+  if market_fee_code_exists then
+    index = dissect.market_fee_code(buffer, index, packet, parent)
+  end
 
   -- Runtime optional field exists: Cross Id
   local cross_id_exists = order_acknowledgment_bitfield_count >= 10 and order_acknowledgment_byte_10:bitfield(7) > 0
