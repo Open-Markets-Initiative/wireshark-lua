@@ -111,7 +111,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number = ProtoField.n
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.sequence_number_reset_message = ProtoField.new("Sequence Number Reset Message", "nyse.equities.integratedfeed.pillar.v2.5.a.sequencenumberresetmessage", ftypes.STRING)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.session_state = ProtoField.new("Session State", "nyse.equities.integratedfeed.pillar.v2.5.a.sessionstate", ftypes.STRING)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.side = ProtoField.new("Side", "nyse.equities.integratedfeed.pillar.v2.5.a.side", ftypes.STRING)
-nyse_equities_integratedfeed_pillar_v2_5_a.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.equities.integratedfeed.pillar.v2.5.a.significantimbalance", ftypes.UINT8)
+nyse_equities_integratedfeed_pillar_v2_5_a.fields.significant_imbalance = ProtoField.new("Significant Imbalance", "nyse.equities.integratedfeed.pillar.v2.5.a.significantimbalance", ftypes.STRING)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_id = ProtoField.new("Source Id", "nyse.equities.integratedfeed.pillar.v2.5.a.sourceid", ftypes.STRING)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_time = ProtoField.new("Source Time", "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetime", ftypes.UINT32)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.source_time_ns = ProtoField.new("Source Time Ns", "nyse.equities.integratedfeed.pillar.v2.5.a.sourcetimens", ftypes.UINT32)
@@ -142,7 +142,7 @@ nyse_equities_integratedfeed_pillar_v2_5_a.fields.trade_cond_4 = ProtoField.new(
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.trade_id = ProtoField.new("Trade Id", "nyse.equities.integratedfeed.pillar.v2.5.a.tradeid", ftypes.UINT32)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.unit_of_trade = ProtoField.new("Unit Of Trade", "nyse.equities.integratedfeed.pillar.v2.5.a.unitoftrade", ftypes.UINT16)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.unpaired_qty = ProtoField.new("Unpaired Qty", "nyse.equities.integratedfeed.pillar.v2.5.a.unpairedqty", ftypes.UINT8)
-nyse_equities_integratedfeed_pillar_v2_5_a.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.equities.integratedfeed.pillar.v2.5.a.unpairedside", ftypes.UINT8)
+nyse_equities_integratedfeed_pillar_v2_5_a.fields.unpaired_side = ProtoField.new("Unpaired Side", "nyse.equities.integratedfeed.pillar.v2.5.a.unpairedside", ftypes.STRING)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.upper_collar = ProtoField.new("Upper Collar", "nyse.equities.integratedfeed.pillar.v2.5.a.uppercollar", ftypes.UINT32)
 nyse_equities_integratedfeed_pillar_v2_5_a.fields.volume = ProtoField.new("Volume", "nyse.equities.integratedfeed.pillar.v2.5.a.volume", ftypes.UINT32)
 
@@ -1402,10 +1402,10 @@ size_of.significant_imbalance = 1
 
 -- Display: Significant Imbalance
 display.significant_imbalance = function(value)
-  if value ==   then
-    return "Significant Imbalance: Default ( )"
+  if value == " " then
+    return "Significant Imbalance: Default (<whitespace>)"
   end
-  if value == Y then
+  if value == "Y" then
     return "Significant Imbalance: The Current Imbalance Is Significant (Y)"
   end
 
@@ -1416,7 +1416,7 @@ end
 dissect.significant_imbalance = function(buffer, offset, packet, parent)
   local length = size_of.significant_imbalance
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:string()
   local display = display.significant_imbalance(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.significant_imbalance, range, value, display)
@@ -1429,13 +1429,13 @@ size_of.unpaired_side = 1
 
 -- Display: Unpaired Side
 display.unpaired_side = function(value)
-  if value ==   then
-    return "Unpaired Side: Not Applicable ( )"
+  if value == " " then
+    return "Unpaired Side: Not Applicable (<whitespace>)"
   end
-  if value == B then
+  if value == "B" then
     return "Unpaired Side: Buy Side (B)"
   end
-  if value == S then
+  if value == "S" then
     return "Unpaired Side: Sell Side (S)"
   end
 
@@ -1446,7 +1446,7 @@ end
 dissect.unpaired_side = function(buffer, offset, packet, parent)
   local length = size_of.unpaired_side
   local range = buffer(offset, length)
-  local value = range:le_uint()
+  local value = range:string()
   local display = display.unpaired_side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_equities_integratedfeed_pillar_v2_5_a.fields.unpaired_side, range, value, display)
@@ -1968,10 +1968,10 @@ dissect.imbalance_message_fields = function(buffer, offset, packet, parent)
   -- Unpaired Qty: 1 Byte Unsigned Fixed Width Integer
   index, unpaired_qty = dissect.unpaired_qty(buffer, index, packet, parent)
 
-  -- Unpaired Side: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
+  -- Unpaired Side: 1 Byte Ascii String Enum with 3 values
   index, unpaired_side = dissect.unpaired_side(buffer, index, packet, parent)
 
-  -- Significant Imbalance: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
+  -- Significant Imbalance: 1 Byte Ascii String Enum with 2 values
   index, significant_imbalance = dissect.significant_imbalance(buffer, index, packet, parent)
 
   return index
