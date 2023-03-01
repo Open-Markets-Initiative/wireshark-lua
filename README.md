@@ -112,7 +112,6 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Nasdaq][Nasdaq.Directory] | Utdf | [Output][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | Utp | [1.5][Nasdaq.Utdf.Output.Utp.v1.5.Dissector] | 5/1/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nyse][Nyse.Directory] |  Equities | [OpenBook][Nyse.Equities.OpenBook.Ultra.v2.1.b.Dissector] | Ultra | [2.1.b][Nyse.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nyse][Nyse.Directory] | Amex Equities | [OpenBook][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | Ultra | [2.1.b][Nyse.Amex.Equities.OpenBook.Ultra.v2.1.b.Dissector] | 3/9/2018 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Nyse][Nyse.Directory] | Amex Equities | [IntegratedFeed][Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.Dissector] | Xdp | [2.1.g][Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.Dissector] | 1/29/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nyse][Nyse.Directory] | Arca Equities | [Bbo][Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.Dissector] | Xdp | [2.4.c][Nyse.Arca.Equities.Bbo.Xdp.v2.4.c.Dissector] | 7/13/2016 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nyse][Nyse.Directory] | Arca Options | [ComplexFeed][Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Dissector] | Pillar | [1.0.d][Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Dissector] | 3/21/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nyse][Nyse.Directory] | Arca Options | [Feed][Nyse.Arca.Options.Feed.Pillar.v1.2.f.Dissector] | Pillar | [1.2.f][Nyse.Arca.Options.Feed.Pillar.v1.2.f.Dissector] | 4/29/2022 | [Verified][Omi.Glossary.Testing.Verified] |
@@ -143,7 +142,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 190 | 1,596,753 |
+| 191 | 1,601,595 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -282,7 +281,6 @@ Enjoy.
 [Nyse.Equities.Bqt.Xdp.v2.1.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Equities.Bqt.Xdp.v2.1.a.Script.Dissector.lua "Nyse Equities Bqt Xdp v2.1.a Lua Wireshark Dissector"
 [Nyse.Equities.ImbalancesFeed.Xdp.v2.2.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Equities.ImbalancesFeed.Xdp.v2.2.a.Script.Dissector.lua "Nyse Equities ImbalancesFeed Xdp v2.2.a Lua Wireshark Dissector"
 [Nyse.Equities.ImbalancesFeed.Pillar.v2.2.h.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Equities.ImbalancesFeed.Pillar.v2.2.h.Script.Dissector.lua "Nyse Equities ImbalancesFeed Pillar v2.2.h Lua Wireshark Dissector"
-[Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Amex.Equities.IntegratedFeed.Xdp.v2.1.g.Script.Dissector.lua "Nyse Amex Equities IntegratedFeed Xdp v2.1.g Lua Wireshark Dissector"
 [Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Equities.IntegratedFeed.Pillar.v2.5.a.Script.Dissector.lua "Nyse Equities IntegratedFeed Pillar v2.5.a Lua Wireshark Dissector"
 [Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Options.ComplexFeed.Xdp.v1.3.a.Script.Dissector.lua "Nyse Options ComplexFeed Xdp v1.3.a Lua Wireshark Dissector"
 [Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Options.DeepFeed.Xdp.v1.3.a.Script.Dissector.lua "Nyse Options DeepFeed Xdp v1.3.a Lua Wireshark Dissector"
