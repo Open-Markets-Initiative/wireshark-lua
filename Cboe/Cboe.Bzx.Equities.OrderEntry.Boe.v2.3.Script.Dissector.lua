@@ -10,9 +10,9 @@ local cboe_bzx_equities_orderentry_boe_v2_3 = Proto("Cboe.Bzx.Equities.OrderEntr
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_bzx_equities_orderentry_boe_v2_3_display = {}
+local cboe_bzx_equities_orderentry_boe_v2_3_dissect = {}
+local cboe_bzx_equities_orderentry_boe_v2_3_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -2190,19 +2190,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Mass Cancel Id
-size_of.mass_cancel_id = 20
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.mass_cancel_id = 20
 
 -- Display: Mass Cancel Id
-display.mass_cancel_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_id = function(value)
   return "Mass Cancel Id: "..value
 end
 
 -- Dissect: Mass Cancel Id
-dissect.mass_cancel_id = function(buffer, offset, packet, parent)
-  local length = size_of.mass_cancel_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.mass_cancel_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mass_cancel_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.mass_cancel_id, range, value, display)
 
@@ -2210,10 +2210,10 @@ dissect.mass_cancel_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sub Liquidity Indicator
-size_of.sub_liquidity_indicator = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.sub_liquidity_indicator = 1
 
 -- Display: Sub Liquidity Indicator
-display.sub_liquidity_indicator = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.sub_liquidity_indicator = function(value)
   if value == "E" then
     return "Sub Liquidity Indicator: Trade Added Rpi Liquidity (E)"
   end
@@ -2249,11 +2249,11 @@ display.sub_liquidity_indicator = function(value)
 end
 
 -- Dissect: Sub Liquidity Indicator
-dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.sub_liquidity_indicator
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.sub_liquidity_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sub_liquidity_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.sub_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.sub_liquidity_indicator, range, value, display)
 
@@ -2261,10 +2261,10 @@ dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Purge Rejected Byte 17
-size_of.purge_rejected_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_17 = 1
 
 -- Display: Purge Rejected Byte 17
-display.purge_rejected_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2304,7 +2304,7 @@ display.purge_rejected_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 17
-dissect.purge_rejected_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2332,24 +2332,24 @@ dissect.purge_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 17
-dissect.purge_rejected_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_17, range, display)
 
   if show.purge_rejected_byte_17 then
-    dissect.purge_rejected_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 16
-size_of.purge_rejected_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_16 = 1
 
 -- Display: Purge Rejected Byte 16
-display.purge_rejected_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2389,7 +2389,7 @@ display.purge_rejected_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 16
-dissect.purge_rejected_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2417,24 +2417,24 @@ dissect.purge_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 16
-dissect.purge_rejected_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_16, range, display)
 
   if show.purge_rejected_byte_16 then
-    dissect.purge_rejected_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 15
-size_of.purge_rejected_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_15 = 1
 
 -- Display: Purge Rejected Byte 15
-display.purge_rejected_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2474,7 +2474,7 @@ display.purge_rejected_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 15
-dissect.purge_rejected_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2502,24 +2502,24 @@ dissect.purge_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 15
-dissect.purge_rejected_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_15, range, display)
 
   if show.purge_rejected_byte_15 then
-    dissect.purge_rejected_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 14
-size_of.purge_rejected_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_14 = 1
 
 -- Display: Purge Rejected Byte 14
-display.purge_rejected_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2559,7 +2559,7 @@ display.purge_rejected_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 14
-dissect.purge_rejected_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2587,24 +2587,24 @@ dissect.purge_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 14
-dissect.purge_rejected_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_14, range, display)
 
   if show.purge_rejected_byte_14 then
-    dissect.purge_rejected_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 13
-size_of.purge_rejected_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_13 = 1
 
 -- Display: Purge Rejected Byte 13
-display.purge_rejected_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2644,7 +2644,7 @@ display.purge_rejected_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 13
-dissect.purge_rejected_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2672,24 +2672,24 @@ dissect.purge_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 13
-dissect.purge_rejected_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_13, range, display)
 
   if show.purge_rejected_byte_13 then
-    dissect.purge_rejected_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 12
-size_of.purge_rejected_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_12 = 1
 
 -- Display: Purge Rejected Byte 12
-display.purge_rejected_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2729,7 +2729,7 @@ display.purge_rejected_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 12
-dissect.purge_rejected_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2757,24 +2757,24 @@ dissect.purge_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 12
-dissect.purge_rejected_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_12, range, display)
 
   if show.purge_rejected_byte_12 then
-    dissect.purge_rejected_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 11
-size_of.purge_rejected_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_11 = 1
 
 -- Display: Purge Rejected Byte 11
-display.purge_rejected_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2814,7 +2814,7 @@ display.purge_rejected_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 11
-dissect.purge_rejected_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2842,24 +2842,24 @@ dissect.purge_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 11
-dissect.purge_rejected_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_11, range, display)
 
   if show.purge_rejected_byte_11 then
-    dissect.purge_rejected_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 10
-size_of.purge_rejected_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_10 = 1
 
 -- Display: Purge Rejected Byte 10
-display.purge_rejected_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2899,7 +2899,7 @@ display.purge_rejected_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 10
-dissect.purge_rejected_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -2927,24 +2927,24 @@ dissect.purge_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 10
-dissect.purge_rejected_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_10, range, display)
 
   if show.purge_rejected_byte_10 then
-    dissect.purge_rejected_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 9
-size_of.purge_rejected_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_9 = 1
 
 -- Display: Purge Rejected Byte 9
-display.purge_rejected_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -2984,7 +2984,7 @@ display.purge_rejected_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 9
-dissect.purge_rejected_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3012,24 +3012,24 @@ dissect.purge_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 9
-dissect.purge_rejected_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_9, range, display)
 
   if show.purge_rejected_byte_9 then
-    dissect.purge_rejected_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 8
-size_of.purge_rejected_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_8 = 1
 
 -- Display: Purge Rejected Byte 8
-display.purge_rejected_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3069,7 +3069,7 @@ display.purge_rejected_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 8
-dissect.purge_rejected_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3097,24 +3097,24 @@ dissect.purge_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 8
-dissect.purge_rejected_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_8, range, display)
 
   if show.purge_rejected_byte_8 then
-    dissect.purge_rejected_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 7
-size_of.purge_rejected_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_7 = 1
 
 -- Display: Purge Rejected Byte 7
-display.purge_rejected_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3154,7 +3154,7 @@ display.purge_rejected_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 7
-dissect.purge_rejected_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3182,24 +3182,24 @@ dissect.purge_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 7
-dissect.purge_rejected_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_7, range, display)
 
   if show.purge_rejected_byte_7 then
-    dissect.purge_rejected_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 6
-size_of.purge_rejected_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_6 = 1
 
 -- Display: Purge Rejected Byte 6
-display.purge_rejected_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3239,7 +3239,7 @@ display.purge_rejected_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 6
-dissect.purge_rejected_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3267,24 +3267,24 @@ dissect.purge_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 6
-dissect.purge_rejected_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_6, range, display)
 
   if show.purge_rejected_byte_6 then
-    dissect.purge_rejected_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 5
-size_of.purge_rejected_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_5 = 1
 
 -- Display: Purge Rejected Byte 5
-display.purge_rejected_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3324,7 +3324,7 @@ display.purge_rejected_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 5
-dissect.purge_rejected_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3352,24 +3352,24 @@ dissect.purge_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 5
-dissect.purge_rejected_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_5, range, display)
 
   if show.purge_rejected_byte_5 then
-    dissect.purge_rejected_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 4
-size_of.purge_rejected_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_4 = 1
 
 -- Display: Purge Rejected Byte 4
-display.purge_rejected_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3409,7 +3409,7 @@ display.purge_rejected_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 4
-dissect.purge_rejected_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3437,24 +3437,24 @@ dissect.purge_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 4
-dissect.purge_rejected_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_4, range, display)
 
   if show.purge_rejected_byte_4 then
-    dissect.purge_rejected_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 3
-size_of.purge_rejected_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_3 = 1
 
 -- Display: Purge Rejected Byte 3
-display.purge_rejected_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3494,7 +3494,7 @@ display.purge_rejected_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 3
-dissect.purge_rejected_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3522,24 +3522,24 @@ dissect.purge_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 3
-dissect.purge_rejected_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_3, range, display)
 
   if show.purge_rejected_byte_3 then
-    dissect.purge_rejected_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 2
-size_of.purge_rejected_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_2 = 1
 
 -- Display: Purge Rejected Byte 2
-display.purge_rejected_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3579,7 +3579,7 @@ display.purge_rejected_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 2
-dissect.purge_rejected_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3607,24 +3607,24 @@ dissect.purge_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 2
-dissect.purge_rejected_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_2, range, display)
 
   if show.purge_rejected_byte_2 then
-    dissect.purge_rejected_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Byte 1
-size_of.purge_rejected_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_byte_1 = 1
 
 -- Display: Purge Rejected Byte 1
-display.purge_rejected_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Rejected Reserved Bit 8 Exists flag set?
@@ -3664,7 +3664,7 @@ display.purge_rejected_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Rejected Byte 1
-dissect.purge_rejected_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Purge Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -3692,33 +3692,33 @@ dissect.purge_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Rejected Byte 1
-dissect.purge_rejected_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_rejected_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_byte_1, range, display)
 
   if show.purge_rejected_byte_1 then
-    dissect.purge_rejected_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Rejected Bitfield Count
-size_of.purge_rejected_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_bitfield_count = 1
 
 -- Display: Purge Rejected Bitfield Count
-display.purge_rejected_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_bitfield_count = function(value)
   return "Purge Rejected Bitfield Count: "..value
 end
 
 -- Dissect: Purge Rejected Bitfield Count
-dissect.purge_rejected_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.purge_rejected_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.purge_rejected_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_bitfield_count, range, value, display)
 
@@ -3726,16 +3726,16 @@ dissect.purge_rejected_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Purge Rejected Optional Fields
-display.purge_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Rejected Optional Fields
-dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
   local index = offset
 
   -- Purge Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, purge_rejected_bitfield_count = dissect.purge_rejected_bitfield_count(buffer, index, packet, parent)
+  index, purge_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Purge Rejected Byte 1
   local purge_rejected_byte_1_exists = purge_rejected_bitfield_count >= 1
@@ -3744,7 +3744,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_1_exists then
 
     -- Purge Rejected Byte 1: Struct of 8 fields
-    index, purge_rejected_byte_1 = dissect.purge_rejected_byte_1(buffer, index, packet, parent)
+    index, purge_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 2
@@ -3754,7 +3754,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_2_exists then
 
     -- Purge Rejected Byte 2: Struct of 8 fields
-    index, purge_rejected_byte_2 = dissect.purge_rejected_byte_2(buffer, index, packet, parent)
+    index, purge_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 3
@@ -3764,7 +3764,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_3_exists then
 
     -- Purge Rejected Byte 3: Struct of 8 fields
-    index, purge_rejected_byte_3 = dissect.purge_rejected_byte_3(buffer, index, packet, parent)
+    index, purge_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 4
@@ -3774,7 +3774,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_4_exists then
 
     -- Purge Rejected Byte 4: Struct of 8 fields
-    index, purge_rejected_byte_4 = dissect.purge_rejected_byte_4(buffer, index, packet, parent)
+    index, purge_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 5
@@ -3784,7 +3784,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_5_exists then
 
     -- Purge Rejected Byte 5: Struct of 8 fields
-    index, purge_rejected_byte_5 = dissect.purge_rejected_byte_5(buffer, index, packet, parent)
+    index, purge_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 6
@@ -3794,7 +3794,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_6_exists then
 
     -- Purge Rejected Byte 6: Struct of 8 fields
-    index, purge_rejected_byte_6 = dissect.purge_rejected_byte_6(buffer, index, packet, parent)
+    index, purge_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 7
@@ -3804,7 +3804,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_7_exists then
 
     -- Purge Rejected Byte 7: Struct of 8 fields
-    index, purge_rejected_byte_7 = dissect.purge_rejected_byte_7(buffer, index, packet, parent)
+    index, purge_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 8
@@ -3814,7 +3814,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_8_exists then
 
     -- Purge Rejected Byte 8: Struct of 8 fields
-    index, purge_rejected_byte_8 = dissect.purge_rejected_byte_8(buffer, index, packet, parent)
+    index, purge_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 9
@@ -3824,7 +3824,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_9_exists then
 
     -- Purge Rejected Byte 9: Struct of 8 fields
-    index, purge_rejected_byte_9 = dissect.purge_rejected_byte_9(buffer, index, packet, parent)
+    index, purge_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 10
@@ -3834,7 +3834,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_10_exists then
 
     -- Purge Rejected Byte 10: Struct of 8 fields
-    index, purge_rejected_byte_10 = dissect.purge_rejected_byte_10(buffer, index, packet, parent)
+    index, purge_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 11
@@ -3844,7 +3844,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_11_exists then
 
     -- Purge Rejected Byte 11: Struct of 8 fields
-    index, purge_rejected_byte_11 = dissect.purge_rejected_byte_11(buffer, index, packet, parent)
+    index, purge_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 12
@@ -3854,7 +3854,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_12_exists then
 
     -- Purge Rejected Byte 12: Struct of 8 fields
-    index, purge_rejected_byte_12 = dissect.purge_rejected_byte_12(buffer, index, packet, parent)
+    index, purge_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 13
@@ -3864,7 +3864,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_13_exists then
 
     -- Purge Rejected Byte 13: Struct of 8 fields
-    index, purge_rejected_byte_13 = dissect.purge_rejected_byte_13(buffer, index, packet, parent)
+    index, purge_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 14
@@ -3874,7 +3874,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_14_exists then
 
     -- Purge Rejected Byte 14: Struct of 8 fields
-    index, purge_rejected_byte_14 = dissect.purge_rejected_byte_14(buffer, index, packet, parent)
+    index, purge_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 15
@@ -3884,7 +3884,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_15_exists then
 
     -- Purge Rejected Byte 15: Struct of 8 fields
-    index, purge_rejected_byte_15 = dissect.purge_rejected_byte_15(buffer, index, packet, parent)
+    index, purge_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 16
@@ -3894,7 +3894,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_16_exists then
 
     -- Purge Rejected Byte 16: Struct of 8 fields
-    index, purge_rejected_byte_16 = dissect.purge_rejected_byte_16(buffer, index, packet, parent)
+    index, purge_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 17
@@ -3904,7 +3904,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
   if purge_rejected_byte_17_exists then
 
     -- Purge Rejected Byte 17: Struct of 8 fields
-    index, purge_rejected_byte_17 = dissect.purge_rejected_byte_17(buffer, index, packet, parent)
+    index, purge_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Sub Liquidity Indicator
@@ -3912,7 +3912,7 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
-    index = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Id
@@ -3920,40 +3920,40 @@ dissect.purge_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
-    index = dissect.mass_cancel_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_id(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Purge Rejected Optional Fields
-dissect.purge_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_optional_fields then
     local range = buffer(offset, size_of_purge_rejected_optional_fields)
-    local display = display.purge_rejected_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_optional_fields, range, display)
   end
 
-  dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_rejected_optional_fields)
 
   return offset + size_of_purge_rejected_optional_fields
 end
 
 -- Size: Reserved Internal
-size_of.reserved_internal = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.reserved_internal = 1
 
 -- Display: Reserved Internal
-display.reserved_internal = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.reserved_internal = function(value)
   return "Reserved Internal: "..value
 end
 
 -- Dissect: Reserved Internal
-dissect.reserved_internal = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_internal
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.reserved_internal
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_internal(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.reserved_internal(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.reserved_internal, range, value, display)
 
@@ -3961,19 +3961,19 @@ dissect.reserved_internal = function(buffer, offset, packet, parent)
 end
 
 -- Size: Text
-size_of.text = 60
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.text = 60
 
 -- Display: Text
-display.text = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.text = function(value)
   return "Text: "..value
 end
 
 -- Dissect: Text
-dissect.text = function(buffer, offset, packet, parent)
-  local length = size_of.text
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.text = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.text(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.text, range, value, display)
 
@@ -3981,10 +3981,10 @@ dissect.text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Purge Reject Reason
-size_of.purge_reject_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_reject_reason = 1
 
 -- Display: Purge Reject Reason
-display.purge_reject_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_reject_reason = function(value)
   if value == "A" then
     return "Purge Reject Reason: Admin (A)"
   end
@@ -4086,11 +4086,11 @@ display.purge_reject_reason = function(value)
 end
 
 -- Dissect: Purge Reject Reason
-dissect.purge_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.purge_reject_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.purge_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_reject_reason, range, value, display)
 
@@ -4098,19 +4098,19 @@ dissect.purge_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transaction Time
-size_of.transaction_time = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.transaction_time = 8
 
 -- Display: Transaction Time
-display.transaction_time = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.transaction_time = function(value)
   return "Transaction Time: "..value
 end
 
 -- Dissect: Transaction Time
-dissect.transaction_time = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_time
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.transaction_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.transaction_time(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.transaction_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.transaction_time, range, value, display)
 
@@ -4118,25 +4118,25 @@ dissect.transaction_time = function(buffer, offset, packet, parent)
 end
 
 -- Display: Purge Rejected Message
-display.purge_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Rejected Message
-dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Purge Reject Reason: 1 Byte Ascii String Enum with 32 values
-  index, purge_reject_reason = dissect.purge_reject_reason(buffer, index, packet, parent)
+  index, purge_reject_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.text(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4145,13 +4145,13 @@ dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent,
   local size_of_purge_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Purge Rejected Optional Fields: Struct of 20 fields
-  index = dissect.purge_rejected_optional_fields(buffer, index, packet, parent, size_of_purge_rejected_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_optional_fields(buffer, index, packet, parent, size_of_purge_rejected_optional_fields)
 
   return index
 end
 
 -- Dissect: Purge Rejected Message
-dissect.purge_rejected_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4162,29 +4162,29 @@ dissect.purge_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_message then
     local range = buffer(offset, size_of_purge_rejected_message)
-    local display = display.purge_rejected_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_message, range, display)
   end
 
-  dissect.purge_rejected_message_fields(buffer, offset, packet, parent, size_of_purge_rejected_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_message_fields(buffer, offset, packet, parent, size_of_purge_rejected_message)
 
   return offset + size_of_purge_rejected_message
 end
 
 -- Size: Cancelled Order Count
-size_of.cancelled_order_count = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancelled_order_count = 4
 
 -- Display: Cancelled Order Count
-display.cancelled_order_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancelled_order_count = function(value)
   return "Cancelled Order Count: "..value
 end
 
 -- Dissect: Cancelled Order Count
-dissect.cancelled_order_count = function(buffer, offset, packet, parent)
-  local length = size_of.cancelled_order_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancelled_order_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancelled_order_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cancelled_order_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancelled_order_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancelled_order_count, range, value, display)
 
@@ -4192,31 +4192,31 @@ dissect.cancelled_order_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Mass Cancel Acknowledgment Message
-display.mass_cancel_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_acknowledgment_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Cancel Acknowledgment Message
-dissect.mass_cancel_acknowledgment_message_fields = function(buffer, offset, packet, parent, size_of_mass_cancel_acknowledgment_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_acknowledgment_message_fields = function(buffer, offset, packet, parent, size_of_mass_cancel_acknowledgment_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
-  index, cancelled_order_count = dissect.cancelled_order_count(buffer, index, packet, parent)
+  index, cancelled_order_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancelled_order_count(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Acknowledgment Message
-dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4227,20 +4227,20 @@ dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, pa
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_acknowledgment_message then
     local range = buffer(offset, size_of_mass_cancel_acknowledgment_message)
-    local display = display.mass_cancel_acknowledgment_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_acknowledgment_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.mass_cancel_acknowledgment_message, range, display)
   end
 
-  dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, parent, size_of_mass_cancel_acknowledgment_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_acknowledgment_message_fields(buffer, offset, packet, parent, size_of_mass_cancel_acknowledgment_message)
 
   return offset + size_of_mass_cancel_acknowledgment_message
 end
 
 -- Size: Capacity
-size_of.capacity = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.capacity = 1
 
 -- Display: Capacity
-display.capacity = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.capacity = function(value)
   if value == "A" then
     return "Capacity: Agency (A)"
   end
@@ -4255,11 +4255,11 @@ display.capacity = function(value)
 end
 
 -- Dissect: Capacity
-dissect.capacity = function(buffer, offset, packet, parent)
-  local length = size_of.capacity
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.capacity
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.capacity(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.capacity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.capacity, range, value, display)
 
@@ -4267,19 +4267,19 @@ dissect.capacity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Sfx
-size_of.symbol_sfx = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.symbol_sfx = 8
 
 -- Display: Symbol Sfx
-display.symbol_sfx = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.symbol_sfx = function(value)
   return "Symbol Sfx: "..value
 end
 
 -- Dissect: Symbol Sfx
-dissect.symbol_sfx = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_sfx
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.symbol_sfx
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol_sfx(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.symbol_sfx(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.symbol_sfx, range, value, display)
 
@@ -4287,19 +4287,19 @@ dissect.symbol_sfx = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.symbol = 8
 
 -- Display: Symbol
-display.symbol = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.symbol, range, value, display)
 
@@ -4307,10 +4307,10 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Cancel Or Correct Byte 17
-size_of.trade_cancel_or_correct_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_17 = 1
 
 -- Display: Trade Cancel Or Correct Byte 17
-display.trade_cancel_or_correct_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4350,7 +4350,7 @@ display.trade_cancel_or_correct_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 17
-dissect.trade_cancel_or_correct_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4378,24 +4378,24 @@ dissect.trade_cancel_or_correct_byte_17_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 17
-dissect.trade_cancel_or_correct_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_17, range, display)
 
   if show.trade_cancel_or_correct_byte_17 then
-    dissect.trade_cancel_or_correct_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 16
-size_of.trade_cancel_or_correct_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_16 = 1
 
 -- Display: Trade Cancel Or Correct Byte 16
-display.trade_cancel_or_correct_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4435,7 +4435,7 @@ display.trade_cancel_or_correct_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 16
-dissect.trade_cancel_or_correct_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4463,24 +4463,24 @@ dissect.trade_cancel_or_correct_byte_16_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 16
-dissect.trade_cancel_or_correct_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_16, range, display)
 
   if show.trade_cancel_or_correct_byte_16 then
-    dissect.trade_cancel_or_correct_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 15
-size_of.trade_cancel_or_correct_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_15 = 1
 
 -- Display: Trade Cancel Or Correct Byte 15
-display.trade_cancel_or_correct_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4520,7 +4520,7 @@ display.trade_cancel_or_correct_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 15
-dissect.trade_cancel_or_correct_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4548,24 +4548,24 @@ dissect.trade_cancel_or_correct_byte_15_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 15
-dissect.trade_cancel_or_correct_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_15, range, display)
 
   if show.trade_cancel_or_correct_byte_15 then
-    dissect.trade_cancel_or_correct_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 14
-size_of.trade_cancel_or_correct_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_14 = 1
 
 -- Display: Trade Cancel Or Correct Byte 14
-display.trade_cancel_or_correct_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4605,7 +4605,7 @@ display.trade_cancel_or_correct_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 14
-dissect.trade_cancel_or_correct_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4633,24 +4633,24 @@ dissect.trade_cancel_or_correct_byte_14_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 14
-dissect.trade_cancel_or_correct_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_14, range, display)
 
   if show.trade_cancel_or_correct_byte_14 then
-    dissect.trade_cancel_or_correct_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 13
-size_of.trade_cancel_or_correct_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_13 = 1
 
 -- Display: Trade Cancel Or Correct Byte 13
-display.trade_cancel_or_correct_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4690,7 +4690,7 @@ display.trade_cancel_or_correct_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 13
-dissect.trade_cancel_or_correct_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4718,24 +4718,24 @@ dissect.trade_cancel_or_correct_byte_13_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 13
-dissect.trade_cancel_or_correct_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_13, range, display)
 
   if show.trade_cancel_or_correct_byte_13 then
-    dissect.trade_cancel_or_correct_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 12
-size_of.trade_cancel_or_correct_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_12 = 1
 
 -- Display: Trade Cancel Or Correct Byte 12
-display.trade_cancel_or_correct_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4775,7 +4775,7 @@ display.trade_cancel_or_correct_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 12
-dissect.trade_cancel_or_correct_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4803,24 +4803,24 @@ dissect.trade_cancel_or_correct_byte_12_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 12
-dissect.trade_cancel_or_correct_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_12, range, display)
 
   if show.trade_cancel_or_correct_byte_12 then
-    dissect.trade_cancel_or_correct_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 11
-size_of.trade_cancel_or_correct_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_11 = 1
 
 -- Display: Trade Cancel Or Correct Byte 11
-display.trade_cancel_or_correct_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4860,7 +4860,7 @@ display.trade_cancel_or_correct_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 11
-dissect.trade_cancel_or_correct_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4888,24 +4888,24 @@ dissect.trade_cancel_or_correct_byte_11_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 11
-dissect.trade_cancel_or_correct_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_11, range, display)
 
   if show.trade_cancel_or_correct_byte_11 then
-    dissect.trade_cancel_or_correct_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 10
-size_of.trade_cancel_or_correct_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_10 = 1
 
 -- Display: Trade Cancel Or Correct Byte 10
-display.trade_cancel_or_correct_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -4945,7 +4945,7 @@ display.trade_cancel_or_correct_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 10
-dissect.trade_cancel_or_correct_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -4973,24 +4973,24 @@ dissect.trade_cancel_or_correct_byte_10_bits = function(buffer, offset, packet, 
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 10
-dissect.trade_cancel_or_correct_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_10, range, display)
 
   if show.trade_cancel_or_correct_byte_10 then
-    dissect.trade_cancel_or_correct_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 9
-size_of.trade_cancel_or_correct_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_9 = 1
 
 -- Display: Trade Cancel Or Correct Byte 9
-display.trade_cancel_or_correct_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5030,7 +5030,7 @@ display.trade_cancel_or_correct_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 9
-dissect.trade_cancel_or_correct_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5058,24 +5058,24 @@ dissect.trade_cancel_or_correct_byte_9_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 9
-dissect.trade_cancel_or_correct_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_9, range, display)
 
   if show.trade_cancel_or_correct_byte_9 then
-    dissect.trade_cancel_or_correct_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 8
-size_of.trade_cancel_or_correct_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_8 = 1
 
 -- Display: Trade Cancel Or Correct Byte 8
-display.trade_cancel_or_correct_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5115,7 +5115,7 @@ display.trade_cancel_or_correct_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 8
-dissect.trade_cancel_or_correct_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5143,24 +5143,24 @@ dissect.trade_cancel_or_correct_byte_8_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 8
-dissect.trade_cancel_or_correct_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_8, range, display)
 
   if show.trade_cancel_or_correct_byte_8 then
-    dissect.trade_cancel_or_correct_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 7
-size_of.trade_cancel_or_correct_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_7 = 1
 
 -- Display: Trade Cancel Or Correct Byte 7
-display.trade_cancel_or_correct_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5200,7 +5200,7 @@ display.trade_cancel_or_correct_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 7
-dissect.trade_cancel_or_correct_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5228,24 +5228,24 @@ dissect.trade_cancel_or_correct_byte_7_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 7
-dissect.trade_cancel_or_correct_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_7, range, display)
 
   if show.trade_cancel_or_correct_byte_7 then
-    dissect.trade_cancel_or_correct_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 6
-size_of.trade_cancel_or_correct_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_6 = 1
 
 -- Display: Trade Cancel Or Correct Byte 6
-display.trade_cancel_or_correct_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5285,7 +5285,7 @@ display.trade_cancel_or_correct_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 6
-dissect.trade_cancel_or_correct_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5313,24 +5313,24 @@ dissect.trade_cancel_or_correct_byte_6_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 6
-dissect.trade_cancel_or_correct_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_6, range, display)
 
   if show.trade_cancel_or_correct_byte_6 then
-    dissect.trade_cancel_or_correct_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 5
-size_of.trade_cancel_or_correct_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_5 = 1
 
 -- Display: Trade Cancel Or Correct Byte 5
-display.trade_cancel_or_correct_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5370,7 +5370,7 @@ display.trade_cancel_or_correct_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 5
-dissect.trade_cancel_or_correct_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5398,24 +5398,24 @@ dissect.trade_cancel_or_correct_byte_5_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 5
-dissect.trade_cancel_or_correct_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_5, range, display)
 
   if show.trade_cancel_or_correct_byte_5 then
-    dissect.trade_cancel_or_correct_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 4
-size_of.trade_cancel_or_correct_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_4 = 1
 
 -- Display: Trade Cancel Or Correct Byte 4
-display.trade_cancel_or_correct_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5455,7 +5455,7 @@ display.trade_cancel_or_correct_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 4
-dissect.trade_cancel_or_correct_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5483,24 +5483,24 @@ dissect.trade_cancel_or_correct_byte_4_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 4
-dissect.trade_cancel_or_correct_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_4, range, display)
 
   if show.trade_cancel_or_correct_byte_4 then
-    dissect.trade_cancel_or_correct_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 3
-size_of.trade_cancel_or_correct_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_3 = 1
 
 -- Display: Trade Cancel Or Correct Byte 3
-display.trade_cancel_or_correct_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5540,7 +5540,7 @@ display.trade_cancel_or_correct_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 3
-dissect.trade_cancel_or_correct_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5568,24 +5568,24 @@ dissect.trade_cancel_or_correct_byte_3_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 3
-dissect.trade_cancel_or_correct_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_3, range, display)
 
   if show.trade_cancel_or_correct_byte_3 then
-    dissect.trade_cancel_or_correct_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 2
-size_of.trade_cancel_or_correct_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_2 = 1
 
 -- Display: Trade Cancel Or Correct Byte 2
-display.trade_cancel_or_correct_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5625,7 +5625,7 @@ display.trade_cancel_or_correct_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 2
-dissect.trade_cancel_or_correct_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5653,24 +5653,24 @@ dissect.trade_cancel_or_correct_byte_2_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 2
-dissect.trade_cancel_or_correct_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_2, range, display)
 
   if show.trade_cancel_or_correct_byte_2 then
-    dissect.trade_cancel_or_correct_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Byte 1
-size_of.trade_cancel_or_correct_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_byte_1 = 1
 
 -- Display: Trade Cancel Or Correct Byte 1
-display.trade_cancel_or_correct_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade Cancel Or Correct Reserved Bit 8 Exists flag set?
@@ -5710,7 +5710,7 @@ display.trade_cancel_or_correct_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Cancel Or Correct Byte 1
-dissect.trade_cancel_or_correct_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Trade Cancel Or Correct Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_reserved_bit_8_exists, buffer(offset, 1))
@@ -5738,33 +5738,33 @@ dissect.trade_cancel_or_correct_byte_1_bits = function(buffer, offset, packet, p
 end
 
 -- Dissect: Trade Cancel Or Correct Byte 1
-dissect.trade_cancel_or_correct_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_cancel_or_correct_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_byte_1, range, display)
 
   if show.trade_cancel_or_correct_byte_1 then
-    dissect.trade_cancel_or_correct_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Cancel Or Correct Bitfield Count
-size_of.trade_cancel_or_correct_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_bitfield_count = 1
 
 -- Display: Trade Cancel Or Correct Bitfield Count
-display.trade_cancel_or_correct_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_bitfield_count = function(value)
   return "Trade Cancel Or Correct Bitfield Count: "..value
 end
 
 -- Dissect: Trade Cancel Or Correct Bitfield Count
-dissect.trade_cancel_or_correct_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.trade_cancel_or_correct_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_cancel_or_correct_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_bitfield_count, range, value, display)
 
@@ -5772,16 +5772,16 @@ dissect.trade_cancel_or_correct_bitfield_count = function(buffer, offset, packet
 end
 
 -- Display: Trade Cancel Or Correct Optional Fields
-display.trade_cancel_or_correct_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Or Correct Optional Fields
-dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
   local index = offset
 
   -- Trade Cancel Or Correct Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, trade_cancel_or_correct_bitfield_count = dissect.trade_cancel_or_correct_bitfield_count(buffer, index, packet, parent)
+  index, trade_cancel_or_correct_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 1
   local trade_cancel_or_correct_byte_1_exists = trade_cancel_or_correct_bitfield_count >= 1
@@ -5790,7 +5790,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_1_exists then
 
     -- Trade Cancel Or Correct Byte 1: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_1 = dissect.trade_cancel_or_correct_byte_1(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 2
@@ -5800,7 +5800,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_2_exists then
 
     -- Trade Cancel Or Correct Byte 2: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_2 = dissect.trade_cancel_or_correct_byte_2(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 3
@@ -5810,7 +5810,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_3_exists then
 
     -- Trade Cancel Or Correct Byte 3: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_3 = dissect.trade_cancel_or_correct_byte_3(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 4
@@ -5820,7 +5820,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_4_exists then
 
     -- Trade Cancel Or Correct Byte 4: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_4 = dissect.trade_cancel_or_correct_byte_4(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 5
@@ -5830,7 +5830,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_5_exists then
 
     -- Trade Cancel Or Correct Byte 5: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_5 = dissect.trade_cancel_or_correct_byte_5(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 6
@@ -5840,7 +5840,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_6_exists then
 
     -- Trade Cancel Or Correct Byte 6: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_6 = dissect.trade_cancel_or_correct_byte_6(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 7
@@ -5850,7 +5850,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_7_exists then
 
     -- Trade Cancel Or Correct Byte 7: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_7 = dissect.trade_cancel_or_correct_byte_7(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 8
@@ -5860,7 +5860,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_8_exists then
 
     -- Trade Cancel Or Correct Byte 8: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_8 = dissect.trade_cancel_or_correct_byte_8(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 9
@@ -5870,7 +5870,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_9_exists then
 
     -- Trade Cancel Or Correct Byte 9: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_9 = dissect.trade_cancel_or_correct_byte_9(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 10
@@ -5880,7 +5880,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_10_exists then
 
     -- Trade Cancel Or Correct Byte 10: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_10 = dissect.trade_cancel_or_correct_byte_10(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 11
@@ -5890,7 +5890,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_11_exists then
 
     -- Trade Cancel Or Correct Byte 11: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_11 = dissect.trade_cancel_or_correct_byte_11(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 12
@@ -5900,7 +5900,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_12_exists then
 
     -- Trade Cancel Or Correct Byte 12: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_12 = dissect.trade_cancel_or_correct_byte_12(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 13
@@ -5910,7 +5910,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_13_exists then
 
     -- Trade Cancel Or Correct Byte 13: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_13 = dissect.trade_cancel_or_correct_byte_13(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 14
@@ -5920,7 +5920,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_14_exists then
 
     -- Trade Cancel Or Correct Byte 14: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_14 = dissect.trade_cancel_or_correct_byte_14(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 15
@@ -5930,7 +5930,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_15_exists then
 
     -- Trade Cancel Or Correct Byte 15: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_15 = dissect.trade_cancel_or_correct_byte_15(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 16
@@ -5940,7 +5940,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_16_exists then
 
     -- Trade Cancel Or Correct Byte 16: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_16 = dissect.trade_cancel_or_correct_byte_16(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 17
@@ -5950,7 +5950,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
   if trade_cancel_or_correct_byte_17_exists then
 
     -- Trade Cancel Or Correct Byte 17: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_17 = dissect.trade_cancel_or_correct_byte_17(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -5958,7 +5958,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -5966,7 +5966,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -5974,7 +5974,7 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Sub Liquidity Indicator
@@ -5982,40 +5982,40 @@ dissect.trade_cancel_or_correct_optional_fields_fields = function(buffer, offset
 
   -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
-    index = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Trade Cancel Or Correct Optional Fields
-dissect.trade_cancel_or_correct_optional_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_optional_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_optional_fields then
     local range = buffer(offset, size_of_trade_cancel_or_correct_optional_fields)
-    local display = display.trade_cancel_or_correct_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_optional_fields, range, display)
   end
 
-  dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_optional_fields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
 
   return offset + size_of_trade_cancel_or_correct_optional_fields
 end
 
 -- Size: Orig Time
-size_of.orig_time = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.orig_time = 8
 
 -- Display: Orig Time
-display.orig_time = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.orig_time = function(value)
   return "Orig Time: "..value
 end
 
 -- Dissect: Orig Time
-dissect.orig_time = function(buffer, offset, packet, parent)
-  local length = size_of.orig_time
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_time = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.orig_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.orig_time(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.orig_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.orig_time, range, value, display)
 
@@ -6023,19 +6023,19 @@ dissect.orig_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Corrected Price
-size_of.corrected_price = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.corrected_price = 8
 
 -- Display: Corrected Price
-display.corrected_price = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.corrected_price = function(value)
   return "Corrected Price: "..value
 end
 
 -- Dissect: Corrected Price
-dissect.corrected_price = function(buffer, offset, packet, parent)
-  local length = size_of.corrected_price
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.corrected_price = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.corrected_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.corrected_price(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.corrected_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.corrected_price, range, value, display)
 
@@ -6043,19 +6043,19 @@ dissect.corrected_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Px
-size_of.last_px = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_px = 8
 
 -- Display: Last Px
-display.last_px = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.last_px = function(value)
   return "Last Px: "..value
 end
 
 -- Dissect: Last Px
-dissect.last_px = function(buffer, offset, packet, parent)
-  local length = size_of.last_px
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_px
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.last_px(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.last_px, range, value, display)
 
@@ -6063,19 +6063,19 @@ dissect.last_px = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Shares
-size_of.last_shares = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_shares = 4
 
 -- Display: Last Shares
-display.last_shares = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.last_shares = function(value)
   return "Last Shares: "..value
 end
 
 -- Dissect: Last Shares
-dissect.last_shares = function(buffer, offset, packet, parent)
-  local length = size_of.last_shares
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_shares
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.last_shares(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.last_shares(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.last_shares, range, value, display)
 
@@ -6083,19 +6083,19 @@ dissect.last_shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Account
-size_of.clearing_account = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.clearing_account = 4
 
 -- Display: Clearing Account
-display.clearing_account = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.clearing_account = function(value)
   return "Clearing Account: "..value
 end
 
 -- Dissect: Clearing Account
-dissect.clearing_account = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_account
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.clearing_account
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_account(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.clearing_account(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.clearing_account, range, value, display)
 
@@ -6103,19 +6103,19 @@ dissect.clearing_account = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Firm
-size_of.clearing_firm = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.clearing_firm = 4
 
 -- Display: Clearing Firm
-display.clearing_firm = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.clearing_firm = function(value)
   return "Clearing Firm: "..value
 end
 
 -- Dissect: Clearing Firm
-dissect.clearing_firm = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_firm
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.clearing_firm
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_firm(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.clearing_firm, range, value, display)
 
@@ -6123,10 +6123,10 @@ dissect.clearing_firm = function(buffer, offset, packet, parent)
 end
 
 -- Size: Base Liquidity Indicator
-size_of.base_liquidity_indicator = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.base_liquidity_indicator = 1
 
 -- Display: Base Liquidity Indicator
-display.base_liquidity_indicator = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.base_liquidity_indicator = function(value)
   if value == "A" then
     return "Base Liquidity Indicator: Added Liquidity (A)"
   end
@@ -6144,11 +6144,11 @@ display.base_liquidity_indicator = function(value)
 end
 
 -- Dissect: Base Liquidity Indicator
-dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.base_liquidity_indicator
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.base_liquidity_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.base_liquidity_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.base_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.base_liquidity_indicator, range, value, display)
 
@@ -6156,10 +6156,10 @@ dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.side = function(value)
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -6177,11 +6177,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.side = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.side(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.side, range, value, display)
 
@@ -6189,19 +6189,19 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Ref Id
-size_of.exec_ref_id = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_ref_id = 8
 
 -- Display: Exec Ref Id
-display.exec_ref_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.exec_ref_id = function(value)
   return "Exec Ref Id: "..value
 end
 
 -- Dissect: Exec Ref Id
-dissect.exec_ref_id = function(buffer, offset, packet, parent)
-  local length = size_of.exec_ref_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_ref_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_ref_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.exec_ref_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.exec_ref_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.exec_ref_id, range, value, display)
 
@@ -6209,19 +6209,19 @@ dissect.exec_ref_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_id, range, value, display)
 
@@ -6229,19 +6229,19 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cl Ord Id
-size_of.cl_ord_id = 20
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cl_ord_id = 20
 
 -- Display: Cl Ord Id
-display.cl_ord_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cl_ord_id = function(value)
   return "Cl Ord Id: "..value
 end
 
 -- Dissect: Cl Ord Id
-dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.cl_ord_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cl_ord_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cl_ord_id, range, value, display)
 
@@ -6249,52 +6249,52 @@ dissect.cl_ord_id = function(buffer, offset, packet, parent)
 end
 
 -- Display: Trade Cancel Or Correct Message
-display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Or Correct Message
-dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_id(buffer, index, packet, parent)
 
   -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_ref_id = dissect.exec_ref_id(buffer, index, packet, parent)
+  index, exec_ref_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_ref_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Clearing Account: 4 Byte Ascii String
-  index, clearing_account = dissect.clearing_account(buffer, index, packet, parent)
+  index, clearing_account = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
 
   -- Corrected Price: 8 Byte Signed Fixed Width Integer
-  index, corrected_price = dissect.corrected_price(buffer, index, packet, parent)
+  index, corrected_price = cboe_bzx_equities_orderentry_boe_v2_3_dissect.corrected_price(buffer, index, packet, parent)
 
   -- Orig Time: 8 Byte Unsigned Fixed Width Integer
-  index, orig_time = dissect.orig_time(buffer, index, packet, parent)
+  index, orig_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_time(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -6303,13 +6303,13 @@ dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet
   local size_of_trade_cancel_or_correct_optional_fields = message_length - (index - offset) - 8
 
   -- Trade Cancel Or Correct Optional Fields: Struct of 22 fields
-  index = dissect.trade_cancel_or_correct_optional_fields(buffer, index, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_optional_fields(buffer, index, packet, parent, size_of_trade_cancel_or_correct_optional_fields)
 
   return index
 end
 
 -- Dissect: Trade Cancel Or Correct Message
-dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -6320,20 +6320,20 @@ dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, paren
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_message then
     local range = buffer(offset, size_of_trade_cancel_or_correct_message)
-    local display = display.trade_cancel_or_correct_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_message, range, display)
   end
 
-  dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_message)
 
   return offset + size_of_trade_cancel_or_correct_message
 end
 
 -- Size: Ex Destination
-size_of.ex_destination = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.ex_destination = 1
 
 -- Display: Ex Destination
-display.ex_destination = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.ex_destination = function(value)
   if value == "A" then
     return "Ex Destination: Nyse American (A)"
   end
@@ -6384,11 +6384,11 @@ display.ex_destination = function(value)
 end
 
 -- Dissect: Ex Destination
-dissect.ex_destination = function(buffer, offset, packet, parent)
-  local length = size_of.ex_destination
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.ex_destination
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ex_destination(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.ex_destination(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.ex_destination, range, value, display)
 
@@ -6396,19 +6396,19 @@ dissect.ex_destination = function(buffer, offset, packet, parent)
 end
 
 -- Size: Route Delivery Method
-size_of.route_delivery_method = 3
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.route_delivery_method = 3
 
 -- Display: Route Delivery Method
-display.route_delivery_method = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.route_delivery_method = function(value)
   return "Route Delivery Method: "..value
 end
 
 -- Dissect: Route Delivery Method
-dissect.route_delivery_method = function(buffer, offset, packet, parent)
-  local length = size_of.route_delivery_method
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.route_delivery_method
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.route_delivery_method(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.route_delivery_method(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.route_delivery_method, range, value, display)
 
@@ -6416,19 +6416,19 @@ dissect.route_delivery_method = function(buffer, offset, packet, parent)
 end
 
 -- Size: Rout Strategy
-size_of.rout_strategy = 6
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.rout_strategy = 6
 
 -- Display: Rout Strategy
-display.rout_strategy = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.rout_strategy = function(value)
   return "Rout Strategy: "..value
 end
 
 -- Dissect: Rout Strategy
-dissect.rout_strategy = function(buffer, offset, packet, parent)
-  local length = size_of.rout_strategy
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.rout_strategy
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.rout_strategy(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.rout_strategy(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.rout_strategy, range, value, display)
 
@@ -6436,19 +6436,19 @@ dissect.rout_strategy = function(buffer, offset, packet, parent)
 end
 
 -- Size: Routing Inst
-size_of.routing_inst = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.routing_inst = 4
 
 -- Display: Routing Inst
-display.routing_inst = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.routing_inst = function(value)
   return "Routing Inst: "..value
 end
 
 -- Dissect: Routing Inst
-dissect.routing_inst = function(buffer, offset, packet, parent)
-  local length = size_of.routing_inst
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.routing_inst
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.routing_inst(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.routing_inst(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.routing_inst, range, value, display)
 
@@ -6456,19 +6456,19 @@ dissect.routing_inst = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stop Px
-size_of.stop_px = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.stop_px = 8
 
 -- Display: Stop Px
-display.stop_px = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.stop_px = function(value)
   return "Stop Px: "..value
 end
 
 -- Dissect: Stop Px
-dissect.stop_px = function(buffer, offset, packet, parent)
-  local length = size_of.stop_px
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.stop_px
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.stop_px(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.stop_px, range, value, display)
 
@@ -6476,19 +6476,19 @@ dissect.stop_px = function(buffer, offset, packet, parent)
 end
 
 -- Size: Echo Text
-size_of.echo_text = 64
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.echo_text = 64
 
 -- Display: Echo Text
-display.echo_text = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.echo_text = function(value)
   return "Echo Text: "..value
 end
 
 -- Dissect: Echo Text
-dissect.echo_text = function(buffer, offset, packet, parent)
-  local length = size_of.echo_text
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.echo_text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.echo_text(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.echo_text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.echo_text, range, value, display)
 
@@ -6496,19 +6496,19 @@ dissect.echo_text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Fee Code
-size_of.fee_code = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.fee_code = 2
 
 -- Display: Fee Code
-display.fee_code = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.fee_code = function(value)
   return "Fee Code: "..value
 end
 
 -- Dissect: Fee Code
-dissect.fee_code = function(buffer, offset, packet, parent)
-  local length = size_of.fee_code
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.fee_code = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.fee_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.fee_code(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.fee_code(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.fee_code, range, value, display)
 
@@ -6516,10 +6516,10 @@ dissect.fee_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ext Exec Inst
-size_of.ext_exec_inst = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.ext_exec_inst = 1
 
 -- Display: Ext Exec Inst
-display.ext_exec_inst = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.ext_exec_inst = function(value)
   if value == "N" then
     return "Ext Exec Inst: None (N)"
   end
@@ -6531,11 +6531,11 @@ display.ext_exec_inst = function(value)
 end
 
 -- Dissect: Ext Exec Inst
-dissect.ext_exec_inst = function(buffer, offset, packet, parent)
-  local length = size_of.ext_exec_inst
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.ext_exec_inst
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ext_exec_inst(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.ext_exec_inst(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.ext_exec_inst, range, value, display)
 
@@ -6543,10 +6543,10 @@ dissect.ext_exec_inst = function(buffer, offset, packet, parent)
 end
 
 -- Size: Attributed Quote
-size_of.attributed_quote = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.attributed_quote = 1
 
 -- Display: Attributed Quote
-display.attributed_quote = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.attributed_quote = function(value)
   if value == "N" then
     return "Attributed Quote: Do Not Attribute Firm Mpid (N)"
   end
@@ -6561,11 +6561,11 @@ display.attributed_quote = function(value)
 end
 
 -- Dissect: Attributed Quote
-dissect.attributed_quote = function(buffer, offset, packet, parent)
-  local length = size_of.attributed_quote
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.attributed_quote
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.attributed_quote(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.attributed_quote(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.attributed_quote, range, value, display)
 
@@ -6573,19 +6573,19 @@ dissect.attributed_quote = function(buffer, offset, packet, parent)
 end
 
 -- Size: Prevent Match
-size_of.prevent_match = 3
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.prevent_match = 3
 
 -- Display: Prevent Match
-display.prevent_match = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.prevent_match = function(value)
   return "Prevent Match: "..value
 end
 
 -- Dissect: Prevent Match
-dissect.prevent_match = function(buffer, offset, packet, parent)
-  local length = size_of.prevent_match
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.prevent_match
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.prevent_match(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.prevent_match(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.prevent_match, range, value, display)
 
@@ -6593,19 +6593,19 @@ dissect.prevent_match = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Qty
-size_of.order_qty = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_qty = 4
 
 -- Display: Order Qty
-display.order_qty = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_qty = function(value)
   return "Order Qty: "..value
 end
 
 -- Dissect: Order Qty
-dissect.order_qty = function(buffer, offset, packet, parent)
-  local length = size_of.order_qty
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_qty(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_qty, range, value, display)
 
@@ -6613,19 +6613,19 @@ dissect.order_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Discretion Amount
-size_of.discretion_amount = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.discretion_amount = 2
 
 -- Display: Discretion Amount
-display.discretion_amount = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.discretion_amount = function(value)
   return "Discretion Amount: "..value
 end
 
 -- Dissect: Discretion Amount
-dissect.discretion_amount = function(buffer, offset, packet, parent)
-  local length = size_of.discretion_amount
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.discretion_amount
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.discretion_amount(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.discretion_amount(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.discretion_amount, range, value, display)
 
@@ -6633,19 +6633,19 @@ dissect.discretion_amount = function(buffer, offset, packet, parent)
 end
 
 -- Size: Max Floor
-size_of.max_floor = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.max_floor = 4
 
 -- Display: Max Floor
-display.max_floor = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.max_floor = function(value)
   return "Max Floor: "..value
 end
 
 -- Dissect: Max Floor
-dissect.max_floor = function(buffer, offset, packet, parent)
-  local length = size_of.max_floor
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.max_floor
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.max_floor(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.max_floor(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.max_floor, range, value, display)
 
@@ -6653,10 +6653,10 @@ dissect.max_floor = function(buffer, offset, packet, parent)
 end
 
 -- Size: Display Indicator
-size_of.display_indicator = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_indicator = 1
 
 -- Display: Display Indicator
-display.display_indicator = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.display_indicator = function(value)
   if value == "V" then
     return "Display Indicator: Determined By Port Level Setting (V)"
   end
@@ -6698,11 +6698,11 @@ display.display_indicator = function(value)
 end
 
 -- Dissect: Display Indicator
-dissect.display_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.display_indicator
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.display_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.display_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.display_indicator, range, value, display)
 
@@ -6710,19 +6710,19 @@ dissect.display_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Account
-size_of.account = 16
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.account = 16
 
 -- Display: Account
-display.account = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.account = function(value)
   return "Account: "..value
 end
 
 -- Dissect: Account
-dissect.account = function(buffer, offset, packet, parent)
-  local length = size_of.account
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.account = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.account
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.account(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.account(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.account, range, value, display)
 
@@ -6730,19 +6730,19 @@ dissect.account = function(buffer, offset, packet, parent)
 end
 
 -- Size: Min Qty
-size_of.min_qty = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.min_qty = 4
 
 -- Display: Min Qty
-display.min_qty = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.min_qty = function(value)
   return "Min Qty: "..value
 end
 
 -- Dissect: Min Qty
-dissect.min_qty = function(buffer, offset, packet, parent)
-  local length = size_of.min_qty
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.min_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.min_qty(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.min_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.min_qty, range, value, display)
 
@@ -6750,10 +6750,10 @@ dissect.min_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Time In Force
-size_of.time_in_force = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.time_in_force = 1
 
 -- Display: Time In Force
-display.time_in_force = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.time_in_force = function(value)
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -6795,11 +6795,11 @@ display.time_in_force = function(value)
 end
 
 -- Dissect: Time In Force
-dissect.time_in_force = function(buffer, offset, packet, parent)
-  local length = size_of.time_in_force
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.time_in_force
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.time_in_force(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.time_in_force, range, value, display)
 
@@ -6807,10 +6807,10 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ord Type
-size_of.ord_type = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.ord_type = 1
 
 -- Display: Ord Type
-display.ord_type = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.ord_type = function(value)
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -6831,11 +6831,11 @@ display.ord_type = function(value)
 end
 
 -- Dissect: Ord Type
-dissect.ord_type = function(buffer, offset, packet, parent)
-  local length = size_of.ord_type
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.ord_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ord_type(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.ord_type, range, value, display)
 
@@ -6843,10 +6843,10 @@ dissect.ord_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Inst
-size_of.exec_inst = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_inst = 1
 
 -- Display: Exec Inst
-display.exec_inst = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.exec_inst = function(value)
   if value == "f" then
     return "Exec Inst: Intermarket Sweep (f)"
   end
@@ -6888,11 +6888,11 @@ display.exec_inst = function(value)
 end
 
 -- Dissect: Exec Inst
-dissect.exec_inst = function(buffer, offset, packet, parent)
-  local length = size_of.exec_inst
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_inst
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.exec_inst(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.exec_inst(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.exec_inst, range, value, display)
 
@@ -6900,19 +6900,19 @@ dissect.exec_inst = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.price = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.price, range, value, display)
 
@@ -6920,19 +6920,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Peg Difference
-size_of.peg_difference = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.peg_difference = 8
 
 -- Display: Peg Difference
-display.peg_difference = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.peg_difference = function(value)
   return "Peg Difference: "..value
 end
 
 -- Dissect: Peg Difference
-dissect.peg_difference = function(buffer, offset, packet, parent)
-  local length = size_of.peg_difference
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.peg_difference
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.peg_difference(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.peg_difference(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.peg_difference, range, value, display)
 
@@ -6940,10 +6940,10 @@ dissect.peg_difference = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Execution Byte 17
-size_of.order_execution_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_17 = 1
 
 -- Display: Order Execution Byte 17
-display.order_execution_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -6983,7 +6983,7 @@ display.order_execution_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 17
-dissect.order_execution_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7011,24 +7011,24 @@ dissect.order_execution_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 17
-dissect.order_execution_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_17, range, display)
 
   if show.order_execution_byte_17 then
-    dissect.order_execution_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 16
-size_of.order_execution_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_16 = 1
 
 -- Display: Order Execution Byte 16
-display.order_execution_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7068,7 +7068,7 @@ display.order_execution_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 16
-dissect.order_execution_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7096,24 +7096,24 @@ dissect.order_execution_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 16
-dissect.order_execution_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_16, range, display)
 
   if show.order_execution_byte_16 then
-    dissect.order_execution_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 15
-size_of.order_execution_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_15 = 1
 
 -- Display: Order Execution Byte 15
-display.order_execution_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7153,7 +7153,7 @@ display.order_execution_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 15
-dissect.order_execution_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7181,24 +7181,24 @@ dissect.order_execution_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 15
-dissect.order_execution_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_15, range, display)
 
   if show.order_execution_byte_15 then
-    dissect.order_execution_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 14
-size_of.order_execution_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_14 = 1
 
 -- Display: Order Execution Byte 14
-display.order_execution_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7238,7 +7238,7 @@ display.order_execution_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 14
-dissect.order_execution_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7266,24 +7266,24 @@ dissect.order_execution_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 14
-dissect.order_execution_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_14, range, display)
 
   if show.order_execution_byte_14 then
-    dissect.order_execution_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 13
-size_of.order_execution_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_13 = 1
 
 -- Display: Order Execution Byte 13
-display.order_execution_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7323,7 +7323,7 @@ display.order_execution_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 13
-dissect.order_execution_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7351,24 +7351,24 @@ dissect.order_execution_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 13
-dissect.order_execution_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_13, range, display)
 
   if show.order_execution_byte_13 then
-    dissect.order_execution_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 12
-size_of.order_execution_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_12 = 1
 
 -- Display: Order Execution Byte 12
-display.order_execution_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7408,7 +7408,7 @@ display.order_execution_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 12
-dissect.order_execution_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7436,24 +7436,24 @@ dissect.order_execution_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 12
-dissect.order_execution_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_12, range, display)
 
   if show.order_execution_byte_12 then
-    dissect.order_execution_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 11
-size_of.order_execution_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_11 = 1
 
 -- Display: Order Execution Byte 11
-display.order_execution_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7493,7 +7493,7 @@ display.order_execution_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 11
-dissect.order_execution_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7521,24 +7521,24 @@ dissect.order_execution_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 11
-dissect.order_execution_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_11, range, display)
 
   if show.order_execution_byte_11 then
-    dissect.order_execution_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 10
-size_of.order_execution_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_10 = 1
 
 -- Display: Order Execution Byte 10
-display.order_execution_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7578,7 +7578,7 @@ display.order_execution_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 10
-dissect.order_execution_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7606,24 +7606,24 @@ dissect.order_execution_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 10
-dissect.order_execution_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_10, range, display)
 
   if show.order_execution_byte_10 then
-    dissect.order_execution_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 9
-size_of.order_execution_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_9 = 1
 
 -- Display: Order Execution Byte 9
-display.order_execution_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7663,7 +7663,7 @@ display.order_execution_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 9
-dissect.order_execution_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7691,24 +7691,24 @@ dissect.order_execution_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 9
-dissect.order_execution_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_9, range, display)
 
   if show.order_execution_byte_9 then
-    dissect.order_execution_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 8
-size_of.order_execution_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_8 = 1
 
 -- Display: Order Execution Byte 8
-display.order_execution_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7748,7 +7748,7 @@ display.order_execution_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 8
-dissect.order_execution_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7776,24 +7776,24 @@ dissect.order_execution_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 8
-dissect.order_execution_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_8, range, display)
 
   if show.order_execution_byte_8 then
-    dissect.order_execution_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 7
-size_of.order_execution_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_7 = 1
 
 -- Display: Order Execution Byte 7
-display.order_execution_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7833,7 +7833,7 @@ display.order_execution_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 7
-dissect.order_execution_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7861,24 +7861,24 @@ dissect.order_execution_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 7
-dissect.order_execution_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_7, range, display)
 
   if show.order_execution_byte_7 then
-    dissect.order_execution_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 6
-size_of.order_execution_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_6 = 1
 
 -- Display: Order Execution Byte 6
-display.order_execution_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -7918,7 +7918,7 @@ display.order_execution_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 6
-dissect.order_execution_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -7946,24 +7946,24 @@ dissect.order_execution_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 6
-dissect.order_execution_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_6, range, display)
 
   if show.order_execution_byte_6 then
-    dissect.order_execution_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 5
-size_of.order_execution_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_5 = 1
 
 -- Display: Order Execution Byte 5
-display.order_execution_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -8003,7 +8003,7 @@ display.order_execution_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 5
-dissect.order_execution_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -8031,24 +8031,24 @@ dissect.order_execution_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 5
-dissect.order_execution_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_5, range, display)
 
   if show.order_execution_byte_5 then
-    dissect.order_execution_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 4
-size_of.order_execution_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_4 = 1
 
 -- Display: Order Execution Byte 4
-display.order_execution_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -8088,7 +8088,7 @@ display.order_execution_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 4
-dissect.order_execution_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -8116,24 +8116,24 @@ dissect.order_execution_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 4
-dissect.order_execution_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_4, range, display)
 
   if show.order_execution_byte_4 then
-    dissect.order_execution_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 3
-size_of.order_execution_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_3 = 1
 
 -- Display: Order Execution Byte 3
-display.order_execution_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Prevent Match Exists flag set?
@@ -8173,7 +8173,7 @@ display.order_execution_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 3
-dissect.order_execution_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_prevent_match_exists, buffer(offset, 1))
@@ -8201,24 +8201,24 @@ dissect.order_execution_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 3
-dissect.order_execution_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_3, range, display)
 
   if show.order_execution_byte_3 then
-    dissect.order_execution_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 2
-size_of.order_execution_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_2 = 1
 
 -- Display: Order Execution Byte 2
-display.order_execution_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -8258,7 +8258,7 @@ display.order_execution_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 2
-dissect.order_execution_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -8286,24 +8286,24 @@ dissect.order_execution_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 2
-dissect.order_execution_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_2, range, display)
 
   if show.order_execution_byte_2 then
-    dissect.order_execution_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Byte 1
-size_of.order_execution_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_byte_1 = 1
 
 -- Display: Order Execution Byte 1
-display.order_execution_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Execution Reserved Bit 8 Exists flag set?
@@ -8343,7 +8343,7 @@ display.order_execution_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Execution Byte 1
-dissect.order_execution_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Execution Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_reserved_bit_8_exists, buffer(offset, 1))
@@ -8371,33 +8371,33 @@ dissect.order_execution_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Execution Byte 1
-dissect.order_execution_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_execution_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_byte_1, range, display)
 
   if show.order_execution_byte_1 then
-    dissect.order_execution_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Execution Bitfield Count
-size_of.order_execution_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_bitfield_count = 1
 
 -- Display: Order Execution Bitfield Count
-display.order_execution_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_bitfield_count = function(value)
   return "Order Execution Bitfield Count: "..value
 end
 
 -- Dissect: Order Execution Bitfield Count
-dissect.order_execution_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_execution_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_execution_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_bitfield_count, range, value, display)
 
@@ -8405,16 +8405,16 @@ dissect.order_execution_bitfield_count = function(buffer, offset, packet, parent
 end
 
 -- Display: Order Execution Optional Fields
-display.order_execution_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Execution Optional Fields
-dissect.order_execution_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
   local index = offset
 
   -- Order Execution Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_execution_bitfield_count = dissect.order_execution_bitfield_count(buffer, index, packet, parent)
+  index, order_execution_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Execution Byte 1
   local order_execution_byte_1_exists = order_execution_bitfield_count >= 1
@@ -8423,7 +8423,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_1_exists then
 
     -- Order Execution Byte 1: Struct of 8 fields
-    index, order_execution_byte_1 = dissect.order_execution_byte_1(buffer, index, packet, parent)
+    index, order_execution_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 2
@@ -8433,7 +8433,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_2_exists then
 
     -- Order Execution Byte 2: Struct of 8 fields
-    index, order_execution_byte_2 = dissect.order_execution_byte_2(buffer, index, packet, parent)
+    index, order_execution_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 3
@@ -8443,7 +8443,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_3_exists then
 
     -- Order Execution Byte 3: Struct of 8 fields
-    index, order_execution_byte_3 = dissect.order_execution_byte_3(buffer, index, packet, parent)
+    index, order_execution_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 4
@@ -8453,7 +8453,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_4_exists then
 
     -- Order Execution Byte 4: Struct of 8 fields
-    index, order_execution_byte_4 = dissect.order_execution_byte_4(buffer, index, packet, parent)
+    index, order_execution_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 5
@@ -8463,7 +8463,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_5_exists then
 
     -- Order Execution Byte 5: Struct of 8 fields
-    index, order_execution_byte_5 = dissect.order_execution_byte_5(buffer, index, packet, parent)
+    index, order_execution_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 6
@@ -8473,7 +8473,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_6_exists then
 
     -- Order Execution Byte 6: Struct of 8 fields
-    index, order_execution_byte_6 = dissect.order_execution_byte_6(buffer, index, packet, parent)
+    index, order_execution_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 7
@@ -8483,7 +8483,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_7_exists then
 
     -- Order Execution Byte 7: Struct of 8 fields
-    index, order_execution_byte_7 = dissect.order_execution_byte_7(buffer, index, packet, parent)
+    index, order_execution_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 8
@@ -8493,7 +8493,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_8_exists then
 
     -- Order Execution Byte 8: Struct of 8 fields
-    index, order_execution_byte_8 = dissect.order_execution_byte_8(buffer, index, packet, parent)
+    index, order_execution_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 9
@@ -8503,7 +8503,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_9_exists then
 
     -- Order Execution Byte 9: Struct of 8 fields
-    index, order_execution_byte_9 = dissect.order_execution_byte_9(buffer, index, packet, parent)
+    index, order_execution_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 10
@@ -8513,7 +8513,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_10_exists then
 
     -- Order Execution Byte 10: Struct of 8 fields
-    index, order_execution_byte_10 = dissect.order_execution_byte_10(buffer, index, packet, parent)
+    index, order_execution_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 11
@@ -8523,7 +8523,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_11_exists then
 
     -- Order Execution Byte 11: Struct of 8 fields
-    index, order_execution_byte_11 = dissect.order_execution_byte_11(buffer, index, packet, parent)
+    index, order_execution_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 12
@@ -8533,7 +8533,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_12_exists then
 
     -- Order Execution Byte 12: Struct of 8 fields
-    index, order_execution_byte_12 = dissect.order_execution_byte_12(buffer, index, packet, parent)
+    index, order_execution_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 13
@@ -8543,7 +8543,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_13_exists then
 
     -- Order Execution Byte 13: Struct of 8 fields
-    index, order_execution_byte_13 = dissect.order_execution_byte_13(buffer, index, packet, parent)
+    index, order_execution_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 14
@@ -8553,7 +8553,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_14_exists then
 
     -- Order Execution Byte 14: Struct of 8 fields
-    index, order_execution_byte_14 = dissect.order_execution_byte_14(buffer, index, packet, parent)
+    index, order_execution_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 15
@@ -8563,7 +8563,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_15_exists then
 
     -- Order Execution Byte 15: Struct of 8 fields
-    index, order_execution_byte_15 = dissect.order_execution_byte_15(buffer, index, packet, parent)
+    index, order_execution_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 16
@@ -8573,7 +8573,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_16_exists then
 
     -- Order Execution Byte 16: Struct of 8 fields
-    index, order_execution_byte_16 = dissect.order_execution_byte_16(buffer, index, packet, parent)
+    index, order_execution_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 17
@@ -8583,7 +8583,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
   if order_execution_byte_17_exists then
 
     -- Order Execution Byte 17: Struct of 8 fields
-    index, order_execution_byte_17 = dissect.order_execution_byte_17(buffer, index, packet, parent)
+    index, order_execution_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -8591,7 +8591,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -8599,7 +8599,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -8607,7 +8607,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -8615,7 +8615,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -8623,7 +8623,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -8631,7 +8631,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -8639,7 +8639,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -8647,7 +8647,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -8655,7 +8655,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -8663,7 +8663,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -8671,7 +8671,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -8679,7 +8679,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -8687,7 +8687,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -8695,7 +8695,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -8703,7 +8703,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -8711,7 +8711,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -8719,7 +8719,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -8727,7 +8727,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -8735,7 +8735,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -8743,7 +8743,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Fee Code
@@ -8751,7 +8751,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Fee Code
   if fee_code_exists then
-    index = dissect.fee_code(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.fee_code(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -8759,7 +8759,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -8767,7 +8767,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -8775,7 +8775,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -8783,7 +8783,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -8791,7 +8791,7 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -8799,40 +8799,40 @@ dissect.order_execution_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Execution Optional Fields
-dissect.order_execution_optional_fields = function(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_optional_fields = function(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_execution_optional_fields then
     local range = buffer(offset, size_of_order_execution_optional_fields)
-    local display = display.order_execution_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_optional_fields, range, display)
   end
 
-  dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_optional_fields_fields(buffer, offset, packet, parent, size_of_order_execution_optional_fields)
 
   return offset + size_of_order_execution_optional_fields
 end
 
 -- Size: Contra Broker
-size_of.contra_broker = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.contra_broker = 4
 
 -- Display: Contra Broker
-display.contra_broker = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.contra_broker = function(value)
   return "Contra Broker: "..value
 end
 
 -- Dissect: Contra Broker
-dissect.contra_broker = function(buffer, offset, packet, parent)
-  local length = size_of.contra_broker
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.contra_broker = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.contra_broker
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.contra_broker(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.contra_broker(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.contra_broker, range, value, display)
 
@@ -8840,19 +8840,19 @@ dissect.contra_broker = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leaves Qty
-size_of.leaves_qty = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.leaves_qty = 4
 
 -- Display: Leaves Qty
-display.leaves_qty = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.leaves_qty = function(value)
   return "Leaves Qty: "..value
 end
 
 -- Dissect: Leaves Qty
-dissect.leaves_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leaves_qty
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.leaves_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leaves_qty(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.leaves_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.leaves_qty, range, value, display)
 
@@ -8860,19 +8860,19 @@ dissect.leaves_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Id
-size_of.exec_id = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_id = 8
 
 -- Display: Exec Id
-display.exec_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.exec_id = function(value)
   return "Exec Id: "..value
 end
 
 -- Dissect: Exec Id
-dissect.exec_id = function(buffer, offset, packet, parent)
-  local length = size_of.exec_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.exec_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.exec_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.exec_id, range, value, display)
 
@@ -8880,43 +8880,43 @@ dissect.exec_id = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Execution Message
-display.order_execution_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Execution Message
-dissect.order_execution_message_fields = function(buffer, offset, packet, parent, size_of_order_execution_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_message_fields = function(buffer, offset, packet, parent, size_of_order_execution_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_id(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 4 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 10 values
-  index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+  index, sub_liquidity_indicator = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   -- Contra Broker: 4 Byte Ascii String
-  index, contra_broker = dissect.contra_broker(buffer, index, packet, parent)
+  index, contra_broker = cboe_bzx_equities_orderentry_boe_v2_3_dissect.contra_broker(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8925,13 +8925,13 @@ dissect.order_execution_message_fields = function(buffer, offset, packet, parent
   local size_of_order_execution_optional_fields = message_length - (index - offset) - 8
 
   -- Order Execution Optional Fields: Struct of 45 fields
-  index = dissect.order_execution_optional_fields(buffer, index, packet, parent, size_of_order_execution_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_optional_fields(buffer, index, packet, parent, size_of_order_execution_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Execution Message
-dissect.order_execution_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8942,20 +8942,20 @@ dissect.order_execution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_execution_message then
     local range = buffer(offset, size_of_order_execution_message)
-    local display = display.order_execution_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_message, range, display)
   end
 
-  dissect.order_execution_message_fields(buffer, offset, packet, parent, size_of_order_execution_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_message_fields(buffer, offset, packet, parent, size_of_order_execution_message)
 
   return offset + size_of_order_execution_message
 end
 
 -- Size: Cancel Rejected Byte 17
-size_of.cancel_rejected_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_17 = 1
 
 -- Display: Cancel Rejected Byte 17
-display.cancel_rejected_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -8995,7 +8995,7 @@ display.cancel_rejected_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 17
-dissect.cancel_rejected_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9023,24 +9023,24 @@ dissect.cancel_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 17
-dissect.cancel_rejected_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_17, range, display)
 
   if show.cancel_rejected_byte_17 then
-    dissect.cancel_rejected_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 16
-size_of.cancel_rejected_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_16 = 1
 
 -- Display: Cancel Rejected Byte 16
-display.cancel_rejected_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9080,7 +9080,7 @@ display.cancel_rejected_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 16
-dissect.cancel_rejected_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9108,24 +9108,24 @@ dissect.cancel_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 16
-dissect.cancel_rejected_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_16, range, display)
 
   if show.cancel_rejected_byte_16 then
-    dissect.cancel_rejected_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 15
-size_of.cancel_rejected_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_15 = 1
 
 -- Display: Cancel Rejected Byte 15
-display.cancel_rejected_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9165,7 +9165,7 @@ display.cancel_rejected_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 15
-dissect.cancel_rejected_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9193,24 +9193,24 @@ dissect.cancel_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 15
-dissect.cancel_rejected_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_15, range, display)
 
   if show.cancel_rejected_byte_15 then
-    dissect.cancel_rejected_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 14
-size_of.cancel_rejected_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_14 = 1
 
 -- Display: Cancel Rejected Byte 14
-display.cancel_rejected_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9250,7 +9250,7 @@ display.cancel_rejected_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 14
-dissect.cancel_rejected_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9278,24 +9278,24 @@ dissect.cancel_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 14
-dissect.cancel_rejected_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_14, range, display)
 
   if show.cancel_rejected_byte_14 then
-    dissect.cancel_rejected_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 13
-size_of.cancel_rejected_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_13 = 1
 
 -- Display: Cancel Rejected Byte 13
-display.cancel_rejected_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9335,7 +9335,7 @@ display.cancel_rejected_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 13
-dissect.cancel_rejected_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9363,24 +9363,24 @@ dissect.cancel_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 13
-dissect.cancel_rejected_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_13, range, display)
 
   if show.cancel_rejected_byte_13 then
-    dissect.cancel_rejected_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 12
-size_of.cancel_rejected_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_12 = 1
 
 -- Display: Cancel Rejected Byte 12
-display.cancel_rejected_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9420,7 +9420,7 @@ display.cancel_rejected_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 12
-dissect.cancel_rejected_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9448,24 +9448,24 @@ dissect.cancel_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 12
-dissect.cancel_rejected_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_12, range, display)
 
   if show.cancel_rejected_byte_12 then
-    dissect.cancel_rejected_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 11
-size_of.cancel_rejected_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_11 = 1
 
 -- Display: Cancel Rejected Byte 11
-display.cancel_rejected_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9505,7 +9505,7 @@ display.cancel_rejected_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 11
-dissect.cancel_rejected_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9533,24 +9533,24 @@ dissect.cancel_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 11
-dissect.cancel_rejected_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_11, range, display)
 
   if show.cancel_rejected_byte_11 then
-    dissect.cancel_rejected_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 10
-size_of.cancel_rejected_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_10 = 1
 
 -- Display: Cancel Rejected Byte 10
-display.cancel_rejected_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9590,7 +9590,7 @@ display.cancel_rejected_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 10
-dissect.cancel_rejected_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9618,24 +9618,24 @@ dissect.cancel_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 10
-dissect.cancel_rejected_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_10, range, display)
 
   if show.cancel_rejected_byte_10 then
-    dissect.cancel_rejected_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 9
-size_of.cancel_rejected_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_9 = 1
 
 -- Display: Cancel Rejected Byte 9
-display.cancel_rejected_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9675,7 +9675,7 @@ display.cancel_rejected_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 9
-dissect.cancel_rejected_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9703,24 +9703,24 @@ dissect.cancel_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 9
-dissect.cancel_rejected_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_9, range, display)
 
   if show.cancel_rejected_byte_9 then
-    dissect.cancel_rejected_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 8
-size_of.cancel_rejected_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_8 = 1
 
 -- Display: Cancel Rejected Byte 8
-display.cancel_rejected_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9760,7 +9760,7 @@ display.cancel_rejected_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 8
-dissect.cancel_rejected_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9788,24 +9788,24 @@ dissect.cancel_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 8
-dissect.cancel_rejected_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_8, range, display)
 
   if show.cancel_rejected_byte_8 then
-    dissect.cancel_rejected_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 7
-size_of.cancel_rejected_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_7 = 1
 
 -- Display: Cancel Rejected Byte 7
-display.cancel_rejected_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9845,7 +9845,7 @@ display.cancel_rejected_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 7
-dissect.cancel_rejected_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9873,24 +9873,24 @@ dissect.cancel_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 7
-dissect.cancel_rejected_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_7, range, display)
 
   if show.cancel_rejected_byte_7 then
-    dissect.cancel_rejected_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 6
-size_of.cancel_rejected_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_6 = 1
 
 -- Display: Cancel Rejected Byte 6
-display.cancel_rejected_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -9930,7 +9930,7 @@ display.cancel_rejected_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 6
-dissect.cancel_rejected_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -9958,24 +9958,24 @@ dissect.cancel_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 6
-dissect.cancel_rejected_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_6, range, display)
 
   if show.cancel_rejected_byte_6 then
-    dissect.cancel_rejected_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 5
-size_of.cancel_rejected_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_5 = 1
 
 -- Display: Cancel Rejected Byte 5
-display.cancel_rejected_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -10015,7 +10015,7 @@ display.cancel_rejected_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 5
-dissect.cancel_rejected_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -10043,24 +10043,24 @@ dissect.cancel_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 5
-dissect.cancel_rejected_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_5, range, display)
 
   if show.cancel_rejected_byte_5 then
-    dissect.cancel_rejected_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 4
-size_of.cancel_rejected_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_4 = 1
 
 -- Display: Cancel Rejected Byte 4
-display.cancel_rejected_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -10100,7 +10100,7 @@ display.cancel_rejected_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 4
-dissect.cancel_rejected_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -10128,24 +10128,24 @@ dissect.cancel_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 4
-dissect.cancel_rejected_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_4, range, display)
 
   if show.cancel_rejected_byte_4 then
-    dissect.cancel_rejected_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 3
-size_of.cancel_rejected_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_3 = 1
 
 -- Display: Cancel Rejected Byte 3
-display.cancel_rejected_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -10185,7 +10185,7 @@ display.cancel_rejected_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 3
-dissect.cancel_rejected_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -10213,24 +10213,24 @@ dissect.cancel_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 3
-dissect.cancel_rejected_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_3, range, display)
 
   if show.cancel_rejected_byte_3 then
-    dissect.cancel_rejected_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 2
-size_of.cancel_rejected_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_2 = 1
 
 -- Display: Cancel Rejected Byte 2
-display.cancel_rejected_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -10270,7 +10270,7 @@ display.cancel_rejected_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 2
-dissect.cancel_rejected_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -10298,24 +10298,24 @@ dissect.cancel_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 2
-dissect.cancel_rejected_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_2, range, display)
 
   if show.cancel_rejected_byte_2 then
-    dissect.cancel_rejected_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Byte 1
-size_of.cancel_rejected_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_byte_1 = 1
 
 -- Display: Cancel Rejected Byte 1
-display.cancel_rejected_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Rejected Reserved Bit 8 Exists flag set?
@@ -10355,7 +10355,7 @@ display.cancel_rejected_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Rejected Byte 1
-dissect.cancel_rejected_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -10383,33 +10383,33 @@ dissect.cancel_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Rejected Byte 1
-dissect.cancel_rejected_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_rejected_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_byte_1, range, display)
 
   if show.cancel_rejected_byte_1 then
-    dissect.cancel_rejected_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Rejected Bitfield Count
-size_of.cancel_rejected_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_bitfield_count = 1
 
 -- Display: Cancel Rejected Bitfield Count
-display.cancel_rejected_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_bitfield_count = function(value)
   return "Cancel Rejected Bitfield Count: "..value
 end
 
 -- Dissect: Cancel Rejected Bitfield Count
-dissect.cancel_rejected_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_rejected_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cancel_rejected_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_bitfield_count, range, value, display)
 
@@ -10417,16 +10417,16 @@ dissect.cancel_rejected_bitfield_count = function(buffer, offset, packet, parent
 end
 
 -- Display: Cancel Rejected Optional Fields
-display.cancel_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Rejected Optional Fields
-dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
   local index = offset
 
   -- Cancel Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, cancel_rejected_bitfield_count = dissect.cancel_rejected_bitfield_count(buffer, index, packet, parent)
+  index, cancel_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Cancel Rejected Byte 1
   local cancel_rejected_byte_1_exists = cancel_rejected_bitfield_count >= 1
@@ -10435,7 +10435,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_1_exists then
 
     -- Cancel Rejected Byte 1: Struct of 8 fields
-    index, cancel_rejected_byte_1 = dissect.cancel_rejected_byte_1(buffer, index, packet, parent)
+    index, cancel_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 2
@@ -10445,7 +10445,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_2_exists then
 
     -- Cancel Rejected Byte 2: Struct of 8 fields
-    index, cancel_rejected_byte_2 = dissect.cancel_rejected_byte_2(buffer, index, packet, parent)
+    index, cancel_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 3
@@ -10455,7 +10455,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_3_exists then
 
     -- Cancel Rejected Byte 3: Struct of 8 fields
-    index, cancel_rejected_byte_3 = dissect.cancel_rejected_byte_3(buffer, index, packet, parent)
+    index, cancel_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 4
@@ -10465,7 +10465,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_4_exists then
 
     -- Cancel Rejected Byte 4: Struct of 8 fields
-    index, cancel_rejected_byte_4 = dissect.cancel_rejected_byte_4(buffer, index, packet, parent)
+    index, cancel_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 5
@@ -10475,7 +10475,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_5_exists then
 
     -- Cancel Rejected Byte 5: Struct of 8 fields
-    index, cancel_rejected_byte_5 = dissect.cancel_rejected_byte_5(buffer, index, packet, parent)
+    index, cancel_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 6
@@ -10485,7 +10485,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_6_exists then
 
     -- Cancel Rejected Byte 6: Struct of 8 fields
-    index, cancel_rejected_byte_6 = dissect.cancel_rejected_byte_6(buffer, index, packet, parent)
+    index, cancel_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 7
@@ -10495,7 +10495,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_7_exists then
 
     -- Cancel Rejected Byte 7: Struct of 8 fields
-    index, cancel_rejected_byte_7 = dissect.cancel_rejected_byte_7(buffer, index, packet, parent)
+    index, cancel_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 8
@@ -10505,7 +10505,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_8_exists then
 
     -- Cancel Rejected Byte 8: Struct of 8 fields
-    index, cancel_rejected_byte_8 = dissect.cancel_rejected_byte_8(buffer, index, packet, parent)
+    index, cancel_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 9
@@ -10515,7 +10515,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_9_exists then
 
     -- Cancel Rejected Byte 9: Struct of 8 fields
-    index, cancel_rejected_byte_9 = dissect.cancel_rejected_byte_9(buffer, index, packet, parent)
+    index, cancel_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 10
@@ -10525,7 +10525,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_10_exists then
 
     -- Cancel Rejected Byte 10: Struct of 8 fields
-    index, cancel_rejected_byte_10 = dissect.cancel_rejected_byte_10(buffer, index, packet, parent)
+    index, cancel_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 11
@@ -10535,7 +10535,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_11_exists then
 
     -- Cancel Rejected Byte 11: Struct of 8 fields
-    index, cancel_rejected_byte_11 = dissect.cancel_rejected_byte_11(buffer, index, packet, parent)
+    index, cancel_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 12
@@ -10545,7 +10545,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_12_exists then
 
     -- Cancel Rejected Byte 12: Struct of 8 fields
-    index, cancel_rejected_byte_12 = dissect.cancel_rejected_byte_12(buffer, index, packet, parent)
+    index, cancel_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 13
@@ -10555,7 +10555,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_13_exists then
 
     -- Cancel Rejected Byte 13: Struct of 8 fields
-    index, cancel_rejected_byte_13 = dissect.cancel_rejected_byte_13(buffer, index, packet, parent)
+    index, cancel_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 14
@@ -10565,7 +10565,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_14_exists then
 
     -- Cancel Rejected Byte 14: Struct of 8 fields
-    index, cancel_rejected_byte_14 = dissect.cancel_rejected_byte_14(buffer, index, packet, parent)
+    index, cancel_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 15
@@ -10575,7 +10575,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_15_exists then
 
     -- Cancel Rejected Byte 15: Struct of 8 fields
-    index, cancel_rejected_byte_15 = dissect.cancel_rejected_byte_15(buffer, index, packet, parent)
+    index, cancel_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 16
@@ -10585,7 +10585,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_16_exists then
 
     -- Cancel Rejected Byte 16: Struct of 8 fields
-    index, cancel_rejected_byte_16 = dissect.cancel_rejected_byte_16(buffer, index, packet, parent)
+    index, cancel_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 17
@@ -10595,7 +10595,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
   if cancel_rejected_byte_17_exists then
 
     -- Cancel Rejected Byte 17: Struct of 8 fields
-    index, cancel_rejected_byte_17 = dissect.cancel_rejected_byte_17(buffer, index, packet, parent)
+    index, cancel_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -10603,7 +10603,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -10611,7 +10611,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -10619,7 +10619,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -10627,7 +10627,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -10635,7 +10635,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -10643,7 +10643,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -10651,7 +10651,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -10659,7 +10659,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -10667,7 +10667,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -10675,7 +10675,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -10683,7 +10683,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -10691,7 +10691,7 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -10699,31 +10699,31 @@ dissect.cancel_rejected_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Cancel Rejected Optional Fields
-dissect.cancel_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_optional_fields then
     local range = buffer(offset, size_of_cancel_rejected_optional_fields)
-    local display = display.cancel_rejected_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_optional_fields, range, display)
   end
 
-  dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_optional_fields)
 
   return offset + size_of_cancel_rejected_optional_fields
 end
 
 -- Size: Cancel Reject Reason
-size_of.cancel_reject_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_reject_reason = 1
 
 -- Display: Cancel Reject Reason
-display.cancel_reject_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_reject_reason = function(value)
   if value == "A" then
     return "Cancel Reject Reason: Admin (A)"
   end
@@ -10825,11 +10825,11 @@ display.cancel_reject_reason = function(value)
 end
 
 -- Dissect: Cancel Reject Reason
-dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_reject_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_reject_reason, range, value, display)
 
@@ -10837,28 +10837,28 @@ dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Display: Cancel Rejected Message
-display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Rejected Message
-dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Cancel Reject Reason: 1 Byte Ascii String Enum with 32 values
-  index, cancel_reject_reason = dissect.cancel_reject_reason(buffer, index, packet, parent)
+  index, cancel_reject_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.text(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -10867,13 +10867,13 @@ dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent
   local size_of_cancel_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Cancel Rejected Optional Fields: Struct of 31 fields
-  index = dissect.cancel_rejected_optional_fields(buffer, index, packet, parent, size_of_cancel_rejected_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_optional_fields(buffer, index, packet, parent, size_of_cancel_rejected_optional_fields)
 
   return index
 end
 
 -- Dissect: Cancel Rejected Message
-dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -10884,29 +10884,29 @@ dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_message then
     local range = buffer(offset, size_of_cancel_rejected_message)
-    local display = display.cancel_rejected_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_message, range, display)
   end
 
-  dissect.cancel_rejected_message_fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent, size_of_cancel_rejected_message)
 
   return offset + size_of_cancel_rejected_message
 end
 
 -- Size: Secondary Order Id
-size_of.secondary_order_id = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.secondary_order_id = 8
 
 -- Display: Secondary Order Id
-display.secondary_order_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.secondary_order_id = function(value)
   return "Secondary Order Id: "..value
 end
 
 -- Dissect: Secondary Order Id
-dissect.secondary_order_id = function(buffer, offset, packet, parent)
-  local length = size_of.secondary_order_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.secondary_order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.secondary_order_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.secondary_order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.secondary_order_id, range, value, display)
 
@@ -10914,19 +10914,19 @@ dissect.secondary_order_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expire Time
-size_of.expire_time = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.expire_time = 8
 
 -- Display: Expire Time
-display.expire_time = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.expire_time = function(value)
   return "Expire Time: "..value
 end
 
 -- Dissect: Expire Time
-dissect.expire_time = function(buffer, offset, packet, parent)
-  local length = size_of.expire_time
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.expire_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.expire_time(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.expire_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.expire_time, range, value, display)
 
@@ -10934,19 +10934,19 @@ dissect.expire_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Working Price
-size_of.working_price = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.working_price = 8
 
 -- Display: Working Price
-display.working_price = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.working_price = function(value)
   return "Working Price: "..value
 end
 
 -- Dissect: Working Price
-dissect.working_price = function(buffer, offset, packet, parent)
-  local length = size_of.working_price
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.working_price = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.working_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.working_price(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.working_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.working_price, range, value, display)
 
@@ -10954,19 +10954,19 @@ dissect.working_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Display Price
-size_of.display_price = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_price = 8
 
 -- Display: Display Price
-display.display_price = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.display_price = function(value)
   return "Display Price: "..value
 end
 
 -- Dissect: Display Price
-dissect.display_price = function(buffer, offset, packet, parent)
-  local length = size_of.display_price
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_price = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.display_price(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.display_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.display_price, range, value, display)
 
@@ -10974,19 +10974,19 @@ dissect.display_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Orig Cl Ord Id
-size_of.orig_cl_ord_id = 20
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.orig_cl_ord_id = 20
 
 -- Display: Orig Cl Ord Id
-display.orig_cl_ord_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.orig_cl_ord_id = function(value)
   return "Orig Cl Ord Id: "..value
 end
 
 -- Dissect: Orig Cl Ord Id
-dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.orig_cl_ord_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.orig_cl_ord_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.orig_cl_ord_id, range, value, display)
 
@@ -10994,10 +10994,10 @@ dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Cancelled Byte 17
-size_of.order_cancelled_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_17 = 1
 
 -- Display: Order Cancelled Byte 17
-display.order_cancelled_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11037,7 +11037,7 @@ display.order_cancelled_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 17
-dissect.order_cancelled_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11065,24 +11065,24 @@ dissect.order_cancelled_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 17
-dissect.order_cancelled_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_17, range, display)
 
   if show.order_cancelled_byte_17 then
-    dissect.order_cancelled_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 16
-size_of.order_cancelled_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_16 = 1
 
 -- Display: Order Cancelled Byte 16
-display.order_cancelled_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11122,7 +11122,7 @@ display.order_cancelled_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 16
-dissect.order_cancelled_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11150,24 +11150,24 @@ dissect.order_cancelled_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 16
-dissect.order_cancelled_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_16, range, display)
 
   if show.order_cancelled_byte_16 then
-    dissect.order_cancelled_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 15
-size_of.order_cancelled_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_15 = 1
 
 -- Display: Order Cancelled Byte 15
-display.order_cancelled_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11207,7 +11207,7 @@ display.order_cancelled_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 15
-dissect.order_cancelled_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11235,24 +11235,24 @@ dissect.order_cancelled_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 15
-dissect.order_cancelled_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_15, range, display)
 
   if show.order_cancelled_byte_15 then
-    dissect.order_cancelled_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 14
-size_of.order_cancelled_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_14 = 1
 
 -- Display: Order Cancelled Byte 14
-display.order_cancelled_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11292,7 +11292,7 @@ display.order_cancelled_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 14
-dissect.order_cancelled_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11320,24 +11320,24 @@ dissect.order_cancelled_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 14
-dissect.order_cancelled_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_14, range, display)
 
   if show.order_cancelled_byte_14 then
-    dissect.order_cancelled_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 13
-size_of.order_cancelled_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_13 = 1
 
 -- Display: Order Cancelled Byte 13
-display.order_cancelled_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11377,7 +11377,7 @@ display.order_cancelled_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 13
-dissect.order_cancelled_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11405,24 +11405,24 @@ dissect.order_cancelled_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 13
-dissect.order_cancelled_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_13, range, display)
 
   if show.order_cancelled_byte_13 then
-    dissect.order_cancelled_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 12
-size_of.order_cancelled_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_12 = 1
 
 -- Display: Order Cancelled Byte 12
-display.order_cancelled_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11462,7 +11462,7 @@ display.order_cancelled_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 12
-dissect.order_cancelled_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11490,24 +11490,24 @@ dissect.order_cancelled_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 12
-dissect.order_cancelled_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_12, range, display)
 
   if show.order_cancelled_byte_12 then
-    dissect.order_cancelled_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 11
-size_of.order_cancelled_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_11 = 1
 
 -- Display: Order Cancelled Byte 11
-display.order_cancelled_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11547,7 +11547,7 @@ display.order_cancelled_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 11
-dissect.order_cancelled_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11575,24 +11575,24 @@ dissect.order_cancelled_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 11
-dissect.order_cancelled_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_11, range, display)
 
   if show.order_cancelled_byte_11 then
-    dissect.order_cancelled_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 10
-size_of.order_cancelled_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_10 = 1
 
 -- Display: Order Cancelled Byte 10
-display.order_cancelled_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11632,7 +11632,7 @@ display.order_cancelled_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 10
-dissect.order_cancelled_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11660,24 +11660,24 @@ dissect.order_cancelled_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 10
-dissect.order_cancelled_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_10, range, display)
 
   if show.order_cancelled_byte_10 then
-    dissect.order_cancelled_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 9
-size_of.order_cancelled_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_9 = 1
 
 -- Display: Order Cancelled Byte 9
-display.order_cancelled_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11717,7 +11717,7 @@ display.order_cancelled_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 9
-dissect.order_cancelled_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11745,24 +11745,24 @@ dissect.order_cancelled_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 9
-dissect.order_cancelled_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_9, range, display)
 
   if show.order_cancelled_byte_9 then
-    dissect.order_cancelled_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 8
-size_of.order_cancelled_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_8 = 1
 
 -- Display: Order Cancelled Byte 8
-display.order_cancelled_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11802,7 +11802,7 @@ display.order_cancelled_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 8
-dissect.order_cancelled_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11830,24 +11830,24 @@ dissect.order_cancelled_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 8
-dissect.order_cancelled_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_8, range, display)
 
   if show.order_cancelled_byte_8 then
-    dissect.order_cancelled_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 7
-size_of.order_cancelled_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_7 = 1
 
 -- Display: Order Cancelled Byte 7
-display.order_cancelled_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11887,7 +11887,7 @@ display.order_cancelled_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 7
-dissect.order_cancelled_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -11915,24 +11915,24 @@ dissect.order_cancelled_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 7
-dissect.order_cancelled_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_7, range, display)
 
   if show.order_cancelled_byte_7 then
-    dissect.order_cancelled_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 6
-size_of.order_cancelled_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_6 = 1
 
 -- Display: Order Cancelled Byte 6
-display.order_cancelled_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -11972,7 +11972,7 @@ display.order_cancelled_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 6
-dissect.order_cancelled_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -12000,24 +12000,24 @@ dissect.order_cancelled_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 6
-dissect.order_cancelled_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_6, range, display)
 
   if show.order_cancelled_byte_6 then
-    dissect.order_cancelled_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 5
-size_of.order_cancelled_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_5 = 1
 
 -- Display: Order Cancelled Byte 5
-display.order_cancelled_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Expire Time Exists flag set?
@@ -12057,7 +12057,7 @@ display.order_cancelled_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 5
-dissect.order_cancelled_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Expire Time Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_expire_time_exists, buffer(offset, 1))
@@ -12085,24 +12085,24 @@ dissect.order_cancelled_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 5
-dissect.order_cancelled_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_5, range, display)
 
   if show.order_cancelled_byte_5 then
-    dissect.order_cancelled_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 4
-size_of.order_cancelled_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_4 = 1
 
 -- Display: Order Cancelled Byte 4
-display.order_cancelled_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -12142,7 +12142,7 @@ display.order_cancelled_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 4
-dissect.order_cancelled_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -12170,24 +12170,24 @@ dissect.order_cancelled_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 4
-dissect.order_cancelled_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_4, range, display)
 
   if show.order_cancelled_byte_4 then
-    dissect.order_cancelled_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 3
-size_of.order_cancelled_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_3 = 1
 
 -- Display: Order Cancelled Byte 3
-display.order_cancelled_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Prevent Match Exists flag set?
@@ -12227,7 +12227,7 @@ display.order_cancelled_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 3
-dissect.order_cancelled_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_prevent_match_exists, buffer(offset, 1))
@@ -12255,24 +12255,24 @@ dissect.order_cancelled_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 3
-dissect.order_cancelled_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_3, range, display)
 
   if show.order_cancelled_byte_3 then
-    dissect.order_cancelled_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 2
-size_of.order_cancelled_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_2 = 1
 
 -- Display: Order Cancelled Byte 2
-display.order_cancelled_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -12312,7 +12312,7 @@ display.order_cancelled_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 2
-dissect.order_cancelled_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -12340,24 +12340,24 @@ dissect.order_cancelled_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 2
-dissect.order_cancelled_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_2, range, display)
 
   if show.order_cancelled_byte_2 then
-    dissect.order_cancelled_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Byte 1
-size_of.order_cancelled_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_byte_1 = 1
 
 -- Display: Order Cancelled Byte 1
-display.order_cancelled_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Cancelled Reserved Bit 8 Exists flag set?
@@ -12397,7 +12397,7 @@ display.order_cancelled_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Cancelled Byte 1
-dissect.order_cancelled_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Cancelled Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_reserved_bit_8_exists, buffer(offset, 1))
@@ -12425,33 +12425,33 @@ dissect.order_cancelled_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Cancelled Byte 1
-dissect.order_cancelled_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_cancelled_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_byte_1, range, display)
 
   if show.order_cancelled_byte_1 then
-    dissect.order_cancelled_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Cancelled Bitfield Count
-size_of.order_cancelled_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_bitfield_count = 1
 
 -- Display: Order Cancelled Bitfield Count
-display.order_cancelled_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_bitfield_count = function(value)
   return "Order Cancelled Bitfield Count: "..value
 end
 
 -- Dissect: Order Cancelled Bitfield Count
-dissect.order_cancelled_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_cancelled_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_cancelled_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_bitfield_count, range, value, display)
 
@@ -12459,16 +12459,16 @@ dissect.order_cancelled_bitfield_count = function(buffer, offset, packet, parent
 end
 
 -- Display: Order Cancelled Optional Fields
-display.order_cancelled_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Optional Fields
-dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
   local index = offset
 
   -- Order Cancelled Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_cancelled_bitfield_count = dissect.order_cancelled_bitfield_count(buffer, index, packet, parent)
+  index, order_cancelled_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Cancelled Byte 1
   local order_cancelled_byte_1_exists = order_cancelled_bitfield_count >= 1
@@ -12477,7 +12477,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_1_exists then
 
     -- Order Cancelled Byte 1: Struct of 8 fields
-    index, order_cancelled_byte_1 = dissect.order_cancelled_byte_1(buffer, index, packet, parent)
+    index, order_cancelled_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 2
@@ -12487,7 +12487,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_2_exists then
 
     -- Order Cancelled Byte 2: Struct of 8 fields
-    index, order_cancelled_byte_2 = dissect.order_cancelled_byte_2(buffer, index, packet, parent)
+    index, order_cancelled_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 3
@@ -12497,7 +12497,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_3_exists then
 
     -- Order Cancelled Byte 3: Struct of 8 fields
-    index, order_cancelled_byte_3 = dissect.order_cancelled_byte_3(buffer, index, packet, parent)
+    index, order_cancelled_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 4
@@ -12507,7 +12507,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_4_exists then
 
     -- Order Cancelled Byte 4: Struct of 8 fields
-    index, order_cancelled_byte_4 = dissect.order_cancelled_byte_4(buffer, index, packet, parent)
+    index, order_cancelled_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 5
@@ -12517,7 +12517,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_5_exists then
 
     -- Order Cancelled Byte 5: Struct of 8 fields
-    index, order_cancelled_byte_5 = dissect.order_cancelled_byte_5(buffer, index, packet, parent)
+    index, order_cancelled_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 6
@@ -12527,7 +12527,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_6_exists then
 
     -- Order Cancelled Byte 6: Struct of 8 fields
-    index, order_cancelled_byte_6 = dissect.order_cancelled_byte_6(buffer, index, packet, parent)
+    index, order_cancelled_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 7
@@ -12537,7 +12537,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_7_exists then
 
     -- Order Cancelled Byte 7: Struct of 8 fields
-    index, order_cancelled_byte_7 = dissect.order_cancelled_byte_7(buffer, index, packet, parent)
+    index, order_cancelled_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 8
@@ -12547,7 +12547,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_8_exists then
 
     -- Order Cancelled Byte 8: Struct of 8 fields
-    index, order_cancelled_byte_8 = dissect.order_cancelled_byte_8(buffer, index, packet, parent)
+    index, order_cancelled_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 9
@@ -12557,7 +12557,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_9_exists then
 
     -- Order Cancelled Byte 9: Struct of 8 fields
-    index, order_cancelled_byte_9 = dissect.order_cancelled_byte_9(buffer, index, packet, parent)
+    index, order_cancelled_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 10
@@ -12567,7 +12567,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_10_exists then
 
     -- Order Cancelled Byte 10: Struct of 8 fields
-    index, order_cancelled_byte_10 = dissect.order_cancelled_byte_10(buffer, index, packet, parent)
+    index, order_cancelled_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 11
@@ -12577,7 +12577,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_11_exists then
 
     -- Order Cancelled Byte 11: Struct of 8 fields
-    index, order_cancelled_byte_11 = dissect.order_cancelled_byte_11(buffer, index, packet, parent)
+    index, order_cancelled_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 12
@@ -12587,7 +12587,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_12_exists then
 
     -- Order Cancelled Byte 12: Struct of 8 fields
-    index, order_cancelled_byte_12 = dissect.order_cancelled_byte_12(buffer, index, packet, parent)
+    index, order_cancelled_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 13
@@ -12597,7 +12597,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_13_exists then
 
     -- Order Cancelled Byte 13: Struct of 8 fields
-    index, order_cancelled_byte_13 = dissect.order_cancelled_byte_13(buffer, index, packet, parent)
+    index, order_cancelled_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 14
@@ -12607,7 +12607,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_14_exists then
 
     -- Order Cancelled Byte 14: Struct of 8 fields
-    index, order_cancelled_byte_14 = dissect.order_cancelled_byte_14(buffer, index, packet, parent)
+    index, order_cancelled_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 15
@@ -12617,7 +12617,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_15_exists then
 
     -- Order Cancelled Byte 15: Struct of 8 fields
-    index, order_cancelled_byte_15 = dissect.order_cancelled_byte_15(buffer, index, packet, parent)
+    index, order_cancelled_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 16
@@ -12627,7 +12627,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_16_exists then
 
     -- Order Cancelled Byte 16: Struct of 8 fields
-    index, order_cancelled_byte_16 = dissect.order_cancelled_byte_16(buffer, index, packet, parent)
+    index, order_cancelled_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 17
@@ -12637,7 +12637,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
   if order_cancelled_byte_17_exists then
 
     -- Order Cancelled Byte 17: Struct of 8 fields
-    index, order_cancelled_byte_17 = dissect.order_cancelled_byte_17(buffer, index, packet, parent)
+    index, order_cancelled_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -12645,7 +12645,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -12653,7 +12653,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -12661,7 +12661,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -12669,7 +12669,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -12677,7 +12677,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -12685,7 +12685,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -12693,7 +12693,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -12701,7 +12701,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -12709,7 +12709,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -12717,7 +12717,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -12725,7 +12725,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -12733,7 +12733,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -12741,7 +12741,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -12749,7 +12749,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -12757,7 +12757,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -12765,7 +12765,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -12773,7 +12773,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -12781,7 +12781,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -12789,7 +12789,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -12797,7 +12797,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = dissect.leaves_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -12805,7 +12805,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = dissect.last_shares(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -12813,7 +12813,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = dissect.last_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Price
@@ -12821,7 +12821,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Display Price
   if display_price_exists then
-    index = dissect.display_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Working Price
@@ -12829,7 +12829,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Working Price
   if working_price_exists then
-    index = dissect.working_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.working_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -12837,7 +12837,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -12845,7 +12845,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = dissect.expire_time(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -12853,7 +12853,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = dissect.secondary_order_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -12861,7 +12861,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -12869,7 +12869,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -12877,7 +12877,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -12885,7 +12885,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -12893,7 +12893,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -12901,7 +12901,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -12909,7 +12909,7 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -12917,31 +12917,31 @@ dissect.order_cancelled_optional_fields_fields = function(buffer, offset, packet
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Cancelled Optional Fields
-dissect.order_cancelled_optional_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_optional_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_optional_fields then
     local range = buffer(offset, size_of_order_cancelled_optional_fields)
-    local display = display.order_cancelled_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_optional_fields, range, display)
   end
 
-  dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_optional_fields_fields(buffer, offset, packet, parent, size_of_order_cancelled_optional_fields)
 
   return offset + size_of_order_cancelled_optional_fields
 end
 
 -- Size: Cancel Reason
-size_of.cancel_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_reason = 1
 
 -- Display: Cancel Reason
-display.cancel_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_reason = function(value)
   if value == "A" then
     return "Cancel Reason: Admin (A)"
   end
@@ -13043,11 +13043,11 @@ display.cancel_reason = function(value)
 end
 
 -- Dissect: Cancel Reason
-dissect.cancel_reason = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_reason, range, value, display)
 
@@ -13055,19 +13055,19 @@ dissect.cancel_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transact Time
-size_of.transact_time = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.transact_time = 8
 
 -- Display: Transact Time
-display.transact_time = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.transact_time = function(value)
   return "Transact Time: "..value
 end
 
 -- Dissect: Transact Time
-dissect.transact_time = function(buffer, offset, packet, parent)
-  local length = size_of.transact_time
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.transact_time = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.transact_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.transact_time(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.transact_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.transact_time, range, value, display)
 
@@ -13075,25 +13075,25 @@ dissect.transact_time = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Cancelled Message
-display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Message
-dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_message)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transact_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Cancel Reason: 1 Byte Ascii String Enum with 32 values
-  index, cancel_reason = dissect.cancel_reason(buffer, index, packet, parent)
+  index, cancel_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_reason(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -13102,13 +13102,13 @@ dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent
   local size_of_order_cancelled_optional_fields = message_length - (index - offset) - 8
 
   -- Order Cancelled Optional Fields: Struct of 53 fields
-  index = dissect.order_cancelled_optional_fields(buffer, index, packet, parent, size_of_order_cancelled_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_optional_fields(buffer, index, packet, parent, size_of_order_cancelled_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Cancelled Message
-dissect.order_cancelled_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -13119,20 +13119,20 @@ dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
     local range = buffer(offset, size_of_order_cancelled_message)
-    local display = display.order_cancelled_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_message, range, display)
   end
 
-  dissect.order_cancelled_message_fields(buffer, offset, packet, parent, size_of_order_cancelled_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_message_fields(buffer, offset, packet, parent, size_of_order_cancelled_message)
 
   return offset + size_of_order_cancelled_message
 end
 
 -- Size: User Modify Rejected Byte 17
-size_of.user_modify_rejected_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_17 = 1
 
 -- Display: User Modify Rejected Byte 17
-display.user_modify_rejected_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13172,7 +13172,7 @@ display.user_modify_rejected_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 17
-dissect.user_modify_rejected_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13200,24 +13200,24 @@ dissect.user_modify_rejected_byte_17_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 17
-dissect.user_modify_rejected_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_17, range, display)
 
   if show.user_modify_rejected_byte_17 then
-    dissect.user_modify_rejected_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 16
-size_of.user_modify_rejected_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_16 = 1
 
 -- Display: User Modify Rejected Byte 16
-display.user_modify_rejected_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13257,7 +13257,7 @@ display.user_modify_rejected_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 16
-dissect.user_modify_rejected_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13285,24 +13285,24 @@ dissect.user_modify_rejected_byte_16_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 16
-dissect.user_modify_rejected_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_16, range, display)
 
   if show.user_modify_rejected_byte_16 then
-    dissect.user_modify_rejected_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 15
-size_of.user_modify_rejected_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_15 = 1
 
 -- Display: User Modify Rejected Byte 15
-display.user_modify_rejected_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13342,7 +13342,7 @@ display.user_modify_rejected_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 15
-dissect.user_modify_rejected_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13370,24 +13370,24 @@ dissect.user_modify_rejected_byte_15_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 15
-dissect.user_modify_rejected_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_15, range, display)
 
   if show.user_modify_rejected_byte_15 then
-    dissect.user_modify_rejected_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 14
-size_of.user_modify_rejected_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_14 = 1
 
 -- Display: User Modify Rejected Byte 14
-display.user_modify_rejected_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13427,7 +13427,7 @@ display.user_modify_rejected_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 14
-dissect.user_modify_rejected_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13455,24 +13455,24 @@ dissect.user_modify_rejected_byte_14_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 14
-dissect.user_modify_rejected_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_14, range, display)
 
   if show.user_modify_rejected_byte_14 then
-    dissect.user_modify_rejected_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 13
-size_of.user_modify_rejected_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_13 = 1
 
 -- Display: User Modify Rejected Byte 13
-display.user_modify_rejected_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13512,7 +13512,7 @@ display.user_modify_rejected_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 13
-dissect.user_modify_rejected_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13540,24 +13540,24 @@ dissect.user_modify_rejected_byte_13_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 13
-dissect.user_modify_rejected_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_13, range, display)
 
   if show.user_modify_rejected_byte_13 then
-    dissect.user_modify_rejected_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 12
-size_of.user_modify_rejected_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_12 = 1
 
 -- Display: User Modify Rejected Byte 12
-display.user_modify_rejected_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13597,7 +13597,7 @@ display.user_modify_rejected_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 12
-dissect.user_modify_rejected_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13625,24 +13625,24 @@ dissect.user_modify_rejected_byte_12_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 12
-dissect.user_modify_rejected_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_12, range, display)
 
   if show.user_modify_rejected_byte_12 then
-    dissect.user_modify_rejected_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 11
-size_of.user_modify_rejected_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_11 = 1
 
 -- Display: User Modify Rejected Byte 11
-display.user_modify_rejected_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13682,7 +13682,7 @@ display.user_modify_rejected_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 11
-dissect.user_modify_rejected_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13710,24 +13710,24 @@ dissect.user_modify_rejected_byte_11_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 11
-dissect.user_modify_rejected_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_11, range, display)
 
   if show.user_modify_rejected_byte_11 then
-    dissect.user_modify_rejected_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 10
-size_of.user_modify_rejected_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_10 = 1
 
 -- Display: User Modify Rejected Byte 10
-display.user_modify_rejected_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13767,7 +13767,7 @@ display.user_modify_rejected_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 10
-dissect.user_modify_rejected_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13795,24 +13795,24 @@ dissect.user_modify_rejected_byte_10_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: User Modify Rejected Byte 10
-dissect.user_modify_rejected_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_10, range, display)
 
   if show.user_modify_rejected_byte_10 then
-    dissect.user_modify_rejected_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 9
-size_of.user_modify_rejected_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_9 = 1
 
 -- Display: User Modify Rejected Byte 9
-display.user_modify_rejected_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13852,7 +13852,7 @@ display.user_modify_rejected_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 9
-dissect.user_modify_rejected_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13880,24 +13880,24 @@ dissect.user_modify_rejected_byte_9_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 9
-dissect.user_modify_rejected_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_9, range, display)
 
   if show.user_modify_rejected_byte_9 then
-    dissect.user_modify_rejected_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 8
-size_of.user_modify_rejected_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_8 = 1
 
 -- Display: User Modify Rejected Byte 8
-display.user_modify_rejected_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -13937,7 +13937,7 @@ display.user_modify_rejected_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 8
-dissect.user_modify_rejected_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -13965,24 +13965,24 @@ dissect.user_modify_rejected_byte_8_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 8
-dissect.user_modify_rejected_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_8, range, display)
 
   if show.user_modify_rejected_byte_8 then
-    dissect.user_modify_rejected_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 7
-size_of.user_modify_rejected_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_7 = 1
 
 -- Display: User Modify Rejected Byte 7
-display.user_modify_rejected_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14022,7 +14022,7 @@ display.user_modify_rejected_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 7
-dissect.user_modify_rejected_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14050,24 +14050,24 @@ dissect.user_modify_rejected_byte_7_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 7
-dissect.user_modify_rejected_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_7, range, display)
 
   if show.user_modify_rejected_byte_7 then
-    dissect.user_modify_rejected_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 6
-size_of.user_modify_rejected_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_6 = 1
 
 -- Display: User Modify Rejected Byte 6
-display.user_modify_rejected_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14107,7 +14107,7 @@ display.user_modify_rejected_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 6
-dissect.user_modify_rejected_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14135,24 +14135,24 @@ dissect.user_modify_rejected_byte_6_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 6
-dissect.user_modify_rejected_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_6, range, display)
 
   if show.user_modify_rejected_byte_6 then
-    dissect.user_modify_rejected_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 5
-size_of.user_modify_rejected_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_5 = 1
 
 -- Display: User Modify Rejected Byte 5
-display.user_modify_rejected_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14192,7 +14192,7 @@ display.user_modify_rejected_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 5
-dissect.user_modify_rejected_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14220,24 +14220,24 @@ dissect.user_modify_rejected_byte_5_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 5
-dissect.user_modify_rejected_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_5, range, display)
 
   if show.user_modify_rejected_byte_5 then
-    dissect.user_modify_rejected_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 4
-size_of.user_modify_rejected_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_4 = 1
 
 -- Display: User Modify Rejected Byte 4
-display.user_modify_rejected_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14277,7 +14277,7 @@ display.user_modify_rejected_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 4
-dissect.user_modify_rejected_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14305,24 +14305,24 @@ dissect.user_modify_rejected_byte_4_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 4
-dissect.user_modify_rejected_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_4, range, display)
 
   if show.user_modify_rejected_byte_4 then
-    dissect.user_modify_rejected_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 3
-size_of.user_modify_rejected_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_3 = 1
 
 -- Display: User Modify Rejected Byte 3
-display.user_modify_rejected_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14362,7 +14362,7 @@ display.user_modify_rejected_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 3
-dissect.user_modify_rejected_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14390,24 +14390,24 @@ dissect.user_modify_rejected_byte_3_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 3
-dissect.user_modify_rejected_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_3, range, display)
 
   if show.user_modify_rejected_byte_3 then
-    dissect.user_modify_rejected_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 2
-size_of.user_modify_rejected_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_2 = 1
 
 -- Display: User Modify Rejected Byte 2
-display.user_modify_rejected_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14447,7 +14447,7 @@ display.user_modify_rejected_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 2
-dissect.user_modify_rejected_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14475,24 +14475,24 @@ dissect.user_modify_rejected_byte_2_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 2
-dissect.user_modify_rejected_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_2, range, display)
 
   if show.user_modify_rejected_byte_2 then
-    dissect.user_modify_rejected_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Byte 1
-size_of.user_modify_rejected_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_byte_1 = 1
 
 -- Display: User Modify Rejected Byte 1
-display.user_modify_rejected_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is User Modify Rejected Reserved Bit 8 Exists flag set?
@@ -14532,7 +14532,7 @@ display.user_modify_rejected_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: User Modify Rejected Byte 1
-dissect.user_modify_rejected_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- User Modify Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -14560,33 +14560,33 @@ dissect.user_modify_rejected_byte_1_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: User Modify Rejected Byte 1
-dissect.user_modify_rejected_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.user_modify_rejected_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_byte_1, range, display)
 
   if show.user_modify_rejected_byte_1 then
-    dissect.user_modify_rejected_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: User Modify Rejected Bitfield Count
-size_of.user_modify_rejected_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_bitfield_count = 1
 
 -- Display: User Modify Rejected Bitfield Count
-display.user_modify_rejected_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_bitfield_count = function(value)
   return "User Modify Rejected Bitfield Count: "..value
 end
 
 -- Dissect: User Modify Rejected Bitfield Count
-dissect.user_modify_rejected_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.user_modify_rejected_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.user_modify_rejected_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_bitfield_count, range, value, display)
 
@@ -14594,16 +14594,16 @@ dissect.user_modify_rejected_bitfield_count = function(buffer, offset, packet, p
 end
 
 -- Display: User Modify Rejected Optional Fields
-display.user_modify_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: User Modify Rejected Optional Fields
-dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
   local index = offset
 
   -- User Modify Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, user_modify_rejected_bitfield_count = dissect.user_modify_rejected_bitfield_count(buffer, index, packet, parent)
+  index, user_modify_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: User Modify Rejected Byte 1
   local user_modify_rejected_byte_1_exists = user_modify_rejected_bitfield_count >= 1
@@ -14612,7 +14612,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_1_exists then
 
     -- User Modify Rejected Byte 1: Struct of 8 fields
-    index, user_modify_rejected_byte_1 = dissect.user_modify_rejected_byte_1(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 2
@@ -14622,7 +14622,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_2_exists then
 
     -- User Modify Rejected Byte 2: Struct of 8 fields
-    index, user_modify_rejected_byte_2 = dissect.user_modify_rejected_byte_2(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 3
@@ -14632,7 +14632,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_3_exists then
 
     -- User Modify Rejected Byte 3: Struct of 8 fields
-    index, user_modify_rejected_byte_3 = dissect.user_modify_rejected_byte_3(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 4
@@ -14642,7 +14642,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_4_exists then
 
     -- User Modify Rejected Byte 4: Struct of 8 fields
-    index, user_modify_rejected_byte_4 = dissect.user_modify_rejected_byte_4(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 5
@@ -14652,7 +14652,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_5_exists then
 
     -- User Modify Rejected Byte 5: Struct of 8 fields
-    index, user_modify_rejected_byte_5 = dissect.user_modify_rejected_byte_5(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 6
@@ -14662,7 +14662,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_6_exists then
 
     -- User Modify Rejected Byte 6: Struct of 8 fields
-    index, user_modify_rejected_byte_6 = dissect.user_modify_rejected_byte_6(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 7
@@ -14672,7 +14672,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_7_exists then
 
     -- User Modify Rejected Byte 7: Struct of 8 fields
-    index, user_modify_rejected_byte_7 = dissect.user_modify_rejected_byte_7(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 8
@@ -14682,7 +14682,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_8_exists then
 
     -- User Modify Rejected Byte 8: Struct of 8 fields
-    index, user_modify_rejected_byte_8 = dissect.user_modify_rejected_byte_8(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 9
@@ -14692,7 +14692,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_9_exists then
 
     -- User Modify Rejected Byte 9: Struct of 8 fields
-    index, user_modify_rejected_byte_9 = dissect.user_modify_rejected_byte_9(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 10
@@ -14702,7 +14702,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_10_exists then
 
     -- User Modify Rejected Byte 10: Struct of 8 fields
-    index, user_modify_rejected_byte_10 = dissect.user_modify_rejected_byte_10(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 11
@@ -14712,7 +14712,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_11_exists then
 
     -- User Modify Rejected Byte 11: Struct of 8 fields
-    index, user_modify_rejected_byte_11 = dissect.user_modify_rejected_byte_11(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 12
@@ -14722,7 +14722,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_12_exists then
 
     -- User Modify Rejected Byte 12: Struct of 8 fields
-    index, user_modify_rejected_byte_12 = dissect.user_modify_rejected_byte_12(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 13
@@ -14732,7 +14732,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_13_exists then
 
     -- User Modify Rejected Byte 13: Struct of 8 fields
-    index, user_modify_rejected_byte_13 = dissect.user_modify_rejected_byte_13(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 14
@@ -14742,7 +14742,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_14_exists then
 
     -- User Modify Rejected Byte 14: Struct of 8 fields
-    index, user_modify_rejected_byte_14 = dissect.user_modify_rejected_byte_14(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 15
@@ -14752,7 +14752,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_15_exists then
 
     -- User Modify Rejected Byte 15: Struct of 8 fields
-    index, user_modify_rejected_byte_15 = dissect.user_modify_rejected_byte_15(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 16
@@ -14762,7 +14762,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_16_exists then
 
     -- User Modify Rejected Byte 16: Struct of 8 fields
-    index, user_modify_rejected_byte_16 = dissect.user_modify_rejected_byte_16(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 17
@@ -14772,7 +14772,7 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
   if user_modify_rejected_byte_17_exists then
 
     -- User Modify Rejected Byte 17: Struct of 8 fields
-    index, user_modify_rejected_byte_17 = dissect.user_modify_rejected_byte_17(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Sub Liquidity Indicator
@@ -14780,31 +14780,31 @@ dissect.user_modify_rejected_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
-    index = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: User Modify Rejected Optional Fields
-dissect.user_modify_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.user_modify_rejected_optional_fields then
     local range = buffer(offset, size_of_user_modify_rejected_optional_fields)
-    local display = display.user_modify_rejected_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_optional_fields, range, display)
   end
 
-  dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_optional_fields)
 
   return offset + size_of_user_modify_rejected_optional_fields
 end
 
 -- Size: Modify Reject Reason
-size_of.modify_reject_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_reject_reason = 1
 
 -- Display: Modify Reject Reason
-display.modify_reject_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_reject_reason = function(value)
   if value == "A" then
     return "Modify Reject Reason: Admin (A)"
   end
@@ -14906,11 +14906,11 @@ display.modify_reject_reason = function(value)
 end
 
 -- Dissect: Modify Reject Reason
-dissect.modify_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.modify_reject_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.modify_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_reject_reason, range, value, display)
 
@@ -14918,28 +14918,28 @@ dissect.modify_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Display: User Modify Rejected Message
-display.user_modify_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: User Modify Rejected Message
-dissect.user_modify_rejected_message_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_message_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Modify Reject Reason: 1 Byte Ascii String Enum with 32 values
-  index, modify_reject_reason = dissect.modify_reject_reason(buffer, index, packet, parent)
+  index, modify_reject_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.text(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -14948,13 +14948,13 @@ dissect.user_modify_rejected_message_fields = function(buffer, offset, packet, p
   local size_of_user_modify_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- User Modify Rejected Optional Fields: Struct of 19 fields
-  index = dissect.user_modify_rejected_optional_fields(buffer, index, packet, parent, size_of_user_modify_rejected_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_optional_fields(buffer, index, packet, parent, size_of_user_modify_rejected_optional_fields)
 
   return index
 end
 
 -- Dissect: User Modify Rejected Message
-dissect.user_modify_rejected_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -14965,20 +14965,20 @@ dissect.user_modify_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.user_modify_rejected_message then
     local range = buffer(offset, size_of_user_modify_rejected_message)
-    local display = display.user_modify_rejected_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_message, range, display)
   end
 
-  dissect.user_modify_rejected_message_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_message_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_message)
 
   return offset + size_of_user_modify_rejected_message
 end
 
 -- Size: Order Restated Byte 17
-size_of.order_restated_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_17 = 1
 
 -- Display: Order Restated Byte 17
-display.order_restated_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15018,7 +15018,7 @@ display.order_restated_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 17
-dissect.order_restated_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15046,24 +15046,24 @@ dissect.order_restated_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 17
-dissect.order_restated_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_17, range, display)
 
   if show.order_restated_byte_17 then
-    dissect.order_restated_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 16
-size_of.order_restated_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_16 = 1
 
 -- Display: Order Restated Byte 16
-display.order_restated_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15103,7 +15103,7 @@ display.order_restated_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 16
-dissect.order_restated_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15131,24 +15131,24 @@ dissect.order_restated_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 16
-dissect.order_restated_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_16, range, display)
 
   if show.order_restated_byte_16 then
-    dissect.order_restated_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 15
-size_of.order_restated_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_15 = 1
 
 -- Display: Order Restated Byte 15
-display.order_restated_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15188,7 +15188,7 @@ display.order_restated_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 15
-dissect.order_restated_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15216,24 +15216,24 @@ dissect.order_restated_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 15
-dissect.order_restated_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_15, range, display)
 
   if show.order_restated_byte_15 then
-    dissect.order_restated_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 14
-size_of.order_restated_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_14 = 1
 
 -- Display: Order Restated Byte 14
-display.order_restated_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15273,7 +15273,7 @@ display.order_restated_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 14
-dissect.order_restated_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15301,24 +15301,24 @@ dissect.order_restated_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 14
-dissect.order_restated_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_14, range, display)
 
   if show.order_restated_byte_14 then
-    dissect.order_restated_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 13
-size_of.order_restated_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_13 = 1
 
 -- Display: Order Restated Byte 13
-display.order_restated_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15358,7 +15358,7 @@ display.order_restated_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 13
-dissect.order_restated_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15386,24 +15386,24 @@ dissect.order_restated_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 13
-dissect.order_restated_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_13, range, display)
 
   if show.order_restated_byte_13 then
-    dissect.order_restated_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 12
-size_of.order_restated_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_12 = 1
 
 -- Display: Order Restated Byte 12
-display.order_restated_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15443,7 +15443,7 @@ display.order_restated_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 12
-dissect.order_restated_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15471,24 +15471,24 @@ dissect.order_restated_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 12
-dissect.order_restated_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_12, range, display)
 
   if show.order_restated_byte_12 then
-    dissect.order_restated_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 11
-size_of.order_restated_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_11 = 1
 
 -- Display: Order Restated Byte 11
-display.order_restated_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15528,7 +15528,7 @@ display.order_restated_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 11
-dissect.order_restated_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15556,24 +15556,24 @@ dissect.order_restated_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 11
-dissect.order_restated_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_11, range, display)
 
   if show.order_restated_byte_11 then
-    dissect.order_restated_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 10
-size_of.order_restated_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_10 = 1
 
 -- Display: Order Restated Byte 10
-display.order_restated_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15613,7 +15613,7 @@ display.order_restated_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 10
-dissect.order_restated_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15641,24 +15641,24 @@ dissect.order_restated_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 10
-dissect.order_restated_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_10, range, display)
 
   if show.order_restated_byte_10 then
-    dissect.order_restated_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 9
-size_of.order_restated_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_9 = 1
 
 -- Display: Order Restated Byte 9
-display.order_restated_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15698,7 +15698,7 @@ display.order_restated_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 9
-dissect.order_restated_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15726,24 +15726,24 @@ dissect.order_restated_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 9
-dissect.order_restated_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_9, range, display)
 
   if show.order_restated_byte_9 then
-    dissect.order_restated_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 8
-size_of.order_restated_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_8 = 1
 
 -- Display: Order Restated Byte 8
-display.order_restated_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15783,7 +15783,7 @@ display.order_restated_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 8
-dissect.order_restated_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15811,24 +15811,24 @@ dissect.order_restated_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 8
-dissect.order_restated_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_8, range, display)
 
   if show.order_restated_byte_8 then
-    dissect.order_restated_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 7
-size_of.order_restated_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_7 = 1
 
 -- Display: Order Restated Byte 7
-display.order_restated_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15868,7 +15868,7 @@ display.order_restated_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 7
-dissect.order_restated_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15896,24 +15896,24 @@ dissect.order_restated_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 7
-dissect.order_restated_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_7, range, display)
 
   if show.order_restated_byte_7 then
-    dissect.order_restated_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 6
-size_of.order_restated_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_6 = 1
 
 -- Display: Order Restated Byte 6
-display.order_restated_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -15953,7 +15953,7 @@ display.order_restated_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 6
-dissect.order_restated_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -15981,24 +15981,24 @@ dissect.order_restated_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 6
-dissect.order_restated_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_6, range, display)
 
   if show.order_restated_byte_6 then
-    dissect.order_restated_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 5
-size_of.order_restated_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_5 = 1
 
 -- Display: Order Restated Byte 5
-display.order_restated_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Expire Time Exists flag set?
@@ -16038,7 +16038,7 @@ display.order_restated_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 5
-dissect.order_restated_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Expire Time Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_expire_time_exists, buffer(offset, 1))
@@ -16066,24 +16066,24 @@ dissect.order_restated_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 5
-dissect.order_restated_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_5, range, display)
 
   if show.order_restated_byte_5 then
-    dissect.order_restated_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 4
-size_of.order_restated_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_4 = 1
 
 -- Display: Order Restated Byte 4
-display.order_restated_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -16123,7 +16123,7 @@ display.order_restated_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 4
-dissect.order_restated_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -16151,24 +16151,24 @@ dissect.order_restated_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 4
-dissect.order_restated_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_4, range, display)
 
   if show.order_restated_byte_4 then
-    dissect.order_restated_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 3
-size_of.order_restated_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_3 = 1
 
 -- Display: Order Restated Byte 3
-display.order_restated_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Prevent Match Exists flag set?
@@ -16208,7 +16208,7 @@ display.order_restated_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 3
-dissect.order_restated_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_prevent_match_exists, buffer(offset, 1))
@@ -16236,24 +16236,24 @@ dissect.order_restated_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 3
-dissect.order_restated_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_3, range, display)
 
   if show.order_restated_byte_3 then
-    dissect.order_restated_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 2
-size_of.order_restated_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_2 = 1
 
 -- Display: Order Restated Byte 2
-display.order_restated_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -16293,7 +16293,7 @@ display.order_restated_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 2
-dissect.order_restated_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -16321,24 +16321,24 @@ dissect.order_restated_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 2
-dissect.order_restated_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_2, range, display)
 
   if show.order_restated_byte_2 then
-    dissect.order_restated_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Byte 1
-size_of.order_restated_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_byte_1 = 1
 
 -- Display: Order Restated Byte 1
-display.order_restated_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Restated Reserved Bit 8 Exists flag set?
@@ -16378,7 +16378,7 @@ display.order_restated_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Restated Byte 1
-dissect.order_restated_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Restated Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_reserved_bit_8_exists, buffer(offset, 1))
@@ -16406,33 +16406,33 @@ dissect.order_restated_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Restated Byte 1
-dissect.order_restated_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_restated_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_byte_1, range, display)
 
   if show.order_restated_byte_1 then
-    dissect.order_restated_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Restated Bitfield Count
-size_of.order_restated_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_bitfield_count = 1
 
 -- Display: Order Restated Bitfield Count
-display.order_restated_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_bitfield_count = function(value)
   return "Order Restated Bitfield Count: "..value
 end
 
 -- Dissect: Order Restated Bitfield Count
-dissect.order_restated_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_restated_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_restated_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_bitfield_count, range, value, display)
 
@@ -16440,16 +16440,16 @@ dissect.order_restated_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Restated Optional Fields
-display.order_restated_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Restated Optional Fields
-dissect.order_restated_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
   local index = offset
 
   -- Order Restated Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_restated_bitfield_count = dissect.order_restated_bitfield_count(buffer, index, packet, parent)
+  index, order_restated_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Restated Byte 1
   local order_restated_byte_1_exists = order_restated_bitfield_count >= 1
@@ -16458,7 +16458,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_1_exists then
 
     -- Order Restated Byte 1: Struct of 8 fields
-    index, order_restated_byte_1 = dissect.order_restated_byte_1(buffer, index, packet, parent)
+    index, order_restated_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 2
@@ -16468,7 +16468,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_2_exists then
 
     -- Order Restated Byte 2: Struct of 8 fields
-    index, order_restated_byte_2 = dissect.order_restated_byte_2(buffer, index, packet, parent)
+    index, order_restated_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 3
@@ -16478,7 +16478,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_3_exists then
 
     -- Order Restated Byte 3: Struct of 8 fields
-    index, order_restated_byte_3 = dissect.order_restated_byte_3(buffer, index, packet, parent)
+    index, order_restated_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 4
@@ -16488,7 +16488,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_4_exists then
 
     -- Order Restated Byte 4: Struct of 8 fields
-    index, order_restated_byte_4 = dissect.order_restated_byte_4(buffer, index, packet, parent)
+    index, order_restated_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 5
@@ -16498,7 +16498,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_5_exists then
 
     -- Order Restated Byte 5: Struct of 8 fields
-    index, order_restated_byte_5 = dissect.order_restated_byte_5(buffer, index, packet, parent)
+    index, order_restated_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 6
@@ -16508,7 +16508,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_6_exists then
 
     -- Order Restated Byte 6: Struct of 8 fields
-    index, order_restated_byte_6 = dissect.order_restated_byte_6(buffer, index, packet, parent)
+    index, order_restated_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 7
@@ -16518,7 +16518,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_7_exists then
 
     -- Order Restated Byte 7: Struct of 8 fields
-    index, order_restated_byte_7 = dissect.order_restated_byte_7(buffer, index, packet, parent)
+    index, order_restated_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 8
@@ -16528,7 +16528,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_8_exists then
 
     -- Order Restated Byte 8: Struct of 8 fields
-    index, order_restated_byte_8 = dissect.order_restated_byte_8(buffer, index, packet, parent)
+    index, order_restated_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 9
@@ -16538,7 +16538,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_9_exists then
 
     -- Order Restated Byte 9: Struct of 8 fields
-    index, order_restated_byte_9 = dissect.order_restated_byte_9(buffer, index, packet, parent)
+    index, order_restated_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 10
@@ -16548,7 +16548,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_10_exists then
 
     -- Order Restated Byte 10: Struct of 8 fields
-    index, order_restated_byte_10 = dissect.order_restated_byte_10(buffer, index, packet, parent)
+    index, order_restated_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 11
@@ -16558,7 +16558,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_11_exists then
 
     -- Order Restated Byte 11: Struct of 8 fields
-    index, order_restated_byte_11 = dissect.order_restated_byte_11(buffer, index, packet, parent)
+    index, order_restated_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 12
@@ -16568,7 +16568,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_12_exists then
 
     -- Order Restated Byte 12: Struct of 8 fields
-    index, order_restated_byte_12 = dissect.order_restated_byte_12(buffer, index, packet, parent)
+    index, order_restated_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 13
@@ -16578,7 +16578,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_13_exists then
 
     -- Order Restated Byte 13: Struct of 8 fields
-    index, order_restated_byte_13 = dissect.order_restated_byte_13(buffer, index, packet, parent)
+    index, order_restated_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 14
@@ -16588,7 +16588,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_14_exists then
 
     -- Order Restated Byte 14: Struct of 8 fields
-    index, order_restated_byte_14 = dissect.order_restated_byte_14(buffer, index, packet, parent)
+    index, order_restated_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 15
@@ -16598,7 +16598,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_15_exists then
 
     -- Order Restated Byte 15: Struct of 8 fields
-    index, order_restated_byte_15 = dissect.order_restated_byte_15(buffer, index, packet, parent)
+    index, order_restated_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 16
@@ -16608,7 +16608,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_16_exists then
 
     -- Order Restated Byte 16: Struct of 8 fields
-    index, order_restated_byte_16 = dissect.order_restated_byte_16(buffer, index, packet, parent)
+    index, order_restated_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 17
@@ -16618,7 +16618,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
   if order_restated_byte_17_exists then
 
     -- Order Restated Byte 17: Struct of 8 fields
-    index, order_restated_byte_17 = dissect.order_restated_byte_17(buffer, index, packet, parent)
+    index, order_restated_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -16626,7 +16626,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -16634,7 +16634,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -16642,7 +16642,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -16650,7 +16650,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -16658,7 +16658,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -16666,7 +16666,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -16674,7 +16674,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -16682,7 +16682,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -16690,7 +16690,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -16698,7 +16698,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -16706,7 +16706,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -16714,7 +16714,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -16722,7 +16722,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -16730,7 +16730,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -16738,7 +16738,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -16746,7 +16746,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -16754,7 +16754,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -16762,7 +16762,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -16770,7 +16770,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -16778,7 +16778,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = dissect.leaves_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -16786,7 +16786,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = dissect.last_shares(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -16794,7 +16794,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = dissect.last_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Price
@@ -16802,7 +16802,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Display Price
   if display_price_exists then
-    index = dissect.display_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Working Price
@@ -16810,7 +16810,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Working Price
   if working_price_exists then
-    index = dissect.working_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.working_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -16818,7 +16818,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -16826,7 +16826,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = dissect.expire_time(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -16834,7 +16834,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = dissect.secondary_order_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -16842,7 +16842,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -16850,7 +16850,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -16858,7 +16858,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -16866,7 +16866,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -16874,7 +16874,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -16882,7 +16882,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -16890,7 +16890,7 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -16898,31 +16898,31 @@ dissect.order_restated_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Restated Optional Fields
-dissect.order_restated_optional_fields = function(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_optional_fields = function(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_restated_optional_fields then
     local range = buffer(offset, size_of_order_restated_optional_fields)
-    local display = display.order_restated_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_optional_fields, range, display)
   end
 
-  dissect.order_restated_optional_fields_fields(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_optional_fields_fields(buffer, offset, packet, parent, size_of_order_restated_optional_fields)
 
   return offset + size_of_order_restated_optional_fields
 end
 
 -- Size: Restatement Reason
-size_of.restatement_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.restatement_reason = 1
 
 -- Display: Restatement Reason
-display.restatement_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.restatement_reason = function(value)
   if value == "C" then
     return "Restatement Reason: Cboe Market Close (C)"
   end
@@ -16949,11 +16949,11 @@ display.restatement_reason = function(value)
 end
 
 -- Dissect: Restatement Reason
-dissect.restatement_reason = function(buffer, offset, packet, parent)
-  local length = size_of.restatement_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.restatement_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.restatement_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.restatement_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.restatement_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.restatement_reason, range, value, display)
 
@@ -16961,28 +16961,28 @@ dissect.restatement_reason = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Restated Message
-display.order_restated_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Restated Message
-dissect.order_restated_message_fields = function(buffer, offset, packet, parent, size_of_order_restated_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_message_fields = function(buffer, offset, packet, parent, size_of_order_restated_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_id(buffer, index, packet, parent)
 
   -- Restatement Reason: 1 Byte Ascii String Enum with 7 values
-  index, restatement_reason = dissect.restatement_reason(buffer, index, packet, parent)
+  index, restatement_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.restatement_reason(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -16991,13 +16991,13 @@ dissect.order_restated_message_fields = function(buffer, offset, packet, parent,
   local size_of_order_restated_optional_fields = message_length - (index - offset) - 8
 
   -- Order Restated Optional Fields: Struct of 53 fields
-  index = dissect.order_restated_optional_fields(buffer, index, packet, parent, size_of_order_restated_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_optional_fields(buffer, index, packet, parent, size_of_order_restated_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Restated Message
-dissect.order_restated_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -17008,20 +17008,20 @@ dissect.order_restated_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_restated_message then
     local range = buffer(offset, size_of_order_restated_message)
-    local display = display.order_restated_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_message, range, display)
   end
 
-  dissect.order_restated_message_fields(buffer, offset, packet, parent, size_of_order_restated_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_message_fields(buffer, offset, packet, parent, size_of_order_restated_message)
 
   return offset + size_of_order_restated_message
 end
 
 -- Size: Order Modified Byte 17
-size_of.order_modified_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_17 = 1
 
 -- Display: Order Modified Byte 17
-display.order_modified_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17061,7 +17061,7 @@ display.order_modified_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 17
-dissect.order_modified_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17089,24 +17089,24 @@ dissect.order_modified_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 17
-dissect.order_modified_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_17, range, display)
 
   if show.order_modified_byte_17 then
-    dissect.order_modified_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 16
-size_of.order_modified_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_16 = 1
 
 -- Display: Order Modified Byte 16
-display.order_modified_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17146,7 +17146,7 @@ display.order_modified_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 16
-dissect.order_modified_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17174,24 +17174,24 @@ dissect.order_modified_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 16
-dissect.order_modified_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_16, range, display)
 
   if show.order_modified_byte_16 then
-    dissect.order_modified_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 15
-size_of.order_modified_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_15 = 1
 
 -- Display: Order Modified Byte 15
-display.order_modified_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17231,7 +17231,7 @@ display.order_modified_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 15
-dissect.order_modified_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17259,24 +17259,24 @@ dissect.order_modified_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 15
-dissect.order_modified_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_15, range, display)
 
   if show.order_modified_byte_15 then
-    dissect.order_modified_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 14
-size_of.order_modified_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_14 = 1
 
 -- Display: Order Modified Byte 14
-display.order_modified_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17316,7 +17316,7 @@ display.order_modified_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 14
-dissect.order_modified_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17344,24 +17344,24 @@ dissect.order_modified_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 14
-dissect.order_modified_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_14, range, display)
 
   if show.order_modified_byte_14 then
-    dissect.order_modified_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 13
-size_of.order_modified_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_13 = 1
 
 -- Display: Order Modified Byte 13
-display.order_modified_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17401,7 +17401,7 @@ display.order_modified_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 13
-dissect.order_modified_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17429,24 +17429,24 @@ dissect.order_modified_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 13
-dissect.order_modified_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_13, range, display)
 
   if show.order_modified_byte_13 then
-    dissect.order_modified_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 12
-size_of.order_modified_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_12 = 1
 
 -- Display: Order Modified Byte 12
-display.order_modified_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17486,7 +17486,7 @@ display.order_modified_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 12
-dissect.order_modified_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17514,24 +17514,24 @@ dissect.order_modified_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 12
-dissect.order_modified_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_12, range, display)
 
   if show.order_modified_byte_12 then
-    dissect.order_modified_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 11
-size_of.order_modified_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_11 = 1
 
 -- Display: Order Modified Byte 11
-display.order_modified_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17571,7 +17571,7 @@ display.order_modified_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 11
-dissect.order_modified_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17599,24 +17599,24 @@ dissect.order_modified_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 11
-dissect.order_modified_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_11, range, display)
 
   if show.order_modified_byte_11 then
-    dissect.order_modified_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 10
-size_of.order_modified_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_10 = 1
 
 -- Display: Order Modified Byte 10
-display.order_modified_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17656,7 +17656,7 @@ display.order_modified_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 10
-dissect.order_modified_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17684,24 +17684,24 @@ dissect.order_modified_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 10
-dissect.order_modified_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_10, range, display)
 
   if show.order_modified_byte_10 then
-    dissect.order_modified_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 9
-size_of.order_modified_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_9 = 1
 
 -- Display: Order Modified Byte 9
-display.order_modified_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17741,7 +17741,7 @@ display.order_modified_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 9
-dissect.order_modified_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17769,24 +17769,24 @@ dissect.order_modified_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 9
-dissect.order_modified_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_9, range, display)
 
   if show.order_modified_byte_9 then
-    dissect.order_modified_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 8
-size_of.order_modified_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_8 = 1
 
 -- Display: Order Modified Byte 8
-display.order_modified_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17826,7 +17826,7 @@ display.order_modified_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 8
-dissect.order_modified_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17854,24 +17854,24 @@ dissect.order_modified_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 8
-dissect.order_modified_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_8, range, display)
 
   if show.order_modified_byte_8 then
-    dissect.order_modified_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 7
-size_of.order_modified_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_7 = 1
 
 -- Display: Order Modified Byte 7
-display.order_modified_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17911,7 +17911,7 @@ display.order_modified_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 7
-dissect.order_modified_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -17939,24 +17939,24 @@ dissect.order_modified_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 7
-dissect.order_modified_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_7, range, display)
 
   if show.order_modified_byte_7 then
-    dissect.order_modified_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 6
-size_of.order_modified_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_6 = 1
 
 -- Display: Order Modified Byte 6
-display.order_modified_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -17996,7 +17996,7 @@ display.order_modified_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 6
-dissect.order_modified_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -18024,24 +18024,24 @@ dissect.order_modified_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 6
-dissect.order_modified_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_6, range, display)
 
   if show.order_modified_byte_6 then
-    dissect.order_modified_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 5
-size_of.order_modified_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_5 = 1
 
 -- Display: Order Modified Byte 5
-display.order_modified_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Expire Time Exists flag set?
@@ -18081,7 +18081,7 @@ display.order_modified_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 5
-dissect.order_modified_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Expire Time Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_expire_time_exists, buffer(offset, 1))
@@ -18109,24 +18109,24 @@ dissect.order_modified_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 5
-dissect.order_modified_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_5, range, display)
 
   if show.order_modified_byte_5 then
-    dissect.order_modified_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 4
-size_of.order_modified_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_4 = 1
 
 -- Display: Order Modified Byte 4
-display.order_modified_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -18166,7 +18166,7 @@ display.order_modified_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 4
-dissect.order_modified_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -18194,24 +18194,24 @@ dissect.order_modified_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 4
-dissect.order_modified_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_4, range, display)
 
   if show.order_modified_byte_4 then
-    dissect.order_modified_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 3
-size_of.order_modified_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_3 = 1
 
 -- Display: Order Modified Byte 3
-display.order_modified_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Prevent Match Exists flag set?
@@ -18251,7 +18251,7 @@ display.order_modified_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 3
-dissect.order_modified_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_prevent_match_exists, buffer(offset, 1))
@@ -18279,24 +18279,24 @@ dissect.order_modified_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 3
-dissect.order_modified_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_3, range, display)
 
   if show.order_modified_byte_3 then
-    dissect.order_modified_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 2
-size_of.order_modified_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_2 = 1
 
 -- Display: Order Modified Byte 2
-display.order_modified_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -18336,7 +18336,7 @@ display.order_modified_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 2
-dissect.order_modified_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -18364,24 +18364,24 @@ dissect.order_modified_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 2
-dissect.order_modified_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_2, range, display)
 
   if show.order_modified_byte_2 then
-    dissect.order_modified_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Byte 1
-size_of.order_modified_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_byte_1 = 1
 
 -- Display: Order Modified Byte 1
-display.order_modified_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Modified Reserved Bit 8 Exists flag set?
@@ -18421,7 +18421,7 @@ display.order_modified_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Modified Byte 1
-dissect.order_modified_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Modified Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_reserved_bit_8_exists, buffer(offset, 1))
@@ -18449,33 +18449,33 @@ dissect.order_modified_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Modified Byte 1
-dissect.order_modified_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_modified_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_byte_1, range, display)
 
   if show.order_modified_byte_1 then
-    dissect.order_modified_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Modified Bitfield Count
-size_of.order_modified_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_bitfield_count = 1
 
 -- Display: Order Modified Bitfield Count
-display.order_modified_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_bitfield_count = function(value)
   return "Order Modified Bitfield Count: "..value
 end
 
 -- Dissect: Order Modified Bitfield Count
-dissect.order_modified_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_modified_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_modified_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_bitfield_count, range, value, display)
 
@@ -18483,16 +18483,16 @@ dissect.order_modified_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Modified Optional Fields
-display.order_modified_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Modified Optional Fields
-dissect.order_modified_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
   local index = offset
 
   -- Order Modified Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_modified_bitfield_count = dissect.order_modified_bitfield_count(buffer, index, packet, parent)
+  index, order_modified_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Modified Byte 1
   local order_modified_byte_1_exists = order_modified_bitfield_count >= 1
@@ -18501,7 +18501,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_1_exists then
 
     -- Order Modified Byte 1: Struct of 8 fields
-    index, order_modified_byte_1 = dissect.order_modified_byte_1(buffer, index, packet, parent)
+    index, order_modified_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 2
@@ -18511,7 +18511,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_2_exists then
 
     -- Order Modified Byte 2: Struct of 8 fields
-    index, order_modified_byte_2 = dissect.order_modified_byte_2(buffer, index, packet, parent)
+    index, order_modified_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 3
@@ -18521,7 +18521,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_3_exists then
 
     -- Order Modified Byte 3: Struct of 8 fields
-    index, order_modified_byte_3 = dissect.order_modified_byte_3(buffer, index, packet, parent)
+    index, order_modified_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 4
@@ -18531,7 +18531,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_4_exists then
 
     -- Order Modified Byte 4: Struct of 8 fields
-    index, order_modified_byte_4 = dissect.order_modified_byte_4(buffer, index, packet, parent)
+    index, order_modified_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 5
@@ -18541,7 +18541,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_5_exists then
 
     -- Order Modified Byte 5: Struct of 8 fields
-    index, order_modified_byte_5 = dissect.order_modified_byte_5(buffer, index, packet, parent)
+    index, order_modified_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 6
@@ -18551,7 +18551,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_6_exists then
 
     -- Order Modified Byte 6: Struct of 8 fields
-    index, order_modified_byte_6 = dissect.order_modified_byte_6(buffer, index, packet, parent)
+    index, order_modified_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 7
@@ -18561,7 +18561,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_7_exists then
 
     -- Order Modified Byte 7: Struct of 8 fields
-    index, order_modified_byte_7 = dissect.order_modified_byte_7(buffer, index, packet, parent)
+    index, order_modified_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 8
@@ -18571,7 +18571,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_8_exists then
 
     -- Order Modified Byte 8: Struct of 8 fields
-    index, order_modified_byte_8 = dissect.order_modified_byte_8(buffer, index, packet, parent)
+    index, order_modified_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 9
@@ -18581,7 +18581,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_9_exists then
 
     -- Order Modified Byte 9: Struct of 8 fields
-    index, order_modified_byte_9 = dissect.order_modified_byte_9(buffer, index, packet, parent)
+    index, order_modified_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 10
@@ -18591,7 +18591,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_10_exists then
 
     -- Order Modified Byte 10: Struct of 8 fields
-    index, order_modified_byte_10 = dissect.order_modified_byte_10(buffer, index, packet, parent)
+    index, order_modified_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 11
@@ -18601,7 +18601,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_11_exists then
 
     -- Order Modified Byte 11: Struct of 8 fields
-    index, order_modified_byte_11 = dissect.order_modified_byte_11(buffer, index, packet, parent)
+    index, order_modified_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 12
@@ -18611,7 +18611,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_12_exists then
 
     -- Order Modified Byte 12: Struct of 8 fields
-    index, order_modified_byte_12 = dissect.order_modified_byte_12(buffer, index, packet, parent)
+    index, order_modified_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 13
@@ -18621,7 +18621,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_13_exists then
 
     -- Order Modified Byte 13: Struct of 8 fields
-    index, order_modified_byte_13 = dissect.order_modified_byte_13(buffer, index, packet, parent)
+    index, order_modified_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 14
@@ -18631,7 +18631,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_14_exists then
 
     -- Order Modified Byte 14: Struct of 8 fields
-    index, order_modified_byte_14 = dissect.order_modified_byte_14(buffer, index, packet, parent)
+    index, order_modified_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 15
@@ -18641,7 +18641,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_15_exists then
 
     -- Order Modified Byte 15: Struct of 8 fields
-    index, order_modified_byte_15 = dissect.order_modified_byte_15(buffer, index, packet, parent)
+    index, order_modified_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 16
@@ -18651,7 +18651,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_16_exists then
 
     -- Order Modified Byte 16: Struct of 8 fields
-    index, order_modified_byte_16 = dissect.order_modified_byte_16(buffer, index, packet, parent)
+    index, order_modified_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 17
@@ -18661,7 +18661,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
   if order_modified_byte_17_exists then
 
     -- Order Modified Byte 17: Struct of 8 fields
-    index, order_modified_byte_17 = dissect.order_modified_byte_17(buffer, index, packet, parent)
+    index, order_modified_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -18669,7 +18669,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -18677,7 +18677,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -18685,7 +18685,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -18693,7 +18693,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -18701,7 +18701,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -18709,7 +18709,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -18717,7 +18717,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -18725,7 +18725,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -18733,7 +18733,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -18741,7 +18741,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -18749,7 +18749,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -18757,7 +18757,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -18765,7 +18765,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -18773,7 +18773,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -18781,7 +18781,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -18789,7 +18789,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -18797,7 +18797,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -18805,7 +18805,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -18813,7 +18813,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = dissect.leaves_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -18821,7 +18821,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = dissect.last_shares(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -18829,7 +18829,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = dissect.last_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Price
@@ -18837,7 +18837,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Display Price
   if display_price_exists then
-    index = dissect.display_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Working Price
@@ -18845,7 +18845,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Working Price
   if working_price_exists then
-    index = dissect.working_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.working_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -18853,7 +18853,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -18861,7 +18861,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = dissect.expire_time(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -18869,7 +18869,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = dissect.secondary_order_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -18877,7 +18877,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -18885,7 +18885,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -18893,7 +18893,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -18901,7 +18901,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -18909,7 +18909,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -18917,7 +18917,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -18925,7 +18925,7 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -18933,46 +18933,46 @@ dissect.order_modified_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Modified Optional Fields
-dissect.order_modified_optional_fields = function(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_optional_fields = function(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_modified_optional_fields then
     local range = buffer(offset, size_of_order_modified_optional_fields)
-    local display = display.order_modified_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_optional_fields, range, display)
   end
 
-  dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_optional_fields_fields(buffer, offset, packet, parent, size_of_order_modified_optional_fields)
 
   return offset + size_of_order_modified_optional_fields
 end
 
 -- Display: Order Modified Message
-display.order_modified_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Modified Message
-dissect.order_modified_message_fields = function(buffer, offset, packet, parent, size_of_order_modified_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_message_fields = function(buffer, offset, packet, parent, size_of_order_modified_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_id(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -18981,13 +18981,13 @@ dissect.order_modified_message_fields = function(buffer, offset, packet, parent,
   local size_of_order_modified_optional_fields = message_length - (index - offset) - 8
 
   -- Order Modified Optional Fields: Struct of 52 fields
-  index = dissect.order_modified_optional_fields(buffer, index, packet, parent, size_of_order_modified_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_optional_fields(buffer, index, packet, parent, size_of_order_modified_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Modified Message
-dissect.order_modified_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -18998,20 +18998,20 @@ dissect.order_modified_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_modified_message then
     local range = buffer(offset, size_of_order_modified_message)
-    local display = display.order_modified_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_message, range, display)
   end
 
-  dissect.order_modified_message_fields(buffer, offset, packet, parent, size_of_order_modified_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_message_fields(buffer, offset, packet, parent, size_of_order_modified_message)
 
   return offset + size_of_order_modified_message
 end
 
 -- Size: Order Rejected Byte 17
-size_of.order_rejected_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_17 = 1
 
 -- Display: Order Rejected Byte 17
-display.order_rejected_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19051,7 +19051,7 @@ display.order_rejected_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 17
-dissect.order_rejected_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19079,24 +19079,24 @@ dissect.order_rejected_byte_17_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 17
-dissect.order_rejected_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_17, range, display)
 
   if show.order_rejected_byte_17 then
-    dissect.order_rejected_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 16
-size_of.order_rejected_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_16 = 1
 
 -- Display: Order Rejected Byte 16
-display.order_rejected_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19136,7 +19136,7 @@ display.order_rejected_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 16
-dissect.order_rejected_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19164,24 +19164,24 @@ dissect.order_rejected_byte_16_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 16
-dissect.order_rejected_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_16, range, display)
 
   if show.order_rejected_byte_16 then
-    dissect.order_rejected_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 15
-size_of.order_rejected_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_15 = 1
 
 -- Display: Order Rejected Byte 15
-display.order_rejected_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19221,7 +19221,7 @@ display.order_rejected_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 15
-dissect.order_rejected_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19249,24 +19249,24 @@ dissect.order_rejected_byte_15_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 15
-dissect.order_rejected_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_15, range, display)
 
   if show.order_rejected_byte_15 then
-    dissect.order_rejected_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 14
-size_of.order_rejected_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_14 = 1
 
 -- Display: Order Rejected Byte 14
-display.order_rejected_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19306,7 +19306,7 @@ display.order_rejected_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 14
-dissect.order_rejected_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19334,24 +19334,24 @@ dissect.order_rejected_byte_14_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 14
-dissect.order_rejected_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_14, range, display)
 
   if show.order_rejected_byte_14 then
-    dissect.order_rejected_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 13
-size_of.order_rejected_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_13 = 1
 
 -- Display: Order Rejected Byte 13
-display.order_rejected_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19391,7 +19391,7 @@ display.order_rejected_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 13
-dissect.order_rejected_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19419,24 +19419,24 @@ dissect.order_rejected_byte_13_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 13
-dissect.order_rejected_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_13, range, display)
 
   if show.order_rejected_byte_13 then
-    dissect.order_rejected_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 12
-size_of.order_rejected_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_12 = 1
 
 -- Display: Order Rejected Byte 12
-display.order_rejected_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19476,7 +19476,7 @@ display.order_rejected_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 12
-dissect.order_rejected_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19504,24 +19504,24 @@ dissect.order_rejected_byte_12_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 12
-dissect.order_rejected_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_12, range, display)
 
   if show.order_rejected_byte_12 then
-    dissect.order_rejected_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 11
-size_of.order_rejected_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_11 = 1
 
 -- Display: Order Rejected Byte 11
-display.order_rejected_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19561,7 +19561,7 @@ display.order_rejected_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 11
-dissect.order_rejected_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19589,24 +19589,24 @@ dissect.order_rejected_byte_11_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 11
-dissect.order_rejected_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_11, range, display)
 
   if show.order_rejected_byte_11 then
-    dissect.order_rejected_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 10
-size_of.order_rejected_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_10 = 1
 
 -- Display: Order Rejected Byte 10
-display.order_rejected_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19646,7 +19646,7 @@ display.order_rejected_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 10
-dissect.order_rejected_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19674,24 +19674,24 @@ dissect.order_rejected_byte_10_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 10
-dissect.order_rejected_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_10, range, display)
 
   if show.order_rejected_byte_10 then
-    dissect.order_rejected_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 9
-size_of.order_rejected_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_9 = 1
 
 -- Display: Order Rejected Byte 9
-display.order_rejected_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19731,7 +19731,7 @@ display.order_rejected_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 9
-dissect.order_rejected_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19759,24 +19759,24 @@ dissect.order_rejected_byte_9_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 9
-dissect.order_rejected_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_9, range, display)
 
   if show.order_rejected_byte_9 then
-    dissect.order_rejected_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 8
-size_of.order_rejected_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_8 = 1
 
 -- Display: Order Rejected Byte 8
-display.order_rejected_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19816,7 +19816,7 @@ display.order_rejected_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 8
-dissect.order_rejected_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19844,24 +19844,24 @@ dissect.order_rejected_byte_8_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 8
-dissect.order_rejected_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_8, range, display)
 
   if show.order_rejected_byte_8 then
-    dissect.order_rejected_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 7
-size_of.order_rejected_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_7 = 1
 
 -- Display: Order Rejected Byte 7
-display.order_rejected_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19901,7 +19901,7 @@ display.order_rejected_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 7
-dissect.order_rejected_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -19929,24 +19929,24 @@ dissect.order_rejected_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 7
-dissect.order_rejected_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_7, range, display)
 
   if show.order_rejected_byte_7 then
-    dissect.order_rejected_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 6
-size_of.order_rejected_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_6 = 1
 
 -- Display: Order Rejected Byte 6
-display.order_rejected_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -19986,7 +19986,7 @@ display.order_rejected_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 6
-dissect.order_rejected_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -20014,24 +20014,24 @@ dissect.order_rejected_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 6
-dissect.order_rejected_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_6, range, display)
 
   if show.order_rejected_byte_6 then
-    dissect.order_rejected_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 5
-size_of.order_rejected_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_5 = 1
 
 -- Display: Order Rejected Byte 5
-display.order_rejected_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -20071,7 +20071,7 @@ display.order_rejected_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 5
-dissect.order_rejected_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -20099,24 +20099,24 @@ dissect.order_rejected_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 5
-dissect.order_rejected_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_5, range, display)
 
   if show.order_rejected_byte_5 then
-    dissect.order_rejected_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 4
-size_of.order_rejected_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_4 = 1
 
 -- Display: Order Rejected Byte 4
-display.order_rejected_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -20156,7 +20156,7 @@ display.order_rejected_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 4
-dissect.order_rejected_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -20184,24 +20184,24 @@ dissect.order_rejected_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 4
-dissect.order_rejected_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_4, range, display)
 
   if show.order_rejected_byte_4 then
-    dissect.order_rejected_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 3
-size_of.order_rejected_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_3 = 1
 
 -- Display: Order Rejected Byte 3
-display.order_rejected_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Prevent Match Exists flag set?
@@ -20241,7 +20241,7 @@ display.order_rejected_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 3
-dissect.order_rejected_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_prevent_match_exists, buffer(offset, 1))
@@ -20269,24 +20269,24 @@ dissect.order_rejected_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 3
-dissect.order_rejected_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_3, range, display)
 
   if show.order_rejected_byte_3 then
-    dissect.order_rejected_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 2
-size_of.order_rejected_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_2 = 1
 
 -- Display: Order Rejected Byte 2
-display.order_rejected_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -20326,7 +20326,7 @@ display.order_rejected_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 2
-dissect.order_rejected_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -20354,24 +20354,24 @@ dissect.order_rejected_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 2
-dissect.order_rejected_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_2, range, display)
 
   if show.order_rejected_byte_2 then
-    dissect.order_rejected_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Byte 1
-size_of.order_rejected_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_byte_1 = 1
 
 -- Display: Order Rejected Byte 1
-display.order_rejected_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Rejected Reserved Bit 8 Exists flag set?
@@ -20411,7 +20411,7 @@ display.order_rejected_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Rejected Byte 1
-dissect.order_rejected_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Rejected Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_reserved_bit_8_exists, buffer(offset, 1))
@@ -20439,33 +20439,33 @@ dissect.order_rejected_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Rejected Byte 1
-dissect.order_rejected_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_rejected_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_byte_1, range, display)
 
   if show.order_rejected_byte_1 then
-    dissect.order_rejected_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Rejected Bitfield Count
-size_of.order_rejected_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_bitfield_count = 1
 
 -- Display: Order Rejected Bitfield Count
-display.order_rejected_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_bitfield_count = function(value)
   return "Order Rejected Bitfield Count: "..value
 end
 
 -- Dissect: Order Rejected Bitfield Count
-dissect.order_rejected_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_rejected_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_rejected_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_bitfield_count, range, value, display)
 
@@ -20473,16 +20473,16 @@ dissect.order_rejected_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Rejected Optional Fields
-display.order_rejected_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Rejected Optional Fields
-dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
   local index = offset
 
   -- Order Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_rejected_bitfield_count = dissect.order_rejected_bitfield_count(buffer, index, packet, parent)
+  index, order_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Rejected Byte 1
   local order_rejected_byte_1_exists = order_rejected_bitfield_count >= 1
@@ -20491,7 +20491,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_1_exists then
 
     -- Order Rejected Byte 1: Struct of 8 fields
-    index, order_rejected_byte_1 = dissect.order_rejected_byte_1(buffer, index, packet, parent)
+    index, order_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 2
@@ -20501,7 +20501,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_2_exists then
 
     -- Order Rejected Byte 2: Struct of 8 fields
-    index, order_rejected_byte_2 = dissect.order_rejected_byte_2(buffer, index, packet, parent)
+    index, order_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 3
@@ -20511,7 +20511,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_3_exists then
 
     -- Order Rejected Byte 3: Struct of 8 fields
-    index, order_rejected_byte_3 = dissect.order_rejected_byte_3(buffer, index, packet, parent)
+    index, order_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 4
@@ -20521,7 +20521,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_4_exists then
 
     -- Order Rejected Byte 4: Struct of 8 fields
-    index, order_rejected_byte_4 = dissect.order_rejected_byte_4(buffer, index, packet, parent)
+    index, order_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 5
@@ -20531,7 +20531,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_5_exists then
 
     -- Order Rejected Byte 5: Struct of 8 fields
-    index, order_rejected_byte_5 = dissect.order_rejected_byte_5(buffer, index, packet, parent)
+    index, order_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 6
@@ -20541,7 +20541,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_6_exists then
 
     -- Order Rejected Byte 6: Struct of 8 fields
-    index, order_rejected_byte_6 = dissect.order_rejected_byte_6(buffer, index, packet, parent)
+    index, order_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 7
@@ -20551,7 +20551,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_7_exists then
 
     -- Order Rejected Byte 7: Struct of 8 fields
-    index, order_rejected_byte_7 = dissect.order_rejected_byte_7(buffer, index, packet, parent)
+    index, order_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 8
@@ -20561,7 +20561,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_8_exists then
 
     -- Order Rejected Byte 8: Struct of 8 fields
-    index, order_rejected_byte_8 = dissect.order_rejected_byte_8(buffer, index, packet, parent)
+    index, order_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 9
@@ -20571,7 +20571,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_9_exists then
 
     -- Order Rejected Byte 9: Struct of 8 fields
-    index, order_rejected_byte_9 = dissect.order_rejected_byte_9(buffer, index, packet, parent)
+    index, order_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 10
@@ -20581,7 +20581,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_10_exists then
 
     -- Order Rejected Byte 10: Struct of 8 fields
-    index, order_rejected_byte_10 = dissect.order_rejected_byte_10(buffer, index, packet, parent)
+    index, order_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 11
@@ -20591,7 +20591,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_11_exists then
 
     -- Order Rejected Byte 11: Struct of 8 fields
-    index, order_rejected_byte_11 = dissect.order_rejected_byte_11(buffer, index, packet, parent)
+    index, order_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 12
@@ -20601,7 +20601,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_12_exists then
 
     -- Order Rejected Byte 12: Struct of 8 fields
-    index, order_rejected_byte_12 = dissect.order_rejected_byte_12(buffer, index, packet, parent)
+    index, order_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 13
@@ -20611,7 +20611,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_13_exists then
 
     -- Order Rejected Byte 13: Struct of 8 fields
-    index, order_rejected_byte_13 = dissect.order_rejected_byte_13(buffer, index, packet, parent)
+    index, order_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 14
@@ -20621,7 +20621,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_14_exists then
 
     -- Order Rejected Byte 14: Struct of 8 fields
-    index, order_rejected_byte_14 = dissect.order_rejected_byte_14(buffer, index, packet, parent)
+    index, order_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 15
@@ -20631,7 +20631,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_15_exists then
 
     -- Order Rejected Byte 15: Struct of 8 fields
-    index, order_rejected_byte_15 = dissect.order_rejected_byte_15(buffer, index, packet, parent)
+    index, order_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 16
@@ -20641,7 +20641,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_16_exists then
 
     -- Order Rejected Byte 16: Struct of 8 fields
-    index, order_rejected_byte_16 = dissect.order_rejected_byte_16(buffer, index, packet, parent)
+    index, order_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 17
@@ -20651,7 +20651,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
   if order_rejected_byte_17_exists then
 
     -- Order Rejected Byte 17: Struct of 8 fields
-    index, order_rejected_byte_17 = dissect.order_rejected_byte_17(buffer, index, packet, parent)
+    index, order_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -20659,7 +20659,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -20667,7 +20667,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -20675,7 +20675,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -20683,7 +20683,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -20691,7 +20691,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -20699,7 +20699,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -20707,7 +20707,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -20715,7 +20715,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -20723,7 +20723,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -20731,7 +20731,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -20739,7 +20739,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -20747,7 +20747,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -20755,7 +20755,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -20763,7 +20763,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -20771,7 +20771,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -20779,7 +20779,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -20787,7 +20787,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -20795,7 +20795,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -20803,7 +20803,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = dissect.secondary_order_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -20811,7 +20811,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -20819,7 +20819,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -20827,7 +20827,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -20835,7 +20835,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -20843,7 +20843,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -20851,7 +20851,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -20859,7 +20859,7 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -20867,31 +20867,31 @@ dissect.order_rejected_optional_fields_fields = function(buffer, offset, packet,
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Rejected Optional Fields
-dissect.order_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_optional_fields = function(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_rejected_optional_fields then
     local range = buffer(offset, size_of_order_rejected_optional_fields)
-    local display = display.order_rejected_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_optional_fields, range, display)
   end
 
-  dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_optional_fields_fields(buffer, offset, packet, parent, size_of_order_rejected_optional_fields)
 
   return offset + size_of_order_rejected_optional_fields
 end
 
 -- Size: Order Reject Reason
-size_of.order_reject_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_reject_reason = 1
 
 -- Display: Order Reject Reason
-display.order_reject_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_reject_reason = function(value)
   if value == "A" then
     return "Order Reject Reason: Admin (A)"
   end
@@ -20993,11 +20993,11 @@ display.order_reject_reason = function(value)
 end
 
 -- Dissect: Order Reject Reason
-dissect.order_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.order_reject_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_reject_reason, range, value, display)
 
@@ -21005,28 +21005,28 @@ dissect.order_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Display: Order Rejected Message
-display.order_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Rejected Message
-dissect.order_rejected_message_fields = function(buffer, offset, packet, parent, size_of_order_rejected_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_message_fields = function(buffer, offset, packet, parent, size_of_order_rejected_message)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Reject Reason: 1 Byte Ascii String Enum with 32 values
-  index, order_reject_reason = dissect.order_reject_reason(buffer, index, packet, parent)
+  index, order_reject_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.text(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -21035,13 +21035,13 @@ dissect.order_rejected_message_fields = function(buffer, offset, packet, parent,
   local size_of_order_rejected_optional_fields = message_length - (index - offset) - 8
 
   -- Order Rejected Optional Fields: Struct of 45 fields
-  index = dissect.order_rejected_optional_fields(buffer, index, packet, parent, size_of_order_rejected_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_optional_fields(buffer, index, packet, parent, size_of_order_rejected_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Rejected Message
-dissect.order_rejected_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -21052,20 +21052,20 @@ dissect.order_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
     local range = buffer(offset, size_of_order_rejected_message)
-    local display = display.order_rejected_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_message, range, display)
   end
 
-  dissect.order_rejected_message_fields(buffer, offset, packet, parent, size_of_order_rejected_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_message_fields(buffer, offset, packet, parent, size_of_order_rejected_message)
 
   return offset + size_of_order_rejected_message
 end
 
 -- Size: Order Acknowledgment Byte 17
-size_of.order_acknowledgment_byte_17 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_17 = 1
 
 -- Display: Order Acknowledgment Byte 17
-display.order_acknowledgment_byte_17 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_17 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21105,7 +21105,7 @@ display.order_acknowledgment_byte_17 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 17
-dissect.order_acknowledgment_byte_17_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_17_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21133,24 +21133,24 @@ dissect.order_acknowledgment_byte_17_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 17
-dissect.order_acknowledgment_byte_17 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_17 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_17(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_17(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_17, range, display)
 
   if show.order_acknowledgment_byte_17 then
-    dissect.order_acknowledgment_byte_17_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_17_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 16
-size_of.order_acknowledgment_byte_16 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_16 = 1
 
 -- Display: Order Acknowledgment Byte 16
-display.order_acknowledgment_byte_16 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_16 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21190,7 +21190,7 @@ display.order_acknowledgment_byte_16 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 16
-dissect.order_acknowledgment_byte_16_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_16_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21218,24 +21218,24 @@ dissect.order_acknowledgment_byte_16_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 16
-dissect.order_acknowledgment_byte_16 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_16 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_16(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_16(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_16, range, display)
 
   if show.order_acknowledgment_byte_16 then
-    dissect.order_acknowledgment_byte_16_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_16_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 15
-size_of.order_acknowledgment_byte_15 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_15 = 1
 
 -- Display: Order Acknowledgment Byte 15
-display.order_acknowledgment_byte_15 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_15 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21275,7 +21275,7 @@ display.order_acknowledgment_byte_15 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 15
-dissect.order_acknowledgment_byte_15_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_15_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21303,24 +21303,24 @@ dissect.order_acknowledgment_byte_15_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 15
-dissect.order_acknowledgment_byte_15 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_15 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_15(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_15(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_15, range, display)
 
   if show.order_acknowledgment_byte_15 then
-    dissect.order_acknowledgment_byte_15_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_15_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 14
-size_of.order_acknowledgment_byte_14 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_14 = 1
 
 -- Display: Order Acknowledgment Byte 14
-display.order_acknowledgment_byte_14 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_14 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21360,7 +21360,7 @@ display.order_acknowledgment_byte_14 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 14
-dissect.order_acknowledgment_byte_14_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_14_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21388,24 +21388,24 @@ dissect.order_acknowledgment_byte_14_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 14
-dissect.order_acknowledgment_byte_14 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_14 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_14(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_14(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_14, range, display)
 
   if show.order_acknowledgment_byte_14 then
-    dissect.order_acknowledgment_byte_14_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_14_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 13
-size_of.order_acknowledgment_byte_13 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_13 = 1
 
 -- Display: Order Acknowledgment Byte 13
-display.order_acknowledgment_byte_13 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_13 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21445,7 +21445,7 @@ display.order_acknowledgment_byte_13 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 13
-dissect.order_acknowledgment_byte_13_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_13_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21473,24 +21473,24 @@ dissect.order_acknowledgment_byte_13_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 13
-dissect.order_acknowledgment_byte_13 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_13 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_13(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_13(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_13, range, display)
 
   if show.order_acknowledgment_byte_13 then
-    dissect.order_acknowledgment_byte_13_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_13_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 12
-size_of.order_acknowledgment_byte_12 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_12 = 1
 
 -- Display: Order Acknowledgment Byte 12
-display.order_acknowledgment_byte_12 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_12 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21530,7 +21530,7 @@ display.order_acknowledgment_byte_12 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 12
-dissect.order_acknowledgment_byte_12_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_12_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21558,24 +21558,24 @@ dissect.order_acknowledgment_byte_12_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 12
-dissect.order_acknowledgment_byte_12 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_12 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_12(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_12(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_12, range, display)
 
   if show.order_acknowledgment_byte_12 then
-    dissect.order_acknowledgment_byte_12_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_12_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 11
-size_of.order_acknowledgment_byte_11 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_11 = 1
 
 -- Display: Order Acknowledgment Byte 11
-display.order_acknowledgment_byte_11 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_11 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21615,7 +21615,7 @@ display.order_acknowledgment_byte_11 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 11
-dissect.order_acknowledgment_byte_11_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_11_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21643,24 +21643,24 @@ dissect.order_acknowledgment_byte_11_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 11
-dissect.order_acknowledgment_byte_11 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_11 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_11(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_11(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_11, range, display)
 
   if show.order_acknowledgment_byte_11 then
-    dissect.order_acknowledgment_byte_11_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_11_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 10
-size_of.order_acknowledgment_byte_10 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_10 = 1
 
 -- Display: Order Acknowledgment Byte 10
-display.order_acknowledgment_byte_10 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_10 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21700,7 +21700,7 @@ display.order_acknowledgment_byte_10 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 10
-dissect.order_acknowledgment_byte_10_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_10_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21728,24 +21728,24 @@ dissect.order_acknowledgment_byte_10_bits = function(buffer, offset, packet, par
 end
 
 -- Dissect: Order Acknowledgment Byte 10
-dissect.order_acknowledgment_byte_10 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_10 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_10(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_10(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_10, range, display)
 
   if show.order_acknowledgment_byte_10 then
-    dissect.order_acknowledgment_byte_10_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_10_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 9
-size_of.order_acknowledgment_byte_9 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_9 = 1
 
 -- Display: Order Acknowledgment Byte 9
-display.order_acknowledgment_byte_9 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_9 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21785,7 +21785,7 @@ display.order_acknowledgment_byte_9 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 9
-dissect.order_acknowledgment_byte_9_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_9_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21813,24 +21813,24 @@ dissect.order_acknowledgment_byte_9_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 9
-dissect.order_acknowledgment_byte_9 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_9 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_9(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_9(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_9, range, display)
 
   if show.order_acknowledgment_byte_9 then
-    dissect.order_acknowledgment_byte_9_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_9_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 8
-size_of.order_acknowledgment_byte_8 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_8 = 1
 
 -- Display: Order Acknowledgment Byte 8
-display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21870,7 +21870,7 @@ display.order_acknowledgment_byte_8 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 8
-dissect.order_acknowledgment_byte_8_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_8_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21898,24 +21898,24 @@ dissect.order_acknowledgment_byte_8_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 8
-dissect.order_acknowledgment_byte_8 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_8 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_8(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_8(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_8, range, display)
 
   if show.order_acknowledgment_byte_8 then
-    dissect.order_acknowledgment_byte_8_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_8_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 7
-size_of.order_acknowledgment_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_7 = 1
 
 -- Display: Order Acknowledgment Byte 7
-display.order_acknowledgment_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -21955,7 +21955,7 @@ display.order_acknowledgment_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 7
-dissect.order_acknowledgment_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -21983,24 +21983,24 @@ dissect.order_acknowledgment_byte_7_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 7
-dissect.order_acknowledgment_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_7, range, display)
 
   if show.order_acknowledgment_byte_7 then
-    dissect.order_acknowledgment_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 6
-size_of.order_acknowledgment_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_6 = 1
 
 -- Display: Order Acknowledgment Byte 6
-display.order_acknowledgment_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -22040,7 +22040,7 @@ display.order_acknowledgment_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 6
-dissect.order_acknowledgment_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -22068,24 +22068,24 @@ dissect.order_acknowledgment_byte_6_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 6
-dissect.order_acknowledgment_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_6, range, display)
 
   if show.order_acknowledgment_byte_6 then
-    dissect.order_acknowledgment_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 5
-size_of.order_acknowledgment_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_5 = 1
 
 -- Display: Order Acknowledgment Byte 5
-display.order_acknowledgment_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Expire Time Exists flag set?
@@ -22125,7 +22125,7 @@ display.order_acknowledgment_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 5
-dissect.order_acknowledgment_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Expire Time Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_expire_time_exists, buffer(offset, 1))
@@ -22153,24 +22153,24 @@ dissect.order_acknowledgment_byte_5_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 5
-dissect.order_acknowledgment_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_5, range, display)
 
   if show.order_acknowledgment_byte_5 then
-    dissect.order_acknowledgment_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 4
-size_of.order_acknowledgment_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_4 = 1
 
 -- Display: Order Acknowledgment Byte 4
-display.order_acknowledgment_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -22210,7 +22210,7 @@ display.order_acknowledgment_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 4
-dissect.order_acknowledgment_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -22238,24 +22238,24 @@ dissect.order_acknowledgment_byte_4_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 4
-dissect.order_acknowledgment_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_4, range, display)
 
   if show.order_acknowledgment_byte_4 then
-    dissect.order_acknowledgment_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 3
-size_of.order_acknowledgment_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_3 = 1
 
 -- Display: Order Acknowledgment Byte 3
-display.order_acknowledgment_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Prevent Match Exists flag set?
@@ -22295,7 +22295,7 @@ display.order_acknowledgment_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 3
-dissect.order_acknowledgment_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Prevent Match Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_prevent_match_exists, buffer(offset, 1))
@@ -22323,24 +22323,24 @@ dissect.order_acknowledgment_byte_3_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 3
-dissect.order_acknowledgment_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_3, range, display)
 
   if show.order_acknowledgment_byte_3 then
-    dissect.order_acknowledgment_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 2
-size_of.order_acknowledgment_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_2 = 1
 
 -- Display: Order Acknowledgment Byte 2
-display.order_acknowledgment_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -22380,7 +22380,7 @@ display.order_acknowledgment_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 2
-dissect.order_acknowledgment_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -22408,24 +22408,24 @@ dissect.order_acknowledgment_byte_2_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 2
-dissect.order_acknowledgment_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_2, range, display)
 
   if show.order_acknowledgment_byte_2 then
-    dissect.order_acknowledgment_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Byte 1
-size_of.order_acknowledgment_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_byte_1 = 1
 
 -- Display: Order Acknowledgment Byte 1
-display.order_acknowledgment_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Order Acknowledgment Reserved Bit 8 Exists flag set?
@@ -22465,7 +22465,7 @@ display.order_acknowledgment_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Acknowledgment Byte 1
-dissect.order_acknowledgment_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Order Acknowledgment Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_reserved_bit_8_exists, buffer(offset, 1))
@@ -22493,33 +22493,33 @@ dissect.order_acknowledgment_byte_1_bits = function(buffer, offset, packet, pare
 end
 
 -- Dissect: Order Acknowledgment Byte 1
-dissect.order_acknowledgment_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.order_acknowledgment_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_byte_1, range, display)
 
   if show.order_acknowledgment_byte_1 then
-    dissect.order_acknowledgment_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Order Acknowledgment Bitfield Count
-size_of.order_acknowledgment_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_bitfield_count = 1
 
 -- Display: Order Acknowledgment Bitfield Count
-display.order_acknowledgment_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_bitfield_count = function(value)
   return "Order Acknowledgment Bitfield Count: "..value
 end
 
 -- Dissect: Order Acknowledgment Bitfield Count
-dissect.order_acknowledgment_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.order_acknowledgment_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_acknowledgment_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_bitfield_count, range, value, display)
 
@@ -22527,16 +22527,16 @@ dissect.order_acknowledgment_bitfield_count = function(buffer, offset, packet, p
 end
 
 -- Display: Order Acknowledgment Optional Fields
-display.order_acknowledgment_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Acknowledgment Optional Fields
-dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
   local index = offset
 
   -- Order Acknowledgment Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_acknowledgment_bitfield_count = dissect.order_acknowledgment_bitfield_count(buffer, index, packet, parent)
+  index, order_acknowledgment_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Acknowledgment Byte 1
   local order_acknowledgment_byte_1_exists = order_acknowledgment_bitfield_count >= 1
@@ -22545,7 +22545,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_1_exists then
 
     -- Order Acknowledgment Byte 1: Struct of 8 fields
-    index, order_acknowledgment_byte_1 = dissect.order_acknowledgment_byte_1(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 2
@@ -22555,7 +22555,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_2_exists then
 
     -- Order Acknowledgment Byte 2: Struct of 8 fields
-    index, order_acknowledgment_byte_2 = dissect.order_acknowledgment_byte_2(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 3
@@ -22565,7 +22565,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_3_exists then
 
     -- Order Acknowledgment Byte 3: Struct of 8 fields
-    index, order_acknowledgment_byte_3 = dissect.order_acknowledgment_byte_3(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 4
@@ -22575,7 +22575,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_4_exists then
 
     -- Order Acknowledgment Byte 4: Struct of 8 fields
-    index, order_acknowledgment_byte_4 = dissect.order_acknowledgment_byte_4(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 5
@@ -22585,7 +22585,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_5_exists then
 
     -- Order Acknowledgment Byte 5: Struct of 8 fields
-    index, order_acknowledgment_byte_5 = dissect.order_acknowledgment_byte_5(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 6
@@ -22595,7 +22595,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_6_exists then
 
     -- Order Acknowledgment Byte 6: Struct of 8 fields
-    index, order_acknowledgment_byte_6 = dissect.order_acknowledgment_byte_6(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 7
@@ -22605,7 +22605,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_7_exists then
 
     -- Order Acknowledgment Byte 7: Struct of 8 fields
-    index, order_acknowledgment_byte_7 = dissect.order_acknowledgment_byte_7(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 8
@@ -22615,7 +22615,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_8_exists then
 
     -- Order Acknowledgment Byte 8: Struct of 8 fields
-    index, order_acknowledgment_byte_8 = dissect.order_acknowledgment_byte_8(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 9
@@ -22625,7 +22625,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_9_exists then
 
     -- Order Acknowledgment Byte 9: Struct of 8 fields
-    index, order_acknowledgment_byte_9 = dissect.order_acknowledgment_byte_9(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 10
@@ -22635,7 +22635,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_10_exists then
 
     -- Order Acknowledgment Byte 10: Struct of 8 fields
-    index, order_acknowledgment_byte_10 = dissect.order_acknowledgment_byte_10(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 11
@@ -22645,7 +22645,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_11_exists then
 
     -- Order Acknowledgment Byte 11: Struct of 8 fields
-    index, order_acknowledgment_byte_11 = dissect.order_acknowledgment_byte_11(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 12
@@ -22655,7 +22655,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_12_exists then
 
     -- Order Acknowledgment Byte 12: Struct of 8 fields
-    index, order_acknowledgment_byte_12 = dissect.order_acknowledgment_byte_12(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 13
@@ -22665,7 +22665,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_13_exists then
 
     -- Order Acknowledgment Byte 13: Struct of 8 fields
-    index, order_acknowledgment_byte_13 = dissect.order_acknowledgment_byte_13(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 14
@@ -22675,7 +22675,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_14_exists then
 
     -- Order Acknowledgment Byte 14: Struct of 8 fields
-    index, order_acknowledgment_byte_14 = dissect.order_acknowledgment_byte_14(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 15
@@ -22685,7 +22685,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_15_exists then
 
     -- Order Acknowledgment Byte 15: Struct of 8 fields
-    index, order_acknowledgment_byte_15 = dissect.order_acknowledgment_byte_15(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 16
@@ -22695,7 +22695,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_16_exists then
 
     -- Order Acknowledgment Byte 16: Struct of 8 fields
-    index, order_acknowledgment_byte_16 = dissect.order_acknowledgment_byte_16(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 17
@@ -22705,7 +22705,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
   if order_acknowledgment_byte_17_exists then
 
     -- Order Acknowledgment Byte 17: Struct of 8 fields
-    index, order_acknowledgment_byte_17 = dissect.order_acknowledgment_byte_17(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_17(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -22713,7 +22713,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -22721,7 +22721,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -22729,7 +22729,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -22737,7 +22737,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -22745,7 +22745,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -22753,7 +22753,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -22761,7 +22761,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -22769,7 +22769,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -22777,7 +22777,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -22785,7 +22785,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -22793,7 +22793,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -22801,7 +22801,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -22809,7 +22809,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -22817,7 +22817,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -22825,7 +22825,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -22833,7 +22833,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -22841,7 +22841,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -22849,7 +22849,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Orig Cl Ord Id
@@ -22857,7 +22857,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Orig Cl Ord Id
   if orig_cl_ord_id_exists then
-    index = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Leaves Qty
@@ -22865,7 +22865,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Leaves Qty
   if leaves_qty_exists then
-    index = dissect.leaves_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.leaves_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Shares
@@ -22873,7 +22873,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Last Shares
   if last_shares_exists then
-    index = dissect.last_shares(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_shares(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Last Px
@@ -22881,7 +22881,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Last Px
   if last_px_exists then
-    index = dissect.last_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Price
@@ -22889,7 +22889,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Display Price
   if display_price_exists then
-    index = dissect.display_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Working Price
@@ -22897,7 +22897,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Working Price
   if working_price_exists then
-    index = dissect.working_price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.working_price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Base Liquidity Indicator
@@ -22905,7 +22905,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Base Liquidity Indicator
   if base_liquidity_indicator_exists then
-    index = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.base_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -22913,7 +22913,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = dissect.expire_time(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Secondary Order Id
@@ -22921,7 +22921,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Secondary Order Id
   if secondary_order_id_exists then
-    index = dissect.secondary_order_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.secondary_order_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -22929,7 +22929,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -22937,7 +22937,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Sub Liquidity Indicator
@@ -22945,7 +22945,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Sub Liquidity Indicator
   if sub_liquidity_indicator_exists then
-    index = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -22953,7 +22953,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -22961,7 +22961,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -22969,7 +22969,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -22977,7 +22977,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -22985,7 +22985,7 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -22993,46 +22993,46 @@ dissect.order_acknowledgment_optional_fields_fields = function(buffer, offset, p
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Acknowledgment Optional Fields
-dissect.order_acknowledgment_optional_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_optional_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgment_optional_fields then
     local range = buffer(offset, size_of_order_acknowledgment_optional_fields)
-    local display = display.order_acknowledgment_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_optional_fields, range, display)
   end
 
-  dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_optional_fields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_optional_fields)
 
   return offset + size_of_order_acknowledgment_optional_fields
 end
 
 -- Display: Order Acknowledgment Message
-display.order_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Acknowledgment Message
-dissect.order_acknowledgment_message_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_message_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_message)
   local index = offset
 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
-  index, transact_time = dissect.transact_time(buffer, index, packet, parent)
+  index, transact_time = cboe_bzx_equities_orderentry_boe_v2_3_dissect.transact_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_id(buffer, index, packet, parent)
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23041,13 +23041,13 @@ dissect.order_acknowledgment_message_fields = function(buffer, offset, packet, p
   local size_of_order_acknowledgment_optional_fields = message_length - (index - offset) - 8
 
   -- Order Acknowledgment Optional Fields: Struct of 54 fields
-  index = dissect.order_acknowledgment_optional_fields(buffer, index, packet, parent, size_of_order_acknowledgment_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_optional_fields(buffer, index, packet, parent, size_of_order_acknowledgment_optional_fields)
 
   return index
 end
 
 -- Dissect: Order Acknowledgment Message
-dissect.order_acknowledgment_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23058,29 +23058,29 @@ dissect.order_acknowledgment_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgment_message then
     local range = buffer(offset, size_of_order_acknowledgment_message)
-    local display = display.order_acknowledgment_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_message, range, display)
   end
 
-  dissect.order_acknowledgment_message_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_message_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_message)
 
   return offset + size_of_order_acknowledgment_message
 end
 
 -- Size: Mass Cancel Inst
-size_of.mass_cancel_inst = 16
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.mass_cancel_inst = 16
 
 -- Display: Mass Cancel Inst
-display.mass_cancel_inst = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_inst = function(value)
   return "Mass Cancel Inst: "..value
 end
 
 -- Dissect: Mass Cancel Inst
-dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
-  local length = size_of.mass_cancel_inst
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.mass_cancel_inst
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mass_cancel_inst(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.mass_cancel_inst(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.mass_cancel_inst, range, value, display)
 
@@ -23088,10 +23088,10 @@ dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
 end
 
 -- Size: Purge Order Byte 2
-size_of.purge_order_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_byte_2 = 1
 
 -- Display: Purge Order Byte 2
-display.purge_order_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Order Reserved Bit 8 Exists flag set?
@@ -23131,7 +23131,7 @@ display.purge_order_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Order Byte 2
-dissect.purge_order_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Purge Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -23159,24 +23159,24 @@ dissect.purge_order_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Order Byte 2
-dissect.purge_order_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_order_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_byte_2, range, display)
 
   if show.purge_order_byte_2 then
-    dissect.purge_order_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Order Byte 1
-size_of.purge_order_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_byte_1 = 1
 
 -- Display: Purge Order Byte 1
-display.purge_order_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Purge Order Reserved Bit 8 Exists flag set?
@@ -23216,7 +23216,7 @@ display.purge_order_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Purge Order Byte 1
-dissect.purge_order_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Purge Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -23244,33 +23244,33 @@ dissect.purge_order_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Purge Order Byte 1
-dissect.purge_order_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.purge_order_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_byte_1, range, display)
 
   if show.purge_order_byte_1 then
-    dissect.purge_order_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Purge Order Bitfield Count
-size_of.purge_order_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_bitfield_count = 1
 
 -- Display: Purge Order Bitfield Count
-display.purge_order_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_bitfield_count = function(value)
   return "Purge Order Bitfield Count: "..value
 end
 
 -- Dissect: Purge Order Bitfield Count
-dissect.purge_order_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.purge_order_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.purge_order_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_bitfield_count, range, value, display)
 
@@ -23278,16 +23278,16 @@ dissect.purge_order_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Purge Order Optional Fields
-display.purge_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Order Optional Fields
-dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
   local index = offset
 
   -- Purge Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, purge_order_bitfield_count = dissect.purge_order_bitfield_count(buffer, index, packet, parent)
+  index, purge_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Purge Order Byte 1
   local purge_order_byte_1_exists = purge_order_bitfield_count >= 1
@@ -23296,7 +23296,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
   if purge_order_byte_1_exists then
 
     -- Purge Order Byte 1: Struct of 8 fields
-    index, purge_order_byte_1 = dissect.purge_order_byte_1(buffer, index, packet, parent)
+    index, purge_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Order Byte 2
@@ -23306,7 +23306,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
   if purge_order_byte_2_exists then
 
     -- Purge Order Byte 2: Struct of 8 fields
-    index, purge_order_byte_2 = dissect.purge_order_byte_2(buffer, index, packet, parent)
+    index, purge_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -23314,7 +23314,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Inst
@@ -23322,7 +23322,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
 
   -- Runtime optional field: Mass Cancel Inst
   if mass_cancel_inst_exists then
-    index = dissect.mass_cancel_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Mass Cancel Id
@@ -23330,7 +23330,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
 
   -- Runtime optional field: Mass Cancel Id
   if mass_cancel_id_exists then
-    index = dissect.mass_cancel_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_id(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -23338,7 +23338,7 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -23346,37 +23346,37 @@ dissect.purge_order_optional_fields_fields = function(buffer, offset, packet, pa
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Purge Order Optional Fields
-dissect.purge_order_optional_fields = function(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_optional_fields = function(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.purge_order_optional_fields then
     local range = buffer(offset, size_of_purge_order_optional_fields)
-    local display = display.purge_order_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_optional_fields, range, display)
   end
 
-  dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_optional_fields_fields(buffer, offset, packet, parent, size_of_purge_order_optional_fields)
 
   return offset + size_of_purge_order_optional_fields
 end
 
 -- Display: Purge Order Message
-display.purge_order_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Order Message
-dissect.purge_order_message_fields = function(buffer, offset, packet, parent, size_of_purge_order_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_message_fields = function(buffer, offset, packet, parent, size_of_purge_order_message)
   local index = offset
 
   -- Reserved Internal: 1 Byte Ascii String
-  index, reserved_internal = dissect.reserved_internal(buffer, index, packet, parent)
+  index, reserved_internal = cboe_bzx_equities_orderentry_boe_v2_3_dissect.reserved_internal(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23385,13 +23385,13 @@ dissect.purge_order_message_fields = function(buffer, offset, packet, parent, si
   local size_of_purge_order_optional_fields = message_length - (index - offset) - 8
 
   -- Purge Order Optional Fields: Struct of 8 fields
-  index = dissect.purge_order_optional_fields(buffer, index, packet, parent, size_of_purge_order_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_optional_fields(buffer, index, packet, parent, size_of_purge_order_optional_fields)
 
   return index
 end
 
 -- Dissect: Purge Order Message
-dissect.purge_order_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23402,29 +23402,29 @@ dissect.purge_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.purge_order_message then
     local range = buffer(offset, size_of_purge_order_message)
-    local display = display.purge_order_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_message, range, display)
   end
 
-  dissect.purge_order_message_fields(buffer, offset, packet, parent, size_of_purge_order_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_message_fields(buffer, offset, packet, parent, size_of_purge_order_message)
 
   return offset + size_of_purge_order_message
 end
 
 -- Size: Cancel Orig On Reject
-size_of.cancel_orig_on_reject = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_orig_on_reject = 1
 
 -- Display: Cancel Orig On Reject
-display.cancel_orig_on_reject = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_orig_on_reject = function(value)
   return "Cancel Orig On Reject: "..value
 end
 
 -- Dissect: Cancel Orig On Reject
-dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_orig_on_reject
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_orig_on_reject
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_orig_on_reject(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_orig_on_reject(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_orig_on_reject, range, value, display)
 
@@ -23432,10 +23432,10 @@ dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
 end
 
 -- Size: Modify Order Byte 2
-size_of.modify_order_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_byte_2 = 1
 
 -- Display: Modify Order Byte 2
-display.modify_order_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Modify Order Reserved Bit 8 Exists flag set?
@@ -23475,7 +23475,7 @@ display.modify_order_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Modify Order Byte 2
-dissect.modify_order_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Modify Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -23503,24 +23503,24 @@ dissect.modify_order_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Modify Order Byte 2
-dissect.modify_order_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.modify_order_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_byte_2, range, display)
 
   if show.modify_order_byte_2 then
-    dissect.modify_order_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Modify Order Byte 1
-size_of.modify_order_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_byte_1 = 1
 
 -- Display: Modify Order Byte 1
-display.modify_order_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Modify Order Side Exists flag set?
@@ -23560,7 +23560,7 @@ display.modify_order_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Modify Order Byte 1
-dissect.modify_order_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Modify Order Side Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_side_exists, buffer(offset, 1))
@@ -23588,33 +23588,33 @@ dissect.modify_order_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Modify Order Byte 1
-dissect.modify_order_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.modify_order_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_byte_1, range, display)
 
   if show.modify_order_byte_1 then
-    dissect.modify_order_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Modify Order Bitfield Count
-size_of.modify_order_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_bitfield_count = 1
 
 -- Display: Modify Order Bitfield Count
-display.modify_order_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_bitfield_count = function(value)
   return "Modify Order Bitfield Count: "..value
 end
 
 -- Dissect: Modify Order Bitfield Count
-dissect.modify_order_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.modify_order_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.modify_order_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_bitfield_count, range, value, display)
 
@@ -23622,16 +23622,16 @@ dissect.modify_order_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Modify Order Optional Fields
-display.modify_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Optional Fields
-dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
   local index = offset
 
   -- Modify Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, modify_order_bitfield_count = dissect.modify_order_bitfield_count(buffer, index, packet, parent)
+  index, modify_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Modify Order Byte 1
   local modify_order_byte_1_exists = modify_order_bitfield_count >= 1
@@ -23640,7 +23640,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
   if modify_order_byte_1_exists then
 
     -- Modify Order Byte 1: Struct of 8 fields
-    index, modify_order_byte_1 = dissect.modify_order_byte_1(buffer, index, packet, parent)
+    index, modify_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Modify Order Byte 2
@@ -23650,7 +23650,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
   if modify_order_byte_2_exists then
 
     -- Modify Order Byte 2: Struct of 8 fields
-    index, modify_order_byte_2 = dissect.modify_order_byte_2(buffer, index, packet, parent)
+    index, modify_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -23658,7 +23658,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Qty
@@ -23666,7 +23666,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Order Qty
   if order_qty_exists then
-    index = dissect.order_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -23674,7 +23674,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -23682,7 +23682,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Orig On Reject
@@ -23690,7 +23690,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Cancel Orig On Reject
   if cancel_orig_on_reject_exists then
-    index = dissect.cancel_orig_on_reject(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_orig_on_reject(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -23698,7 +23698,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Side
@@ -23706,7 +23706,7 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Side
   if side_exists then
-    index = dissect.side(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -23714,40 +23714,40 @@ dissect.modify_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Modify Order Optional Fields
-dissect.modify_order_optional_fields = function(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_optional_fields = function(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.modify_order_optional_fields then
     local range = buffer(offset, size_of_modify_order_optional_fields)
-    local display = display.modify_order_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_optional_fields, range, display)
   end
 
-  dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_optional_fields_fields(buffer, offset, packet, parent, size_of_modify_order_optional_fields)
 
   return offset + size_of_modify_order_optional_fields
 end
 
 -- Display: Modify Order Message
-display.modify_order_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Message
-dissect.modify_order_message_fields = function(buffer, offset, packet, parent, size_of_modify_order_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_message_fields = function(buffer, offset, packet, parent, size_of_modify_order_message)
   local index = offset
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23756,13 +23756,13 @@ dissect.modify_order_message_fields = function(buffer, offset, packet, parent, s
   local size_of_modify_order_optional_fields = message_length - (index - offset) - 8
 
   -- Modify Order Optional Fields: Struct of 11 fields
-  index = dissect.modify_order_optional_fields(buffer, index, packet, parent, size_of_modify_order_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_optional_fields(buffer, index, packet, parent, size_of_modify_order_optional_fields)
 
   return index
 end
 
 -- Dissect: Modify Order Message
-dissect.modify_order_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23773,20 +23773,20 @@ dissect.modify_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_message then
     local range = buffer(offset, size_of_modify_order_message)
-    local display = display.modify_order_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_message, range, display)
   end
 
-  dissect.modify_order_message_fields(buffer, offset, packet, parent, size_of_modify_order_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_message_fields(buffer, offset, packet, parent, size_of_modify_order_message)
 
   return offset + size_of_modify_order_message
 end
 
 -- Size: Cancel Order Byte 2
-size_of.cancel_order_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_byte_2 = 1
 
 -- Display: Cancel Order Byte 2
-display.cancel_order_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Order Reserved Bit 8 Exists flag set?
@@ -23826,7 +23826,7 @@ display.cancel_order_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Order Byte 2
-dissect.cancel_order_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -23854,24 +23854,24 @@ dissect.cancel_order_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Order Byte 2
-dissect.cancel_order_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_order_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_byte_2, range, display)
 
   if show.cancel_order_byte_2 then
-    dissect.cancel_order_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Order Byte 1
-size_of.cancel_order_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_byte_1 = 1
 
 -- Display: Cancel Order Byte 1
-display.cancel_order_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is Cancel Order Reserved Bit 8 Exists flag set?
@@ -23911,7 +23911,7 @@ display.cancel_order_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Cancel Order Byte 1
-dissect.cancel_order_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- Cancel Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -23939,33 +23939,33 @@ dissect.cancel_order_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Cancel Order Byte 1
-dissect.cancel_order_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.cancel_order_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_byte_1, range, display)
 
   if show.cancel_order_byte_1 then
-    dissect.cancel_order_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Cancel Order Bitfield Count
-size_of.cancel_order_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_bitfield_count = 1
 
 -- Display: Cancel Order Bitfield Count
-display.cancel_order_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_bitfield_count = function(value)
   return "Cancel Order Bitfield Count: "..value
 end
 
 -- Dissect: Cancel Order Bitfield Count
-dissect.cancel_order_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_order_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cancel_order_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_bitfield_count, range, value, display)
 
@@ -23973,16 +23973,16 @@ dissect.cancel_order_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: Cancel Order Optional Fields
-display.cancel_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Order Optional Fields
-dissect.cancel_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
   local index = offset
 
   -- Cancel Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, cancel_order_bitfield_count = dissect.cancel_order_bitfield_count(buffer, index, packet, parent)
+  index, cancel_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Cancel Order Byte 1
   local cancel_order_byte_1_exists = cancel_order_bitfield_count >= 1
@@ -23991,7 +23991,7 @@ dissect.cancel_order_optional_fields_fields = function(buffer, offset, packet, p
   if cancel_order_byte_1_exists then
 
     -- Cancel Order Byte 1: Struct of 8 fields
-    index, cancel_order_byte_1 = dissect.cancel_order_byte_1(buffer, index, packet, parent)
+    index, cancel_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Order Byte 2
@@ -24001,7 +24001,7 @@ dissect.cancel_order_optional_fields_fields = function(buffer, offset, packet, p
   if cancel_order_byte_2_exists then
 
     -- Cancel Order Byte 2: Struct of 8 fields
-    index, cancel_order_byte_2 = dissect.cancel_order_byte_2(buffer, index, packet, parent)
+    index, cancel_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -24009,37 +24009,37 @@ dissect.cancel_order_optional_fields_fields = function(buffer, offset, packet, p
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Cancel Order Optional Fields
-dissect.cancel_order_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_optional_fields = function(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.cancel_order_optional_fields then
     local range = buffer(offset, size_of_cancel_order_optional_fields)
-    local display = display.cancel_order_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_optional_fields, range, display)
   end
 
-  dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_optional_fields_fields(buffer, offset, packet, parent, size_of_cancel_order_optional_fields)
 
   return offset + size_of_cancel_order_optional_fields
 end
 
 -- Display: Cancel Order Message
-display.cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Order Message
-dissect.cancel_order_message_fields = function(buffer, offset, packet, parent, size_of_cancel_order_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_message_fields = function(buffer, offset, packet, parent, size_of_cancel_order_message)
   local index = offset
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -24048,13 +24048,13 @@ dissect.cancel_order_message_fields = function(buffer, offset, packet, parent, s
   local size_of_cancel_order_optional_fields = message_length - (index - offset) - 8
 
   -- Cancel Order Optional Fields: Struct of 4 fields
-  index = dissect.cancel_order_optional_fields(buffer, index, packet, parent, size_of_cancel_order_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_optional_fields(buffer, index, packet, parent, size_of_cancel_order_optional_fields)
 
   return index
 end
 
 -- Dissect: Cancel Order Message
-dissect.cancel_order_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -24065,29 +24065,29 @@ dissect.cancel_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
     local range = buffer(offset, size_of_cancel_order_message)
-    local display = display.cancel_order_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_message, range, display)
   end
 
-  dissect.cancel_order_message_fields(buffer, offset, packet, parent, size_of_cancel_order_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_message_fields(buffer, offset, packet, parent, size_of_cancel_order_message)
 
   return offset + size_of_cancel_order_message
 end
 
 -- Size: Custom Group Id
-size_of.custom_group_id = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.custom_group_id = 2
 
 -- Display: Custom Group Id
-display.custom_group_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.custom_group_id = function(value)
   return "Custom Group Id: "..value
 end
 
 -- Dissect: Custom Group Id
-dissect.custom_group_id = function(buffer, offset, packet, parent)
-  local length = size_of.custom_group_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.custom_group_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.custom_group_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.custom_group_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.custom_group_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.custom_group_id, range, value, display)
 
@@ -24095,19 +24095,19 @@ dissect.custom_group_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Display Range
-size_of.display_range = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_range = 4
 
 -- Display: Display Range
-display.display_range = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.display_range = function(value)
   return "Display Range: "..value
 end
 
 -- Dissect: Display Range
-dissect.display_range = function(buffer, offset, packet, parent)
-  local length = size_of.display_range
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_range = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.display_range
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.display_range(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.display_range(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.display_range, range, value, display)
 
@@ -24115,19 +24115,19 @@ dissect.display_range = function(buffer, offset, packet, parent)
 end
 
 -- Size: Risk Reset
-size_of.risk_reset = 8
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.risk_reset = 8
 
 -- Display: Risk Reset
-display.risk_reset = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.risk_reset = function(value)
   return "Risk Reset: "..value
 end
 
 -- Dissect: Risk Reset
-dissect.risk_reset = function(buffer, offset, packet, parent)
-  local length = size_of.risk_reset
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.risk_reset = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.risk_reset
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.risk_reset(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.risk_reset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.risk_reset, range, value, display)
 
@@ -24135,19 +24135,19 @@ dissect.risk_reset = function(buffer, offset, packet, parent)
 end
 
 -- Size: Locate Reqd
-size_of.locate_reqd = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.locate_reqd = 1
 
 -- Display: Locate Reqd
-display.locate_reqd = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.locate_reqd = function(value)
   return "Locate Reqd: "..value
 end
 
 -- Dissect: Locate Reqd
-dissect.locate_reqd = function(buffer, offset, packet, parent)
-  local length = size_of.locate_reqd
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.locate_reqd = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.locate_reqd
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.locate_reqd(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.locate_reqd(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.locate_reqd, range, value, display)
 
@@ -24155,10 +24155,10 @@ dissect.locate_reqd = function(buffer, offset, packet, parent)
 end
 
 -- Size: New Order Byte 7
-size_of.new_order_byte_7 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_7 = 1
 
 -- Display: New Order Byte 7
-display.new_order_byte_7 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_7 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Reserved Bit 8 Exists flag set?
@@ -24198,7 +24198,7 @@ display.new_order_byte_7 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 7
-dissect.new_order_byte_7_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_7_bits = function(buffer, offset, packet, parent)
 
   -- New Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -24226,24 +24226,24 @@ dissect.new_order_byte_7_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 7
-dissect.new_order_byte_7 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_7 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_7(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_7(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_7, range, display)
 
   if show.new_order_byte_7 then
-    dissect.new_order_byte_7_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_7_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 6
-size_of.new_order_byte_6 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_6 = 1
 
 -- Display: New Order Byte 6
-display.new_order_byte_6 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_6 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Reserved Bit 8 Exists flag set?
@@ -24283,7 +24283,7 @@ display.new_order_byte_6 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 6
-dissect.new_order_byte_6_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_6_bits = function(buffer, offset, packet, parent)
 
   -- New Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -24311,24 +24311,24 @@ dissect.new_order_byte_6_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 6
-dissect.new_order_byte_6 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_6 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_6(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_6(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_6, range, display)
 
   if show.new_order_byte_6 then
-    dissect.new_order_byte_6_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_6_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 5
-size_of.new_order_byte_5 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_5 = 1
 
 -- Display: New Order Byte 5
-display.new_order_byte_5 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_5 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Reserved Bit 8 Exists flag set?
@@ -24368,7 +24368,7 @@ display.new_order_byte_5 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 5
-dissect.new_order_byte_5_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_5_bits = function(buffer, offset, packet, parent)
 
   -- New Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -24396,24 +24396,24 @@ dissect.new_order_byte_5_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 5
-dissect.new_order_byte_5 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_5 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_5(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_5(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_5, range, display)
 
   if show.new_order_byte_5 then
-    dissect.new_order_byte_5_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_5_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 4
-size_of.new_order_byte_4 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_4 = 1
 
 -- Display: New Order Byte 4
-display.new_order_byte_4 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_4 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Reserved Bit 8 Exists flag set?
@@ -24453,7 +24453,7 @@ display.new_order_byte_4 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 4
-dissect.new_order_byte_4_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_4_bits = function(buffer, offset, packet, parent)
 
   -- New Order Reserved Bit 8 Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_reserved_bit_8_exists, buffer(offset, 1))
@@ -24481,24 +24481,24 @@ dissect.new_order_byte_4_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 4
-dissect.new_order_byte_4 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_4 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_4(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_4(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_4, range, display)
 
   if show.new_order_byte_4 then
-    dissect.new_order_byte_4_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_4_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 3
-size_of.new_order_byte_3 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_3 = 1
 
 -- Display: New Order Byte 3
-display.new_order_byte_3 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_3 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Expire Time Exists flag set?
@@ -24538,7 +24538,7 @@ display.new_order_byte_3 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 3
-dissect.new_order_byte_3_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_3_bits = function(buffer, offset, packet, parent)
 
   -- New Order Expire Time Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_expire_time_exists, buffer(offset, 1))
@@ -24566,24 +24566,24 @@ dissect.new_order_byte_3_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 3
-dissect.new_order_byte_3 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_3 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_3(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_3(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_3, range, display)
 
   if show.new_order_byte_3 then
-    dissect.new_order_byte_3_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_3_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 2
-size_of.new_order_byte_2 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_2 = 1
 
 -- Display: New Order Byte 2
-display.new_order_byte_2 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_2 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Routing Inst Exists flag set?
@@ -24623,7 +24623,7 @@ display.new_order_byte_2 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 2
-dissect.new_order_byte_2_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_2_bits = function(buffer, offset, packet, parent)
 
   -- New Order Routing Inst Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_routing_inst_exists, buffer(offset, 1))
@@ -24651,24 +24651,24 @@ dissect.new_order_byte_2_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 2
-dissect.new_order_byte_2 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_2 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_2(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_2(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_2, range, display)
 
   if show.new_order_byte_2 then
-    dissect.new_order_byte_2_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_2_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Byte 1
-size_of.new_order_byte_1 = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_byte_1 = 1
 
 -- Display: New Order Byte 1
-display.new_order_byte_1 = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_1 = function(buffer, packet, parent)
   local display = ""
 
   -- Is New Order Max Floor Exists flag set?
@@ -24708,7 +24708,7 @@ display.new_order_byte_1 = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: New Order Byte 1
-dissect.new_order_byte_1_bits = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_1_bits = function(buffer, offset, packet, parent)
 
   -- New Order Max Floor Exists: 1 Bit
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_max_floor_exists, buffer(offset, 1))
@@ -24736,33 +24736,33 @@ dissect.new_order_byte_1_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: New Order Byte 1
-dissect.new_order_byte_1 = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_1 = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.new_order_byte_1(range, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_byte_1(range, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_byte_1, range, display)
 
   if show.new_order_byte_1 then
-    dissect.new_order_byte_1_bits(buffer, offset, packet, element)
+    cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_1_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: New Order Bitfield Count
-size_of.new_order_bitfield_count = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_bitfield_count = 1
 
 -- Display: New Order Bitfield Count
-display.new_order_bitfield_count = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_bitfield_count = function(value)
   return "New Order Bitfield Count: "..value
 end
 
 -- Dissect: New Order Bitfield Count
-dissect.new_order_bitfield_count = function(buffer, offset, packet, parent)
-  local length = size_of.new_order_bitfield_count
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_bitfield_count = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_bitfield_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.new_order_bitfield_count(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_bitfield_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_bitfield_count, range, value, display)
 
@@ -24770,16 +24770,16 @@ dissect.new_order_bitfield_count = function(buffer, offset, packet, parent)
 end
 
 -- Display: New Order Optional Fields
-display.new_order_optional_fields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_optional_fields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Order Optional Fields
-dissect.new_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_new_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_optional_fields_fields = function(buffer, offset, packet, parent, size_of_new_order_optional_fields)
   local index = offset
 
   -- New Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, new_order_bitfield_count = dissect.new_order_bitfield_count(buffer, index, packet, parent)
+  index, new_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: New Order Byte 1
   local new_order_byte_1_exists = new_order_bitfield_count >= 1
@@ -24788,7 +24788,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_1_exists then
 
     -- New Order Byte 1: Struct of 8 fields
-    index, new_order_byte_1 = dissect.new_order_byte_1(buffer, index, packet, parent)
+    index, new_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 2
@@ -24798,7 +24798,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_2_exists then
 
     -- New Order Byte 2: Struct of 8 fields
-    index, new_order_byte_2 = dissect.new_order_byte_2(buffer, index, packet, parent)
+    index, new_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 3
@@ -24808,7 +24808,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_3_exists then
 
     -- New Order Byte 3: Struct of 8 fields
-    index, new_order_byte_3 = dissect.new_order_byte_3(buffer, index, packet, parent)
+    index, new_order_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 4
@@ -24818,7 +24818,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_4_exists then
 
     -- New Order Byte 4: Struct of 8 fields
-    index, new_order_byte_4 = dissect.new_order_byte_4(buffer, index, packet, parent)
+    index, new_order_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 5
@@ -24828,7 +24828,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_5_exists then
 
     -- New Order Byte 5: Struct of 8 fields
-    index, new_order_byte_5 = dissect.new_order_byte_5(buffer, index, packet, parent)
+    index, new_order_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 6
@@ -24838,7 +24838,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_6_exists then
 
     -- New Order Byte 6: Struct of 8 fields
-    index, new_order_byte_6 = dissect.new_order_byte_6(buffer, index, packet, parent)
+    index, new_order_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 7
@@ -24848,7 +24848,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
   if new_order_byte_7_exists then
 
     -- New Order Byte 7: Struct of 8 fields
-    index, new_order_byte_7 = dissect.new_order_byte_7(buffer, index, packet, parent)
+    index, new_order_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Firm
@@ -24856,7 +24856,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Clearing Firm
   if clearing_firm_exists then
-    index = dissect.clearing_firm(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_firm(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Clearing Account
@@ -24864,7 +24864,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Clearing Account
   if clearing_account_exists then
-    index = dissect.clearing_account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.clearing_account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Price
@@ -24872,7 +24872,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Price
   if price_exists then
-    index = dissect.price(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.price(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Exec Inst
@@ -24880,7 +24880,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Exec Inst
   if exec_inst_exists then
-    index = dissect.exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ord Type
@@ -24888,7 +24888,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Ord Type
   if ord_type_exists then
-    index = dissect.ord_type(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ord_type(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Time In Force
@@ -24896,7 +24896,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Time In Force
   if time_in_force_exists then
-    index = dissect.time_in_force(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.time_in_force(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Min Qty
@@ -24904,7 +24904,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Min Qty
   if min_qty_exists then
-    index = dissect.min_qty(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.min_qty(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Max Floor
@@ -24912,7 +24912,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Max Floor
   if max_floor_exists then
-    index = dissect.max_floor(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.max_floor(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol
@@ -24920,7 +24920,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Symbol
   if symbol_exists then
-    index = dissect.symbol(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Symbol Sfx
@@ -24928,7 +24928,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Symbol Sfx
   if symbol_sfx_exists then
-    index = dissect.symbol_sfx(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.symbol_sfx(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Capacity
@@ -24936,7 +24936,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Capacity
   if capacity_exists then
-    index = dissect.capacity(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.capacity(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Routing Inst
@@ -24944,7 +24944,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Routing Inst
   if routing_inst_exists then
-    index = dissect.routing_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.routing_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Account
@@ -24952,7 +24952,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Account
   if account_exists then
-    index = dissect.account(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.account(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Indicator
@@ -24960,7 +24960,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Display Indicator
   if display_indicator_exists then
-    index = dissect.display_indicator(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_indicator(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Discretion Amount
@@ -24968,7 +24968,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Discretion Amount
   if discretion_amount_exists then
-    index = dissect.discretion_amount(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.discretion_amount(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Peg Difference
@@ -24976,7 +24976,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Peg Difference
   if peg_difference_exists then
-    index = dissect.peg_difference(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.peg_difference(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Prevent Match
@@ -24984,7 +24984,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Prevent Match
   if prevent_match_exists then
-    index = dissect.prevent_match(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.prevent_match(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Locate Reqd
@@ -24992,7 +24992,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Locate Reqd
   if locate_reqd_exists then
-    index = dissect.locate_reqd(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.locate_reqd(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Expire Time
@@ -25000,7 +25000,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Expire Time
   if expire_time_exists then
-    index = dissect.expire_time(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.expire_time(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Risk Reset
@@ -25008,7 +25008,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Risk Reset
   if risk_reset_exists then
-    index = dissect.risk_reset(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.risk_reset(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Attributed Quote
@@ -25016,7 +25016,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Attributed Quote
   if attributed_quote_exists then
-    index = dissect.attributed_quote(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.attributed_quote(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ext Exec Inst
@@ -25024,7 +25024,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Ext Exec Inst
   if ext_exec_inst_exists then
-    index = dissect.ext_exec_inst(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ext_exec_inst(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Display Range
@@ -25032,7 +25032,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Display Range
   if display_range_exists then
-    index = dissect.display_range(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.display_range(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Stop Px
@@ -25040,7 +25040,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Stop Px
   if stop_px_exists then
-    index = dissect.stop_px(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.stop_px(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Rout Strategy
@@ -25048,7 +25048,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Rout Strategy
   if rout_strategy_exists then
-    index = dissect.rout_strategy(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.rout_strategy(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Route Delivery Method
@@ -25056,7 +25056,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Route Delivery Method
   if route_delivery_method_exists then
-    index = dissect.route_delivery_method(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.route_delivery_method(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Ex Destination
@@ -25064,7 +25064,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Ex Destination
   if ex_destination_exists then
-    index = dissect.ex_destination(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.ex_destination(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Echo Text
@@ -25072,7 +25072,7 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Echo Text
   if echo_text_exists then
-    index = dissect.echo_text(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.echo_text(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Custom Group Id
@@ -25080,43 +25080,43 @@ dissect.new_order_optional_fields_fields = function(buffer, offset, packet, pare
 
   -- Runtime optional field: Custom Group Id
   if custom_group_id_exists then
-    index = dissect.custom_group_id(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.custom_group_id(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: New Order Optional Fields
-dissect.new_order_optional_fields = function(buffer, offset, packet, parent, size_of_new_order_optional_fields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_optional_fields = function(buffer, offset, packet, parent, size_of_new_order_optional_fields)
   -- Optionally add struct element to protocol tree
   if show.new_order_optional_fields then
     local range = buffer(offset, size_of_new_order_optional_fields)
-    local display = display.new_order_optional_fields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_optional_fields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_optional_fields, range, display)
   end
 
-  dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_optional_fields_fields(buffer, offset, packet, parent, size_of_new_order_optional_fields)
 
   return offset + size_of_new_order_optional_fields
 end
 
 -- Display: New Order Message
-display.new_order_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Order Message
-dissect.new_order_message_fields = function(buffer, offset, packet, parent, size_of_new_order_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_message_fields = function(buffer, offset, packet, parent, size_of_new_order_message)
   local index = offset
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_bzx_equities_orderentry_boe_v2_3_dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_qty(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25125,13 +25125,13 @@ dissect.new_order_message_fields = function(buffer, offset, packet, parent, size
   local size_of_new_order_optional_fields = message_length - (index - offset) - 8
 
   -- New Order Optional Fields: Struct of 37 fields
-  index = dissect.new_order_optional_fields(buffer, index, packet, parent, size_of_new_order_optional_fields)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_optional_fields(buffer, index, packet, parent, size_of_new_order_optional_fields)
 
   return index
 end
 
 -- Dissect: New Order Message
-dissect.new_order_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25142,29 +25142,29 @@ dissect.new_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_order_message then
     local range = buffer(offset, size_of_new_order_message)
-    local display = display.new_order_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_message, range, display)
   end
 
-  dissect.new_order_message_fields(buffer, offset, packet, parent, size_of_new_order_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_message_fields(buffer, offset, packet, parent, size_of_new_order_message)
 
   return offset + size_of_new_order_message
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.sequence_number = 4
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.sequence_number, range, value, display)
 
@@ -25172,19 +25172,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit Number
-size_of.unit_number = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_number = 1
 
 -- Display: Unit Number
-display.unit_number = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.unit_number = function(value)
   return "Unit Number: "..value
 end
 
 -- Dissect: Unit Number
-dissect.unit_number = function(buffer, offset, packet, parent)
-  local length = size_of.unit_number
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_number = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit_number(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.unit_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.unit_number, range, value, display)
 
@@ -25192,61 +25192,61 @@ dissect.unit_number = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Sequence
-size_of.unit_sequence = function(buffer, offset)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_sequence = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.unit_number
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_number
 
-  index = index + size_of.sequence_number
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.sequence_number
 
   return index
 end
 
 -- Display: Unit Sequence
-display.unit_sequence = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.unit_sequence = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Sequence
-dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Unit Number: 1 Byte Unsigned Fixed Width Integer
-  index, unit_number = dissect.unit_number(buffer, index, packet, parent)
+  index, unit_number = cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_number(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Sequence
-dissect.unit_sequence = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_sequence then
-    local length = size_of.unit_sequence(buffer, offset)
+    local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_sequence(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_sequence(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.unit_sequence(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.unit_sequence, range, display)
   end
 
-  return dissect.unit_sequence_fields(buffer, offset, packet, parent)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Units
-size_of.number_of_units = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.number_of_units = 1
 
 -- Display: Number Of Units
-display.number_of_units = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.number_of_units = function(value)
   return "Number Of Units: "..value
 end
 
 -- Dissect: Number Of Units
-dissect.number_of_units = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_units
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_units = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.number_of_units
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.number_of_units(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.number_of_units(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.number_of_units, range, value, display)
 
@@ -25254,19 +25254,19 @@ dissect.number_of_units = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Received Sequence Number
-size_of.last_received_sequence_number = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_received_sequence_number = 4
 
 -- Display: Last Received Sequence Number
-display.last_received_sequence_number = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.last_received_sequence_number = function(value)
   return "Last Received Sequence Number: "..value
 end
 
 -- Dissect: Last Received Sequence Number
-dissect.last_received_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.last_received_sequence_number
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_received_sequence_number = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.last_received_sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.last_received_sequence_number(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.last_received_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.last_received_sequence_number, range, value, display)
 
@@ -25274,19 +25274,19 @@ dissect.last_received_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Logout Reason Text
-size_of.logout_reason_text = 60
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.logout_reason_text = 60
 
 -- Display: Logout Reason Text
-display.logout_reason_text = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.logout_reason_text = function(value)
   return "Logout Reason Text: "..value
 end
 
 -- Dissect: Logout Reason Text
-dissect.logout_reason_text = function(buffer, offset, packet, parent)
-  local length = size_of.logout_reason_text
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_reason_text = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.logout_reason_text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.logout_reason_text(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.logout_reason_text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.logout_reason_text, range, value, display)
 
@@ -25294,10 +25294,10 @@ dissect.logout_reason_text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Logout Reason
-size_of.logout_reason = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.logout_reason = 1
 
 -- Display: Logout Reason
-display.logout_reason = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.logout_reason = function(value)
   if value == "U" then
     return "Logout Reason: User Requested (U)"
   end
@@ -25315,11 +25315,11 @@ display.logout_reason = function(value)
 end
 
 -- Dissect: Logout Reason
-dissect.logout_reason = function(buffer, offset, packet, parent)
-  local length = size_of.logout_reason
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_reason = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.logout_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.logout_reason(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.logout_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.logout_reason, range, value, display)
 
@@ -25327,36 +25327,36 @@ dissect.logout_reason = function(buffer, offset, packet, parent)
 end
 
 -- Display: Logout Message
-display.logout_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.logout_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Logout Message
-dissect.logout_message_fields = function(buffer, offset, packet, parent, size_of_logout_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_message_fields = function(buffer, offset, packet, parent, size_of_logout_message)
   local index = offset
 
   -- Logout Reason: 1 Byte Ascii String Enum with 4 values
-  index, logout_reason = dissect.logout_reason(buffer, index, packet, parent)
+  index, logout_reason = cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_reason(buffer, index, packet, parent)
 
   -- Logout Reason Text: 60 Byte Ascii String
-  index, logout_reason_text = dissect.logout_reason_text(buffer, index, packet, parent)
+  index, logout_reason_text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_reason_text(buffer, index, packet, parent)
 
   -- Last Received Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, last_received_sequence_number = dissect.last_received_sequence_number(buffer, index, packet, parent)
+  index, last_received_sequence_number = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_received_sequence_number(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = dissect.number_of_units(buffer, index, packet, parent)
+  index, number_of_units = cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_units(buffer, index, packet, parent)
 
   -- Unit Sequence: Struct of 2 fields
   for i = 1, number_of_units do
-    index = dissect.unit_sequence(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Logout Message
-dissect.logout_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -25367,26 +25367,26 @@ dissect.logout_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.logout_message then
     local range = buffer(offset, size_of_logout_message)
-    local display = display.logout_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.logout_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.logout_message, range, display)
   end
 
-  dissect.logout_message_fields(buffer, offset, packet, parent, size_of_logout_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_message_fields(buffer, offset, packet, parent, size_of_logout_message)
 
   return offset + size_of_logout_message
 end
 
 -- Display: Purge Rejected Return Bitfields
-display.purge_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Rejected Return Bitfields
-dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
   local index = offset
 
   -- Purge Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, purge_rejected_bitfield_count = dissect.purge_rejected_bitfield_count(buffer, index, packet, parent)
+  index, purge_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Purge Rejected Byte 1
   local purge_rejected_byte_1_exists = purge_rejected_bitfield_count >= 1
@@ -25395,7 +25395,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_1_exists then
 
     -- Purge Rejected Byte 1: Struct of 8 fields
-    index, purge_rejected_byte_1 = dissect.purge_rejected_byte_1(buffer, index, packet, parent)
+    index, purge_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 2
@@ -25405,7 +25405,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_2_exists then
 
     -- Purge Rejected Byte 2: Struct of 8 fields
-    index, purge_rejected_byte_2 = dissect.purge_rejected_byte_2(buffer, index, packet, parent)
+    index, purge_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 3
@@ -25415,7 +25415,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_3_exists then
 
     -- Purge Rejected Byte 3: Struct of 8 fields
-    index, purge_rejected_byte_3 = dissect.purge_rejected_byte_3(buffer, index, packet, parent)
+    index, purge_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 4
@@ -25425,7 +25425,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_4_exists then
 
     -- Purge Rejected Byte 4: Struct of 8 fields
-    index, purge_rejected_byte_4 = dissect.purge_rejected_byte_4(buffer, index, packet, parent)
+    index, purge_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 5
@@ -25435,7 +25435,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_5_exists then
 
     -- Purge Rejected Byte 5: Struct of 8 fields
-    index, purge_rejected_byte_5 = dissect.purge_rejected_byte_5(buffer, index, packet, parent)
+    index, purge_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 6
@@ -25445,7 +25445,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_6_exists then
 
     -- Purge Rejected Byte 6: Struct of 8 fields
-    index, purge_rejected_byte_6 = dissect.purge_rejected_byte_6(buffer, index, packet, parent)
+    index, purge_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 7
@@ -25455,7 +25455,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_7_exists then
 
     -- Purge Rejected Byte 7: Struct of 8 fields
-    index, purge_rejected_byte_7 = dissect.purge_rejected_byte_7(buffer, index, packet, parent)
+    index, purge_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 8
@@ -25465,7 +25465,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_8_exists then
 
     -- Purge Rejected Byte 8: Struct of 8 fields
-    index, purge_rejected_byte_8 = dissect.purge_rejected_byte_8(buffer, index, packet, parent)
+    index, purge_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 9
@@ -25475,7 +25475,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_9_exists then
 
     -- Purge Rejected Byte 9: Struct of 8 fields
-    index, purge_rejected_byte_9 = dissect.purge_rejected_byte_9(buffer, index, packet, parent)
+    index, purge_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 10
@@ -25485,7 +25485,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_10_exists then
 
     -- Purge Rejected Byte 10: Struct of 8 fields
-    index, purge_rejected_byte_10 = dissect.purge_rejected_byte_10(buffer, index, packet, parent)
+    index, purge_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 11
@@ -25495,7 +25495,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_11_exists then
 
     -- Purge Rejected Byte 11: Struct of 8 fields
-    index, purge_rejected_byte_11 = dissect.purge_rejected_byte_11(buffer, index, packet, parent)
+    index, purge_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 12
@@ -25505,7 +25505,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_12_exists then
 
     -- Purge Rejected Byte 12: Struct of 8 fields
-    index, purge_rejected_byte_12 = dissect.purge_rejected_byte_12(buffer, index, packet, parent)
+    index, purge_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 13
@@ -25515,7 +25515,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_13_exists then
 
     -- Purge Rejected Byte 13: Struct of 8 fields
-    index, purge_rejected_byte_13 = dissect.purge_rejected_byte_13(buffer, index, packet, parent)
+    index, purge_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 14
@@ -25525,7 +25525,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_14_exists then
 
     -- Purge Rejected Byte 14: Struct of 8 fields
-    index, purge_rejected_byte_14 = dissect.purge_rejected_byte_14(buffer, index, packet, parent)
+    index, purge_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 15
@@ -25535,7 +25535,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_15_exists then
 
     -- Purge Rejected Byte 15: Struct of 8 fields
-    index, purge_rejected_byte_15 = dissect.purge_rejected_byte_15(buffer, index, packet, parent)
+    index, purge_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 16
@@ -25545,7 +25545,7 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_16_exists then
 
     -- Purge Rejected Byte 16: Struct of 8 fields
-    index, purge_rejected_byte_16 = dissect.purge_rejected_byte_16(buffer, index, packet, parent)
+    index, purge_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Rejected Byte 17
@@ -25555,14 +25555,14 @@ dissect.purge_rejected_return_bitfields_fields = function(buffer, offset, packet
   if purge_rejected_byte_17_exists then
 
     -- Purge Rejected Byte 17: Struct of 8 fields
-    index, purge_rejected_byte_17 = dissect.purge_rejected_byte_17(buffer, index, packet, parent)
+    index, purge_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Purge Rejected Return Bitfields
-dissect.purge_rejected_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Purge Rejected Bitfield Count
   local purge_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -25573,26 +25573,26 @@ dissect.purge_rejected_return_bitfields = function(buffer, offset, packet, paren
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_return_bitfields then
     local range = buffer(offset, size_of_purge_rejected_return_bitfields)
-    local display = display.purge_rejected_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_rejected_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_rejected_return_bitfields, range, display)
   end
 
-  dissect.purge_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
 
   return offset + size_of_purge_rejected_return_bitfields
 end
 
 -- Display: Trade Cancel Or Correct Return Bitfields
-display.trade_cancel_or_correct_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Or Correct Return Bitfields
-dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
   local index = offset
 
   -- Trade Cancel Or Correct Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, trade_cancel_or_correct_bitfield_count = dissect.trade_cancel_or_correct_bitfield_count(buffer, index, packet, parent)
+  index, trade_cancel_or_correct_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 1
   local trade_cancel_or_correct_byte_1_exists = trade_cancel_or_correct_bitfield_count >= 1
@@ -25601,7 +25601,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_1_exists then
 
     -- Trade Cancel Or Correct Byte 1: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_1 = dissect.trade_cancel_or_correct_byte_1(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 2
@@ -25611,7 +25611,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_2_exists then
 
     -- Trade Cancel Or Correct Byte 2: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_2 = dissect.trade_cancel_or_correct_byte_2(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 3
@@ -25621,7 +25621,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_3_exists then
 
     -- Trade Cancel Or Correct Byte 3: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_3 = dissect.trade_cancel_or_correct_byte_3(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 4
@@ -25631,7 +25631,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_4_exists then
 
     -- Trade Cancel Or Correct Byte 4: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_4 = dissect.trade_cancel_or_correct_byte_4(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 5
@@ -25641,7 +25641,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_5_exists then
 
     -- Trade Cancel Or Correct Byte 5: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_5 = dissect.trade_cancel_or_correct_byte_5(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 6
@@ -25651,7 +25651,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_6_exists then
 
     -- Trade Cancel Or Correct Byte 6: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_6 = dissect.trade_cancel_or_correct_byte_6(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 7
@@ -25661,7 +25661,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_7_exists then
 
     -- Trade Cancel Or Correct Byte 7: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_7 = dissect.trade_cancel_or_correct_byte_7(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 8
@@ -25671,7 +25671,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_8_exists then
 
     -- Trade Cancel Or Correct Byte 8: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_8 = dissect.trade_cancel_or_correct_byte_8(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 9
@@ -25681,7 +25681,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_9_exists then
 
     -- Trade Cancel Or Correct Byte 9: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_9 = dissect.trade_cancel_or_correct_byte_9(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 10
@@ -25691,7 +25691,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_10_exists then
 
     -- Trade Cancel Or Correct Byte 10: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_10 = dissect.trade_cancel_or_correct_byte_10(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 11
@@ -25701,7 +25701,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_11_exists then
 
     -- Trade Cancel Or Correct Byte 11: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_11 = dissect.trade_cancel_or_correct_byte_11(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 12
@@ -25711,7 +25711,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_12_exists then
 
     -- Trade Cancel Or Correct Byte 12: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_12 = dissect.trade_cancel_or_correct_byte_12(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 13
@@ -25721,7 +25721,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_13_exists then
 
     -- Trade Cancel Or Correct Byte 13: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_13 = dissect.trade_cancel_or_correct_byte_13(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 14
@@ -25731,7 +25731,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_14_exists then
 
     -- Trade Cancel Or Correct Byte 14: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_14 = dissect.trade_cancel_or_correct_byte_14(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 15
@@ -25741,7 +25741,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_15_exists then
 
     -- Trade Cancel Or Correct Byte 15: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_15 = dissect.trade_cancel_or_correct_byte_15(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 16
@@ -25751,7 +25751,7 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_16_exists then
 
     -- Trade Cancel Or Correct Byte 16: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_16 = dissect.trade_cancel_or_correct_byte_16(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Trade Cancel Or Correct Byte 17
@@ -25761,14 +25761,14 @@ dissect.trade_cancel_or_correct_return_bitfields_fields = function(buffer, offse
   if trade_cancel_or_correct_byte_17_exists then
 
     -- Trade Cancel Or Correct Byte 17: Struct of 8 fields
-    index, trade_cancel_or_correct_byte_17 = dissect.trade_cancel_or_correct_byte_17(buffer, index, packet, parent)
+    index, trade_cancel_or_correct_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Trade Cancel Or Correct Return Bitfields
-dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Trade Cancel Or Correct Bitfield Count
   local trade_cancel_or_correct_bitfield_count = buffer(offset, 1):le_uint()
@@ -25779,26 +25779,26 @@ dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, pack
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_return_bitfields then
     local range = buffer(offset, size_of_trade_cancel_or_correct_return_bitfields)
-    local display = display.trade_cancel_or_correct_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.trade_cancel_or_correct_return_bitfields, range, display)
   end
 
-  dissect.trade_cancel_or_correct_return_bitfields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
 
   return offset + size_of_trade_cancel_or_correct_return_bitfields
 end
 
 -- Display: Order Execution Return Bitfields
-display.order_execution_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Execution Return Bitfields
-dissect.order_execution_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
   local index = offset
 
   -- Order Execution Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_execution_bitfield_count = dissect.order_execution_bitfield_count(buffer, index, packet, parent)
+  index, order_execution_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Execution Byte 1
   local order_execution_byte_1_exists = order_execution_bitfield_count >= 1
@@ -25807,7 +25807,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_1_exists then
 
     -- Order Execution Byte 1: Struct of 8 fields
-    index, order_execution_byte_1 = dissect.order_execution_byte_1(buffer, index, packet, parent)
+    index, order_execution_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 2
@@ -25817,7 +25817,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_2_exists then
 
     -- Order Execution Byte 2: Struct of 8 fields
-    index, order_execution_byte_2 = dissect.order_execution_byte_2(buffer, index, packet, parent)
+    index, order_execution_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 3
@@ -25827,7 +25827,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_3_exists then
 
     -- Order Execution Byte 3: Struct of 8 fields
-    index, order_execution_byte_3 = dissect.order_execution_byte_3(buffer, index, packet, parent)
+    index, order_execution_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 4
@@ -25837,7 +25837,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_4_exists then
 
     -- Order Execution Byte 4: Struct of 8 fields
-    index, order_execution_byte_4 = dissect.order_execution_byte_4(buffer, index, packet, parent)
+    index, order_execution_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 5
@@ -25847,7 +25847,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_5_exists then
 
     -- Order Execution Byte 5: Struct of 8 fields
-    index, order_execution_byte_5 = dissect.order_execution_byte_5(buffer, index, packet, parent)
+    index, order_execution_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 6
@@ -25857,7 +25857,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_6_exists then
 
     -- Order Execution Byte 6: Struct of 8 fields
-    index, order_execution_byte_6 = dissect.order_execution_byte_6(buffer, index, packet, parent)
+    index, order_execution_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 7
@@ -25867,7 +25867,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_7_exists then
 
     -- Order Execution Byte 7: Struct of 8 fields
-    index, order_execution_byte_7 = dissect.order_execution_byte_7(buffer, index, packet, parent)
+    index, order_execution_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 8
@@ -25877,7 +25877,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_8_exists then
 
     -- Order Execution Byte 8: Struct of 8 fields
-    index, order_execution_byte_8 = dissect.order_execution_byte_8(buffer, index, packet, parent)
+    index, order_execution_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 9
@@ -25887,7 +25887,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_9_exists then
 
     -- Order Execution Byte 9: Struct of 8 fields
-    index, order_execution_byte_9 = dissect.order_execution_byte_9(buffer, index, packet, parent)
+    index, order_execution_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 10
@@ -25897,7 +25897,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_10_exists then
 
     -- Order Execution Byte 10: Struct of 8 fields
-    index, order_execution_byte_10 = dissect.order_execution_byte_10(buffer, index, packet, parent)
+    index, order_execution_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 11
@@ -25907,7 +25907,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_11_exists then
 
     -- Order Execution Byte 11: Struct of 8 fields
-    index, order_execution_byte_11 = dissect.order_execution_byte_11(buffer, index, packet, parent)
+    index, order_execution_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 12
@@ -25917,7 +25917,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_12_exists then
 
     -- Order Execution Byte 12: Struct of 8 fields
-    index, order_execution_byte_12 = dissect.order_execution_byte_12(buffer, index, packet, parent)
+    index, order_execution_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 13
@@ -25927,7 +25927,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_13_exists then
 
     -- Order Execution Byte 13: Struct of 8 fields
-    index, order_execution_byte_13 = dissect.order_execution_byte_13(buffer, index, packet, parent)
+    index, order_execution_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 14
@@ -25937,7 +25937,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_14_exists then
 
     -- Order Execution Byte 14: Struct of 8 fields
-    index, order_execution_byte_14 = dissect.order_execution_byte_14(buffer, index, packet, parent)
+    index, order_execution_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 15
@@ -25947,7 +25947,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_15_exists then
 
     -- Order Execution Byte 15: Struct of 8 fields
-    index, order_execution_byte_15 = dissect.order_execution_byte_15(buffer, index, packet, parent)
+    index, order_execution_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 16
@@ -25957,7 +25957,7 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_16_exists then
 
     -- Order Execution Byte 16: Struct of 8 fields
-    index, order_execution_byte_16 = dissect.order_execution_byte_16(buffer, index, packet, parent)
+    index, order_execution_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Execution Byte 17
@@ -25967,14 +25967,14 @@ dissect.order_execution_return_bitfields_fields = function(buffer, offset, packe
   if order_execution_byte_17_exists then
 
     -- Order Execution Byte 17: Struct of 8 fields
-    index, order_execution_byte_17 = dissect.order_execution_byte_17(buffer, index, packet, parent)
+    index, order_execution_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Execution Return Bitfields
-dissect.order_execution_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Execution Bitfield Count
   local order_execution_bitfield_count = buffer(offset, 1):le_uint()
@@ -25985,26 +25985,26 @@ dissect.order_execution_return_bitfields = function(buffer, offset, packet, pare
   -- Optionally add struct element to protocol tree
   if show.order_execution_return_bitfields then
     local range = buffer(offset, size_of_order_execution_return_bitfields)
-    local display = display.order_execution_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_execution_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_execution_return_bitfields, range, display)
   end
 
-  dissect.order_execution_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
 
   return offset + size_of_order_execution_return_bitfields
 end
 
 -- Display: Cancel Rejected Return Bitfields
-display.cancel_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Rejected Return Bitfields
-dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
   local index = offset
 
   -- Cancel Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, cancel_rejected_bitfield_count = dissect.cancel_rejected_bitfield_count(buffer, index, packet, parent)
+  index, cancel_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Cancel Rejected Byte 1
   local cancel_rejected_byte_1_exists = cancel_rejected_bitfield_count >= 1
@@ -26013,7 +26013,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_1_exists then
 
     -- Cancel Rejected Byte 1: Struct of 8 fields
-    index, cancel_rejected_byte_1 = dissect.cancel_rejected_byte_1(buffer, index, packet, parent)
+    index, cancel_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 2
@@ -26023,7 +26023,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_2_exists then
 
     -- Cancel Rejected Byte 2: Struct of 8 fields
-    index, cancel_rejected_byte_2 = dissect.cancel_rejected_byte_2(buffer, index, packet, parent)
+    index, cancel_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 3
@@ -26033,7 +26033,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_3_exists then
 
     -- Cancel Rejected Byte 3: Struct of 8 fields
-    index, cancel_rejected_byte_3 = dissect.cancel_rejected_byte_3(buffer, index, packet, parent)
+    index, cancel_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 4
@@ -26043,7 +26043,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_4_exists then
 
     -- Cancel Rejected Byte 4: Struct of 8 fields
-    index, cancel_rejected_byte_4 = dissect.cancel_rejected_byte_4(buffer, index, packet, parent)
+    index, cancel_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 5
@@ -26053,7 +26053,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_5_exists then
 
     -- Cancel Rejected Byte 5: Struct of 8 fields
-    index, cancel_rejected_byte_5 = dissect.cancel_rejected_byte_5(buffer, index, packet, parent)
+    index, cancel_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 6
@@ -26063,7 +26063,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_6_exists then
 
     -- Cancel Rejected Byte 6: Struct of 8 fields
-    index, cancel_rejected_byte_6 = dissect.cancel_rejected_byte_6(buffer, index, packet, parent)
+    index, cancel_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 7
@@ -26073,7 +26073,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_7_exists then
 
     -- Cancel Rejected Byte 7: Struct of 8 fields
-    index, cancel_rejected_byte_7 = dissect.cancel_rejected_byte_7(buffer, index, packet, parent)
+    index, cancel_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 8
@@ -26083,7 +26083,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_8_exists then
 
     -- Cancel Rejected Byte 8: Struct of 8 fields
-    index, cancel_rejected_byte_8 = dissect.cancel_rejected_byte_8(buffer, index, packet, parent)
+    index, cancel_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 9
@@ -26093,7 +26093,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_9_exists then
 
     -- Cancel Rejected Byte 9: Struct of 8 fields
-    index, cancel_rejected_byte_9 = dissect.cancel_rejected_byte_9(buffer, index, packet, parent)
+    index, cancel_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 10
@@ -26103,7 +26103,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_10_exists then
 
     -- Cancel Rejected Byte 10: Struct of 8 fields
-    index, cancel_rejected_byte_10 = dissect.cancel_rejected_byte_10(buffer, index, packet, parent)
+    index, cancel_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 11
@@ -26113,7 +26113,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_11_exists then
 
     -- Cancel Rejected Byte 11: Struct of 8 fields
-    index, cancel_rejected_byte_11 = dissect.cancel_rejected_byte_11(buffer, index, packet, parent)
+    index, cancel_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 12
@@ -26123,7 +26123,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_12_exists then
 
     -- Cancel Rejected Byte 12: Struct of 8 fields
-    index, cancel_rejected_byte_12 = dissect.cancel_rejected_byte_12(buffer, index, packet, parent)
+    index, cancel_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 13
@@ -26133,7 +26133,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_13_exists then
 
     -- Cancel Rejected Byte 13: Struct of 8 fields
-    index, cancel_rejected_byte_13 = dissect.cancel_rejected_byte_13(buffer, index, packet, parent)
+    index, cancel_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 14
@@ -26143,7 +26143,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_14_exists then
 
     -- Cancel Rejected Byte 14: Struct of 8 fields
-    index, cancel_rejected_byte_14 = dissect.cancel_rejected_byte_14(buffer, index, packet, parent)
+    index, cancel_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 15
@@ -26153,7 +26153,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_15_exists then
 
     -- Cancel Rejected Byte 15: Struct of 8 fields
-    index, cancel_rejected_byte_15 = dissect.cancel_rejected_byte_15(buffer, index, packet, parent)
+    index, cancel_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 16
@@ -26163,7 +26163,7 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_16_exists then
 
     -- Cancel Rejected Byte 16: Struct of 8 fields
-    index, cancel_rejected_byte_16 = dissect.cancel_rejected_byte_16(buffer, index, packet, parent)
+    index, cancel_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Rejected Byte 17
@@ -26173,14 +26173,14 @@ dissect.cancel_rejected_return_bitfields_fields = function(buffer, offset, packe
   if cancel_rejected_byte_17_exists then
 
     -- Cancel Rejected Byte 17: Struct of 8 fields
-    index, cancel_rejected_byte_17 = dissect.cancel_rejected_byte_17(buffer, index, packet, parent)
+    index, cancel_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Cancel Rejected Return Bitfields
-dissect.cancel_rejected_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Cancel Rejected Bitfield Count
   local cancel_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -26191,26 +26191,26 @@ dissect.cancel_rejected_return_bitfields = function(buffer, offset, packet, pare
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_return_bitfields then
     local range = buffer(offset, size_of_cancel_rejected_return_bitfields)
-    local display = display.cancel_rejected_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_rejected_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_rejected_return_bitfields, range, display)
   end
 
-  dissect.cancel_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
 
   return offset + size_of_cancel_rejected_return_bitfields
 end
 
 -- Display: Order Cancelled Return Bitfields
-display.order_cancelled_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Return Bitfields
-dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
   local index = offset
 
   -- Order Cancelled Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_cancelled_bitfield_count = dissect.order_cancelled_bitfield_count(buffer, index, packet, parent)
+  index, order_cancelled_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Cancelled Byte 1
   local order_cancelled_byte_1_exists = order_cancelled_bitfield_count >= 1
@@ -26219,7 +26219,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_1_exists then
 
     -- Order Cancelled Byte 1: Struct of 8 fields
-    index, order_cancelled_byte_1 = dissect.order_cancelled_byte_1(buffer, index, packet, parent)
+    index, order_cancelled_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 2
@@ -26229,7 +26229,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_2_exists then
 
     -- Order Cancelled Byte 2: Struct of 8 fields
-    index, order_cancelled_byte_2 = dissect.order_cancelled_byte_2(buffer, index, packet, parent)
+    index, order_cancelled_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 3
@@ -26239,7 +26239,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_3_exists then
 
     -- Order Cancelled Byte 3: Struct of 8 fields
-    index, order_cancelled_byte_3 = dissect.order_cancelled_byte_3(buffer, index, packet, parent)
+    index, order_cancelled_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 4
@@ -26249,7 +26249,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_4_exists then
 
     -- Order Cancelled Byte 4: Struct of 8 fields
-    index, order_cancelled_byte_4 = dissect.order_cancelled_byte_4(buffer, index, packet, parent)
+    index, order_cancelled_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 5
@@ -26259,7 +26259,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_5_exists then
 
     -- Order Cancelled Byte 5: Struct of 8 fields
-    index, order_cancelled_byte_5 = dissect.order_cancelled_byte_5(buffer, index, packet, parent)
+    index, order_cancelled_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 6
@@ -26269,7 +26269,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_6_exists then
 
     -- Order Cancelled Byte 6: Struct of 8 fields
-    index, order_cancelled_byte_6 = dissect.order_cancelled_byte_6(buffer, index, packet, parent)
+    index, order_cancelled_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 7
@@ -26279,7 +26279,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_7_exists then
 
     -- Order Cancelled Byte 7: Struct of 8 fields
-    index, order_cancelled_byte_7 = dissect.order_cancelled_byte_7(buffer, index, packet, parent)
+    index, order_cancelled_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 8
@@ -26289,7 +26289,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_8_exists then
 
     -- Order Cancelled Byte 8: Struct of 8 fields
-    index, order_cancelled_byte_8 = dissect.order_cancelled_byte_8(buffer, index, packet, parent)
+    index, order_cancelled_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 9
@@ -26299,7 +26299,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_9_exists then
 
     -- Order Cancelled Byte 9: Struct of 8 fields
-    index, order_cancelled_byte_9 = dissect.order_cancelled_byte_9(buffer, index, packet, parent)
+    index, order_cancelled_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 10
@@ -26309,7 +26309,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_10_exists then
 
     -- Order Cancelled Byte 10: Struct of 8 fields
-    index, order_cancelled_byte_10 = dissect.order_cancelled_byte_10(buffer, index, packet, parent)
+    index, order_cancelled_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 11
@@ -26319,7 +26319,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_11_exists then
 
     -- Order Cancelled Byte 11: Struct of 8 fields
-    index, order_cancelled_byte_11 = dissect.order_cancelled_byte_11(buffer, index, packet, parent)
+    index, order_cancelled_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 12
@@ -26329,7 +26329,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_12_exists then
 
     -- Order Cancelled Byte 12: Struct of 8 fields
-    index, order_cancelled_byte_12 = dissect.order_cancelled_byte_12(buffer, index, packet, parent)
+    index, order_cancelled_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 13
@@ -26339,7 +26339,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_13_exists then
 
     -- Order Cancelled Byte 13: Struct of 8 fields
-    index, order_cancelled_byte_13 = dissect.order_cancelled_byte_13(buffer, index, packet, parent)
+    index, order_cancelled_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 14
@@ -26349,7 +26349,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_14_exists then
 
     -- Order Cancelled Byte 14: Struct of 8 fields
-    index, order_cancelled_byte_14 = dissect.order_cancelled_byte_14(buffer, index, packet, parent)
+    index, order_cancelled_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 15
@@ -26359,7 +26359,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_15_exists then
 
     -- Order Cancelled Byte 15: Struct of 8 fields
-    index, order_cancelled_byte_15 = dissect.order_cancelled_byte_15(buffer, index, packet, parent)
+    index, order_cancelled_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 16
@@ -26369,7 +26369,7 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_16_exists then
 
     -- Order Cancelled Byte 16: Struct of 8 fields
-    index, order_cancelled_byte_16 = dissect.order_cancelled_byte_16(buffer, index, packet, parent)
+    index, order_cancelled_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Cancelled Byte 17
@@ -26379,14 +26379,14 @@ dissect.order_cancelled_return_bitfields_fields = function(buffer, offset, packe
   if order_cancelled_byte_17_exists then
 
     -- Order Cancelled Byte 17: Struct of 8 fields
-    index, order_cancelled_byte_17 = dissect.order_cancelled_byte_17(buffer, index, packet, parent)
+    index, order_cancelled_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Cancelled Return Bitfields
-dissect.order_cancelled_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Cancelled Bitfield Count
   local order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
@@ -26397,26 +26397,26 @@ dissect.order_cancelled_return_bitfields = function(buffer, offset, packet, pare
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_return_bitfields then
     local range = buffer(offset, size_of_order_cancelled_return_bitfields)
-    local display = display.order_cancelled_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_cancelled_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_cancelled_return_bitfields, range, display)
   end
 
-  dissect.order_cancelled_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
 
   return offset + size_of_order_cancelled_return_bitfields
 end
 
 -- Display: User Modify Rejected Return Bitfields
-display.user_modify_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: User Modify Rejected Return Bitfields
-dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
   local index = offset
 
   -- User Modify Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, user_modify_rejected_bitfield_count = dissect.user_modify_rejected_bitfield_count(buffer, index, packet, parent)
+  index, user_modify_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: User Modify Rejected Byte 1
   local user_modify_rejected_byte_1_exists = user_modify_rejected_bitfield_count >= 1
@@ -26425,7 +26425,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_1_exists then
 
     -- User Modify Rejected Byte 1: Struct of 8 fields
-    index, user_modify_rejected_byte_1 = dissect.user_modify_rejected_byte_1(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 2
@@ -26435,7 +26435,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_2_exists then
 
     -- User Modify Rejected Byte 2: Struct of 8 fields
-    index, user_modify_rejected_byte_2 = dissect.user_modify_rejected_byte_2(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 3
@@ -26445,7 +26445,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_3_exists then
 
     -- User Modify Rejected Byte 3: Struct of 8 fields
-    index, user_modify_rejected_byte_3 = dissect.user_modify_rejected_byte_3(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 4
@@ -26455,7 +26455,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_4_exists then
 
     -- User Modify Rejected Byte 4: Struct of 8 fields
-    index, user_modify_rejected_byte_4 = dissect.user_modify_rejected_byte_4(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 5
@@ -26465,7 +26465,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_5_exists then
 
     -- User Modify Rejected Byte 5: Struct of 8 fields
-    index, user_modify_rejected_byte_5 = dissect.user_modify_rejected_byte_5(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 6
@@ -26475,7 +26475,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_6_exists then
 
     -- User Modify Rejected Byte 6: Struct of 8 fields
-    index, user_modify_rejected_byte_6 = dissect.user_modify_rejected_byte_6(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 7
@@ -26485,7 +26485,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_7_exists then
 
     -- User Modify Rejected Byte 7: Struct of 8 fields
-    index, user_modify_rejected_byte_7 = dissect.user_modify_rejected_byte_7(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 8
@@ -26495,7 +26495,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_8_exists then
 
     -- User Modify Rejected Byte 8: Struct of 8 fields
-    index, user_modify_rejected_byte_8 = dissect.user_modify_rejected_byte_8(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 9
@@ -26505,7 +26505,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_9_exists then
 
     -- User Modify Rejected Byte 9: Struct of 8 fields
-    index, user_modify_rejected_byte_9 = dissect.user_modify_rejected_byte_9(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 10
@@ -26515,7 +26515,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_10_exists then
 
     -- User Modify Rejected Byte 10: Struct of 8 fields
-    index, user_modify_rejected_byte_10 = dissect.user_modify_rejected_byte_10(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 11
@@ -26525,7 +26525,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_11_exists then
 
     -- User Modify Rejected Byte 11: Struct of 8 fields
-    index, user_modify_rejected_byte_11 = dissect.user_modify_rejected_byte_11(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 12
@@ -26535,7 +26535,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_12_exists then
 
     -- User Modify Rejected Byte 12: Struct of 8 fields
-    index, user_modify_rejected_byte_12 = dissect.user_modify_rejected_byte_12(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 13
@@ -26545,7 +26545,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_13_exists then
 
     -- User Modify Rejected Byte 13: Struct of 8 fields
-    index, user_modify_rejected_byte_13 = dissect.user_modify_rejected_byte_13(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 14
@@ -26555,7 +26555,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_14_exists then
 
     -- User Modify Rejected Byte 14: Struct of 8 fields
-    index, user_modify_rejected_byte_14 = dissect.user_modify_rejected_byte_14(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 15
@@ -26565,7 +26565,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_15_exists then
 
     -- User Modify Rejected Byte 15: Struct of 8 fields
-    index, user_modify_rejected_byte_15 = dissect.user_modify_rejected_byte_15(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 16
@@ -26575,7 +26575,7 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_16_exists then
 
     -- User Modify Rejected Byte 16: Struct of 8 fields
-    index, user_modify_rejected_byte_16 = dissect.user_modify_rejected_byte_16(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: User Modify Rejected Byte 17
@@ -26585,14 +26585,14 @@ dissect.user_modify_rejected_return_bitfields_fields = function(buffer, offset, 
   if user_modify_rejected_byte_17_exists then
 
     -- User Modify Rejected Byte 17: Struct of 8 fields
-    index, user_modify_rejected_byte_17 = dissect.user_modify_rejected_byte_17(buffer, index, packet, parent)
+    index, user_modify_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: User Modify Rejected Return Bitfields
-dissect.user_modify_rejected_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: User Modify Rejected Bitfield Count
   local user_modify_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -26603,26 +26603,26 @@ dissect.user_modify_rejected_return_bitfields = function(buffer, offset, packet,
   -- Optionally add struct element to protocol tree
   if show.user_modify_rejected_return_bitfields then
     local range = buffer(offset, size_of_user_modify_rejected_return_bitfields)
-    local display = display.user_modify_rejected_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.user_modify_rejected_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.user_modify_rejected_return_bitfields, range, display)
   end
 
-  dissect.user_modify_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
 
   return offset + size_of_user_modify_rejected_return_bitfields
 end
 
 -- Display: Order Restated Return Bitfields
-display.order_restated_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Restated Return Bitfields
-dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
   local index = offset
 
   -- Order Restated Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_restated_bitfield_count = dissect.order_restated_bitfield_count(buffer, index, packet, parent)
+  index, order_restated_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Restated Byte 1
   local order_restated_byte_1_exists = order_restated_bitfield_count >= 1
@@ -26631,7 +26631,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_1_exists then
 
     -- Order Restated Byte 1: Struct of 8 fields
-    index, order_restated_byte_1 = dissect.order_restated_byte_1(buffer, index, packet, parent)
+    index, order_restated_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 2
@@ -26641,7 +26641,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_2_exists then
 
     -- Order Restated Byte 2: Struct of 8 fields
-    index, order_restated_byte_2 = dissect.order_restated_byte_2(buffer, index, packet, parent)
+    index, order_restated_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 3
@@ -26651,7 +26651,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_3_exists then
 
     -- Order Restated Byte 3: Struct of 8 fields
-    index, order_restated_byte_3 = dissect.order_restated_byte_3(buffer, index, packet, parent)
+    index, order_restated_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 4
@@ -26661,7 +26661,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_4_exists then
 
     -- Order Restated Byte 4: Struct of 8 fields
-    index, order_restated_byte_4 = dissect.order_restated_byte_4(buffer, index, packet, parent)
+    index, order_restated_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 5
@@ -26671,7 +26671,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_5_exists then
 
     -- Order Restated Byte 5: Struct of 8 fields
-    index, order_restated_byte_5 = dissect.order_restated_byte_5(buffer, index, packet, parent)
+    index, order_restated_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 6
@@ -26681,7 +26681,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_6_exists then
 
     -- Order Restated Byte 6: Struct of 8 fields
-    index, order_restated_byte_6 = dissect.order_restated_byte_6(buffer, index, packet, parent)
+    index, order_restated_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 7
@@ -26691,7 +26691,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_7_exists then
 
     -- Order Restated Byte 7: Struct of 8 fields
-    index, order_restated_byte_7 = dissect.order_restated_byte_7(buffer, index, packet, parent)
+    index, order_restated_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 8
@@ -26701,7 +26701,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_8_exists then
 
     -- Order Restated Byte 8: Struct of 8 fields
-    index, order_restated_byte_8 = dissect.order_restated_byte_8(buffer, index, packet, parent)
+    index, order_restated_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 9
@@ -26711,7 +26711,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_9_exists then
 
     -- Order Restated Byte 9: Struct of 8 fields
-    index, order_restated_byte_9 = dissect.order_restated_byte_9(buffer, index, packet, parent)
+    index, order_restated_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 10
@@ -26721,7 +26721,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_10_exists then
 
     -- Order Restated Byte 10: Struct of 8 fields
-    index, order_restated_byte_10 = dissect.order_restated_byte_10(buffer, index, packet, parent)
+    index, order_restated_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 11
@@ -26731,7 +26731,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_11_exists then
 
     -- Order Restated Byte 11: Struct of 8 fields
-    index, order_restated_byte_11 = dissect.order_restated_byte_11(buffer, index, packet, parent)
+    index, order_restated_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 12
@@ -26741,7 +26741,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_12_exists then
 
     -- Order Restated Byte 12: Struct of 8 fields
-    index, order_restated_byte_12 = dissect.order_restated_byte_12(buffer, index, packet, parent)
+    index, order_restated_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 13
@@ -26751,7 +26751,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_13_exists then
 
     -- Order Restated Byte 13: Struct of 8 fields
-    index, order_restated_byte_13 = dissect.order_restated_byte_13(buffer, index, packet, parent)
+    index, order_restated_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 14
@@ -26761,7 +26761,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_14_exists then
 
     -- Order Restated Byte 14: Struct of 8 fields
-    index, order_restated_byte_14 = dissect.order_restated_byte_14(buffer, index, packet, parent)
+    index, order_restated_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 15
@@ -26771,7 +26771,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_15_exists then
 
     -- Order Restated Byte 15: Struct of 8 fields
-    index, order_restated_byte_15 = dissect.order_restated_byte_15(buffer, index, packet, parent)
+    index, order_restated_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 16
@@ -26781,7 +26781,7 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_16_exists then
 
     -- Order Restated Byte 16: Struct of 8 fields
-    index, order_restated_byte_16 = dissect.order_restated_byte_16(buffer, index, packet, parent)
+    index, order_restated_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Restated Byte 17
@@ -26791,14 +26791,14 @@ dissect.order_restated_return_bitfields_fields = function(buffer, offset, packet
   if order_restated_byte_17_exists then
 
     -- Order Restated Byte 17: Struct of 8 fields
-    index, order_restated_byte_17 = dissect.order_restated_byte_17(buffer, index, packet, parent)
+    index, order_restated_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Restated Return Bitfields
-dissect.order_restated_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Restated Bitfield Count
   local order_restated_bitfield_count = buffer(offset, 1):le_uint()
@@ -26809,26 +26809,26 @@ dissect.order_restated_return_bitfields = function(buffer, offset, packet, paren
   -- Optionally add struct element to protocol tree
   if show.order_restated_return_bitfields then
     local range = buffer(offset, size_of_order_restated_return_bitfields)
-    local display = display.order_restated_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_restated_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_restated_return_bitfields, range, display)
   end
 
-  dissect.order_restated_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
 
   return offset + size_of_order_restated_return_bitfields
 end
 
 -- Display: Order Modified Return Bitfields
-display.order_modified_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Modified Return Bitfields
-dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
   local index = offset
 
   -- Order Modified Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_modified_bitfield_count = dissect.order_modified_bitfield_count(buffer, index, packet, parent)
+  index, order_modified_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Modified Byte 1
   local order_modified_byte_1_exists = order_modified_bitfield_count >= 1
@@ -26837,7 +26837,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_1_exists then
 
     -- Order Modified Byte 1: Struct of 8 fields
-    index, order_modified_byte_1 = dissect.order_modified_byte_1(buffer, index, packet, parent)
+    index, order_modified_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 2
@@ -26847,7 +26847,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_2_exists then
 
     -- Order Modified Byte 2: Struct of 8 fields
-    index, order_modified_byte_2 = dissect.order_modified_byte_2(buffer, index, packet, parent)
+    index, order_modified_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 3
@@ -26857,7 +26857,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_3_exists then
 
     -- Order Modified Byte 3: Struct of 8 fields
-    index, order_modified_byte_3 = dissect.order_modified_byte_3(buffer, index, packet, parent)
+    index, order_modified_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 4
@@ -26867,7 +26867,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_4_exists then
 
     -- Order Modified Byte 4: Struct of 8 fields
-    index, order_modified_byte_4 = dissect.order_modified_byte_4(buffer, index, packet, parent)
+    index, order_modified_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 5
@@ -26877,7 +26877,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_5_exists then
 
     -- Order Modified Byte 5: Struct of 8 fields
-    index, order_modified_byte_5 = dissect.order_modified_byte_5(buffer, index, packet, parent)
+    index, order_modified_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 6
@@ -26887,7 +26887,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_6_exists then
 
     -- Order Modified Byte 6: Struct of 8 fields
-    index, order_modified_byte_6 = dissect.order_modified_byte_6(buffer, index, packet, parent)
+    index, order_modified_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 7
@@ -26897,7 +26897,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_7_exists then
 
     -- Order Modified Byte 7: Struct of 8 fields
-    index, order_modified_byte_7 = dissect.order_modified_byte_7(buffer, index, packet, parent)
+    index, order_modified_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 8
@@ -26907,7 +26907,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_8_exists then
 
     -- Order Modified Byte 8: Struct of 8 fields
-    index, order_modified_byte_8 = dissect.order_modified_byte_8(buffer, index, packet, parent)
+    index, order_modified_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 9
@@ -26917,7 +26917,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_9_exists then
 
     -- Order Modified Byte 9: Struct of 8 fields
-    index, order_modified_byte_9 = dissect.order_modified_byte_9(buffer, index, packet, parent)
+    index, order_modified_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 10
@@ -26927,7 +26927,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_10_exists then
 
     -- Order Modified Byte 10: Struct of 8 fields
-    index, order_modified_byte_10 = dissect.order_modified_byte_10(buffer, index, packet, parent)
+    index, order_modified_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 11
@@ -26937,7 +26937,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_11_exists then
 
     -- Order Modified Byte 11: Struct of 8 fields
-    index, order_modified_byte_11 = dissect.order_modified_byte_11(buffer, index, packet, parent)
+    index, order_modified_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 12
@@ -26947,7 +26947,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_12_exists then
 
     -- Order Modified Byte 12: Struct of 8 fields
-    index, order_modified_byte_12 = dissect.order_modified_byte_12(buffer, index, packet, parent)
+    index, order_modified_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 13
@@ -26957,7 +26957,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_13_exists then
 
     -- Order Modified Byte 13: Struct of 8 fields
-    index, order_modified_byte_13 = dissect.order_modified_byte_13(buffer, index, packet, parent)
+    index, order_modified_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 14
@@ -26967,7 +26967,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_14_exists then
 
     -- Order Modified Byte 14: Struct of 8 fields
-    index, order_modified_byte_14 = dissect.order_modified_byte_14(buffer, index, packet, parent)
+    index, order_modified_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 15
@@ -26977,7 +26977,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_15_exists then
 
     -- Order Modified Byte 15: Struct of 8 fields
-    index, order_modified_byte_15 = dissect.order_modified_byte_15(buffer, index, packet, parent)
+    index, order_modified_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 16
@@ -26987,7 +26987,7 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_16_exists then
 
     -- Order Modified Byte 16: Struct of 8 fields
-    index, order_modified_byte_16 = dissect.order_modified_byte_16(buffer, index, packet, parent)
+    index, order_modified_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Modified Byte 17
@@ -26997,14 +26997,14 @@ dissect.order_modified_return_bitfields_fields = function(buffer, offset, packet
   if order_modified_byte_17_exists then
 
     -- Order Modified Byte 17: Struct of 8 fields
-    index, order_modified_byte_17 = dissect.order_modified_byte_17(buffer, index, packet, parent)
+    index, order_modified_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Modified Return Bitfields
-dissect.order_modified_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Modified Bitfield Count
   local order_modified_bitfield_count = buffer(offset, 1):le_uint()
@@ -27015,26 +27015,26 @@ dissect.order_modified_return_bitfields = function(buffer, offset, packet, paren
   -- Optionally add struct element to protocol tree
   if show.order_modified_return_bitfields then
     local range = buffer(offset, size_of_order_modified_return_bitfields)
-    local display = display.order_modified_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_modified_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_modified_return_bitfields, range, display)
   end
 
-  dissect.order_modified_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
 
   return offset + size_of_order_modified_return_bitfields
 end
 
 -- Display: Order Rejected Return Bitfields
-display.order_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Rejected Return Bitfields
-dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
   local index = offset
 
   -- Order Rejected Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_rejected_bitfield_count = dissect.order_rejected_bitfield_count(buffer, index, packet, parent)
+  index, order_rejected_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Rejected Byte 1
   local order_rejected_byte_1_exists = order_rejected_bitfield_count >= 1
@@ -27043,7 +27043,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_1_exists then
 
     -- Order Rejected Byte 1: Struct of 8 fields
-    index, order_rejected_byte_1 = dissect.order_rejected_byte_1(buffer, index, packet, parent)
+    index, order_rejected_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 2
@@ -27053,7 +27053,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_2_exists then
 
     -- Order Rejected Byte 2: Struct of 8 fields
-    index, order_rejected_byte_2 = dissect.order_rejected_byte_2(buffer, index, packet, parent)
+    index, order_rejected_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 3
@@ -27063,7 +27063,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_3_exists then
 
     -- Order Rejected Byte 3: Struct of 8 fields
-    index, order_rejected_byte_3 = dissect.order_rejected_byte_3(buffer, index, packet, parent)
+    index, order_rejected_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 4
@@ -27073,7 +27073,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_4_exists then
 
     -- Order Rejected Byte 4: Struct of 8 fields
-    index, order_rejected_byte_4 = dissect.order_rejected_byte_4(buffer, index, packet, parent)
+    index, order_rejected_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 5
@@ -27083,7 +27083,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_5_exists then
 
     -- Order Rejected Byte 5: Struct of 8 fields
-    index, order_rejected_byte_5 = dissect.order_rejected_byte_5(buffer, index, packet, parent)
+    index, order_rejected_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 6
@@ -27093,7 +27093,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_6_exists then
 
     -- Order Rejected Byte 6: Struct of 8 fields
-    index, order_rejected_byte_6 = dissect.order_rejected_byte_6(buffer, index, packet, parent)
+    index, order_rejected_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 7
@@ -27103,7 +27103,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_7_exists then
 
     -- Order Rejected Byte 7: Struct of 8 fields
-    index, order_rejected_byte_7 = dissect.order_rejected_byte_7(buffer, index, packet, parent)
+    index, order_rejected_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 8
@@ -27113,7 +27113,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_8_exists then
 
     -- Order Rejected Byte 8: Struct of 8 fields
-    index, order_rejected_byte_8 = dissect.order_rejected_byte_8(buffer, index, packet, parent)
+    index, order_rejected_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 9
@@ -27123,7 +27123,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_9_exists then
 
     -- Order Rejected Byte 9: Struct of 8 fields
-    index, order_rejected_byte_9 = dissect.order_rejected_byte_9(buffer, index, packet, parent)
+    index, order_rejected_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 10
@@ -27133,7 +27133,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_10_exists then
 
     -- Order Rejected Byte 10: Struct of 8 fields
-    index, order_rejected_byte_10 = dissect.order_rejected_byte_10(buffer, index, packet, parent)
+    index, order_rejected_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 11
@@ -27143,7 +27143,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_11_exists then
 
     -- Order Rejected Byte 11: Struct of 8 fields
-    index, order_rejected_byte_11 = dissect.order_rejected_byte_11(buffer, index, packet, parent)
+    index, order_rejected_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 12
@@ -27153,7 +27153,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_12_exists then
 
     -- Order Rejected Byte 12: Struct of 8 fields
-    index, order_rejected_byte_12 = dissect.order_rejected_byte_12(buffer, index, packet, parent)
+    index, order_rejected_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 13
@@ -27163,7 +27163,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_13_exists then
 
     -- Order Rejected Byte 13: Struct of 8 fields
-    index, order_rejected_byte_13 = dissect.order_rejected_byte_13(buffer, index, packet, parent)
+    index, order_rejected_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 14
@@ -27173,7 +27173,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_14_exists then
 
     -- Order Rejected Byte 14: Struct of 8 fields
-    index, order_rejected_byte_14 = dissect.order_rejected_byte_14(buffer, index, packet, parent)
+    index, order_rejected_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 15
@@ -27183,7 +27183,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_15_exists then
 
     -- Order Rejected Byte 15: Struct of 8 fields
-    index, order_rejected_byte_15 = dissect.order_rejected_byte_15(buffer, index, packet, parent)
+    index, order_rejected_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 16
@@ -27193,7 +27193,7 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_16_exists then
 
     -- Order Rejected Byte 16: Struct of 8 fields
-    index, order_rejected_byte_16 = dissect.order_rejected_byte_16(buffer, index, packet, parent)
+    index, order_rejected_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Rejected Byte 17
@@ -27203,14 +27203,14 @@ dissect.order_rejected_return_bitfields_fields = function(buffer, offset, packet
   if order_rejected_byte_17_exists then
 
     -- Order Rejected Byte 17: Struct of 8 fields
-    index, order_rejected_byte_17 = dissect.order_rejected_byte_17(buffer, index, packet, parent)
+    index, order_rejected_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Rejected Return Bitfields
-dissect.order_rejected_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Rejected Bitfield Count
   local order_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -27221,26 +27221,26 @@ dissect.order_rejected_return_bitfields = function(buffer, offset, packet, paren
   -- Optionally add struct element to protocol tree
   if show.order_rejected_return_bitfields then
     local range = buffer(offset, size_of_order_rejected_return_bitfields)
-    local display = display.order_rejected_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_rejected_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_rejected_return_bitfields, range, display)
   end
 
-  dissect.order_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
 
   return offset + size_of_order_rejected_return_bitfields
 end
 
 -- Display: Order Acknowledgment Return Bitfields
-display.order_acknowledgment_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Acknowledgment Return Bitfields
-dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
   local index = offset
 
   -- Order Acknowledgment Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, order_acknowledgment_bitfield_count = dissect.order_acknowledgment_bitfield_count(buffer, index, packet, parent)
+  index, order_acknowledgment_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Order Acknowledgment Byte 1
   local order_acknowledgment_byte_1_exists = order_acknowledgment_bitfield_count >= 1
@@ -27249,7 +27249,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_1_exists then
 
     -- Order Acknowledgment Byte 1: Struct of 8 fields
-    index, order_acknowledgment_byte_1 = dissect.order_acknowledgment_byte_1(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 2
@@ -27259,7 +27259,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_2_exists then
 
     -- Order Acknowledgment Byte 2: Struct of 8 fields
-    index, order_acknowledgment_byte_2 = dissect.order_acknowledgment_byte_2(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 3
@@ -27269,7 +27269,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_3_exists then
 
     -- Order Acknowledgment Byte 3: Struct of 8 fields
-    index, order_acknowledgment_byte_3 = dissect.order_acknowledgment_byte_3(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 4
@@ -27279,7 +27279,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_4_exists then
 
     -- Order Acknowledgment Byte 4: Struct of 8 fields
-    index, order_acknowledgment_byte_4 = dissect.order_acknowledgment_byte_4(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 5
@@ -27289,7 +27289,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_5_exists then
 
     -- Order Acknowledgment Byte 5: Struct of 8 fields
-    index, order_acknowledgment_byte_5 = dissect.order_acknowledgment_byte_5(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 6
@@ -27299,7 +27299,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_6_exists then
 
     -- Order Acknowledgment Byte 6: Struct of 8 fields
-    index, order_acknowledgment_byte_6 = dissect.order_acknowledgment_byte_6(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 7
@@ -27309,7 +27309,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_7_exists then
 
     -- Order Acknowledgment Byte 7: Struct of 8 fields
-    index, order_acknowledgment_byte_7 = dissect.order_acknowledgment_byte_7(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_7(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 8
@@ -27319,7 +27319,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_8_exists then
 
     -- Order Acknowledgment Byte 8: Struct of 8 fields
-    index, order_acknowledgment_byte_8 = dissect.order_acknowledgment_byte_8(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_8 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_8(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 9
@@ -27329,7 +27329,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_9_exists then
 
     -- Order Acknowledgment Byte 9: Struct of 8 fields
-    index, order_acknowledgment_byte_9 = dissect.order_acknowledgment_byte_9(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_9 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_9(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 10
@@ -27339,7 +27339,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_10_exists then
 
     -- Order Acknowledgment Byte 10: Struct of 8 fields
-    index, order_acknowledgment_byte_10 = dissect.order_acknowledgment_byte_10(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_10 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_10(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 11
@@ -27349,7 +27349,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_11_exists then
 
     -- Order Acknowledgment Byte 11: Struct of 8 fields
-    index, order_acknowledgment_byte_11 = dissect.order_acknowledgment_byte_11(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_11 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_11(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 12
@@ -27359,7 +27359,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_12_exists then
 
     -- Order Acknowledgment Byte 12: Struct of 8 fields
-    index, order_acknowledgment_byte_12 = dissect.order_acknowledgment_byte_12(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_12 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_12(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 13
@@ -27369,7 +27369,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_13_exists then
 
     -- Order Acknowledgment Byte 13: Struct of 8 fields
-    index, order_acknowledgment_byte_13 = dissect.order_acknowledgment_byte_13(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_13 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_13(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 14
@@ -27379,7 +27379,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_14_exists then
 
     -- Order Acknowledgment Byte 14: Struct of 8 fields
-    index, order_acknowledgment_byte_14 = dissect.order_acknowledgment_byte_14(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_14 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_14(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 15
@@ -27389,7 +27389,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_15_exists then
 
     -- Order Acknowledgment Byte 15: Struct of 8 fields
-    index, order_acknowledgment_byte_15 = dissect.order_acknowledgment_byte_15(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_15 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_15(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 16
@@ -27399,7 +27399,7 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_16_exists then
 
     -- Order Acknowledgment Byte 16: Struct of 8 fields
-    index, order_acknowledgment_byte_16 = dissect.order_acknowledgment_byte_16(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_16 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_16(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Order Acknowledgment Byte 17
@@ -27409,14 +27409,14 @@ dissect.order_acknowledgment_return_bitfields_fields = function(buffer, offset, 
   if order_acknowledgment_byte_17_exists then
 
     -- Order Acknowledgment Byte 17: Struct of 8 fields
-    index, order_acknowledgment_byte_17 = dissect.order_acknowledgment_byte_17(buffer, index, packet, parent)
+    index, order_acknowledgment_byte_17 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_byte_17(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Order Acknowledgment Return Bitfields
-dissect.order_acknowledgment_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Order Acknowledgment Bitfield Count
   local order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
@@ -27427,26 +27427,26 @@ dissect.order_acknowledgment_return_bitfields = function(buffer, offset, packet,
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgment_return_bitfields then
     local range = buffer(offset, size_of_order_acknowledgment_return_bitfields)
-    local display = display.order_acknowledgment_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.order_acknowledgment_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.order_acknowledgment_return_bitfields, range, display)
   end
 
-  dissect.order_acknowledgment_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
 
   return offset + size_of_order_acknowledgment_return_bitfields
 end
 
 -- Display: Purge Order Return Bitfields
-display.purge_order_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Order Return Bitfields
-dissect.purge_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_purge_order_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_purge_order_return_bitfields)
   local index = offset
 
   -- Purge Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, purge_order_bitfield_count = dissect.purge_order_bitfield_count(buffer, index, packet, parent)
+  index, purge_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Purge Order Byte 1
   local purge_order_byte_1_exists = purge_order_bitfield_count >= 1
@@ -27455,7 +27455,7 @@ dissect.purge_order_return_bitfields_fields = function(buffer, offset, packet, p
   if purge_order_byte_1_exists then
 
     -- Purge Order Byte 1: Struct of 8 fields
-    index, purge_order_byte_1 = dissect.purge_order_byte_1(buffer, index, packet, parent)
+    index, purge_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Purge Order Byte 2
@@ -27465,14 +27465,14 @@ dissect.purge_order_return_bitfields_fields = function(buffer, offset, packet, p
   if purge_order_byte_2_exists then
 
     -- Purge Order Byte 2: Struct of 8 fields
-    index, purge_order_byte_2 = dissect.purge_order_byte_2(buffer, index, packet, parent)
+    index, purge_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_byte_2(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Purge Order Return Bitfields
-dissect.purge_order_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Purge Order Bitfield Count
   local purge_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27483,26 +27483,26 @@ dissect.purge_order_return_bitfields = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.purge_order_return_bitfields then
     local range = buffer(offset, size_of_purge_order_return_bitfields)
-    local display = display.purge_order_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.purge_order_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.purge_order_return_bitfields, range, display)
   end
 
-  dissect.purge_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_order_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_order_return_bitfields)
 
   return offset + size_of_purge_order_return_bitfields
 end
 
 -- Display: Modify Order Return Bitfields
-display.modify_order_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Return Bitfields
-dissect.modify_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_modify_order_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_modify_order_return_bitfields)
   local index = offset
 
   -- Modify Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, modify_order_bitfield_count = dissect.modify_order_bitfield_count(buffer, index, packet, parent)
+  index, modify_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Modify Order Byte 1
   local modify_order_byte_1_exists = modify_order_bitfield_count >= 1
@@ -27511,7 +27511,7 @@ dissect.modify_order_return_bitfields_fields = function(buffer, offset, packet, 
   if modify_order_byte_1_exists then
 
     -- Modify Order Byte 1: Struct of 8 fields
-    index, modify_order_byte_1 = dissect.modify_order_byte_1(buffer, index, packet, parent)
+    index, modify_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Modify Order Byte 2
@@ -27521,14 +27521,14 @@ dissect.modify_order_return_bitfields_fields = function(buffer, offset, packet, 
   if modify_order_byte_2_exists then
 
     -- Modify Order Byte 2: Struct of 8 fields
-    index, modify_order_byte_2 = dissect.modify_order_byte_2(buffer, index, packet, parent)
+    index, modify_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_byte_2(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Modify Order Return Bitfields
-dissect.modify_order_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Modify Order Bitfield Count
   local modify_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27539,26 +27539,26 @@ dissect.modify_order_return_bitfields = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_return_bitfields then
     local range = buffer(offset, size_of_modify_order_return_bitfields)
-    local display = display.modify_order_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.modify_order_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.modify_order_return_bitfields, range, display)
   end
 
-  dissect.modify_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_modify_order_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_modify_order_return_bitfields)
 
   return offset + size_of_modify_order_return_bitfields
 end
 
 -- Display: Cancel Order Return Bitfields
-display.cancel_order_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Order Return Bitfields
-dissect.cancel_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_cancel_order_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_cancel_order_return_bitfields)
   local index = offset
 
   -- Cancel Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, cancel_order_bitfield_count = dissect.cancel_order_bitfield_count(buffer, index, packet, parent)
+  index, cancel_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: Cancel Order Byte 1
   local cancel_order_byte_1_exists = cancel_order_bitfield_count >= 1
@@ -27567,7 +27567,7 @@ dissect.cancel_order_return_bitfields_fields = function(buffer, offset, packet, 
   if cancel_order_byte_1_exists then
 
     -- Cancel Order Byte 1: Struct of 8 fields
-    index, cancel_order_byte_1 = dissect.cancel_order_byte_1(buffer, index, packet, parent)
+    index, cancel_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: Cancel Order Byte 2
@@ -27577,14 +27577,14 @@ dissect.cancel_order_return_bitfields_fields = function(buffer, offset, packet, 
   if cancel_order_byte_2_exists then
 
     -- Cancel Order Byte 2: Struct of 8 fields
-    index, cancel_order_byte_2 = dissect.cancel_order_byte_2(buffer, index, packet, parent)
+    index, cancel_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_byte_2(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Cancel Order Return Bitfields
-dissect.cancel_order_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Cancel Order Bitfield Count
   local cancel_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27595,26 +27595,26 @@ dissect.cancel_order_return_bitfields = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_order_return_bitfields then
     local range = buffer(offset, size_of_cancel_order_return_bitfields)
-    local display = display.cancel_order_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.cancel_order_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.cancel_order_return_bitfields, range, display)
   end
 
-  dissect.cancel_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_order_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_order_return_bitfields)
 
   return offset + size_of_cancel_order_return_bitfields
 end
 
 -- Display: New Order Return Bitfields
-display.new_order_return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Order Return Bitfields
-dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_new_order_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, parent, size_of_new_order_return_bitfields)
   local index = offset
 
   -- New Order Bitfield Count: 1 Byte Unsigned Fixed Width Integer
-  index, new_order_bitfield_count = dissect.new_order_bitfield_count(buffer, index, packet, parent)
+  index, new_order_bitfield_count = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_bitfield_count(buffer, index, packet, parent)
 
   -- Runtime optional field exists: New Order Byte 1
   local new_order_byte_1_exists = new_order_bitfield_count >= 1
@@ -27623,7 +27623,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_1_exists then
 
     -- New Order Byte 1: Struct of 8 fields
-    index, new_order_byte_1 = dissect.new_order_byte_1(buffer, index, packet, parent)
+    index, new_order_byte_1 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_1(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 2
@@ -27633,7 +27633,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_2_exists then
 
     -- New Order Byte 2: Struct of 8 fields
-    index, new_order_byte_2 = dissect.new_order_byte_2(buffer, index, packet, parent)
+    index, new_order_byte_2 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_2(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 3
@@ -27643,7 +27643,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_3_exists then
 
     -- New Order Byte 3: Struct of 8 fields
-    index, new_order_byte_3 = dissect.new_order_byte_3(buffer, index, packet, parent)
+    index, new_order_byte_3 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_3(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 4
@@ -27653,7 +27653,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_4_exists then
 
     -- New Order Byte 4: Struct of 8 fields
-    index, new_order_byte_4 = dissect.new_order_byte_4(buffer, index, packet, parent)
+    index, new_order_byte_4 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_4(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 5
@@ -27663,7 +27663,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_5_exists then
 
     -- New Order Byte 5: Struct of 8 fields
-    index, new_order_byte_5 = dissect.new_order_byte_5(buffer, index, packet, parent)
+    index, new_order_byte_5 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_5(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 6
@@ -27673,7 +27673,7 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_6_exists then
 
     -- New Order Byte 6: Struct of 8 fields
-    index, new_order_byte_6 = dissect.new_order_byte_6(buffer, index, packet, parent)
+    index, new_order_byte_6 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_6(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: New Order Byte 7
@@ -27683,14 +27683,14 @@ dissect.new_order_return_bitfields_fields = function(buffer, offset, packet, par
   if new_order_byte_7_exists then
 
     -- New Order Byte 7: Struct of 8 fields
-    index, new_order_byte_7 = dissect.new_order_byte_7(buffer, index, packet, parent)
+    index, new_order_byte_7 = cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_byte_7(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: New Order Return Bitfields
-dissect.new_order_return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: New Order Bitfield Count
   local new_order_bitfield_count = buffer(offset, 1):le_uint()
@@ -27701,169 +27701,169 @@ dissect.new_order_return_bitfields = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_order_return_bitfields then
     local range = buffer(offset, size_of_new_order_return_bitfields)
-    local display = display.new_order_return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.new_order_return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.new_order_return_bitfields, range, display)
   end
 
-  dissect.new_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_new_order_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_new_order_return_bitfields)
 
   return offset + size_of_new_order_return_bitfields
 end
 
 -- Calculate runtime size of: Bitfields
-size_of.bitfields = function(buffer, offset, application_message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.bitfields = function(buffer, offset, application_message_type)
   -- Size of New Order Return Bitfields
   if application_message_type == 0x38 then
-    return size_of.new_order_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_return_bitfields(buffer, offset)
   end
   -- Size of Cancel Order Return Bitfields
   if application_message_type == 0x39 then
-    return size_of.cancel_order_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_return_bitfields(buffer, offset)
   end
   -- Size of Modify Order Return Bitfields
   if application_message_type == 0x3A then
-    return size_of.modify_order_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_return_bitfields(buffer, offset)
   end
   -- Size of Purge Order Return Bitfields
   if application_message_type == 0x47 then
-    return size_of.purge_order_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_return_bitfields(buffer, offset)
   end
   -- Size of Order Acknowledgment Return Bitfields
   if application_message_type == 0x25 then
-    return size_of.order_acknowledgment_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_return_bitfields(buffer, offset)
   end
   -- Size of Order Rejected Return Bitfields
   if application_message_type == 0x26 then
-    return size_of.order_rejected_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_return_bitfields(buffer, offset)
   end
   -- Size of Order Modified Return Bitfields
   if application_message_type == 0x27 then
-    return size_of.order_modified_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_return_bitfields(buffer, offset)
   end
   -- Size of Order Restated Return Bitfields
   if application_message_type == 0x28 then
-    return size_of.order_restated_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_return_bitfields(buffer, offset)
   end
   -- Size of User Modify Rejected Return Bitfields
   if application_message_type == 0x29 then
-    return size_of.user_modify_rejected_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_return_bitfields(buffer, offset)
   end
   -- Size of Order Cancelled Return Bitfields
   if application_message_type == 0x2A then
-    return size_of.order_cancelled_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_return_bitfields(buffer, offset)
   end
   -- Size of Cancel Rejected Return Bitfields
   if application_message_type == 0x2B then
-    return size_of.cancel_rejected_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_return_bitfields(buffer, offset)
   end
   -- Size of Order Execution Return Bitfields
   if application_message_type == 0x2C then
-    return size_of.order_execution_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_return_bitfields(buffer, offset)
   end
   -- Size of Trade Cancel Or Correct Return Bitfields
   if application_message_type == 0x2D then
-    return size_of.trade_cancel_or_correct_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_return_bitfields(buffer, offset)
   end
   -- Size of Purge Rejected Return Bitfields
   if application_message_type == 0x48 then
-    return size_of.purge_rejected_return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_return_bitfields(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Bitfields
-display.bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.bitfields = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Bitfields
-dissect.bitfields_branches = function(buffer, offset, packet, parent, application_message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.bitfields_branches = function(buffer, offset, packet, parent, application_message_type)
   -- Dissect New Order Return Bitfields
   if application_message_type == 0x38 then
-    return dissect.new_order_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Return Bitfields
   if application_message_type == 0x39 then
-    return dissect.cancel_order_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Return Bitfields
   if application_message_type == 0x3A then
-    return dissect.modify_order_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Purge Order Return Bitfields
   if application_message_type == 0x47 then
-    return dissect.purge_order_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Acknowledgment Return Bitfields
   if application_message_type == 0x25 then
-    return dissect.order_acknowledgment_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Return Bitfields
   if application_message_type == 0x26 then
-    return dissect.order_rejected_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Modified Return Bitfields
   if application_message_type == 0x27 then
-    return dissect.order_modified_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Restated Return Bitfields
   if application_message_type == 0x28 then
-    return dissect.order_restated_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect User Modify Rejected Return Bitfields
   if application_message_type == 0x29 then
-    return dissect.user_modify_rejected_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Return Bitfields
   if application_message_type == 0x2A then
-    return dissect.order_cancelled_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Rejected Return Bitfields
   if application_message_type == 0x2B then
-    return dissect.cancel_rejected_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Return Bitfields
   if application_message_type == 0x2C then
-    return dissect.order_execution_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Or Correct Return Bitfields
   if application_message_type == 0x2D then
-    return dissect.trade_cancel_or_correct_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields(buffer, offset, packet, parent)
   end
   -- Dissect Purge Rejected Return Bitfields
   if application_message_type == 0x48 then
-    return dissect.purge_rejected_return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Bitfields
-dissect.bitfields = function(buffer, offset, packet, parent, application_message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.bitfields = function(buffer, offset, packet, parent, application_message_type)
   if not show.bitfields then
-    return dissect.bitfields_branches(buffer, offset, packet, parent, application_message_type)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.bitfields_branches(buffer, offset, packet, parent, application_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.bitfields(buffer, offset, application_message_type)
+  local size = cboe_bzx_equities_orderentry_boe_v2_3_size_of.bitfields(buffer, offset, application_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.bitfields(buffer, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.bitfields(buffer, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.bitfields, range, display)
 
-  return dissect.bitfields_branches(buffer, offset, packet, parent, application_message_type)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.bitfields_branches(buffer, offset, packet, parent, application_message_type)
 end
 
 -- Size: Application Message Type
-size_of.application_message_type = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.application_message_type = 1
 
 -- Display: Application Message Type
-display.application_message_type = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.application_message_type = function(value)
   if value == 0x38 then
     return "Application Message Type: New Order (0x38)"
   end
@@ -27911,11 +27911,11 @@ display.application_message_type = function(value)
 end
 
 -- Dissect: Application Message Type
-dissect.application_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.application_message_type
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.application_message_type = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.application_message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.application_message_type(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.application_message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.application_message_type, range, value, display)
 
@@ -27923,25 +27923,25 @@ dissect.application_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Return Bitfields
-display.return_bitfields = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Return Bitfields
-dissect.return_bitfields_fields = function(buffer, offset, packet, parent, size_of_return_bitfields)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.return_bitfields_fields = function(buffer, offset, packet, parent, size_of_return_bitfields)
   local index = offset
 
   -- Application Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 14 values
-  index, application_message_type = dissect.application_message_type(buffer, index, packet, parent)
+  index, application_message_type = cboe_bzx_equities_orderentry_boe_v2_3_dissect.application_message_type(buffer, index, packet, parent)
 
   -- Bitfields: Runtime Type with 14 branches
-  index = dissect.bitfields(buffer, index, packet, parent, application_message_type)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.bitfields(buffer, index, packet, parent, application_message_type)
 
   return index
 end
 
 -- Dissect: Return Bitfields
-dissect.return_bitfields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.return_bitfields = function(buffer, offset, packet, parent)
 
   -- Dependency element: Param Group Length
   local param_group_length = buffer(offset - 3, 2):le_uint()
@@ -27952,20 +27952,20 @@ dissect.return_bitfields = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.return_bitfields then
     local range = buffer(offset, size_of_return_bitfields)
-    local display = display.return_bitfields(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.return_bitfields(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.return_bitfields, range, display)
   end
 
-  dissect.return_bitfields_fields(buffer, offset, packet, parent, size_of_return_bitfields)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.return_bitfields_fields(buffer, offset, packet, parent, size_of_return_bitfields)
 
   return offset + size_of_return_bitfields
 end
 
 -- Size: No Unspecified Unit Replay
-size_of.no_unspecified_unit_replay = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.no_unspecified_unit_replay = 1
 
 -- Display: No Unspecified Unit Replay
-display.no_unspecified_unit_replay = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.no_unspecified_unit_replay = function(value)
   if value == "0" then
     return "No Unspecified Unit Replay: False (0)"
   end
@@ -27980,11 +27980,11 @@ display.no_unspecified_unit_replay = function(value)
 end
 
 -- Dissect: No Unspecified Unit Replay
-dissect.no_unspecified_unit_replay = function(buffer, offset, packet, parent)
-  local length = size_of.no_unspecified_unit_replay
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.no_unspecified_unit_replay = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.no_unspecified_unit_replay
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.no_unspecified_unit_replay(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.no_unspecified_unit_replay(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.no_unspecified_unit_replay, range, value, display)
 
@@ -27992,12 +27992,12 @@ dissect.no_unspecified_unit_replay = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Sequences
-size_of.unit_sequences = function(buffer, offset)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_sequences = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.no_unspecified_unit_replay
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.no_unspecified_unit_replay
 
-  index = index + size_of.number_of_units
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.number_of_units
 
   -- Calculate field size from count
   local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
@@ -28007,99 +28007,99 @@ size_of.unit_sequences = function(buffer, offset)
 end
 
 -- Display: Unit Sequences
-display.unit_sequences = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.unit_sequences = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Sequences
-dissect.unit_sequences_fields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequences_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- No Unspecified Unit Replay: 1 Byte Ascii String Enum with 3 values
-  index, no_unspecified_unit_replay = dissect.no_unspecified_unit_replay(buffer, index, packet, parent)
+  index, no_unspecified_unit_replay = cboe_bzx_equities_orderentry_boe_v2_3_dissect.no_unspecified_unit_replay(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = dissect.number_of_units(buffer, index, packet, parent)
+  index, number_of_units = cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_units(buffer, index, packet, parent)
 
   -- Unit Sequence: Struct of 2 fields
   for i = 1, number_of_units do
-    index = dissect.unit_sequence(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Unit Sequences
-dissect.unit_sequences = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequences = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.unit_sequences then
-    local length = size_of.unit_sequences(buffer, offset)
+    local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_sequences(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_sequences(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.unit_sequences(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.unit_sequences, range, display)
   end
 
-  return dissect.unit_sequences_fields(buffer, offset, packet, parent)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequences_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Parameter
-size_of.parameter = function(buffer, offset, param_group_type)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.parameter = function(buffer, offset, param_group_type)
   -- Size of Unit Sequences
   if param_group_type == 0x80 then
-    return size_of.unit_sequences(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.unit_sequences(buffer, offset)
   end
   -- Size of Return Bitfields
   if param_group_type == 0x81 then
-    return size_of.return_bitfields(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.return_bitfields(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Parameter
-display.parameter = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.parameter = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Parameter
-dissect.parameter_branches = function(buffer, offset, packet, parent, param_group_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.parameter_branches = function(buffer, offset, packet, parent, param_group_type)
   -- Dissect Unit Sequences
   if param_group_type == 0x80 then
-    return dissect.unit_sequences(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequences(buffer, offset, packet, parent)
   end
   -- Dissect Return Bitfields
   if param_group_type == 0x81 then
-    return dissect.return_bitfields(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.return_bitfields(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Parameter
-dissect.parameter = function(buffer, offset, packet, parent, param_group_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.parameter = function(buffer, offset, packet, parent, param_group_type)
   if not show.parameter then
-    return dissect.parameter_branches(buffer, offset, packet, parent, param_group_type)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.parameter_branches(buffer, offset, packet, parent, param_group_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.parameter(buffer, offset, param_group_type)
+  local size = cboe_bzx_equities_orderentry_boe_v2_3_size_of.parameter(buffer, offset, param_group_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.parameter(buffer, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.parameter(buffer, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.parameter, range, display)
 
-  return dissect.parameter_branches(buffer, offset, packet, parent, param_group_type)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.parameter_branches(buffer, offset, packet, parent, param_group_type)
 end
 
 -- Size: Param Group Type
-size_of.param_group_type = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_type = 1
 
 -- Display: Param Group Type
-display.param_group_type = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.param_group_type = function(value)
   if value == 0x80 then
     return "Param Group Type: Unit Sequences (0x80)"
   end
@@ -28111,11 +28111,11 @@ display.param_group_type = function(value)
 end
 
 -- Dissect: Param Group Type
-dissect.param_group_type = function(buffer, offset, packet, parent)
-  local length = size_of.param_group_type
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_type = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.param_group_type(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.param_group_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.param_group_type, range, value, display)
 
@@ -28123,19 +28123,19 @@ dissect.param_group_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Param Group Length
-size_of.param_group_length = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_length = 2
 
 -- Display: Param Group Length
-display.param_group_length = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.param_group_length = function(value)
   return "Param Group Length: "..value
 end
 
 -- Dissect: Param Group Length
-dissect.param_group_length = function(buffer, offset, packet, parent)
-  local length = size_of.param_group_length
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_length = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.param_group_length(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.param_group_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.param_group_length, range, value, display)
 
@@ -28143,96 +28143,96 @@ dissect.param_group_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Param Header
-size_of.param_header = function(buffer, offset)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.param_group_length
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_length
 
-  index = index + size_of.param_group_type
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_group_type
 
   return index
 end
 
 -- Display: Param Header
-display.param_header = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.param_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Param Header
-dissect.param_header_fields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Param Group Length: 2 Byte Unsigned Fixed Width Integer
-  index, param_group_length = dissect.param_group_length(buffer, index, packet, parent)
+  index, param_group_length = cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_length(buffer, index, packet, parent)
 
   -- Param Group Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, param_group_type = dissect.param_group_type(buffer, index, packet, parent)
+  index, param_group_type = cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Param Header
-dissect.param_header = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.param_header then
-    local length = size_of.param_header(buffer, offset)
+    local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.param_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.param_header(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.param_header(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.param_header, range, display)
   end
 
-  return dissect.param_header_fields(buffer, offset, packet, parent)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Param Group
-display.param_group = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.param_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Param Group
-dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_fields = function(buffer, offset, packet, parent, size_of_param_group)
   local index = offset
 
   -- Param Header: Struct of 2 fields
-  index, param_header = dissect.param_header(buffer, index, packet, parent)
+  index, param_header = cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_header(buffer, index, packet, parent)
 
   -- Dependency element: Param Group Type
   local param_group_type = buffer(index - 1, 1):le_uint()
 
   -- Parameter: Runtime Type with 2 branches
-  index = dissect.parameter(buffer, index, packet, parent, param_group_type)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.parameter(buffer, index, packet, parent, param_group_type)
 
   return index
 end
 
 -- Dissect: Param Group
-dissect.param_group = function(buffer, offset, packet, parent, size_of_param_group)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group = function(buffer, offset, packet, parent, size_of_param_group)
   -- Optionally add struct element to protocol tree
   if show.param_group then
     local range = buffer(offset, size_of_param_group)
-    local display = display.param_group(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.param_group(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.param_group, range, display)
   end
 
-  dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group_fields(buffer, offset, packet, parent, size_of_param_group)
 
   return offset + size_of_param_group
 end
 
 -- Size: Number Of Param Groups
-size_of.number_of_param_groups = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.number_of_param_groups = 1
 
 -- Display: Number Of Param Groups
-display.number_of_param_groups = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.number_of_param_groups = function(value)
   return "Number Of Param Groups: "..value
 end
 
 -- Dissect: Number Of Param Groups
-dissect.number_of_param_groups = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_param_groups
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_param_groups = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.number_of_param_groups
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.number_of_param_groups(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.number_of_param_groups(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.number_of_param_groups, range, value, display)
 
@@ -28240,19 +28240,19 @@ dissect.number_of_param_groups = function(buffer, offset, packet, parent)
 end
 
 -- Size: Login Response Text
-size_of.login_response_text = 60
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_response_text = 60
 
 -- Display: Login Response Text
-display.login_response_text = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_text = function(value)
   return "Login Response Text: "..value
 end
 
 -- Dissect: Login Response Text
-dissect.login_response_text = function(buffer, offset, packet, parent)
-  local length = size_of.login_response_text
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_text = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_response_text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.login_response_text(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.login_response_text, range, value, display)
 
@@ -28260,10 +28260,10 @@ dissect.login_response_text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Login Response Status
-size_of.login_response_status = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_response_status = 1
 
 -- Display: Login Response Status
-display.login_response_status = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_status = function(value)
   if value == "A" then
     return "Login Response Status: Login Accepted (A)"
   end
@@ -28296,11 +28296,11 @@ display.login_response_status = function(value)
 end
 
 -- Dissect: Login Response Status
-dissect.login_response_status = function(buffer, offset, packet, parent)
-  local length = size_of.login_response_status
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_status = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_response_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.login_response_status(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.login_response_status, range, value, display)
 
@@ -28308,36 +28308,36 @@ dissect.login_response_status = function(buffer, offset, packet, parent)
 end
 
 -- Display: Login Response Message
-display.login_response_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Response Message
-dissect.login_response_message_fields = function(buffer, offset, packet, parent, size_of_login_response_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_message_fields = function(buffer, offset, packet, parent, size_of_login_response_message)
   local index = offset
 
   -- Login Response Status: 1 Byte Ascii String Enum with 9 values
-  index, login_response_status = dissect.login_response_status(buffer, index, packet, parent)
+  index, login_response_status = cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_status(buffer, index, packet, parent)
 
   -- Login Response Text: 60 Byte Ascii String
-  index, login_response_text = dissect.login_response_text(buffer, index, packet, parent)
+  index, login_response_text = cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_text(buffer, index, packet, parent)
 
   -- No Unspecified Unit Replay: 1 Byte Ascii String Enum with 3 values
-  index, no_unspecified_unit_replay = dissect.no_unspecified_unit_replay(buffer, index, packet, parent)
+  index, no_unspecified_unit_replay = cboe_bzx_equities_orderentry_boe_v2_3_dissect.no_unspecified_unit_replay(buffer, index, packet, parent)
 
   -- Last Received Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, last_received_sequence_number = dissect.last_received_sequence_number(buffer, index, packet, parent)
+  index, last_received_sequence_number = cboe_bzx_equities_orderentry_boe_v2_3_dissect.last_received_sequence_number(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = dissect.number_of_units(buffer, index, packet, parent)
+  index, number_of_units = cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_units(buffer, index, packet, parent)
 
   -- Unit Sequence: Struct of 2 fields
   for i = 1, number_of_units do
-    index = dissect.unit_sequence(buffer, index, packet, parent)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.unit_sequence(buffer, index, packet, parent)
   end
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_param_groups = dissect.number_of_param_groups(buffer, index, packet, parent)
+  index, number_of_param_groups = cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_param_groups(buffer, index, packet, parent)
 
   -- Param Group: Struct of 2 fields
   for i = 1, number_of_param_groups do
@@ -28346,14 +28346,14 @@ dissect.login_response_message_fields = function(buffer, offset, packet, parent,
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Param Group: Struct of 2 fields
-    index = dissect.param_group(buffer, index, packet, parent, param_group_length)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
   end
 
   return index
 end
 
 -- Dissect: Login Response Message
-dissect.login_response_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -28364,29 +28364,29 @@ dissect.login_response_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.login_response_message then
     local range = buffer(offset, size_of_login_response_message)
-    local display = display.login_response_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.login_response_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.login_response_message, range, display)
   end
 
-  dissect.login_response_message_fields(buffer, offset, packet, parent, size_of_login_response_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_message_fields(buffer, offset, packet, parent, size_of_login_response_message)
 
   return offset + size_of_login_response_message
 end
 
 -- Size: Password
-size_of.password = 10
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.password = 10
 
 -- Display: Password
-display.password = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.password = function(value)
   return "Password: "..value
 end
 
 -- Dissect: Password
-dissect.password = function(buffer, offset, packet, parent)
-  local length = size_of.password
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.password = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.password
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.password(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.password(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.password, range, value, display)
 
@@ -28394,19 +28394,19 @@ dissect.password = function(buffer, offset, packet, parent)
 end
 
 -- Size: Username
-size_of.username = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.username = 4
 
 -- Display: Username
-display.username = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.username = function(value)
   return "Username: "..value
 end
 
 -- Dissect: Username
-dissect.username = function(buffer, offset, packet, parent)
-  local length = size_of.username
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.username = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.username
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.username(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.username(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.username, range, value, display)
 
@@ -28414,19 +28414,19 @@ dissect.username = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Sub Id
-size_of.session_sub_id = 4
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.session_sub_id = 4
 
 -- Display: Session Sub Id
-display.session_sub_id = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.session_sub_id = function(value)
   return "Session Sub Id: "..value
 end
 
 -- Dissect: Session Sub Id
-dissect.session_sub_id = function(buffer, offset, packet, parent)
-  local length = size_of.session_sub_id
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.session_sub_id = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.session_sub_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session_sub_id(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.session_sub_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.session_sub_id, range, value, display)
 
@@ -28434,25 +28434,25 @@ dissect.session_sub_id = function(buffer, offset, packet, parent)
 end
 
 -- Display: Login Request Message
-display.login_request_message = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.login_request_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Request Message
-dissect.login_request_message_fields = function(buffer, offset, packet, parent, size_of_login_request_message)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_request_message_fields = function(buffer, offset, packet, parent, size_of_login_request_message)
   local index = offset
 
   -- Session Sub Id: 4 Byte Ascii String
-  index, session_sub_id = dissect.session_sub_id(buffer, index, packet, parent)
+  index, session_sub_id = cboe_bzx_equities_orderentry_boe_v2_3_dissect.session_sub_id(buffer, index, packet, parent)
 
   -- Username: 4 Byte Ascii String
-  index, username = dissect.username(buffer, index, packet, parent)
+  index, username = cboe_bzx_equities_orderentry_boe_v2_3_dissect.username(buffer, index, packet, parent)
 
   -- Password: 10 Byte Ascii String
-  index, password = dissect.password(buffer, index, packet, parent)
+  index, password = cboe_bzx_equities_orderentry_boe_v2_3_dissect.password(buffer, index, packet, parent)
 
   -- Number Of Param Groups: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_param_groups = dissect.number_of_param_groups(buffer, index, packet, parent)
+  index, number_of_param_groups = cboe_bzx_equities_orderentry_boe_v2_3_dissect.number_of_param_groups(buffer, index, packet, parent)
 
   -- Param Group: Struct of 2 fields
   for i = 1, number_of_param_groups do
@@ -28461,14 +28461,14 @@ dissect.login_request_message_fields = function(buffer, offset, packet, parent, 
     local param_group_length = buffer(index, 2):le_uint()
 
     -- Param Group: Struct of 2 fields
-    index = dissect.param_group(buffer, index, packet, parent, param_group_length)
+    index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.param_group(buffer, index, packet, parent, param_group_length)
   end
 
   return index
 end
 
 -- Dissect: Login Request Message
-dissect.login_request_message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_request_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -28479,20 +28479,20 @@ dissect.login_request_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.login_request_message then
     local range = buffer(offset, size_of_login_request_message)
-    local display = display.login_request_message(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.login_request_message(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.login_request_message, range, display)
   end
 
-  dissect.login_request_message_fields(buffer, offset, packet, parent, size_of_login_request_message)
+  cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_request_message_fields(buffer, offset, packet, parent, size_of_login_request_message)
 
   return offset + size_of_login_request_message
 end
 
 -- Calculate runtime size of: Message
-size_of.message = function(buffer, offset, message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.message = function(buffer, offset, message_type)
   -- Size of Login Request Message
   if message_type == 0x37 then
-    return size_of.login_request_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_request_message(buffer, offset)
   end
   -- Size of Logout Request Message
   if message_type == 0x02 then
@@ -28504,11 +28504,11 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of Login Response Message
   if message_type == 0x24 then
-    return size_of.login_response_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.login_response_message(buffer, offset)
   end
   -- Size of Logout Message
   if message_type == 0x08 then
-    return size_of.logout_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.logout_message(buffer, offset)
   end
   -- Size of Server Heartbeat Message
   if message_type == 0x09 then
@@ -28520,78 +28520,78 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of New Order Message
   if message_type == 0x38 then
-    return size_of.new_order_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.new_order_message(buffer, offset)
   end
   -- Size of Cancel Order Message
   if message_type == 0x39 then
-    return size_of.cancel_order_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_order_message(buffer, offset)
   end
   -- Size of Modify Order Message
   if message_type == 0x3A then
-    return size_of.modify_order_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.modify_order_message(buffer, offset)
   end
   -- Size of Purge Order Message
   if message_type == 0x47 then
-    return size_of.purge_order_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_order_message(buffer, offset)
   end
   -- Size of Order Acknowledgment Message
   if message_type == 0x25 then
-    return size_of.order_acknowledgment_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_message(buffer, offset)
   end
   -- Size of Order Rejected Message
   if message_type == 0x26 then
-    return size_of.order_rejected_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_rejected_message(buffer, offset)
   end
   -- Size of Order Modified Message
   if message_type == 0x27 then
-    return size_of.order_modified_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_modified_message(buffer, offset)
   end
   -- Size of Order Restated Message
   if message_type == 0x28 then
-    return size_of.order_restated_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_restated_message(buffer, offset)
   end
   -- Size of User Modify Rejected Message
   if message_type == 0x29 then
-    return size_of.user_modify_rejected_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_message(buffer, offset)
   end
   -- Size of Order Cancelled Message
   if message_type == 0x2A then
-    return size_of.order_cancelled_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_cancelled_message(buffer, offset)
   end
   -- Size of Cancel Rejected Message
   if message_type == 0x2B then
-    return size_of.cancel_rejected_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_message(buffer, offset)
   end
   -- Size of Order Execution Message
   if message_type == 0x2C then
-    return size_of.order_execution_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.order_execution_message(buffer, offset)
   end
   -- Size of Trade Cancel Or Correct Message
   if message_type == 0x2D then
-    return size_of.trade_cancel_or_correct_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_message(buffer, offset)
   end
   -- Size of Mass Cancel Acknowledgment Message
   if message_type == 0x36 then
-    return size_of.mass_cancel_acknowledgment_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.mass_cancel_acknowledgment_message(buffer, offset)
   end
   -- Size of Purge Rejected Message
   if message_type == 0x48 then
-    return size_of.purge_rejected_message(buffer, offset)
+    return cboe_bzx_equities_orderentry_boe_v2_3_size_of.purge_rejected_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Message
-display.message = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.message = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Message
-dissect.message_branches = function(buffer, offset, packet, parent, message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 0x37 then
-    return dissect.login_request_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Message
   if message_type == 0x02 then
@@ -28601,11 +28601,11 @@ dissect.message_branches = function(buffer, offset, packet, parent, message_type
   end
   -- Dissect Login Response Message
   if message_type == 0x24 then
-    return dissect.login_response_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.login_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Logout Message
   if message_type == 0x08 then
-    return dissect.logout_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.logout_message(buffer, offset, packet, parent)
   end
   -- Dissect Server Heartbeat Message
   if message_type == 0x09 then
@@ -28615,102 +28615,102 @@ dissect.message_branches = function(buffer, offset, packet, parent, message_type
   end
   -- Dissect New Order Message
   if message_type == 0x38 then
-    return dissect.new_order_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.new_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Message
   if message_type == 0x39 then
-    return dissect.cancel_order_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
   if message_type == 0x3A then
-    return dissect.modify_order_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.modify_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Purge Order Message
   if message_type == 0x47 then
-    return dissect.purge_order_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Acknowledgment Message
   if message_type == 0x25 then
-    return dissect.order_acknowledgment_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Message
   if message_type == 0x26 then
-    return dissect.order_rejected_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Modified Message
   if message_type == 0x27 then
-    return dissect.order_modified_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_modified_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Restated Message
   if message_type == 0x28 then
-    return dissect.order_restated_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_restated_message(buffer, offset, packet, parent)
   end
   -- Dissect User Modify Rejected Message
   if message_type == 0x29 then
-    return dissect.user_modify_rejected_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Message
   if message_type == 0x2A then
-    return dissect.order_cancelled_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Rejected Message
   if message_type == 0x2B then
-    return dissect.cancel_rejected_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Message
   if message_type == 0x2C then
-    return dissect.order_execution_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.order_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Or Correct Message
   if message_type == 0x2D then
-    return dissect.trade_cancel_or_correct_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_message(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Acknowledgment Message
   if message_type == 0x36 then
-    return dissect.mass_cancel_acknowledgment_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.mass_cancel_acknowledgment_message(buffer, offset, packet, parent)
   end
   -- Dissect Purge Rejected Message
   if message_type == 0x48 then
-    return dissect.purge_rejected_message(buffer, offset, packet, parent)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.purge_rejected_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, message_type)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message = function(buffer, offset, packet, parent, message_type)
   if not show.message then
-    return dissect.message_branches(buffer, offset, packet, parent, message_type)
+    return cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.message(buffer, offset, message_type)
+  local size = cboe_bzx_equities_orderentry_boe_v2_3_size_of.message(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.message(buffer, packet, parent)
   local element = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.message, range, display)
 
-  return dissect.message_branches(buffer, offset, packet, parent, message_type)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Matching Unit
-size_of.matching_unit = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.matching_unit = 1
 
 -- Display: Matching Unit
-display.matching_unit = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.matching_unit = function(value)
   return "Matching Unit: "..value
 end
 
 -- Dissect: Matching Unit
-dissect.matching_unit = function(buffer, offset, packet, parent)
-  local length = size_of.matching_unit
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.matching_unit = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.matching_unit
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.matching_unit(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.matching_unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.matching_unit, range, value, display)
 
@@ -28718,10 +28718,10 @@ dissect.matching_unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.message_type = function(value)
   if value == 0x37 then
     return "Message Type: Login Request Message (0x37)"
   end
@@ -28793,11 +28793,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.message_type, range, value, display)
 
@@ -28805,19 +28805,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.message_length, range, value, display)
 
@@ -28825,19 +28825,19 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Size: Start Of Message
-size_of.start_of_message = 2
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.start_of_message = 2
 
 -- Display: Start Of Message
-display.start_of_message = function(value)
+cboe_bzx_equities_orderentry_boe_v2_3_display.start_of_message = function(value)
   return "Start Of Message: "..value
 end
 
 -- Dissect: Start Of Message
-dissect.start_of_message = function(buffer, offset, packet, parent)
-  local length = size_of.start_of_message
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.start_of_message = function(buffer, offset, packet, parent)
+  local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.start_of_message
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.start_of_message(value, buffer, offset, packet, parent)
+  local display = cboe_bzx_equities_orderentry_boe_v2_3_display.start_of_message(value, buffer, offset, packet, parent)
 
   parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.start_of_message, range, value, display)
 
@@ -28845,74 +28845,74 @@ dissect.start_of_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.start_of_message
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.start_of_message
 
-  index = index + size_of.message_length
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_type
 
-  index = index + size_of.matching_unit
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.matching_unit
 
-  index = index + size_of.sequence_number
+  index = index + cboe_bzx_equities_orderentry_boe_v2_3_size_of.sequence_number
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
-  index, start_of_message = dissect.start_of_message(buffer, index, packet, parent)
+  index, start_of_message = cboe_bzx_equities_orderentry_boe_v2_3_dissect.start_of_message(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 22 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_type(buffer, index, packet, parent)
 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
-  index, matching_unit = dissect.matching_unit(buffer, index, packet, parent)
+  index, matching_unit = cboe_bzx_equities_orderentry_boe_v2_3_dissect.matching_unit(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = cboe_bzx_equities_orderentry_boe_v2_3_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_bzx_equities_orderentry_boe_v2_3_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_bzx_equities_orderentry_boe_v2_3_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_bzx_equities_orderentry_boe_v2_3.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_bzx_equities_orderentry_boe_v2_3_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_bzx_equities_orderentry_boe_v2_3_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 6, 1):le_uint()
 
   -- Message: Runtime Type with 22 branches
-  index = dissect.message(buffer, index, packet, parent, message_type)
+  index = cboe_bzx_equities_orderentry_boe_v2_3_dissect.message(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -28934,7 +28934,7 @@ function cboe_bzx_equities_orderentry_boe_v2_3.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cboe_bzx_equities_orderentry_boe_v2_3, buffer(), cboe_bzx_equities_orderentry_boe_v2_3.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_bzx_equities_orderentry_boe_v2_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

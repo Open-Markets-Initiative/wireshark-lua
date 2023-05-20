@@ -10,9 +10,9 @@ local siac_cts_output_cta_v1_91 = Proto("Siac.Cts.Output.Cta.v1.91.Lua", "Siac C
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local siac_cts_output_cta_v1_91_display = {}
+local siac_cts_output_cta_v1_91_dissect = {}
+local siac_cts_output_cta_v1_91_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -560,19 +560,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Block Pad Byte
-size_of.block_pad_byte = 1
+siac_cts_output_cta_v1_91_size_of.block_pad_byte = 1
 
 -- Display: Block Pad Byte
-display.block_pad_byte = function(value)
+siac_cts_output_cta_v1_91_display.block_pad_byte = function(value)
   return "Block Pad Byte: "..value
 end
 
 -- Dissect: Block Pad Byte
-dissect.block_pad_byte = function(buffer, offset, packet, parent)
-  local length = size_of.block_pad_byte
+siac_cts_output_cta_v1_91_dissect.block_pad_byte = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.block_pad_byte
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_pad_byte(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.block_pad_byte(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.block_pad_byte, range, value, display)
 
@@ -580,10 +580,10 @@ dissect.block_pad_byte = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tick
-size_of.tick = 1
+siac_cts_output_cta_v1_91_size_of.tick = 1
 
 -- Display: Tick
-display.tick = function(value)
+siac_cts_output_cta_v1_91_display.tick = function(value)
   if value == " " then
     return "Tick: Not Applicable (<whitespace>)"
   end
@@ -604,11 +604,11 @@ display.tick = function(value)
 end
 
 -- Dissect: Tick
-dissect.tick = function(buffer, offset, packet, parent)
-  local length = size_of.tick
+siac_cts_output_cta_v1_91_dissect.tick = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.tick
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.tick(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.tick(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.tick, range, value, display)
 
@@ -616,19 +616,19 @@ dissect.tick = function(buffer, offset, packet, parent)
 end
 
 -- Size: Total Volume
-size_of.total_volume = 8
+siac_cts_output_cta_v1_91_size_of.total_volume = 8
 
 -- Display: Total Volume
-display.total_volume = function(value)
+siac_cts_output_cta_v1_91_display.total_volume = function(value)
   return "Total Volume: "..value
 end
 
 -- Dissect: Total Volume
-dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = size_of.total_volume
+siac_cts_output_cta_v1_91_dissect.total_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.total_volume
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.total_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.total_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.total_volume, range, value, display)
 
@@ -636,10 +636,10 @@ dissect.total_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price
-size_of.low_price = 8
+siac_cts_output_cta_v1_91_size_of.low_price = 8
 
 -- Display: Low Price
-display.low_price = function(value)
+siac_cts_output_cta_v1_91_display.low_price = function(value)
   return "Low Price: "..value
 end
 
@@ -649,12 +649,12 @@ translate.low_price = function(raw)
 end
 
 -- Dissect: Low Price
-dissect.low_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_price
+siac_cts_output_cta_v1_91_dissect.low_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.low_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.low_price(raw)
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.low_price, range, value, display)
 
@@ -662,10 +662,10 @@ dissect.low_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Price
-size_of.high_price = 8
+siac_cts_output_cta_v1_91_size_of.high_price = 8
 
 -- Display: High Price
-display.high_price = function(value)
+siac_cts_output_cta_v1_91_display.high_price = function(value)
   return "High Price: "..value
 end
 
@@ -675,12 +675,12 @@ translate.high_price = function(raw)
 end
 
 -- Dissect: High Price
-dissect.high_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_price
+siac_cts_output_cta_v1_91_dissect.high_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.high_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.high_price(raw)
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.high_price, range, value, display)
 
@@ -688,10 +688,10 @@ dissect.high_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Price
-size_of.last_price = 8
+siac_cts_output_cta_v1_91_size_of.last_price = 8
 
 -- Display: Last Price
-display.last_price = function(value)
+siac_cts_output_cta_v1_91_display.last_price = function(value)
   return "Last Price: "..value
 end
 
@@ -701,12 +701,12 @@ translate.last_price = function(raw)
 end
 
 -- Dissect: Last Price
-dissect.last_price = function(buffer, offset, packet, parent)
-  local length = size_of.last_price
+siac_cts_output_cta_v1_91_dissect.last_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.last_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.last_price(raw)
-  local display = display.last_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.last_price, range, value, display)
 
@@ -714,10 +714,10 @@ dissect.last_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Participant Id
-size_of.last_participant_id = 1
+siac_cts_output_cta_v1_91_size_of.last_participant_id = 1
 
 -- Display: Last Participant Id
-display.last_participant_id = function(value)
+siac_cts_output_cta_v1_91_display.last_participant_id = function(value)
   if value == "A" then
     return "Last Participant Id: Nyse American (A)"
   end
@@ -777,11 +777,11 @@ display.last_participant_id = function(value)
 end
 
 -- Dissect: Last Participant Id
-dissect.last_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.last_participant_id
+siac_cts_output_cta_v1_91_dissect.last_participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.last_participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.last_participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.last_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.last_participant_id, range, value, display)
 
@@ -789,19 +789,19 @@ dissect.last_participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Close Price Date
-size_of.previous_close_price_date = 4
+siac_cts_output_cta_v1_91_size_of.previous_close_price_date = 4
 
 -- Display: Previous Close Price Date
-display.previous_close_price_date = function(value)
+siac_cts_output_cta_v1_91_display.previous_close_price_date = function(value)
   return "Previous Close Price Date: "..value
 end
 
 -- Dissect: Previous Close Price Date
-dissect.previous_close_price_date = function(buffer, offset, packet, parent)
-  local length = size_of.previous_close_price_date
+siac_cts_output_cta_v1_91_dissect.previous_close_price_date = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.previous_close_price_date
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.previous_close_price_date(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.previous_close_price_date(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.previous_close_price_date, range, value, display)
 
@@ -809,144 +809,144 @@ dissect.previous_close_price_date = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Participant Data
-size_of.participant_data = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.participant_data = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.previous_close_price_date
+  index = index + siac_cts_output_cta_v1_91_size_of.previous_close_price_date
 
-  index = index + size_of.last_participant_id
+  index = index + siac_cts_output_cta_v1_91_size_of.last_participant_id
 
-  index = index + size_of.last_price
+  index = index + siac_cts_output_cta_v1_91_size_of.last_price
 
-  index = index + size_of.high_price
+  index = index + siac_cts_output_cta_v1_91_size_of.high_price
 
-  index = index + size_of.low_price
+  index = index + siac_cts_output_cta_v1_91_size_of.low_price
 
-  index = index + size_of.total_volume
+  index = index + siac_cts_output_cta_v1_91_size_of.total_volume
 
-  index = index + size_of.tick
+  index = index + siac_cts_output_cta_v1_91_size_of.tick
 
   return index
 end
 
 -- Display: Participant Data
-display.participant_data = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.participant_data = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Participant Data
-dissect.participant_data_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participant_data_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = dissect.last_participant_id(buffer, index, packet, parent)
+  index, last_participant_id = siac_cts_output_cta_v1_91_dissect.last_participant_id(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = siac_cts_output_cta_v1_91_dissect.last_price(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = siac_cts_output_cta_v1_91_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = siac_cts_output_cta_v1_91_dissect.low_price(buffer, index, packet, parent)
 
   -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = siac_cts_output_cta_v1_91_dissect.total_volume(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
-  index, tick = dissect.tick(buffer, index, packet, parent)
+  index, tick = siac_cts_output_cta_v1_91_dissect.tick(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Participant Data
-dissect.participant_data = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participant_data = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.participant_data then
-    local length = size_of.participant_data(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.participant_data(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.participant_data(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.participant_data(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.participant_data, range, display)
   end
 
-  return dissect.participant_data_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.participant_data_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Consolidated Data
-size_of.consolidated_data = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.consolidated_data = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.previous_close_price_date
+  index = index + siac_cts_output_cta_v1_91_size_of.previous_close_price_date
 
-  index = index + size_of.last_participant_id
+  index = index + siac_cts_output_cta_v1_91_size_of.last_participant_id
 
-  index = index + size_of.last_price
+  index = index + siac_cts_output_cta_v1_91_size_of.last_price
 
-  index = index + size_of.high_price
+  index = index + siac_cts_output_cta_v1_91_size_of.high_price
 
-  index = index + size_of.low_price
+  index = index + siac_cts_output_cta_v1_91_size_of.low_price
 
-  index = index + size_of.total_volume
+  index = index + siac_cts_output_cta_v1_91_size_of.total_volume
 
-  index = index + size_of.tick
+  index = index + siac_cts_output_cta_v1_91_size_of.tick
 
   return index
 end
 
 -- Display: Consolidated Data
-display.consolidated_data = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.consolidated_data = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Consolidated Data
-dissect.consolidated_data_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.consolidated_data_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = dissect.last_participant_id(buffer, index, packet, parent)
+  index, last_participant_id = siac_cts_output_cta_v1_91_dissect.last_participant_id(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = siac_cts_output_cta_v1_91_dissect.last_price(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = siac_cts_output_cta_v1_91_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = siac_cts_output_cta_v1_91_dissect.low_price(buffer, index, packet, parent)
 
   -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = siac_cts_output_cta_v1_91_dissect.total_volume(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
-  index, tick = dissect.tick(buffer, index, packet, parent)
+  index, tick = siac_cts_output_cta_v1_91_dissect.tick(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Consolidated Data
-dissect.consolidated_data = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.consolidated_data = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.consolidated_data then
-    local length = size_of.consolidated_data(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.consolidated_data(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.consolidated_data(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.consolidated_data(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.consolidated_data, range, display)
   end
 
-  return dissect.consolidated_data_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.consolidated_data_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Financial Status Indicator
-size_of.financial_status_indicator = 1
+siac_cts_output_cta_v1_91_size_of.financial_status_indicator = 1
 
 -- Display: Financial Status Indicator
-display.financial_status_indicator = function(value)
+siac_cts_output_cta_v1_91_display.financial_status_indicator = function(value)
   if value == "0" then
     return "Financial Status Indicator: Financial Status Not Applicable (0)"
   end
@@ -985,11 +985,11 @@ display.financial_status_indicator = function(value)
 end
 
 -- Dissect: Financial Status Indicator
-dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.financial_status_indicator
+siac_cts_output_cta_v1_91_dissect.financial_status_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.financial_status_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.financial_status_indicator, range, value, display)
 
@@ -997,10 +997,10 @@ dissect.financial_status_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Primary Listing Market Participant Id
-size_of.primary_listing_market_participant_id = 1
+siac_cts_output_cta_v1_91_size_of.primary_listing_market_participant_id = 1
 
 -- Display: Primary Listing Market Participant Id
-display.primary_listing_market_participant_id = function(value)
+siac_cts_output_cta_v1_91_display.primary_listing_market_participant_id = function(value)
   if value == "A" then
     return "Primary Listing Market Participant Id: Nyse American (A)"
   end
@@ -1054,11 +1054,11 @@ display.primary_listing_market_participant_id = function(value)
 end
 
 -- Dissect: Primary Listing Market Participant Id
-dissect.primary_listing_market_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.primary_listing_market_participant_id
+siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.primary_listing_market_participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.primary_listing_market_participant_id, range, value, display)
 
@@ -1066,10 +1066,10 @@ dissect.primary_listing_market_participant_id = function(buffer, offset, packet,
 end
 
 -- Size: Short Sale Restriction Indicator
-size_of.short_sale_restriction_indicator = 1
+siac_cts_output_cta_v1_91_size_of.short_sale_restriction_indicator = 1
 
 -- Display: Short Sale Restriction Indicator
-display.short_sale_restriction_indicator = function(value)
+siac_cts_output_cta_v1_91_display.short_sale_restriction_indicator = function(value)
   if value == " " then
     return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
   end
@@ -1090,11 +1090,11 @@ display.short_sale_restriction_indicator = function(value)
 end
 
 -- Dissect: Short Sale Restriction Indicator
-dissect.short_sale_restriction_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.short_sale_restriction_indicator
+siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.short_sale_restriction_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.short_sale_restriction_indicator, range, value, display)
 
@@ -1102,10 +1102,10 @@ dissect.short_sale_restriction_indicator = function(buffer, offset, packet, pare
 end
 
 -- Size: Cancel Error Action
-size_of.cancel_error_action = 1
+siac_cts_output_cta_v1_91_size_of.cancel_error_action = 1
 
 -- Display: Cancel Error Action
-display.cancel_error_action = function(value)
+siac_cts_output_cta_v1_91_display.cancel_error_action = function(value)
   if value == "1" then
     return "Cancel Error Action: Cancel (1)"
   end
@@ -1117,11 +1117,11 @@ display.cancel_error_action = function(value)
 end
 
 -- Dissect: Cancel Error Action
-dissect.cancel_error_action = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_error_action
+siac_cts_output_cta_v1_91_dissect.cancel_error_action = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.cancel_error_action
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_error_action(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.cancel_error_action(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.cancel_error_action, range, value, display)
 
@@ -1129,19 +1129,19 @@ dissect.cancel_error_action = function(buffer, offset, packet, parent)
 end
 
 -- Size: Nanoseconds
-size_of.nanoseconds = 4
+siac_cts_output_cta_v1_91_size_of.nanoseconds = 4
 
 -- Display: Nanoseconds
-display.nanoseconds = function(value)
+siac_cts_output_cta_v1_91_display.nanoseconds = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
+siac_cts_output_cta_v1_91_dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.nanoseconds
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.nanoseconds, range, value, display)
 
@@ -1149,19 +1149,19 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Size: Seconds
-size_of.seconds = 4
+siac_cts_output_cta_v1_91_size_of.seconds = 4
 
 -- Display: Seconds
-display.seconds = function(value)
+siac_cts_output_cta_v1_91_display.seconds = function(value)
   return "Seconds: "..value
 end
 
 -- Dissect: Seconds
-dissect.seconds = function(buffer, offset, packet, parent)
-  local length = size_of.seconds
+siac_cts_output_cta_v1_91_dissect.seconds = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.seconds
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.seconds(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.seconds(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.seconds, range, value, display)
 
@@ -1169,52 +1169,52 @@ dissect.seconds = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timestamp 2
-size_of.timestamp_2 = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.timestamp_2 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cts_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cts_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Timestamp 2
-display.timestamp_2 = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.timestamp_2 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timestamp 2
-dissect.timestamp_2_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.timestamp_2_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cts_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cts_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Timestamp 2
-dissect.timestamp_2 = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.timestamp_2 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.timestamp_2 then
-    local length = size_of.timestamp_2(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.timestamp_2(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timestamp_2(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.timestamp_2(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_2, range, display)
   end
 
-  return dissect.timestamp_2_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.timestamp_2_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Reporting Facility Id
-size_of.trade_reporting_facility_id = 1
+siac_cts_output_cta_v1_91_size_of.trade_reporting_facility_id = 1
 
 -- Display: Trade Reporting Facility Id
-display.trade_reporting_facility_id = function(value)
+siac_cts_output_cta_v1_91_display.trade_reporting_facility_id = function(value)
   if value == " " then
     return "Trade Reporting Facility Id: Not Applicable (<whitespace>)"
   end
@@ -1271,11 +1271,11 @@ display.trade_reporting_facility_id = function(value)
 end
 
 -- Dissect: Trade Reporting Facility Id
-dissect.trade_reporting_facility_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_reporting_facility_id
+siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_reporting_facility_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_reporting_facility_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_reporting_facility_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_reporting_facility_id, range, value, display)
 
@@ -1283,10 +1283,10 @@ dissect.trade_reporting_facility_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Through Exempt Indicator
-size_of.trade_through_exempt_indicator = 1
+siac_cts_output_cta_v1_91_size_of.trade_through_exempt_indicator = 1
 
 -- Display: Trade Through Exempt Indicator
-display.trade_through_exempt_indicator = function(value)
+siac_cts_output_cta_v1_91_display.trade_through_exempt_indicator = function(value)
   if value == "0" then
     return "Trade Through Exempt Indicator: Not A Trade Through Exemption (0)"
   end
@@ -1298,11 +1298,11 @@ display.trade_through_exempt_indicator = function(value)
 end
 
 -- Dissect: Trade Through Exempt Indicator
-dissect.trade_through_exempt_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.trade_through_exempt_indicator
+siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_through_exempt_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_through_exempt_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_through_exempt_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_through_exempt_indicator, range, value, display)
 
@@ -1310,10 +1310,10 @@ dissect.trade_through_exempt_indicator = function(buffer, offset, packet, parent
 end
 
 -- Size: Stop Stock Indicator
-size_of.stop_stock_indicator = 1
+siac_cts_output_cta_v1_91_size_of.stop_stock_indicator = 1
 
 -- Display: Stop Stock Indicator
-display.stop_stock_indicator = function(value)
+siac_cts_output_cta_v1_91_display.stop_stock_indicator = function(value)
   if value == "0" then
     return "Stop Stock Indicator: Not Applicable (0)"
   end
@@ -1325,11 +1325,11 @@ display.stop_stock_indicator = function(value)
 end
 
 -- Dissect: Stop Stock Indicator
-dissect.stop_stock_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.stop_stock_indicator
+siac_cts_output_cta_v1_91_dissect.stop_stock_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.stop_stock_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.stop_stock_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.stop_stock_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.stop_stock_indicator, range, value, display)
 
@@ -1337,19 +1337,19 @@ dissect.stop_stock_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sellers Sale Days
-size_of.sellers_sale_days = 1
+siac_cts_output_cta_v1_91_size_of.sellers_sale_days = 1
 
 -- Display: Sellers Sale Days
-display.sellers_sale_days = function(value)
+siac_cts_output_cta_v1_91_display.sellers_sale_days = function(value)
   return "Sellers Sale Days: "..value
 end
 
 -- Dissect: Sellers Sale Days
-dissect.sellers_sale_days = function(buffer, offset, packet, parent)
-  local length = size_of.sellers_sale_days
+siac_cts_output_cta_v1_91_dissect.sellers_sale_days = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.sellers_sale_days
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.sellers_sale_days(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.sellers_sale_days(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.sellers_sale_days, range, value, display)
 
@@ -1357,19 +1357,19 @@ dissect.sellers_sale_days = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Volume
-size_of.trade_volume = 4
+siac_cts_output_cta_v1_91_size_of.trade_volume = 4
 
 -- Display: Trade Volume
-display.trade_volume = function(value)
+siac_cts_output_cta_v1_91_display.trade_volume = function(value)
   return "Trade Volume: "..value
 end
 
 -- Dissect: Trade Volume
-dissect.trade_volume = function(buffer, offset, packet, parent)
-  local length = size_of.trade_volume
+siac_cts_output_cta_v1_91_dissect.trade_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_volume, range, value, display)
 
@@ -1377,10 +1377,10 @@ dissect.trade_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price
-size_of.trade_price = 8
+siac_cts_output_cta_v1_91_size_of.trade_price = 8
 
 -- Display: Trade Price
-display.trade_price = function(value)
+siac_cts_output_cta_v1_91_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
@@ -1390,12 +1390,12 @@ translate.trade_price = function(raw)
 end
 
 -- Dissect: Trade Price
-dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price
+siac_cts_output_cta_v1_91_dissect.trade_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.trade_price(raw)
-  local display = display.trade_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_price, range, value, display)
 
@@ -1403,10 +1403,10 @@ dissect.trade_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Category 4
-size_of.category_4 = 1
+siac_cts_output_cta_v1_91_size_of.category_4 = 1
 
 -- Display: Category 4
-display.category_4 = function(value)
+siac_cts_output_cta_v1_91_display.category_4 = function(value)
   if value == " " then
     return "Category 4: No Sro Required Trade Detail (<whitespace>)"
   end
@@ -1445,11 +1445,11 @@ display.category_4 = function(value)
 end
 
 -- Dissect: Category 4
-dissect.category_4 = function(buffer, offset, packet, parent)
-  local length = size_of.category_4
+siac_cts_output_cta_v1_91_dissect.category_4 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.category_4
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.category_4(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.category_4(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.category_4, range, value, display)
 
@@ -1457,10 +1457,10 @@ dissect.category_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Category 3
-size_of.category_3 = 1
+siac_cts_output_cta_v1_91_size_of.category_3 = 1
 
 -- Display: Category 3
-display.category_3 = function(value)
+siac_cts_output_cta_v1_91_display.category_3 = function(value)
   if value == " " then
     return "Category 3: Not Extended Hours Or Sold Out Of Sequence (<whitespace>)"
   end
@@ -1481,11 +1481,11 @@ display.category_3 = function(value)
 end
 
 -- Dissect: Category 3
-dissect.category_3 = function(buffer, offset, packet, parent)
-  local length = size_of.category_3
+siac_cts_output_cta_v1_91_dissect.category_3 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.category_3
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.category_3(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.category_3(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.category_3, range, value, display)
 
@@ -1493,10 +1493,10 @@ dissect.category_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Category 2
-size_of.category_2 = 1
+siac_cts_output_cta_v1_91_size_of.category_2 = 1
 
 -- Display: Category 2
-display.category_2 = function(value)
+siac_cts_output_cta_v1_91_display.category_2 = function(value)
   if value == " " then
     return "Category 2: No Reason (<whitespace>)"
   end
@@ -1529,11 +1529,11 @@ display.category_2 = function(value)
 end
 
 -- Dissect: Category 2
-dissect.category_2 = function(buffer, offset, packet, parent)
-  local length = size_of.category_2
+siac_cts_output_cta_v1_91_dissect.category_2 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.category_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.category_2(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.category_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.category_2, range, value, display)
 
@@ -1541,19 +1541,19 @@ dissect.category_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Category 1
-size_of.category_1 = 1
+siac_cts_output_cta_v1_91_size_of.category_1 = 1
 
 -- Display: Category 1
-display.category_1 = function(value)
+siac_cts_output_cta_v1_91_display.category_1 = function(value)
   return "Category 1: "..value
 end
 
 -- Dissect: Category 1
-dissect.category_1 = function(buffer, offset, packet, parent)
-  local length = size_of.category_1
+siac_cts_output_cta_v1_91_dissect.category_1 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.category_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.category_1(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.category_1(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.category_1, range, value, display)
 
@@ -1561,62 +1561,62 @@ dissect.category_1 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sale Conditions
-size_of.sale_conditions = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.sale_conditions = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.category_1
+  index = index + siac_cts_output_cta_v1_91_size_of.category_1
 
-  index = index + size_of.category_2
+  index = index + siac_cts_output_cta_v1_91_size_of.category_2
 
-  index = index + size_of.category_3
+  index = index + siac_cts_output_cta_v1_91_size_of.category_3
 
-  index = index + size_of.category_4
+  index = index + siac_cts_output_cta_v1_91_size_of.category_4
 
   return index
 end
 
 -- Display: Sale Conditions
-display.sale_conditions = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.sale_conditions = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sale Conditions
-dissect.sale_conditions_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.sale_conditions_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Category 1: 1 Byte Ascii String
-  index, category_1 = dissect.category_1(buffer, index, packet, parent)
+  index, category_1 = siac_cts_output_cta_v1_91_dissect.category_1(buffer, index, packet, parent)
 
   -- Category 2: 1 Byte Ascii String Enum with 9 values
-  index, category_2 = dissect.category_2(buffer, index, packet, parent)
+  index, category_2 = siac_cts_output_cta_v1_91_dissect.category_2(buffer, index, packet, parent)
 
   -- Category 3: 1 Byte Ascii String Enum with 5 values
-  index, category_3 = dissect.category_3(buffer, index, packet, parent)
+  index, category_3 = siac_cts_output_cta_v1_91_dissect.category_3(buffer, index, packet, parent)
 
   -- Category 4: 1 Byte Ascii String Enum with 11 values
-  index, category_4 = dissect.category_4(buffer, index, packet, parent)
+  index, category_4 = siac_cts_output_cta_v1_91_dissect.category_4(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sale Conditions
-dissect.sale_conditions = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.sale_conditions = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sale_conditions then
-    local length = size_of.sale_conditions(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.sale_conditions(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sale_conditions(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.sale_conditions(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.sale_conditions, range, display)
   end
 
-  return dissect.sale_conditions_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.sale_conditions_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Type
-size_of.instrument_type = 1
+siac_cts_output_cta_v1_91_size_of.instrument_type = 1
 
 -- Display: Instrument Type
-display.instrument_type = function(value)
+siac_cts_output_cta_v1_91_display.instrument_type = function(value)
   if value == "0" then
     return "Instrument Type: Cta Eligible Equity (0)"
   end
@@ -1634,11 +1634,11 @@ display.instrument_type = function(value)
 end
 
 -- Dissect: Instrument Type
-dissect.instrument_type = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_type
+siac_cts_output_cta_v1_91_dissect.instrument_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.instrument_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.instrument_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.instrument_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.instrument_type, range, value, display)
 
@@ -1646,19 +1646,19 @@ dissect.instrument_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol
-size_of.security_symbol = 11
+siac_cts_output_cta_v1_91_size_of.security_symbol = 11
 
 -- Display: Security Symbol
-display.security_symbol = function(value)
+siac_cts_output_cta_v1_91_display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
 
 -- Dissect: Security Symbol
-dissect.security_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol
+siac_cts_output_cta_v1_91_dissect.security_symbol = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.security_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.security_symbol, range, value, display)
 
@@ -1666,19 +1666,19 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Participant Reference Number
-size_of.participant_reference_number = 8
+siac_cts_output_cta_v1_91_size_of.participant_reference_number = 8
 
 -- Display: Participant Reference Number
-display.participant_reference_number = function(value)
+siac_cts_output_cta_v1_91_display.participant_reference_number = function(value)
   return "Participant Reference Number: "..value
 end
 
 -- Dissect: Participant Reference Number
-dissect.participant_reference_number = function(buffer, offset, packet, parent)
-  local length = size_of.participant_reference_number
+siac_cts_output_cta_v1_91_dissect.participant_reference_number = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.participant_reference_number
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.participant_reference_number(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.participant_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.participant_reference_number, range, value, display)
 
@@ -1686,19 +1686,19 @@ dissect.participant_reference_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transaction Id
-size_of.transaction_id = 4
+siac_cts_output_cta_v1_91_size_of.transaction_id = 4
 
 -- Display: Transaction Id
-display.transaction_id = function(value)
+siac_cts_output_cta_v1_91_display.transaction_id = function(value)
   return "Transaction Id: "..value
 end
 
 -- Dissect: Transaction Id
-dissect.transaction_id = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_id
+siac_cts_output_cta_v1_91_dissect.transaction_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.transaction_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.transaction_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.transaction_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.transaction_id, range, value, display)
 
@@ -1706,19 +1706,19 @@ dissect.transaction_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Id
-size_of.message_id = 1
+siac_cts_output_cta_v1_91_size_of.message_id = 1
 
 -- Display: Message Id
-display.message_id = function(value)
+siac_cts_output_cta_v1_91_display.message_id = function(value)
   return "Message Id: "..value
 end
 
 -- Dissect: Message Id
-dissect.message_id = function(buffer, offset, packet, parent)
-  local length = size_of.message_id
+siac_cts_output_cta_v1_91_dissect.message_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.message_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.message_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.message_id, range, value, display)
 
@@ -1726,52 +1726,52 @@ dissect.message_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timestamp 1
-size_of.timestamp_1 = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.timestamp_1 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cts_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cts_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Timestamp 1
-display.timestamp_1 = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.timestamp_1 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timestamp 1
-dissect.timestamp_1_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.timestamp_1_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cts_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cts_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Timestamp 1
-dissect.timestamp_1 = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.timestamp_1 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.timestamp_1 then
-    local length = size_of.timestamp_1(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.timestamp_1(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timestamp_1(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.timestamp_1(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.timestamp_1, range, display)
   end
 
-  return dissect.timestamp_1_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.timestamp_1_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Participant Id
-size_of.participant_id = 1
+siac_cts_output_cta_v1_91_size_of.participant_id = 1
 
 -- Display: Participant Id
-display.participant_id = function(value)
+siac_cts_output_cta_v1_91_display.participant_id = function(value)
   if value == "A" then
     return "Participant Id: Nyse American (A)"
   end
@@ -1831,11 +1831,11 @@ display.participant_id = function(value)
 end
 
 -- Dissect: Participant Id
-dissect.participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.participant_id
+siac_cts_output_cta_v1_91_dissect.participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.participant_id, range, value, display)
 
@@ -1843,85 +1843,85 @@ dissect.participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Display: Trade Cancel Error Message
-display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Error Message
-dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
+siac_cts_output_cta_v1_91_dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
-  index, sale_conditions = dissect.sale_conditions(buffer, index, packet, parent)
+  index, sale_conditions = siac_cts_output_cta_v1_91_dissect.sale_conditions(buffer, index, packet, parent)
 
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = siac_cts_output_cta_v1_91_dissect.trade_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = siac_cts_output_cta_v1_91_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = siac_cts_output_cta_v1_91_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
-  index, stop_stock_indicator = dissect.stop_stock_indicator(buffer, index, packet, parent)
+  index, stop_stock_indicator = siac_cts_output_cta_v1_91_dissect.stop_stock_indicator(buffer, index, packet, parent)
 
   -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
-  index, trade_through_exempt_indicator = dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 17 values
-  index, trade_reporting_facility_id = dissect.trade_reporting_facility_id(buffer, index, packet, parent)
+  index, trade_reporting_facility_id = siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
   -- Original Participant Reference Number Of Original Transaction Being Cancelled Or Errored
-  index, original_participant_reference_number_of_original_transaction_being_cancelled_or_errored = dissect.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored(buffer, index, packet, parent)
+  index, original_participant_reference_number_of_original_transaction_being_cancelled_or_errored = siac_cts_output_cta_v1_91_dissect.original_participant_reference_number_of_original_transaction_being_cancelled_or_errored(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
-  index, timestamp_2 = dissect.timestamp_2(buffer, index, packet, parent)
+  index, timestamp_2 = siac_cts_output_cta_v1_91_dissect.timestamp_2(buffer, index, packet, parent)
 
   -- Cancel Error Action: 1 Byte Ascii String Enum with 2 values
-  index, cancel_error_action = dissect.cancel_error_action(buffer, index, packet, parent)
+  index, cancel_error_action = siac_cts_output_cta_v1_91_dissect.cancel_error_action(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Consolidated Data: Struct of 7 fields
-  index, consolidated_data = dissect.consolidated_data(buffer, index, packet, parent)
+  index, consolidated_data = siac_cts_output_cta_v1_91_dissect.consolidated_data(buffer, index, packet, parent)
 
   -- Participant Data: Struct of 7 fields
-  index, participant_data = dissect.participant_data(buffer, index, packet, parent)
+  index, participant_data = siac_cts_output_cta_v1_91_dissect.participant_data(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Error Message
-dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -1932,20 +1932,20 @@ dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_error_message then
     local range = buffer(offset, size_of_trade_cancel_error_message)
-    local display = display.trade_cancel_error_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.trade_cancel_error_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.trade_cancel_error_message, range, display)
   end
 
-  dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
+  siac_cts_output_cta_v1_91_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent, size_of_trade_cancel_error_message)
 
   return offset + size_of_trade_cancel_error_message
 end
 
 -- Size: Participant Open High Low Last Indicator
-size_of.participant_open_high_low_last_indicator = 1
+siac_cts_output_cta_v1_91_size_of.participant_open_high_low_last_indicator = 1
 
 -- Display: Participant Open High Low Last Indicator
-display.participant_open_high_low_last_indicator = function(value)
+siac_cts_output_cta_v1_91_display.participant_open_high_low_last_indicator = function(value)
   if value == "A" then
     return "Participant Open High Low Last Indicator: None (A)"
   end
@@ -2002,11 +2002,11 @@ display.participant_open_high_low_last_indicator = function(value)
 end
 
 -- Dissect: Participant Open High Low Last Indicator
-dissect.participant_open_high_low_last_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.participant_open_high_low_last_indicator
+siac_cts_output_cta_v1_91_dissect.participant_open_high_low_last_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.participant_open_high_low_last_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.participant_open_high_low_last_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.participant_open_high_low_last_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.participant_open_high_low_last_indicator, range, value, display)
 
@@ -2014,10 +2014,10 @@ dissect.participant_open_high_low_last_indicator = function(buffer, offset, pack
 end
 
 -- Size: Consolidated High Low Last Indicator
-size_of.consolidated_high_low_last_indicator = 1
+siac_cts_output_cta_v1_91_size_of.consolidated_high_low_last_indicator = 1
 
 -- Display: Consolidated High Low Last Indicator
-display.consolidated_high_low_last_indicator = function(value)
+siac_cts_output_cta_v1_91_display.consolidated_high_low_last_indicator = function(value)
   if value == "A" then
     return "Consolidated High Low Last Indicator: None (A)"
   end
@@ -2047,11 +2047,11 @@ display.consolidated_high_low_last_indicator = function(value)
 end
 
 -- Dissect: Consolidated High Low Last Indicator
-dissect.consolidated_high_low_last_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.consolidated_high_low_last_indicator
+siac_cts_output_cta_v1_91_dissect.consolidated_high_low_last_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.consolidated_high_low_last_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.consolidated_high_low_last_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.consolidated_high_low_last_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.consolidated_high_low_last_indicator, range, value, display)
 
@@ -2059,19 +2059,19 @@ dissect.consolidated_high_low_last_indicator = function(buffer, offset, packet, 
 end
 
 -- Size: Trade Volume Short
-size_of.trade_volume_short = 2
+siac_cts_output_cta_v1_91_size_of.trade_volume_short = 2
 
 -- Display: Trade Volume Short
-display.trade_volume_short = function(value)
+siac_cts_output_cta_v1_91_display.trade_volume_short = function(value)
   return "Trade Volume Short: "..value
 end
 
 -- Dissect: Trade Volume Short
-dissect.trade_volume_short = function(buffer, offset, packet, parent)
-  local length = size_of.trade_volume_short
+siac_cts_output_cta_v1_91_dissect.trade_volume_short = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_volume_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_volume_short(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_volume_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_volume_short, range, value, display)
 
@@ -2079,10 +2079,10 @@ dissect.trade_volume_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price Short
-size_of.trade_price_short = 2
+siac_cts_output_cta_v1_91_size_of.trade_price_short = 2
 
 -- Display: Trade Price Short
-display.trade_price_short = function(value)
+siac_cts_output_cta_v1_91_display.trade_price_short = function(value)
   return "Trade Price Short: "..value
 end
 
@@ -2092,12 +2092,12 @@ translate.trade_price_short = function(raw)
 end
 
 -- Dissect: Trade Price Short
-dissect.trade_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price_short
+siac_cts_output_cta_v1_91_dissect.trade_price_short = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_price_short
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.trade_price_short(raw)
-  local display = display.trade_price_short(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_price_short, range, value, display)
 
@@ -2105,10 +2105,10 @@ dissect.trade_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition Category
-size_of.sale_condition_category = 1
+siac_cts_output_cta_v1_91_size_of.sale_condition_category = 1
 
 -- Display: Sale Condition Category
-display.sale_condition_category = function(value)
+siac_cts_output_cta_v1_91_display.sale_condition_category = function(value)
   if value == " " then
     return "Sale Condition Category: Not Applicable (<whitespace>)"
   end
@@ -2129,11 +2129,11 @@ display.sale_condition_category = function(value)
 end
 
 -- Dissect: Sale Condition Category
-dissect.sale_condition_category = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition_category
+siac_cts_output_cta_v1_91_dissect.sale_condition_category = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.sale_condition_category
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition_category(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.sale_condition_category(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.sale_condition_category, range, value, display)
 
@@ -2141,10 +2141,10 @@ dissect.sale_condition_category = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition
-size_of.sale_condition = 1
+siac_cts_output_cta_v1_91_size_of.sale_condition = 1
 
 -- Display: Sale Condition
-display.sale_condition = function(value)
+siac_cts_output_cta_v1_91_display.sale_condition = function(value)
   if value == " " then
     return "Sale Condition: Regular Sale (<whitespace>)"
   end
@@ -2228,11 +2228,11 @@ display.sale_condition = function(value)
 end
 
 -- Dissect: Sale Condition
-dissect.sale_condition = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition
+siac_cts_output_cta_v1_91_dissect.sale_condition = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.sale_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.sale_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.sale_condition, range, value, display)
 
@@ -2240,19 +2240,19 @@ dissect.sale_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol Short
-size_of.security_symbol_short = 5
+siac_cts_output_cta_v1_91_size_of.security_symbol_short = 5
 
 -- Display: Security Symbol Short
-display.security_symbol_short = function(value)
+siac_cts_output_cta_v1_91_display.security_symbol_short = function(value)
   return "Security Symbol Short: "..value
 end
 
 -- Dissect: Security Symbol Short
-dissect.security_symbol_short = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol_short
+siac_cts_output_cta_v1_91_dissect.security_symbol_short = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.security_symbol_short
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol_short(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.security_symbol_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.security_symbol_short, range, value, display)
 
@@ -2260,58 +2260,58 @@ dissect.security_symbol_short = function(buffer, offset, packet, parent)
 end
 
 -- Display: Short Trade Message
-display.short_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.short_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Short Trade Message
-dissect.short_trade_message_fields = function(buffer, offset, packet, parent, size_of_short_trade_message)
+siac_cts_output_cta_v1_91_dissect.short_trade_message_fields = function(buffer, offset, packet, parent, size_of_short_trade_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol Short: 5 Byte Ascii String
-  index, security_symbol_short = dissect.security_symbol_short(buffer, index, packet, parent)
+  index, security_symbol_short = siac_cts_output_cta_v1_91_dissect.security_symbol_short(buffer, index, packet, parent)
 
   -- Sale Condition: 1 Byte Ascii String Enum with 26 values
-  index, sale_condition = dissect.sale_condition(buffer, index, packet, parent)
+  index, sale_condition = siac_cts_output_cta_v1_91_dissect.sale_condition(buffer, index, packet, parent)
 
   -- Sale Condition Category: 1 Byte Ascii String Enum with 5 values
-  index, sale_condition_category = dissect.sale_condition_category(buffer, index, packet, parent)
+  index, sale_condition_category = siac_cts_output_cta_v1_91_dissect.sale_condition_category(buffer, index, packet, parent)
 
   -- Trade Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, trade_price_short = dissect.trade_price_short(buffer, index, packet, parent)
+  index, trade_price_short = siac_cts_output_cta_v1_91_dissect.trade_price_short(buffer, index, packet, parent)
 
   -- Trade Volume Short: 2 Byte Unsigned Fixed Width Integer
-  index, trade_volume_short = dissect.trade_volume_short(buffer, index, packet, parent)
+  index, trade_volume_short = siac_cts_output_cta_v1_91_dissect.trade_volume_short(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Consolidated High Low Last Indicator: 1 Byte Ascii String Enum with 8 values
-  index, consolidated_high_low_last_indicator = dissect.consolidated_high_low_last_indicator(buffer, index, packet, parent)
+  index, consolidated_high_low_last_indicator = siac_cts_output_cta_v1_91_dissect.consolidated_high_low_last_indicator(buffer, index, packet, parent)
 
   -- Participant Open High Low Last Indicator: 1 Byte Ascii String Enum with 17 values
-  index, participant_open_high_low_last_indicator = dissect.participant_open_high_low_last_indicator(buffer, index, packet, parent)
+  index, participant_open_high_low_last_indicator = siac_cts_output_cta_v1_91_dissect.participant_open_high_low_last_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Short Trade Message
-dissect.short_trade_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.short_trade_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2322,20 +2322,20 @@ dissect.short_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_trade_message then
     local range = buffer(offset, size_of_short_trade_message)
-    local display = display.short_trade_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.short_trade_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.short_trade_message, range, display)
   end
 
-  dissect.short_trade_message_fields(buffer, offset, packet, parent, size_of_short_trade_message)
+  siac_cts_output_cta_v1_91_dissect.short_trade_message_fields(buffer, offset, packet, parent, size_of_short_trade_message)
 
   return offset + size_of_short_trade_message
 end
 
 -- Size: Limit Up Limit Down Indicator
-size_of.limit_up_limit_down_indicator = 1
+siac_cts_output_cta_v1_91_size_of.limit_up_limit_down_indicator = 1
 
 -- Display: Limit Up Limit Down Indicator
-display.limit_up_limit_down_indicator = function(value)
+siac_cts_output_cta_v1_91_display.limit_up_limit_down_indicator = function(value)
   if value == " " then
     return "Limit Up Limit Down Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
   end
@@ -2374,11 +2374,11 @@ display.limit_up_limit_down_indicator = function(value)
 end
 
 -- Dissect: Limit Up Limit Down Indicator
-dissect.limit_up_limit_down_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.limit_up_limit_down_indicator
+siac_cts_output_cta_v1_91_dissect.limit_up_limit_down_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.limit_up_limit_down_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.limit_up_limit_down_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.limit_up_limit_down_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.limit_up_limit_down_indicator, range, value, display)
 
@@ -2386,10 +2386,10 @@ dissect.limit_up_limit_down_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Halt Reason
-size_of.halt_reason = 1
+siac_cts_output_cta_v1_91_size_of.halt_reason = 1
 
 -- Display: Halt Reason
-display.halt_reason = function(value)
+siac_cts_output_cta_v1_91_display.halt_reason = function(value)
   if value == " " then
     return "Halt Reason: Not Applicable (<whitespace>)"
   end
@@ -2425,11 +2425,11 @@ display.halt_reason = function(value)
 end
 
 -- Dissect: Halt Reason
-dissect.halt_reason = function(buffer, offset, packet, parent)
-  local length = size_of.halt_reason
+siac_cts_output_cta_v1_91_dissect.halt_reason = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.halt_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.halt_reason(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.halt_reason(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.halt_reason, range, value, display)
 
@@ -2437,10 +2437,10 @@ dissect.halt_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Status
-size_of.security_status = 1
+siac_cts_output_cta_v1_91_size_of.security_status = 1
 
 -- Display: Security Status
-display.security_status = function(value)
+siac_cts_output_cta_v1_91_display.security_status = function(value)
   if value == " " then
     return "Security Status: Not Applicable (<whitespace>)"
   end
@@ -2494,11 +2494,11 @@ display.security_status = function(value)
 end
 
 -- Dissect: Security Status
-dissect.security_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_status
+siac_cts_output_cta_v1_91_dissect.security_status = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.security_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_status(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.security_status, range, value, display)
 
@@ -2506,19 +2506,19 @@ dissect.security_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Volume
-size_of.sell_volume = 4
+siac_cts_output_cta_v1_91_size_of.sell_volume = 4
 
 -- Display: Sell Volume
-display.sell_volume = function(value)
+siac_cts_output_cta_v1_91_display.sell_volume = function(value)
   return "Sell Volume: "..value
 end
 
 -- Dissect: Sell Volume
-dissect.sell_volume = function(buffer, offset, packet, parent)
-  local length = size_of.sell_volume
+siac_cts_output_cta_v1_91_dissect.sell_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.sell_volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.sell_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.sell_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.sell_volume, range, value, display)
 
@@ -2526,19 +2526,19 @@ dissect.sell_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Volume
-size_of.buy_volume = 4
+siac_cts_output_cta_v1_91_size_of.buy_volume = 4
 
 -- Display: Buy Volume
-display.buy_volume = function(value)
+siac_cts_output_cta_v1_91_display.buy_volume = function(value)
   return "Buy Volume: "..value
 end
 
 -- Dissect: Buy Volume
-dissect.buy_volume = function(buffer, offset, packet, parent)
-  local length = size_of.buy_volume
+siac_cts_output_cta_v1_91_dissect.buy_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.buy_volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.buy_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.buy_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.buy_volume, range, value, display)
 
@@ -2546,10 +2546,10 @@ dissect.buy_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Indication Price Lower Limit Price Band
-size_of.low_indication_price_lower_limit_price_band = 8
+siac_cts_output_cta_v1_91_size_of.low_indication_price_lower_limit_price_band = 8
 
 -- Display: Low Indication Price Lower Limit Price Band
-display.low_indication_price_lower_limit_price_band = function(value)
+siac_cts_output_cta_v1_91_display.low_indication_price_lower_limit_price_band = function(value)
   return "Low Indication Price Lower Limit Price Band: "..value
 end
 
@@ -2559,12 +2559,12 @@ translate.low_indication_price_lower_limit_price_band = function(raw)
 end
 
 -- Dissect: Low Indication Price Lower Limit Price Band
-dissect.low_indication_price_lower_limit_price_band = function(buffer, offset, packet, parent)
-  local length = size_of.low_indication_price_lower_limit_price_band
+siac_cts_output_cta_v1_91_dissect.low_indication_price_lower_limit_price_band = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.low_indication_price_lower_limit_price_band
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.low_indication_price_lower_limit_price_band(raw)
-  local display = display.low_indication_price_lower_limit_price_band(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.low_indication_price_lower_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.low_indication_price_lower_limit_price_band, range, value, display)
 
@@ -2572,10 +2572,10 @@ dissect.low_indication_price_lower_limit_price_band = function(buffer, offset, p
 end
 
 -- Size: High Indication Price Upper Limit Price Band
-size_of.high_indication_price_upper_limit_price_band = 8
+siac_cts_output_cta_v1_91_size_of.high_indication_price_upper_limit_price_band = 8
 
 -- Display: High Indication Price Upper Limit Price Band
-display.high_indication_price_upper_limit_price_band = function(value)
+siac_cts_output_cta_v1_91_display.high_indication_price_upper_limit_price_band = function(value)
   return "High Indication Price Upper Limit Price Band: "..value
 end
 
@@ -2585,12 +2585,12 @@ translate.high_indication_price_upper_limit_price_band = function(raw)
 end
 
 -- Dissect: High Indication Price Upper Limit Price Band
-dissect.high_indication_price_upper_limit_price_band = function(buffer, offset, packet, parent)
-  local length = size_of.high_indication_price_upper_limit_price_band
+siac_cts_output_cta_v1_91_dissect.high_indication_price_upper_limit_price_band = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.high_indication_price_upper_limit_price_band
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.high_indication_price_upper_limit_price_band(raw)
-  local display = display.high_indication_price_upper_limit_price_band(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.high_indication_price_upper_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.high_indication_price_upper_limit_price_band, range, value, display)
 
@@ -2598,73 +2598,73 @@ dissect.high_indication_price_upper_limit_price_band = function(buffer, offset, 
 end
 
 -- Display: Trading Status Message
-display.trading_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Status Message
-dissect.trading_status_message_fields = function(buffer, offset, packet, parent, size_of_trading_status_message)
+siac_cts_output_cta_v1_91_dissect.trading_status_message_fields = function(buffer, offset, packet, parent, size_of_trading_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = siac_cts_output_cta_v1_91_dissect.last_price(buffer, index, packet, parent)
 
   -- High Indication Price Upper Limit Price Band: 8 Byte Unsigned Fixed Width Integer
-  index, high_indication_price_upper_limit_price_band = dissect.high_indication_price_upper_limit_price_band(buffer, index, packet, parent)
+  index, high_indication_price_upper_limit_price_band = siac_cts_output_cta_v1_91_dissect.high_indication_price_upper_limit_price_band(buffer, index, packet, parent)
 
   -- Low Indication Price Lower Limit Price Band: 8 Byte Unsigned Fixed Width Integer
-  index, low_indication_price_lower_limit_price_band = dissect.low_indication_price_lower_limit_price_band(buffer, index, packet, parent)
+  index, low_indication_price_lower_limit_price_band = siac_cts_output_cta_v1_91_dissect.low_indication_price_lower_limit_price_band(buffer, index, packet, parent)
 
   -- Buy Volume: 4 Byte Unsigned Fixed Width Integer
-  index, buy_volume = dissect.buy_volume(buffer, index, packet, parent)
+  index, buy_volume = siac_cts_output_cta_v1_91_dissect.buy_volume(buffer, index, packet, parent)
 
   -- Sell Volume: 4 Byte Unsigned Fixed Width Integer
-  index, sell_volume = dissect.sell_volume(buffer, index, packet, parent)
+  index, sell_volume = siac_cts_output_cta_v1_91_dissect.sell_volume(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 16 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = siac_cts_output_cta_v1_91_dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Reason: 1 Byte Ascii String Enum with 10 values
-  index, halt_reason = dissect.halt_reason(buffer, index, packet, parent)
+  index, halt_reason = siac_cts_output_cta_v1_91_dissect.halt_reason(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Limit Up Limit Down Indicator: 1 Byte Ascii String Enum with 11 values
-  index, limit_up_limit_down_indicator = dissect.limit_up_limit_down_indicator(buffer, index, packet, parent)
+  index, limit_up_limit_down_indicator = siac_cts_output_cta_v1_91_dissect.limit_up_limit_down_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Status Message
-dissect.trading_status_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.trading_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2675,20 +2675,20 @@ dissect.trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_status_message then
     local range = buffer(offset, size_of_trading_status_message)
-    local display = display.trading_status_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.trading_status_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.trading_status_message, range, display)
   end
 
-  dissect.trading_status_message_fields(buffer, offset, packet, parent, size_of_trading_status_message)
+  siac_cts_output_cta_v1_91_dissect.trading_status_message_fields(buffer, offset, packet, parent, size_of_trading_status_message)
 
   return offset + size_of_trading_status_message
 end
 
 -- Size: Held Trade Indicator
-size_of.held_trade_indicator = 1
+siac_cts_output_cta_v1_91_size_of.held_trade_indicator = 1
 
 -- Display: Held Trade Indicator
-display.held_trade_indicator = function(value)
+siac_cts_output_cta_v1_91_display.held_trade_indicator = function(value)
   if value == " " then
     return "Held Trade Indicator: Not Applicable (<whitespace>)"
   end
@@ -2706,11 +2706,11 @@ display.held_trade_indicator = function(value)
 end
 
 -- Dissect: Held Trade Indicator
-dissect.held_trade_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.held_trade_indicator
+siac_cts_output_cta_v1_91_dissect.held_trade_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.held_trade_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.held_trade_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.held_trade_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.held_trade_indicator, range, value, display)
 
@@ -2718,82 +2718,82 @@ dissect.held_trade_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Display: Long Trade Message
-display.long_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.long_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Long Trade Message
-dissect.long_trade_message_fields = function(buffer, offset, packet, parent, size_of_long_trade_message)
+siac_cts_output_cta_v1_91_dissect.long_trade_message_fields = function(buffer, offset, packet, parent, size_of_long_trade_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
-  index, sale_conditions = dissect.sale_conditions(buffer, index, packet, parent)
+  index, sale_conditions = siac_cts_output_cta_v1_91_dissect.sale_conditions(buffer, index, packet, parent)
 
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = siac_cts_output_cta_v1_91_dissect.trade_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = siac_cts_output_cta_v1_91_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = siac_cts_output_cta_v1_91_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
-  index, stop_stock_indicator = dissect.stop_stock_indicator(buffer, index, packet, parent)
+  index, stop_stock_indicator = siac_cts_output_cta_v1_91_dissect.stop_stock_indicator(buffer, index, packet, parent)
 
   -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
-  index, trade_through_exempt_indicator = dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 17 values
-  index, trade_reporting_facility_id = dissect.trade_reporting_facility_id(buffer, index, packet, parent)
+  index, trade_reporting_facility_id = siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
-  index, timestamp_2 = dissect.timestamp_2(buffer, index, packet, parent)
+  index, timestamp_2 = siac_cts_output_cta_v1_91_dissect.timestamp_2(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Held Trade Indicator: 1 Byte Ascii String Enum with 4 values
-  index, held_trade_indicator = dissect.held_trade_indicator(buffer, index, packet, parent)
+  index, held_trade_indicator = siac_cts_output_cta_v1_91_dissect.held_trade_indicator(buffer, index, packet, parent)
 
   -- Consolidated High Low Last Indicator: 1 Byte Ascii String Enum with 8 values
-  index, consolidated_high_low_last_indicator = dissect.consolidated_high_low_last_indicator(buffer, index, packet, parent)
+  index, consolidated_high_low_last_indicator = siac_cts_output_cta_v1_91_dissect.consolidated_high_low_last_indicator(buffer, index, packet, parent)
 
   -- Participant Open High Low Last Indicator: 1 Byte Ascii String Enum with 17 values
-  index, participant_open_high_low_last_indicator = dissect.participant_open_high_low_last_indicator(buffer, index, packet, parent)
+  index, participant_open_high_low_last_indicator = siac_cts_output_cta_v1_91_dissect.participant_open_high_low_last_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Long Trade Message
-dissect.long_trade_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.long_trade_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2804,143 +2804,143 @@ dissect.long_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_trade_message then
     local range = buffer(offset, size_of_long_trade_message)
-    local display = display.long_trade_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.long_trade_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.long_trade_message, range, display)
   end
 
-  dissect.long_trade_message_fields(buffer, offset, packet, parent, size_of_long_trade_message)
+  siac_cts_output_cta_v1_91_dissect.long_trade_message_fields(buffer, offset, packet, parent, size_of_long_trade_message)
 
   return offset + size_of_long_trade_message
 end
 
 -- Calculate size of: Prior Day Trade Date And Time
-size_of.prior_day_trade_date_and_time = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.prior_day_trade_date_and_time = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cts_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cts_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Prior Day Trade Date And Time
-display.prior_day_trade_date_and_time = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.prior_day_trade_date_and_time = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prior Day Trade Date And Time
-dissect.prior_day_trade_date_and_time_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cts_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cts_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prior Day Trade Date And Time
-dissect.prior_day_trade_date_and_time = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prior_day_trade_date_and_time then
-    local length = size_of.prior_day_trade_date_and_time(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.prior_day_trade_date_and_time(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.prior_day_trade_date_and_time(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.prior_day_trade_date_and_time(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_trade_date_and_time, range, display)
   end
 
-  return dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Original Trade
-size_of.original_trade = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.original_trade = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.sale_conditions(buffer, offset + index)
+  index = index + siac_cts_output_cta_v1_91_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + size_of.trade_price_long
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_price_long
 
-  index = index + size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_volume_long
 
-  index = index + size_of.sellers_sale_days
+  index = index + siac_cts_output_cta_v1_91_size_of.sellers_sale_days
 
-  index = index + size_of.stop_stock_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.stop_stock_indicator
 
-  index = index + size_of.trade_through_exempt_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_through_exempt_indicator
 
-  index = index + size_of.short_sale_restriction_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.short_sale_restriction_indicator
 
-  index = index + size_of.prior_day_trade_date_and_time(buffer, offset + index)
+  index = index + siac_cts_output_cta_v1_91_size_of.prior_day_trade_date_and_time(buffer, offset + index)
 
   return index
 end
 
 -- Display: Original Trade
-display.original_trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.original_trade = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Original Trade
-dissect.original_trade_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.original_trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sale Conditions: Struct of 4 fields
-  index, sale_conditions = dissect.sale_conditions(buffer, index, packet, parent)
+  index, sale_conditions = siac_cts_output_cta_v1_91_dissect.sale_conditions(buffer, index, packet, parent)
 
   -- Trade Price Long
-  index, trade_price_long = dissect.trade_price_long(buffer, index, packet, parent)
+  index, trade_price_long = siac_cts_output_cta_v1_91_dissect.trade_price_long(buffer, index, packet, parent)
 
   -- Trade Volume Long
-  index, trade_volume_long = dissect.trade_volume_long(buffer, index, packet, parent)
+  index, trade_volume_long = siac_cts_output_cta_v1_91_dissect.trade_volume_long(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = siac_cts_output_cta_v1_91_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
-  index, stop_stock_indicator = dissect.stop_stock_indicator(buffer, index, packet, parent)
+  index, stop_stock_indicator = siac_cts_output_cta_v1_91_dissect.stop_stock_indicator(buffer, index, packet, parent)
 
   -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
-  index, trade_through_exempt_indicator = dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Original Trade
-dissect.original_trade = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.original_trade = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.original_trade then
-    local length = size_of.original_trade(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.original_trade(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.original_trade(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.original_trade(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.original_trade, range, display)
   end
 
-  return dissect.original_trade_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.original_trade_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Original Participant Reference Number
-size_of.original_participant_reference_number = 8
+siac_cts_output_cta_v1_91_size_of.original_participant_reference_number = 8
 
 -- Display: Original Participant Reference Number
-display.original_participant_reference_number = function(value)
+siac_cts_output_cta_v1_91_display.original_participant_reference_number = function(value)
   return "Original Participant Reference Number: "..value
 end
 
 -- Dissect: Original Participant Reference Number
-dissect.original_participant_reference_number = function(buffer, offset, packet, parent)
-  local length = size_of.original_participant_reference_number
+siac_cts_output_cta_v1_91_dissect.original_participant_reference_number = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.original_participant_reference_number
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.original_participant_reference_number(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.original_participant_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.original_participant_reference_number, range, value, display)
 
@@ -2948,139 +2948,139 @@ dissect.original_participant_reference_number = function(buffer, offset, packet,
 end
 
 -- Calculate size of: Corrected Trade
-size_of.corrected_trade = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.corrected_trade = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.sale_conditions(buffer, offset + index)
+  index = index + siac_cts_output_cta_v1_91_size_of.sale_conditions(buffer, offset + index)
 
-  index = index + size_of.trade_price_long
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_price_long
 
-  index = index + size_of.trade_volume_long
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_volume_long
 
-  index = index + size_of.sellers_sale_days
+  index = index + siac_cts_output_cta_v1_91_size_of.sellers_sale_days
 
-  index = index + size_of.stop_stock_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.stop_stock_indicator
 
-  index = index + size_of.trade_through_exempt_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_through_exempt_indicator
 
-  index = index + size_of.short_sale_restriction_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.short_sale_restriction_indicator
 
-  index = index + size_of.prior_day_trade_date_and_time(buffer, offset + index)
+  index = index + siac_cts_output_cta_v1_91_size_of.prior_day_trade_date_and_time(buffer, offset + index)
 
   return index
 end
 
 -- Display: Corrected Trade
-display.corrected_trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.corrected_trade = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Corrected Trade
-dissect.corrected_trade_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.corrected_trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sale Conditions: Struct of 4 fields
-  index, sale_conditions = dissect.sale_conditions(buffer, index, packet, parent)
+  index, sale_conditions = siac_cts_output_cta_v1_91_dissect.sale_conditions(buffer, index, packet, parent)
 
   -- Trade Price Long
-  index, trade_price_long = dissect.trade_price_long(buffer, index, packet, parent)
+  index, trade_price_long = siac_cts_output_cta_v1_91_dissect.trade_price_long(buffer, index, packet, parent)
 
   -- Trade Volume Long
-  index, trade_volume_long = dissect.trade_volume_long(buffer, index, packet, parent)
+  index, trade_volume_long = siac_cts_output_cta_v1_91_dissect.trade_volume_long(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = siac_cts_output_cta_v1_91_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
-  index, stop_stock_indicator = dissect.stop_stock_indicator(buffer, index, packet, parent)
+  index, stop_stock_indicator = siac_cts_output_cta_v1_91_dissect.stop_stock_indicator(buffer, index, packet, parent)
 
   -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
-  index, trade_through_exempt_indicator = dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Corrected Trade
-dissect.corrected_trade = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.corrected_trade = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.corrected_trade then
-    local length = size_of.corrected_trade(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.corrected_trade(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.corrected_trade(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.corrected_trade(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.corrected_trade, range, display)
   end
 
-  return dissect.corrected_trade_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.corrected_trade_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Trade Correction Message
-display.trade_correction_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.trade_correction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Message
-dissect.trade_correction_message_fields = function(buffer, offset, packet, parent, size_of_trade_correction_message)
+siac_cts_output_cta_v1_91_dissect.trade_correction_message_fields = function(buffer, offset, packet, parent, size_of_trade_correction_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Corrected Trade: Struct of 8 fields
-  index, corrected_trade = dissect.corrected_trade(buffer, index, packet, parent)
+  index, corrected_trade = siac_cts_output_cta_v1_91_dissect.corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 17 values
-  index, trade_reporting_facility_id = dissect.trade_reporting_facility_id(buffer, index, packet, parent)
+  index, trade_reporting_facility_id = siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
   -- Timestamp 2: Struct of 2 fields
-  index, timestamp_2 = dissect.timestamp_2(buffer, index, packet, parent)
+  index, timestamp_2 = siac_cts_output_cta_v1_91_dissect.timestamp_2(buffer, index, packet, parent)
 
   -- Original Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, original_participant_reference_number = dissect.original_participant_reference_number(buffer, index, packet, parent)
+  index, original_participant_reference_number = siac_cts_output_cta_v1_91_dissect.original_participant_reference_number(buffer, index, packet, parent)
 
   -- Original Trade: Struct of 8 fields
-  index, original_trade = dissect.original_trade(buffer, index, packet, parent)
+  index, original_trade = siac_cts_output_cta_v1_91_dissect.original_trade(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Consolidated Data: Struct of 7 fields
-  index, consolidated_data = dissect.consolidated_data(buffer, index, packet, parent)
+  index, consolidated_data = siac_cts_output_cta_v1_91_dissect.consolidated_data(buffer, index, packet, parent)
 
   -- Participant Data: Struct of 7 fields
-  index, participant_data = dissect.participant_data(buffer, index, packet, parent)
+  index, participant_data = siac_cts_output_cta_v1_91_dissect.participant_data(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Message
-dissect.trade_correction_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.trade_correction_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3091,29 +3091,29 @@ dissect.trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
     local range = buffer(offset, size_of_trade_correction_message)
-    local display = display.trade_correction_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.trade_correction_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.trade_correction_message, range, display)
   end
 
-  dissect.trade_correction_message_fields(buffer, offset, packet, parent, size_of_trade_correction_message)
+  siac_cts_output_cta_v1_91_dissect.trade_correction_message_fields(buffer, offset, packet, parent, size_of_trade_correction_message)
 
   return offset + size_of_trade_correction_message
 end
 
 -- Size: Future Use
-size_of.future_use = 62
+siac_cts_output_cta_v1_91_size_of.future_use = 62
 
 -- Display: Future Use
-display.future_use = function(value)
+siac_cts_output_cta_v1_91_display.future_use = function(value)
   return "Future Use: "..value
 end
 
 -- Dissect: Future Use
-dissect.future_use = function(buffer, offset, packet, parent)
-  local length = size_of.future_use
+siac_cts_output_cta_v1_91_dissect.future_use = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.future_use
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.future_use(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.future_use(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.future_use, range, value, display)
 
@@ -3121,19 +3121,19 @@ dissect.future_use = function(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Extensions
-size_of.number_of_extensions = 1
+siac_cts_output_cta_v1_91_size_of.number_of_extensions = 1
 
 -- Display: Number Of Extensions
-display.number_of_extensions = function(value)
+siac_cts_output_cta_v1_91_display.number_of_extensions = function(value)
   return "Number Of Extensions: "..value
 end
 
 -- Dissect: Number Of Extensions
-dissect.number_of_extensions = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_extensions
+siac_cts_output_cta_v1_91_dissect.number_of_extensions = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.number_of_extensions
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_extensions(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.number_of_extensions(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.number_of_extensions, range, value, display)
 
@@ -3141,10 +3141,10 @@ dissect.number_of_extensions = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Collar Lower Threshold Price
-size_of.auction_collar_lower_threshold_price = 8
+siac_cts_output_cta_v1_91_size_of.auction_collar_lower_threshold_price = 8
 
 -- Display: Auction Collar Lower Threshold Price
-display.auction_collar_lower_threshold_price = function(value)
+siac_cts_output_cta_v1_91_display.auction_collar_lower_threshold_price = function(value)
   return "Auction Collar Lower Threshold Price: "..value
 end
 
@@ -3154,12 +3154,12 @@ translate.auction_collar_lower_threshold_price = function(raw)
 end
 
 -- Dissect: Auction Collar Lower Threshold Price
-dissect.auction_collar_lower_threshold_price = function(buffer, offset, packet, parent)
-  local length = size_of.auction_collar_lower_threshold_price
+siac_cts_output_cta_v1_91_dissect.auction_collar_lower_threshold_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.auction_collar_lower_threshold_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.auction_collar_lower_threshold_price(raw)
-  local display = display.auction_collar_lower_threshold_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.auction_collar_lower_threshold_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.auction_collar_lower_threshold_price, range, value, display)
 
@@ -3167,10 +3167,10 @@ dissect.auction_collar_lower_threshold_price = function(buffer, offset, packet, 
 end
 
 -- Size: Auction Collar Reference Price
-size_of.auction_collar_reference_price = 8
+siac_cts_output_cta_v1_91_size_of.auction_collar_reference_price = 8
 
 -- Display: Auction Collar Reference Price
-display.auction_collar_reference_price = function(value)
+siac_cts_output_cta_v1_91_display.auction_collar_reference_price = function(value)
   return "Auction Collar Reference Price: "..value
 end
 
@@ -3180,12 +3180,12 @@ translate.auction_collar_reference_price = function(raw)
 end
 
 -- Dissect: Auction Collar Reference Price
-dissect.auction_collar_reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.auction_collar_reference_price
+siac_cts_output_cta_v1_91_dissect.auction_collar_reference_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.auction_collar_reference_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.auction_collar_reference_price(raw)
-  local display = display.auction_collar_reference_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.auction_collar_reference_price, range, value, display)
 
@@ -3193,64 +3193,64 @@ dissect.auction_collar_reference_price = function(buffer, offset, packet, parent
 end
 
 -- Display: Auction Status Message
-display.auction_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.auction_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Status Message
-dissect.auction_status_message_fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
+siac_cts_output_cta_v1_91_dissect.auction_status_message_fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Auction Collar Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, auction_collar_reference_price = dissect.auction_collar_reference_price(buffer, index, packet, parent)
+  index, auction_collar_reference_price = siac_cts_output_cta_v1_91_dissect.auction_collar_reference_price(buffer, index, packet, parent)
 
   -- Auction Collar Upper Threshold Price
-  index, auction_collar_upper_threshold_price = dissect.auction_collar_upper_threshold_price(buffer, index, packet, parent)
+  index, auction_collar_upper_threshold_price = siac_cts_output_cta_v1_91_dissect.auction_collar_upper_threshold_price(buffer, index, packet, parent)
 
   -- Auction Collar Lower Threshold Price: 8 Byte Unsigned Fixed Width Integer
-  index, auction_collar_lower_threshold_price = dissect.auction_collar_lower_threshold_price(buffer, index, packet, parent)
+  index, auction_collar_lower_threshold_price = siac_cts_output_cta_v1_91_dissect.auction_collar_lower_threshold_price(buffer, index, packet, parent)
 
   -- Number Of Extensions: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_extensions = dissect.number_of_extensions(buffer, index, packet, parent)
+  index, number_of_extensions = siac_cts_output_cta_v1_91_dissect.number_of_extensions(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Future Use: 62 Byte Ascii String
-  index, future_use = dissect.future_use(buffer, index, packet, parent)
+  index, future_use = siac_cts_output_cta_v1_91_dissect.future_use(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Status Message
-dissect.auction_status_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.auction_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3261,105 +3261,105 @@ dissect.auction_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_status_message then
     local range = buffer(offset, size_of_auction_status_message)
-    local display = display.auction_status_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.auction_status_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.auction_status_message, range, display)
   end
 
-  dissect.auction_status_message_fields(buffer, offset, packet, parent, size_of_auction_status_message)
+  siac_cts_output_cta_v1_91_dissect.auction_status_message_fields(buffer, offset, packet, parent, size_of_auction_status_message)
 
   return offset + size_of_auction_status_message
 end
 
 -- Calculate runtime size of: Trade Payload
-size_of.trade_payload = function(buffer, offset, trade_message_type)
+siac_cts_output_cta_v1_91_size_of.trade_payload = function(buffer, offset, trade_message_type)
   -- Size of Auction Status Message
   if trade_message_type == "A" then
-    return size_of.auction_status_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.auction_status_message(buffer, offset)
   end
   -- Size of Trade Correction Message
   if trade_message_type == "C" then
-    return size_of.trade_correction_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.trade_correction_message(buffer, offset)
   end
   -- Size of Long Trade Message
   if trade_message_type == "L" then
-    return size_of.long_trade_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.long_trade_message(buffer, offset)
   end
   -- Size of Trading Status Message
   if trade_message_type == "S" then
-    return size_of.trading_status_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.trading_status_message(buffer, offset)
   end
   -- Size of Short Trade Message
   if trade_message_type == "T" then
-    return size_of.short_trade_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.short_trade_message(buffer, offset)
   end
   -- Size of Trade Cancel Error Message
   if trade_message_type == "X" then
-    return size_of.trade_cancel_error_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.trade_cancel_error_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Trade Payload
-display.trade_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.trade_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Trade Payload
-dissect.trade_payload_branches = function(buffer, offset, packet, parent, trade_message_type)
+siac_cts_output_cta_v1_91_dissect.trade_payload_branches = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Auction Status Message
   if trade_message_type == "A" then
-    return dissect.auction_status_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.auction_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Correction Message
   if trade_message_type == "C" then
-    return dissect.trade_correction_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Trade Message
   if trade_message_type == "L" then
-    return dissect.long_trade_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.long_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if trade_message_type == "S" then
-    return dissect.trading_status_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.trading_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Trade Message
   if trade_message_type == "T" then
-    return dissect.short_trade_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.short_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Error Message
   if trade_message_type == "X" then
-    return dissect.trade_cancel_error_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.trade_cancel_error_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Trade Payload
-dissect.trade_payload = function(buffer, offset, packet, parent, trade_message_type)
+siac_cts_output_cta_v1_91_dissect.trade_payload = function(buffer, offset, packet, parent, trade_message_type)
   if not show.trade_payload then
-    return dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
+    return siac_cts_output_cta_v1_91_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.trade_payload(buffer, offset, trade_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.trade_payload(buffer, offset, trade_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.trade_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.trade_payload, range, display)
 
-  return dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
+  return siac_cts_output_cta_v1_91_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
 end
 
 -- Size: Trade Message Type
-size_of.trade_message_type = 1
+siac_cts_output_cta_v1_91_size_of.trade_message_type = 1
 
 -- Display: Trade Message Type
-display.trade_message_type = function(value)
+siac_cts_output_cta_v1_91_display.trade_message_type = function(value)
   if value == "A" then
     return "Trade Message Type: Auction Status Message (A)"
   end
@@ -3383,11 +3383,11 @@ display.trade_message_type = function(value)
 end
 
 -- Dissect: Trade Message Type
-dissect.trade_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.trade_message_type
+siac_cts_output_cta_v1_91_dissect.trade_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_message_type, range, value, display)
 
@@ -3395,25 +3395,25 @@ dissect.trade_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Trade
-display.trade = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.trade = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade
-dissect.trade_fields = function(buffer, offset, packet, parent, size_of_trade)
+siac_cts_output_cta_v1_91_dissect.trade_fields = function(buffer, offset, packet, parent, size_of_trade)
   local index = offset
 
   -- Trade Message Type: 1 Byte Ascii String Enum with 6 values
-  index, trade_message_type = dissect.trade_message_type(buffer, index, packet, parent)
+  index, trade_message_type = siac_cts_output_cta_v1_91_dissect.trade_message_type(buffer, index, packet, parent)
 
   -- Trade Payload: Runtime Type with 6 branches
-  index = dissect.trade_payload(buffer, index, packet, parent, trade_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.trade_payload(buffer, index, packet, parent, trade_message_type)
 
   return index
 end
 
 -- Dissect: Trade
-dissect.trade = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.trade = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3424,20 +3424,20 @@ dissect.trade = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade then
     local range = buffer(offset, size_of_trade)
-    local display = display.trade(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.trade(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.trade, range, display)
   end
 
-  dissect.trade_fields(buffer, offset, packet, parent, size_of_trade)
+  siac_cts_output_cta_v1_91_dissect.trade_fields(buffer, offset, packet, parent, size_of_trade)
 
   return offset + size_of_trade
 end
 
 -- Size: Open Price
-size_of.open_price = 8
+siac_cts_output_cta_v1_91_size_of.open_price = 8
 
 -- Display: Open Price
-display.open_price = function(value)
+siac_cts_output_cta_v1_91_display.open_price = function(value)
   return "Open Price: "..value
 end
 
@@ -3447,12 +3447,12 @@ translate.open_price = function(raw)
 end
 
 -- Dissect: Open Price
-dissect.open_price = function(buffer, offset, packet, parent)
-  local length = size_of.open_price
+siac_cts_output_cta_v1_91_dissect.open_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.open_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.open_price(raw)
-  local display = display.open_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.open_price, range, value, display)
 
@@ -3460,64 +3460,64 @@ dissect.open_price = function(buffer, offset, packet, parent)
 end
 
 -- Display: Participant End Of Day Summary Message
-display.participant_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.participant_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Participant End Of Day Summary Message
-dissect.participant_end_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
+siac_cts_output_cta_v1_91_dissect.participant_end_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = siac_cts_output_cta_v1_91_dissect.last_price(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = siac_cts_output_cta_v1_91_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = siac_cts_output_cta_v1_91_dissect.low_price(buffer, index, packet, parent)
 
   -- Open Price: 8 Byte Unsigned Fixed Width Integer
-  index, open_price = dissect.open_price(buffer, index, packet, parent)
+  index, open_price = siac_cts_output_cta_v1_91_dissect.open_price(buffer, index, packet, parent)
 
   -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = siac_cts_output_cta_v1_91_dissect.total_volume(buffer, index, packet, parent)
 
   -- Tick: 1 Byte Ascii String Enum with 5 values
-  index, tick = dissect.tick(buffer, index, packet, parent)
+  index, tick = siac_cts_output_cta_v1_91_dissect.tick(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Participant End Of Day Summary Message
-dissect.participant_end_of_day_summary_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participant_end_of_day_summary_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3528,29 +3528,29 @@ dissect.participant_end_of_day_summary_message = function(buffer, offset, packet
   -- Optionally add struct element to protocol tree
   if show.participant_end_of_day_summary_message then
     local range = buffer(offset, size_of_participant_end_of_day_summary_message)
-    local display = display.participant_end_of_day_summary_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.participant_end_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.participant_end_of_day_summary_message, range, display)
   end
 
-  dissect.participant_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
+  siac_cts_output_cta_v1_91_dissect.participant_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_end_of_day_summary_message)
 
   return offset + size_of_participant_end_of_day_summary_message
 end
 
 -- Size: Number Of Participants
-size_of.number_of_participants = 1
+siac_cts_output_cta_v1_91_size_of.number_of_participants = 1
 
 -- Display: Number Of Participants
-display.number_of_participants = function(value)
+siac_cts_output_cta_v1_91_display.number_of_participants = function(value)
   return "Number Of Participants: "..value
 end
 
 -- Dissect: Number Of Participants
-dissect.number_of_participants = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_participants
+siac_cts_output_cta_v1_91_dissect.number_of_participants = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.number_of_participants
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_participants(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.number_of_participants(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.number_of_participants, range, value, display)
 
@@ -3558,70 +3558,70 @@ dissect.number_of_participants = function(buffer, offset, packet, parent)
 end
 
 -- Display: Consolidated End Of Day Summary Message
-display.consolidated_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.consolidated_end_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Consolidated End Of Day Summary Message
-dissect.consolidated_end_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
+siac_cts_output_cta_v1_91_dissect.consolidated_end_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Last Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, last_participant_id = dissect.last_participant_id(buffer, index, packet, parent)
+  index, last_participant_id = siac_cts_output_cta_v1_91_dissect.last_participant_id(buffer, index, packet, parent)
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Last Price: 8 Byte Unsigned Fixed Width Integer
-  index, last_price = dissect.last_price(buffer, index, packet, parent)
+  index, last_price = siac_cts_output_cta_v1_91_dissect.last_price(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = siac_cts_output_cta_v1_91_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = siac_cts_output_cta_v1_91_dissect.low_price(buffer, index, packet, parent)
 
   -- Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = siac_cts_output_cta_v1_91_dissect.total_volume(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_participants = dissect.number_of_participants(buffer, index, packet, parent)
+  index, number_of_participants = siac_cts_output_cta_v1_91_dissect.number_of_participants(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Consolidated End Of Day Summary Message
-dissect.consolidated_end_of_day_summary_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.consolidated_end_of_day_summary_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3632,20 +3632,20 @@ dissect.consolidated_end_of_day_summary_message = function(buffer, offset, packe
   -- Optionally add struct element to protocol tree
   if show.consolidated_end_of_day_summary_message then
     local range = buffer(offset, size_of_consolidated_end_of_day_summary_message)
-    local display = display.consolidated_end_of_day_summary_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.consolidated_end_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.consolidated_end_of_day_summary_message, range, display)
   end
 
-  dissect.consolidated_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
+  siac_cts_output_cta_v1_91_dissect.consolidated_end_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_end_of_day_summary_message)
 
   return offset + size_of_consolidated_end_of_day_summary_message
 end
 
 -- Size: Previous Close Price
-size_of.previous_close_price = 8
+siac_cts_output_cta_v1_91_size_of.previous_close_price = 8
 
 -- Display: Previous Close Price
-display.previous_close_price = function(value)
+siac_cts_output_cta_v1_91_display.previous_close_price = function(value)
   return "Previous Close Price: "..value
 end
 
@@ -3655,12 +3655,12 @@ translate.previous_close_price = function(raw)
 end
 
 -- Dissect: Previous Close Price
-dissect.previous_close_price = function(buffer, offset, packet, parent)
-  local length = size_of.previous_close_price
+siac_cts_output_cta_v1_91_dissect.previous_close_price = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.previous_close_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.previous_close_price(raw)
-  local display = display.previous_close_price(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.previous_close_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.previous_close_price, range, value, display)
 
@@ -3668,49 +3668,49 @@ dissect.previous_close_price = function(buffer, offset, packet, parent)
 end
 
 -- Display: Participant Start Of Day Summary Message
-display.participant_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.participant_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Participant Start Of Day Summary Message
-dissect.participant_start_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
+siac_cts_output_cta_v1_91_dissect.participant_start_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Previous Close Price: 8 Byte Unsigned Fixed Width Integer
-  index, previous_close_price = dissect.previous_close_price(buffer, index, packet, parent)
+  index, previous_close_price = siac_cts_output_cta_v1_91_dissect.previous_close_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Participant Start Of Day Summary Message
-dissect.participant_start_of_day_summary_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participant_start_of_day_summary_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3721,71 +3721,71 @@ dissect.participant_start_of_day_summary_message = function(buffer, offset, pack
   -- Optionally add struct element to protocol tree
   if show.participant_start_of_day_summary_message then
     local range = buffer(offset, size_of_participant_start_of_day_summary_message)
-    local display = display.participant_start_of_day_summary_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.participant_start_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.participant_start_of_day_summary_message, range, display)
   end
 
-  dissect.participant_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
+  siac_cts_output_cta_v1_91_dissect.participant_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_participant_start_of_day_summary_message)
 
   return offset + size_of_participant_start_of_day_summary_message
 end
 
 -- Display: Consolidated Start Of Day Summary Message
-display.consolidated_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.consolidated_start_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Consolidated Start Of Day Summary Message
-dissect.consolidated_start_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
+siac_cts_output_cta_v1_91_dissect.consolidated_start_of_day_summary_message_fields = function(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Previous Close Price Date: 4 Byte Unsigned Fixed Width Integer
-  index, previous_close_price_date = dissect.previous_close_price_date(buffer, index, packet, parent)
+  index, previous_close_price_date = siac_cts_output_cta_v1_91_dissect.previous_close_price_date(buffer, index, packet, parent)
 
   -- Previous Close Price: 8 Byte Unsigned Fixed Width Integer
-  index, previous_close_price = dissect.previous_close_price(buffer, index, packet, parent)
+  index, previous_close_price = siac_cts_output_cta_v1_91_dissect.previous_close_price(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 16 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cts_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cts_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_participants = dissect.number_of_participants(buffer, index, packet, parent)
+  index, number_of_participants = siac_cts_output_cta_v1_91_dissect.number_of_participants(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Consolidated Start Of Day Summary Message
-dissect.consolidated_start_of_day_summary_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.consolidated_start_of_day_summary_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3796,89 +3796,89 @@ dissect.consolidated_start_of_day_summary_message = function(buffer, offset, pac
   -- Optionally add struct element to protocol tree
   if show.consolidated_start_of_day_summary_message then
     local range = buffer(offset, size_of_consolidated_start_of_day_summary_message)
-    local display = display.consolidated_start_of_day_summary_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.consolidated_start_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.consolidated_start_of_day_summary_message, range, display)
   end
 
-  dissect.consolidated_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
+  siac_cts_output_cta_v1_91_dissect.consolidated_start_of_day_summary_message_fields(buffer, offset, packet, parent, size_of_consolidated_start_of_day_summary_message)
 
   return offset + size_of_consolidated_start_of_day_summary_message
 end
 
 -- Calculate runtime size of: Summary Payload
-size_of.summary_payload = function(buffer, offset, summary_message_type)
+siac_cts_output_cta_v1_91_size_of.summary_payload = function(buffer, offset, summary_message_type)
   -- Size of Consolidated Start Of Day Summary Message
   if summary_message_type == "A" then
-    return size_of.consolidated_start_of_day_summary_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.consolidated_start_of_day_summary_message(buffer, offset)
   end
   -- Size of Participant Start Of Day Summary Message
   if summary_message_type == "B" then
-    return size_of.participant_start_of_day_summary_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.participant_start_of_day_summary_message(buffer, offset)
   end
   -- Size of Consolidated End Of Day Summary Message
   if summary_message_type == "C" then
-    return size_of.consolidated_end_of_day_summary_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.consolidated_end_of_day_summary_message(buffer, offset)
   end
   -- Size of Participant End Of Day Summary Message
   if summary_message_type == "D" then
-    return size_of.participant_end_of_day_summary_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.participant_end_of_day_summary_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Summary Payload
-display.summary_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.summary_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Summary Payload
-dissect.summary_payload_branches = function(buffer, offset, packet, parent, summary_message_type)
+siac_cts_output_cta_v1_91_dissect.summary_payload_branches = function(buffer, offset, packet, parent, summary_message_type)
   -- Dissect Consolidated Start Of Day Summary Message
   if summary_message_type == "A" then
-    return dissect.consolidated_start_of_day_summary_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.consolidated_start_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Participant Start Of Day Summary Message
   if summary_message_type == "B" then
-    return dissect.participant_start_of_day_summary_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.participant_start_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Consolidated End Of Day Summary Message
   if summary_message_type == "C" then
-    return dissect.consolidated_end_of_day_summary_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.consolidated_end_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Participant End Of Day Summary Message
   if summary_message_type == "D" then
-    return dissect.participant_end_of_day_summary_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.participant_end_of_day_summary_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Summary Payload
-dissect.summary_payload = function(buffer, offset, packet, parent, summary_message_type)
+siac_cts_output_cta_v1_91_dissect.summary_payload = function(buffer, offset, packet, parent, summary_message_type)
   if not show.summary_payload then
-    return dissect.summary_payload_branches(buffer, offset, packet, parent, summary_message_type)
+    return siac_cts_output_cta_v1_91_dissect.summary_payload_branches(buffer, offset, packet, parent, summary_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.summary_payload(buffer, offset, summary_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.summary_payload(buffer, offset, summary_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.summary_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.summary_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.summary_payload, range, display)
 
-  return dissect.summary_payload_branches(buffer, offset, packet, parent, summary_message_type)
+  return siac_cts_output_cta_v1_91_dissect.summary_payload_branches(buffer, offset, packet, parent, summary_message_type)
 end
 
 -- Size: Summary Message Type
-size_of.summary_message_type = 1
+siac_cts_output_cta_v1_91_size_of.summary_message_type = 1
 
 -- Display: Summary Message Type
-display.summary_message_type = function(value)
+siac_cts_output_cta_v1_91_display.summary_message_type = function(value)
   if value == "A" then
     return "Summary Message Type: Consolidated Start Of Day Summary Message (A)"
   end
@@ -3896,11 +3896,11 @@ display.summary_message_type = function(value)
 end
 
 -- Dissect: Summary Message Type
-dissect.summary_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.summary_message_type
+siac_cts_output_cta_v1_91_dissect.summary_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.summary_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.summary_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.summary_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.summary_message_type, range, value, display)
 
@@ -3908,25 +3908,25 @@ dissect.summary_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Summary
-display.summary = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.summary = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Summary
-dissect.summary_fields = function(buffer, offset, packet, parent, size_of_summary)
+siac_cts_output_cta_v1_91_dissect.summary_fields = function(buffer, offset, packet, parent, size_of_summary)
   local index = offset
 
   -- Summary Message Type: 1 Byte Ascii String Enum with 4 values
-  index, summary_message_type = dissect.summary_message_type(buffer, index, packet, parent)
+  index, summary_message_type = siac_cts_output_cta_v1_91_dissect.summary_message_type(buffer, index, packet, parent)
 
   -- Summary Payload: Runtime Type with 4 branches
-  index = dissect.summary_payload(buffer, index, packet, parent, summary_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.summary_payload(buffer, index, packet, parent, summary_message_type)
 
   return index
 end
 
 -- Dissect: Summary
-dissect.summary = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.summary = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3937,77 +3937,77 @@ dissect.summary = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.summary then
     local range = buffer(offset, size_of_summary)
-    local display = display.summary(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.summary(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.summary, range, display)
   end
 
-  dissect.summary_fields(buffer, offset, packet, parent, size_of_summary)
+  siac_cts_output_cta_v1_91_dissect.summary_fields(buffer, offset, packet, parent, size_of_summary)
 
   return offset + size_of_summary
 end
 
 -- Display: Prior Day Trade Message
-display.prior_day_trade_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.prior_day_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prior Day Trade Message
-dissect.prior_day_trade_message_fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_message)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_message_fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Sale Conditions: Struct of 4 fields
-  index, sale_conditions = dissect.sale_conditions(buffer, index, packet, parent)
+  index, sale_conditions = siac_cts_output_cta_v1_91_dissect.sale_conditions(buffer, index, packet, parent)
 
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = siac_cts_output_cta_v1_91_dissect.trade_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = siac_cts_output_cta_v1_91_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 1 Byte Unsigned Fixed Width Integer
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = siac_cts_output_cta_v1_91_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Stop Stock Indicator: 1 Byte Ascii String Enum with 2 values
-  index, stop_stock_indicator = dissect.stop_stock_indicator(buffer, index, packet, parent)
+  index, stop_stock_indicator = siac_cts_output_cta_v1_91_dissect.stop_stock_indicator(buffer, index, packet, parent)
 
   -- Trade Through Exempt Indicator: 1 Byte Ascii String Enum with 2 values
-  index, trade_through_exempt_indicator = dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
+  index, trade_through_exempt_indicator = siac_cts_output_cta_v1_91_dissect.trade_through_exempt_indicator(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cts_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 17 values
-  index, trade_reporting_facility_id = dissect.trade_reporting_facility_id(buffer, index, packet, parent)
+  index, trade_reporting_facility_id = siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
   -- Prior Day Trade Date And Time: Struct of 2 fields
-  index, prior_day_trade_date_and_time = dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
+  index, prior_day_trade_date_and_time = siac_cts_output_cta_v1_91_dissect.prior_day_trade_date_and_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prior Day Trade Message
-dissect.prior_day_trade_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4018,59 +4018,59 @@ dissect.prior_day_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prior_day_trade_message then
     local range = buffer(offset, size_of_prior_day_trade_message)
-    local display = display.prior_day_trade_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.prior_day_trade_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_trade_message, range, display)
   end
 
-  dissect.prior_day_trade_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_message)
+  siac_cts_output_cta_v1_91_dissect.prior_day_trade_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_message)
 
   return offset + size_of_prior_day_trade_message
 end
 
 -- Display: Prior Day Trade Correction Message
-display.prior_day_trade_correction_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.prior_day_trade_correction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prior Day Trade Correction Message
-dissect.prior_day_trade_correction_message_fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_correction_message_fields = function(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol: 11 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = siac_cts_output_cta_v1_91_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cts_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Corrected Trade: Struct of 8 fields
-  index, corrected_trade = dissect.corrected_trade(buffer, index, packet, parent)
+  index, corrected_trade = siac_cts_output_cta_v1_91_dissect.corrected_trade(buffer, index, packet, parent)
 
   -- Trade Reporting Facility Id: 1 Byte Ascii String Enum with 17 values
-  index, trade_reporting_facility_id = dissect.trade_reporting_facility_id(buffer, index, packet, parent)
+  index, trade_reporting_facility_id = siac_cts_output_cta_v1_91_dissect.trade_reporting_facility_id(buffer, index, packet, parent)
 
   -- Original Trade: Struct of 8 fields
-  index, original_trade = dissect.original_trade(buffer, index, packet, parent)
+  index, original_trade = siac_cts_output_cta_v1_91_dissect.original_trade(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prior Day Trade Correction Message
-dissect.prior_day_trade_correction_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.prior_day_trade_correction_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4081,81 +4081,81 @@ dissect.prior_day_trade_correction_message = function(buffer, offset, packet, pa
   -- Optionally add struct element to protocol tree
   if show.prior_day_trade_correction_message then
     local range = buffer(offset, size_of_prior_day_trade_correction_message)
-    local display = display.prior_day_trade_correction_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.prior_day_trade_correction_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_trade_correction_message, range, display)
   end
 
-  dissect.prior_day_trade_correction_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
+  siac_cts_output_cta_v1_91_dissect.prior_day_trade_correction_message_fields(buffer, offset, packet, parent, size_of_prior_day_trade_correction_message)
 
   return offset + size_of_prior_day_trade_correction_message
 end
 
 -- Calculate runtime size of: Prior Day Payload
-size_of.prior_day_payload = function(buffer, offset, prior_day_message_type)
+siac_cts_output_cta_v1_91_size_of.prior_day_payload = function(buffer, offset, prior_day_message_type)
   -- Size of Prior Day Trade Correction Message
   if prior_day_message_type == "C" then
-    return size_of.prior_day_trade_correction_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.prior_day_trade_correction_message(buffer, offset)
   end
   -- Size of Prior Day Trade Message
   if prior_day_message_type == "L" then
-    return size_of.prior_day_trade_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.prior_day_trade_message(buffer, offset)
   end
   -- Size of Prior Day Trade Message
   if prior_day_message_type == "X" then
-    return size_of.prior_day_trade_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.prior_day_trade_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Prior Day Payload
-display.prior_day_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.prior_day_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Prior Day Payload
-dissect.prior_day_payload_branches = function(buffer, offset, packet, parent, prior_day_message_type)
+siac_cts_output_cta_v1_91_dissect.prior_day_payload_branches = function(buffer, offset, packet, parent, prior_day_message_type)
   -- Dissect Prior Day Trade Correction Message
   if prior_day_message_type == "C" then
-    return dissect.prior_day_trade_correction_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.prior_day_trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Prior Day Trade Message
   if prior_day_message_type == "L" then
-    return dissect.prior_day_trade_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.prior_day_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Prior Day Trade Message
   if prior_day_message_type == "X" then
-    return dissect.prior_day_trade_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.prior_day_trade_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Prior Day Payload
-dissect.prior_day_payload = function(buffer, offset, packet, parent, prior_day_message_type)
+siac_cts_output_cta_v1_91_dissect.prior_day_payload = function(buffer, offset, packet, parent, prior_day_message_type)
   if not show.prior_day_payload then
-    return dissect.prior_day_payload_branches(buffer, offset, packet, parent, prior_day_message_type)
+    return siac_cts_output_cta_v1_91_dissect.prior_day_payload_branches(buffer, offset, packet, parent, prior_day_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.prior_day_payload(buffer, offset, prior_day_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.prior_day_payload(buffer, offset, prior_day_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.prior_day_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.prior_day_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.prior_day_payload, range, display)
 
-  return dissect.prior_day_payload_branches(buffer, offset, packet, parent, prior_day_message_type)
+  return siac_cts_output_cta_v1_91_dissect.prior_day_payload_branches(buffer, offset, packet, parent, prior_day_message_type)
 end
 
 -- Size: Prior Day Message Type
-size_of.prior_day_message_type = 1
+siac_cts_output_cta_v1_91_size_of.prior_day_message_type = 1
 
 -- Display: Prior Day Message Type
-display.prior_day_message_type = function(value)
+siac_cts_output_cta_v1_91_display.prior_day_message_type = function(value)
   if value == "C" then
     return "Prior Day Message Type: Prior Day Trade Correction Message (C)"
   end
@@ -4170,11 +4170,11 @@ display.prior_day_message_type = function(value)
 end
 
 -- Dissect: Prior Day Message Type
-dissect.prior_day_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.prior_day_message_type
+siac_cts_output_cta_v1_91_dissect.prior_day_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.prior_day_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.prior_day_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.prior_day_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.prior_day_message_type, range, value, display)
 
@@ -4182,25 +4182,25 @@ dissect.prior_day_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Prior Day
-display.prior_day = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.prior_day = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prior Day
-dissect.prior_day_fields = function(buffer, offset, packet, parent, size_of_prior_day)
+siac_cts_output_cta_v1_91_dissect.prior_day_fields = function(buffer, offset, packet, parent, size_of_prior_day)
   local index = offset
 
   -- Prior Day Message Type: 1 Byte Ascii String Enum with 3 values
-  index, prior_day_message_type = dissect.prior_day_message_type(buffer, index, packet, parent)
+  index, prior_day_message_type = siac_cts_output_cta_v1_91_dissect.prior_day_message_type(buffer, index, packet, parent)
 
   -- Prior Day Payload: Runtime Type with 3 branches
-  index = dissect.prior_day_payload(buffer, index, packet, parent, prior_day_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.prior_day_payload(buffer, index, packet, parent, prior_day_message_type)
 
   return index
 end
 
 -- Dissect: Prior Day
-dissect.prior_day = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.prior_day = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -4211,29 +4211,29 @@ dissect.prior_day = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prior_day then
     local range = buffer(offset, size_of_prior_day)
-    local display = display.prior_day(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.prior_day(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.prior_day, range, display)
   end
 
-  dissect.prior_day_fields(buffer, offset, packet, parent, size_of_prior_day)
+  siac_cts_output_cta_v1_91_dissect.prior_day_fields(buffer, offset, packet, parent, size_of_prior_day)
 
   return offset + size_of_prior_day
 end
 
 -- Size: Crossing Session 2 Total Trades Volume
-size_of.crossing_session_2_total_trades_volume = 8
+siac_cts_output_cta_v1_91_size_of.crossing_session_2_total_trades_volume = 8
 
 -- Display: Crossing Session 2 Total Trades Volume
-display.crossing_session_2_total_trades_volume = function(value)
+siac_cts_output_cta_v1_91_display.crossing_session_2_total_trades_volume = function(value)
   return "Crossing Session 2 Total Trades Volume: "..value
 end
 
 -- Dissect: Crossing Session 2 Total Trades Volume
-dissect.crossing_session_2_total_trades_volume = function(buffer, offset, packet, parent)
-  local length = size_of.crossing_session_2_total_trades_volume
+siac_cts_output_cta_v1_91_dissect.crossing_session_2_total_trades_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.crossing_session_2_total_trades_volume
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.crossing_session_2_total_trades_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.crossing_session_2_total_trades_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.crossing_session_2_total_trades_volume, range, value, display)
 
@@ -4241,19 +4241,19 @@ dissect.crossing_session_2_total_trades_volume = function(buffer, offset, packet
 end
 
 -- Size: Crossing Session 2 Dollar Value
-size_of.crossing_session_2_dollar_value = 8
+siac_cts_output_cta_v1_91_size_of.crossing_session_2_dollar_value = 8
 
 -- Display: Crossing Session 2 Dollar Value
-display.crossing_session_2_dollar_value = function(value)
+siac_cts_output_cta_v1_91_display.crossing_session_2_dollar_value = function(value)
   return "Crossing Session 2 Dollar Value: "..value
 end
 
 -- Dissect: Crossing Session 2 Dollar Value
-dissect.crossing_session_2_dollar_value = function(buffer, offset, packet, parent)
-  local length = size_of.crossing_session_2_dollar_value
+siac_cts_output_cta_v1_91_dissect.crossing_session_2_dollar_value = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.crossing_session_2_dollar_value
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.crossing_session_2_dollar_value(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.crossing_session_2_dollar_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.crossing_session_2_dollar_value, range, value, display)
 
@@ -4261,19 +4261,19 @@ dissect.crossing_session_2_dollar_value = function(buffer, offset, packet, paren
 end
 
 -- Size: Crossing Session 1 Total Trades Volume
-size_of.crossing_session_1_total_trades_volume = 8
+siac_cts_output_cta_v1_91_size_of.crossing_session_1_total_trades_volume = 8
 
 -- Display: Crossing Session 1 Total Trades Volume
-display.crossing_session_1_total_trades_volume = function(value)
+siac_cts_output_cta_v1_91_display.crossing_session_1_total_trades_volume = function(value)
   return "Crossing Session 1 Total Trades Volume: "..value
 end
 
 -- Dissect: Crossing Session 1 Total Trades Volume
-dissect.crossing_session_1_total_trades_volume = function(buffer, offset, packet, parent)
-  local length = size_of.crossing_session_1_total_trades_volume
+siac_cts_output_cta_v1_91_dissect.crossing_session_1_total_trades_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.crossing_session_1_total_trades_volume
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.crossing_session_1_total_trades_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.crossing_session_1_total_trades_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.crossing_session_1_total_trades_volume, range, value, display)
 
@@ -4281,43 +4281,43 @@ dissect.crossing_session_1_total_trades_volume = function(buffer, offset, packet
 end
 
 -- Display: Crossing Session Summary Message
-display.crossing_session_summary_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.crossing_session_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Crossing Session Summary Message
-dissect.crossing_session_summary_message_fields = function(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
+siac_cts_output_cta_v1_91_dissect.crossing_session_summary_message_fields = function(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Crossing Session 1 Total Trades Volume: 8 Byte Unsigned Fixed Width Integer
-  index, crossing_session_1_total_trades_volume = dissect.crossing_session_1_total_trades_volume(buffer, index, packet, parent)
+  index, crossing_session_1_total_trades_volume = siac_cts_output_cta_v1_91_dissect.crossing_session_1_total_trades_volume(buffer, index, packet, parent)
 
   -- Crossing Session 2 Dollar Value: 8 Byte Unsigned Fixed Width Integer
-  index, crossing_session_2_dollar_value = dissect.crossing_session_2_dollar_value(buffer, index, packet, parent)
+  index, crossing_session_2_dollar_value = siac_cts_output_cta_v1_91_dissect.crossing_session_2_dollar_value(buffer, index, packet, parent)
 
   -- Crossing Session 2 Total Trades Volume: 8 Byte Unsigned Fixed Width Integer
-  index, crossing_session_2_total_trades_volume = dissect.crossing_session_2_total_trades_volume(buffer, index, packet, parent)
+  index, crossing_session_2_total_trades_volume = siac_cts_output_cta_v1_91_dissect.crossing_session_2_total_trades_volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Crossing Session Summary Message
-dissect.crossing_session_summary_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.crossing_session_summary_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4328,29 +4328,29 @@ dissect.crossing_session_summary_message = function(buffer, offset, packet, pare
   -- Optionally add struct element to protocol tree
   if show.crossing_session_summary_message then
     local range = buffer(offset, size_of_crossing_session_summary_message)
-    local display = display.crossing_session_summary_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.crossing_session_summary_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.crossing_session_summary_message, range, display)
   end
 
-  dissect.crossing_session_summary_message_fields(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
+  siac_cts_output_cta_v1_91_dissect.crossing_session_summary_message_fields(buffer, offset, packet, parent, size_of_crossing_session_summary_message)
 
   return offset + size_of_crossing_session_summary_message
 end
 
 -- Size: Dollar Value
-size_of.dollar_value = 8
+siac_cts_output_cta_v1_91_size_of.dollar_value = 8
 
 -- Display: Dollar Value
-display.dollar_value = function(value)
+siac_cts_output_cta_v1_91_display.dollar_value = function(value)
   return "Dollar Value: "..value
 end
 
 -- Dissect: Dollar Value
-dissect.dollar_value = function(buffer, offset, packet, parent)
-  local length = size_of.dollar_value
+siac_cts_output_cta_v1_91_dissect.dollar_value = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.dollar_value
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.dollar_value(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.dollar_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.dollar_value, range, value, display)
 
@@ -4358,19 +4358,19 @@ dissect.dollar_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Total Trades
-size_of.total_trades = 4
+siac_cts_output_cta_v1_91_size_of.total_trades = 4
 
 -- Display: Total Trades
-display.total_trades = function(value)
+siac_cts_output_cta_v1_91_display.total_trades = function(value)
   return "Total Trades: "..value
 end
 
 -- Dissect: Total Trades
-dissect.total_trades = function(buffer, offset, packet, parent)
-  local length = size_of.total_trades
+siac_cts_output_cta_v1_91_dissect.total_trades = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.total_trades
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.total_trades(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.total_trades(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.total_trades, range, value, display)
 
@@ -4378,40 +4378,40 @@ dissect.total_trades = function(buffer, offset, packet, parent)
 end
 
 -- Display: Approximate Trades And Total Dollar Value Message
-display.approximate_trades_and_total_dollar_value_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.approximate_trades_and_total_dollar_value_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Approximate Trades And Total Dollar Value Message
-dissect.approximate_trades_and_total_dollar_value_message_fields = function(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
+siac_cts_output_cta_v1_91_dissect.approximate_trades_and_total_dollar_value_message_fields = function(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Total Trades: 4 Byte Unsigned Fixed Width Integer
-  index, total_trades = dissect.total_trades(buffer, index, packet, parent)
+  index, total_trades = siac_cts_output_cta_v1_91_dissect.total_trades(buffer, index, packet, parent)
 
   -- Dollar Value: 8 Byte Unsigned Fixed Width Integer
-  index, dollar_value = dissect.dollar_value(buffer, index, packet, parent)
+  index, dollar_value = siac_cts_output_cta_v1_91_dissect.dollar_value(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Approximate Trades And Total Dollar Value Message
-dissect.approximate_trades_and_total_dollar_value_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.approximate_trades_and_total_dollar_value_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4422,29 +4422,29 @@ dissect.approximate_trades_and_total_dollar_value_message = function(buffer, off
   -- Optionally add struct element to protocol tree
   if show.approximate_trades_and_total_dollar_value_message then
     local range = buffer(offset, size_of_approximate_trades_and_total_dollar_value_message)
-    local display = display.approximate_trades_and_total_dollar_value_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.approximate_trades_and_total_dollar_value_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.approximate_trades_and_total_dollar_value_message, range, display)
   end
 
-  dissect.approximate_trades_and_total_dollar_value_message_fields(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
+  siac_cts_output_cta_v1_91_dissect.approximate_trades_and_total_dollar_value_message_fields(buffer, offset, packet, parent, size_of_approximate_trades_and_total_dollar_value_message)
 
   return offset + size_of_approximate_trades_and_total_dollar_value_message
 end
 
 -- Size: Trade Total Volume
-size_of.trade_total_volume = 8
+siac_cts_output_cta_v1_91_size_of.trade_total_volume = 8
 
 -- Display: Trade Total Volume
-display.trade_total_volume = function(value)
+siac_cts_output_cta_v1_91_display.trade_total_volume = function(value)
   return "Trade Total Volume: "..value
 end
 
 -- Dissect: Trade Total Volume
-dissect.trade_total_volume = function(buffer, offset, packet, parent)
-  local length = size_of.trade_total_volume
+siac_cts_output_cta_v1_91_dissect.trade_total_volume = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.trade_total_volume
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.trade_total_volume(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.trade_total_volume(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.trade_total_volume, range, value, display)
 
@@ -4452,84 +4452,84 @@ dissect.trade_total_volume = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Participants
-size_of.participants = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.participants = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.participant_id
+  index = index + siac_cts_output_cta_v1_91_size_of.participant_id
 
-  index = index + size_of.trade_total_volume
+  index = index + siac_cts_output_cta_v1_91_size_of.trade_total_volume
 
   return index
 end
 
 -- Display: Participants
-display.participants = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.participants = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Participants
-dissect.participants_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participants_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Trade Total Volume: 8 Byte Unsigned Fixed Width Integer
-  index, trade_total_volume = dissect.trade_total_volume(buffer, index, packet, parent)
+  index, trade_total_volume = siac_cts_output_cta_v1_91_dissect.trade_total_volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Participants
-dissect.participants = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.participants = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.participants then
-    local length = size_of.participants(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.participants(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.participants(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.participants(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.participants, range, display)
   end
 
-  return dissect.participants_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.participants_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Approximate Adjusted Volume Market Center Message
-display.approximate_adjusted_volume_market_center_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.approximate_adjusted_volume_market_center_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Approximate Adjusted Volume Market Center Message
-dissect.approximate_adjusted_volume_market_center_message_fields = function(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
+siac_cts_output_cta_v1_91_dissect.approximate_adjusted_volume_market_center_message_fields = function(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Number Of Participants: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_participants = dissect.number_of_participants(buffer, index, packet, parent)
+  index, number_of_participants = siac_cts_output_cta_v1_91_dissect.number_of_participants(buffer, index, packet, parent)
 
   -- Participants: Struct of 2 fields
   for i = 1, number_of_participants do
-    index = dissect.participants(buffer, index, packet, parent)
+    index = siac_cts_output_cta_v1_91_dissect.participants(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Approximate Adjusted Volume Market Center Message
-dissect.approximate_adjusted_volume_market_center_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.approximate_adjusted_volume_market_center_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4540,29 +4540,29 @@ dissect.approximate_adjusted_volume_market_center_message = function(buffer, off
   -- Optionally add struct element to protocol tree
   if show.approximate_adjusted_volume_market_center_message then
     local range = buffer(offset, size_of_approximate_adjusted_volume_market_center_message)
-    local display = display.approximate_adjusted_volume_market_center_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.approximate_adjusted_volume_market_center_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.approximate_adjusted_volume_market_center_message, range, display)
   end
 
-  dissect.approximate_adjusted_volume_market_center_message_fields(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
+  siac_cts_output_cta_v1_91_dissect.approximate_adjusted_volume_market_center_message_fields(buffer, offset, packet, parent, size_of_approximate_adjusted_volume_market_center_message)
 
   return offset + size_of_approximate_adjusted_volume_market_center_message
 end
 
 -- Size: Reserved
-size_of.reserved = 1
+siac_cts_output_cta_v1_91_size_of.reserved = 1
 
 -- Display: Reserved
-display.reserved = function(value)
+siac_cts_output_cta_v1_91_display.reserved = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-dissect.reserved = function(buffer, offset, packet, parent)
-  local length = size_of.reserved
+siac_cts_output_cta_v1_91_dissect.reserved = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.reserved
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reserved(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.reserved, range, value, display)
 
@@ -4570,40 +4570,40 @@ dissect.reserved = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Wide Circuit Breaker Status Message
-display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Status Message
-dissect.market_wide_circuit_breaker_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Market Wide Circuit Breaker Level Indicator
-  index, market_wide_circuit_breaker_level_indicator = dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
+  index, market_wide_circuit_breaker_level_indicator = siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = siac_cts_output_cta_v1_91_dissect.reserved(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
-dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4614,29 +4614,29 @@ dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, pa
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_status_message)
-    local display = display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, range, display)
   end
 
-  dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
 
   return offset + size_of_market_wide_circuit_breaker_status_message
 end
 
 -- Size: Mwcb Level 3
-size_of.mwcb_level_3 = 8
+siac_cts_output_cta_v1_91_size_of.mwcb_level_3 = 8
 
 -- Display: Mwcb Level 3
-display.mwcb_level_3 = function(value)
+siac_cts_output_cta_v1_91_display.mwcb_level_3 = function(value)
   return "Mwcb Level 3: "..value
 end
 
 -- Dissect: Mwcb Level 3
-dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
-  local length = size_of.mwcb_level_3
+siac_cts_output_cta_v1_91_dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.mwcb_level_3
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.mwcb_level_3(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.mwcb_level_3(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.mwcb_level_3, range, value, display)
 
@@ -4644,19 +4644,19 @@ dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mwcb Level 2
-size_of.mwcb_level_2 = 8
+siac_cts_output_cta_v1_91_size_of.mwcb_level_2 = 8
 
 -- Display: Mwcb Level 2
-display.mwcb_level_2 = function(value)
+siac_cts_output_cta_v1_91_display.mwcb_level_2 = function(value)
   return "Mwcb Level 2: "..value
 end
 
 -- Dissect: Mwcb Level 2
-dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
-  local length = size_of.mwcb_level_2
+siac_cts_output_cta_v1_91_dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.mwcb_level_2
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.mwcb_level_2(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.mwcb_level_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.mwcb_level_2, range, value, display)
 
@@ -4664,46 +4664,46 @@ dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Wide Circuit Breaker Decline Level Status Message
-display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
-dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Mwcb Level 1
-  index, mwcb_level_1 = dissect.mwcb_level_1(buffer, index, packet, parent)
+  index, mwcb_level_1 = siac_cts_output_cta_v1_91_dissect.mwcb_level_1(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
-  index, mwcb_level_2 = dissect.mwcb_level_2(buffer, index, packet, parent)
+  index, mwcb_level_2 = siac_cts_output_cta_v1_91_dissect.mwcb_level_2(buffer, index, packet, parent)
 
   -- Mwcb Level 3: 8 Byte Signed Fixed Width Integer
-  index, mwcb_level_3 = dissect.mwcb_level_3(buffer, index, packet, parent)
+  index, mwcb_level_3 = siac_cts_output_cta_v1_91_dissect.mwcb_level_3(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = siac_cts_output_cta_v1_91_dissect.reserved(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
-dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4714,97 +4714,97 @@ dissect.market_wide_circuit_breaker_decline_level_status_message = function(buff
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_status_message)
-    local display = display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
   end
 
-  dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+  siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
 
   return offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 end
 
 -- Calculate runtime size of: Market Status Payload
-size_of.market_status_payload = function(buffer, offset, market_status_message_type)
+siac_cts_output_cta_v1_91_size_of.market_status_payload = function(buffer, offset, market_status_message_type)
   -- Size of Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
-    return size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
   end
   -- Size of Market Wide Circuit Breaker Status Message
   if market_status_message_type == "L" then
-    return size_of.market_wide_circuit_breaker_status_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.market_wide_circuit_breaker_status_message(buffer, offset)
   end
   -- Size of Approximate Adjusted Volume Market Center Message
   if market_status_message_type == "N" then
-    return size_of.approximate_adjusted_volume_market_center_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.approximate_adjusted_volume_market_center_message(buffer, offset)
   end
   -- Size of Approximate Trades And Total Dollar Value Message
   if market_status_message_type == "O" then
-    return size_of.approximate_trades_and_total_dollar_value_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.approximate_trades_and_total_dollar_value_message(buffer, offset)
   end
   -- Size of Crossing Session Summary Message
   if market_status_message_type == "P" then
-    return size_of.crossing_session_summary_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.crossing_session_summary_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Market Status Payload
-display.market_status_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.market_status_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Market Status Payload
-dissect.market_status_payload_branches = function(buffer, offset, packet, parent, market_status_message_type)
+siac_cts_output_cta_v1_91_dissect.market_status_payload_branches = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
-    return dissect.market_wide_circuit_breaker_decline_level_status_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Status Message
   if market_status_message_type == "L" then
-    return dissect.market_wide_circuit_breaker_status_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Approximate Adjusted Volume Market Center Message
   if market_status_message_type == "N" then
-    return dissect.approximate_adjusted_volume_market_center_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.approximate_adjusted_volume_market_center_message(buffer, offset, packet, parent)
   end
   -- Dissect Approximate Trades And Total Dollar Value Message
   if market_status_message_type == "O" then
-    return dissect.approximate_trades_and_total_dollar_value_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.approximate_trades_and_total_dollar_value_message(buffer, offset, packet, parent)
   end
   -- Dissect Crossing Session Summary Message
   if market_status_message_type == "P" then
-    return dissect.crossing_session_summary_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.crossing_session_summary_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Market Status Payload
-dissect.market_status_payload = function(buffer, offset, packet, parent, market_status_message_type)
+siac_cts_output_cta_v1_91_dissect.market_status_payload = function(buffer, offset, packet, parent, market_status_message_type)
   if not show.market_status_payload then
-    return dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
+    return siac_cts_output_cta_v1_91_dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.market_status_payload(buffer, offset, market_status_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.market_status_payload(buffer, offset, market_status_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.market_status_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.market_status_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.market_status_payload, range, display)
 
-  return dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
+  return siac_cts_output_cta_v1_91_dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
 end
 
 -- Size: Market Status Message Type
-size_of.market_status_message_type = 1
+siac_cts_output_cta_v1_91_size_of.market_status_message_type = 1
 
 -- Display: Market Status Message Type
-display.market_status_message_type = function(value)
+siac_cts_output_cta_v1_91_display.market_status_message_type = function(value)
   if value == "M" then
     return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
   end
@@ -4825,11 +4825,11 @@ display.market_status_message_type = function(value)
 end
 
 -- Dissect: Market Status Message Type
-dissect.market_status_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.market_status_message_type
+siac_cts_output_cta_v1_91_dissect.market_status_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.market_status_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_status_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.market_status_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.market_status_message_type, range, value, display)
 
@@ -4837,25 +4837,25 @@ dissect.market_status_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Status
-display.market_status = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.market_status = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Status
-dissect.market_status_fields = function(buffer, offset, packet, parent, size_of_market_status)
+siac_cts_output_cta_v1_91_dissect.market_status_fields = function(buffer, offset, packet, parent, size_of_market_status)
   local index = offset
 
   -- Market Status Message Type: 1 Byte Ascii String Enum with 5 values
-  index, market_status_message_type = dissect.market_status_message_type(buffer, index, packet, parent)
+  index, market_status_message_type = siac_cts_output_cta_v1_91_dissect.market_status_message_type(buffer, index, packet, parent)
 
   -- Market Status Payload: Runtime Type with 5 branches
-  index = dissect.market_status_payload(buffer, index, packet, parent, market_status_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.market_status_payload(buffer, index, packet, parent, market_status_message_type)
 
   return index
 end
 
 -- Dissect: Market Status
-dissect.market_status = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.market_status = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -4866,29 +4866,29 @@ dissect.market_status = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_status then
     local range = buffer(offset, size_of_market_status)
-    local display = display.market_status(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.market_status(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.market_status, range, display)
   end
 
-  dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
+  siac_cts_output_cta_v1_91_dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
 
   return offset + size_of_market_status
 end
 
 -- Size: Offer Index Value
-size_of.offer_index_value = 8
+siac_cts_output_cta_v1_91_size_of.offer_index_value = 8
 
 -- Display: Offer Index Value
-display.offer_index_value = function(value)
+siac_cts_output_cta_v1_91_display.offer_index_value = function(value)
   return "Offer Index Value: "..value
 end
 
 -- Dissect: Offer Index Value
-dissect.offer_index_value = function(buffer, offset, packet, parent)
-  local length = size_of.offer_index_value
+siac_cts_output_cta_v1_91_dissect.offer_index_value = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.offer_index_value
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.offer_index_value(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.offer_index_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.offer_index_value, range, value, display)
 
@@ -4896,19 +4896,19 @@ dissect.offer_index_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Index Value
-size_of.bid_index_value = 8
+siac_cts_output_cta_v1_91_size_of.bid_index_value = 8
 
 -- Display: Bid Index Value
-display.bid_index_value = function(value)
+siac_cts_output_cta_v1_91_display.bid_index_value = function(value)
   return "Bid Index Value: "..value
 end
 
 -- Dissect: Bid Index Value
-dissect.bid_index_value = function(buffer, offset, packet, parent)
-  local length = size_of.bid_index_value
+siac_cts_output_cta_v1_91_dissect.bid_index_value = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.bid_index_value
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.bid_index_value(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.bid_index_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.bid_index_value, range, value, display)
 
@@ -4916,19 +4916,19 @@ dissect.bid_index_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Index Symbol
-size_of.index_symbol = 11
+siac_cts_output_cta_v1_91_size_of.index_symbol = 11
 
 -- Display: Index Symbol
-display.index_symbol = function(value)
+siac_cts_output_cta_v1_91_display.index_symbol = function(value)
   return "Index Symbol: "..value
 end
 
 -- Dissect: Index Symbol
-dissect.index_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.index_symbol
+siac_cts_output_cta_v1_91_dissect.index_symbol = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.index_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.index_symbol(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.index_symbol(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.index_symbol, range, value, display)
 
@@ -4936,43 +4936,43 @@ dissect.index_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Display: Bid And Offer Index Message
-display.bid_and_offer_index_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.bid_and_offer_index_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Bid And Offer Index Message
-dissect.bid_and_offer_index_message_fields = function(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
+siac_cts_output_cta_v1_91_dissect.bid_and_offer_index_message_fields = function(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Index Symbol: 11 Byte Ascii String
-  index, index_symbol = dissect.index_symbol(buffer, index, packet, parent)
+  index, index_symbol = siac_cts_output_cta_v1_91_dissect.index_symbol(buffer, index, packet, parent)
 
   -- Bid Index Value: 8 Byte Signed Fixed Width Integer
-  index, bid_index_value = dissect.bid_index_value(buffer, index, packet, parent)
+  index, bid_index_value = siac_cts_output_cta_v1_91_dissect.bid_index_value(buffer, index, packet, parent)
 
   -- Offer Index Value: 8 Byte Signed Fixed Width Integer
-  index, offer_index_value = dissect.offer_index_value(buffer, index, packet, parent)
+  index, offer_index_value = siac_cts_output_cta_v1_91_dissect.offer_index_value(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Bid And Offer Index Message
-dissect.bid_and_offer_index_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.bid_and_offer_index_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4983,29 +4983,29 @@ dissect.bid_and_offer_index_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.bid_and_offer_index_message then
     local range = buffer(offset, size_of_bid_and_offer_index_message)
-    local display = display.bid_and_offer_index_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.bid_and_offer_index_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.bid_and_offer_index_message, range, display)
   end
 
-  dissect.bid_and_offer_index_message_fields(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
+  siac_cts_output_cta_v1_91_dissect.bid_and_offer_index_message_fields(buffer, offset, packet, parent, size_of_bid_and_offer_index_message)
 
   return offset + size_of_bid_and_offer_index_message
 end
 
 -- Size: Index Value
-size_of.index_value = 8
+siac_cts_output_cta_v1_91_size_of.index_value = 8
 
 -- Display: Index Value
-display.index_value = function(value)
+siac_cts_output_cta_v1_91_display.index_value = function(value)
   return "Index Value: "..value
 end
 
 -- Dissect: Index Value
-dissect.index_value = function(buffer, offset, packet, parent)
-  local length = size_of.index_value
+siac_cts_output_cta_v1_91_dissect.index_value = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.index_value
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.index_value(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.index_value(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.index_value, range, value, display)
 
@@ -5013,40 +5013,40 @@ dissect.index_value = function(buffer, offset, packet, parent)
 end
 
 -- Display: Index Message
-display.index_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.index_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Index Message
-dissect.index_message_fields = function(buffer, offset, packet, parent, size_of_index_message)
+siac_cts_output_cta_v1_91_dissect.index_message_fields = function(buffer, offset, packet, parent, size_of_index_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Index Symbol: 11 Byte Ascii String
-  index, index_symbol = dissect.index_symbol(buffer, index, packet, parent)
+  index, index_symbol = siac_cts_output_cta_v1_91_dissect.index_symbol(buffer, index, packet, parent)
 
   -- Index Value: 8 Byte Signed Fixed Width Integer
-  index, index_value = dissect.index_value(buffer, index, packet, parent)
+  index, index_value = siac_cts_output_cta_v1_91_dissect.index_value(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Index Message
-dissect.index_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.index_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5057,73 +5057,73 @@ dissect.index_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index_message then
     local range = buffer(offset, size_of_index_message)
-    local display = display.index_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.index_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.index_message, range, display)
   end
 
-  dissect.index_message_fields(buffer, offset, packet, parent, size_of_index_message)
+  siac_cts_output_cta_v1_91_dissect.index_message_fields(buffer, offset, packet, parent, size_of_index_message)
 
   return offset + size_of_index_message
 end
 
 -- Calculate runtime size of: Index Payload
-size_of.index_payload = function(buffer, offset, index_message_type)
+siac_cts_output_cta_v1_91_size_of.index_payload = function(buffer, offset, index_message_type)
   -- Size of Index Message
   if index_message_type == "I" then
-    return size_of.index_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.index_message(buffer, offset)
   end
   -- Size of Bid And Offer Index Message
   if index_message_type == "Q" then
-    return size_of.bid_and_offer_index_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.bid_and_offer_index_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Index Payload
-display.index_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.index_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Index Payload
-dissect.index_payload_branches = function(buffer, offset, packet, parent, index_message_type)
+siac_cts_output_cta_v1_91_dissect.index_payload_branches = function(buffer, offset, packet, parent, index_message_type)
   -- Dissect Index Message
   if index_message_type == "I" then
-    return dissect.index_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.index_message(buffer, offset, packet, parent)
   end
   -- Dissect Bid And Offer Index Message
   if index_message_type == "Q" then
-    return dissect.bid_and_offer_index_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.bid_and_offer_index_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Index Payload
-dissect.index_payload = function(buffer, offset, packet, parent, index_message_type)
+siac_cts_output_cta_v1_91_dissect.index_payload = function(buffer, offset, packet, parent, index_message_type)
   if not show.index_payload then
-    return dissect.index_payload_branches(buffer, offset, packet, parent, index_message_type)
+    return siac_cts_output_cta_v1_91_dissect.index_payload_branches(buffer, offset, packet, parent, index_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.index_payload(buffer, offset, index_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.index_payload(buffer, offset, index_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.index_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.index_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.index_payload, range, display)
 
-  return dissect.index_payload_branches(buffer, offset, packet, parent, index_message_type)
+  return siac_cts_output_cta_v1_91_dissect.index_payload_branches(buffer, offset, packet, parent, index_message_type)
 end
 
 -- Size: Index Message Type
-size_of.index_message_type = 1
+siac_cts_output_cta_v1_91_size_of.index_message_type = 1
 
 -- Display: Index Message Type
-display.index_message_type = function(value)
+siac_cts_output_cta_v1_91_display.index_message_type = function(value)
   if value == "I" then
     return "Index Message Type: Index Message (I)"
   end
@@ -5135,11 +5135,11 @@ display.index_message_type = function(value)
 end
 
 -- Dissect: Index Message Type
-dissect.index_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.index_message_type
+siac_cts_output_cta_v1_91_dissect.index_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.index_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.index_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.index_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.index_message_type, range, value, display)
 
@@ -5147,25 +5147,25 @@ dissect.index_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Index
-display.index = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.index = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Index
-dissect.index_fields = function(buffer, offset, packet, parent, size_of_index)
+siac_cts_output_cta_v1_91_dissect.index_fields = function(buffer, offset, packet, parent, size_of_index)
   local index = offset
 
   -- Index Message Type: 1 Byte Ascii String Enum with 2 values
-  index, index_message_type = dissect.index_message_type(buffer, index, packet, parent)
+  index, index_message_type = siac_cts_output_cta_v1_91_dissect.index_message_type(buffer, index, packet, parent)
 
   -- Index Payload: Runtime Type with 2 branches
-  index = dissect.index_payload(buffer, index, packet, parent, index_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.index_payload(buffer, index, packet, parent, index_message_type)
 
   return index
 end
 
 -- Dissect: Index
-dissect.index = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.index = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -5176,44 +5176,44 @@ dissect.index = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index then
     local range = buffer(offset, size_of_index)
-    local display = display.index(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.index(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.index, range, display)
   end
 
-  dissect.index_fields(buffer, offset, packet, parent, size_of_index)
+  siac_cts_output_cta_v1_91_dissect.index_fields(buffer, offset, packet, parent, size_of_index)
 
   return offset + size_of_index
 end
 
 -- Display: End Of Day Message
-display.end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Day Message
-dissect.end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+siac_cts_output_cta_v1_91_dissect.end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Day Message
-dissect.end_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.end_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5224,44 +5224,44 @@ dissect.end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
     local range = buffer(offset, size_of_end_of_day_message)
-    local display = display.end_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.end_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.end_of_day_message, range, display)
   end
 
-  dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
 
   return offset + size_of_end_of_day_message
 end
 
 -- Display: Line Integrity Message
-display.line_integrity_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.line_integrity_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Line Integrity Message
-dissect.line_integrity_message_fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+siac_cts_output_cta_v1_91_dissect.line_integrity_message_fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Line Integrity Message
-dissect.line_integrity_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.line_integrity_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5272,44 +5272,44 @@ dissect.line_integrity_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
     local range = buffer(offset, size_of_line_integrity_message)
-    local display = display.line_integrity_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.line_integrity_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.line_integrity_message, range, display)
   end
 
-  dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
+  siac_cts_output_cta_v1_91_dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
 
   return offset + size_of_line_integrity_message
 end
 
 -- Display: Disaster Recovery Data Center Activation Message
-display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Disaster Recovery Data Center Activation Message
-dissect.disaster_recovery_data_center_activation_message_fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+siac_cts_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message_fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
-dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5320,44 +5320,44 @@ dissect.disaster_recovery_data_center_activation_message = function(buffer, offs
   -- Optionally add struct element to protocol tree
   if show.disaster_recovery_data_center_activation_message then
     local range = buffer(offset, size_of_disaster_recovery_data_center_activation_message)
-    local display = display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, range, display)
   end
 
-  dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+  siac_cts_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
 
   return offset + size_of_disaster_recovery_data_center_activation_message
 end
 
 -- Display: End Of Test Cycle Message
-display.end_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.end_of_test_cycle_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Test Cycle Message
-dissect.end_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+siac_cts_output_cta_v1_91_dissect.end_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Test Cycle Message
-dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5368,44 +5368,44 @@ dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_test_cycle_message then
     local range = buffer(offset, size_of_end_of_test_cycle_message)
-    local display = display.end_of_test_cycle_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.end_of_test_cycle_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.end_of_test_cycle_message, range, display)
   end
 
-  dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+  siac_cts_output_cta_v1_91_dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
 
   return offset + size_of_end_of_test_cycle_message
 end
 
 -- Display: Start Of Test Cycle Message
-display.start_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.start_of_test_cycle_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Test Cycle Message
-dissect.start_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+siac_cts_output_cta_v1_91_dissect.start_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Test Cycle Message
-dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5416,44 +5416,44 @@ dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_test_cycle_message then
     local range = buffer(offset, size_of_start_of_test_cycle_message)
-    local display = display.start_of_test_cycle_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.start_of_test_cycle_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.start_of_test_cycle_message, range, display)
   end
 
-  dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+  siac_cts_output_cta_v1_91_dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
 
   return offset + size_of_start_of_test_cycle_message
 end
 
 -- Display: Reset Block Sequence Number Message
-display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reset Block Sequence Number Message
-dissect.reset_block_sequence_number_message_fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+siac_cts_output_cta_v1_91_dissect.reset_block_sequence_number_message_fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reset Block Sequence Number Message
-dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5464,44 +5464,44 @@ dissect.reset_block_sequence_number_message = function(buffer, offset, packet, p
   -- Optionally add struct element to protocol tree
   if show.reset_block_sequence_number_message then
     local range = buffer(offset, size_of_reset_block_sequence_number_message)
-    local display = display.reset_block_sequence_number_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.reset_block_sequence_number_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.reset_block_sequence_number_message, range, display)
   end
 
-  dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+  siac_cts_output_cta_v1_91_dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
 
   return offset + size_of_reset_block_sequence_number_message
 end
 
 -- Display: Start Of Day Message
-display.start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Day Message
-dissect.start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+siac_cts_output_cta_v1_91_dissect.start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Day Message
-dissect.start_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.start_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5512,113 +5512,113 @@ dissect.start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
     local range = buffer(offset, size_of_start_of_day_message)
-    local display = display.start_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.start_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.start_of_day_message, range, display)
   end
 
-  dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
 
   return offset + size_of_start_of_day_message
 end
 
 -- Calculate runtime size of: Control Payload
-size_of.control_payload = function(buffer, offset, control_message_type)
+siac_cts_output_cta_v1_91_size_of.control_payload = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "A" then
-    return size_of.start_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.start_of_day_message(buffer, offset)
   end
   -- Size of Reset Block Sequence Number Message
   if control_message_type == "L" then
-    return size_of.reset_block_sequence_number_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.reset_block_sequence_number_message(buffer, offset)
   end
   -- Size of Start Of Test Cycle Message
   if control_message_type == "M" then
-    return size_of.start_of_test_cycle_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.start_of_test_cycle_message(buffer, offset)
   end
   -- Size of End Of Test Cycle Message
   if control_message_type == "N" then
-    return size_of.end_of_test_cycle_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.end_of_test_cycle_message(buffer, offset)
   end
   -- Size of Disaster Recovery Data Center Activation Message
   if control_message_type == "P" then
-    return size_of.disaster_recovery_data_center_activation_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.disaster_recovery_data_center_activation_message(buffer, offset)
   end
   -- Size of Line Integrity Message
   if control_message_type == "T" then
-    return size_of.line_integrity_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.line_integrity_message(buffer, offset)
   end
   -- Size of End Of Day Message
   if control_message_type == "Z" then
-    return size_of.end_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.end_of_day_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Control Payload
-display.control_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.control_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Control Payload
-dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
+siac_cts_output_cta_v1_91_dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
-    return dissect.start_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Reset Block Sequence Number Message
   if control_message_type == "L" then
-    return dissect.reset_block_sequence_number_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.reset_block_sequence_number_message(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Test Cycle Message
   if control_message_type == "M" then
-    return dissect.start_of_test_cycle_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.start_of_test_cycle_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Test Cycle Message
   if control_message_type == "N" then
-    return dissect.end_of_test_cycle_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.end_of_test_cycle_message(buffer, offset, packet, parent)
   end
   -- Dissect Disaster Recovery Data Center Activation Message
   if control_message_type == "P" then
-    return dissect.disaster_recovery_data_center_activation_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message(buffer, offset, packet, parent)
   end
   -- Dissect Line Integrity Message
   if control_message_type == "T" then
-    return dissect.line_integrity_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.line_integrity_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if control_message_type == "Z" then
-    return dissect.end_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.end_of_day_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Control Payload
-dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
+siac_cts_output_cta_v1_91_dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
   if not show.control_payload then
-    return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+    return siac_cts_output_cta_v1_91_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.control_payload(buffer, offset, control_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.control_payload(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.control_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.control_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.control_payload, range, display)
 
-  return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+  return siac_cts_output_cta_v1_91_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Size: Control Message Type
-size_of.control_message_type = 1
+siac_cts_output_cta_v1_91_size_of.control_message_type = 1
 
 -- Display: Control Message Type
-display.control_message_type = function(value)
+siac_cts_output_cta_v1_91_display.control_message_type = function(value)
   if value == "A" then
     return "Control Message Type: Start Of Day Message (A)"
   end
@@ -5645,11 +5645,11 @@ display.control_message_type = function(value)
 end
 
 -- Dissect: Control Message Type
-dissect.control_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.control_message_type
+siac_cts_output_cta_v1_91_dissect.control_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.control_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.control_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.control_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.control_message_type, range, value, display)
 
@@ -5657,25 +5657,25 @@ dissect.control_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Control
-display.control = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.control = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Control
-dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
+siac_cts_output_cta_v1_91_dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 7 values
-  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
+  index, control_message_type = siac_cts_output_cta_v1_91_dissect.control_message_type(buffer, index, packet, parent)
 
   -- Control Payload: Runtime Type with 7 branches
-  index = dissect.control_payload(buffer, index, packet, parent, control_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.control_payload(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
 -- Dissect: Control
-dissect.control = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.control = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -5686,47 +5686,47 @@ dissect.control = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.control then
     local range = buffer(offset, size_of_control)
-    local display = display.control(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.control(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.control, range, display)
   end
 
-  dissect.control_fields(buffer, offset, packet, parent, size_of_control)
+  siac_cts_output_cta_v1_91_dissect.control_fields(buffer, offset, packet, parent, size_of_control)
 
   return offset + size_of_control
 end
 
 -- Display: Administrative Unformatted Message
-display.administrative_unformatted_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.administrative_unformatted_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative Unformatted Message
-dissect.administrative_unformatted_message_fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+siac_cts_output_cta_v1_91_dissect.administrative_unformatted_message_fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Text
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = siac_cts_output_cta_v1_91_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Administrative Unformatted Message
-dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5737,44 +5737,44 @@ dissect.administrative_unformatted_message = function(buffer, offset, packet, pa
   -- Optionally add struct element to protocol tree
   if show.administrative_unformatted_message then
     local range = buffer(offset, size_of_administrative_unformatted_message)
-    local display = display.administrative_unformatted_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.administrative_unformatted_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.administrative_unformatted_message, range, display)
   end
 
-  dissect.administrative_unformatted_message_fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+  siac_cts_output_cta_v1_91_dissect.administrative_unformatted_message_fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
 
   return offset + size_of_administrative_unformatted_message
 end
 
 -- Display: End Of Start Of Day Message
-display.end_of_start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.end_of_start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Start Of Day Message
-dissect.end_of_start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
+siac_cts_output_cta_v1_91_dissect.end_of_start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Start Of Day Message
-dissect.end_of_start_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.end_of_start_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5785,44 +5785,44 @@ dissect.end_of_start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_start_of_day_message then
     local range = buffer(offset, size_of_end_of_start_of_day_message)
-    local display = display.end_of_start_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.end_of_start_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.end_of_start_of_day_message, range, display)
   end
 
-  dissect.end_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.end_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_start_of_day_message)
 
   return offset + size_of_end_of_start_of_day_message
 end
 
 -- Display: Start Of Start Of Day Message
-display.start_of_start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.start_of_start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Start Of Day Message
-dissect.start_of_start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
+siac_cts_output_cta_v1_91_dissect.start_of_start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Start Of Day Message
-dissect.start_of_start_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.start_of_start_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5833,44 +5833,44 @@ dissect.start_of_start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_start_of_day_message then
     local range = buffer(offset, size_of_start_of_start_of_day_message)
-    local display = display.start_of_start_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.start_of_start_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.start_of_start_of_day_message, range, display)
   end
 
-  dissect.start_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.start_of_start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_start_of_day_message)
 
   return offset + size_of_start_of_start_of_day_message
 end
 
 -- Display: End Of End Of Day Message
-display.end_of_end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.end_of_end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of End Of Day Message
-dissect.end_of_end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
+siac_cts_output_cta_v1_91_dissect.end_of_end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of End Of Day Message
-dissect.end_of_end_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.end_of_end_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5881,44 +5881,44 @@ dissect.end_of_end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_end_of_day_message then
     local range = buffer(offset, size_of_end_of_end_of_day_message)
-    local display = display.end_of_end_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.end_of_end_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.end_of_end_of_day_message, range, display)
   end
 
-  dissect.end_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.end_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_end_of_day_message)
 
   return offset + size_of_end_of_end_of_day_message
 end
 
 -- Display: Start Of End Of Day Message
-display.start_of_end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.start_of_end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of End Of Day Message
-dissect.start_of_end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
+siac_cts_output_cta_v1_91_dissect.start_of_end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cts_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Timestamp 1: Struct of 2 fields
-  index, timestamp_1 = dissect.timestamp_1(buffer, index, packet, parent)
+  index, timestamp_1 = siac_cts_output_cta_v1_91_dissect.timestamp_1(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cts_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cts_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cts_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of End Of Day Message
-dissect.start_of_end_of_day_message = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.start_of_end_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -5929,97 +5929,97 @@ dissect.start_of_end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_end_of_day_message then
     local range = buffer(offset, size_of_start_of_end_of_day_message)
-    local display = display.start_of_end_of_day_message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.start_of_end_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.start_of_end_of_day_message, range, display)
   end
 
-  dissect.start_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
+  siac_cts_output_cta_v1_91_dissect.start_of_end_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_end_of_day_message)
 
   return offset + size_of_start_of_end_of_day_message
 end
 
 -- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload = function(buffer, offset, administrative_message_type)
+siac_cts_output_cta_v1_91_size_of.administrative_payload = function(buffer, offset, administrative_message_type)
   -- Size of Start Of End Of Day Message
   if administrative_message_type == "A" then
-    return size_of.start_of_end_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.start_of_end_of_day_message(buffer, offset)
   end
   -- Size of End Of End Of Day Message
   if administrative_message_type == "B" then
-    return size_of.end_of_end_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.end_of_end_of_day_message(buffer, offset)
   end
   -- Size of Start Of Start Of Day Message
   if administrative_message_type == "C" then
-    return size_of.start_of_start_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.start_of_start_of_day_message(buffer, offset)
   end
   -- Size of End Of Start Of Day Message
   if administrative_message_type == "D" then
-    return size_of.end_of_start_of_day_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.end_of_start_of_day_message(buffer, offset)
   end
   -- Size of Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return size_of.administrative_unformatted_message(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.administrative_unformatted_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Administrative Payload
-display.administrative_payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.administrative_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Administrative Payload
-dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
+siac_cts_output_cta_v1_91_dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Start Of End Of Day Message
   if administrative_message_type == "A" then
-    return dissect.start_of_end_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.start_of_end_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of End Of Day Message
   if administrative_message_type == "B" then
-    return dissect.end_of_end_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.end_of_end_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Start Of Day Message
   if administrative_message_type == "C" then
-    return dissect.start_of_start_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.start_of_start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Start Of Day Message
   if administrative_message_type == "D" then
-    return dissect.end_of_start_of_day_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.end_of_start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return dissect.administrative_unformatted_message(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.administrative_unformatted_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Administrative Payload
-dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
+siac_cts_output_cta_v1_91_dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
   if not show.administrative_payload then
-    return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+    return siac_cts_output_cta_v1_91_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.administrative_payload(buffer, offset, administrative_message_type)
+  local size = siac_cts_output_cta_v1_91_size_of.administrative_payload(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.administrative_payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.administrative_payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.administrative_payload, range, display)
 
-  return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+  return siac_cts_output_cta_v1_91_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Size: Administrative Message Type
-size_of.administrative_message_type = 1
+siac_cts_output_cta_v1_91_size_of.administrative_message_type = 1
 
 -- Display: Administrative Message Type
-display.administrative_message_type = function(value)
+siac_cts_output_cta_v1_91_display.administrative_message_type = function(value)
   if value == "A" then
     return "Administrative Message Type: Start Of End Of Day Message (A)"
   end
@@ -6040,11 +6040,11 @@ display.administrative_message_type = function(value)
 end
 
 -- Dissect: Administrative Message Type
-dissect.administrative_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.administrative_message_type
+siac_cts_output_cta_v1_91_dissect.administrative_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.administrative_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.administrative_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.administrative_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.administrative_message_type, range, value, display)
 
@@ -6052,25 +6052,25 @@ dissect.administrative_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Administrative
-display.administrative = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.administrative = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative
-dissect.administrative_fields = function(buffer, offset, packet, parent, size_of_administrative)
+siac_cts_output_cta_v1_91_dissect.administrative_fields = function(buffer, offset, packet, parent, size_of_administrative)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 5 values
-  index, administrative_message_type = dissect.administrative_message_type(buffer, index, packet, parent)
+  index, administrative_message_type = siac_cts_output_cta_v1_91_dissect.administrative_message_type(buffer, index, packet, parent)
 
   -- Administrative Payload: Runtime Type with 5 branches
-  index = dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
+  index = siac_cts_output_cta_v1_91_dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
 -- Dissect: Administrative
-dissect.administrative = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.administrative = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -6081,113 +6081,113 @@ dissect.administrative = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.administrative then
     local range = buffer(offset, size_of_administrative)
-    local display = display.administrative(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.administrative(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.administrative, range, display)
   end
 
-  dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
+  siac_cts_output_cta_v1_91_dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
 
   return offset + size_of_administrative
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_category)
+siac_cts_output_cta_v1_91_size_of.payload = function(buffer, offset, message_category)
   -- Size of Administrative
   if message_category == "A" then
-    return size_of.administrative(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.administrative(buffer, offset)
   end
   -- Size of Control
   if message_category == "C" then
-    return size_of.control(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.control(buffer, offset)
   end
   -- Size of Index
   if message_category == "I" then
-    return size_of.index(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.index(buffer, offset)
   end
   -- Size of Market Status
   if message_category == "M" then
-    return size_of.market_status(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.market_status(buffer, offset)
   end
   -- Size of Prior Day
   if message_category == "P" then
-    return size_of.prior_day(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.prior_day(buffer, offset)
   end
   -- Size of Summary
   if message_category == "S" then
-    return size_of.summary(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.summary(buffer, offset)
   end
   -- Size of Trade
   if message_category == "T" then
-    return size_of.trade(buffer, offset)
+    return siac_cts_output_cta_v1_91_size_of.trade(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
+siac_cts_output_cta_v1_91_dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Administrative
   if message_category == "A" then
-    return dissect.administrative(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.administrative(buffer, offset, packet, parent)
   end
   -- Dissect Control
   if message_category == "C" then
-    return dissect.control(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.control(buffer, offset, packet, parent)
   end
   -- Dissect Index
   if message_category == "I" then
-    return dissect.index(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.index(buffer, offset, packet, parent)
   end
   -- Dissect Market Status
   if message_category == "M" then
-    return dissect.market_status(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.market_status(buffer, offset, packet, parent)
   end
   -- Dissect Prior Day
   if message_category == "P" then
-    return dissect.prior_day(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.prior_day(buffer, offset, packet, parent)
   end
   -- Dissect Summary
   if message_category == "S" then
-    return dissect.summary(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.summary(buffer, offset, packet, parent)
   end
   -- Dissect Trade
   if message_category == "T" then
-    return dissect.trade(buffer, offset, packet, parent)
+    return siac_cts_output_cta_v1_91_dissect.trade(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_category)
+siac_cts_output_cta_v1_91_dissect.payload = function(buffer, offset, packet, parent, message_category)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+    return siac_cts_output_cta_v1_91_dissect.payload_branches(buffer, offset, packet, parent, message_category)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_category)
+  local size = siac_cts_output_cta_v1_91_size_of.payload(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.payload(buffer, packet, parent)
   local element = parent:add(siac_cts_output_cta_v1_91.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+  return siac_cts_output_cta_v1_91_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Size: Message Category
-size_of.message_category = 1
+siac_cts_output_cta_v1_91_size_of.message_category = 1
 
 -- Display: Message Category
-display.message_category = function(value)
+siac_cts_output_cta_v1_91_display.message_category = function(value)
   if value == "A" then
     return "Message Category: Administrative (A)"
   end
@@ -6214,11 +6214,11 @@ display.message_category = function(value)
 end
 
 -- Dissect: Message Category
-dissect.message_category = function(buffer, offset, packet, parent)
-  local length = size_of.message_category
+siac_cts_output_cta_v1_91_dissect.message_category = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.message_category
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_category(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.message_category, range, value, display)
 
@@ -6226,19 +6226,19 @@ dissect.message_category = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+siac_cts_output_cta_v1_91_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+siac_cts_output_cta_v1_91_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+siac_cts_output_cta_v1_91_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.message_length, range, value, display)
 
@@ -6246,96 +6246,96 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + siac_cts_output_cta_v1_91_size_of.message_length
 
-  index = index + size_of.message_category
+  index = index + siac_cts_output_cta_v1_91_size_of.message_category
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = siac_cts_output_cta_v1_91_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Category: 1 Byte Ascii String Enum with 7 values
-  index, message_category = dissect.message_category(buffer, index, packet, parent)
+  index, message_category = siac_cts_output_cta_v1_91_dissect.message_category(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.message_header(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+siac_cts_output_cta_v1_91_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = siac_cts_output_cta_v1_91_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
   local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 7 branches
-  index = dissect.payload(buffer, index, packet, parent, message_category)
+  index = siac_cts_output_cta_v1_91_dissect.payload(buffer, index, packet, parent, message_category)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+siac_cts_output_cta_v1_91_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.message(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  siac_cts_output_cta_v1_91_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Block Checksum
-size_of.block_checksum = 2
+siac_cts_output_cta_v1_91_size_of.block_checksum = 2
 
 -- Display: Block Checksum
-display.block_checksum = function(value)
+siac_cts_output_cta_v1_91_display.block_checksum = function(value)
   return "Block Checksum: "..value
 end
 
 -- Dissect: Block Checksum
-dissect.block_checksum = function(buffer, offset, packet, parent)
-  local length = size_of.block_checksum
+siac_cts_output_cta_v1_91_dissect.block_checksum = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.block_checksum
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_checksum(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.block_checksum(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.block_checksum, range, value, display)
 
@@ -6343,61 +6343,61 @@ dissect.block_checksum = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sip Block Timestamp
-size_of.sip_block_timestamp = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.sip_block_timestamp = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cts_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cts_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Sip Block Timestamp
-display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sip Block Timestamp
-dissect.sip_block_timestamp_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cts_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cts_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sip Block Timestamp
-dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sip_block_timestamp then
-    local length = size_of.sip_block_timestamp(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.sip_block_timestamp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sip_block_timestamp(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.sip_block_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.sip_block_timestamp, range, display)
   end
 
-  return dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Messages In Block
-size_of.messages_in_block = 1
+siac_cts_output_cta_v1_91_size_of.messages_in_block = 1
 
 -- Display: Messages In Block
-display.messages_in_block = function(value)
+siac_cts_output_cta_v1_91_display.messages_in_block = function(value)
   return "Messages In Block: "..value
 end
 
 -- Dissect: Messages In Block
-dissect.messages_in_block = function(buffer, offset, packet, parent)
-  local length = size_of.messages_in_block
+siac_cts_output_cta_v1_91_dissect.messages_in_block = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.messages_in_block
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.messages_in_block(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.messages_in_block(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.messages_in_block, range, value, display)
 
@@ -6405,19 +6405,19 @@ dissect.messages_in_block = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Sequence Number
-size_of.block_sequence_number = 4
+siac_cts_output_cta_v1_91_size_of.block_sequence_number = 4
 
 -- Display: Block Sequence Number
-display.block_sequence_number = function(value)
+siac_cts_output_cta_v1_91_display.block_sequence_number = function(value)
   return "Block Sequence Number: "..value
 end
 
 -- Dissect: Block Sequence Number
-dissect.block_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.block_sequence_number
+siac_cts_output_cta_v1_91_dissect.block_sequence_number = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.block_sequence_number
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_sequence_number(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.block_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.block_sequence_number, range, value, display)
 
@@ -6425,10 +6425,10 @@ dissect.block_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Retransmission Indicator
-size_of.retransmission_indicator = 1
+siac_cts_output_cta_v1_91_size_of.retransmission_indicator = 1
 
 -- Display: Retransmission Indicator
-display.retransmission_indicator = function(value)
+siac_cts_output_cta_v1_91_display.retransmission_indicator = function(value)
   if value == "O" then
     return "Retransmission Indicator: Original (O)"
   end
@@ -6440,11 +6440,11 @@ display.retransmission_indicator = function(value)
 end
 
 -- Dissect: Retransmission Indicator
-dissect.retransmission_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.retransmission_indicator
+siac_cts_output_cta_v1_91_dissect.retransmission_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.retransmission_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.retransmission_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.retransmission_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
 
@@ -6452,19 +6452,19 @@ dissect.retransmission_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Data Feed Indicator
-size_of.data_feed_indicator = 1
+siac_cts_output_cta_v1_91_size_of.data_feed_indicator = 1
 
 -- Display: Data Feed Indicator
-display.data_feed_indicator = function(value)
+siac_cts_output_cta_v1_91_display.data_feed_indicator = function(value)
   return "Data Feed Indicator: "..value
 end
 
 -- Dissect: Data Feed Indicator
-dissect.data_feed_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.data_feed_indicator
+siac_cts_output_cta_v1_91_dissect.data_feed_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.data_feed_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.data_feed_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.data_feed_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
 
@@ -6472,19 +6472,19 @@ dissect.data_feed_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Size
-size_of.block_size = 2
+siac_cts_output_cta_v1_91_size_of.block_size = 2
 
 -- Display: Block Size
-display.block_size = function(value)
+siac_cts_output_cta_v1_91_display.block_size = function(value)
   return "Block Size: "..value
 end
 
 -- Dissect: Block Size
-dissect.block_size = function(buffer, offset, packet, parent)
-  local length = size_of.block_size
+siac_cts_output_cta_v1_91_dissect.block_size = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.block_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_size(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.block_size(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.block_size, range, value, display)
 
@@ -6492,19 +6492,19 @@ dissect.block_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Version
-size_of.version = 1
+siac_cts_output_cta_v1_91_size_of.version = 1
 
 -- Display: Version
-display.version = function(value)
+siac_cts_output_cta_v1_91_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+siac_cts_output_cta_v1_91_dissect.version = function(buffer, offset, packet, parent)
+  local length = siac_cts_output_cta_v1_91_size_of.version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = siac_cts_output_cta_v1_91_display.version(value, buffer, offset, packet, parent)
 
   parent:add(siac_cts_output_cta_v1_91.fields.version, range, value, display)
 
@@ -6512,83 +6512,83 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Block Header
-size_of.block_header = function(buffer, offset)
+siac_cts_output_cta_v1_91_size_of.block_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.version
+  index = index + siac_cts_output_cta_v1_91_size_of.version
 
-  index = index + size_of.block_size
+  index = index + siac_cts_output_cta_v1_91_size_of.block_size
 
-  index = index + size_of.data_feed_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.data_feed_indicator
 
-  index = index + size_of.retransmission_indicator
+  index = index + siac_cts_output_cta_v1_91_size_of.retransmission_indicator
 
-  index = index + size_of.block_sequence_number
+  index = index + siac_cts_output_cta_v1_91_size_of.block_sequence_number
 
-  index = index + size_of.messages_in_block
+  index = index + siac_cts_output_cta_v1_91_size_of.messages_in_block
 
-  index = index + size_of.sip_block_timestamp(buffer, offset + index)
+  index = index + siac_cts_output_cta_v1_91_size_of.sip_block_timestamp(buffer, offset + index)
 
-  index = index + size_of.block_checksum
+  index = index + siac_cts_output_cta_v1_91_size_of.block_checksum
 
   return index
 end
 
 -- Display: Block Header
-display.block_header = function(buffer, offset, size, packet, parent)
+siac_cts_output_cta_v1_91_display.block_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Block Header
-dissect.block_header_fields = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.block_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = siac_cts_output_cta_v1_91_dissect.version(buffer, index, packet, parent)
 
   -- Block Size: 2 Byte Unsigned Fixed Width Integer
-  index, block_size = dissect.block_size(buffer, index, packet, parent)
+  index, block_size = siac_cts_output_cta_v1_91_dissect.block_size(buffer, index, packet, parent)
 
   -- Data Feed Indicator: 1 Byte Ascii String
-  index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
+  index, data_feed_indicator = siac_cts_output_cta_v1_91_dissect.data_feed_indicator(buffer, index, packet, parent)
 
   -- Retransmission Indicator: 1 Byte Ascii String Enum with 2 values
-  index, retransmission_indicator = dissect.retransmission_indicator(buffer, index, packet, parent)
+  index, retransmission_indicator = siac_cts_output_cta_v1_91_dissect.retransmission_indicator(buffer, index, packet, parent)
 
   -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, block_sequence_number = dissect.block_sequence_number(buffer, index, packet, parent)
+  index, block_sequence_number = siac_cts_output_cta_v1_91_dissect.block_sequence_number(buffer, index, packet, parent)
 
   -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
-  index, messages_in_block = dissect.messages_in_block(buffer, index, packet, parent)
+  index, messages_in_block = siac_cts_output_cta_v1_91_dissect.messages_in_block(buffer, index, packet, parent)
 
   -- Sip Block Timestamp: Struct of 2 fields
-  index, sip_block_timestamp = dissect.sip_block_timestamp(buffer, index, packet, parent)
+  index, sip_block_timestamp = siac_cts_output_cta_v1_91_dissect.sip_block_timestamp(buffer, index, packet, parent)
 
   -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
-  index, block_checksum = dissect.block_checksum(buffer, index, packet, parent)
+  index, block_checksum = siac_cts_output_cta_v1_91_dissect.block_checksum(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Block Header
-dissect.block_header = function(buffer, offset, packet, parent)
+siac_cts_output_cta_v1_91_dissect.block_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.block_header then
-    local length = size_of.block_header(buffer, offset)
+    local length = siac_cts_output_cta_v1_91_size_of.block_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.block_header(buffer, packet, parent)
+    local display = siac_cts_output_cta_v1_91_display.block_header(buffer, packet, parent)
     parent = parent:add(siac_cts_output_cta_v1_91.fields.block_header, range, display)
   end
 
-  return dissect.block_header_fields(buffer, offset, packet, parent)
+  return siac_cts_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+siac_cts_output_cta_v1_91_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Block Header: Struct of 8 fields
-  index, block_header = dissect.block_header(buffer, index, packet, parent)
+  index, block_header = siac_cts_output_cta_v1_91_dissect.block_header(buffer, index, packet, parent)
 
   -- Dependency element: Messages In Block
   local messages_in_block = buffer(index - 11, 1):uint()
@@ -6600,7 +6600,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_length = buffer(index, 2):uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = siac_cts_output_cta_v1_91_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   -- Runtime optional field exists: Block Pad Byte
@@ -6608,7 +6608,7 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
-    index = dissect.block_pad_byte(buffer, index, packet, parent)
+    index = siac_cts_output_cta_v1_91_dissect.block_pad_byte(buffer, index, packet, parent)
   end
 
   return index
@@ -6631,7 +6631,7 @@ function siac_cts_output_cta_v1_91.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(siac_cts_output_cta_v1_91, buffer(), siac_cts_output_cta_v1_91.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return siac_cts_output_cta_v1_91_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

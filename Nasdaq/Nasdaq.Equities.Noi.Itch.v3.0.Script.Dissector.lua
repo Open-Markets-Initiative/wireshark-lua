@@ -10,9 +10,9 @@ local nasdaq_equities_noi_itch_v3_0 = Proto("Nasdaq.Equities.Noi.Itch.v3.0.Lua",
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local nasdaq_equities_noi_itch_v3_0_display = {}
+local nasdaq_equities_noi_itch_v3_0_dissect = {}
+local nasdaq_equities_noi_itch_v3_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -170,19 +170,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Ipo Price
-size_of.ipo_price = 4
+nasdaq_equities_noi_itch_v3_0_size_of.ipo_price = 4
 
 -- Display: Ipo Price
-display.ipo_price = function(value)
+nasdaq_equities_noi_itch_v3_0_display.ipo_price = function(value)
   return "Ipo Price: "..value
 end
 
 -- Dissect: Ipo Price
-dissect.ipo_price = function(buffer, offset, packet, parent)
-  local length = size_of.ipo_price
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.ipo_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.ipo_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_price, range, value, display)
 
@@ -190,10 +190,10 @@ dissect.ipo_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ipo Quotation Release Qualifier
-size_of.ipo_quotation_release_qualifier = 1
+nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_qualifier = 1
 
 -- Display: Ipo Quotation Release Qualifier
-display.ipo_quotation_release_qualifier = function(value)
+nasdaq_equities_noi_itch_v3_0_display.ipo_quotation_release_qualifier = function(value)
   if value == "A" then
     return "Ipo Quotation Release Qualifier: Anticipated Quotation Release Time (A)"
   end
@@ -205,11 +205,11 @@ display.ipo_quotation_release_qualifier = function(value)
 end
 
 -- Dissect: Ipo Quotation Release Qualifier
-dissect.ipo_quotation_release_qualifier = function(buffer, offset, packet, parent)
-  local length = size_of.ipo_quotation_release_qualifier
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_quotation_release_qualifier = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_qualifier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ipo_quotation_release_qualifier(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.ipo_quotation_release_qualifier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_quotation_release_qualifier, range, value, display)
 
@@ -217,19 +217,19 @@ dissect.ipo_quotation_release_qualifier = function(buffer, offset, packet, paren
 end
 
 -- Size: Ipo Quotation Release Time
-size_of.ipo_quotation_release_time = 4
+nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_time = 4
 
 -- Display: Ipo Quotation Release Time
-display.ipo_quotation_release_time = function(value)
+nasdaq_equities_noi_itch_v3_0_display.ipo_quotation_release_time = function(value)
   return "Ipo Quotation Release Time: "..value
 end
 
 -- Dissect: Ipo Quotation Release Time
-dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
-  local length = size_of.ipo_quotation_release_time
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_time
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ipo_quotation_release_time(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.ipo_quotation_release_time(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_quotation_release_time, range, value, display)
 
@@ -237,19 +237,19 @@ dissect.ipo_quotation_release_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stock
-size_of.stock = 8
+nasdaq_equities_noi_itch_v3_0_size_of.stock = 8
 
 -- Display: Stock
-display.stock = function(value)
+nasdaq_equities_noi_itch_v3_0_display.stock = function(value)
   return "Stock: "..value
 end
 
 -- Dissect: Stock
-dissect.stock = function(buffer, offset, packet, parent)
-  local length = size_of.stock
+nasdaq_equities_noi_itch_v3_0_dissect.stock = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.stock
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.stock(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.stock, range, value, display)
 
@@ -257,19 +257,19 @@ dissect.stock = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp
-size_of.timestamp = 6
+nasdaq_equities_noi_itch_v3_0_size_of.timestamp = 6
 
 -- Display: Timestamp
-display.timestamp = function(value)
+nasdaq_equities_noi_itch_v3_0_display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp
+nasdaq_equities_noi_itch_v3_0_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.timestamp
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.timestamp(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.timestamp, range, value, display)
 
@@ -277,19 +277,19 @@ dissect.timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tracking Number
-size_of.tracking_number = 2
+nasdaq_equities_noi_itch_v3_0_size_of.tracking_number = 2
 
 -- Display: Tracking Number
-display.tracking_number = function(value)
+nasdaq_equities_noi_itch_v3_0_display.tracking_number = function(value)
   return "Tracking Number: "..value
 end
 
 -- Dissect: Tracking Number
-dissect.tracking_number = function(buffer, offset, packet, parent)
-  local length = size_of.tracking_number
+nasdaq_equities_noi_itch_v3_0_dissect.tracking_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.tracking_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.tracking_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.tracking_number, range, value, display)
 
@@ -297,72 +297,72 @@ dissect.tracking_number = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Ipo Quoting Period Update Message
-size_of.ipo_quoting_period_update_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.ipo_quoting_period_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.ipo_quotation_release_time
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_time
 
-  index = index + size_of.ipo_quotation_release_qualifier
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.ipo_quotation_release_qualifier
 
-  index = index + size_of.ipo_price
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.ipo_price
 
   return index
 end
 
 -- Display: Ipo Quoting Period Update Message
-display.ipo_quoting_period_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.ipo_quoting_period_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Ipo Quoting Period Update Message
-dissect.ipo_quoting_period_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Time: 4 Byte Unsigned Fixed Width Integer
-  index, ipo_quotation_release_time = dissect.ipo_quotation_release_time(buffer, index, packet, parent)
+  index, ipo_quotation_release_time = nasdaq_equities_noi_itch_v3_0_dissect.ipo_quotation_release_time(buffer, index, packet, parent)
 
   -- Ipo Quotation Release Qualifier: 1 Byte Ascii String Enum with 2 values
-  index, ipo_quotation_release_qualifier = dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
+  index, ipo_quotation_release_qualifier = nasdaq_equities_noi_itch_v3_0_dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
 
   -- Ipo Price: 4 Byte Signed Fixed Width Integer
-  index, ipo_price = dissect.ipo_price(buffer, index, packet, parent)
+  index, ipo_price = nasdaq_equities_noi_itch_v3_0_dissect.ipo_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Ipo Quoting Period Update Message
-dissect.ipo_quoting_period_update_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.ipo_quoting_period_update_message then
-    local length = size_of.ipo_quoting_period_update_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_quoting_period_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.ipo_quoting_period_update_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.ipo_quoting_period_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_quoting_period_update_message, range, display)
   end
 
-  return dissect.ipo_quoting_period_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Type
-size_of.cross_type = 1
+nasdaq_equities_noi_itch_v3_0_size_of.cross_type = 1
 
 -- Display: Cross Type
-display.cross_type = function(value)
+nasdaq_equities_noi_itch_v3_0_display.cross_type = function(value)
   if value == "O" then
     return "Cross Type: Opening Cross (O)"
   end
@@ -377,11 +377,11 @@ display.cross_type = function(value)
 end
 
 -- Dissect: Cross Type
-dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = size_of.cross_type
+nasdaq_equities_noi_itch_v3_0_dissect.cross_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.cross_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cross_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.cross_type, range, value, display)
 
@@ -389,19 +389,19 @@ dissect.cross_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Match Number
-size_of.match_number = 8
+nasdaq_equities_noi_itch_v3_0_size_of.match_number = 8
 
 -- Display: Match Number
-display.match_number = function(value)
+nasdaq_equities_noi_itch_v3_0_display.match_number = function(value)
   return "Match Number: "..value
 end
 
 -- Dissect: Match Number
-dissect.match_number = function(buffer, offset, packet, parent)
-  local length = size_of.match_number
+nasdaq_equities_noi_itch_v3_0_dissect.match_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.match_number
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.match_number(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.match_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.match_number, range, value, display)
 
@@ -409,19 +409,19 @@ dissect.match_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Price
-size_of.cross_price = 4
+nasdaq_equities_noi_itch_v3_0_size_of.cross_price = 4
 
 -- Display: Cross Price
-display.cross_price = function(value)
+nasdaq_equities_noi_itch_v3_0_display.cross_price = function(value)
   return "Cross Price: "..value
 end
 
 -- Dissect: Cross Price
-dissect.cross_price = function(buffer, offset, packet, parent)
-  local length = size_of.cross_price
+nasdaq_equities_noi_itch_v3_0_dissect.cross_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.cross_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.cross_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.cross_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.cross_price, range, value, display)
 
@@ -429,19 +429,19 @@ dissect.cross_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Shares
-size_of.shares = 8
+nasdaq_equities_noi_itch_v3_0_size_of.shares = 8
 
 -- Display: Shares
-display.shares = function(value)
+nasdaq_equities_noi_itch_v3_0_display.shares = function(value)
   return "Shares: "..value
 end
 
 -- Dissect: Shares
-dissect.shares = function(buffer, offset, packet, parent)
-  local length = size_of.shares
+nasdaq_equities_noi_itch_v3_0_dissect.shares = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.shares
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.shares, range, value, display)
 
@@ -449,77 +449,77 @@ dissect.shares = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cross Trade Message
-size_of.cross_trade_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.cross_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.shares
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.shares
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.cross_price
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.cross_price
 
-  index = index + size_of.match_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.match_number
 
-  index = index + size_of.cross_type
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.cross_type
 
   return index
 end
 
 -- Display: Cross Trade Message
-display.cross_trade_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.cross_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cross Trade Message
-dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.cross_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Shares: 8 Byte Unsigned Fixed Width Integer
-  index, shares = dissect.shares(buffer, index, packet, parent)
+  index, shares = nasdaq_equities_noi_itch_v3_0_dissect.shares(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Cross Price: 4 Byte Signed Fixed Width Integer
-  index, cross_price = dissect.cross_price(buffer, index, packet, parent)
+  index, cross_price = nasdaq_equities_noi_itch_v3_0_dissect.cross_price(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
-  index, match_number = dissect.match_number(buffer, index, packet, parent)
+  index, match_number = nasdaq_equities_noi_itch_v3_0_dissect.match_number(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 3 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = nasdaq_equities_noi_itch_v3_0_dissect.cross_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cross Trade Message
-dissect.cross_trade_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.cross_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cross_trade_message then
-    local length = size_of.cross_trade_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.cross_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cross_trade_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.cross_trade_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.cross_trade_message, range, display)
   end
 
-  return dissect.cross_trade_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Price Variation Indicator
-size_of.price_variation_indicator = 1
+nasdaq_equities_noi_itch_v3_0_size_of.price_variation_indicator = 1
 
 -- Display: Price Variation Indicator
-display.price_variation_indicator = function(value)
+nasdaq_equities_noi_itch_v3_0_display.price_variation_indicator = function(value)
   if value == "L" then
     return "Price Variation Indicator: Less (L)"
   end
@@ -564,11 +564,11 @@ display.price_variation_indicator = function(value)
 end
 
 -- Dissect: Price Variation Indicator
-dissect.price_variation_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.price_variation_indicator
+nasdaq_equities_noi_itch_v3_0_dissect.price_variation_indicator = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.price_variation_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.price_variation_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.price_variation_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.price_variation_indicator, range, value, display)
 
@@ -576,19 +576,19 @@ dissect.price_variation_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Current Reference Price
-size_of.current_reference_price = 4
+nasdaq_equities_noi_itch_v3_0_size_of.current_reference_price = 4
 
 -- Display: Current Reference Price
-display.current_reference_price = function(value)
+nasdaq_equities_noi_itch_v3_0_display.current_reference_price = function(value)
   return "Current Reference Price: "..value
 end
 
 -- Dissect: Current Reference Price
-dissect.current_reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.current_reference_price
+nasdaq_equities_noi_itch_v3_0_dissect.current_reference_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.current_reference_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.current_reference_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.current_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.current_reference_price, range, value, display)
 
@@ -596,19 +596,19 @@ dissect.current_reference_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Near Price
-size_of.near_price = 4
+nasdaq_equities_noi_itch_v3_0_size_of.near_price = 4
 
 -- Display: Near Price
-display.near_price = function(value)
+nasdaq_equities_noi_itch_v3_0_display.near_price = function(value)
   return "Near Price: "..value
 end
 
 -- Dissect: Near Price
-dissect.near_price = function(buffer, offset, packet, parent)
-  local length = size_of.near_price
+nasdaq_equities_noi_itch_v3_0_dissect.near_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.near_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.near_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.near_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.near_price, range, value, display)
 
@@ -616,19 +616,19 @@ dissect.near_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Far Price
-size_of.far_price = 4
+nasdaq_equities_noi_itch_v3_0_size_of.far_price = 4
 
 -- Display: Far Price
-display.far_price = function(value)
+nasdaq_equities_noi_itch_v3_0_display.far_price = function(value)
   return "Far Price: "..value
 end
 
 -- Dissect: Far Price
-dissect.far_price = function(buffer, offset, packet, parent)
-  local length = size_of.far_price
+nasdaq_equities_noi_itch_v3_0_dissect.far_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.far_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.far_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.far_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.far_price, range, value, display)
 
@@ -636,10 +636,10 @@ dissect.far_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Direction
-size_of.imbalance_direction = 1
+nasdaq_equities_noi_itch_v3_0_size_of.imbalance_direction = 1
 
 -- Display: Imbalance Direction
-display.imbalance_direction = function(value)
+nasdaq_equities_noi_itch_v3_0_display.imbalance_direction = function(value)
   if value == "B" then
     return "Imbalance Direction: Buy Imbalance (B)"
   end
@@ -657,11 +657,11 @@ display.imbalance_direction = function(value)
 end
 
 -- Dissect: Imbalance Direction
-dissect.imbalance_direction = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_direction
+nasdaq_equities_noi_itch_v3_0_dissect.imbalance_direction = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.imbalance_direction
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.imbalance_direction(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.imbalance_direction(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.imbalance_direction, range, value, display)
 
@@ -669,19 +669,19 @@ dissect.imbalance_direction = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Shares
-size_of.imbalance_shares = 8
+nasdaq_equities_noi_itch_v3_0_size_of.imbalance_shares = 8
 
 -- Display: Imbalance Shares
-display.imbalance_shares = function(value)
+nasdaq_equities_noi_itch_v3_0_display.imbalance_shares = function(value)
   return "Imbalance Shares: "..value
 end
 
 -- Dissect: Imbalance Shares
-dissect.imbalance_shares = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_shares
+nasdaq_equities_noi_itch_v3_0_dissect.imbalance_shares = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.imbalance_shares
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.imbalance_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.imbalance_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.imbalance_shares, range, value, display)
 
@@ -689,19 +689,19 @@ dissect.imbalance_shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Paired Shares
-size_of.paired_shares = 8
+nasdaq_equities_noi_itch_v3_0_size_of.paired_shares = 8
 
 -- Display: Paired Shares
-display.paired_shares = function(value)
+nasdaq_equities_noi_itch_v3_0_display.paired_shares = function(value)
   return "Paired Shares: "..value
 end
 
 -- Dissect: Paired Shares
-dissect.paired_shares = function(buffer, offset, packet, parent)
-  local length = size_of.paired_shares
+nasdaq_equities_noi_itch_v3_0_dissect.paired_shares = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.paired_shares
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.paired_shares(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.paired_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.paired_shares, range, value, display)
 
@@ -709,97 +709,97 @@ dissect.paired_shares = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Noii Message
-size_of.noii_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.noii_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.paired_shares
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.paired_shares
 
-  index = index + size_of.imbalance_shares
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.imbalance_shares
 
-  index = index + size_of.imbalance_direction
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.imbalance_direction
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.far_price
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.far_price
 
-  index = index + size_of.near_price
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.near_price
 
-  index = index + size_of.current_reference_price
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.current_reference_price
 
-  index = index + size_of.cross_type
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.cross_type
 
-  index = index + size_of.price_variation_indicator
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.price_variation_indicator
 
   return index
 end
 
 -- Display: Noii Message
-display.noii_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.noii_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Noii Message
-dissect.noii_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.noii_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Paired Shares: 8 Byte Unsigned Fixed Width Integer
-  index, paired_shares = dissect.paired_shares(buffer, index, packet, parent)
+  index, paired_shares = nasdaq_equities_noi_itch_v3_0_dissect.paired_shares(buffer, index, packet, parent)
 
   -- Imbalance Shares: 8 Byte Unsigned Fixed Width Integer
-  index, imbalance_shares = dissect.imbalance_shares(buffer, index, packet, parent)
+  index, imbalance_shares = nasdaq_equities_noi_itch_v3_0_dissect.imbalance_shares(buffer, index, packet, parent)
 
   -- Imbalance Direction: 1 Byte Ascii String Enum with 4 values
-  index, imbalance_direction = dissect.imbalance_direction(buffer, index, packet, parent)
+  index, imbalance_direction = nasdaq_equities_noi_itch_v3_0_dissect.imbalance_direction(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Far Price: 4 Byte Signed Fixed Width Integer
-  index, far_price = dissect.far_price(buffer, index, packet, parent)
+  index, far_price = nasdaq_equities_noi_itch_v3_0_dissect.far_price(buffer, index, packet, parent)
 
   -- Near Price: 4 Byte Signed Fixed Width Integer
-  index, near_price = dissect.near_price(buffer, index, packet, parent)
+  index, near_price = nasdaq_equities_noi_itch_v3_0_dissect.near_price(buffer, index, packet, parent)
 
   -- Current Reference Price: 4 Byte Signed Fixed Width Integer
-  index, current_reference_price = dissect.current_reference_price(buffer, index, packet, parent)
+  index, current_reference_price = nasdaq_equities_noi_itch_v3_0_dissect.current_reference_price(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 3 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = nasdaq_equities_noi_itch_v3_0_dissect.cross_type(buffer, index, packet, parent)
 
   -- Price Variation Indicator: 1 Byte Ascii String Enum with 13 values
-  index, price_variation_indicator = dissect.price_variation_indicator(buffer, index, packet, parent)
+  index, price_variation_indicator = nasdaq_equities_noi_itch_v3_0_dissect.price_variation_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Noii Message
-dissect.noii_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.noii_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.noii_message then
-    local length = size_of.noii_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.noii_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.noii_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.noii_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.noii_message, range, display)
   end
 
-  return dissect.noii_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.noii_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reg Sho Action
-size_of.reg_sho_action = 1
+nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_action = 1
 
 -- Display: Reg Sho Action
-display.reg_sho_action = function(value)
+nasdaq_equities_noi_itch_v3_0_display.reg_sho_action = function(value)
   if value == "0" then
     return "Reg Sho Action: No Price Test (0)"
   end
@@ -814,11 +814,11 @@ display.reg_sho_action = function(value)
 end
 
 -- Dissect: Reg Sho Action
-dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local length = size_of.reg_sho_action
+nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_action = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_action
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reg_sho_action(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.reg_sho_action(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.reg_sho_action, range, value, display)
 
@@ -826,71 +826,71 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reg Sho Restriction Message
-size_of.reg_sho_restriction_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_restriction_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.reg_sho_action
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_action
 
   return index
 end
 
 -- Display: Reg Sho Restriction Message
-display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reg Sho Restriction Message
-dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Reg Sho Action: 1 Byte Ascii String Enum with 3 values
-  index, reg_sho_action = dissect.reg_sho_action(buffer, index, packet, parent)
+  index, reg_sho_action = nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_action(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reg Sho Restriction Message
-dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reg_sho_restriction_message then
-    local length = size_of.reg_sho_restriction_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_restriction_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reg_sho_restriction_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.reg_sho_restriction_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.reg_sho_restriction_message, range, display)
   end
 
-  return dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reason
-size_of.reason = 4
+nasdaq_equities_noi_itch_v3_0_size_of.reason = 4
 
 -- Display: Reason
-display.reason = function(value)
+nasdaq_equities_noi_itch_v3_0_display.reason = function(value)
   return "Reason: "..value
 end
 
 -- Dissect: Reason
-dissect.reason = function(buffer, offset, packet, parent)
-  local length = size_of.reason
+nasdaq_equities_noi_itch_v3_0_dissect.reason = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reason(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.reason, range, value, display)
 
@@ -898,10 +898,10 @@ dissect.reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Current Trading State
-size_of.current_trading_state = 1
+nasdaq_equities_noi_itch_v3_0_size_of.current_trading_state = 1
 
 -- Display: Current Trading State
-display.current_trading_state = function(value)
+nasdaq_equities_noi_itch_v3_0_display.current_trading_state = function(value)
   if value == "H" then
     return "Current Trading State: Halted (H)"
   end
@@ -916,11 +916,11 @@ display.current_trading_state = function(value)
 end
 
 -- Dissect: Current Trading State
-dissect.current_trading_state = function(buffer, offset, packet, parent)
-  local length = size_of.current_trading_state
+nasdaq_equities_noi_itch_v3_0_dissect.current_trading_state = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.current_trading_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.current_trading_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.current_trading_state, range, value, display)
 
@@ -928,67 +928,67 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stock Trading Action Message
-size_of.stock_trading_action_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.stock_trading_action_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.current_trading_state
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.current_trading_state
 
-  index = index + size_of.reason
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.reason
 
   return index
 end
 
 -- Display: Stock Trading Action Message
-display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stock Trading Action Message
-dissect.stock_trading_action_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.stock_trading_action_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Ascii String Enum with 3 values
-  index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = nasdaq_equities_noi_itch_v3_0_dissect.current_trading_state(buffer, index, packet, parent)
 
   -- Reason: 4 Byte Ascii String
-  index, reason = dissect.reason(buffer, index, packet, parent)
+  index, reason = nasdaq_equities_noi_itch_v3_0_dissect.reason(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stock Trading Action Message
-dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_trading_action_message then
-    local length = size_of.stock_trading_action_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.stock_trading_action_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stock_trading_action_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.stock_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.stock_trading_action_message, range, display)
   end
 
-  return dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Inverse Indicator
-size_of.inverse_indicator = 1
+nasdaq_equities_noi_itch_v3_0_size_of.inverse_indicator = 1
 
 -- Display: Inverse Indicator
-display.inverse_indicator = function(value)
+nasdaq_equities_noi_itch_v3_0_display.inverse_indicator = function(value)
   if value == "Y" then
     return "Inverse Indicator: Inverse Etp (Y)"
   end
@@ -1000,11 +1000,11 @@ display.inverse_indicator = function(value)
 end
 
 -- Dissect: Inverse Indicator
-dissect.inverse_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.inverse_indicator
+nasdaq_equities_noi_itch_v3_0_dissect.inverse_indicator = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.inverse_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.inverse_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.inverse_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.inverse_indicator, range, value, display)
 
@@ -1012,19 +1012,19 @@ dissect.inverse_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Etp Leverage Factor
-size_of.etp_leverage_factor = 4
+nasdaq_equities_noi_itch_v3_0_size_of.etp_leverage_factor = 4
 
 -- Display: Etp Leverage Factor
-display.etp_leverage_factor = function(value)
+nasdaq_equities_noi_itch_v3_0_display.etp_leverage_factor = function(value)
   return "Etp Leverage Factor: "..value
 end
 
 -- Dissect: Etp Leverage Factor
-dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
-  local length = size_of.etp_leverage_factor
+nasdaq_equities_noi_itch_v3_0_dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.etp_leverage_factor
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.etp_leverage_factor(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.etp_leverage_factor(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.etp_leverage_factor, range, value, display)
 
@@ -1032,10 +1032,10 @@ dissect.etp_leverage_factor = function(buffer, offset, packet, parent)
 end
 
 -- Size: Etp Flag
-size_of.etp_flag = 1
+nasdaq_equities_noi_itch_v3_0_size_of.etp_flag = 1
 
 -- Display: Etp Flag
-display.etp_flag = function(value)
+nasdaq_equities_noi_itch_v3_0_display.etp_flag = function(value)
   if value == "Y" then
     return "Etp Flag: Etp (Y)"
   end
@@ -1050,11 +1050,11 @@ display.etp_flag = function(value)
 end
 
 -- Dissect: Etp Flag
-dissect.etp_flag = function(buffer, offset, packet, parent)
-  local length = size_of.etp_flag
+nasdaq_equities_noi_itch_v3_0_dissect.etp_flag = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.etp_flag
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.etp_flag(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.etp_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.etp_flag, range, value, display)
 
@@ -1062,10 +1062,10 @@ dissect.etp_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Luld Reference Price Tier
-size_of.luld_reference_price_tier = 1
+nasdaq_equities_noi_itch_v3_0_size_of.luld_reference_price_tier = 1
 
 -- Display: Luld Reference Price Tier
-display.luld_reference_price_tier = function(value)
+nasdaq_equities_noi_itch_v3_0_display.luld_reference_price_tier = function(value)
   if value == "1" then
     return "Luld Reference Price Tier: Tier 1 (1)"
   end
@@ -1080,11 +1080,11 @@ display.luld_reference_price_tier = function(value)
 end
 
 -- Dissect: Luld Reference Price Tier
-dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
-  local length = size_of.luld_reference_price_tier
+nasdaq_equities_noi_itch_v3_0_dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.luld_reference_price_tier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.luld_reference_price_tier(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.luld_reference_price_tier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.luld_reference_price_tier, range, value, display)
 
@@ -1092,10 +1092,10 @@ dissect.luld_reference_price_tier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ipo Flag
-size_of.ipo_flag = 1
+nasdaq_equities_noi_itch_v3_0_size_of.ipo_flag = 1
 
 -- Display: Ipo Flag
-display.ipo_flag = function(value)
+nasdaq_equities_noi_itch_v3_0_display.ipo_flag = function(value)
   if value == "Y" then
     return "Ipo Flag: Set Up For Ipo Release (Y)"
   end
@@ -1110,11 +1110,11 @@ display.ipo_flag = function(value)
 end
 
 -- Dissect: Ipo Flag
-dissect.ipo_flag = function(buffer, offset, packet, parent)
-  local length = size_of.ipo_flag
+nasdaq_equities_noi_itch_v3_0_dissect.ipo_flag = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_flag
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ipo_flag(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.ipo_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_flag, range, value, display)
 
@@ -1122,10 +1122,10 @@ dissect.ipo_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Sale Threshold Indicator
-size_of.short_sale_threshold_indicator = 1
+nasdaq_equities_noi_itch_v3_0_size_of.short_sale_threshold_indicator = 1
 
 -- Display: Short Sale Threshold Indicator
-display.short_sale_threshold_indicator = function(value)
+nasdaq_equities_noi_itch_v3_0_display.short_sale_threshold_indicator = function(value)
   if value == "Y" then
     return "Short Sale Threshold Indicator: Restricted (Y)"
   end
@@ -1140,11 +1140,11 @@ display.short_sale_threshold_indicator = function(value)
 end
 
 -- Dissect: Short Sale Threshold Indicator
-dissect.short_sale_threshold_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.short_sale_threshold_indicator
+nasdaq_equities_noi_itch_v3_0_dissect.short_sale_threshold_indicator = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.short_sale_threshold_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.short_sale_threshold_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.short_sale_threshold_indicator, range, value, display)
 
@@ -1152,10 +1152,10 @@ dissect.short_sale_threshold_indicator = function(buffer, offset, packet, parent
 end
 
 -- Size: Authenticity
-size_of.authenticity = 1
+nasdaq_equities_noi_itch_v3_0_size_of.authenticity = 1
 
 -- Display: Authenticity
-display.authenticity = function(value)
+nasdaq_equities_noi_itch_v3_0_display.authenticity = function(value)
   if value == "P" then
     return "Authenticity: Live Production (P)"
   end
@@ -1167,11 +1167,11 @@ display.authenticity = function(value)
 end
 
 -- Dissect: Authenticity
-dissect.authenticity = function(buffer, offset, packet, parent)
-  local length = size_of.authenticity
+nasdaq_equities_noi_itch_v3_0_dissect.authenticity = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.authenticity
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.authenticity(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.authenticity(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.authenticity, range, value, display)
 
@@ -1179,19 +1179,19 @@ dissect.authenticity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Issue Sub Type
-size_of.issue_sub_type = 2
+nasdaq_equities_noi_itch_v3_0_size_of.issue_sub_type = 2
 
 -- Display: Issue Sub Type
-display.issue_sub_type = function(value)
+nasdaq_equities_noi_itch_v3_0_display.issue_sub_type = function(value)
   return "Issue Sub Type: "..value
 end
 
 -- Dissect: Issue Sub Type
-dissect.issue_sub_type = function(buffer, offset, packet, parent)
-  local length = size_of.issue_sub_type
+nasdaq_equities_noi_itch_v3_0_dissect.issue_sub_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.issue_sub_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.issue_sub_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.issue_sub_type, range, value, display)
 
@@ -1199,19 +1199,19 @@ dissect.issue_sub_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Issue Classification
-size_of.issue_classification = 1
+nasdaq_equities_noi_itch_v3_0_size_of.issue_classification = 1
 
 -- Display: Issue Classification
-display.issue_classification = function(value)
+nasdaq_equities_noi_itch_v3_0_display.issue_classification = function(value)
   return "Issue Classification: "..value
 end
 
 -- Dissect: Issue Classification
-dissect.issue_classification = function(buffer, offset, packet, parent)
-  local length = size_of.issue_classification
+nasdaq_equities_noi_itch_v3_0_dissect.issue_classification = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.issue_classification
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.issue_classification(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.issue_classification(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.issue_classification, range, value, display)
 
@@ -1219,10 +1219,10 @@ dissect.issue_classification = function(buffer, offset, packet, parent)
 end
 
 -- Size: Round Lots Only
-size_of.round_lots_only = 1
+nasdaq_equities_noi_itch_v3_0_size_of.round_lots_only = 1
 
 -- Display: Round Lots Only
-display.round_lots_only = function(value)
+nasdaq_equities_noi_itch_v3_0_display.round_lots_only = function(value)
   if value == "Y" then
     return "Round Lots Only: Round Lots Only (Y)"
   end
@@ -1234,11 +1234,11 @@ display.round_lots_only = function(value)
 end
 
 -- Dissect: Round Lots Only
-dissect.round_lots_only = function(buffer, offset, packet, parent)
-  local length = size_of.round_lots_only
+nasdaq_equities_noi_itch_v3_0_dissect.round_lots_only = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.round_lots_only
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.round_lots_only(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.round_lots_only(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.round_lots_only, range, value, display)
 
@@ -1246,19 +1246,19 @@ dissect.round_lots_only = function(buffer, offset, packet, parent)
 end
 
 -- Size: Round Lot Size
-size_of.round_lot_size = 4
+nasdaq_equities_noi_itch_v3_0_size_of.round_lot_size = 4
 
 -- Display: Round Lot Size
-display.round_lot_size = function(value)
+nasdaq_equities_noi_itch_v3_0_display.round_lot_size = function(value)
   return "Round Lot Size: "..value
 end
 
 -- Dissect: Round Lot Size
-dissect.round_lot_size = function(buffer, offset, packet, parent)
-  local length = size_of.round_lot_size
+nasdaq_equities_noi_itch_v3_0_dissect.round_lot_size = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.round_lot_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.round_lot_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.round_lot_size(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.round_lot_size, range, value, display)
 
@@ -1266,10 +1266,10 @@ dissect.round_lot_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Financial Status Indicator
-size_of.financial_status_indicator = 1
+nasdaq_equities_noi_itch_v3_0_size_of.financial_status_indicator = 1
 
 -- Display: Financial Status Indicator
-display.financial_status_indicator = function(value)
+nasdaq_equities_noi_itch_v3_0_display.financial_status_indicator = function(value)
   if value == "D" then
     return "Financial Status Indicator: Deficient (D)"
   end
@@ -1308,11 +1308,11 @@ display.financial_status_indicator = function(value)
 end
 
 -- Dissect: Financial Status Indicator
-dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.financial_status_indicator
+nasdaq_equities_noi_itch_v3_0_dissect.financial_status_indicator = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.financial_status_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.financial_status_indicator, range, value, display)
 
@@ -1320,10 +1320,10 @@ dissect.financial_status_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Category
-size_of.market_category = 1
+nasdaq_equities_noi_itch_v3_0_size_of.market_category = 1
 
 -- Display: Market Category
-display.market_category = function(value)
+nasdaq_equities_noi_itch_v3_0_display.market_category = function(value)
   if value == "Q" then
     return "Market Category: Nasdaq Global Select Market (Q)"
   end
@@ -1356,11 +1356,11 @@ display.market_category = function(value)
 end
 
 -- Dissect: Market Category
-dissect.market_category = function(buffer, offset, packet, parent)
-  local length = size_of.market_category
+nasdaq_equities_noi_itch_v3_0_dissect.market_category = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.market_category
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_category(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.market_category(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.market_category, range, value, display)
 
@@ -1368,122 +1368,122 @@ dissect.market_category = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stock Directory Message
-size_of.stock_directory_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.stock_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.stock
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.stock
 
-  index = index + size_of.market_category
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.market_category
 
-  index = index + size_of.financial_status_indicator
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.financial_status_indicator
 
-  index = index + size_of.round_lot_size
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.round_lot_size
 
-  index = index + size_of.round_lots_only
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.round_lots_only
 
-  index = index + size_of.issue_classification
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.issue_classification
 
-  index = index + size_of.issue_sub_type
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.issue_sub_type
 
-  index = index + size_of.authenticity
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.authenticity
 
-  index = index + size_of.short_sale_threshold_indicator
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.short_sale_threshold_indicator
 
-  index = index + size_of.ipo_flag
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.ipo_flag
 
-  index = index + size_of.luld_reference_price_tier
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.luld_reference_price_tier
 
-  index = index + size_of.etp_flag
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.etp_flag
 
-  index = index + size_of.etp_leverage_factor
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.etp_leverage_factor
 
-  index = index + size_of.inverse_indicator
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.inverse_indicator
 
   return index
 end
 
 -- Display: Stock Directory Message
-display.stock_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.stock_directory_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stock Directory Message
-dissect.stock_directory_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.stock_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Stock: 8 Byte Ascii String
-  index, stock = dissect.stock(buffer, index, packet, parent)
+  index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
   -- Market Category: 1 Byte Ascii String Enum with 9 values
-  index, market_category = dissect.market_category(buffer, index, packet, parent)
+  index, market_category = nasdaq_equities_noi_itch_v3_0_dissect.market_category(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = nasdaq_equities_noi_itch_v3_0_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Round Lot Size: 4 Byte Unsigned Fixed Width Integer
-  index, round_lot_size = dissect.round_lot_size(buffer, index, packet, parent)
+  index, round_lot_size = nasdaq_equities_noi_itch_v3_0_dissect.round_lot_size(buffer, index, packet, parent)
 
   -- Round Lots Only: 1 Byte Ascii String Enum with 2 values
-  index, round_lots_only = dissect.round_lots_only(buffer, index, packet, parent)
+  index, round_lots_only = nasdaq_equities_noi_itch_v3_0_dissect.round_lots_only(buffer, index, packet, parent)
 
   -- Issue Classification: 1 Byte Ascii String
-  index, issue_classification = dissect.issue_classification(buffer, index, packet, parent)
+  index, issue_classification = nasdaq_equities_noi_itch_v3_0_dissect.issue_classification(buffer, index, packet, parent)
 
   -- Issue Sub Type: 2 Byte Ascii String
-  index, issue_sub_type = dissect.issue_sub_type(buffer, index, packet, parent)
+  index, issue_sub_type = nasdaq_equities_noi_itch_v3_0_dissect.issue_sub_type(buffer, index, packet, parent)
 
   -- Authenticity: 1 Byte Ascii String Enum with 2 values
-  index, authenticity = dissect.authenticity(buffer, index, packet, parent)
+  index, authenticity = nasdaq_equities_noi_itch_v3_0_dissect.authenticity(buffer, index, packet, parent)
 
   -- Short Sale Threshold Indicator: 1 Byte Ascii String Enum with 3 values
-  index, short_sale_threshold_indicator = dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
+  index, short_sale_threshold_indicator = nasdaq_equities_noi_itch_v3_0_dissect.short_sale_threshold_indicator(buffer, index, packet, parent)
 
   -- Ipo Flag: 1 Byte Ascii String Enum with 3 values
-  index, ipo_flag = dissect.ipo_flag(buffer, index, packet, parent)
+  index, ipo_flag = nasdaq_equities_noi_itch_v3_0_dissect.ipo_flag(buffer, index, packet, parent)
 
   -- Luld Reference Price Tier: 1 Byte Ascii String Enum with 3 values
-  index, luld_reference_price_tier = dissect.luld_reference_price_tier(buffer, index, packet, parent)
+  index, luld_reference_price_tier = nasdaq_equities_noi_itch_v3_0_dissect.luld_reference_price_tier(buffer, index, packet, parent)
 
   -- Etp Flag: 1 Byte Ascii String Enum with 3 values
-  index, etp_flag = dissect.etp_flag(buffer, index, packet, parent)
+  index, etp_flag = nasdaq_equities_noi_itch_v3_0_dissect.etp_flag(buffer, index, packet, parent)
 
   -- Etp Leverage Factor: 4 Byte Unsigned Fixed Width Integer
-  index, etp_leverage_factor = dissect.etp_leverage_factor(buffer, index, packet, parent)
+  index, etp_leverage_factor = nasdaq_equities_noi_itch_v3_0_dissect.etp_leverage_factor(buffer, index, packet, parent)
 
   -- Inverse Indicator: 1 Byte Ascii String Enum with 2 values
-  index, inverse_indicator = dissect.inverse_indicator(buffer, index, packet, parent)
+  index, inverse_indicator = nasdaq_equities_noi_itch_v3_0_dissect.inverse_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stock Directory Message
-dissect.stock_directory_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.stock_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_directory_message then
-    local length = size_of.stock_directory_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.stock_directory_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stock_directory_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.stock_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.stock_directory_message, range, display)
   end
 
-  return dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Event Code
-size_of.event_code = 1
+nasdaq_equities_noi_itch_v3_0_size_of.event_code = 1
 
 -- Display: Event Code
-display.event_code = function(value)
+nasdaq_equities_noi_itch_v3_0_display.event_code = function(value)
   if value == "O" then
     return "Event Code: Start Of Messages (O)"
   end
@@ -1510,11 +1510,11 @@ display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-dissect.event_code = function(buffer, offset, packet, parent)
-  local length = size_of.event_code
+nasdaq_equities_noi_itch_v3_0_dissect.event_code = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.event_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.event_code(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.event_code, range, value, display)
 
@@ -1522,150 +1522,150 @@ dissect.event_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Event Message
-size_of.system_event_message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.system_event_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.tracking_number
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.tracking_number
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.timestamp
 
-  index = index + size_of.event_code
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.event_code
 
   return index
 end
 
 -- Display: System Event Message
-display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
-  index, tracking_number = dissect.tracking_number(buffer, index, packet, parent)
+  index, tracking_number = nasdaq_equities_noi_itch_v3_0_dissect.tracking_number(buffer, index, packet, parent)
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_equities_noi_itch_v3_0_dissect.timestamp(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 7 values
-  index, event_code = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = nasdaq_equities_noi_itch_v3_0_dissect.event_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-dissect.system_event_message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = size_of.system_event_message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.system_event_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_event_message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.system_event_message, range, display)
   end
 
-  return dissect.system_event_message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+nasdaq_equities_noi_itch_v3_0_size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return size_of.system_event_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.system_event_message(buffer, offset)
   end
   -- Size of Stock Directory Message
   if message_type == "R" then
-    return size_of.stock_directory_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.stock_directory_message(buffer, offset)
   end
   -- Size of Stock Trading Action Message
   if message_type == "H" then
-    return size_of.stock_trading_action_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.stock_trading_action_message(buffer, offset)
   end
   -- Size of Reg Sho Restriction Message
   if message_type == "Y" then
-    return size_of.reg_sho_restriction_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.reg_sho_restriction_message(buffer, offset)
   end
   -- Size of Noii Message
   if message_type == "I" then
-    return size_of.noii_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.noii_message(buffer, offset)
   end
   -- Size of Cross Trade Message
   if message_type == "Q" then
-    return size_of.cross_trade_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.cross_trade_message(buffer, offset)
   end
   -- Size of Ipo Quoting Period Update Message
   if message_type == "K" then
-    return size_of.ipo_quoting_period_update_message(buffer, offset)
+    return nasdaq_equities_noi_itch_v3_0_size_of.ipo_quoting_period_update_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nasdaq_equities_noi_itch_v3_0_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
-    return dissect.system_event_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Directory Message
   if message_type == "R" then
-    return dissect.stock_directory_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.stock_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Trading Action Message
   if message_type == "H" then
-    return dissect.stock_trading_action_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.stock_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Reg Sho Restriction Message
   if message_type == "Y" then
-    return dissect.reg_sho_restriction_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.reg_sho_restriction_message(buffer, offset, packet, parent)
   end
   -- Dissect Noii Message
   if message_type == "I" then
-    return dissect.noii_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.noii_message(buffer, offset, packet, parent)
   end
   -- Dissect Cross Trade Message
   if message_type == "Q" then
-    return dissect.cross_trade_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.cross_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Ipo Quoting Period Update Message
   if message_type == "K" then
-    return dissect.ipo_quoting_period_update_message(buffer, offset, packet, parent)
+    return nasdaq_equities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+nasdaq_equities_noi_itch_v3_0_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nasdaq_equities_noi_itch_v3_0_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = nasdaq_equities_noi_itch_v3_0_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_equities_noi_itch_v3_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nasdaq_equities_noi_itch_v3_0_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+nasdaq_equities_noi_itch_v3_0_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+nasdaq_equities_noi_itch_v3_0_display.message_type = function(value)
   if value == "S" then
     return "Message Type: System Event Message (S)"
   end
@@ -1692,11 +1692,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+nasdaq_equities_noi_itch_v3_0_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.message_type, range, value, display)
 
@@ -1704,19 +1704,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+nasdaq_equities_noi_itch_v3_0_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+nasdaq_equities_noi_itch_v3_0_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+nasdaq_equities_noi_itch_v3_0_dissect.length = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.length, range, value, display)
 
@@ -1724,109 +1724,109 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.length
 
-  index = index + size_of.message_type
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = nasdaq_equities_noi_itch_v3_0_dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 7 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nasdaq_equities_noi_itch_v3_0_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nasdaq_equities_noi_itch_v3_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 7 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = nasdaq_equities_noi_itch_v3_0_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.message(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 2
+nasdaq_equities_noi_itch_v3_0_size_of.count = 2
 
 -- Display: Count
-display.count = function(value)
+nasdaq_equities_noi_itch_v3_0_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+nasdaq_equities_noi_itch_v3_0_dissect.count = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.count, range, value, display)
 
@@ -1834,19 +1834,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence
-size_of.sequence = 8
+nasdaq_equities_noi_itch_v3_0_size_of.sequence = 8
 
 -- Display: Sequence
-display.sequence = function(value)
+nasdaq_equities_noi_itch_v3_0_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+nasdaq_equities_noi_itch_v3_0_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.sequence
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.sequence, range, value, display)
 
@@ -1854,19 +1854,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session
-size_of.session = 10
+nasdaq_equities_noi_itch_v3_0_size_of.session = 10
 
 -- Display: Session
-display.session = function(value)
+nasdaq_equities_noi_itch_v3_0_display.session = function(value)
   return "Session: "..value
 end
 
 -- Dissect: Session
-dissect.session = function(buffer, offset, packet, parent)
-  local length = size_of.session
+nasdaq_equities_noi_itch_v3_0_dissect.session = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_noi_itch_v3_0_size_of.session
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session(value, buffer, offset, packet, parent)
+  local display = nasdaq_equities_noi_itch_v3_0_display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.session, range, value, display)
 
@@ -1874,65 +1874,65 @@ dissect.session = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+nasdaq_equities_noi_itch_v3_0_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.session
 
-  index = index + size_of.sequence
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.sequence
 
-  index = index + size_of.count
+  index = index + nasdaq_equities_noi_itch_v3_0_size_of.count
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_equities_noi_itch_v3_0_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = nasdaq_equities_noi_itch_v3_0_dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = nasdaq_equities_noi_itch_v3_0_dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = nasdaq_equities_noi_itch_v3_0_dissect.count(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = nasdaq_equities_noi_itch_v3_0_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = nasdaq_equities_noi_itch_v3_0_display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_equities_noi_itch_v3_0.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return nasdaq_equities_noi_itch_v3_0_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+nasdaq_equities_noi_itch_v3_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nasdaq_equities_noi_itch_v3_0_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = nasdaq_equities_noi_itch_v3_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -1955,7 +1955,7 @@ function nasdaq_equities_noi_itch_v3_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_equities_noi_itch_v3_0, buffer(), nasdaq_equities_noi_itch_v3_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return nasdaq_equities_noi_itch_v3_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

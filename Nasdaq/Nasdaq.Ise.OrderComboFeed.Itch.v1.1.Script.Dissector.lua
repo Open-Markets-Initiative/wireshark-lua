@@ -10,9 +10,9 @@ local nasdaq_ise_ordercombofeed_itch_v1_1 = Proto("Nasdaq.Ise.OrderComboFeed.Itc
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local nasdaq_ise_ordercombofeed_itch_v1_1_display = {}
+local nasdaq_ise_ordercombofeed_itch_v1_1_dissect = {}
+local nasdaq_ise_ordercombofeed_itch_v1_1_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -183,19 +183,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Response Size
-size_of.response_size = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_size = 4
 
 -- Display: Response Size
-display.response_size = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.response_size = function(value)
   return "Response Size: "..value
 end
 
 -- Dissect: Response Size
-dissect.response_size = function(buffer, offset, packet, parent)
-  local length = size_of.response_size
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_size = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.response_size(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.response_size(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_size, range, value, display)
 
@@ -203,19 +203,19 @@ dissect.response_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Response Price
-size_of.response_price = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_price = 4
 
 -- Display: Response Price
-display.response_price = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.response_price = function(value)
   return "Response Price: "..value
 end
 
 -- Dissect: Response Price
-dissect.response_price = function(buffer, offset, packet, parent)
-  local length = size_of.response_price
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_price
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.response_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.response_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_price, range, value, display)
 
@@ -223,61 +223,61 @@ dissect.response_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Response
-size_of.auction_response = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_response = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.response_price
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_price
 
-  index = index + size_of.response_size
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_size
 
   return index
 end
 
 -- Display: Auction Response
-display.auction_response = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_response = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Response
-dissect.auction_response_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Response Price: 4 Byte Unsigned Fixed Width Integer
-  index, response_price = dissect.response_price(buffer, index, packet, parent)
+  index, response_price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_price(buffer, index, packet, parent)
 
   -- Response Size: 4 Byte Unsigned Fixed Width Integer
-  index, response_size = dissect.response_size(buffer, index, packet, parent)
+  index, response_size = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Response
-dissect.auction_response = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_response = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_response then
-    local length = size_of.auction_response(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_response(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_response(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_response(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.auction_response, range, display)
   end
 
-  return dissect.auction_response_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_response_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Responses
-size_of.number_of_responses = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_responses = 1
 
 -- Display: Number Of Responses
-display.number_of_responses = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.number_of_responses = function(value)
   return "Number Of Responses: "..value
 end
 
 -- Dissect: Number Of Responses
-dissect.number_of_responses = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_responses
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.number_of_responses = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_responses
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_responses(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.number_of_responses(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.number_of_responses, range, value, display)
 
@@ -285,10 +285,10 @@ dissect.number_of_responses = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Type
-size_of.auction_type = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_type = 1
 
 -- Display: Auction Type
-display.auction_type = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_type = function(value)
   if value == "E" then
     return "Auction Type: Exposure (E)"
   end
@@ -306,11 +306,11 @@ display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = size_of.auction_type
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.auction_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.auction_type, range, value, display)
 
@@ -318,10 +318,10 @@ dissect.auction_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Event
-size_of.auction_event = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_event = 1
 
 -- Display: Auction Event
-display.auction_event = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_event = function(value)
   if value == "S" then
     return "Auction Event: Start (S)"
   end
@@ -336,11 +336,11 @@ display.auction_event = function(value)
 end
 
 -- Dissect: Auction Event
-dissect.auction_event = function(buffer, offset, packet, parent)
-  local length = size_of.auction_event
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_event = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_event
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.auction_event(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_event(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.auction_event, range, value, display)
 
@@ -348,19 +348,19 @@ dissect.auction_event = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cmta
-size_of.cmta = 6
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.cmta = 6
 
 -- Display: Cmta
-display.cmta = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.cmta = function(value)
   return "Cmta: "..value
 end
 
 -- Dissect: Cmta
-dissect.cmta = function(buffer, offset, packet, parent)
-  local length = size_of.cmta
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.cmta = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.cmta
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cmta(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.cmta(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.cmta, range, value, display)
 
@@ -368,19 +368,19 @@ dissect.cmta = function(buffer, offset, packet, parent)
 end
 
 -- Size: Giveup
-size_of.giveup = 6
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.giveup = 6
 
 -- Display: Giveup
-display.giveup = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.giveup = function(value)
   return "Giveup: "..value
 end
 
 -- Dissect: Giveup
-dissect.giveup = function(buffer, offset, packet, parent)
-  local length = size_of.giveup
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.giveup = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.giveup
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.giveup(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.giveup(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.giveup, range, value, display)
 
@@ -388,19 +388,19 @@ dissect.giveup = function(buffer, offset, packet, parent)
 end
 
 -- Size: Owner Id
-size_of.owner_id = 6
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.owner_id = 6
 
 -- Display: Owner Id
-display.owner_id = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.owner_id = function(value)
   return "Owner Id: "..value
 end
 
 -- Dissect: Owner Id
-dissect.owner_id = function(buffer, offset, packet, parent)
-  local length = size_of.owner_id
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.owner_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.owner_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.owner_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.owner_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.owner_id, range, value, display)
 
@@ -408,10 +408,10 @@ dissect.owner_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Scope
-size_of.scope = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.scope = 1
 
 -- Display: Scope
-display.scope = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.scope = function(value)
   if value == "L" then
     return "Scope: Local (L)"
   end
@@ -423,11 +423,11 @@ display.scope = function(value)
 end
 
 -- Dissect: Scope
-dissect.scope = function(buffer, offset, packet, parent)
-  local length = size_of.scope
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.scope = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.scope
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.scope(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.scope(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.scope, range, value, display)
 
@@ -435,10 +435,10 @@ dissect.scope = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Capacity
-size_of.order_capacity = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_capacity = 1
 
 -- Display: Order Capacity
-display.order_capacity = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.order_capacity = function(value)
   if value == "C" then
     return "Order Capacity: Customer (C)"
   end
@@ -468,11 +468,11 @@ display.order_capacity = function(value)
 end
 
 -- Dissect: Order Capacity
-dissect.order_capacity = function(buffer, offset, packet, parent)
-  local length = size_of.order_capacity
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_capacity = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_capacity
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_capacity(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.order_capacity(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.order_capacity, range, value, display)
 
@@ -480,10 +480,10 @@ dissect.order_capacity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Flag
-size_of.exec_flag = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.exec_flag = 1
 
 -- Display: Exec Flag
-display.exec_flag = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.exec_flag = function(value)
   if value == "N" then
     return "Exec Flag: None (N)"
   end
@@ -495,11 +495,11 @@ display.exec_flag = function(value)
 end
 
 -- Dissect: Exec Flag
-dissect.exec_flag = function(buffer, offset, packet, parent)
-  local length = size_of.exec_flag
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.exec_flag = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.exec_flag
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.exec_flag(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.exec_flag(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.exec_flag, range, value, display)
 
@@ -507,19 +507,19 @@ dissect.exec_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Size
-size_of.size = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.size = 4
 
 -- Display: Size
-display.size = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.size = function(value)
   return "Size: "..value
 end
 
 -- Dissect: Size
-dissect.size = function(buffer, offset, packet, parent)
-  local length = size_of.size
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.size = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.size(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.size(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.size, range, value, display)
 
@@ -527,19 +527,19 @@ dissect.size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price = 4
 
 -- Display: Price
-display.price = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.price, range, value, display)
 
@@ -547,10 +547,10 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.side = function(value)
   if value == "B" then
     return "Side: Bid (B)"
   end
@@ -565,11 +565,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.side = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.side(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.side, range, value, display)
 
@@ -577,10 +577,10 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Type
-size_of.order_type = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_type = 1
 
 -- Display: Order Type
-display.order_type = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.order_type = function(value)
   if value == "M" then
     return "Order Type: Market (M)"
   end
@@ -592,11 +592,11 @@ display.order_type = function(value)
 end
 
 -- Dissect: Order Type
-dissect.order_type = function(buffer, offset, packet, parent)
-  local length = size_of.order_type
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.order_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.order_type, range, value, display)
 
@@ -604,19 +604,19 @@ dissect.order_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Id
-size_of.auction_id = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_id = 4
 
 -- Display: Auction Id
-display.auction_id = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_id = function(value)
   return "Auction Id: "..value
 end
 
 -- Dissect: Auction Id
-dissect.auction_id = function(buffer, offset, packet, parent)
-  local length = size_of.auction_id
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.auction_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.auction_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.auction_id, range, value, display)
 
@@ -624,19 +624,19 @@ dissect.auction_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strategy Id
-size_of.strategy_id = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id = 4
 
 -- Display: Strategy Id
-display.strategy_id = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_id = function(value)
   return "Strategy Id: "..value
 end
 
 -- Dissect: Strategy Id
-dissect.strategy_id = function(buffer, offset, packet, parent)
-  local length = size_of.strategy_id
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.strategy_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.strategy_id, range, value, display)
 
@@ -644,19 +644,19 @@ dissect.strategy_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp
-size_of.timestamp = 6
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp = 6
 
 -- Display: Timestamp
-display.timestamp = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.timestamp(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.timestamp, range, value, display)
 
@@ -664,40 +664,40 @@ dissect.timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Strategy Auction Message
-size_of.complex_strategy_auction_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_auction_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.strategy_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
 
-  index = index + size_of.auction_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_id
 
-  index = index + size_of.order_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_type
 
-  index = index + size_of.side
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.side
 
-  index = index + size_of.price
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price
 
-  index = index + size_of.size
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.size
 
-  index = index + size_of.exec_flag
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.exec_flag
 
-  index = index + size_of.order_capacity
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_capacity
 
-  index = index + size_of.scope
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.scope
 
-  index = index + size_of.owner_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.owner_id
 
-  index = index + size_of.giveup
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.giveup
 
-  index = index + size_of.cmta
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.cmta
 
-  index = index + size_of.auction_event
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_event
 
-  index = index + size_of.auction_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.auction_type
 
-  index = index + size_of.number_of_responses
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_responses
 
   -- Calculate field size from count
   local auction_response_count = buffer(offset + index - 1, 1):uint()
@@ -707,180 +707,180 @@ size_of.complex_strategy_auction_message = function(buffer, offset)
 end
 
 -- Display: Complex Strategy Auction Message
-display.complex_strategy_auction_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_auction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Strategy Auction Message
-dissect.complex_strategy_auction_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Auction Id: 4 Byte Unsigned Fixed Width Integer
-  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_id(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Ascii String Enum with 2 values
-  index, order_type = dissect.order_type(buffer, index, packet, parent)
+  index, order_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.size(buffer, index, packet, parent)
 
   -- Exec Flag: 1 Byte Ascii String Enum with 2 values
-  index, exec_flag = dissect.exec_flag(buffer, index, packet, parent)
+  index, exec_flag = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.exec_flag(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 8 values
-  index, order_capacity = dissect.order_capacity(buffer, index, packet, parent)
+  index, order_capacity = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_capacity(buffer, index, packet, parent)
 
   -- Scope: 1 Byte Ascii String Enum with 2 values
-  index, scope = dissect.scope(buffer, index, packet, parent)
+  index, scope = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.scope(buffer, index, packet, parent)
 
   -- Owner Id: 6 Byte Ascii String
-  index, owner_id = dissect.owner_id(buffer, index, packet, parent)
+  index, owner_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.owner_id(buffer, index, packet, parent)
 
   -- Giveup: 6 Byte Ascii String
-  index, giveup = dissect.giveup(buffer, index, packet, parent)
+  index, giveup = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.giveup(buffer, index, packet, parent)
 
   -- Cmta: 6 Byte Ascii String
-  index, cmta = dissect.cmta(buffer, index, packet, parent)
+  index, cmta = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.cmta(buffer, index, packet, parent)
 
   -- Auction Event: 1 Byte Ascii String Enum with 3 values
-  index, auction_event = dissect.auction_event(buffer, index, packet, parent)
+  index, auction_event = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_event(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 4 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_type(buffer, index, packet, parent)
 
   -- Number Of Responses: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_responses = dissect.number_of_responses(buffer, index, packet, parent)
+  index, number_of_responses = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.number_of_responses(buffer, index, packet, parent)
 
   -- Auction Response: Struct of 2 fields
   for i = 1, number_of_responses do
-    index = dissect.auction_response(buffer, index, packet, parent)
+    index = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_response(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Complex Strategy Auction Message
-dissect.complex_strategy_auction_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.complex_strategy_auction_message then
-    local length = size_of.complex_strategy_auction_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_auction_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_strategy_auction_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_auction_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.complex_strategy_auction_message, range, display)
   end
 
-  return dissect.complex_strategy_auction_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Strategy Order On Book Message
-size_of.complex_strategy_order_on_book_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_order_on_book_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.strategy_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
 
-  index = index + size_of.order_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_type
 
-  index = index + size_of.side
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.side
 
-  index = index + size_of.price
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price
 
-  index = index + size_of.size
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.size
 
-  index = index + size_of.exec_flag
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.exec_flag
 
-  index = index + size_of.order_capacity
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.order_capacity
 
-  index = index + size_of.scope
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.scope
 
-  index = index + size_of.owner_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.owner_id
 
-  index = index + size_of.giveup
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.giveup
 
-  index = index + size_of.cmta
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.cmta
 
   return index
 end
 
 -- Display: Complex Strategy Order On Book Message
-display.complex_strategy_order_on_book_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Strategy Order On Book Message
-dissect.complex_strategy_order_on_book_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Ascii String Enum with 2 values
-  index, order_type = dissect.order_type(buffer, index, packet, parent)
+  index, order_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_type(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 3 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
   -- Price: 4 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.size(buffer, index, packet, parent)
 
   -- Exec Flag: 1 Byte Ascii String Enum with 2 values
-  index, exec_flag = dissect.exec_flag(buffer, index, packet, parent)
+  index, exec_flag = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.exec_flag(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 8 values
-  index, order_capacity = dissect.order_capacity(buffer, index, packet, parent)
+  index, order_capacity = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.order_capacity(buffer, index, packet, parent)
 
   -- Scope: 1 Byte Ascii String Enum with 2 values
-  index, scope = dissect.scope(buffer, index, packet, parent)
+  index, scope = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.scope(buffer, index, packet, parent)
 
   -- Owner Id: 6 Byte Ascii String
-  index, owner_id = dissect.owner_id(buffer, index, packet, parent)
+  index, owner_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.owner_id(buffer, index, packet, parent)
 
   -- Giveup: 6 Byte Ascii String
-  index, giveup = dissect.giveup(buffer, index, packet, parent)
+  index, giveup = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.giveup(buffer, index, packet, parent)
 
   -- Cmta: 6 Byte Ascii String
-  index, cmta = dissect.cmta(buffer, index, packet, parent)
+  index, cmta = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.cmta(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Strategy Order On Book Message
-dissect.complex_strategy_order_on_book_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_strategy_order_on_book_message then
-    local length = size_of.complex_strategy_order_on_book_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_order_on_book_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_strategy_order_on_book_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_order_on_book_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.complex_strategy_order_on_book_message, range, display)
   end
 
-  return dissect.complex_strategy_order_on_book_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Open State
-size_of.open_state = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.open_state = 1
 
 -- Display: Open State
-display.open_state = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.open_state = function(value)
   if value == "Y" then
     return "Open State: Open For Auto Execution (Y)"
   end
@@ -892,11 +892,11 @@ display.open_state = function(value)
 end
 
 -- Dissect: Open State
-dissect.open_state = function(buffer, offset, packet, parent)
-  local length = size_of.open_state
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.open_state = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.open_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.open_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.open_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.open_state, range, value, display)
 
@@ -904,57 +904,57 @@ dissect.open_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strategy Open Closed Message
-size_of.strategy_open_closed_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_open_closed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.strategy_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
 
-  index = index + size_of.open_state
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.open_state
 
   return index
 end
 
 -- Display: Strategy Open Closed Message
-display.strategy_open_closed_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strategy Open Closed Message
-dissect.strategy_open_closed_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Ascii String Enum with 2 values
-  index, open_state = dissect.open_state(buffer, index, packet, parent)
+  index, open_state = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.open_state(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Strategy Open Closed Message
-dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_open_closed_message then
-    local length = size_of.strategy_open_closed_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_open_closed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_open_closed_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.strategy_open_closed_message, range, display)
   end
 
-  return dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Current Trading State
-size_of.current_trading_state = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_trading_state = 1
 
 -- Display: Current Trading State
-display.current_trading_state = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.current_trading_state = function(value)
   if value == "H" then
     return "Current Trading State: Halt In Effect (H)"
   end
@@ -966,11 +966,11 @@ display.current_trading_state = function(value)
 end
 
 -- Dissect: Current Trading State
-dissect.current_trading_state = function(buffer, offset, packet, parent)
-  local length = size_of.current_trading_state
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_trading_state = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_trading_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.current_trading_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_trading_state, range, value, display)
 
@@ -978,66 +978,66 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strategy Trading Action Message
-size_of.strategy_trading_action_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_trading_action_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.strategy_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
 
-  index = index + size_of.current_trading_state
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_trading_state
 
   return index
 end
 
 -- Display: Strategy Trading Action Message
-display.strategy_trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strategy Trading Action Message
-dissect.strategy_trading_action_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Ascii String Enum with 2 values
-  index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Strategy Trading Action Message
-dissect.strategy_trading_action_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_trading_action_message then
-    local length = size_of.strategy_trading_action_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_trading_action_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_trading_action_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.strategy_trading_action_message, range, display)
   end
 
-  return dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Ratio
-size_of.leg_ratio = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_ratio = 4
 
 -- Display: Leg Ratio
-display.leg_ratio = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_ratio = function(value)
   return "Leg Ratio: "..value
 end
 
 -- Dissect: Leg Ratio
-dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.leg_ratio
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_ratio
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.leg_ratio(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_ratio, range, value, display)
 
@@ -1045,10 +1045,10 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Side
-size_of.leg_side = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_side = 1
 
 -- Display: Leg Side
-display.leg_side = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_side = function(value)
   if value == "B" then
     return "Leg Side: Buy (B)"
   end
@@ -1060,11 +1060,11 @@ display.leg_side = function(value)
 end
 
 -- Dissect: Leg Side
-dissect.leg_side = function(buffer, offset, packet, parent)
-  local length = size_of.leg_side
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_side = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.leg_side(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_side, range, value, display)
 
@@ -1072,10 +1072,10 @@ dissect.leg_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Type
-size_of.option_type = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_type = 1
 
 -- Display: Option Type
-display.option_type = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.option_type = function(value)
   if value == "C" then
     return "Option Type: Call (C)"
   end
@@ -1090,11 +1090,11 @@ display.option_type = function(value)
 end
 
 -- Dissect: Option Type
-dissect.option_type = function(buffer, offset, packet, parent)
-  local length = size_of.option_type
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.option_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.option_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.option_type, range, value, display)
 
@@ -1102,19 +1102,19 @@ dissect.option_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Explicit Strike Price
-size_of.explicit_strike_price = 8
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.explicit_strike_price = 8
 
 -- Display: Explicit Strike Price
-display.explicit_strike_price = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.explicit_strike_price = function(value)
   return "Explicit Strike Price: "..value
 end
 
 -- Dissect: Explicit Strike Price
-dissect.explicit_strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.explicit_strike_price
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.explicit_strike_price
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.explicit_strike_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.explicit_strike_price, range, value, display)
 
@@ -1122,19 +1122,19 @@ dissect.explicit_strike_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Day
-size_of.expiration_day = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_day = 1
 
 -- Display: Expiration Day
-display.expiration_day = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_day = function(value)
   return "Expiration Day: "..value
 end
 
 -- Dissect: Expiration Day
-dissect.expiration_day = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_day
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_day = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_day
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_day(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_day(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_day, range, value, display)
 
@@ -1142,19 +1142,19 @@ dissect.expiration_day = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Month
-size_of.expiration_month = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_month = 1
 
 -- Display: Expiration Month
-display.expiration_month = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_month = function(value)
   return "Expiration Month: "..value
 end
 
 -- Dissect: Expiration Month
-dissect.expiration_month = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_month
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_month = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_month
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_month(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_month(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_month, range, value, display)
 
@@ -1162,19 +1162,19 @@ dissect.expiration_month = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Year
-size_of.expiration_year = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_year = 1
 
 -- Display: Expiration Year
-display.expiration_year = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_year = function(value)
   return "Expiration Year: "..value
 end
 
 -- Dissect: Expiration Year
-dissect.expiration_year = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_year
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_year = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_year
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_year(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.expiration_year(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_year, range, value, display)
 
@@ -1182,19 +1182,19 @@ dissect.expiration_year = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Id
-size_of.leg_id = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_id = 1
 
 -- Display: Leg Id
-display.leg_id = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_id = function(value)
   return "Leg Id: "..value
 end
 
 -- Dissect: Leg Id
-dissect.leg_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_id
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.leg_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_id, range, value, display)
 
@@ -1202,19 +1202,19 @@ dissect.leg_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol
-size_of.security_symbol = 6
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.security_symbol = 6
 
 -- Display: Security Symbol
-display.security_symbol = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
 
 -- Dissect: Security Symbol
-dissect.security_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.security_symbol = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.security_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.security_symbol, range, value, display)
 
@@ -1222,19 +1222,19 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Id
-size_of.option_id = 4
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_id = 4
 
 -- Display: Option Id
-display.option_id = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.option_id = function(value)
   return "Option Id: "..value
 end
 
 -- Dissect: Option Id
-dissect.option_id = function(buffer, offset, packet, parent)
-  local length = size_of.option_id
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.option_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.option_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.option_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.option_id, range, value, display)
 
@@ -1242,101 +1242,101 @@ dissect.option_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Leg Information
-size_of.leg_information = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_information = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.option_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_id
 
-  index = index + size_of.security_symbol
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.security_symbol
 
-  index = index + size_of.leg_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_id
 
-  index = index + size_of.expiration_year
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_year
 
-  index = index + size_of.expiration_month
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_month
 
-  index = index + size_of.expiration_day
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.expiration_day
 
-  index = index + size_of.explicit_strike_price
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.explicit_strike_price
 
-  index = index + size_of.option_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.option_type
 
-  index = index + size_of.leg_side
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_side
 
-  index = index + size_of.leg_ratio
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_ratio
 
   return index
 end
 
 -- Display: Leg Information
-display.leg_information = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_information = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Leg Information
-dissect.leg_information_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_information_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 6 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Leg Id: 1 Byte Unsigned Fixed Width Integer
-  index, leg_id = dissect.leg_id(buffer, index, packet, parent)
+  index, leg_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_id(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_year(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_day(buffer, index, packet, parent)
 
   -- Explicit Strike Price: 8 Byte Unsigned Fixed Width Integer
-  index, explicit_strike_price = dissect.explicit_strike_price(buffer, index, packet, parent)
+  index, explicit_strike_price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
-  index, option_type = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.option_type(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Ascii String Enum with 2 values
-  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+  index, leg_side = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_side(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_ratio(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Leg Information
-dissect.leg_information = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.leg_information then
-    local length = size_of.leg_information(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.leg_information(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.leg_information(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.leg_information(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_information, range, display)
   end
 
-  return dissect.leg_information_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_information_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Legs
-size_of.number_of_legs = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_legs = 1
 
 -- Display: Number Of Legs
-display.number_of_legs = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.number_of_legs = function(value)
   return "Number Of Legs: "..value
 end
 
 -- Dissect: Number Of Legs
-dissect.number_of_legs = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_legs
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.number_of_legs = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_legs
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_legs(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.number_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.number_of_legs, range, value, display)
 
@@ -1344,19 +1344,19 @@ dissect.number_of_legs = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Symbol
-size_of.underlying_symbol = 13
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.underlying_symbol = 13
 
 -- Display: Underlying Symbol
-display.underlying_symbol = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
 
 -- Dissect: Underlying Symbol
-dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_symbol
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.underlying_symbol = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.underlying_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.underlying_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.underlying_symbol, range, value, display)
 
@@ -1364,19 +1364,19 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source
-size_of.source = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.source = 1
 
 -- Display: Source
-display.source = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.source = function(value)
   return "Source: "..value
 end
 
 -- Dissect: Source
-dissect.source = function(buffer, offset, packet, parent)
-  local length = size_of.source
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.source = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.source
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.source(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.source(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.source, range, value, display)
 
@@ -1384,10 +1384,10 @@ dissect.source = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strategy Type
-size_of.strategy_type = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_type = 1
 
 -- Display: Strategy Type
-display.strategy_type = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_type = function(value)
   if value == "V" then
     return "Strategy Type: Vertical Spread (V)"
   end
@@ -1420,11 +1420,11 @@ display.strategy_type = function(value)
 end
 
 -- Dissect: Strategy Type
-dissect.strategy_type = function(buffer, offset, packet, parent)
-  local length = size_of.strategy_type
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.strategy_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.strategy_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.strategy_type, range, value, display)
 
@@ -1432,20 +1432,20 @@ dissect.strategy_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Strategy Directory Message
-size_of.complex_strategy_directory_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.strategy_id
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_id
 
-  index = index + size_of.strategy_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_type
 
-  index = index + size_of.source
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.source
 
-  index = index + size_of.underlying_symbol
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.underlying_symbol
 
-  index = index + size_of.number_of_legs
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.number_of_legs
 
   -- Calculate field size from count
   local leg_information_count = buffer(offset + index - 1, 1):uint()
@@ -1455,67 +1455,67 @@ size_of.complex_strategy_directory_message = function(buffer, offset)
 end
 
 -- Display: Complex Strategy Directory Message
-display.complex_strategy_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_directory_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Strategy Directory Message
-dissect.complex_strategy_directory_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
-  index, strategy_id = dissect.strategy_id(buffer, index, packet, parent)
+  index, strategy_id = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_id(buffer, index, packet, parent)
 
   -- Strategy Type: 1 Byte Ascii String Enum with 9 values
-  index, strategy_type = dissect.strategy_type(buffer, index, packet, parent)
+  index, strategy_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_type(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
-  index, source = dissect.source(buffer, index, packet, parent)
+  index, source = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.source(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Number Of Legs: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_legs = dissect.number_of_legs(buffer, index, packet, parent)
+  index, number_of_legs = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.number_of_legs(buffer, index, packet, parent)
 
   -- Leg Information: Struct of 10 fields
   for i = 1, number_of_legs do
-    index = dissect.leg_information(buffer, index, packet, parent)
+    index = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_information(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Complex Strategy Directory Message
-dissect.complex_strategy_directory_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.complex_strategy_directory_message then
-    local length = size_of.complex_strategy_directory_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_directory_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_strategy_directory_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.complex_strategy_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.complex_strategy_directory_message, range, display)
   end
 
-  return dissect.complex_strategy_directory_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_directory_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Subversion
-size_of.subversion = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.subversion = 1
 
 -- Display: Subversion
-display.subversion = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.subversion = function(value)
   return "Subversion: "..value
 end
 
 -- Dissect: Subversion
-dissect.subversion = function(buffer, offset, packet, parent)
-  local length = size_of.subversion
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.subversion = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.subversion
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.subversion(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.subversion(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.subversion, range, value, display)
 
@@ -1523,19 +1523,19 @@ dissect.subversion = function(buffer, offset, packet, parent)
 end
 
 -- Size: Version
-size_of.version = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.version = 1
 
 -- Display: Version
-display.version = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.version = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.version(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.version, range, value, display)
 
@@ -1543,19 +1543,19 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Size: Current Day
-size_of.current_day = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_day = 1
 
 -- Display: Current Day
-display.current_day = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.current_day = function(value)
   return "Current Day: "..value
 end
 
 -- Dissect: Current Day
-dissect.current_day = function(buffer, offset, packet, parent)
-  local length = size_of.current_day
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_day = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_day
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.current_day(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.current_day(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_day, range, value, display)
 
@@ -1563,19 +1563,19 @@ dissect.current_day = function(buffer, offset, packet, parent)
 end
 
 -- Size: Current Month
-size_of.current_month = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_month = 1
 
 -- Display: Current Month
-display.current_month = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.current_month = function(value)
   return "Current Month: "..value
 end
 
 -- Dissect: Current Month
-dissect.current_month = function(buffer, offset, packet, parent)
-  local length = size_of.current_month
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_month = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_month
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.current_month(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.current_month(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_month, range, value, display)
 
@@ -1583,19 +1583,19 @@ dissect.current_month = function(buffer, offset, packet, parent)
 end
 
 -- Size: Current Year
-size_of.current_year = 2
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_year = 2
 
 -- Display: Current Year
-display.current_year = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.current_year = function(value)
   return "Current Year: "..value
 end
 
 -- Dissect: Current Year
-dissect.current_year = function(buffer, offset, packet, parent)
-  local length = size_of.current_year
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_year = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_year
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.current_year(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.current_year(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.current_year, range, value, display)
 
@@ -1603,10 +1603,10 @@ dissect.current_year = function(buffer, offset, packet, parent)
 end
 
 -- Size: Event Code
-size_of.event_code = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.event_code = 1
 
 -- Display: Event Code
-display.event_code = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.event_code = function(value)
   if value == "O" then
     return "Event Code: Start Of Messages (O)"
   end
@@ -1636,11 +1636,11 @@ display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-dissect.event_code = function(buffer, offset, packet, parent)
-  local length = size_of.event_code
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.event_code = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.event_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.event_code(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.event_code, range, value, display)
 
@@ -1648,162 +1648,162 @@ dissect.event_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Event Message
-size_of.system_event_message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.system_event_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.timestamp
 
-  index = index + size_of.event_code
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.event_code
 
-  index = index + size_of.current_year
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_year
 
-  index = index + size_of.current_month
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_month
 
-  index = index + size_of.current_day
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.current_day
 
-  index = index + size_of.version
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.version
 
-  index = index + size_of.subversion
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.subversion
 
   return index
 end
 
 -- Display: System Event Message
-display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.timestamp(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 8 values
-  index, event_code = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.event_code(buffer, index, packet, parent)
 
   -- Current Year: 2 Byte Unsigned Fixed Width Integer
-  index, current_year = dissect.current_year(buffer, index, packet, parent)
+  index, current_year = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_year(buffer, index, packet, parent)
 
   -- Current Month: 1 Byte Unsigned Fixed Width Integer
-  index, current_month = dissect.current_month(buffer, index, packet, parent)
+  index, current_month = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_month(buffer, index, packet, parent)
 
   -- Current Day: 1 Byte Unsigned Fixed Width Integer
-  index, current_day = dissect.current_day(buffer, index, packet, parent)
+  index, current_day = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.current_day(buffer, index, packet, parent)
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.version(buffer, index, packet, parent)
 
   -- Subversion: 1 Byte Unsigned Fixed Width Integer
-  index, subversion = dissect.subversion(buffer, index, packet, parent)
+  index, subversion = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.subversion(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-dissect.system_event_message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = size_of.system_event_message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.system_event_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_event_message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.system_event_message, range, display)
   end
 
-  return dissect.system_event_message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.payload = function(buffer, offset, message_type)
   -- Size of System Event Message
   if message_type == "S" then
-    return size_of.system_event_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.system_event_message(buffer, offset)
   end
   -- Size of Complex Strategy Directory Message
   if message_type == "R" then
-    return size_of.complex_strategy_directory_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_directory_message(buffer, offset)
   end
   -- Size of Strategy Trading Action Message
   if message_type == "H" then
-    return size_of.strategy_trading_action_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_trading_action_message(buffer, offset)
   end
   -- Size of Strategy Open Closed Message
   if message_type == "O" then
-    return size_of.strategy_open_closed_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.strategy_open_closed_message(buffer, offset)
   end
   -- Size of Complex Strategy Order On Book Message
   if message_type == "L" then
-    return size_of.complex_strategy_order_on_book_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_order_on_book_message(buffer, offset)
   end
   -- Size of Complex Strategy Auction Message
   if message_type == "J" then
-    return size_of.complex_strategy_auction_message(buffer, offset)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_size_of.complex_strategy_auction_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Event Message
   if message_type == "S" then
-    return dissect.system_event_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Directory Message
   if message_type == "R" then
-    return dissect.complex_strategy_directory_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Trading Action Message
   if message_type == "H" then
-    return dissect.strategy_trading_action_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Open Closed Message
   if message_type == "O" then
-    return dissect.strategy_open_closed_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.strategy_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Order On Book Message
   if message_type == "L" then
-    return dissect.complex_strategy_order_on_book_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Strategy Auction Message
   if message_type == "J" then
-    return dissect.complex_strategy_auction_message(buffer, offset, packet, parent)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.message_type = function(value)
   if value == "S" then
     return "Message Type: System Event Message (S)"
   end
@@ -1827,11 +1827,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.message_type, range, value, display)
 
@@ -1839,19 +1839,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.length = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.length, range, value, display)
 
@@ -1859,109 +1859,109 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.length
 
-  index = index + size_of.message_type
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 6 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 6 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.message(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 2
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.count = 2
 
 -- Display: Count
-display.count = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.count = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.count, range, value, display)
 
@@ -1969,19 +1969,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence
-size_of.sequence = 8
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.sequence = 8
 
 -- Display: Sequence
-display.sequence = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.sequence
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.sequence, range, value, display)
 
@@ -1989,19 +1989,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session
-size_of.session = 10
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.session = 10
 
 -- Display: Session
-display.session = function(value)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.session = function(value)
   return "Session: "..value
 end
 
 -- Dissect: Session
-dissect.session = function(buffer, offset, packet, parent)
-  local length = size_of.session
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.session = function(buffer, offset, packet, parent)
+  local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.session
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session(value, buffer, offset, packet, parent)
+  local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.session, range, value, display)
 
@@ -2009,65 +2009,65 @@ dissect.session = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+nasdaq_ise_ordercombofeed_itch_v1_1_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.session
 
-  index = index + size_of.sequence
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.sequence
 
-  index = index + size_of.count
+  index = index + nasdaq_ise_ordercombofeed_itch_v1_1_size_of.count
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.count(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -2090,7 +2090,7 @@ function nasdaq_ise_ordercombofeed_itch_v1_1.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_ise_ordercombofeed_itch_v1_1, buffer(), nasdaq_ise_ordercombofeed_itch_v1_1.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return nasdaq_ise_ordercombofeed_itch_v1_1_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

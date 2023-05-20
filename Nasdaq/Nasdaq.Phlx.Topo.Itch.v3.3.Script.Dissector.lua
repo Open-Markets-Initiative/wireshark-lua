@@ -10,9 +10,9 @@ local nasdaq_phlx_topo_itch_v3_3 = Proto("Nasdaq.Phlx.Topo.Itch.v3.3.Lua", "Nasd
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local nasdaq_phlx_topo_itch_v3_3_display = {}
+local nasdaq_phlx_topo_itch_v3_3_dissect = {}
+local nasdaq_phlx_topo_itch_v3_3_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -216,19 +216,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Original Volume
-size_of.original_volume = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.original_volume = 4
 
 -- Display: Original Volume
-display.original_volume = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.original_volume = function(value)
   return "Original Volume: "..value
 end
 
 -- Dissect: Original Volume
-dissect.original_volume = function(buffer, offset, packet, parent)
-  local length = size_of.original_volume
+nasdaq_phlx_topo_itch_v3_3_dissect.original_volume = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.original_volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.original_volume(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.original_volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.original_volume, range, value, display)
 
@@ -236,19 +236,19 @@ dissect.original_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Original Price
-size_of.original_price = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.original_price = 4
 
 -- Display: Original Price
-display.original_price = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.original_price = function(value)
   return "Original Price: "..value
 end
 
 -- Dissect: Original Price
-dissect.original_price = function(buffer, offset, packet, parent)
-  local length = size_of.original_price
+nasdaq_phlx_topo_itch_v3_3_dissect.original_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.original_price
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.original_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.original_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.original_price, range, value, display)
 
@@ -256,19 +256,19 @@ dissect.original_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Original Cross Id
-size_of.original_cross_id = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.original_cross_id = 4
 
 -- Display: Original Cross Id
-display.original_cross_id = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.original_cross_id = function(value)
   return "Original Cross Id: "..value
 end
 
 -- Dissect: Original Cross Id
-dissect.original_cross_id = function(buffer, offset, packet, parent)
-  local length = size_of.original_cross_id
+nasdaq_phlx_topo_itch_v3_3_dissect.original_cross_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.original_cross_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.original_cross_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.original_cross_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.original_cross_id, range, value, display)
 
@@ -276,19 +276,19 @@ dissect.original_cross_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Id
-size_of.option_id = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.option_id = 4
 
 -- Display: Option Id
-display.option_id = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.option_id = function(value)
   return "Option Id: "..value
 end
 
 -- Dissect: Option Id
-dissect.option_id = function(buffer, offset, packet, parent)
-  local length = size_of.option_id
+nasdaq_phlx_topo_itch_v3_3_dissect.option_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.option_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.option_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.option_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.option_id, range, value, display)
 
@@ -296,19 +296,19 @@ dissect.option_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Nanoseconds
-size_of.nanoseconds = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds = 4
 
 -- Display: Nanoseconds
-display.nanoseconds = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.nanoseconds = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
+nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.nanoseconds, range, value, display)
 
@@ -316,76 +316,76 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Broken Trade Report Message
-size_of.broken_trade_report_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.broken_trade_report_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.original_cross_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.original_cross_id
 
-  index = index + size_of.original_price
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.original_price
 
-  index = index + size_of.original_volume
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.original_volume
 
   return index
 end
 
 -- Display: Broken Trade Report Message
-display.broken_trade_report_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.broken_trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Broken Trade Report Message
-dissect.broken_trade_report_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.broken_trade_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Original Cross Id: 4 Byte Unsigned Fixed Width Integer
-  index, original_cross_id = dissect.original_cross_id(buffer, index, packet, parent)
+  index, original_cross_id = nasdaq_phlx_topo_itch_v3_3_dissect.original_cross_id(buffer, index, packet, parent)
 
   -- Original Price: 4 Byte Unsigned Fixed Width Integer
-  index, original_price = dissect.original_price(buffer, index, packet, parent)
+  index, original_price = nasdaq_phlx_topo_itch_v3_3_dissect.original_price(buffer, index, packet, parent)
 
   -- Original Volume: 4 Byte Unsigned Fixed Width Integer
-  index, original_volume = dissect.original_volume(buffer, index, packet, parent)
+  index, original_volume = nasdaq_phlx_topo_itch_v3_3_dissect.original_volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Broken Trade Report Message
-dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.broken_trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.broken_trade_report_message then
-    local length = size_of.broken_trade_report_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.broken_trade_report_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.broken_trade_report_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.broken_trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.broken_trade_report_message, range, display)
   end
 
-  return dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.broken_trade_report_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Volume
-size_of.volume = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.volume = 4
 
 -- Display: Volume
-display.volume = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.volume = function(value)
   return "Volume: "..value
 end
 
 -- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local length = size_of.volume
+nasdaq_phlx_topo_itch_v3_3_dissect.volume = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.volume(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.volume, range, value, display)
 
@@ -393,19 +393,19 @@ dissect.volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price 4
-size_of.price_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.price_4 = 4
 
 -- Display: Price 4
-display.price_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.price_4 = function(value)
   return "Price 4: "..value
 end
 
 -- Dissect: Price 4
-dissect.price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.price_4
+nasdaq_phlx_topo_itch_v3_3_dissect.price_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.price_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.price_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.price_4, range, value, display)
 
@@ -413,19 +413,19 @@ dissect.price_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Condition
-size_of.trade_condition = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.trade_condition = 1
 
 -- Display: Trade Condition
-display.trade_condition = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.trade_condition = function(value)
   return "Trade Condition: "..value
 end
 
 -- Dissect: Trade Condition
-dissect.trade_condition = function(buffer, offset, packet, parent)
-  local length = size_of.trade_condition
+nasdaq_phlx_topo_itch_v3_3_dissect.trade_condition = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.trade_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_condition(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.trade_condition, range, value, display)
 
@@ -433,19 +433,19 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Id
-size_of.cross_id = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.cross_id = 4
 
 -- Display: Cross Id
-display.cross_id = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.cross_id = function(value)
   return "Cross Id: "..value
 end
 
 -- Dissect: Cross Id
-dissect.cross_id = function(buffer, offset, packet, parent)
-  local length = size_of.cross_id
+nasdaq_phlx_topo_itch_v3_3_dissect.cross_id = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.cross_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.cross_id(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.cross_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.cross_id, range, value, display)
 
@@ -453,81 +453,81 @@ dissect.cross_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Message
-size_of.trade_report_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.trade_report_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.cross_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.cross_id
 
-  index = index + size_of.trade_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.trade_condition
 
-  index = index + size_of.price_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.price_4
 
-  index = index + size_of.volume
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.volume
 
   return index
 end
 
 -- Display: Trade Report Message
-display.trade_report_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Message
-dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Cross Id: 4 Byte Unsigned Fixed Width Integer
-  index, cross_id = dissect.cross_id(buffer, index, packet, parent)
+  index, cross_id = nasdaq_phlx_topo_itch_v3_3_dissect.cross_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = nasdaq_phlx_topo_itch_v3_3_dissect.trade_condition(buffer, index, packet, parent)
 
   -- Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, price_4 = dissect.price_4(buffer, index, packet, parent)
+  index, price_4 = nasdaq_phlx_topo_itch_v3_3_dissect.price_4(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = nasdaq_phlx_topo_itch_v3_3_dissect.volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Message
-dissect.trade_report_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local length = size_of.trade_report_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.trade_report_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.trade_report_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.trade_report_message, range, display)
   end
 
-  return dissect.trade_report_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.trade_report_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Size 4
-size_of.size_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.size_4 = 4
 
 -- Display: Size 4
-display.size_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.size_4 = function(value)
   return "Size 4: "..value
 end
 
 -- Dissect: Size 4
-dissect.size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.size_4
+nasdaq_phlx_topo_itch_v3_3_dissect.size_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.size_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.size_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.size_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.size_4, range, value, display)
 
@@ -535,10 +535,10 @@ dissect.size_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Condition
-size_of.quote_condition = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition = 1
 
 -- Display: Quote Condition
-display.quote_condition = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.quote_condition = function(value)
   if value == "" then
     return "Quote Condition: Regular Quoteautox Eligible (<whitespace>)"
   end
@@ -559,11 +559,11 @@ display.quote_condition = function(value)
 end
 
 -- Dissect: Quote Condition
-dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.quote_condition
+nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_condition(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.quote_condition, range, value, display)
 
@@ -571,133 +571,133 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Long Best Bid Update Message
-size_of.long_best_bid_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.price_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.price_4
 
-  index = index + size_of.size_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.size_4
 
   return index
 end
 
 -- Display: Long Best Bid Update Message
-display.long_best_bid_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.long_best_bid_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Long Best Bid Update Message
-dissect.long_best_bid_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, price_4 = dissect.price_4(buffer, index, packet, parent)
+  index, price_4 = nasdaq_phlx_topo_itch_v3_3_dissect.price_4(buffer, index, packet, parent)
 
   -- Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, size_4 = dissect.size_4(buffer, index, packet, parent)
+  index, size_4 = nasdaq_phlx_topo_itch_v3_3_dissect.size_4(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Long Best Bid Update Message
-dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_bid_update_message then
-    local length = size_of.long_best_bid_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.long_best_bid_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.long_best_bid_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.long_best_bid_update_message, range, display)
   end
 
-  return dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Long Best Ask Update Message
-size_of.long_best_ask_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.long_best_ask_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.price_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.price_4
 
-  index = index + size_of.size_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.size_4
 
   return index
 end
 
 -- Display: Long Best Ask Update Message
-display.long_best_ask_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.long_best_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Long Best Ask Update Message
-dissect.long_best_ask_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_ask_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, price_4 = dissect.price_4(buffer, index, packet, parent)
+  index, price_4 = nasdaq_phlx_topo_itch_v3_3_dissect.price_4(buffer, index, packet, parent)
 
   -- Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, size_4 = dissect.size_4(buffer, index, packet, parent)
+  index, size_4 = nasdaq_phlx_topo_itch_v3_3_dissect.size_4(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Long Best Ask Update Message
-dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_ask_update_message then
-    local length = size_of.long_best_ask_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.long_best_ask_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.long_best_ask_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.long_best_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.long_best_ask_update_message, range, display)
   end
 
-  return dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_ask_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Size 2
-size_of.size_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.size_2 = 2
 
 -- Display: Size 2
-display.size_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.size_2 = function(value)
   return "Size 2: "..value
 end
 
 -- Dissect: Size 2
-dissect.size_2 = function(buffer, offset, packet, parent)
-  local length = size_of.size_2
+nasdaq_phlx_topo_itch_v3_3_dissect.size_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.size_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.size_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.size_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.size_2, range, value, display)
 
@@ -705,19 +705,19 @@ dissect.size_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price 2
-size_of.price_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.price_2 = 2
 
 -- Display: Price 2
-display.price_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.price_2 = function(value)
   return "Price 2: "..value
 end
 
 -- Dissect: Price 2
-dissect.price_2 = function(buffer, offset, packet, parent)
-  local length = size_of.price_2
+nasdaq_phlx_topo_itch_v3_3_dissect.price_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.price_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.price_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.price_2, range, value, display)
 
@@ -725,133 +725,133 @@ dissect.price_2 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Short Best Bid Update Message
-size_of.short_best_bid_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.price_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.price_2
 
-  index = index + size_of.size_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.size_2
 
   return index
 end
 
 -- Display: Short Best Bid Update Message
-display.short_best_bid_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.short_best_bid_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Short Best Bid Update Message
-dissect.short_best_bid_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, price_2 = dissect.price_2(buffer, index, packet, parent)
+  index, price_2 = nasdaq_phlx_topo_itch_v3_3_dissect.price_2(buffer, index, packet, parent)
 
   -- Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, size_2 = dissect.size_2(buffer, index, packet, parent)
+  index, size_2 = nasdaq_phlx_topo_itch_v3_3_dissect.size_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Short Best Bid Update Message
-dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_bid_update_message then
-    local length = size_of.short_best_bid_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.short_best_bid_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.short_best_bid_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.short_best_bid_update_message, range, display)
   end
 
-  return dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Short Best Ask Update Message
-size_of.short_best_ask_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.short_best_ask_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.price_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.price_2
 
-  index = index + size_of.size_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.size_2
 
   return index
 end
 
 -- Display: Short Best Ask Update Message
-display.short_best_ask_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.short_best_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Short Best Ask Update Message
-dissect.short_best_ask_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_ask_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, price_2 = dissect.price_2(buffer, index, packet, parent)
+  index, price_2 = nasdaq_phlx_topo_itch_v3_3_dissect.price_2(buffer, index, packet, parent)
 
   -- Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, size_2 = dissect.size_2(buffer, index, packet, parent)
+  index, size_2 = nasdaq_phlx_topo_itch_v3_3_dissect.size_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Short Best Ask Update Message
-dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_ask_update_message then
-    local length = size_of.short_best_ask_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.short_best_ask_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.short_best_ask_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.short_best_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.short_best_ask_update_message, range, display)
   end
 
-  return dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_ask_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Size 4
-size_of.ask_size_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_4 = 4
 
 -- Display: Ask Size 4
-display.ask_size_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.ask_size_4 = function(value)
   return "Ask Size 4: "..value
 end
 
 -- Dissect: Ask Size 4
-dissect.ask_size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.ask_size_4
+nasdaq_phlx_topo_itch_v3_3_dissect.ask_size_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ask_size_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.ask_size_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_size_4, range, value, display)
 
@@ -859,19 +859,19 @@ dissect.ask_size_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Price 4
-size_of.ask_price_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_4 = 4
 
 -- Display: Ask Price 4
-display.ask_price_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.ask_price_4 = function(value)
   return "Ask Price 4: "..value
 end
 
 -- Dissect: Ask Price 4
-dissect.ask_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.ask_price_4
+nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ask_price_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.ask_price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_price_4, range, value, display)
 
@@ -879,19 +879,19 @@ dissect.ask_price_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size 4
-size_of.bid_size_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_4 = 4
 
 -- Display: Bid Size 4
-display.bid_size_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.bid_size_4 = function(value)
   return "Bid Size 4: "..value
 end
 
 -- Dissect: Bid Size 4
-dissect.bid_size_4 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size_4
+nasdaq_phlx_topo_itch_v3_3_dissect.bid_size_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_size_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.bid_size_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_size_4, range, value, display)
 
@@ -899,19 +899,19 @@ dissect.bid_size_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price 4
-size_of.bid_price_4 = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_4 = 4
 
 -- Display: Bid Price 4
-display.bid_price_4 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.bid_price_4 = function(value)
   return "Bid Price 4: "..value
 end
 
 -- Dissect: Bid Price 4
-dissect.bid_price_4 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_4
+nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_4 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_4
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_price_4(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.bid_price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_price_4, range, value, display)
 
@@ -919,86 +919,86 @@ dissect.bid_price_4 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Long Best Bid And Ask Update Message
-size_of.long_best_bid_and_ask_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_and_ask_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.bid_price_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_4
 
-  index = index + size_of.bid_size_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_4
 
-  index = index + size_of.ask_price_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_4
 
-  index = index + size_of.ask_size_4
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_4
 
   return index
 end
 
 -- Display: Long Best Bid And Ask Update Message
-display.long_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.long_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Long Best Bid And Ask Update Message
-dissect.long_best_bid_and_ask_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Bid Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_price_4 = dissect.bid_price_4(buffer, index, packet, parent)
+  index, bid_price_4 = nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_4 = dissect.bid_size_4(buffer, index, packet, parent)
+  index, bid_size_4 = nasdaq_phlx_topo_itch_v3_3_dissect.bid_size_4(buffer, index, packet, parent)
 
   -- Ask Price 4: 4 Byte Unsigned Fixed Width Integer
-  index, ask_price_4 = dissect.ask_price_4(buffer, index, packet, parent)
+  index, ask_price_4 = nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_4(buffer, index, packet, parent)
 
   -- Ask Size 4: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size_4 = dissect.ask_size_4(buffer, index, packet, parent)
+  index, ask_size_4 = nasdaq_phlx_topo_itch_v3_3_dissect.ask_size_4(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Long Best Bid And Ask Update Message
-dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_best_bid_and_ask_update_message then
-    local length = size_of.long_best_bid_and_ask_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_and_ask_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.long_best_bid_and_ask_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.long_best_bid_and_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.long_best_bid_and_ask_update_message, range, display)
   end
 
-  return dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Size 2
-size_of.ask_size_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_2 = 2
 
 -- Display: Ask Size 2
-display.ask_size_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.ask_size_2 = function(value)
   return "Ask Size 2: "..value
 end
 
 -- Dissect: Ask Size 2
-dissect.ask_size_2 = function(buffer, offset, packet, parent)
-  local length = size_of.ask_size_2
+nasdaq_phlx_topo_itch_v3_3_dissect.ask_size_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ask_size_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.ask_size_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_size_2, range, value, display)
 
@@ -1006,19 +1006,19 @@ dissect.ask_size_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Price 2
-size_of.ask_price_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_2 = 2
 
 -- Display: Ask Price 2
-display.ask_price_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.ask_price_2 = function(value)
   return "Ask Price 2: "..value
 end
 
 -- Dissect: Ask Price 2
-dissect.ask_price_2 = function(buffer, offset, packet, parent)
-  local length = size_of.ask_price_2
+nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ask_price_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.ask_price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_price_2, range, value, display)
 
@@ -1026,19 +1026,19 @@ dissect.ask_price_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size 2
-size_of.bid_size_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_2 = 2
 
 -- Display: Bid Size 2
-display.bid_size_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.bid_size_2 = function(value)
   return "Bid Size 2: "..value
 end
 
 -- Dissect: Bid Size 2
-dissect.bid_size_2 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size_2
+nasdaq_phlx_topo_itch_v3_3_dissect.bid_size_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_size_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.bid_size_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_size_2, range, value, display)
 
@@ -1046,19 +1046,19 @@ dissect.bid_size_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price 2
-size_of.bid_price_2 = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_2 = 2
 
 -- Display: Bid Price 2
-display.bid_price_2 = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.bid_price_2 = function(value)
   return "Bid Price 2: "..value
 end
 
 -- Dissect: Bid Price 2
-dissect.bid_price_2 = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_2
+nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_2 = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_2
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_price_2(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.bid_price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_price_2, range, value, display)
 
@@ -1066,77 +1066,77 @@ dissect.bid_price_2 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Short Best Bid And Ask Update Message
-size_of.short_best_bid_and_ask_update_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_and_ask_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.quote_condition
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.quote_condition
 
-  index = index + size_of.bid_price_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_2
 
-  index = index + size_of.bid_size_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.bid_size_2
 
-  index = index + size_of.ask_price_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_2
 
-  index = index + size_of.ask_size_2
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.ask_size_2
 
   return index
 end
 
 -- Display: Short Best Bid And Ask Update Message
-display.short_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.short_best_bid_and_ask_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Short Best Bid And Ask Update Message
-dissect.short_best_bid_and_ask_update_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nasdaq_phlx_topo_itch_v3_3_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Bid Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_price_2 = dissect.bid_price_2(buffer, index, packet, parent)
+  index, bid_price_2 = nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_2 = dissect.bid_size_2(buffer, index, packet, parent)
+  index, bid_size_2 = nasdaq_phlx_topo_itch_v3_3_dissect.bid_size_2(buffer, index, packet, parent)
 
   -- Ask Price 2: 2 Byte Unsigned Fixed Width Integer
-  index, ask_price_2 = dissect.ask_price_2(buffer, index, packet, parent)
+  index, ask_price_2 = nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_2(buffer, index, packet, parent)
 
   -- Ask Size 2: 2 Byte Unsigned Fixed Width Integer
-  index, ask_size_2 = dissect.ask_size_2(buffer, index, packet, parent)
+  index, ask_size_2 = nasdaq_phlx_topo_itch_v3_3_dissect.ask_size_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Short Best Bid And Ask Update Message
-dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_best_bid_and_ask_update_message then
-    local length = size_of.short_best_bid_and_ask_update_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_and_ask_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.short_best_bid_and_ask_update_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.short_best_bid_and_ask_update_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.short_best_bid_and_ask_update_message, range, display)
   end
 
-  return dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Open State
-size_of.open_state = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.open_state = 1
 
 -- Display: Open State
-display.open_state = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.open_state = function(value)
   if value == "Y" then
     return "Open State: Open For Auto Execution (Y)"
   end
@@ -1148,11 +1148,11 @@ display.open_state = function(value)
 end
 
 -- Dissect: Open State
-dissect.open_state = function(buffer, offset, packet, parent)
-  local length = size_of.open_state
+nasdaq_phlx_topo_itch_v3_3_dissect.open_state = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.open_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.open_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.open_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.open_state, range, value, display)
 
@@ -1160,57 +1160,57 @@ dissect.open_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Open Closed Message
-size_of.security_open_closed_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.security_open_closed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.open_state
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.open_state
 
   return index
 end
 
 -- Display: Security Open Closed Message
-display.security_open_closed_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.security_open_closed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Open Closed Message
-dissect.security_open_closed_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.security_open_closed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Open State: 1 Byte Ascii String Enum with 2 values
-  index, open_state = dissect.open_state(buffer, index, packet, parent)
+  index, open_state = nasdaq_phlx_topo_itch_v3_3_dissect.open_state(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Open Closed Message
-dissect.security_open_closed_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.security_open_closed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_open_closed_message then
-    local length = size_of.security_open_closed_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.security_open_closed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_open_closed_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.security_open_closed_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.security_open_closed_message, range, display)
   end
 
-  return dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.security_open_closed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Current Trading State
-size_of.current_trading_state = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.current_trading_state = 1
 
 -- Display: Current Trading State
-display.current_trading_state = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.current_trading_state = function(value)
   if value == "H" then
     return "Current Trading State: Halt In Effect (H)"
   end
@@ -1222,11 +1222,11 @@ display.current_trading_state = function(value)
 end
 
 -- Dissect: Current Trading State
-dissect.current_trading_state = function(buffer, offset, packet, parent)
-  local length = size_of.current_trading_state
+nasdaq_phlx_topo_itch_v3_3_dissect.current_trading_state = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.current_trading_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.current_trading_state(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.current_trading_state(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.current_trading_state, range, value, display)
 
@@ -1234,57 +1234,57 @@ dissect.current_trading_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trading Action Message
-size_of.trading_action_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.trading_action_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.current_trading_state
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.current_trading_state
 
   return index
 end
 
 -- Display: Trading Action Message
-display.trading_action_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Action Message
-dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Current Trading State: 1 Byte Ascii String Enum with 2 values
-  index, current_trading_state = dissect.current_trading_state(buffer, index, packet, parent)
+  index, current_trading_state = nasdaq_phlx_topo_itch_v3_3_dissect.current_trading_state(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Action Message
-dissect.trading_action_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local length = size_of.trading_action_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.trading_action_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trading_action_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.trading_action_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.trading_action_message, range, display)
   end
 
-  return dissect.trading_action_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.trading_action_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Mpv
-size_of.mpv = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.mpv = 1
 
 -- Display: Mpv
-display.mpv = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.mpv = function(value)
   if value == "E" then
     return "Mpv: Penny Everywhere (E)"
   end
@@ -1299,11 +1299,11 @@ display.mpv = function(value)
 end
 
 -- Dissect: Mpv
-dissect.mpv = function(buffer, offset, packet, parent)
-  local length = size_of.mpv
+nasdaq_phlx_topo_itch_v3_3_dissect.mpv = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.mpv
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mpv(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.mpv, range, value, display)
 
@@ -1311,10 +1311,10 @@ dissect.mpv = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tradable
-size_of.tradable = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.tradable = 1
 
 -- Display: Tradable
-display.tradable = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.tradable = function(value)
   if value == "Y" then
     return "Tradable: Tradable (Y)"
   end
@@ -1326,11 +1326,11 @@ display.tradable = function(value)
 end
 
 -- Dissect: Tradable
-dissect.tradable = function(buffer, offset, packet, parent)
-  local length = size_of.tradable
+nasdaq_phlx_topo_itch_v3_3_dissect.tradable = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.tradable
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.tradable(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.tradable(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.tradable, range, value, display)
 
@@ -1338,10 +1338,10 @@ dissect.tradable = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Closing Type
-size_of.option_closing_type = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.option_closing_type = 1
 
 -- Display: Option Closing Type
-display.option_closing_type = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.option_closing_type = function(value)
   if value == "N" then
     return "Option Closing Type: Normal (N)"
   end
@@ -1356,11 +1356,11 @@ display.option_closing_type = function(value)
 end
 
 -- Dissect: Option Closing Type
-dissect.option_closing_type = function(buffer, offset, packet, parent)
-  local length = size_of.option_closing_type
+nasdaq_phlx_topo_itch_v3_3_dissect.option_closing_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.option_closing_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.option_closing_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.option_closing_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.option_closing_type, range, value, display)
 
@@ -1368,19 +1368,19 @@ dissect.option_closing_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Symbol
-size_of.underlying_symbol = 13
+nasdaq_phlx_topo_itch_v3_3_size_of.underlying_symbol = 13
 
 -- Display: Underlying Symbol
-display.underlying_symbol = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
 
 -- Dissect: Underlying Symbol
-dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_symbol
+nasdaq_phlx_topo_itch_v3_3_dissect.underlying_symbol = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.underlying_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.underlying_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.underlying_symbol, range, value, display)
 
@@ -1388,19 +1388,19 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source
-size_of.source = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.source = 1
 
 -- Display: Source
-display.source = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.source = function(value)
   return "Source: "..value
 end
 
 -- Dissect: Source
-dissect.source = function(buffer, offset, packet, parent)
-  local length = size_of.source
+nasdaq_phlx_topo_itch_v3_3_dissect.source = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.source
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.source(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.source(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.source, range, value, display)
 
@@ -1408,10 +1408,10 @@ dissect.source = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Type
-size_of.option_type = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.option_type = 1
 
 -- Display: Option Type
-display.option_type = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.option_type = function(value)
   if value == "C" then
     return "Option Type: Call (C)"
   end
@@ -1423,11 +1423,11 @@ display.option_type = function(value)
 end
 
 -- Dissect: Option Type
-dissect.option_type = function(buffer, offset, packet, parent)
-  local length = size_of.option_type
+nasdaq_phlx_topo_itch_v3_3_dissect.option_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.option_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.option_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.option_type, range, value, display)
 
@@ -1435,19 +1435,19 @@ dissect.option_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price
-size_of.strike_price = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.strike_price = 4
 
 -- Display: Strike Price
-display.strike_price = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
 -- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
+nasdaq_phlx_topo_itch_v3_3_dissect.strike_price = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.strike_price
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.strike_price, range, value, display)
 
@@ -1455,19 +1455,19 @@ dissect.strike_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Day
-size_of.expiration_day = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.expiration_day = 1
 
 -- Display: Expiration Day
-display.expiration_day = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.expiration_day = function(value)
   return "Expiration Day: "..value
 end
 
 -- Dissect: Expiration Day
-dissect.expiration_day = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_day
+nasdaq_phlx_topo_itch_v3_3_dissect.expiration_day = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.expiration_day
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_day(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.expiration_day(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.expiration_day, range, value, display)
 
@@ -1475,19 +1475,19 @@ dissect.expiration_day = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Month
-size_of.expiration_month = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.expiration_month = 1
 
 -- Display: Expiration Month
-display.expiration_month = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.expiration_month = function(value)
   return "Expiration Month: "..value
 end
 
 -- Dissect: Expiration Month
-dissect.expiration_month = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_month
+nasdaq_phlx_topo_itch_v3_3_dissect.expiration_month = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.expiration_month
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_month(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.expiration_month(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.expiration_month, range, value, display)
 
@@ -1495,19 +1495,19 @@ dissect.expiration_month = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Year
-size_of.expiration_year = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.expiration_year = 1
 
 -- Display: Expiration Year
-display.expiration_year = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.expiration_year = function(value)
   return "Expiration Year: "..value
 end
 
 -- Dissect: Expiration Year
-dissect.expiration_year = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_year
+nasdaq_phlx_topo_itch_v3_3_dissect.expiration_year = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.expiration_year
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.expiration_year(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.expiration_year(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.expiration_year, range, value, display)
 
@@ -1515,19 +1515,19 @@ dissect.expiration_year = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol
-size_of.security_symbol = 6
+nasdaq_phlx_topo_itch_v3_3_size_of.security_symbol = 6
 
 -- Display: Security Symbol
-display.security_symbol = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
 
 -- Dissect: Security Symbol
-dissect.security_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol
+nasdaq_phlx_topo_itch_v3_3_dissect.security_symbol = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.security_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.security_symbol, range, value, display)
 
@@ -1535,116 +1535,116 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Options Directory Message
-size_of.options_directory_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.options_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.option_id
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_id
 
-  index = index + size_of.security_symbol
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.security_symbol
 
-  index = index + size_of.expiration_year
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.expiration_year
 
-  index = index + size_of.expiration_month
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.expiration_month
 
-  index = index + size_of.expiration_day
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.expiration_day
 
-  index = index + size_of.strike_price
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.strike_price
 
-  index = index + size_of.option_type
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_type
 
-  index = index + size_of.source
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.source
 
-  index = index + size_of.underlying_symbol
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.underlying_symbol
 
-  index = index + size_of.option_closing_type
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.option_closing_type
 
-  index = index + size_of.tradable
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.tradable
 
-  index = index + size_of.mpv
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.mpv
 
   return index
 end
 
 -- Display: Options Directory Message
-display.options_directory_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.options_directory_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Options Directory Message
-dissect.options_directory_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.options_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
-  index, option_id = dissect.option_id(buffer, index, packet, parent)
+  index, option_id = nasdaq_phlx_topo_itch_v3_3_dissect.option_id(buffer, index, packet, parent)
 
   -- Security Symbol: 6 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = nasdaq_phlx_topo_itch_v3_3_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Expiration Year: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_year = dissect.expiration_year(buffer, index, packet, parent)
+  index, expiration_year = nasdaq_phlx_topo_itch_v3_3_dissect.expiration_year(buffer, index, packet, parent)
 
   -- Expiration Month: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_month = dissect.expiration_month(buffer, index, packet, parent)
+  index, expiration_month = nasdaq_phlx_topo_itch_v3_3_dissect.expiration_month(buffer, index, packet, parent)
 
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
-  index, expiration_day = dissect.expiration_day(buffer, index, packet, parent)
+  index, expiration_day = nasdaq_phlx_topo_itch_v3_3_dissect.expiration_day(buffer, index, packet, parent)
 
   -- Strike Price: 4 Byte Unsigned Fixed Width Integer
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = nasdaq_phlx_topo_itch_v3_3_dissect.strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values
-  index, option_type = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = nasdaq_phlx_topo_itch_v3_3_dissect.option_type(buffer, index, packet, parent)
 
   -- Source: 1 Byte Unsigned Fixed Width Integer
-  index, source = dissect.source(buffer, index, packet, parent)
+  index, source = nasdaq_phlx_topo_itch_v3_3_dissect.source(buffer, index, packet, parent)
 
   -- Underlying Symbol: 13 Byte Ascii String
-  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nasdaq_phlx_topo_itch_v3_3_dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Option Closing Type: 1 Byte Ascii String Enum with 3 values
-  index, option_closing_type = dissect.option_closing_type(buffer, index, packet, parent)
+  index, option_closing_type = nasdaq_phlx_topo_itch_v3_3_dissect.option_closing_type(buffer, index, packet, parent)
 
   -- Tradable: 1 Byte Ascii String Enum with 2 values
-  index, tradable = dissect.tradable(buffer, index, packet, parent)
+  index, tradable = nasdaq_phlx_topo_itch_v3_3_dissect.tradable(buffer, index, packet, parent)
 
   -- Mpv: 1 Byte Ascii String Enum with 3 values
-  index, mpv = dissect.mpv(buffer, index, packet, parent)
+  index, mpv = nasdaq_phlx_topo_itch_v3_3_dissect.mpv(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Options Directory Message
-dissect.options_directory_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.options_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.options_directory_message then
-    local length = size_of.options_directory_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.options_directory_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.options_directory_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.options_directory_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.options_directory_message, range, display)
   end
 
-  return dissect.options_directory_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.options_directory_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Subversion
-size_of.subversion = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.subversion = 1
 
 -- Display: Subversion
-display.subversion = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.subversion = function(value)
   return "Subversion: "..value
 end
 
 -- Dissect: Subversion
-dissect.subversion = function(buffer, offset, packet, parent)
-  local length = size_of.subversion
+nasdaq_phlx_topo_itch_v3_3_dissect.subversion = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.subversion
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.subversion(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.subversion(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.subversion, range, value, display)
 
@@ -1652,19 +1652,19 @@ dissect.subversion = function(buffer, offset, packet, parent)
 end
 
 -- Size: Version
-size_of.version = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.version = 1
 
 -- Display: Version
-display.version = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+nasdaq_phlx_topo_itch_v3_3_dissect.version = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.version(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.version, range, value, display)
 
@@ -1672,10 +1672,10 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Size: Event Code
-size_of.event_code = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.event_code = 1
 
 -- Display: Event Code
-display.event_code = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.event_code = function(value)
   if value == "O" then
     return "Event Code: Start Of Messages (O)"
   end
@@ -1705,11 +1705,11 @@ display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-dissect.event_code = function(buffer, offset, packet, parent)
-  local length = size_of.event_code
+nasdaq_phlx_topo_itch_v3_3_dissect.event_code = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.event_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.event_code(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.event_code, range, value, display)
 
@@ -1717,71 +1717,71 @@ dissect.event_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Event Message
-size_of.system_event_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.system_event_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanoseconds
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.nanoseconds
 
-  index = index + size_of.event_code
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.event_code
 
-  index = index + size_of.version
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.version
 
-  index = index + size_of.subversion
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.subversion
 
   return index
 end
 
 -- Display: System Event Message
-display.system_event_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nasdaq_phlx_topo_itch_v3_3_dissect.nanoseconds(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 8 values
-  index, event_code = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = nasdaq_phlx_topo_itch_v3_3_dissect.event_code(buffer, index, packet, parent)
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = nasdaq_phlx_topo_itch_v3_3_dissect.version(buffer, index, packet, parent)
 
   -- Subversion: 1 Byte Unsigned Fixed Width Integer
-  index, subversion = dissect.subversion(buffer, index, packet, parent)
+  index, subversion = nasdaq_phlx_topo_itch_v3_3_dissect.subversion(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-dissect.system_event_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = size_of.system_event_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.system_event_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_event_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.system_event_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.system_event_message, range, display)
   end
 
-  return dissect.system_event_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Second
-size_of.second = 4
+nasdaq_phlx_topo_itch_v3_3_size_of.second = 4
 
 -- Display: Second
-display.second = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.second = function(value)
   return "Second: "..value
 end
 
 -- Dissect: Second
-dissect.second = function(buffer, offset, packet, parent)
-  local length = size_of.second
+nasdaq_phlx_topo_itch_v3_3_dissect.second = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.second
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.second(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.second(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.second, range, value, display)
 
@@ -1789,188 +1789,188 @@ dissect.second = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timestamp Message
-size_of.timestamp_message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.timestamp_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.second
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.second
 
   return index
 end
 
 -- Display: Timestamp Message
-display.timestamp_message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.timestamp_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timestamp Message
-dissect.timestamp_message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.timestamp_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Second: 4 Byte Unsigned Fixed Width Integer
-  index, second = dissect.second(buffer, index, packet, parent)
+  index, second = nasdaq_phlx_topo_itch_v3_3_dissect.second(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Timestamp Message
-dissect.timestamp_message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.timestamp_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.timestamp_message then
-    local length = size_of.timestamp_message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.timestamp_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timestamp_message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.timestamp_message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.timestamp_message, range, display)
   end
 
-  return dissect.timestamp_message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.timestamp_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+nasdaq_phlx_topo_itch_v3_3_size_of.payload = function(buffer, offset, message_type)
   -- Size of Timestamp Message
   if message_type == "T" then
-    return size_of.timestamp_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.timestamp_message(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == "S" then
-    return size_of.system_event_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.system_event_message(buffer, offset)
   end
   -- Size of Options Directory Message
   if message_type == "D" then
-    return size_of.options_directory_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.options_directory_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if message_type == "H" then
-    return size_of.trading_action_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.trading_action_message(buffer, offset)
   end
   -- Size of Security Open Closed Message
   if message_type == "O" then
-    return size_of.security_open_closed_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.security_open_closed_message(buffer, offset)
   end
   -- Size of Short Best Bid And Ask Update Message
   if message_type == "q" then
-    return size_of.short_best_bid_and_ask_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_and_ask_update_message(buffer, offset)
   end
   -- Size of Long Best Bid And Ask Update Message
   if message_type == "Q" then
-    return size_of.long_best_bid_and_ask_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_and_ask_update_message(buffer, offset)
   end
   -- Size of Short Best Ask Update Message
   if message_type == "a" then
-    return size_of.short_best_ask_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.short_best_ask_update_message(buffer, offset)
   end
   -- Size of Short Best Bid Update Message
   if message_type == "b" then
-    return size_of.short_best_bid_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.short_best_bid_update_message(buffer, offset)
   end
   -- Size of Long Best Ask Update Message
   if message_type == "A" then
-    return size_of.long_best_ask_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.long_best_ask_update_message(buffer, offset)
   end
   -- Size of Long Best Bid Update Message
   if message_type == "B" then
-    return size_of.long_best_bid_update_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.long_best_bid_update_message(buffer, offset)
   end
   -- Size of Trade Report Message
   if message_type == "R" then
-    return size_of.trade_report_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.trade_report_message(buffer, offset)
   end
   -- Size of Broken Trade Report Message
   if message_type == "X" then
-    return size_of.broken_trade_report_message(buffer, offset)
+    return nasdaq_phlx_topo_itch_v3_3_size_of.broken_trade_report_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nasdaq_phlx_topo_itch_v3_3_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Timestamp Message
   if message_type == "T" then
-    return dissect.timestamp_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.timestamp_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == "S" then
-    return dissect.system_event_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Options Directory Message
   if message_type == "D" then
-    return dissect.options_directory_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.options_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
   if message_type == "H" then
-    return dissect.trading_action_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Open Closed Message
   if message_type == "O" then
-    return dissect.security_open_closed_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.security_open_closed_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Bid And Ask Update Message
   if message_type == "q" then
-    return dissect.short_best_bid_and_ask_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_and_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Bid And Ask Update Message
   if message_type == "Q" then
-    return dissect.long_best_bid_and_ask_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_and_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Ask Update Message
   if message_type == "a" then
-    return dissect.short_best_ask_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Best Bid Update Message
   if message_type == "b" then
-    return dissect.short_best_bid_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.short_best_bid_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Ask Update Message
   if message_type == "A" then
-    return dissect.long_best_ask_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_ask_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Best Bid Update Message
   if message_type == "B" then
-    return dissect.long_best_bid_update_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.long_best_bid_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Message
   if message_type == "R" then
-    return dissect.trade_report_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.trade_report_message(buffer, offset, packet, parent)
   end
   -- Dissect Broken Trade Report Message
   if message_type == "X" then
-    return dissect.broken_trade_report_message(buffer, offset, packet, parent)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.broken_trade_report_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+nasdaq_phlx_topo_itch_v3_3_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nasdaq_phlx_topo_itch_v3_3_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = nasdaq_phlx_topo_itch_v3_3_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.payload(buffer, packet, parent)
   local element = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+nasdaq_phlx_topo_itch_v3_3_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.message_type = function(value)
   if value == "T" then
     return "Message Type: Timestamp Message (T)"
   end
@@ -2015,11 +2015,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+nasdaq_phlx_topo_itch_v3_3_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.message_type, range, value, display)
 
@@ -2027,19 +2027,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+nasdaq_phlx_topo_itch_v3_3_dissect.length = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.length(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.length, range, value, display)
 
@@ -2047,109 +2047,109 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.length
 
-  index = index + size_of.message_type
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = nasdaq_phlx_topo_itch_v3_3_dissect.length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String Enum with 13 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nasdaq_phlx_topo_itch_v3_3_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.message_header(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nasdaq_phlx_topo_itch_v3_3_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 13 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = nasdaq_phlx_topo_itch_v3_3_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.message(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 2
+nasdaq_phlx_topo_itch_v3_3_size_of.count = 2
 
 -- Display: Count
-display.count = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+nasdaq_phlx_topo_itch_v3_3_dissect.count = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.count(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.count, range, value, display)
 
@@ -2157,19 +2157,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence
-size_of.sequence = 8
+nasdaq_phlx_topo_itch_v3_3_size_of.sequence = 8
 
 -- Display: Sequence
-display.sequence = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+nasdaq_phlx_topo_itch_v3_3_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.sequence
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.sequence, range, value, display)
 
@@ -2177,19 +2177,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session
-size_of.session = 10
+nasdaq_phlx_topo_itch_v3_3_size_of.session = 10
 
 -- Display: Session
-display.session = function(value)
+nasdaq_phlx_topo_itch_v3_3_display.session = function(value)
   return "Session: "..value
 end
 
 -- Dissect: Session
-dissect.session = function(buffer, offset, packet, parent)
-  local length = size_of.session
+nasdaq_phlx_topo_itch_v3_3_dissect.session = function(buffer, offset, packet, parent)
+  local length = nasdaq_phlx_topo_itch_v3_3_size_of.session
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session(value, buffer, offset, packet, parent)
+  local display = nasdaq_phlx_topo_itch_v3_3_display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.session, range, value, display)
 
@@ -2197,65 +2197,65 @@ dissect.session = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+nasdaq_phlx_topo_itch_v3_3_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.session
 
-  index = index + size_of.sequence
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.sequence
 
-  index = index + size_of.count
+  index = index + nasdaq_phlx_topo_itch_v3_3_size_of.count
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = nasdaq_phlx_topo_itch_v3_3_dissect.session(buffer, index, packet, parent)
 
   -- Sequence: 8 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = nasdaq_phlx_topo_itch_v3_3_dissect.sequence(buffer, index, packet, parent)
 
   -- Count: 2 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = nasdaq_phlx_topo_itch_v3_3_dissect.count(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = nasdaq_phlx_topo_itch_v3_3_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = nasdaq_phlx_topo_itch_v3_3_display.packet_header(buffer, packet, parent)
     parent = parent:add(nasdaq_phlx_topo_itch_v3_3.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+nasdaq_phlx_topo_itch_v3_3_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 3 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nasdaq_phlx_topo_itch_v3_3_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = nasdaq_phlx_topo_itch_v3_3_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -2278,7 +2278,7 @@ function nasdaq_phlx_topo_itch_v3_3.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nasdaq_phlx_topo_itch_v3_3, buffer(), nasdaq_phlx_topo_itch_v3_3.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return nasdaq_phlx_topo_itch_v3_3_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

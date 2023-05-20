@@ -10,9 +10,9 @@ local finra_orf_tdds_dfi_v2_0 = Proto("Finra.Orf.Tdds.Dfi.v2.0.Lua", "Finra Orf 
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local finra_orf_tdds_dfi_v2_0_display = {}
+local finra_orf_tdds_dfi_v2_0_dissect = {}
+local finra_orf_tdds_dfi_v2_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -348,19 +348,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Message Separator
-size_of.message_separator = 1
+finra_orf_tdds_dfi_v2_0_size_of.message_separator = 1
 
 -- Display: Message Separator
-display.message_separator = function(value)
+finra_orf_tdds_dfi_v2_0_display.message_separator = function(value)
   return "Message Separator: "..value
 end
 
 -- Dissect: Message Separator
-dissect.message_separator = function(buffer, offset, packet, parent)
-  local length = size_of.message_separator
+finra_orf_tdds_dfi_v2_0_dissect.message_separator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.message_separator
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_separator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.message_separator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.message_separator, range, value, display)
 
@@ -368,16 +368,16 @@ dissect.message_separator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Millisecond
-size_of.millisecond = 3
+finra_orf_tdds_dfi_v2_0_size_of.millisecond = 3
 
 -- Display: Millisecond
-display.millisecond = function(value)
+finra_orf_tdds_dfi_v2_0_display.millisecond = function(value)
   return "Millisecond: "..value
 end
 
 -- Dissect: Millisecond
-dissect.millisecond = function(buffer, offset, packet, parent)
-  local length = size_of.millisecond
+finra_orf_tdds_dfi_v2_0_dissect.millisecond = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.millisecond
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -385,7 +385,7 @@ dissect.millisecond = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.millisecond(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.millisecond(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.millisecond, range, value, display)
 
@@ -393,16 +393,16 @@ dissect.millisecond = function(buffer, offset, packet, parent)
 end
 
 -- Size: Second
-size_of.second = 2
+finra_orf_tdds_dfi_v2_0_size_of.second = 2
 
 -- Display: Second
-display.second = function(value)
+finra_orf_tdds_dfi_v2_0_display.second = function(value)
   return "Second: "..value
 end
 
 -- Dissect: Second
-dissect.second = function(buffer, offset, packet, parent)
-  local length = size_of.second
+finra_orf_tdds_dfi_v2_0_dissect.second = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.second
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -410,7 +410,7 @@ dissect.second = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.second(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.second(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.second, range, value, display)
 
@@ -418,16 +418,16 @@ dissect.second = function(buffer, offset, packet, parent)
 end
 
 -- Size: Minute
-size_of.minute = 2
+finra_orf_tdds_dfi_v2_0_size_of.minute = 2
 
 -- Display: Minute
-display.minute = function(value)
+finra_orf_tdds_dfi_v2_0_display.minute = function(value)
   return "Minute: "..value
 end
 
 -- Dissect: Minute
-dissect.minute = function(buffer, offset, packet, parent)
-  local length = size_of.minute
+finra_orf_tdds_dfi_v2_0_dissect.minute = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.minute
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -435,7 +435,7 @@ dissect.minute = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.minute(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.minute(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.minute, range, value, display)
 
@@ -443,16 +443,16 @@ dissect.minute = function(buffer, offset, packet, parent)
 end
 
 -- Size: Hour
-size_of.hour = 2
+finra_orf_tdds_dfi_v2_0_size_of.hour = 2
 
 -- Display: Hour
-display.hour = function(value)
+finra_orf_tdds_dfi_v2_0_display.hour = function(value)
   return "Hour: "..value
 end
 
 -- Dissect: Hour
-dissect.hour = function(buffer, offset, packet, parent)
-  local length = size_of.hour
+finra_orf_tdds_dfi_v2_0_dissect.hour = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.hour
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -460,7 +460,7 @@ dissect.hour = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.hour(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.hour(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.hour, range, value, display)
 
@@ -468,16 +468,16 @@ dissect.hour = function(buffer, offset, packet, parent)
 end
 
 -- Size: Day
-size_of.day = 2
+finra_orf_tdds_dfi_v2_0_size_of.day = 2
 
 -- Display: Day
-display.day = function(value)
+finra_orf_tdds_dfi_v2_0_display.day = function(value)
   return "Day: "..value
 end
 
 -- Dissect: Day
-dissect.day = function(buffer, offset, packet, parent)
-  local length = size_of.day
+finra_orf_tdds_dfi_v2_0_dissect.day = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.day
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -485,7 +485,7 @@ dissect.day = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.day(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.day(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.day, range, value, display)
 
@@ -493,16 +493,16 @@ dissect.day = function(buffer, offset, packet, parent)
 end
 
 -- Size: Month
-size_of.month = 2
+finra_orf_tdds_dfi_v2_0_size_of.month = 2
 
 -- Display: Month
-display.month = function(value)
+finra_orf_tdds_dfi_v2_0_display.month = function(value)
   return "Month: "..value
 end
 
 -- Dissect: Month
-dissect.month = function(buffer, offset, packet, parent)
-  local length = size_of.month
+finra_orf_tdds_dfi_v2_0_dissect.month = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.month
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -510,7 +510,7 @@ dissect.month = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.month(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.month(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.month, range, value, display)
 
@@ -518,16 +518,16 @@ dissect.month = function(buffer, offset, packet, parent)
 end
 
 -- Size: Year
-size_of.year = 4
+finra_orf_tdds_dfi_v2_0_size_of.year = 4
 
 -- Display: Year
-display.year = function(value)
+finra_orf_tdds_dfi_v2_0_display.year = function(value)
   return "Year: "..value
 end
 
 -- Dissect: Year
-dissect.year = function(buffer, offset, packet, parent)
-  local length = size_of.year
+finra_orf_tdds_dfi_v2_0_dissect.year = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.year
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -535,7 +535,7 @@ dissect.year = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.year(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.year(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.year, range, value, display)
 
@@ -543,77 +543,77 @@ dissect.year = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Datetime
-size_of.datetime = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.datetime = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.year
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.year
 
-  index = index + size_of.month
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.month
 
-  index = index + size_of.day
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.day
 
-  index = index + size_of.hour
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.hour
 
-  index = index + size_of.minute
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.minute
 
-  index = index + size_of.second
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.second
 
-  index = index + size_of.millisecond
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.millisecond
 
   return index
 end
 
 -- Display: Datetime
-display.datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.datetime = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Datetime
-dissect.datetime_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.datetime_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 4 Byte Ascii String
-  index, year = dissect.year(buffer, index, packet, parent)
+  index, year = finra_orf_tdds_dfi_v2_0_dissect.year(buffer, index, packet, parent)
 
   -- Month: 2 Byte Ascii String
-  index, month = dissect.month(buffer, index, packet, parent)
+  index, month = finra_orf_tdds_dfi_v2_0_dissect.month(buffer, index, packet, parent)
 
   -- Day: 2 Byte Ascii String
-  index, day = dissect.day(buffer, index, packet, parent)
+  index, day = finra_orf_tdds_dfi_v2_0_dissect.day(buffer, index, packet, parent)
 
   -- Hour: 2 Byte Ascii String
-  index, hour = dissect.hour(buffer, index, packet, parent)
+  index, hour = finra_orf_tdds_dfi_v2_0_dissect.hour(buffer, index, packet, parent)
 
   -- Minute: 2 Byte Ascii String
-  index, minute = dissect.minute(buffer, index, packet, parent)
+  index, minute = finra_orf_tdds_dfi_v2_0_dissect.minute(buffer, index, packet, parent)
 
   -- Second: 2 Byte Ascii String
-  index, second = dissect.second(buffer, index, packet, parent)
+  index, second = finra_orf_tdds_dfi_v2_0_dissect.second(buffer, index, packet, parent)
 
   -- Millisecond: 3 Byte Ascii String
-  index, millisecond = dissect.millisecond(buffer, index, packet, parent)
+  index, millisecond = finra_orf_tdds_dfi_v2_0_dissect.millisecond(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Datetime
-dissect.datetime = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.datetime = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.datetime then
-    local length = size_of.datetime(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.datetime(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.datetime(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.datetime(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.datetime, range, display)
   end
 
-  return dissect.datetime_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.datetime_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Market Center Originator Id
-size_of.market_center_originator_id = 2
+finra_orf_tdds_dfi_v2_0_size_of.market_center_originator_id = 2
 
 -- Display: Market Center Originator Id
-display.market_center_originator_id = function(value)
+finra_orf_tdds_dfi_v2_0_display.market_center_originator_id = function(value)
   if value == "E" then
     return "Market Center Originator Id: Market Center Independent (E)"
   end
@@ -631,11 +631,11 @@ display.market_center_originator_id = function(value)
 end
 
 -- Dissect: Market Center Originator Id
-dissect.market_center_originator_id = function(buffer, offset, packet, parent)
-  local length = size_of.market_center_originator_id
+finra_orf_tdds_dfi_v2_0_dissect.market_center_originator_id = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.market_center_originator_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_center_originator_id(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.market_center_originator_id(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.market_center_originator_id, range, value, display)
 
@@ -643,16 +643,16 @@ dissect.market_center_originator_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Sequence Number
-size_of.message_sequence_number = 8
+finra_orf_tdds_dfi_v2_0_size_of.message_sequence_number = 8
 
 -- Display: Message Sequence Number
-display.message_sequence_number = function(value)
+finra_orf_tdds_dfi_v2_0_display.message_sequence_number = function(value)
   return "Message Sequence Number: "..value
 end
 
 -- Dissect: Message Sequence Number
-dissect.message_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.message_sequence_number
+finra_orf_tdds_dfi_v2_0_dissect.message_sequence_number = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.message_sequence_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -660,7 +660,7 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.message_sequence_number(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.message_sequence_number, range, value, display)
 
@@ -668,19 +668,19 @@ dissect.message_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Retransmission Requester
-size_of.retransmission_requester = 2
+finra_orf_tdds_dfi_v2_0_size_of.retransmission_requester = 2
 
 -- Display: Retransmission Requester
-display.retransmission_requester = function(value)
+finra_orf_tdds_dfi_v2_0_display.retransmission_requester = function(value)
   return "Retransmission Requester: "..value
 end
 
 -- Dissect: Retransmission Requester
-dissect.retransmission_requester = function(buffer, offset, packet, parent)
-  local length = size_of.retransmission_requester
+finra_orf_tdds_dfi_v2_0_dissect.retransmission_requester = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.retransmission_requester
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.retransmission_requester(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.retransmission_requester(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.retransmission_requester, range, value, display)
 
@@ -688,10 +688,10 @@ dissect.retransmission_requester = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Identifier
-size_of.session_identifier = 1
+finra_orf_tdds_dfi_v2_0_size_of.session_identifier = 1
 
 -- Display: Session Identifier
-display.session_identifier = function(value)
+finra_orf_tdds_dfi_v2_0_display.session_identifier = function(value)
   if value == "A" then
     return "Session Identifier: All Market Sessions Or Session Independent (A)"
   end
@@ -703,11 +703,11 @@ display.session_identifier = function(value)
 end
 
 -- Dissect: Session Identifier
-dissect.session_identifier = function(buffer, offset, packet, parent)
-  local length = size_of.session_identifier
+finra_orf_tdds_dfi_v2_0_dissect.session_identifier = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.session_identifier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session_identifier(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.session_identifier(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.session_identifier, range, value, display)
 
@@ -715,509 +715,509 @@ dissect.session_identifier = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session_identifier
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.session_identifier
 
-  index = index + size_of.retransmission_requester
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.retransmission_requester
 
-  index = index + size_of.message_sequence_number
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_sequence_number
 
-  index = index + size_of.market_center_originator_id
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.market_center_originator_id
 
-  index = index + size_of.datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.datetime(buffer, offset + index)
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session Identifier: 1 Byte Ascii String Enum with 2 values
-  index, session_identifier = dissect.session_identifier(buffer, index, packet, parent)
+  index, session_identifier = finra_orf_tdds_dfi_v2_0_dissect.session_identifier(buffer, index, packet, parent)
 
   -- Retransmission Requester: 2 Byte Ascii String
-  index, retransmission_requester = dissect.retransmission_requester(buffer, index, packet, parent)
+  index, retransmission_requester = finra_orf_tdds_dfi_v2_0_dissect.retransmission_requester(buffer, index, packet, parent)
 
   -- Message Sequence Number: 8 Byte Ascii String
-  index, message_sequence_number = dissect.message_sequence_number(buffer, index, packet, parent)
+  index, message_sequence_number = finra_orf_tdds_dfi_v2_0_dissect.message_sequence_number(buffer, index, packet, parent)
 
   -- Market Center Originator Id: 2 Byte Ascii String Enum with 4 values
-  index, market_center_originator_id = dissect.market_center_originator_id(buffer, index, packet, parent)
+  index, market_center_originator_id = finra_orf_tdds_dfi_v2_0_dissect.market_center_originator_id(buffer, index, packet, parent)
 
   -- Datetime: Struct of 7 fields
-  index, datetime = dissect.datetime(buffer, index, packet, parent)
+  index, datetime = finra_orf_tdds_dfi_v2_0_dissect.datetime(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.message_header(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Trade Reporting Message
-size_of.end_of_trade_reporting_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.end_of_trade_reporting_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: End Of Trade Reporting Message
-display.end_of_trade_reporting_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Trade Reporting Message
-dissect.end_of_trade_reporting_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Trade Reporting Message
-dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_trade_reporting_message then
-    local length = size_of.end_of_trade_reporting_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_trade_reporting_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_trade_reporting_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_trade_reporting_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_trade_reporting_message, range, display)
   end
 
-  return dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sequence Number Reset Message
-size_of.sequence_number_reset_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.sequence_number_reset_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: Sequence Number Reset Message
-display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequence Number Reset Message
-dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequence Number Reset Message
-dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.sequence_number_reset_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sequence_number_reset_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.sequence_number_reset_message, range, display)
   end
 
-  return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Line Integrity Message
-size_of.line_integrity_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.line_integrity_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: Line Integrity Message
-display.line_integrity_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.line_integrity_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Line Integrity Message
-dissect.line_integrity_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Line Integrity Message
-dissect.line_integrity_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
-    local length = size_of.line_integrity_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.line_integrity_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.line_integrity_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.line_integrity_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.line_integrity_message, range, display)
   end
 
-  return dissect.line_integrity_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Transmissions Message
-size_of.end_of_transmissions_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.end_of_transmissions_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: End Of Transmissions Message
-display.end_of_transmissions_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Transmissions Message
-dissect.end_of_transmissions_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Transmissions Message
-dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_transmissions_message then
-    local length = size_of.end_of_transmissions_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_transmissions_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_transmissions_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_transmissions_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_transmissions_message, range, display)
   end
 
-  return dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Retransmission Requests Message
-size_of.end_of_retransmission_requests_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.end_of_retransmission_requests_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: End Of Retransmission Requests Message
-display.end_of_retransmission_requests_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Retransmission Requests Message
-dissect.end_of_retransmission_requests_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Retransmission Requests Message
-dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_retransmission_requests_message then
-    local length = size_of.end_of_retransmission_requests_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_retransmission_requests_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_retransmission_requests_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_retransmission_requests_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_retransmission_requests_message, range, display)
   end
 
-  return dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Session Close Message
-size_of.market_session_close_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.market_session_close_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: Market Session Close Message
-display.market_session_close_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_session_close_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Session Close Message
-dissect.market_session_close_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Session Close Message
-dissect.market_session_close_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_session_close_message then
-    local length = size_of.market_session_close_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.market_session_close_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_session_close_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_session_close_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_close_message, range, display)
   end
 
-  return dissect.market_session_close_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Session Open Message
-size_of.market_session_open_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.market_session_open_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: Market Session Open Message
-display.market_session_open_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_session_open_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Session Open Message
-dissect.market_session_open_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Session Open Message
-dissect.market_session_open_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_session_open_message then
-    local length = size_of.market_session_open_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.market_session_open_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_session_open_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_session_open_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_session_open_message, range, display)
   end
 
-  return dissect.market_session_open_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Day Message
-size_of.end_of_day_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.end_of_day_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: End Of Day Message
-display.end_of_day_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Day Message
-dissect.end_of_day_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Day Message
-dissect.end_of_day_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
-    local length = size_of.end_of_day_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.end_of_day_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_day_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.end_of_day_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.end_of_day_message, range, display)
   end
 
-  return dissect.end_of_day_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Start Of Day Message
-size_of.start_of_day_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.start_of_day_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
   return index
 end
 
 -- Display: Start Of Day Message
-display.start_of_day_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Day Message
-dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Day Message
-dissect.start_of_day_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
-    local length = size_of.start_of_day_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.start_of_day_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.start_of_day_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.start_of_day_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.start_of_day_message, range, display)
   end
 
-  return dissect.start_of_day_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Control Payload
-size_of.control_payload = function(buffer, offset, control_message_type)
+finra_orf_tdds_dfi_v2_0_size_of.control_payload = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "I" then
-    return size_of.start_of_day_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.start_of_day_message(buffer, offset)
   end
   -- Size of End Of Day Message
   if control_message_type == "J" then
-    return size_of.end_of_day_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.end_of_day_message(buffer, offset)
   end
   -- Size of Market Session Open Message
   if control_message_type == "O" then
-    return size_of.market_session_open_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.market_session_open_message(buffer, offset)
   end
   -- Size of Market Session Close Message
   if control_message_type == "O" then
-    return size_of.market_session_close_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.market_session_close_message(buffer, offset)
   end
   -- Size of End Of Retransmission Requests Message
   if control_message_type == "K" then
-    return size_of.end_of_retransmission_requests_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.end_of_retransmission_requests_message(buffer, offset)
   end
   -- Size of End Of Transmissions Message
   if control_message_type == "Z" then
-    return size_of.end_of_transmissions_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.end_of_transmissions_message(buffer, offset)
   end
   -- Size of Line Integrity Message
   if control_message_type == "T" then
-    return size_of.line_integrity_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.line_integrity_message(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if control_message_type == "L" then
-    return size_of.sequence_number_reset_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.sequence_number_reset_message(buffer, offset)
   end
   -- Size of End Of Trade Reporting Message
   if control_message_type == "X" then
-    return size_of.end_of_trade_reporting_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.end_of_trade_reporting_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Control Payload
-display.control_payload = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.control_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Control Payload
-dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "I" then
-    return dissect.start_of_day_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if control_message_type == "J" then
-    return dissect.end_of_day_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Session Open Message
   if control_message_type == "O" then
-    return dissect.market_session_open_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_open_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Session Close Message
   if control_message_type == "O" then
-    return dissect.market_session_close_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_session_close_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Retransmission Requests Message
   if control_message_type == "K" then
-    return dissect.end_of_retransmission_requests_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_retransmission_requests_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Transmissions Message
   if control_message_type == "Z" then
-    return dissect.end_of_transmissions_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_transmissions_message(buffer, offset, packet, parent)
   end
   -- Dissect Line Integrity Message
   if control_message_type == "T" then
-    return dissect.line_integrity_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.line_integrity_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
   if control_message_type == "L" then
-    return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Trade Reporting Message
   if control_message_type == "X" then
-    return dissect.end_of_trade_reporting_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.end_of_trade_reporting_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Control Payload
-dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
   if not show.control_payload then
-    return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+    return finra_orf_tdds_dfi_v2_0_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.control_payload(buffer, offset, control_message_type)
+  local size = finra_orf_tdds_dfi_v2_0_size_of.control_payload(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.control_payload(buffer, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.control_payload(buffer, packet, parent)
   local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.control_payload, range, display)
 
-  return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+  return finra_orf_tdds_dfi_v2_0_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Size: Control Message Type
-size_of.control_message_type = 1
+finra_orf_tdds_dfi_v2_0_size_of.control_message_type = 1
 
 -- Display: Control Message Type
-display.control_message_type = function(value)
+finra_orf_tdds_dfi_v2_0_display.control_message_type = function(value)
   if value == "I" then
     return "Control Message Type: Start Of Day Message (I)"
   end
@@ -1250,11 +1250,11 @@ display.control_message_type = function(value)
 end
 
 -- Dissect: Control Message Type
-dissect.control_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.control_message_type
+finra_orf_tdds_dfi_v2_0_dissect.control_message_type = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.control_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.control_message_type(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.control_message_type(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.control_message_type, range, value, display)
 
@@ -1262,64 +1262,64 @@ dissect.control_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Control
-size_of.control = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.control = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.control_message_type
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.control_message_type
 
   -- Calculate runtime size of Control Payload field
   local control_payload_offset = offset + index
   local control_payload_type = buffer(control_payload_offset - 1, 1):string()
-  index = index + size_of.control_payload(buffer, control_payload_offset, control_payload_type)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.control_payload(buffer, control_payload_offset, control_payload_type)
 
   return index
 end
 
 -- Display: Control
-display.control = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.control = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Control
-dissect.control_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.control_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 9 values
-  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
+  index, control_message_type = finra_orf_tdds_dfi_v2_0_dissect.control_message_type(buffer, index, packet, parent)
 
   -- Control Payload: Runtime Type with 9 branches
-  index = dissect.control_payload(buffer, index, packet, parent, control_message_type)
+  index = finra_orf_tdds_dfi_v2_0_dissect.control_payload(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
 -- Dissect: Control
-dissect.control = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.control = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.control then
-    local length = size_of.control(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.control(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.control(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.control(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.control, range, display)
   end
 
-  return dissect.control_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.control_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reason Code
-size_of.reason_code = 6
+finra_orf_tdds_dfi_v2_0_size_of.reason_code = 6
 
 -- Display: Reason Code
-display.reason_code = function(value)
+finra_orf_tdds_dfi_v2_0_display.reason_code = function(value)
   return "Reason Code: "..value
 end
 
 -- Dissect: Reason Code
-dissect.reason_code = function(buffer, offset, packet, parent)
-  local length = size_of.reason_code
+finra_orf_tdds_dfi_v2_0_dissect.reason_code = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.reason_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reason_code(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.reason_code(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.reason_code, range, value, display)
 
@@ -1327,77 +1327,77 @@ dissect.reason_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Action Datetime
-size_of.action_datetime = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.action_datetime = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.year
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.year
 
-  index = index + size_of.month
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.month
 
-  index = index + size_of.day
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.day
 
-  index = index + size_of.hour
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.hour
 
-  index = index + size_of.minute
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.minute
 
-  index = index + size_of.second
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.second
 
-  index = index + size_of.millisecond
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.millisecond
 
   return index
 end
 
 -- Display: Action Datetime
-display.action_datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.action_datetime = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Action Datetime
-dissect.action_datetime_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 4 Byte Ascii String
-  index, year = dissect.year(buffer, index, packet, parent)
+  index, year = finra_orf_tdds_dfi_v2_0_dissect.year(buffer, index, packet, parent)
 
   -- Month: 2 Byte Ascii String
-  index, month = dissect.month(buffer, index, packet, parent)
+  index, month = finra_orf_tdds_dfi_v2_0_dissect.month(buffer, index, packet, parent)
 
   -- Day: 2 Byte Ascii String
-  index, day = dissect.day(buffer, index, packet, parent)
+  index, day = finra_orf_tdds_dfi_v2_0_dissect.day(buffer, index, packet, parent)
 
   -- Hour: 2 Byte Ascii String
-  index, hour = dissect.hour(buffer, index, packet, parent)
+  index, hour = finra_orf_tdds_dfi_v2_0_dissect.hour(buffer, index, packet, parent)
 
   -- Minute: 2 Byte Ascii String
-  index, minute = dissect.minute(buffer, index, packet, parent)
+  index, minute = finra_orf_tdds_dfi_v2_0_dissect.minute(buffer, index, packet, parent)
 
   -- Second: 2 Byte Ascii String
-  index, second = dissect.second(buffer, index, packet, parent)
+  index, second = finra_orf_tdds_dfi_v2_0_dissect.second(buffer, index, packet, parent)
 
   -- Millisecond: 3 Byte Ascii String
-  index, millisecond = dissect.millisecond(buffer, index, packet, parent)
+  index, millisecond = finra_orf_tdds_dfi_v2_0_dissect.millisecond(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Action Datetime
-dissect.action_datetime = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.action_datetime = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.action_datetime then
-    local length = size_of.action_datetime(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.action_datetime(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.action_datetime(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.action_datetime(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.action_datetime, range, display)
   end
 
-  return dissect.action_datetime_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.action_datetime_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Action
-size_of.action = 1
+finra_orf_tdds_dfi_v2_0_size_of.action = 1
 
 -- Display: Action
-display.action = function(value)
+finra_orf_tdds_dfi_v2_0_display.action = function(value)
   if value == "H" then
     return "Action: Trading Halt (H)"
   end
@@ -1415,11 +1415,11 @@ display.action = function(value)
 end
 
 -- Dissect: Action
-dissect.action = function(buffer, offset, packet, parent)
-  local length = size_of.action
+finra_orf_tdds_dfi_v2_0_dissect.action = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.action
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.action(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.action(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.action, range, value, display)
 
@@ -1427,71 +1427,71 @@ dissect.action = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Wide Circuit Breaker Event Message
-size_of.market_wide_circuit_breaker_event_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.market_wide_circuit_breaker_event_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.action
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.action
 
-  index = index + size_of.action_datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.action_datetime(buffer, offset + index)
 
-  index = index + size_of.reason_code
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.reason_code
 
   return index
 end
 
 -- Display: Market Wide Circuit Breaker Event Message
-display.market_wide_circuit_breaker_event_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Event Message
-dissect.market_wide_circuit_breaker_event_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Action: 1 Byte Ascii String Enum with 4 values
-  index, action = dissect.action(buffer, index, packet, parent)
+  index, action = finra_orf_tdds_dfi_v2_0_dissect.action(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
-  index, action_datetime = dissect.action_datetime(buffer, index, packet, parent)
+  index, action_datetime = finra_orf_tdds_dfi_v2_0_dissect.action_datetime(buffer, index, packet, parent)
 
   -- Reason Code: 6 Byte Ascii String
-  index, reason_code = dissect.reason_code(buffer, index, packet, parent)
+  index, reason_code = finra_orf_tdds_dfi_v2_0_dissect.reason_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Event Message
-dissect.market_wide_circuit_breaker_event_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_event_message then
-    local length = size_of.market_wide_circuit_breaker_event_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.market_wide_circuit_breaker_event_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_wide_circuit_breaker_event_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.market_wide_circuit_breaker_event_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.market_wide_circuit_breaker_event_message, range, display)
   end
 
-  return dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol
-size_of.security_symbol = 14
+finra_orf_tdds_dfi_v2_0_size_of.security_symbol = 14
 
 -- Display: Security Symbol
-display.security_symbol = function(value)
+finra_orf_tdds_dfi_v2_0_display.security_symbol = function(value)
   return "Security Symbol: "..value
 end
 
 -- Dissect: Security Symbol
-dissect.security_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol
+finra_orf_tdds_dfi_v2_0_dissect.security_symbol = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.security_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.security_symbol, range, value, display)
 
@@ -1499,73 +1499,73 @@ dissect.security_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trading Action Message
-size_of.trading_action_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trading_action_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol
 
-  index = index + size_of.action
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.action
 
-  index = index + size_of.action_datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.action_datetime(buffer, offset + index)
 
-  index = index + size_of.reason_code
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.reason_code
 
   return index
 end
 
 -- Display: Trading Action Message
-display.trading_action_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Action Message
-dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = finra_orf_tdds_dfi_v2_0_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Action: 1 Byte Ascii String Enum with 4 values
-  index, action = dissect.action(buffer, index, packet, parent)
+  index, action = finra_orf_tdds_dfi_v2_0_dissect.action(buffer, index, packet, parent)
 
   -- Action Datetime: Struct of 7 fields
-  index, action_datetime = dissect.action_datetime(buffer, index, packet, parent)
+  index, action_datetime = finra_orf_tdds_dfi_v2_0_dissect.action_datetime(buffer, index, packet, parent)
 
   -- Reason Code: 6 Byte Ascii String
-  index, reason_code = dissect.reason_code(buffer, index, packet, parent)
+  index, reason_code = finra_orf_tdds_dfi_v2_0_dissect.reason_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Action Message
-dissect.trading_action_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trading_action_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_action_message then
-    local length = size_of.trading_action_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trading_action_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trading_action_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trading_action_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trading_action_message, range, display)
   end
 
-  return dissect.trading_action_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Total Security Volume
-size_of.total_security_volume = 11
+finra_orf_tdds_dfi_v2_0_size_of.total_security_volume = 11
 
 -- Display: Total Security Volume
-display.total_security_volume = function(value)
+finra_orf_tdds_dfi_v2_0_display.total_security_volume = function(value)
   return "Total Security Volume: "..value
 end
 
 -- Dissect: Total Security Volume
-dissect.total_security_volume = function(buffer, offset, packet, parent)
-  local length = size_of.total_security_volume
+finra_orf_tdds_dfi_v2_0_dissect.total_security_volume = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.total_security_volume
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1573,7 +1573,7 @@ dissect.total_security_volume = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.total_security_volume(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.total_security_volume(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.total_security_volume, range, value, display)
 
@@ -1581,19 +1581,19 @@ dissect.total_security_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
-size_of.currency = 3
+finra_orf_tdds_dfi_v2_0_size_of.currency = 3
 
 -- Display: Currency
-display.currency = function(value)
+finra_orf_tdds_dfi_v2_0_display.currency = function(value)
   return "Currency: "..value
 end
 
 -- Dissect: Currency
-dissect.currency = function(buffer, offset, packet, parent)
-  local length = size_of.currency
+finra_orf_tdds_dfi_v2_0_dissect.currency = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.currency
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.currency(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.currency, range, value, display)
 
@@ -1601,10 +1601,10 @@ dissect.currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Net Change Direction
-size_of.net_change_direction = 1
+finra_orf_tdds_dfi_v2_0_size_of.net_change_direction = 1
 
 -- Display: Net Change Direction
-display.net_change_direction = function(value)
+finra_orf_tdds_dfi_v2_0_display.net_change_direction = function(value)
   if value == "+" then
     return "Net Change Direction: Positive Or Zero Net Change (+)"
   end
@@ -1619,11 +1619,11 @@ display.net_change_direction = function(value)
 end
 
 -- Dissect: Net Change Direction
-dissect.net_change_direction = function(buffer, offset, packet, parent)
-  local length = size_of.net_change_direction
+finra_orf_tdds_dfi_v2_0_dissect.net_change_direction = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.net_change_direction
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.net_change_direction(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.net_change_direction(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_direction, range, value, display)
 
@@ -1631,16 +1631,16 @@ dissect.net_change_direction = function(buffer, offset, packet, parent)
 end
 
 -- Size: Net Change Amount
-size_of.net_change_amount = 12
+finra_orf_tdds_dfi_v2_0_size_of.net_change_amount = 12
 
 -- Display: Net Change Amount
-display.net_change_amount = function(value)
+finra_orf_tdds_dfi_v2_0_display.net_change_amount = function(value)
   return "Net Change Amount: "..value
 end
 
 -- Dissect: Net Change Amount
-dissect.net_change_amount = function(buffer, offset, packet, parent)
-  local length = size_of.net_change_amount
+finra_orf_tdds_dfi_v2_0_dissect.net_change_amount = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.net_change_amount
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1648,7 +1648,7 @@ dissect.net_change_amount = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.net_change_amount(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.net_change_amount(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_amount, range, value, display)
 
@@ -1656,19 +1656,19 @@ dissect.net_change_amount = function(buffer, offset, packet, parent)
 end
 
 -- Size: Net Change Denominator
-size_of.net_change_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.net_change_denominator = 1
 
 -- Display: Net Change Denominator
-display.net_change_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.net_change_denominator = function(value)
   return "Net Change Denominator: "..value
 end
 
 -- Dissect: Net Change Denominator
-dissect.net_change_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.net_change_denominator
+finra_orf_tdds_dfi_v2_0_dissect.net_change_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.net_change_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.net_change_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.net_change_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.net_change_denominator, range, value, display)
 
@@ -1676,19 +1676,19 @@ dissect.net_change_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved
-size_of.reserved = 1
+finra_orf_tdds_dfi_v2_0_size_of.reserved = 1
 
 -- Display: Reserved
-display.reserved = function(value)
+finra_orf_tdds_dfi_v2_0_display.reserved = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-dissect.reserved = function(buffer, offset, packet, parent)
-  local length = size_of.reserved
+finra_orf_tdds_dfi_v2_0_dissect.reserved = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.reserved
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.reserved, range, value, display)
 
@@ -1696,16 +1696,16 @@ dissect.reserved = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Price
-size_of.closing_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.closing_price = 12
 
 -- Display: Closing Price
-display.closing_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.closing_price = function(value)
   return "Closing Price: "..value
 end
 
 -- Dissect: Closing Price
-dissect.closing_price = function(buffer, offset, packet, parent)
-  local length = size_of.closing_price
+finra_orf_tdds_dfi_v2_0_dissect.closing_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.closing_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1713,7 +1713,7 @@ dissect.closing_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.closing_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.closing_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_price, range, value, display)
 
@@ -1721,19 +1721,19 @@ dissect.closing_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Price Denominator
-size_of.closing_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.closing_price_denominator = 1
 
 -- Display: Closing Price Denominator
-display.closing_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.closing_price_denominator = function(value)
   return "Closing Price Denominator: "..value
 end
 
 -- Dissect: Closing Price Denominator
-dissect.closing_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.closing_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.closing_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.closing_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.closing_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.closing_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_price_denominator, range, value, display)
 
@@ -1741,10 +1741,10 @@ dissect.closing_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Price Market Center
-size_of.closing_price_market_center = 1
+finra_orf_tdds_dfi_v2_0_size_of.closing_price_market_center = 1
 
 -- Display: Closing Price Market Center
-display.closing_price_market_center = function(value)
+finra_orf_tdds_dfi_v2_0_display.closing_price_market_center = function(value)
   if value == "U" then
     return "Closing Price Market Center: Otcbb (U)"
   end
@@ -1759,11 +1759,11 @@ display.closing_price_market_center = function(value)
 end
 
 -- Dissect: Closing Price Market Center
-dissect.closing_price_market_center = function(buffer, offset, packet, parent)
-  local length = size_of.closing_price_market_center
+finra_orf_tdds_dfi_v2_0_dissect.closing_price_market_center = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.closing_price_market_center
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.closing_price_market_center(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.closing_price_market_center(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_price_market_center, range, value, display)
 
@@ -1771,16 +1771,16 @@ dissect.closing_price_market_center = function(buffer, offset, packet, parent)
 end
 
 -- Size: Daily Low Price
-size_of.daily_low_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.daily_low_price = 12
 
 -- Display: Daily Low Price
-display.daily_low_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.daily_low_price = function(value)
   return "Daily Low Price: "..value
 end
 
 -- Dissect: Daily Low Price
-dissect.daily_low_price = function(buffer, offset, packet, parent)
-  local length = size_of.daily_low_price
+finra_orf_tdds_dfi_v2_0_dissect.daily_low_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.daily_low_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1788,7 +1788,7 @@ dissect.daily_low_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.daily_low_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.daily_low_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_low_price, range, value, display)
 
@@ -1796,19 +1796,19 @@ dissect.daily_low_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Daily Low Price Denominator
-size_of.daily_low_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.daily_low_price_denominator = 1
 
 -- Display: Daily Low Price Denominator
-display.daily_low_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.daily_low_price_denominator = function(value)
   return "Daily Low Price Denominator: "..value
 end
 
 -- Dissect: Daily Low Price Denominator
-dissect.daily_low_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.daily_low_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.daily_low_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.daily_low_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.daily_low_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.daily_low_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_low_price_denominator, range, value, display)
 
@@ -1816,16 +1816,16 @@ dissect.daily_low_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Daily High Price
-size_of.daily_high_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.daily_high_price = 12
 
 -- Display: Daily High Price
-display.daily_high_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.daily_high_price = function(value)
   return "Daily High Price: "..value
 end
 
 -- Dissect: Daily High Price
-dissect.daily_high_price = function(buffer, offset, packet, parent)
-  local length = size_of.daily_high_price
+finra_orf_tdds_dfi_v2_0_dissect.daily_high_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.daily_high_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -1833,7 +1833,7 @@ dissect.daily_high_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.daily_high_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.daily_high_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_high_price, range, value, display)
 
@@ -1841,19 +1841,19 @@ dissect.daily_high_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Daily High Price Denominator
-size_of.daily_high_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.daily_high_price_denominator = 1
 
 -- Display: Daily High Price Denominator
-display.daily_high_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.daily_high_price_denominator = function(value)
   return "Daily High Price Denominator: "..value
 end
 
 -- Dissect: Daily High Price Denominator
-dissect.daily_high_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.daily_high_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.daily_high_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.daily_high_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.daily_high_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.daily_high_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.daily_high_price_denominator, range, value, display)
 
@@ -1861,126 +1861,126 @@ dissect.daily_high_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Closing Trade Summary Report Message
-size_of.closing_trade_summary_report_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.closing_trade_summary_report_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol
 
-  index = index + size_of.daily_high_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.daily_high_price_denominator
 
-  index = index + size_of.daily_high_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.daily_high_price
 
-  index = index + size_of.daily_low_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.daily_low_price_denominator
 
-  index = index + size_of.daily_low_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.daily_low_price
 
-  index = index + size_of.closing_price_market_center
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.closing_price_market_center
 
-  index = index + size_of.closing_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.closing_price_denominator
 
-  index = index + size_of.closing_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.closing_price
 
-  index = index + size_of.reserved
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.reserved
 
-  index = index + size_of.net_change_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.net_change_denominator
 
-  index = index + size_of.net_change_amount
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.net_change_amount
 
-  index = index + size_of.net_change_direction
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.net_change_direction
 
-  index = index + size_of.currency
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.currency
 
-  index = index + size_of.total_security_volume
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.total_security_volume
 
   return index
 end
 
 -- Display: Closing Trade Summary Report Message
-display.closing_trade_summary_report_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Closing Trade Summary Report Message
-dissect.closing_trade_summary_report_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = finra_orf_tdds_dfi_v2_0_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Daily High Price Denominator: 1 Byte Ascii String
-  index, daily_high_price_denominator = dissect.daily_high_price_denominator(buffer, index, packet, parent)
+  index, daily_high_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.daily_high_price_denominator(buffer, index, packet, parent)
 
   -- Daily High Price: 12 Byte Ascii String
-  index, daily_high_price = dissect.daily_high_price(buffer, index, packet, parent)
+  index, daily_high_price = finra_orf_tdds_dfi_v2_0_dissect.daily_high_price(buffer, index, packet, parent)
 
   -- Daily Low Price Denominator: 1 Byte Ascii String
-  index, daily_low_price_denominator = dissect.daily_low_price_denominator(buffer, index, packet, parent)
+  index, daily_low_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.daily_low_price_denominator(buffer, index, packet, parent)
 
   -- Daily Low Price: 12 Byte Ascii String
-  index, daily_low_price = dissect.daily_low_price(buffer, index, packet, parent)
+  index, daily_low_price = finra_orf_tdds_dfi_v2_0_dissect.daily_low_price(buffer, index, packet, parent)
 
   -- Closing Price Market Center: 1 Byte Ascii String Enum with 3 values
-  index, closing_price_market_center = dissect.closing_price_market_center(buffer, index, packet, parent)
+  index, closing_price_market_center = finra_orf_tdds_dfi_v2_0_dissect.closing_price_market_center(buffer, index, packet, parent)
 
   -- Closing Price Denominator: 1 Byte Ascii String
-  index, closing_price_denominator = dissect.closing_price_denominator(buffer, index, packet, parent)
+  index, closing_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.closing_price_denominator(buffer, index, packet, parent)
 
   -- Closing Price: 12 Byte Ascii String
-  index, closing_price = dissect.closing_price(buffer, index, packet, parent)
+  index, closing_price = finra_orf_tdds_dfi_v2_0_dissect.closing_price(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Ascii String
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = finra_orf_tdds_dfi_v2_0_dissect.reserved(buffer, index, packet, parent)
 
   -- Net Change Denominator: 1 Byte Ascii String
-  index, net_change_denominator = dissect.net_change_denominator(buffer, index, packet, parent)
+  index, net_change_denominator = finra_orf_tdds_dfi_v2_0_dissect.net_change_denominator(buffer, index, packet, parent)
 
   -- Net Change Amount: 12 Byte Ascii String
-  index, net_change_amount = dissect.net_change_amount(buffer, index, packet, parent)
+  index, net_change_amount = finra_orf_tdds_dfi_v2_0_dissect.net_change_amount(buffer, index, packet, parent)
 
   -- Net Change Direction: 1 Byte Ascii String Enum with 3 values
-  index, net_change_direction = dissect.net_change_direction(buffer, index, packet, parent)
+  index, net_change_direction = finra_orf_tdds_dfi_v2_0_dissect.net_change_direction(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = finra_orf_tdds_dfi_v2_0_dissect.currency(buffer, index, packet, parent)
 
   -- Total Security Volume: 11 Byte Ascii String
-  index, total_security_volume = dissect.total_security_volume(buffer, index, packet, parent)
+  index, total_security_volume = finra_orf_tdds_dfi_v2_0_dissect.total_security_volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Closing Trade Summary Report Message
-dissect.closing_trade_summary_report_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.closing_trade_summary_report_message then
-    local length = size_of.closing_trade_summary_report_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.closing_trade_summary_report_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.closing_trade_summary_report_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.closing_trade_summary_report_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.closing_trade_summary_report_message, range, display)
   end
 
-  return dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Text
-size_of.text = 2
+finra_orf_tdds_dfi_v2_0_size_of.text = 2
 
 -- Display: Text
-display.text = function(value)
+finra_orf_tdds_dfi_v2_0_display.text = function(value)
   return "Text: "..value
 end
 
 -- Dissect: Text
-dissect.text = function(buffer, offset, packet, parent)
-  local length = size_of.text
+finra_orf_tdds_dfi_v2_0_dissect.text = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.text(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.text(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.text, range, value, display)
 
@@ -1988,121 +1988,121 @@ dissect.text = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: General Administrative Message
-size_of.general_administrative_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.general_administrative_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.text
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.text
 
   return index
 end
 
 -- Display: General Administrative Message
-display.general_administrative_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.general_administrative_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: General Administrative Message
-dissect.general_administrative_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Text: 2 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = finra_orf_tdds_dfi_v2_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: General Administrative Message
-dissect.general_administrative_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.general_administrative_message then
-    local length = size_of.general_administrative_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.general_administrative_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.general_administrative_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.general_administrative_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.general_administrative_message, range, display)
   end
 
-  return dissect.general_administrative_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload = function(buffer, offset, administrative_message_type)
+finra_orf_tdds_dfi_v2_0_size_of.administrative_payload = function(buffer, offset, administrative_message_type)
   -- Size of General Administrative Message
   if administrative_message_type == "A" then
-    return size_of.general_administrative_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.general_administrative_message(buffer, offset)
   end
   -- Size of Closing Trade Summary Report Message
   if administrative_message_type == "2" then
-    return size_of.closing_trade_summary_report_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.closing_trade_summary_report_message(buffer, offset)
   end
   -- Size of Trading Action Message
   if administrative_message_type == "H" then
-    return size_of.trading_action_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trading_action_message(buffer, offset)
   end
   -- Size of Market Wide Circuit Breaker Event Message
   if administrative_message_type == "M" then
-    return size_of.market_wide_circuit_breaker_event_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.market_wide_circuit_breaker_event_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Administrative Payload
-display.administrative_payload = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.administrative_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Administrative Payload
-dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect General Administrative Message
   if administrative_message_type == "A" then
-    return dissect.general_administrative_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.general_administrative_message(buffer, offset, packet, parent)
   end
   -- Dissect Closing Trade Summary Report Message
   if administrative_message_type == "2" then
-    return dissect.closing_trade_summary_report_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.closing_trade_summary_report_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Action Message
   if administrative_message_type == "H" then
-    return dissect.trading_action_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trading_action_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Event Message
   if administrative_message_type == "M" then
-    return dissect.market_wide_circuit_breaker_event_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.market_wide_circuit_breaker_event_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Administrative Payload
-dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
   if not show.administrative_payload then
-    return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+    return finra_orf_tdds_dfi_v2_0_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.administrative_payload(buffer, offset, administrative_message_type)
+  local size = finra_orf_tdds_dfi_v2_0_size_of.administrative_payload(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.administrative_payload(buffer, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.administrative_payload(buffer, packet, parent)
   local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.administrative_payload, range, display)
 
-  return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+  return finra_orf_tdds_dfi_v2_0_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Size: Administrative Message Type
-size_of.administrative_message_type = 1
+finra_orf_tdds_dfi_v2_0_size_of.administrative_message_type = 1
 
 -- Display: Administrative Message Type
-display.administrative_message_type = function(value)
+finra_orf_tdds_dfi_v2_0_display.administrative_message_type = function(value)
   if value == "A" then
     return "Administrative Message Type: General Administrative Message (A)"
   end
@@ -2120,11 +2120,11 @@ display.administrative_message_type = function(value)
 end
 
 -- Dissect: Administrative Message Type
-dissect.administrative_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.administrative_message_type
+finra_orf_tdds_dfi_v2_0_dissect.administrative_message_type = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.administrative_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.administrative_message_type(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.administrative_message_type(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.administrative_message_type, range, value, display)
 
@@ -2132,55 +2132,55 @@ dissect.administrative_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Administrative
-size_of.administrative = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.administrative = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.administrative_message_type
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.administrative_message_type
 
   -- Calculate runtime size of Administrative Payload field
   local administrative_payload_offset = offset + index
   local administrative_payload_type = buffer(administrative_payload_offset - 1, 1):string()
-  index = index + size_of.administrative_payload(buffer, administrative_payload_offset, administrative_payload_type)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.administrative_payload(buffer, administrative_payload_offset, administrative_payload_type)
 
   return index
 end
 
 -- Display: Administrative
-display.administrative = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.administrative = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative
-dissect.administrative_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.administrative_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 4 values
-  index, administrative_message_type = dissect.administrative_message_type(buffer, index, packet, parent)
+  index, administrative_message_type = finra_orf_tdds_dfi_v2_0_dissect.administrative_message_type(buffer, index, packet, parent)
 
   -- Administrative Payload: Runtime Type with 4 branches
-  index = dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
+  index = finra_orf_tdds_dfi_v2_0_dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
 -- Dissect: Administrative
-dissect.administrative = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.administrative = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.administrative then
-    local length = size_of.administrative(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.administrative(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.administrative(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.administrative(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.administrative, range, display)
   end
 
-  return dissect.administrative_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.administrative_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Price Change Indicator
-size_of.price_change_indicator = 1
+finra_orf_tdds_dfi_v2_0_size_of.price_change_indicator = 1
 
 -- Display: Price Change Indicator
-display.price_change_indicator = function(value)
+finra_orf_tdds_dfi_v2_0_display.price_change_indicator = function(value)
   if value == "0" then
     return "Price Change Indicator: No Price Change (0)"
   end
@@ -2210,11 +2210,11 @@ display.price_change_indicator = function(value)
 end
 
 -- Dissect: Price Change Indicator
-dissect.price_change_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.price_change_indicator
+finra_orf_tdds_dfi_v2_0_dissect.price_change_indicator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.price_change_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.price_change_indicator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.price_change_indicator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.price_change_indicator, range, value, display)
 
@@ -2222,10 +2222,10 @@ dissect.price_change_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Sale Price Market Center
-size_of.last_sale_price_market_center = 1
+finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_market_center = 1
 
 -- Display: Last Sale Price Market Center
-display.last_sale_price_market_center = function(value)
+finra_orf_tdds_dfi_v2_0_display.last_sale_price_market_center = function(value)
   if value == "U" then
     return "Last Sale Price Market Center: Otcbb (U)"
   end
@@ -2240,11 +2240,11 @@ display.last_sale_price_market_center = function(value)
 end
 
 -- Dissect: Last Sale Price Market Center
-dissect.last_sale_price_market_center = function(buffer, offset, packet, parent)
-  local length = size_of.last_sale_price_market_center
+finra_orf_tdds_dfi_v2_0_dissect.last_sale_price_market_center = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_market_center
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.last_sale_price_market_center(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.last_sale_price_market_center(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.last_sale_price_market_center, range, value, display)
 
@@ -2252,16 +2252,16 @@ dissect.last_sale_price_market_center = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Sale Price
-size_of.last_sale_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.last_sale_price = 12
 
 -- Display: Last Sale Price
-display.last_sale_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.last_sale_price = function(value)
   return "Last Sale Price: "..value
 end
 
 -- Dissect: Last Sale Price
-dissect.last_sale_price = function(buffer, offset, packet, parent)
-  local length = size_of.last_sale_price
+finra_orf_tdds_dfi_v2_0_dissect.last_sale_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.last_sale_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2269,7 +2269,7 @@ dissect.last_sale_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.last_sale_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.last_sale_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.last_sale_price, range, value, display)
 
@@ -2277,19 +2277,19 @@ dissect.last_sale_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Sale Price Denominator
-size_of.last_sale_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_denominator = 1
 
 -- Display: Last Sale Price Denominator
-display.last_sale_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.last_sale_price_denominator = function(value)
   return "Last Sale Price Denominator: "..value
 end
 
 -- Dissect: Last Sale Price Denominator
-dissect.last_sale_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.last_sale_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.last_sale_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.last_sale_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.last_sale_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.last_sale_price_denominator, range, value, display)
 
@@ -2297,16 +2297,16 @@ dissect.last_sale_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price
-size_of.low_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.low_price = 12
 
 -- Display: Low Price
-display.low_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.low_price = function(value)
   return "Low Price: "..value
 end
 
 -- Dissect: Low Price
-dissect.low_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_price
+finra_orf_tdds_dfi_v2_0_dissect.low_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.low_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2314,7 +2314,7 @@ dissect.low_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.low_price, range, value, display)
 
@@ -2322,19 +2322,19 @@ dissect.low_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price Denominator
-size_of.low_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.low_price_denominator = 1
 
 -- Display: Low Price Denominator
-display.low_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.low_price_denominator = function(value)
   return "Low Price Denominator: "..value
 end
 
 -- Dissect: Low Price Denominator
-dissect.low_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.low_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.low_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.low_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.low_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.low_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.low_price_denominator, range, value, display)
 
@@ -2342,16 +2342,16 @@ dissect.low_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Price
-size_of.high_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.high_price = 12
 
 -- Display: High Price
-display.high_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.high_price = function(value)
   return "High Price: "..value
 end
 
 -- Dissect: High Price
-dissect.high_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_price
+finra_orf_tdds_dfi_v2_0_dissect.high_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.high_price
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2359,7 +2359,7 @@ dissect.high_price = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.high_price, range, value, display)
 
@@ -2367,19 +2367,19 @@ dissect.high_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Price Denominator
-size_of.high_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.high_price_denominator = 1
 
 -- Display: High Price Denominator
-display.high_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.high_price_denominator = function(value)
   return "High Price Denominator: "..value
 end
 
 -- Dissect: High Price Denominator
-dissect.high_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.high_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.high_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.high_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.high_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.high_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.high_price_denominator, range, value, display)
 
@@ -2387,93 +2387,93 @@ dissect.high_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Summary Information
-size_of.trade_summary_information = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.high_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.high_price_denominator
 
-  index = index + size_of.high_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.high_price
 
-  index = index + size_of.low_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.low_price_denominator
 
-  index = index + size_of.low_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.low_price
 
-  index = index + size_of.last_sale_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_denominator
 
-  index = index + size_of.last_sale_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.last_sale_price
 
-  index = index + size_of.last_sale_price_market_center
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.last_sale_price_market_center
 
-  index = index + size_of.total_security_volume
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.total_security_volume
 
-  index = index + size_of.price_change_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.price_change_indicator
 
   return index
 end
 
 -- Display: Trade Summary Information
-display.trade_summary_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_summary_information = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Summary Information
-dissect.trade_summary_information_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- High Price Denominator: 1 Byte Ascii String
-  index, high_price_denominator = dissect.high_price_denominator(buffer, index, packet, parent)
+  index, high_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.high_price_denominator(buffer, index, packet, parent)
 
   -- High Price: 12 Byte Ascii String
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = finra_orf_tdds_dfi_v2_0_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price Denominator: 1 Byte Ascii String
-  index, low_price_denominator = dissect.low_price_denominator(buffer, index, packet, parent)
+  index, low_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.low_price_denominator(buffer, index, packet, parent)
 
   -- Low Price: 12 Byte Ascii String
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = finra_orf_tdds_dfi_v2_0_dissect.low_price(buffer, index, packet, parent)
 
   -- Last Sale Price Denominator: 1 Byte Ascii String
-  index, last_sale_price_denominator = dissect.last_sale_price_denominator(buffer, index, packet, parent)
+  index, last_sale_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.last_sale_price_denominator(buffer, index, packet, parent)
 
   -- Last Sale Price: 12 Byte Ascii String
-  index, last_sale_price = dissect.last_sale_price(buffer, index, packet, parent)
+  index, last_sale_price = finra_orf_tdds_dfi_v2_0_dissect.last_sale_price(buffer, index, packet, parent)
 
   -- Last Sale Price Market Center: 1 Byte Ascii String Enum with 3 values
-  index, last_sale_price_market_center = dissect.last_sale_price_market_center(buffer, index, packet, parent)
+  index, last_sale_price_market_center = finra_orf_tdds_dfi_v2_0_dissect.last_sale_price_market_center(buffer, index, packet, parent)
 
   -- Total Security Volume: 11 Byte Ascii String
-  index, total_security_volume = dissect.total_security_volume(buffer, index, packet, parent)
+  index, total_security_volume = finra_orf_tdds_dfi_v2_0_dissect.total_security_volume(buffer, index, packet, parent)
 
   -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
-  index, price_change_indicator = dissect.price_change_indicator(buffer, index, packet, parent)
+  index, price_change_indicator = finra_orf_tdds_dfi_v2_0_dissect.price_change_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Summary Information
-dissect.trade_summary_information = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_summary_information then
-    local length = size_of.trade_summary_information(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_summary_information(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_summary_information(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_summary_information, range, display)
   end
 
-  return dissect.trade_summary_information_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sellers Sale Days
-size_of.sellers_sale_days = 2
+finra_orf_tdds_dfi_v2_0_size_of.sellers_sale_days = 2
 
 -- Display: Sellers Sale Days
-display.sellers_sale_days = function(value)
+finra_orf_tdds_dfi_v2_0_display.sellers_sale_days = function(value)
   return "Sellers Sale Days: "..value
 end
 
 -- Dissect: Sellers Sale Days
-dissect.sellers_sale_days = function(buffer, offset, packet, parent)
-  local length = size_of.sellers_sale_days
+finra_orf_tdds_dfi_v2_0_dissect.sellers_sale_days = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.sellers_sale_days
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2481,7 +2481,7 @@ dissect.sellers_sale_days = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.sellers_sale_days(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.sellers_sale_days(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sellers_sale_days, range, value, display)
 
@@ -2489,10 +2489,10 @@ dissect.sellers_sale_days = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition Level 4
-size_of.sale_condition_level_4 = 1
+finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_4 = 1
 
 -- Display: Sale Condition Level 4
-display.sale_condition_level_4 = function(value)
+finra_orf_tdds_dfi_v2_0_display.sale_condition_level_4 = function(value)
   if value == "I" then
     return "Sale Condition Level 4: Odd Lot Trade (I)"
   end
@@ -2510,11 +2510,11 @@ display.sale_condition_level_4 = function(value)
 end
 
 -- Dissect: Sale Condition Level 4
-dissect.sale_condition_level_4 = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition_level_4
+finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_4 = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_4
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition_level_4(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.sale_condition_level_4(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sale_condition_level_4, range, value, display)
 
@@ -2522,10 +2522,10 @@ dissect.sale_condition_level_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition Level 3
-size_of.sale_condition_level_3 = 1
+finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_3 = 1
 
 -- Display: Sale Condition Level 3
-display.sale_condition_level_3 = function(value)
+finra_orf_tdds_dfi_v2_0_display.sale_condition_level_3 = function(value)
   if value == "T" then
     return "Sale Condition Level 3: Executed Outside Normal Market Hours (T)"
   end
@@ -2543,11 +2543,11 @@ display.sale_condition_level_3 = function(value)
 end
 
 -- Dissect: Sale Condition Level 3
-dissect.sale_condition_level_3 = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition_level_3
+finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_3 = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_3
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition_level_3(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.sale_condition_level_3(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sale_condition_level_3, range, value, display)
 
@@ -2555,19 +2555,19 @@ dissect.sale_condition_level_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition Level 2
-size_of.sale_condition_level_2 = 1
+finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_2 = 1
 
 -- Display: Sale Condition Level 2
-display.sale_condition_level_2 = function(value)
+finra_orf_tdds_dfi_v2_0_display.sale_condition_level_2 = function(value)
   return "Sale Condition Level 2: "..value
 end
 
 -- Dissect: Sale Condition Level 2
-dissect.sale_condition_level_2 = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition_level_2
+finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_2 = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition_level_2(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.sale_condition_level_2(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sale_condition_level_2, range, value, display)
 
@@ -2575,10 +2575,10 @@ dissect.sale_condition_level_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sale Condition Level 1
-size_of.sale_condition_level_1 = 1
+finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1 = 1
 
 -- Display: Sale Condition Level 1
-display.sale_condition_level_1 = function(value)
+finra_orf_tdds_dfi_v2_0_display.sale_condition_level_1 = function(value)
   if value == "@" then
     return "Sale Condition Level 1: Regular Trade (@)"
   end
@@ -2596,11 +2596,11 @@ display.sale_condition_level_1 = function(value)
 end
 
 -- Dissect: Sale Condition Level 1
-dissect.sale_condition_level_1 = function(buffer, offset, packet, parent)
-  local length = size_of.sale_condition_level_1
+finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_1 = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sale_condition_level_1(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.sale_condition_level_1(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.sale_condition_level_1, range, value, display)
 
@@ -2608,77 +2608,77 @@ dissect.sale_condition_level_1 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Execution Datetime
-size_of.execution_datetime = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.execution_datetime = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.year
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.year
 
-  index = index + size_of.month
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.month
 
-  index = index + size_of.day
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.day
 
-  index = index + size_of.hour
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.hour
 
-  index = index + size_of.minute
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.minute
 
-  index = index + size_of.second
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.second
 
-  index = index + size_of.millisecond
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.millisecond
 
   return index
 end
 
 -- Display: Execution Datetime
-display.execution_datetime = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.execution_datetime = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Execution Datetime
-dissect.execution_datetime_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 4 Byte Ascii String
-  index, year = dissect.year(buffer, index, packet, parent)
+  index, year = finra_orf_tdds_dfi_v2_0_dissect.year(buffer, index, packet, parent)
 
   -- Month: 2 Byte Ascii String
-  index, month = dissect.month(buffer, index, packet, parent)
+  index, month = finra_orf_tdds_dfi_v2_0_dissect.month(buffer, index, packet, parent)
 
   -- Day: 2 Byte Ascii String
-  index, day = dissect.day(buffer, index, packet, parent)
+  index, day = finra_orf_tdds_dfi_v2_0_dissect.day(buffer, index, packet, parent)
 
   -- Hour: 2 Byte Ascii String
-  index, hour = dissect.hour(buffer, index, packet, parent)
+  index, hour = finra_orf_tdds_dfi_v2_0_dissect.hour(buffer, index, packet, parent)
 
   -- Minute: 2 Byte Ascii String
-  index, minute = dissect.minute(buffer, index, packet, parent)
+  index, minute = finra_orf_tdds_dfi_v2_0_dissect.minute(buffer, index, packet, parent)
 
   -- Second: 2 Byte Ascii String
-  index, second = dissect.second(buffer, index, packet, parent)
+  index, second = finra_orf_tdds_dfi_v2_0_dissect.second(buffer, index, packet, parent)
 
   -- Millisecond: 3 Byte Ascii String
-  index, millisecond = dissect.millisecond(buffer, index, packet, parent)
+  index, millisecond = finra_orf_tdds_dfi_v2_0_dissect.millisecond(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Execution Datetime
-dissect.execution_datetime = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.execution_datetime = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.execution_datetime then
-    local length = size_of.execution_datetime(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.execution_datetime(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.execution_datetime(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.execution_datetime(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.execution_datetime, range, display)
   end
 
-  return dissect.execution_datetime_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.execution_datetime_fields(buffer, offset, packet, parent)
 end
 
 -- Size: As Of Indicator
-size_of.as_of_indicator = 1
+finra_orf_tdds_dfi_v2_0_size_of.as_of_indicator = 1
 
 -- Display: As Of Indicator
-display.as_of_indicator = function(value)
+finra_orf_tdds_dfi_v2_0_display.as_of_indicator = function(value)
   if value == "A" then
     return "As Of Indicator: As Of (A)"
   end
@@ -2693,11 +2693,11 @@ display.as_of_indicator = function(value)
 end
 
 -- Dissect: As Of Indicator
-dissect.as_of_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.as_of_indicator
+finra_orf_tdds_dfi_v2_0_dissect.as_of_indicator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.as_of_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.as_of_indicator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.as_of_indicator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.as_of_indicator, range, value, display)
 
@@ -2705,19 +2705,19 @@ dissect.as_of_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price
-size_of.trade_price = 12
+finra_orf_tdds_dfi_v2_0_size_of.trade_price = 12
 
 -- Display: Trade Price
-display.trade_price = function(value)
+finra_orf_tdds_dfi_v2_0_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
 -- Dissect: Trade Price
-dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price
+finra_orf_tdds_dfi_v2_0_dissect.trade_price = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.trade_price
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_price(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_price, range, value, display)
 
@@ -2725,19 +2725,19 @@ dissect.trade_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price Denominator
-size_of.trade_price_denominator = 1
+finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator = 1
 
 -- Display: Trade Price Denominator
-display.trade_price_denominator = function(value)
+finra_orf_tdds_dfi_v2_0_display.trade_price_denominator = function(value)
   return "Trade Price Denominator: "..value
 end
 
 -- Dissect: Trade Price Denominator
-dissect.trade_price_denominator = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price_denominator
+finra_orf_tdds_dfi_v2_0_dissect.trade_price_denominator = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_price_denominator(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.trade_price_denominator(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_price_denominator, range, value, display)
 
@@ -2745,16 +2745,16 @@ dissect.trade_price_denominator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Report Volume
-size_of.report_volume = 8
+finra_orf_tdds_dfi_v2_0_size_of.report_volume = 8
 
 -- Display: Report Volume
-display.report_volume = function(value)
+finra_orf_tdds_dfi_v2_0_display.report_volume = function(value)
   return "Report Volume: "..value
 end
 
 -- Dissect: Report Volume
-dissect.report_volume = function(buffer, offset, packet, parent)
-  local length = size_of.report_volume
+finra_orf_tdds_dfi_v2_0_dissect.report_volume = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.report_volume
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2762,7 +2762,7 @@ dissect.report_volume = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.report_volume(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.report_volume(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.report_volume, range, value, display)
 
@@ -2770,184 +2770,184 @@ dissect.report_volume = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Corrected Trade Information
-size_of.corrected_trade_information = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.corrected_trade_information = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.report_volume
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_volume
 
-  index = index + size_of.trade_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator
 
-  index = index + size_of.trade_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price
 
-  index = index + size_of.currency
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.currency
 
-  index = index + size_of.as_of_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.as_of_indicator
 
-  index = index + size_of.execution_datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.execution_datetime(buffer, offset + index)
 
-  index = index + size_of.sale_condition_level_1
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1
 
-  index = index + size_of.sale_condition_level_2
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_2
 
-  index = index + size_of.sale_condition_level_3
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_3
 
-  index = index + size_of.sale_condition_level_4
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_4
 
-  index = index + size_of.sellers_sale_days
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sellers_sale_days
 
   return index
 end
 
 -- Display: Corrected Trade Information
-display.corrected_trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.corrected_trade_information = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Corrected Trade Information
-dissect.corrected_trade_information_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Report Volume: 8 Byte Ascii String
-  index, report_volume = dissect.report_volume(buffer, index, packet, parent)
+  index, report_volume = finra_orf_tdds_dfi_v2_0_dissect.report_volume(buffer, index, packet, parent)
 
   -- Trade Price Denominator: 1 Byte Ascii String
-  index, trade_price_denominator = dissect.trade_price_denominator(buffer, index, packet, parent)
+  index, trade_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.trade_price_denominator(buffer, index, packet, parent)
 
   -- Trade Price: 12 Byte Ascii String
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = finra_orf_tdds_dfi_v2_0_dissect.trade_price(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = finra_orf_tdds_dfi_v2_0_dissect.currency(buffer, index, packet, parent)
 
   -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
-  index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
+  index, as_of_indicator = finra_orf_tdds_dfi_v2_0_dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
-  index, execution_datetime = dissect.execution_datetime(buffer, index, packet, parent)
+  index, execution_datetime = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime(buffer, index, packet, parent)
 
   -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_1 = dissect.sale_condition_level_1(buffer, index, packet, parent)
+  index, sale_condition_level_1 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_1(buffer, index, packet, parent)
 
   -- Sale Condition Level 2: 1 Byte Ascii String
-  index, sale_condition_level_2 = dissect.sale_condition_level_2(buffer, index, packet, parent)
+  index, sale_condition_level_2 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_2(buffer, index, packet, parent)
 
   -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_3 = dissect.sale_condition_level_3(buffer, index, packet, parent)
+  index, sale_condition_level_3 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_3(buffer, index, packet, parent)
 
   -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_4 = dissect.sale_condition_level_4(buffer, index, packet, parent)
+  index, sale_condition_level_4 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_4(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 2 Byte Ascii String
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = finra_orf_tdds_dfi_v2_0_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Corrected Trade Information
-dissect.corrected_trade_information = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.corrected_trade_information then
-    local length = size_of.corrected_trade_information(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.corrected_trade_information(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.corrected_trade_information(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.corrected_trade_information(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.corrected_trade_information, range, display)
   end
 
-  return dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Original Trade Information
-size_of.original_trade_information = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.original_trade_information = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.report_volume
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_volume
 
-  index = index + size_of.trade_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator
 
-  index = index + size_of.trade_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price
 
-  index = index + size_of.currency
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.currency
 
-  index = index + size_of.as_of_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.as_of_indicator
 
-  index = index + size_of.execution_datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.execution_datetime(buffer, offset + index)
 
-  index = index + size_of.sale_condition_level_1
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1
 
-  index = index + size_of.sale_condition_level_2
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_2
 
-  index = index + size_of.sale_condition_level_3
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_3
 
-  index = index + size_of.sale_condition_level_4
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_4
 
-  index = index + size_of.sellers_sale_days
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sellers_sale_days
 
   return index
 end
 
 -- Display: Original Trade Information
-display.original_trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.original_trade_information = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Original Trade Information
-dissect.original_trade_information_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Report Volume: 8 Byte Ascii String
-  index, report_volume = dissect.report_volume(buffer, index, packet, parent)
+  index, report_volume = finra_orf_tdds_dfi_v2_0_dissect.report_volume(buffer, index, packet, parent)
 
   -- Trade Price Denominator: 1 Byte Ascii String
-  index, trade_price_denominator = dissect.trade_price_denominator(buffer, index, packet, parent)
+  index, trade_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.trade_price_denominator(buffer, index, packet, parent)
 
   -- Trade Price: 12 Byte Ascii String
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = finra_orf_tdds_dfi_v2_0_dissect.trade_price(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = finra_orf_tdds_dfi_v2_0_dissect.currency(buffer, index, packet, parent)
 
   -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
-  index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
+  index, as_of_indicator = finra_orf_tdds_dfi_v2_0_dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
-  index, execution_datetime = dissect.execution_datetime(buffer, index, packet, parent)
+  index, execution_datetime = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime(buffer, index, packet, parent)
 
   -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_1 = dissect.sale_condition_level_1(buffer, index, packet, parent)
+  index, sale_condition_level_1 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_1(buffer, index, packet, parent)
 
   -- Sale Condition Level 2: 1 Byte Ascii String
-  index, sale_condition_level_2 = dissect.sale_condition_level_2(buffer, index, packet, parent)
+  index, sale_condition_level_2 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_2(buffer, index, packet, parent)
 
   -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_3 = dissect.sale_condition_level_3(buffer, index, packet, parent)
+  index, sale_condition_level_3 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_3(buffer, index, packet, parent)
 
   -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_4 = dissect.sale_condition_level_4(buffer, index, packet, parent)
+  index, sale_condition_level_4 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_4(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 2 Byte Ascii String
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = finra_orf_tdds_dfi_v2_0_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Original Trade Information
-dissect.original_trade_information = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.original_trade_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.original_trade_information then
-    local length = size_of.original_trade_information(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.original_trade_information(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.original_trade_information(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.original_trade_information(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_trade_information, range, display)
   end
 
-  return dissect.original_trade_information_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.original_trade_information_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Report Function
-size_of.report_function = 1
+finra_orf_tdds_dfi_v2_0_size_of.report_function = 1
 
 -- Display: Report Function
-display.report_function = function(value)
+finra_orf_tdds_dfi_v2_0_display.report_function = function(value)
   if value == "C" then
     return "Report Function: Cancel (C)"
   end
@@ -2962,11 +2962,11 @@ display.report_function = function(value)
 end
 
 -- Dissect: Report Function
-dissect.report_function = function(buffer, offset, packet, parent)
-  local length = size_of.report_function
+finra_orf_tdds_dfi_v2_0_dissect.report_function = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.report_function
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.report_function(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.report_function(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.report_function, range, value, display)
 
@@ -2974,16 +2974,16 @@ dissect.report_function = function(buffer, offset, packet, parent)
 end
 
 -- Size: Original Message Sequence Number
-size_of.original_message_sequence_number = 8
+finra_orf_tdds_dfi_v2_0_size_of.original_message_sequence_number = 8
 
 -- Display: Original Message Sequence Number
-display.original_message_sequence_number = function(value)
+finra_orf_tdds_dfi_v2_0_display.original_message_sequence_number = function(value)
   return "Original Message Sequence Number: "..value
 end
 
 -- Dissect: Original Message Sequence Number
-dissect.original_message_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.original_message_sequence_number
+finra_orf_tdds_dfi_v2_0_dissect.original_message_sequence_number = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.original_message_sequence_number
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -2991,7 +2991,7 @@ dissect.original_message_sequence_number = function(buffer, offset, packet, pare
     value =  "Not Applicable"
   end
 
-  local display = display.original_message_sequence_number(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.original_message_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.original_message_sequence_number, range, value, display)
 
@@ -2999,346 +2999,346 @@ dissect.original_message_sequence_number = function(buffer, offset, packet, pare
 end
 
 -- Calculate size of: Original Dissemination Date
-size_of.original_dissemination_date = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.year
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.year
 
-  index = index + size_of.month
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.month
 
-  index = index + size_of.day
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.day
 
   return index
 end
 
 -- Display: Original Dissemination Date
-display.original_dissemination_date = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.original_dissemination_date = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Original Dissemination Date
-dissect.original_dissemination_date_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Year: 4 Byte Ascii String
-  index, year = dissect.year(buffer, index, packet, parent)
+  index, year = finra_orf_tdds_dfi_v2_0_dissect.year(buffer, index, packet, parent)
 
   -- Month: 2 Byte Ascii String
-  index, month = dissect.month(buffer, index, packet, parent)
+  index, month = finra_orf_tdds_dfi_v2_0_dissect.month(buffer, index, packet, parent)
 
   -- Day: 2 Byte Ascii String
-  index, day = dissect.day(buffer, index, packet, parent)
+  index, day = finra_orf_tdds_dfi_v2_0_dissect.day(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Original Dissemination Date
-dissect.original_dissemination_date = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.original_dissemination_date then
-    local length = size_of.original_dissemination_date(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.original_dissemination_date(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.original_dissemination_date(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.original_dissemination_date, range, display)
   end
 
-  return dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Correction Message
-size_of.trade_correction_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_correction_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date(buffer, offset + index)
 
-  index = index + size_of.original_message_sequence_number
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_message_sequence_number
 
-  index = index + size_of.report_function
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_function
 
-  index = index + size_of.original_trade_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_trade_information(buffer, offset + index)
 
-  index = index + size_of.corrected_trade_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.corrected_trade_information(buffer, offset + index)
 
-  index = index + size_of.trade_summary_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Correction Message
-display.trade_correction_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_correction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Message
-dissect.trade_correction_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = finra_orf_tdds_dfi_v2_0_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
-  index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
+  index, original_dissemination_date = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Original Message Sequence Number: 8 Byte Ascii String
-  index, original_message_sequence_number = dissect.original_message_sequence_number(buffer, index, packet, parent)
+  index, original_message_sequence_number = finra_orf_tdds_dfi_v2_0_dissect.original_message_sequence_number(buffer, index, packet, parent)
 
   -- Report Function: 1 Byte Ascii String Enum with 3 values
-  index, report_function = dissect.report_function(buffer, index, packet, parent)
+  index, report_function = finra_orf_tdds_dfi_v2_0_dissect.report_function(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
-  index, original_trade_information = dissect.original_trade_information(buffer, index, packet, parent)
+  index, original_trade_information = finra_orf_tdds_dfi_v2_0_dissect.original_trade_information(buffer, index, packet, parent)
 
   -- Corrected Trade Information: Struct of 11 fields
-  index, corrected_trade_information = dissect.corrected_trade_information(buffer, index, packet, parent)
+  index, corrected_trade_information = finra_orf_tdds_dfi_v2_0_dissect.corrected_trade_information(buffer, index, packet, parent)
 
   -- Trade Summary Information: Struct of 9 fields
-  index, trade_summary_information = dissect.trade_summary_information(buffer, index, packet, parent)
+  index, trade_summary_information = finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Message
-dissect.trade_correction_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
-    local length = size_of.trade_correction_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_correction_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_correction_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_correction_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_correction_message, range, display)
   end
 
-  return dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancel Error Message
-size_of.trade_cancel_error_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_cancel_error_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date(buffer, offset + index)
 
-  index = index + size_of.original_message_sequence_number
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_message_sequence_number
 
-  index = index + size_of.report_function
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_function
 
-  index = index + size_of.original_trade_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_trade_information(buffer, offset + index)
 
-  index = index + size_of.trade_summary_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_summary_information(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Cancel Error Message
-display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Error Message
-dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = finra_orf_tdds_dfi_v2_0_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
-  index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
+  index, original_dissemination_date = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Original Message Sequence Number: 8 Byte Ascii String
-  index, original_message_sequence_number = dissect.original_message_sequence_number(buffer, index, packet, parent)
+  index, original_message_sequence_number = finra_orf_tdds_dfi_v2_0_dissect.original_message_sequence_number(buffer, index, packet, parent)
 
   -- Report Function: 1 Byte Ascii String Enum with 3 values
-  index, report_function = dissect.report_function(buffer, index, packet, parent)
+  index, report_function = finra_orf_tdds_dfi_v2_0_dissect.report_function(buffer, index, packet, parent)
 
   -- Original Trade Information: Struct of 11 fields
-  index, original_trade_information = dissect.original_trade_information(buffer, index, packet, parent)
+  index, original_trade_information = finra_orf_tdds_dfi_v2_0_dissect.original_trade_information(buffer, index, packet, parent)
 
   -- Trade Summary Information: Struct of 9 fields
-  index, trade_summary_information = dissect.trade_summary_information(buffer, index, packet, parent)
+  index, trade_summary_information = finra_orf_tdds_dfi_v2_0_dissect.trade_summary_information(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Error Message
-dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_error_message then
-    local length = size_of.trade_cancel_error_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_cancel_error_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancel_error_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_cancel_error_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_cancel_error_message, range, display)
   end
 
-  return dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Information
-size_of.trade_information = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_information = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.report_volume
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_volume
 
-  index = index + size_of.trade_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator
 
-  index = index + size_of.trade_price
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price
 
-  index = index + size_of.currency
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.currency
 
-  index = index + size_of.as_of_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.as_of_indicator
 
-  index = index + size_of.execution_datetime(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.execution_datetime(buffer, offset + index)
 
-  index = index + size_of.sale_condition_level_1
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1
 
-  index = index + size_of.sale_condition_level_2
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_2
 
-  index = index + size_of.sale_condition_level_3
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_3
 
-  index = index + size_of.sale_condition_level_4
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_4
 
-  index = index + size_of.sellers_sale_days
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sellers_sale_days
 
-  index = index + size_of.price_change_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.price_change_indicator
 
   return index
 end
 
 -- Display: Trade Information
-display.trade_information = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_information = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Information
-dissect.trade_information_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Report Volume: 8 Byte Ascii String
-  index, report_volume = dissect.report_volume(buffer, index, packet, parent)
+  index, report_volume = finra_orf_tdds_dfi_v2_0_dissect.report_volume(buffer, index, packet, parent)
 
   -- Trade Price Denominator: 1 Byte Ascii String
-  index, trade_price_denominator = dissect.trade_price_denominator(buffer, index, packet, parent)
+  index, trade_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.trade_price_denominator(buffer, index, packet, parent)
 
   -- Trade Price: 12 Byte Ascii String
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = finra_orf_tdds_dfi_v2_0_dissect.trade_price(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = finra_orf_tdds_dfi_v2_0_dissect.currency(buffer, index, packet, parent)
 
   -- As Of Indicator: 1 Byte Ascii String Enum with 3 values
-  index, as_of_indicator = dissect.as_of_indicator(buffer, index, packet, parent)
+  index, as_of_indicator = finra_orf_tdds_dfi_v2_0_dissect.as_of_indicator(buffer, index, packet, parent)
 
   -- Execution Datetime: Struct of 7 fields
-  index, execution_datetime = dissect.execution_datetime(buffer, index, packet, parent)
+  index, execution_datetime = finra_orf_tdds_dfi_v2_0_dissect.execution_datetime(buffer, index, packet, parent)
 
   -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_1 = dissect.sale_condition_level_1(buffer, index, packet, parent)
+  index, sale_condition_level_1 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_1(buffer, index, packet, parent)
 
   -- Sale Condition Level 2: 1 Byte Ascii String
-  index, sale_condition_level_2 = dissect.sale_condition_level_2(buffer, index, packet, parent)
+  index, sale_condition_level_2 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_2(buffer, index, packet, parent)
 
   -- Sale Condition Level 3: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_3 = dissect.sale_condition_level_3(buffer, index, packet, parent)
+  index, sale_condition_level_3 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_3(buffer, index, packet, parent)
 
   -- Sale Condition Level 4: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_4 = dissect.sale_condition_level_4(buffer, index, packet, parent)
+  index, sale_condition_level_4 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_4(buffer, index, packet, parent)
 
   -- Sellers Sale Days: 2 Byte Ascii String
-  index, sellers_sale_days = dissect.sellers_sale_days(buffer, index, packet, parent)
+  index, sellers_sale_days = finra_orf_tdds_dfi_v2_0_dissect.sellers_sale_days(buffer, index, packet, parent)
 
   -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
-  index, price_change_indicator = dissect.price_change_indicator(buffer, index, packet, parent)
+  index, price_change_indicator = finra_orf_tdds_dfi_v2_0_dissect.price_change_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Information
-dissect.trade_information = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_information = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_information then
-    local length = size_of.trade_information(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_information(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_information(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_information(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_information, range, display)
   end
 
-  return dissect.trade_information_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_information_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Long Form Message
-size_of.trade_report_long_form_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_report_long_form_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol
 
-  index = index + size_of.original_dissemination_date(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.original_dissemination_date(buffer, offset + index)
 
-  index = index + size_of.trade_information(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_information(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Report Long Form Message
-display.trade_report_long_form_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Long Form Message
-dissect.trade_report_long_form_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol: 14 Byte Ascii String
-  index, security_symbol = dissect.security_symbol(buffer, index, packet, parent)
+  index, security_symbol = finra_orf_tdds_dfi_v2_0_dissect.security_symbol(buffer, index, packet, parent)
 
   -- Original Dissemination Date: Struct of 3 fields
-  index, original_dissemination_date = dissect.original_dissemination_date(buffer, index, packet, parent)
+  index, original_dissemination_date = finra_orf_tdds_dfi_v2_0_dissect.original_dissemination_date(buffer, index, packet, parent)
 
   -- Trade Information: Struct of 12 fields
-  index, trade_information = dissect.trade_information(buffer, index, packet, parent)
+  index, trade_information = finra_orf_tdds_dfi_v2_0_dissect.trade_information(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Long Form Message
-dissect.trade_report_long_form_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_long_form_message then
-    local length = size_of.trade_report_long_form_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_report_long_form_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_long_form_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_long_form_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_long_form_message, range, display)
   end
 
-  return dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Report Volume Short
-size_of.report_volume_short = 6
+finra_orf_tdds_dfi_v2_0_size_of.report_volume_short = 6
 
 -- Display: Report Volume Short
-display.report_volume_short = function(value)
+finra_orf_tdds_dfi_v2_0_display.report_volume_short = function(value)
   return "Report Volume Short: "..value
 end
 
 -- Dissect: Report Volume Short
-dissect.report_volume_short = function(buffer, offset, packet, parent)
-  local length = size_of.report_volume_short
+finra_orf_tdds_dfi_v2_0_dissect.report_volume_short = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.report_volume_short
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -3346,7 +3346,7 @@ dissect.report_volume_short = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.report_volume_short(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.report_volume_short(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.report_volume_short, range, value, display)
 
@@ -3354,16 +3354,16 @@ dissect.report_volume_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price Short
-size_of.trade_price_short = 6
+finra_orf_tdds_dfi_v2_0_size_of.trade_price_short = 6
 
 -- Display: Trade Price Short
-display.trade_price_short = function(value)
+finra_orf_tdds_dfi_v2_0_display.trade_price_short = function(value)
   return "Trade Price Short: "..value
 end
 
 -- Dissect: Trade Price Short
-dissect.trade_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price_short
+finra_orf_tdds_dfi_v2_0_dissect.trade_price_short = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.trade_price_short
   local range = buffer(offset, length)
   local value = tonumber(range:string())
 
@@ -3371,7 +3371,7 @@ dissect.trade_price_short = function(buffer, offset, packet, parent)
     value =  "Not Applicable"
   end
 
-  local display = display.trade_price_short(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.trade_price_short(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_price_short, range, value, display)
 
@@ -3379,19 +3379,19 @@ dissect.trade_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol Short
-size_of.security_symbol_short = 5
+finra_orf_tdds_dfi_v2_0_size_of.security_symbol_short = 5
 
 -- Display: Security Symbol Short
-display.security_symbol_short = function(value)
+finra_orf_tdds_dfi_v2_0_display.security_symbol_short = function(value)
   return "Security Symbol Short: "..value
 end
 
 -- Dissect: Security Symbol Short
-dissect.security_symbol_short = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol_short
+finra_orf_tdds_dfi_v2_0_dissect.security_symbol_short = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.security_symbol_short
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol_short(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.security_symbol_short(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.security_symbol_short, range, value, display)
 
@@ -3399,146 +3399,146 @@ dissect.security_symbol_short = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Short Form Message
-size_of.trade_report_short_form_message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade_report_short_form_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_header(buffer, offset + index)
 
-  index = index + size_of.security_symbol_short
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.security_symbol_short
 
-  index = index + size_of.sale_condition_level_1
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.sale_condition_level_1
 
-  index = index + size_of.trade_price_denominator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price_denominator
 
-  index = index + size_of.trade_price_short
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_price_short
 
-  index = index + size_of.report_volume_short
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.report_volume_short
 
-  index = index + size_of.price_change_indicator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.price_change_indicator
 
   return index
 end
 
 -- Display: Trade Report Short Form Message
-display.trade_report_short_form_message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Short Form Message
-dissect.trade_report_short_form_message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 5 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = finra_orf_tdds_dfi_v2_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Security Symbol Short: 5 Byte Ascii String
-  index, security_symbol_short = dissect.security_symbol_short(buffer, index, packet, parent)
+  index, security_symbol_short = finra_orf_tdds_dfi_v2_0_dissect.security_symbol_short(buffer, index, packet, parent)
 
   -- Sale Condition Level 1: 1 Byte Ascii String Enum with 4 values
-  index, sale_condition_level_1 = dissect.sale_condition_level_1(buffer, index, packet, parent)
+  index, sale_condition_level_1 = finra_orf_tdds_dfi_v2_0_dissect.sale_condition_level_1(buffer, index, packet, parent)
 
   -- Trade Price Denominator: 1 Byte Ascii String
-  index, trade_price_denominator = dissect.trade_price_denominator(buffer, index, packet, parent)
+  index, trade_price_denominator = finra_orf_tdds_dfi_v2_0_dissect.trade_price_denominator(buffer, index, packet, parent)
 
   -- Trade Price Short: 6 Byte Ascii String
-  index, trade_price_short = dissect.trade_price_short(buffer, index, packet, parent)
+  index, trade_price_short = finra_orf_tdds_dfi_v2_0_dissect.trade_price_short(buffer, index, packet, parent)
 
   -- Report Volume Short: 6 Byte Ascii String
-  index, report_volume_short = dissect.report_volume_short(buffer, index, packet, parent)
+  index, report_volume_short = finra_orf_tdds_dfi_v2_0_dissect.report_volume_short(buffer, index, packet, parent)
 
   -- Price Change Indicator: 1 Byte Ascii String Enum with 8 values
-  index, price_change_indicator = dissect.price_change_indicator(buffer, index, packet, parent)
+  index, price_change_indicator = finra_orf_tdds_dfi_v2_0_dissect.price_change_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Short Form Message
-dissect.trade_report_short_form_message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_short_form_message then
-    local length = size_of.trade_report_short_form_message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade_report_short_form_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_short_form_message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade_report_short_form_message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_report_short_form_message, range, display)
   end
 
-  return dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Trade Payload
-size_of.trade_payload = function(buffer, offset, trade_message_type)
+finra_orf_tdds_dfi_v2_0_size_of.trade_payload = function(buffer, offset, trade_message_type)
   -- Size of Trade Report Short Form Message
   if trade_message_type == "5" then
-    return size_of.trade_report_short_form_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trade_report_short_form_message(buffer, offset)
   end
   -- Size of Trade Report Long Form Message
   if trade_message_type == "6" then
-    return size_of.trade_report_long_form_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trade_report_long_form_message(buffer, offset)
   end
   -- Size of Trade Cancel Error Message
   if trade_message_type == "7" then
-    return size_of.trade_cancel_error_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trade_cancel_error_message(buffer, offset)
   end
   -- Size of Trade Correction Message
   if trade_message_type == "8" then
-    return size_of.trade_correction_message(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trade_correction_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Trade Payload
-display.trade_payload = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Trade Payload
-dissect.trade_payload_branches = function(buffer, offset, packet, parent, trade_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.trade_payload_branches = function(buffer, offset, packet, parent, trade_message_type)
   -- Dissect Trade Report Short Form Message
   if trade_message_type == "5" then
-    return dissect.trade_report_short_form_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_short_form_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Long Form Message
   if trade_message_type == "6" then
-    return dissect.trade_report_long_form_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_report_long_form_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Error Message
   if trade_message_type == "7" then
-    return dissect.trade_cancel_error_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_cancel_error_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Correction Message
   if trade_message_type == "8" then
-    return dissect.trade_correction_message(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_correction_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Trade Payload
-dissect.trade_payload = function(buffer, offset, packet, parent, trade_message_type)
+finra_orf_tdds_dfi_v2_0_dissect.trade_payload = function(buffer, offset, packet, parent, trade_message_type)
   if not show.trade_payload then
-    return dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.trade_payload(buffer, offset, trade_message_type)
+  local size = finra_orf_tdds_dfi_v2_0_size_of.trade_payload(buffer, offset, trade_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.trade_payload(buffer, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.trade_payload(buffer, packet, parent)
   local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_payload, range, display)
 
-  return dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_payload_branches(buffer, offset, packet, parent, trade_message_type)
 end
 
 -- Size: Trade Message Type
-size_of.trade_message_type = 1
+finra_orf_tdds_dfi_v2_0_size_of.trade_message_type = 1
 
 -- Display: Trade Message Type
-display.trade_message_type = function(value)
+finra_orf_tdds_dfi_v2_0_display.trade_message_type = function(value)
   if value == "5" then
     return "Trade Message Type: Trade Report Short Form Message (5)"
   end
@@ -3556,11 +3556,11 @@ display.trade_message_type = function(value)
 end
 
 -- Dissect: Trade Message Type
-dissect.trade_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.trade_message_type
+finra_orf_tdds_dfi_v2_0_dissect.trade_message_type = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.trade_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_message_type(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.trade_message_type(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.trade_message_type, range, value, display)
 
@@ -3568,116 +3568,116 @@ dissect.trade_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade
-size_of.trade = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.trade = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.trade_message_type
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_message_type
 
   -- Calculate runtime size of Trade Payload field
   local trade_payload_offset = offset + index
   local trade_payload_type = buffer(trade_payload_offset - 1, 1):string()
-  index = index + size_of.trade_payload(buffer, trade_payload_offset, trade_payload_type)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.trade_payload(buffer, trade_payload_offset, trade_payload_type)
 
   return index
 end
 
 -- Display: Trade
-display.trade = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.trade = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade
-dissect.trade_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trade Message Type: 1 Byte Ascii String Enum with 4 values
-  index, trade_message_type = dissect.trade_message_type(buffer, index, packet, parent)
+  index, trade_message_type = finra_orf_tdds_dfi_v2_0_dissect.trade_message_type(buffer, index, packet, parent)
 
   -- Trade Payload: Runtime Type with 4 branches
-  index = dissect.trade_payload(buffer, index, packet, parent, trade_message_type)
+  index = finra_orf_tdds_dfi_v2_0_dissect.trade_payload(buffer, index, packet, parent, trade_message_type)
 
   return index
 end
 
 -- Dissect: Trade
-dissect.trade = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.trade = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.trade then
-    local length = size_of.trade(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.trade(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.trade(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.trade, range, display)
   end
 
-  return dissect.trade_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.trade_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_category)
+finra_orf_tdds_dfi_v2_0_size_of.payload = function(buffer, offset, message_category)
   -- Size of Trade
   if message_category == "T" then
-    return size_of.trade(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.trade(buffer, offset)
   end
   -- Size of Administrative
   if message_category == "A" then
-    return size_of.administrative(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.administrative(buffer, offset)
   end
   -- Size of Control
   if message_category == "C" then
-    return size_of.control(buffer, offset)
+    return finra_orf_tdds_dfi_v2_0_size_of.control(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
+finra_orf_tdds_dfi_v2_0_dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Trade
   if message_category == "T" then
-    return dissect.trade(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.trade(buffer, offset, packet, parent)
   end
   -- Dissect Administrative
   if message_category == "A" then
-    return dissect.administrative(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.administrative(buffer, offset, packet, parent)
   end
   -- Dissect Control
   if message_category == "C" then
-    return dissect.control(buffer, offset, packet, parent)
+    return finra_orf_tdds_dfi_v2_0_dissect.control(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_category)
+finra_orf_tdds_dfi_v2_0_dissect.payload = function(buffer, offset, packet, parent, message_category)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+    return finra_orf_tdds_dfi_v2_0_dissect.payload_branches(buffer, offset, packet, parent, message_category)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_category)
+  local size = finra_orf_tdds_dfi_v2_0_size_of.payload(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.payload(buffer, packet, parent)
   local element = parent:add(finra_orf_tdds_dfi_v2_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+  return finra_orf_tdds_dfi_v2_0_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Size: Message Category
-size_of.message_category = 1
+finra_orf_tdds_dfi_v2_0_size_of.message_category = 1
 
 -- Display: Message Category
-display.message_category = function(value)
+finra_orf_tdds_dfi_v2_0_display.message_category = function(value)
   if value == "T" then
     return "Message Category: Trade (T)"
   end
@@ -3692,11 +3692,11 @@ display.message_category = function(value)
 end
 
 -- Dissect: Message Category
-dissect.message_category = function(buffer, offset, packet, parent)
-  local length = size_of.message_category
+finra_orf_tdds_dfi_v2_0_dissect.message_category = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.message_category
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_category(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.message_category, range, value, display)
 
@@ -3704,69 +3704,69 @@ dissect.message_category = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+finra_orf_tdds_dfi_v2_0_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_category
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_category
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):string()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.payload(buffer, payload_offset, payload_type)
 
-  index = index + size_of.message_separator
+  index = index + finra_orf_tdds_dfi_v2_0_size_of.message_separator
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+finra_orf_tdds_dfi_v2_0_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Category: 1 Byte Ascii String Enum with 3 values
-  index, message_category = dissect.message_category(buffer, index, packet, parent)
+  index, message_category = finra_orf_tdds_dfi_v2_0_dissect.message_category(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 3 branches
-  index = dissect.payload(buffer, index, packet, parent, message_category)
+  index = finra_orf_tdds_dfi_v2_0_dissect.payload(buffer, index, packet, parent, message_category)
 
   -- Message Separator: 1 Byte Unsigned Fixed Width Integer
-  index, message_separator = dissect.message_separator(buffer, index, packet, parent)
+  index, message_separator = finra_orf_tdds_dfi_v2_0_dissect.message_separator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = finra_orf_tdds_dfi_v2_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = finra_orf_tdds_dfi_v2_0_display.message(buffer, packet, parent)
     parent = parent:add(finra_orf_tdds_dfi_v2_0.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return finra_orf_tdds_dfi_v2_0_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Block Soh
-size_of.block_soh = 1
+finra_orf_tdds_dfi_v2_0_size_of.block_soh = 1
 
 -- Display: Block Soh
-display.block_soh = function(value)
+finra_orf_tdds_dfi_v2_0_display.block_soh = function(value)
   return "Block Soh: "..value
 end
 
 -- Dissect: Block Soh
-dissect.block_soh = function(buffer, offset, packet, parent)
-  local length = size_of.block_soh
+finra_orf_tdds_dfi_v2_0_dissect.block_soh = function(buffer, offset, packet, parent)
+  local length = finra_orf_tdds_dfi_v2_0_size_of.block_soh
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_soh(value, buffer, offset, packet, parent)
+  local display = finra_orf_tdds_dfi_v2_0_display.block_soh(value, buffer, offset, packet, parent)
 
   parent:add(finra_orf_tdds_dfi_v2_0.fields.block_soh, range, value, display)
 
@@ -3774,18 +3774,18 @@ dissect.block_soh = function(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+finra_orf_tdds_dfi_v2_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Block Soh: 1 Byte Unsigned Fixed Width Integer
-  index, block_soh = dissect.block_soh(buffer, index, packet, parent)
+  index, block_soh = finra_orf_tdds_dfi_v2_0_dissect.block_soh(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = finra_orf_tdds_dfi_v2_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -3808,7 +3808,7 @@ function finra_orf_tdds_dfi_v2_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(finra_orf_tdds_dfi_v2_0, buffer(), finra_orf_tdds_dfi_v2_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return finra_orf_tdds_dfi_v2_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

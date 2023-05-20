@@ -10,9 +10,9 @@ local cboe_pitch_sequencedunitheader_pitch_v1_0 = Proto("Cboe.Pitch.SequencedUni
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_pitch_sequencedunitheader_pitch_v1_0_display = {}
+local cboe_pitch_sequencedunitheader_pitch_v1_0_dissect = {}
+local cboe_pitch_sequencedunitheader_pitch_v1_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -82,15 +82,15 @@ end
 -----------------------------------------------------------------------
 
 -- Display: Payload
-display.payload = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.payload = function(value)
   return "Payload: "..value
 end
 
 -- Dissect runtime sized field: Payload
-dissect.payload = function(buffer, offset, packet, parent, size)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.payload = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = display.payload(value, buffer, offset, packet, parent, size)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.payload(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.payload, range, value, display)
 
@@ -98,19 +98,19 @@ dissect.payload = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_type = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_type, range, value, display)
 
@@ -118,19 +118,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 1
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_length = 1
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_length, range, value, display)
 
@@ -138,58 +138,58 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(index - 2, 1):le_uint()
@@ -198,39 +198,39 @@ dissect.message_fields = function(buffer, offset, packet, parent, size_of_messag
   local size_of_payload = message_length - 2
 
   -- Payload: 0 Byte
-  index = dissect.payload(buffer, index, packet, parent, size_of_payload)
+  index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.payload(buffer, index, packet, parent, size_of_payload)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.message(buffer, packet, parent)
     parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Sequence
-size_of.sequence = 4
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.sequence = 4
 
 -- Display: Sequence
-display.sequence = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.sequence
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.sequence, range, value, display)
 
@@ -238,19 +238,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit
-size_of.unit = 1
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.unit = 1
 
 -- Display: Unit
-display.unit = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.unit = function(value)
   return "Unit: "..value
 end
 
 -- Dissect: Unit
-dissect.unit = function(buffer, offset, packet, parent)
-  local length = size_of.unit
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.unit = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.unit
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.unit, range, value, display)
 
@@ -258,19 +258,19 @@ dissect.unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 1
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.count = 1
 
 -- Display: Count
-display.count = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.count = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.count, range, value, display)
 
@@ -278,19 +278,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.length = function(buffer, offset, packet, parent)
+  local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.length, range, value, display)
 
@@ -298,63 +298,63 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.length
 
-  index = index + size_of.count
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.count
 
-  index = index + size_of.unit
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.unit
 
-  index = index + size_of.sequence
+  index = index + cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.sequence
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.length(buffer, index, packet, parent)
 
   -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.count(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index, unit = dissect.unit(buffer, index, packet, parent)
+  index, unit = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.unit(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.sequence(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = cboe_pitch_sequencedunitheader_pitch_v1_0_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = cboe_pitch_sequencedunitheader_pitch_v1_0_display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -366,7 +366,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_length = buffer(index, 1):le_uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index
@@ -389,7 +389,7 @@ function cboe_pitch_sequencedunitheader_pitch_v1_0.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(cboe_pitch_sequencedunitheader_pitch_v1_0, buffer(), cboe_pitch_sequencedunitheader_pitch_v1_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_pitch_sequencedunitheader_pitch_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

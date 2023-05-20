@@ -10,9 +10,9 @@ local siac_cqs_output_cta_v1_91 = Proto("Siac.Cqs.Output.Cta.v1.91.Lua", "Siac C
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local siac_cqs_output_cta_v1_91_display = {}
+local siac_cqs_output_cta_v1_91_dissect = {}
+local siac_cqs_output_cta_v1_91_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -382,19 +382,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Block Pad Byte
-size_of.block_pad_byte = 1
+siac_cqs_output_cta_v1_91_size_of.block_pad_byte = 1
 
 -- Display: Block Pad Byte
-display.block_pad_byte = function(value)
+siac_cqs_output_cta_v1_91_display.block_pad_byte = function(value)
   return "Block Pad Byte: "..value
 end
 
 -- Dissect: Block Pad Byte
-dissect.block_pad_byte = function(buffer, offset, packet, parent)
-  local length = size_of.block_pad_byte
+siac_cqs_output_cta_v1_91_dissect.block_pad_byte = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.block_pad_byte
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_pad_byte(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.block_pad_byte(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.block_pad_byte, range, value, display)
 
@@ -402,19 +402,19 @@ dissect.block_pad_byte = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Offer Size Short
-size_of.best_offer_size_short = 2
+siac_cqs_output_cta_v1_91_size_of.best_offer_size_short = 2
 
 -- Display: Best Offer Size Short
-display.best_offer_size_short = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_size_short = function(value)
   return "Best Offer Size Short: "..value
 end
 
 -- Dissect: Best Offer Size Short
-dissect.best_offer_size_short = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_size_short
+siac_cqs_output_cta_v1_91_dissect.best_offer_size_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_size_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.best_offer_size_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_size_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_size_short, range, value, display)
 
@@ -422,10 +422,10 @@ dissect.best_offer_size_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Offer Price Short
-size_of.best_offer_price_short = 2
+siac_cqs_output_cta_v1_91_size_of.best_offer_price_short = 2
 
 -- Display: Best Offer Price Short
-display.best_offer_price_short = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_price_short = function(value)
   return "Best Offer Price Short: "..value
 end
 
@@ -435,12 +435,12 @@ translate.best_offer_price_short = function(raw)
 end
 
 -- Dissect: Best Offer Price Short
-dissect.best_offer_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_price_short
+siac_cqs_output_cta_v1_91_dissect.best_offer_price_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_price_short
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.best_offer_price_short(raw)
-  local display = display.best_offer_price_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_short, range, value, display)
 
@@ -448,10 +448,10 @@ dissect.best_offer_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Offer Participant Id
-size_of.best_offer_participant_id = 1
+siac_cqs_output_cta_v1_91_size_of.best_offer_participant_id = 1
 
 -- Display: Best Offer Participant Id
-display.best_offer_participant_id = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_participant_id = function(value)
   if value == "A" then
     return "Best Offer Participant Id: Nyse American (A)"
   end
@@ -511,11 +511,11 @@ display.best_offer_participant_id = function(value)
 end
 
 -- Dissect: Best Offer Participant Id
-dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_participant_id
+siac_cqs_output_cta_v1_91_dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_offer_participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_participant_id, range, value, display)
 
@@ -523,66 +523,66 @@ dissect.best_offer_participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: National Best Offer Short Appendage
-size_of.national_best_offer_short_appendage = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.national_best_offer_short_appendage = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.best_offer_participant_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_participant_id
 
-  index = index + size_of.best_offer_price_short
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_price_short
 
-  index = index + size_of.best_offer_size_short
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_size_short
 
   return index
 end
 
 -- Display: National Best Offer Short Appendage
-display.national_best_offer_short_appendage = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.national_best_offer_short_appendage = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: National Best Offer Short Appendage
-dissect.national_best_offer_short_appendage_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = siac_cqs_output_cta_v1_91_dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, best_offer_price_short = dissect.best_offer_price_short(buffer, index, packet, parent)
+  index, best_offer_price_short = siac_cqs_output_cta_v1_91_dissect.best_offer_price_short(buffer, index, packet, parent)
 
   -- Best Offer Size Short: 2 Byte Unsigned Fixed Width Integer
-  index, best_offer_size_short = dissect.best_offer_size_short(buffer, index, packet, parent)
+  index, best_offer_size_short = siac_cqs_output_cta_v1_91_dissect.best_offer_size_short(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: National Best Offer Short Appendage
-dissect.national_best_offer_short_appendage = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_offer_short_appendage then
-    local length = size_of.national_best_offer_short_appendage(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.national_best_offer_short_appendage(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.national_best_offer_short_appendage(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.national_best_offer_short_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_short_appendage, range, display)
   end
 
-  return dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Best Bid Size Short
-size_of.best_bid_size_short = 2
+siac_cqs_output_cta_v1_91_size_of.best_bid_size_short = 2
 
 -- Display: Best Bid Size Short
-display.best_bid_size_short = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_size_short = function(value)
   return "Best Bid Size Short: "..value
 end
 
 -- Dissect: Best Bid Size Short
-dissect.best_bid_size_short = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_size_short
+siac_cqs_output_cta_v1_91_dissect.best_bid_size_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_size_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.best_bid_size_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_size_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_size_short, range, value, display)
 
@@ -590,10 +590,10 @@ dissect.best_bid_size_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Bid Price Short
-size_of.best_bid_price_short = 2
+siac_cqs_output_cta_v1_91_size_of.best_bid_price_short = 2
 
 -- Display: Best Bid Price Short
-display.best_bid_price_short = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_price_short = function(value)
   return "Best Bid Price Short: "..value
 end
 
@@ -603,12 +603,12 @@ translate.best_bid_price_short = function(raw)
 end
 
 -- Dissect: Best Bid Price Short
-dissect.best_bid_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_price_short
+siac_cqs_output_cta_v1_91_dissect.best_bid_price_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_price_short
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.best_bid_price_short(raw)
-  local display = display.best_bid_price_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_short, range, value, display)
 
@@ -616,10 +616,10 @@ dissect.best_bid_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Bid Participant Id
-size_of.best_bid_participant_id = 1
+siac_cqs_output_cta_v1_91_size_of.best_bid_participant_id = 1
 
 -- Display: Best Bid Participant Id
-display.best_bid_participant_id = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_participant_id = function(value)
   if value == "A" then
     return "Best Bid Participant Id: Nyse American (A)"
   end
@@ -679,11 +679,11 @@ display.best_bid_participant_id = function(value)
 end
 
 -- Dissect: Best Bid Participant Id
-dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_participant_id
+siac_cqs_output_cta_v1_91_dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_bid_participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_participant_id, range, value, display)
 
@@ -691,66 +691,66 @@ dissect.best_bid_participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: National Best Bid Short Appendage
-size_of.national_best_bid_short_appendage = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.national_best_bid_short_appendage = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.best_bid_participant_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_participant_id
 
-  index = index + size_of.best_bid_price_short
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_price_short
 
-  index = index + size_of.best_bid_size_short
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_size_short
 
   return index
 end
 
 -- Display: National Best Bid Short Appendage
-display.national_best_bid_short_appendage = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.national_best_bid_short_appendage = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: National Best Bid Short Appendage
-dissect.national_best_bid_short_appendage_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = siac_cqs_output_cta_v1_91_dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, best_bid_price_short = dissect.best_bid_price_short(buffer, index, packet, parent)
+  index, best_bid_price_short = siac_cqs_output_cta_v1_91_dissect.best_bid_price_short(buffer, index, packet, parent)
 
   -- Best Bid Size Short: 2 Byte Unsigned Fixed Width Integer
-  index, best_bid_size_short = dissect.best_bid_size_short(buffer, index, packet, parent)
+  index, best_bid_size_short = siac_cqs_output_cta_v1_91_dissect.best_bid_size_short(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: National Best Bid Short Appendage
-dissect.national_best_bid_short_appendage = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_bid_short_appendage then
-    local length = size_of.national_best_bid_short_appendage(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.national_best_bid_short_appendage(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.national_best_bid_short_appendage(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.national_best_bid_short_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_short_appendage, range, display)
   end
 
-  return dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Offer Market Maker Id
-size_of.finra_best_offer_market_maker_id = 4
+siac_cqs_output_cta_v1_91_size_of.finra_best_offer_market_maker_id = 4
 
 -- Display: Finra Best Offer Market Maker Id
-display.finra_best_offer_market_maker_id = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_offer_market_maker_id = function(value)
   return "Finra Best Offer Market Maker Id: "..value
 end
 
 -- Dissect: Finra Best Offer Market Maker Id
-dissect.finra_best_offer_market_maker_id = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_offer_market_maker_id
+siac_cqs_output_cta_v1_91_dissect.finra_best_offer_market_maker_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_offer_market_maker_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_best_offer_market_maker_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_offer_market_maker_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_market_maker_id, range, value, display)
 
@@ -758,19 +758,19 @@ dissect.finra_best_offer_market_maker_id = function(buffer, offset, packet, pare
 end
 
 -- Size: Best Offer Size Long
-size_of.best_offer_size_long = 4
+siac_cqs_output_cta_v1_91_size_of.best_offer_size_long = 4
 
 -- Display: Best Offer Size Long
-display.best_offer_size_long = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_size_long = function(value)
   return "Best Offer Size Long: "..value
 end
 
 -- Dissect: Best Offer Size Long
-dissect.best_offer_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_size_long
+siac_cqs_output_cta_v1_91_dissect.best_offer_size_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_size_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.best_offer_size_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_size_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_size_long, range, value, display)
 
@@ -778,10 +778,10 @@ dissect.best_offer_size_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Offer Price Long
-size_of.best_offer_price_long = 8
+siac_cqs_output_cta_v1_91_size_of.best_offer_price_long = 8
 
 -- Display: Best Offer Price Long
-display.best_offer_price_long = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_price_long = function(value)
   return "Best Offer Price Long: "..value
 end
 
@@ -791,12 +791,12 @@ translate.best_offer_price_long = function(raw)
 end
 
 -- Dissect: Best Offer Price Long
-dissect.best_offer_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_price_long
+siac_cqs_output_cta_v1_91_dissect.best_offer_price_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_price_long
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.best_offer_price_long(raw)
-  local display = display.best_offer_price_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_price_long, range, value, display)
 
@@ -804,19 +804,19 @@ dissect.best_offer_price_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Offer Quote Condition
-size_of.best_offer_quote_condition = 1
+siac_cqs_output_cta_v1_91_size_of.best_offer_quote_condition = 1
 
 -- Display: Best Offer Quote Condition
-display.best_offer_quote_condition = function(value)
+siac_cqs_output_cta_v1_91_display.best_offer_quote_condition = function(value)
   return "Best Offer Quote Condition: "..value
 end
 
 -- Dissect: Best Offer Quote Condition
-dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.best_offer_quote_condition
+siac_cqs_output_cta_v1_91_dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_offer_quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_offer_quote_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_offer_quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_offer_quote_condition, range, value, display)
 
@@ -824,76 +824,76 @@ dissect.best_offer_quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: National Best Offer Long Appendage
-size_of.national_best_offer_long_appendage = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.national_best_offer_long_appendage = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.best_offer_participant_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_participant_id
 
-  index = index + size_of.best_offer_quote_condition
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_quote_condition
 
-  index = index + size_of.best_offer_price_long
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_price_long
 
-  index = index + size_of.best_offer_size_long
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_offer_size_long
 
-  index = index + size_of.finra_best_offer_market_maker_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.finra_best_offer_market_maker_id
 
   return index
 end
 
 -- Display: National Best Offer Long Appendage
-display.national_best_offer_long_appendage = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.national_best_offer_long_appendage = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: National Best Offer Long Appendage
-dissect.national_best_offer_long_appendage_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Best Offer Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, best_offer_participant_id = dissect.best_offer_participant_id(buffer, index, packet, parent)
+  index, best_offer_participant_id = siac_cqs_output_cta_v1_91_dissect.best_offer_participant_id(buffer, index, packet, parent)
 
   -- Best Offer Quote Condition: 1 Byte Ascii String
-  index, best_offer_quote_condition = dissect.best_offer_quote_condition(buffer, index, packet, parent)
+  index, best_offer_quote_condition = siac_cqs_output_cta_v1_91_dissect.best_offer_quote_condition(buffer, index, packet, parent)
 
   -- Best Offer Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, best_offer_price_long = dissect.best_offer_price_long(buffer, index, packet, parent)
+  index, best_offer_price_long = siac_cqs_output_cta_v1_91_dissect.best_offer_price_long(buffer, index, packet, parent)
 
   -- Best Offer Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, best_offer_size_long = dissect.best_offer_size_long(buffer, index, packet, parent)
+  index, best_offer_size_long = siac_cqs_output_cta_v1_91_dissect.best_offer_size_long(buffer, index, packet, parent)
 
   -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
-  index, finra_best_offer_market_maker_id = dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
+  index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: National Best Offer Long Appendage
-dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_offer_long_appendage then
-    local length = size_of.national_best_offer_long_appendage(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.national_best_offer_long_appendage(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.national_best_offer_long_appendage(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.national_best_offer_long_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_offer_long_appendage, range, display)
   end
 
-  return dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Bid Market Maker Id
-size_of.finra_best_bid_market_maker_id = 4
+siac_cqs_output_cta_v1_91_size_of.finra_best_bid_market_maker_id = 4
 
 -- Display: Finra Best Bid Market Maker Id
-display.finra_best_bid_market_maker_id = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_bid_market_maker_id = function(value)
   return "Finra Best Bid Market Maker Id: "..value
 end
 
 -- Dissect: Finra Best Bid Market Maker Id
-dissect.finra_best_bid_market_maker_id = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_bid_market_maker_id
+siac_cqs_output_cta_v1_91_dissect.finra_best_bid_market_maker_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_bid_market_maker_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_best_bid_market_maker_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_bid_market_maker_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_market_maker_id, range, value, display)
 
@@ -901,19 +901,19 @@ dissect.finra_best_bid_market_maker_id = function(buffer, offset, packet, parent
 end
 
 -- Size: Best Bid Size Long
-size_of.best_bid_size_long = 4
+siac_cqs_output_cta_v1_91_size_of.best_bid_size_long = 4
 
 -- Display: Best Bid Size Long
-display.best_bid_size_long = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_size_long = function(value)
   return "Best Bid Size Long: "..value
 end
 
 -- Dissect: Best Bid Size Long
-dissect.best_bid_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_size_long
+siac_cqs_output_cta_v1_91_dissect.best_bid_size_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_size_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.best_bid_size_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_size_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_size_long, range, value, display)
 
@@ -921,10 +921,10 @@ dissect.best_bid_size_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Bid Price Long
-size_of.best_bid_price_long = 8
+siac_cqs_output_cta_v1_91_size_of.best_bid_price_long = 8
 
 -- Display: Best Bid Price Long
-display.best_bid_price_long = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_price_long = function(value)
   return "Best Bid Price Long: "..value
 end
 
@@ -934,12 +934,12 @@ translate.best_bid_price_long = function(raw)
 end
 
 -- Dissect: Best Bid Price Long
-dissect.best_bid_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_price_long
+siac_cqs_output_cta_v1_91_dissect.best_bid_price_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_price_long
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.best_bid_price_long(raw)
-  local display = display.best_bid_price_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_price_long, range, value, display)
 
@@ -947,19 +947,19 @@ dissect.best_bid_price_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Best Bid Quote Condition
-size_of.best_bid_quote_condition = 1
+siac_cqs_output_cta_v1_91_size_of.best_bid_quote_condition = 1
 
 -- Display: Best Bid Quote Condition
-display.best_bid_quote_condition = function(value)
+siac_cqs_output_cta_v1_91_display.best_bid_quote_condition = function(value)
   return "Best Bid Quote Condition: "..value
 end
 
 -- Dissect: Best Bid Quote Condition
-dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.best_bid_quote_condition
+siac_cqs_output_cta_v1_91_dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.best_bid_quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.best_bid_quote_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.best_bid_quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.best_bid_quote_condition, range, value, display)
 
@@ -967,67 +967,67 @@ dissect.best_bid_quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: National Best Bid Long Appendage
-size_of.national_best_bid_long_appendage = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.national_best_bid_long_appendage = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.best_bid_participant_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_participant_id
 
-  index = index + size_of.best_bid_quote_condition
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_quote_condition
 
-  index = index + size_of.best_bid_price_long
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_price_long
 
-  index = index + size_of.best_bid_size_long
+  index = index + siac_cqs_output_cta_v1_91_size_of.best_bid_size_long
 
-  index = index + size_of.finra_best_bid_market_maker_id
+  index = index + siac_cqs_output_cta_v1_91_size_of.finra_best_bid_market_maker_id
 
   return index
 end
 
 -- Display: National Best Bid Long Appendage
-display.national_best_bid_long_appendage = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.national_best_bid_long_appendage = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: National Best Bid Long Appendage
-dissect.national_best_bid_long_appendage_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Best Bid Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, best_bid_participant_id = dissect.best_bid_participant_id(buffer, index, packet, parent)
+  index, best_bid_participant_id = siac_cqs_output_cta_v1_91_dissect.best_bid_participant_id(buffer, index, packet, parent)
 
   -- Best Bid Quote Condition: 1 Byte Ascii String
-  index, best_bid_quote_condition = dissect.best_bid_quote_condition(buffer, index, packet, parent)
+  index, best_bid_quote_condition = siac_cqs_output_cta_v1_91_dissect.best_bid_quote_condition(buffer, index, packet, parent)
 
   -- Best Bid Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, best_bid_price_long = dissect.best_bid_price_long(buffer, index, packet, parent)
+  index, best_bid_price_long = siac_cqs_output_cta_v1_91_dissect.best_bid_price_long(buffer, index, packet, parent)
 
   -- Best Bid Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, best_bid_size_long = dissect.best_bid_size_long(buffer, index, packet, parent)
+  index, best_bid_size_long = siac_cqs_output_cta_v1_91_dissect.best_bid_size_long(buffer, index, packet, parent)
 
   -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
-  index, finra_best_bid_market_maker_id = dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
+  index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: National Best Bid Long Appendage
-dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.national_best_bid_long_appendage then
-    local length = size_of.national_best_bid_long_appendage(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.national_best_bid_long_appendage(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.national_best_bid_long_appendage(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.national_best_bid_long_appendage(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.national_best_bid_long_appendage, range, display)
   end
 
-  return dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage_fields(buffer, offset, packet, parent)
 end
 
 -- Size: National Bbo Indicator
-size_of.national_bbo_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.national_bbo_indicator = 1
 
 -- Display: National Bbo Indicator
-display.national_bbo_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.national_bbo_indicator = function(value)
   if value == " " then
     return "National Bbo Indicator: Not Included (<whitespace>)"
   end
@@ -1105,11 +1105,11 @@ display.national_bbo_indicator = function(value)
 end
 
 -- Dissect: National Bbo Indicator
-dissect.national_bbo_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.national_bbo_indicator
+siac_cqs_output_cta_v1_91_dissect.national_bbo_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.national_bbo_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.national_bbo_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.national_bbo_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.national_bbo_indicator, range, value, display)
 
@@ -1117,10 +1117,10 @@ dissect.national_bbo_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: National Bbo Luld Indicator
-size_of.national_bbo_luld_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.national_bbo_luld_indicator = 1
 
 -- Display: National Bbo Luld Indicator
-display.national_bbo_luld_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.national_bbo_luld_indicator = function(value)
   if value == " " then
     return "National Bbo Luld Indicator: Not Applicable (<whitespace>)"
   end
@@ -1156,11 +1156,11 @@ display.national_bbo_luld_indicator = function(value)
 end
 
 -- Dissect: National Bbo Luld Indicator
-dissect.national_bbo_luld_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.national_bbo_luld_indicator
+siac_cqs_output_cta_v1_91_dissect.national_bbo_luld_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.national_bbo_luld_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.national_bbo_luld_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.national_bbo_luld_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.national_bbo_luld_indicator, range, value, display)
 
@@ -1168,10 +1168,10 @@ dissect.national_bbo_luld_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Bbo Luld Indicator
-size_of.finra_bbo_luld_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.finra_bbo_luld_indicator = 1
 
 -- Display: Finra Bbo Luld Indicator
-display.finra_bbo_luld_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.finra_bbo_luld_indicator = function(value)
   if value == "" then
     return "Finra Bbo Luld Indicator: Limit Up Limit Down Not Applicable (<whitespace>)"
   end
@@ -1192,11 +1192,11 @@ display.finra_bbo_luld_indicator = function(value)
 end
 
 -- Dissect: Finra Bbo Luld Indicator
-dissect.finra_bbo_luld_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.finra_bbo_luld_indicator
+siac_cqs_output_cta_v1_91_dissect.finra_bbo_luld_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_bbo_luld_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_bbo_luld_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_bbo_luld_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_bbo_luld_indicator, range, value, display)
 
@@ -1204,10 +1204,10 @@ dissect.finra_bbo_luld_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sip Generated Message Identifier
-size_of.sip_generated_message_identifier = 1
+siac_cqs_output_cta_v1_91_size_of.sip_generated_message_identifier = 1
 
 -- Display: Sip Generated Message Identifier
-display.sip_generated_message_identifier = function(value)
+siac_cqs_output_cta_v1_91_display.sip_generated_message_identifier = function(value)
   if value == " " then
     return "Sip Generated Message Identifier: Not Applicable (<whitespace>)"
   end
@@ -1219,11 +1219,11 @@ display.sip_generated_message_identifier = function(value)
 end
 
 -- Dissect: Sip Generated Message Identifier
-dissect.sip_generated_message_identifier = function(buffer, offset, packet, parent)
-  local length = size_of.sip_generated_message_identifier
+siac_cqs_output_cta_v1_91_dissect.sip_generated_message_identifier = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.sip_generated_message_identifier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sip_generated_message_identifier(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.sip_generated_message_identifier(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.sip_generated_message_identifier, range, value, display)
 
@@ -1231,10 +1231,10 @@ dissect.sip_generated_message_identifier = function(buffer, offset, packet, pare
 end
 
 -- Size: Financial Status Indicator
-size_of.financial_status_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.financial_status_indicator = 1
 
 -- Display: Financial Status Indicator
-display.financial_status_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.financial_status_indicator = function(value)
   if value == "0" then
     return "Financial Status Indicator: Financial Status Not Applicable (0)"
   end
@@ -1273,11 +1273,11 @@ display.financial_status_indicator = function(value)
 end
 
 -- Dissect: Financial Status Indicator
-dissect.financial_status_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.financial_status_indicator
+siac_cqs_output_cta_v1_91_dissect.financial_status_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.financial_status_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.financial_status_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.financial_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.financial_status_indicator, range, value, display)
 
@@ -1285,10 +1285,10 @@ dissect.financial_status_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Primary Listing Market Participant Id
-size_of.primary_listing_market_participant_id = 1
+siac_cqs_output_cta_v1_91_size_of.primary_listing_market_participant_id = 1
 
 -- Display: Primary Listing Market Participant Id
-display.primary_listing_market_participant_id = function(value)
+siac_cqs_output_cta_v1_91_display.primary_listing_market_participant_id = function(value)
   if value == "Space" then
     return "Primary Listing Market Participant Id: Primary Listing Market Participant Id Not Applicable (Space)"
   end
@@ -1345,11 +1345,11 @@ display.primary_listing_market_participant_id = function(value)
 end
 
 -- Dissect: Primary Listing Market Participant Id
-dissect.primary_listing_market_participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.primary_listing_market_participant_id
+siac_cqs_output_cta_v1_91_dissect.primary_listing_market_participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.primary_listing_market_participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.primary_listing_market_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.primary_listing_market_participant_id, range, value, display)
 
@@ -1357,10 +1357,10 @@ dissect.primary_listing_market_participant_id = function(buffer, offset, packet,
 end
 
 -- Size: Short Sale Restriction Indicator
-size_of.short_sale_restriction_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.short_sale_restriction_indicator = 1
 
 -- Display: Short Sale Restriction Indicator
-display.short_sale_restriction_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.short_sale_restriction_indicator = function(value)
   if value == " " then
     return "Short Sale Restriction Indicator: Not In Effect (<whitespace>)"
   end
@@ -1381,11 +1381,11 @@ display.short_sale_restriction_indicator = function(value)
 end
 
 -- Dissect: Short Sale Restriction Indicator
-dissect.short_sale_restriction_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.short_sale_restriction_indicator
+siac_cqs_output_cta_v1_91_dissect.short_sale_restriction_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.short_sale_restriction_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.short_sale_restriction_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.short_sale_restriction_indicator, range, value, display)
 
@@ -1393,19 +1393,19 @@ dissect.short_sale_restriction_indicator = function(buffer, offset, packet, pare
 end
 
 -- Size: Nanoseconds
-size_of.nanoseconds = 4
+siac_cqs_output_cta_v1_91_size_of.nanoseconds = 4
 
 -- Display: Nanoseconds
-display.nanoseconds = function(value)
+siac_cqs_output_cta_v1_91_display.nanoseconds = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
+siac_cqs_output_cta_v1_91_dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.nanoseconds
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.nanoseconds, range, value, display)
 
@@ -1413,19 +1413,19 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Size: Seconds
-size_of.seconds = 4
+siac_cqs_output_cta_v1_91_size_of.seconds = 4
 
 -- Display: Seconds
-display.seconds = function(value)
+siac_cqs_output_cta_v1_91_display.seconds = function(value)
   return "Seconds: "..value
 end
 
 -- Dissect: Seconds
-dissect.seconds = function(buffer, offset, packet, parent)
-  local length = size_of.seconds
+siac_cqs_output_cta_v1_91_dissect.seconds = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.seconds
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.seconds(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.seconds(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.seconds, range, value, display)
 
@@ -1433,61 +1433,61 @@ dissect.seconds = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Adf Timestamp
-size_of.adf_timestamp = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.adf_timestamp = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Adf Timestamp
-display.adf_timestamp = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.adf_timestamp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Adf Timestamp
-dissect.adf_timestamp_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cqs_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cqs_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Adf Timestamp
-dissect.adf_timestamp = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.adf_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.adf_timestamp then
-    local length = size_of.adf_timestamp(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.adf_timestamp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.adf_timestamp(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.adf_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.adf_timestamp, range, display)
   end
 
-  return dissect.adf_timestamp_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.adf_timestamp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Offer Size
-size_of.finra_best_offer_size = 4
+siac_cqs_output_cta_v1_91_size_of.finra_best_offer_size = 4
 
 -- Display: Finra Best Offer Size
-display.finra_best_offer_size = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_offer_size = function(value)
   return "Finra Best Offer Size: "..value
 end
 
 -- Dissect: Finra Best Offer Size
-dissect.finra_best_offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_offer_size
+siac_cqs_output_cta_v1_91_dissect.finra_best_offer_size = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_offer_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.finra_best_offer_size(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_offer_size(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_size, range, value, display)
 
@@ -1495,10 +1495,10 @@ dissect.finra_best_offer_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Offer Price
-size_of.finra_best_offer_price = 8
+siac_cqs_output_cta_v1_91_size_of.finra_best_offer_price = 8
 
 -- Display: Finra Best Offer Price
-display.finra_best_offer_price = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_offer_price = function(value)
   return "Finra Best Offer Price: "..value
 end
 
@@ -1508,12 +1508,12 @@ translate.finra_best_offer_price = function(raw)
 end
 
 -- Dissect: Finra Best Offer Price
-dissect.finra_best_offer_price = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_offer_price
+siac_cqs_output_cta_v1_91_dissect.finra_best_offer_price = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_offer_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.finra_best_offer_price(raw)
-  local display = display.finra_best_offer_price(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_price, range, value, display)
 
@@ -1521,19 +1521,19 @@ dissect.finra_best_offer_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Offer Quote Condition
-size_of.finra_best_offer_quote_condition = 1
+siac_cqs_output_cta_v1_91_size_of.finra_best_offer_quote_condition = 1
 
 -- Display: Finra Best Offer Quote Condition
-display.finra_best_offer_quote_condition = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_offer_quote_condition = function(value)
   return "Finra Best Offer Quote Condition: "..value
 end
 
 -- Dissect: Finra Best Offer Quote Condition
-dissect.finra_best_offer_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_offer_quote_condition
+siac_cqs_output_cta_v1_91_dissect.finra_best_offer_quote_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_offer_quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_best_offer_quote_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_offer_quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_offer_quote_condition, range, value, display)
 
@@ -1541,19 +1541,19 @@ dissect.finra_best_offer_quote_condition = function(buffer, offset, packet, pare
 end
 
 -- Size: Finra Best Bid Size
-size_of.finra_best_bid_size = 4
+siac_cqs_output_cta_v1_91_size_of.finra_best_bid_size = 4
 
 -- Display: Finra Best Bid Size
-display.finra_best_bid_size = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_bid_size = function(value)
   return "Finra Best Bid Size: "..value
 end
 
 -- Dissect: Finra Best Bid Size
-dissect.finra_best_bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_bid_size
+siac_cqs_output_cta_v1_91_dissect.finra_best_bid_size = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_bid_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.finra_best_bid_size(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_bid_size(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_size, range, value, display)
 
@@ -1561,10 +1561,10 @@ dissect.finra_best_bid_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Bid Price
-size_of.finra_best_bid_price = 8
+siac_cqs_output_cta_v1_91_size_of.finra_best_bid_price = 8
 
 -- Display: Finra Best Bid Price
-display.finra_best_bid_price = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_bid_price = function(value)
   return "Finra Best Bid Price: "..value
 end
 
@@ -1574,12 +1574,12 @@ translate.finra_best_bid_price = function(raw)
 end
 
 -- Dissect: Finra Best Bid Price
-dissect.finra_best_bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_bid_price
+siac_cqs_output_cta_v1_91_dissect.finra_best_bid_price = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_bid_price
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.finra_best_bid_price(raw)
-  local display = display.finra_best_bid_price(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_price, range, value, display)
 
@@ -1587,19 +1587,19 @@ dissect.finra_best_bid_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Best Bid Quote Condition
-size_of.finra_best_bid_quote_condition = 1
+siac_cqs_output_cta_v1_91_size_of.finra_best_bid_quote_condition = 1
 
 -- Display: Finra Best Bid Quote Condition
-display.finra_best_bid_quote_condition = function(value)
+siac_cqs_output_cta_v1_91_display.finra_best_bid_quote_condition = function(value)
   return "Finra Best Bid Quote Condition: "..value
 end
 
 -- Dissect: Finra Best Bid Quote Condition
-dissect.finra_best_bid_quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.finra_best_bid_quote_condition
+siac_cqs_output_cta_v1_91_dissect.finra_best_bid_quote_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_best_bid_quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_best_bid_quote_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_best_bid_quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_best_bid_quote_condition, range, value, display)
 
@@ -1607,19 +1607,19 @@ dissect.finra_best_bid_quote_condition = function(buffer, offset, packet, parent
 end
 
 -- Size: Finra Market Maker Id
-size_of.finra_market_maker_id = 4
+siac_cqs_output_cta_v1_91_size_of.finra_market_maker_id = 4
 
 -- Display: Finra Market Maker Id
-display.finra_market_maker_id = function(value)
+siac_cqs_output_cta_v1_91_display.finra_market_maker_id = function(value)
   return "Finra Market Maker Id: "..value
 end
 
 -- Dissect: Finra Market Maker Id
-dissect.finra_market_maker_id = function(buffer, offset, packet, parent)
-  local length = size_of.finra_market_maker_id
+siac_cqs_output_cta_v1_91_dissect.finra_market_maker_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_market_maker_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_market_maker_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_market_maker_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_market_maker_id, range, value, display)
 
@@ -1627,10 +1627,10 @@ dissect.finra_market_maker_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Condition
-size_of.market_condition = 1
+siac_cqs_output_cta_v1_91_size_of.market_condition = 1
 
 -- Display: Market Condition
-display.market_condition = function(value)
+siac_cqs_output_cta_v1_91_display.market_condition = function(value)
   if value == " " then
     return "Market Condition: Normal Auction Market (<whitespace>)"
   end
@@ -1645,11 +1645,11 @@ display.market_condition = function(value)
 end
 
 -- Dissect: Market Condition
-dissect.market_condition = function(buffer, offset, packet, parent)
-  local length = size_of.market_condition
+siac_cqs_output_cta_v1_91_dissect.market_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.market_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.market_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.market_condition, range, value, display)
 
@@ -1657,10 +1657,10 @@ dissect.market_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Condition
-size_of.settlement_condition = 1
+siac_cqs_output_cta_v1_91_size_of.settlement_condition = 1
 
 -- Display: Settlement Condition
-display.settlement_condition = function(value)
+siac_cqs_output_cta_v1_91_display.settlement_condition = function(value)
   if value == " " then
     return "Settlement Condition: Regular Way Settlement (<whitespace>)"
   end
@@ -1675,11 +1675,11 @@ display.settlement_condition = function(value)
 end
 
 -- Dissect: Settlement Condition
-dissect.settlement_condition = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_condition
+siac_cqs_output_cta_v1_91_dissect.settlement_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.settlement_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.settlement_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.settlement_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.settlement_condition, range, value, display)
 
@@ -1687,10 +1687,10 @@ dissect.settlement_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Retail Interest Indicator
-size_of.retail_interest_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.retail_interest_indicator = 1
 
 -- Display: Retail Interest Indicator
-display.retail_interest_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.retail_interest_indicator = function(value)
   if value == " " then
     return "Retail Interest Indicator: Not Applicable (<whitespace>)"
   end
@@ -1708,11 +1708,11 @@ display.retail_interest_indicator = function(value)
 end
 
 -- Dissect: Retail Interest Indicator
-dissect.retail_interest_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.retail_interest_indicator
+siac_cqs_output_cta_v1_91_dissect.retail_interest_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.retail_interest_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.retail_interest_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.retail_interest_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.retail_interest_indicator, range, value, display)
 
@@ -1720,19 +1720,19 @@ dissect.retail_interest_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Size Long
-size_of.offer_size_long = 4
+siac_cqs_output_cta_v1_91_size_of.offer_size_long = 4
 
 -- Display: Offer Size Long
-display.offer_size_long = function(value)
+siac_cqs_output_cta_v1_91_display.offer_size_long = function(value)
   return "Offer Size Long: "..value
 end
 
 -- Dissect: Offer Size Long
-dissect.offer_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size_long
+siac_cqs_output_cta_v1_91_dissect.offer_size_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.offer_size_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.offer_size_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.offer_size_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_size_long, range, value, display)
 
@@ -1740,10 +1740,10 @@ dissect.offer_size_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Price Long
-size_of.offer_price_long = 8
+siac_cqs_output_cta_v1_91_size_of.offer_price_long = 8
 
 -- Display: Offer Price Long
-display.offer_price_long = function(value)
+siac_cqs_output_cta_v1_91_display.offer_price_long = function(value)
   return "Offer Price Long: "..value
 end
 
@@ -1753,12 +1753,12 @@ translate.offer_price_long = function(raw)
 end
 
 -- Dissect: Offer Price Long
-dissect.offer_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_long
+siac_cqs_output_cta_v1_91_dissect.offer_price_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.offer_price_long
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.offer_price_long(raw)
-  local display = display.offer_price_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.offer_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_long, range, value, display)
 
@@ -1766,19 +1766,19 @@ dissect.offer_price_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size Long
-size_of.bid_size_long = 4
+siac_cqs_output_cta_v1_91_size_of.bid_size_long = 4
 
 -- Display: Bid Size Long
-display.bid_size_long = function(value)
+siac_cqs_output_cta_v1_91_display.bid_size_long = function(value)
   return "Bid Size Long: "..value
 end
 
 -- Dissect: Bid Size Long
-dissect.bid_size_long = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size_long
+siac_cqs_output_cta_v1_91_dissect.bid_size_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.bid_size_long
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_size_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.bid_size_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_size_long, range, value, display)
 
@@ -1786,10 +1786,10 @@ dissect.bid_size_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price Long
-size_of.bid_price_long = 8
+siac_cqs_output_cta_v1_91_size_of.bid_price_long = 8
 
 -- Display: Bid Price Long
-display.bid_price_long = function(value)
+siac_cqs_output_cta_v1_91_display.bid_price_long = function(value)
   return "Bid Price Long: "..value
 end
 
@@ -1799,12 +1799,12 @@ translate.bid_price_long = function(raw)
 end
 
 -- Dissect: Bid Price Long
-dissect.bid_price_long = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_long
+siac_cqs_output_cta_v1_91_dissect.bid_price_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.bid_price_long
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.bid_price_long(raw)
-  local display = display.bid_price_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_long, range, value, display)
 
@@ -1812,10 +1812,10 @@ dissect.bid_price_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Status Indicator
-size_of.security_status_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.security_status_indicator = 1
 
 -- Display: Security Status Indicator
-display.security_status_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.security_status_indicator = function(value)
   if value == " " then
     return "Security Status Indicator: Not Applicable (<whitespace>)"
   end
@@ -1866,11 +1866,11 @@ display.security_status_indicator = function(value)
 end
 
 -- Dissect: Security Status Indicator
-dissect.security_status_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.security_status_indicator
+siac_cqs_output_cta_v1_91_dissect.security_status_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.security_status_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_status_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.security_status_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.security_status_indicator, range, value, display)
 
@@ -1878,10 +1878,10 @@ dissect.security_status_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Condition
-size_of.quote_condition = 1
+siac_cqs_output_cta_v1_91_size_of.quote_condition = 1
 
 -- Display: Quote Condition
-display.quote_condition = function(value)
+siac_cqs_output_cta_v1_91_display.quote_condition = function(value)
   if value == " " then
     return "Quote Condition: Quote Condition Not Applicable (<whitespace>)"
   end
@@ -1929,11 +1929,11 @@ display.quote_condition = function(value)
 end
 
 -- Dissect: Quote Condition
-dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.quote_condition
+siac_cqs_output_cta_v1_91_dissect.quote_condition = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_condition(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.quote_condition, range, value, display)
 
@@ -1941,10 +1941,10 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Type
-size_of.instrument_type = 1
+siac_cqs_output_cta_v1_91_size_of.instrument_type = 1
 
 -- Display: Instrument Type
-display.instrument_type = function(value)
+siac_cqs_output_cta_v1_91_display.instrument_type = function(value)
   if value == "0" then
     return "Instrument Type: Cta Eligible Equity (0)"
   end
@@ -1962,11 +1962,11 @@ display.instrument_type = function(value)
 end
 
 -- Dissect: Instrument Type
-dissect.instrument_type = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_type
+siac_cqs_output_cta_v1_91_dissect.instrument_type = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.instrument_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.instrument_type(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.instrument_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.instrument_type, range, value, display)
 
@@ -1974,19 +1974,19 @@ dissect.instrument_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Symbol Long
-size_of.security_symbol_long = 11
+siac_cqs_output_cta_v1_91_size_of.security_symbol_long = 11
 
 -- Display: Security Symbol Long
-display.security_symbol_long = function(value)
+siac_cqs_output_cta_v1_91_display.security_symbol_long = function(value)
   return "Security Symbol Long: "..value
 end
 
 -- Dissect: Security Symbol Long
-dissect.security_symbol_long = function(buffer, offset, packet, parent)
-  local length = size_of.security_symbol_long
+siac_cqs_output_cta_v1_91_dissect.security_symbol_long = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.security_symbol_long
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_symbol_long(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.security_symbol_long(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.security_symbol_long, range, value, display)
 
@@ -1994,19 +1994,19 @@ dissect.security_symbol_long = function(buffer, offset, packet, parent)
 end
 
 -- Size: Participant Reference Number
-size_of.participant_reference_number = 8
+siac_cqs_output_cta_v1_91_size_of.participant_reference_number = 8
 
 -- Display: Participant Reference Number
-display.participant_reference_number = function(value)
+siac_cqs_output_cta_v1_91_display.participant_reference_number = function(value)
   return "Participant Reference Number: "..value
 end
 
 -- Dissect: Participant Reference Number
-dissect.participant_reference_number = function(buffer, offset, packet, parent)
-  local length = size_of.participant_reference_number
+siac_cqs_output_cta_v1_91_dissect.participant_reference_number = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.participant_reference_number
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.participant_reference_number(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.participant_reference_number(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.participant_reference_number, range, value, display)
 
@@ -2014,19 +2014,19 @@ dissect.participant_reference_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transaction Id
-size_of.transaction_id = 4
+siac_cqs_output_cta_v1_91_size_of.transaction_id = 4
 
 -- Display: Transaction Id
-display.transaction_id = function(value)
+siac_cqs_output_cta_v1_91_display.transaction_id = function(value)
   return "Transaction Id: "..value
 end
 
 -- Dissect: Transaction Id
-dissect.transaction_id = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_id
+siac_cqs_output_cta_v1_91_dissect.transaction_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.transaction_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.transaction_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.transaction_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.transaction_id, range, value, display)
 
@@ -2034,19 +2034,19 @@ dissect.transaction_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Id
-size_of.message_id = 1
+siac_cqs_output_cta_v1_91_size_of.message_id = 1
 
 -- Display: Message Id
-display.message_id = function(value)
+siac_cqs_output_cta_v1_91_display.message_id = function(value)
   return "Message Id: "..value
 end
 
 -- Dissect: Message Id
-dissect.message_id = function(buffer, offset, packet, parent)
-  local length = size_of.message_id
+siac_cqs_output_cta_v1_91_dissect.message_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.message_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.message_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.message_id, range, value, display)
 
@@ -2054,52 +2054,52 @@ dissect.message_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Participant Timestamp
-size_of.participant_timestamp = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.participant_timestamp = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Participant Timestamp
-display.participant_timestamp = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.participant_timestamp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Participant Timestamp
-dissect.participant_timestamp_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cqs_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cqs_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Participant Timestamp
-dissect.participant_timestamp = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.participant_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.participant_timestamp then
-    local length = size_of.participant_timestamp(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.participant_timestamp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.participant_timestamp(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.participant_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.participant_timestamp, range, display)
   end
 
-  return dissect.participant_timestamp_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.participant_timestamp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Participant Id
-size_of.participant_id = 1
+siac_cqs_output_cta_v1_91_size_of.participant_id = 1
 
 -- Display: Participant Id
-display.participant_id = function(value)
+siac_cqs_output_cta_v1_91_display.participant_id = function(value)
   if value == "A" then
     return "Participant Id: Nyse American (A)"
   end
@@ -2159,11 +2159,11 @@ display.participant_id = function(value)
 end
 
 -- Dissect: Participant Id
-dissect.participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.participant_id
+siac_cqs_output_cta_v1_91_dissect.participant_id = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.participant_id(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.participant_id(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.participant_id, range, value, display)
 
@@ -2171,119 +2171,119 @@ dissect.participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Display: Special Long Quote Message
-display.special_long_quote_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.special_long_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Special Long Quote Message
-dissect.special_long_quote_message_fields = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
+siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields = function(buffer, offset, packet, parent, size_of_special_long_quote_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol Long: 11 Byte Ascii String
-  index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
+  index, security_symbol_long = siac_cqs_output_cta_v1_91_dissect.security_symbol_long(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cqs_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 14 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = siac_cqs_output_cta_v1_91_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
-  index, security_status_indicator = dissect.security_status_indicator(buffer, index, packet, parent)
+  index, security_status_indicator = siac_cqs_output_cta_v1_91_dissect.security_status_indicator(buffer, index, packet, parent)
 
   -- Bid Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, bid_price_long = dissect.bid_price_long(buffer, index, packet, parent)
+  index, bid_price_long = siac_cqs_output_cta_v1_91_dissect.bid_price_long(buffer, index, packet, parent)
 
   -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_long = dissect.bid_size_long(buffer, index, packet, parent)
+  index, bid_size_long = siac_cqs_output_cta_v1_91_dissect.bid_size_long(buffer, index, packet, parent)
 
   -- Offer Price Long: 8 Byte Unsigned Fixed Width Integer
-  index, offer_price_long = dissect.offer_price_long(buffer, index, packet, parent)
+  index, offer_price_long = siac_cqs_output_cta_v1_91_dissect.offer_price_long(buffer, index, packet, parent)
 
   -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_long = dissect.offer_size_long(buffer, index, packet, parent)
+  index, offer_size_long = siac_cqs_output_cta_v1_91_dissect.offer_size_long(buffer, index, packet, parent)
 
   -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
-  index, retail_interest_indicator = dissect.retail_interest_indicator(buffer, index, packet, parent)
+  index, retail_interest_indicator = siac_cqs_output_cta_v1_91_dissect.retail_interest_indicator(buffer, index, packet, parent)
 
   -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
-  index, settlement_condition = dissect.settlement_condition(buffer, index, packet, parent)
+  index, settlement_condition = siac_cqs_output_cta_v1_91_dissect.settlement_condition(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Ascii String Enum with 3 values
-  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = siac_cqs_output_cta_v1_91_dissect.market_condition(buffer, index, packet, parent)
 
   -- Finra Market Maker Id: 4 Byte Ascii String
-  index, finra_market_maker_id = dissect.finra_market_maker_id(buffer, index, packet, parent)
+  index, finra_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_market_maker_id(buffer, index, packet, parent)
 
   -- Finra Best Bid Quote Condition: 1 Byte Ascii String
-  index, finra_best_bid_quote_condition = dissect.finra_best_bid_quote_condition(buffer, index, packet, parent)
+  index, finra_best_bid_quote_condition = siac_cqs_output_cta_v1_91_dissect.finra_best_bid_quote_condition(buffer, index, packet, parent)
 
   -- Finra Best Bid Price: 8 Byte Unsigned Fixed Width Integer
-  index, finra_best_bid_price = dissect.finra_best_bid_price(buffer, index, packet, parent)
+  index, finra_best_bid_price = siac_cqs_output_cta_v1_91_dissect.finra_best_bid_price(buffer, index, packet, parent)
 
   -- Finra Best Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, finra_best_bid_size = dissect.finra_best_bid_size(buffer, index, packet, parent)
+  index, finra_best_bid_size = siac_cqs_output_cta_v1_91_dissect.finra_best_bid_size(buffer, index, packet, parent)
 
   -- Finra Best Bid Market Maker Id: 4 Byte Ascii String
-  index, finra_best_bid_market_maker_id = dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
+  index, finra_best_bid_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_best_bid_market_maker_id(buffer, index, packet, parent)
 
   -- Finra Best Offer Quote Condition: 1 Byte Ascii String
-  index, finra_best_offer_quote_condition = dissect.finra_best_offer_quote_condition(buffer, index, packet, parent)
+  index, finra_best_offer_quote_condition = siac_cqs_output_cta_v1_91_dissect.finra_best_offer_quote_condition(buffer, index, packet, parent)
 
   -- Finra Best Offer Price: 8 Byte Unsigned Fixed Width Integer
-  index, finra_best_offer_price = dissect.finra_best_offer_price(buffer, index, packet, parent)
+  index, finra_best_offer_price = siac_cqs_output_cta_v1_91_dissect.finra_best_offer_price(buffer, index, packet, parent)
 
   -- Finra Best Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, finra_best_offer_size = dissect.finra_best_offer_size(buffer, index, packet, parent)
+  index, finra_best_offer_size = siac_cqs_output_cta_v1_91_dissect.finra_best_offer_size(buffer, index, packet, parent)
 
   -- Finra Best Offer Market Maker Id: 4 Byte Ascii String
-  index, finra_best_offer_market_maker_id = dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
+  index, finra_best_offer_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_best_offer_market_maker_id(buffer, index, packet, parent)
 
   -- Adf Timestamp: Struct of 2 fields
-  index, adf_timestamp = dissect.adf_timestamp(buffer, index, packet, parent)
+  index, adf_timestamp = siac_cqs_output_cta_v1_91_dissect.adf_timestamp(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cqs_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
-  index, sip_generated_message_identifier = dissect.sip_generated_message_identifier(buffer, index, packet, parent)
+  index, sip_generated_message_identifier = siac_cqs_output_cta_v1_91_dissect.sip_generated_message_identifier(buffer, index, packet, parent)
 
   -- Finra Bbo Luld Indicator: 1 Byte Ascii String Enum with 5 values
-  index, finra_bbo_luld_indicator = dissect.finra_bbo_luld_indicator(buffer, index, packet, parent)
+  index, finra_bbo_luld_indicator = siac_cqs_output_cta_v1_91_dissect.finra_bbo_luld_indicator(buffer, index, packet, parent)
 
   -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
-  index, national_bbo_luld_indicator = dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
+  index, national_bbo_luld_indicator = siac_cqs_output_cta_v1_91_dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
 
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
-  index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
+  index, national_bbo_indicator = siac_cqs_output_cta_v1_91_dissect.national_bbo_indicator(buffer, index, packet, parent)
 
   -- Runtime optional field exists: National Best Bid Long Appendage
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2291,7 +2291,7 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2299,7 +2299,7 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2307,14 +2307,14 @@ dissect.special_long_quote_message_fields = function(buffer, offset, packet, par
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Special Long Quote Message
-dissect.special_long_quote_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.special_long_quote_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2325,29 +2325,29 @@ dissect.special_long_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.special_long_quote_message then
     local range = buffer(offset, size_of_special_long_quote_message)
-    local display = display.special_long_quote_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.special_long_quote_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.special_long_quote_message, range, display)
   end
 
-  dissect.special_long_quote_message_fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
+  siac_cqs_output_cta_v1_91_dissect.special_long_quote_message_fields(buffer, offset, packet, parent, size_of_special_long_quote_message)
 
   return offset + size_of_special_long_quote_message
 end
 
 -- Size: Offer Size Short
-size_of.offer_size_short = 2
+siac_cqs_output_cta_v1_91_size_of.offer_size_short = 2
 
 -- Display: Offer Size Short
-display.offer_size_short = function(value)
+siac_cqs_output_cta_v1_91_display.offer_size_short = function(value)
   return "Offer Size Short: "..value
 end
 
 -- Dissect: Offer Size Short
-dissect.offer_size_short = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size_short
+siac_cqs_output_cta_v1_91_dissect.offer_size_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.offer_size_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.offer_size_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.offer_size_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_size_short, range, value, display)
 
@@ -2355,10 +2355,10 @@ dissect.offer_size_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Price Short
-size_of.offer_price_short = 2
+siac_cqs_output_cta_v1_91_size_of.offer_price_short = 2
 
 -- Display: Offer Price Short
-display.offer_price_short = function(value)
+siac_cqs_output_cta_v1_91_display.offer_price_short = function(value)
   return "Offer Price Short: "..value
 end
 
@@ -2368,12 +2368,12 @@ translate.offer_price_short = function(raw)
 end
 
 -- Dissect: Offer Price Short
-dissect.offer_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_short
+siac_cqs_output_cta_v1_91_dissect.offer_price_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.offer_price_short
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.offer_price_short(raw)
-  local display = display.offer_price_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.offer_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_short, range, value, display)
 
@@ -2381,19 +2381,19 @@ dissect.offer_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size Short
-size_of.bid_size_short = 2
+siac_cqs_output_cta_v1_91_size_of.bid_size_short = 2
 
 -- Display: Bid Size Short
-display.bid_size_short = function(value)
+siac_cqs_output_cta_v1_91_display.bid_size_short = function(value)
   return "Bid Size Short: "..value
 end
 
 -- Dissect: Bid Size Short
-dissect.bid_size_short = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size_short
+siac_cqs_output_cta_v1_91_dissect.bid_size_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.bid_size_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_size_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.bid_size_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_size_short, range, value, display)
 
@@ -2401,10 +2401,10 @@ dissect.bid_size_short = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price Short
-size_of.bid_price_short = 2
+siac_cqs_output_cta_v1_91_size_of.bid_price_short = 2
 
 -- Display: Bid Price Short
-display.bid_price_short = function(value)
+siac_cqs_output_cta_v1_91_display.bid_price_short = function(value)
   return "Bid Price Short: "..value
 end
 
@@ -2414,12 +2414,12 @@ translate.bid_price_short = function(raw)
 end
 
 -- Dissect: Bid Price Short
-dissect.bid_price_short = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_short
+siac_cqs_output_cta_v1_91_dissect.bid_price_short = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.bid_price_short
   local range = buffer(offset, length)
   local raw = range:uint()
   local value = translate.bid_price_short(raw)
-  local display = display.bid_price_short(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.bid_price_short(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_short, range, value, display)
 
@@ -2427,56 +2427,56 @@ dissect.bid_price_short = function(buffer, offset, packet, parent)
 end
 
 -- Display: Short Quote Message
-display.short_quote_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.short_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Short Quote Message
-dissect.short_quote_message_fields = function(buffer, offset, packet, parent, size_of_short_quote_message)
+siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields = function(buffer, offset, packet, parent, size_of_short_quote_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol Short
-  index, security_symbol_short = dissect.security_symbol_short(buffer, index, packet, parent)
+  index, security_symbol_short = siac_cqs_output_cta_v1_91_dissect.security_symbol_short(buffer, index, packet, parent)
 
   -- Bid Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, bid_price_short = dissect.bid_price_short(buffer, index, packet, parent)
+  index, bid_price_short = siac_cqs_output_cta_v1_91_dissect.bid_price_short(buffer, index, packet, parent)
 
   -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size_short = dissect.bid_size_short(buffer, index, packet, parent)
+  index, bid_size_short = siac_cqs_output_cta_v1_91_dissect.bid_size_short(buffer, index, packet, parent)
 
   -- Offer Price Short: 2 Byte Unsigned Fixed Width Integer
-  index, offer_price_short = dissect.offer_price_short(buffer, index, packet, parent)
+  index, offer_price_short = siac_cqs_output_cta_v1_91_dissect.offer_price_short(buffer, index, packet, parent)
 
   -- Offer Size Short: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size_short = dissect.offer_size_short(buffer, index, packet, parent)
+  index, offer_size_short = siac_cqs_output_cta_v1_91_dissect.offer_size_short(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
-  index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
+  index, national_bbo_indicator = siac_cqs_output_cta_v1_91_dissect.national_bbo_indicator(buffer, index, packet, parent)
 
   -- Runtime optional field exists: National Best Bid Long Appendage
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2484,7 +2484,7 @@ dissect.short_quote_message_fields = function(buffer, offset, packet, parent, si
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2492,7 +2492,7 @@ dissect.short_quote_message_fields = function(buffer, offset, packet, parent, si
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2500,14 +2500,14 @@ dissect.short_quote_message_fields = function(buffer, offset, packet, parent, si
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Short Quote Message
-dissect.short_quote_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.short_quote_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2518,29 +2518,29 @@ dissect.short_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.short_quote_message then
     local range = buffer(offset, size_of_short_quote_message)
-    local display = display.short_quote_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.short_quote_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.short_quote_message, range, display)
   end
 
-  dissect.short_quote_message_fields(buffer, offset, packet, parent, size_of_short_quote_message)
+  siac_cqs_output_cta_v1_91_dissect.short_quote_message_fields(buffer, offset, packet, parent, size_of_short_quote_message)
 
   return offset + size_of_short_quote_message
 end
 
 -- Size: Luld Indicator
-size_of.luld_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.luld_indicator = 1
 
 -- Display: Luld Indicator
-display.luld_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.luld_indicator = function(value)
   return "Luld Indicator: "..value
 end
 
 -- Dissect: Luld Indicator
-dissect.luld_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.luld_indicator
+siac_cqs_output_cta_v1_91_dissect.luld_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.luld_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.luld_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.luld_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.luld_indicator, range, value, display)
 
@@ -2548,10 +2548,10 @@ dissect.luld_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Finra Bbo Indicator
-size_of.finra_bbo_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.finra_bbo_indicator = 1
 
 -- Display: Finra Bbo Indicator
-display.finra_bbo_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.finra_bbo_indicator = function(value)
   if value == " " then
     return "Finra Bbo Indicator: Not Applicable (<whitespace>)"
   end
@@ -2566,11 +2566,11 @@ display.finra_bbo_indicator = function(value)
 end
 
 -- Dissect: Finra Bbo Indicator
-dissect.finra_bbo_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.finra_bbo_indicator
+siac_cqs_output_cta_v1_91_dissect.finra_bbo_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.finra_bbo_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.finra_bbo_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.finra_bbo_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.finra_bbo_indicator, range, value, display)
 
@@ -2578,10 +2578,10 @@ dissect.finra_bbo_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Price Upper Limit Price Band
-size_of.offer_price_upper_limit_price_band = 8
+siac_cqs_output_cta_v1_91_size_of.offer_price_upper_limit_price_band = 8
 
 -- Display: Offer Price Upper Limit Price Band
-display.offer_price_upper_limit_price_band = function(value)
+siac_cqs_output_cta_v1_91_display.offer_price_upper_limit_price_band = function(value)
   return "Offer Price Upper Limit Price Band: "..value
 end
 
@@ -2591,12 +2591,12 @@ translate.offer_price_upper_limit_price_band = function(raw)
 end
 
 -- Dissect: Offer Price Upper Limit Price Band
-dissect.offer_price_upper_limit_price_band = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price_upper_limit_price_band
+siac_cqs_output_cta_v1_91_dissect.offer_price_upper_limit_price_band = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.offer_price_upper_limit_price_band
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.offer_price_upper_limit_price_band(raw)
-  local display = display.offer_price_upper_limit_price_band(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.offer_price_upper_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.offer_price_upper_limit_price_band, range, value, display)
 
@@ -2604,10 +2604,10 @@ dissect.offer_price_upper_limit_price_band = function(buffer, offset, packet, pa
 end
 
 -- Size: Bid Price Lower Limit Price Band
-size_of.bid_price_lower_limit_price_band = 8
+siac_cqs_output_cta_v1_91_size_of.bid_price_lower_limit_price_band = 8
 
 -- Display: Bid Price Lower Limit Price Band
-display.bid_price_lower_limit_price_band = function(value)
+siac_cqs_output_cta_v1_91_display.bid_price_lower_limit_price_band = function(value)
   return "Bid Price Lower Limit Price Band: "..value
 end
 
@@ -2617,12 +2617,12 @@ translate.bid_price_lower_limit_price_band = function(raw)
 end
 
 -- Dissect: Bid Price Lower Limit Price Band
-dissect.bid_price_lower_limit_price_band = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price_lower_limit_price_band
+siac_cqs_output_cta_v1_91_dissect.bid_price_lower_limit_price_band = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.bid_price_lower_limit_price_band
   local range = buffer(offset, length)
   local raw = range:uint64()
   local value = translate.bid_price_lower_limit_price_band(raw)
-  local display = display.bid_price_lower_limit_price_band(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.bid_price_lower_limit_price_band(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band, range, value, display)
 
@@ -2630,98 +2630,98 @@ dissect.bid_price_lower_limit_price_band = function(buffer, offset, packet, pare
 end
 
 -- Display: Long Quote Message
-display.long_quote_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.long_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Long Quote Message
-dissect.long_quote_message_fields = function(buffer, offset, packet, parent, size_of_long_quote_message)
+siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields = function(buffer, offset, packet, parent, size_of_long_quote_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol Long: 11 Byte Ascii String
-  index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
+  index, security_symbol_long = siac_cqs_output_cta_v1_91_dissect.security_symbol_long(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cqs_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 14 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = siac_cqs_output_cta_v1_91_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Security Status Indicator: 1 Byte Ascii String Enum with 15 values
-  index, security_status_indicator = dissect.security_status_indicator(buffer, index, packet, parent)
+  index, security_status_indicator = siac_cqs_output_cta_v1_91_dissect.security_status_indicator(buffer, index, packet, parent)
 
   -- Bid Price Lower Limit Price Band: 8 Byte Unsigned Fixed Width Integer
-  index, bid_price_lower_limit_price_band = dissect.bid_price_lower_limit_price_band(buffer, index, packet, parent)
+  index, bid_price_lower_limit_price_band = siac_cqs_output_cta_v1_91_dissect.bid_price_lower_limit_price_band(buffer, index, packet, parent)
 
   -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size_long = dissect.bid_size_long(buffer, index, packet, parent)
+  index, bid_size_long = siac_cqs_output_cta_v1_91_dissect.bid_size_long(buffer, index, packet, parent)
 
   -- Offer Price Upper Limit Price Band: 8 Byte Unsigned Fixed Width Integer
-  index, offer_price_upper_limit_price_band = dissect.offer_price_upper_limit_price_band(buffer, index, packet, parent)
+  index, offer_price_upper_limit_price_band = siac_cqs_output_cta_v1_91_dissect.offer_price_upper_limit_price_band(buffer, index, packet, parent)
 
   -- Offer Size Long: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size_long = dissect.offer_size_long(buffer, index, packet, parent)
+  index, offer_size_long = siac_cqs_output_cta_v1_91_dissect.offer_size_long(buffer, index, packet, parent)
 
   -- Retail Interest Indicator: 1 Byte Ascii String Enum with 4 values
-  index, retail_interest_indicator = dissect.retail_interest_indicator(buffer, index, packet, parent)
+  index, retail_interest_indicator = siac_cqs_output_cta_v1_91_dissect.retail_interest_indicator(buffer, index, packet, parent)
 
   -- Settlement Condition: 1 Byte Ascii String Enum with 3 values
-  index, settlement_condition = dissect.settlement_condition(buffer, index, packet, parent)
+  index, settlement_condition = siac_cqs_output_cta_v1_91_dissect.settlement_condition(buffer, index, packet, parent)
 
   -- Market Condition: 1 Byte Ascii String Enum with 3 values
-  index, market_condition = dissect.market_condition(buffer, index, packet, parent)
+  index, market_condition = siac_cqs_output_cta_v1_91_dissect.market_condition(buffer, index, packet, parent)
 
   -- Finra Market Maker Id: 4 Byte Ascii String
-  index, finra_market_maker_id = dissect.finra_market_maker_id(buffer, index, packet, parent)
+  index, finra_market_maker_id = siac_cqs_output_cta_v1_91_dissect.finra_market_maker_id(buffer, index, packet, parent)
 
   -- Finra Bbo Indicator: 1 Byte Ascii String Enum with 3 values
-  index, finra_bbo_indicator = dissect.finra_bbo_indicator(buffer, index, packet, parent)
+  index, finra_bbo_indicator = siac_cqs_output_cta_v1_91_dissect.finra_bbo_indicator(buffer, index, packet, parent)
 
   -- Adf Timestamp: Struct of 2 fields
-  index, adf_timestamp = dissect.adf_timestamp(buffer, index, packet, parent)
+  index, adf_timestamp = siac_cqs_output_cta_v1_91_dissect.adf_timestamp(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cqs_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Sip Generated Message Identifier: 1 Byte Ascii String Enum with 2 values
-  index, sip_generated_message_identifier = dissect.sip_generated_message_identifier(buffer, index, packet, parent)
+  index, sip_generated_message_identifier = siac_cqs_output_cta_v1_91_dissect.sip_generated_message_identifier(buffer, index, packet, parent)
 
   -- Luld Indicator: 1 Byte Ascii String
-  index, luld_indicator = dissect.luld_indicator(buffer, index, packet, parent)
+  index, luld_indicator = siac_cqs_output_cta_v1_91_dissect.luld_indicator(buffer, index, packet, parent)
 
   -- National Bbo Luld Indicator: 1 Byte Ascii String Enum with 10 values
-  index, national_bbo_luld_indicator = dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
+  index, national_bbo_luld_indicator = siac_cqs_output_cta_v1_91_dissect.national_bbo_luld_indicator(buffer, index, packet, parent)
 
   -- National Bbo Indicator: 1 Byte Ascii String Enum with 24 values
-  index, national_bbo_indicator = dissect.national_bbo_indicator(buffer, index, packet, parent)
+  index, national_bbo_indicator = siac_cqs_output_cta_v1_91_dissect.national_bbo_indicator(buffer, index, packet, parent)
 
   -- Runtime optional field exists: National Best Bid Long Appendage
   local national_best_bid_long_appendage_exists = national_bbo_indicator == "U"
 
   -- Runtime optional field: National Best Bid Long Appendage
   if national_best_bid_long_appendage_exists then
-    index = dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Long Appendage
@@ -2729,7 +2729,7 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
 
   -- Runtime optional field: National Best Offer Long Appendage
   if national_best_offer_long_appendage_exists then
-    index = dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_long_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Bid Short Appendage
@@ -2737,7 +2737,7 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
 
   -- Runtime optional field: National Best Bid Short Appendage
   if national_best_bid_short_appendage_exists then
-    index = dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_bid_short_appendage(buffer, index, packet, parent)
   end
 
   -- Runtime optional field exists: National Best Offer Short Appendage
@@ -2745,14 +2745,14 @@ dissect.long_quote_message_fields = function(buffer, offset, packet, parent, siz
 
   -- Runtime optional field: National Best Offer Short Appendage
   if national_best_offer_short_appendage_exists then
-    index = dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.national_best_offer_short_appendage(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Long Quote Message
-dissect.long_quote_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.long_quote_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2763,29 +2763,29 @@ dissect.long_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.long_quote_message then
     local range = buffer(offset, size_of_long_quote_message)
-    local display = display.long_quote_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.long_quote_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.long_quote_message, range, display)
   end
 
-  dissect.long_quote_message_fields(buffer, offset, packet, parent, size_of_long_quote_message)
+  siac_cqs_output_cta_v1_91_dissect.long_quote_message_fields(buffer, offset, packet, parent, size_of_long_quote_message)
 
   return offset + size_of_long_quote_message
 end
 
 -- Size: Future
-size_of.future = 1
+siac_cqs_output_cta_v1_91_size_of.future = 1
 
 -- Display: Future
-display.future = function(value)
+siac_cqs_output_cta_v1_91_display.future = function(value)
   return "Future: "..value
 end
 
 -- Dissect: Future
-dissect.future = function(buffer, offset, packet, parent)
-  local length = size_of.future
+siac_cqs_output_cta_v1_91_dissect.future = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.future
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.future(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.future(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.future, range, value, display)
 
@@ -2793,19 +2793,19 @@ dissect.future = function(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Extensions
-size_of.number_of_extensions = 1
+siac_cqs_output_cta_v1_91_size_of.number_of_extensions = 1
 
 -- Display: Number Of Extensions
-display.number_of_extensions = function(value)
+siac_cqs_output_cta_v1_91_display.number_of_extensions = function(value)
   return "Number Of Extensions: "..value
 end
 
 -- Dissect: Number Of Extensions
-dissect.number_of_extensions = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_extensions
+siac_cqs_output_cta_v1_91_dissect.number_of_extensions = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.number_of_extensions
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.number_of_extensions(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.number_of_extensions(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.number_of_extensions, range, value, display)
 
@@ -2813,64 +2813,64 @@ dissect.number_of_extensions = function(buffer, offset, packet, parent)
 end
 
 -- Display: Auction Status Message
-display.auction_status_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.auction_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Status Message
-dissect.auction_status_message_fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
+siac_cqs_output_cta_v1_91_dissect.auction_status_message_fields = function(buffer, offset, packet, parent, size_of_auction_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Security Symbol Long: 11 Byte Ascii String
-  index, security_symbol_long = dissect.security_symbol_long(buffer, index, packet, parent)
+  index, security_symbol_long = siac_cqs_output_cta_v1_91_dissect.security_symbol_long(buffer, index, packet, parent)
 
   -- Instrument Type: 1 Byte Ascii String Enum with 4 values
-  index, instrument_type = dissect.instrument_type(buffer, index, packet, parent)
+  index, instrument_type = siac_cqs_output_cta_v1_91_dissect.instrument_type(buffer, index, packet, parent)
 
   -- Auction Collar Reference Price
-  index, auction_collar_reference_price = dissect.auction_collar_reference_price(buffer, index, packet, parent)
+  index, auction_collar_reference_price = siac_cqs_output_cta_v1_91_dissect.auction_collar_reference_price(buffer, index, packet, parent)
 
   -- Auction Collar Upper Threshold Price
-  index, auction_collar_upper_threshold_price = dissect.auction_collar_upper_threshold_price(buffer, index, packet, parent)
+  index, auction_collar_upper_threshold_price = siac_cqs_output_cta_v1_91_dissect.auction_collar_upper_threshold_price(buffer, index, packet, parent)
 
   -- Auction Collar Lower Threshold Price
-  index, auction_collar_lower_threshold_price = dissect.auction_collar_lower_threshold_price(buffer, index, packet, parent)
+  index, auction_collar_lower_threshold_price = siac_cqs_output_cta_v1_91_dissect.auction_collar_lower_threshold_price(buffer, index, packet, parent)
 
   -- Number Of Extensions: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_extensions = dissect.number_of_extensions(buffer, index, packet, parent)
+  index, number_of_extensions = siac_cqs_output_cta_v1_91_dissect.number_of_extensions(buffer, index, packet, parent)
 
   -- Short Sale Restriction Indicator: 1 Byte Ascii String Enum with 5 values
-  index, short_sale_restriction_indicator = dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
+  index, short_sale_restriction_indicator = siac_cqs_output_cta_v1_91_dissect.short_sale_restriction_indicator(buffer, index, packet, parent)
 
   -- Primary Listing Market Participant Id: 1 Byte Ascii String Enum with 17 values
-  index, primary_listing_market_participant_id = dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
+  index, primary_listing_market_participant_id = siac_cqs_output_cta_v1_91_dissect.primary_listing_market_participant_id(buffer, index, packet, parent)
 
   -- Financial Status Indicator: 1 Byte Ascii String Enum with 11 values
-  index, financial_status_indicator = dissect.financial_status_indicator(buffer, index, packet, parent)
+  index, financial_status_indicator = siac_cqs_output_cta_v1_91_dissect.financial_status_indicator(buffer, index, packet, parent)
 
   -- Future: 1 Byte Ascii String
-  index, future = dissect.future(buffer, index, packet, parent)
+  index, future = siac_cqs_output_cta_v1_91_dissect.future(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Status Message
-dissect.auction_status_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.auction_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2881,89 +2881,89 @@ dissect.auction_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_status_message then
     local range = buffer(offset, size_of_auction_status_message)
-    local display = display.auction_status_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.auction_status_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.auction_status_message, range, display)
   end
 
-  dissect.auction_status_message_fields(buffer, offset, packet, parent, size_of_auction_status_message)
+  siac_cqs_output_cta_v1_91_dissect.auction_status_message_fields(buffer, offset, packet, parent, size_of_auction_status_message)
 
   return offset + size_of_auction_status_message
 end
 
 -- Calculate runtime size of: Quote Payload
-size_of.quote_payload = function(buffer, offset, quote_message_type)
+siac_cqs_output_cta_v1_91_size_of.quote_payload = function(buffer, offset, quote_message_type)
   -- Size of Auction Status Message
   if quote_message_type == "A" then
-    return size_of.auction_status_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.auction_status_message(buffer, offset)
   end
   -- Size of Long Quote Message
   if quote_message_type == "L" then
-    return size_of.long_quote_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.long_quote_message(buffer, offset)
   end
   -- Size of Short Quote Message
   if quote_message_type == "Q" then
-    return size_of.short_quote_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.short_quote_message(buffer, offset)
   end
   -- Size of Special Long Quote Message
   if quote_message_type == "S" then
-    return size_of.special_long_quote_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.special_long_quote_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Quote Payload
-display.quote_payload = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_display.quote_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Quote Payload
-dissect.quote_payload_branches = function(buffer, offset, packet, parent, quote_message_type)
+siac_cqs_output_cta_v1_91_dissect.quote_payload_branches = function(buffer, offset, packet, parent, quote_message_type)
   -- Dissect Auction Status Message
   if quote_message_type == "A" then
-    return dissect.auction_status_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.auction_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Long Quote Message
   if quote_message_type == "L" then
-    return dissect.long_quote_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.long_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Short Quote Message
   if quote_message_type == "Q" then
-    return dissect.short_quote_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.short_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Special Long Quote Message
   if quote_message_type == "S" then
-    return dissect.special_long_quote_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.special_long_quote_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Quote Payload
-dissect.quote_payload = function(buffer, offset, packet, parent, quote_message_type)
+siac_cqs_output_cta_v1_91_dissect.quote_payload = function(buffer, offset, packet, parent, quote_message_type)
   if not show.quote_payload then
-    return dissect.quote_payload_branches(buffer, offset, packet, parent, quote_message_type)
+    return siac_cqs_output_cta_v1_91_dissect.quote_payload_branches(buffer, offset, packet, parent, quote_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.quote_payload(buffer, offset, quote_message_type)
+  local size = siac_cqs_output_cta_v1_91_size_of.quote_payload(buffer, offset, quote_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.quote_payload(buffer, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.quote_payload(buffer, packet, parent)
   local element = parent:add(siac_cqs_output_cta_v1_91.fields.quote_payload, range, display)
 
-  return dissect.quote_payload_branches(buffer, offset, packet, parent, quote_message_type)
+  return siac_cqs_output_cta_v1_91_dissect.quote_payload_branches(buffer, offset, packet, parent, quote_message_type)
 end
 
 -- Size: Quote Message Type
-size_of.quote_message_type = 1
+siac_cqs_output_cta_v1_91_size_of.quote_message_type = 1
 
 -- Display: Quote Message Type
-display.quote_message_type = function(value)
+siac_cqs_output_cta_v1_91_display.quote_message_type = function(value)
   if value == "A" then
     return "Quote Message Type: Auction Status Message (A)"
   end
@@ -2981,11 +2981,11 @@ display.quote_message_type = function(value)
 end
 
 -- Dissect: Quote Message Type
-dissect.quote_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.quote_message_type
+siac_cqs_output_cta_v1_91_dissect.quote_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.quote_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.quote_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.quote_message_type, range, value, display)
 
@@ -2993,25 +2993,25 @@ dissect.quote_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Quote
-display.quote = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.quote = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote
-dissect.quote_fields = function(buffer, offset, packet, parent, size_of_quote)
+siac_cqs_output_cta_v1_91_dissect.quote_fields = function(buffer, offset, packet, parent, size_of_quote)
   local index = offset
 
   -- Quote Message Type: 1 Byte Ascii String Enum with 4 values
-  index, quote_message_type = dissect.quote_message_type(buffer, index, packet, parent)
+  index, quote_message_type = siac_cqs_output_cta_v1_91_dissect.quote_message_type(buffer, index, packet, parent)
 
   -- Quote Payload: Runtime Type with 4 branches
-  index = dissect.quote_payload(buffer, index, packet, parent, quote_message_type)
+  index = siac_cqs_output_cta_v1_91_dissect.quote_payload(buffer, index, packet, parent, quote_message_type)
 
   return index
 end
 
 -- Dissect: Quote
-dissect.quote = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.quote = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3022,29 +3022,29 @@ dissect.quote = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote then
     local range = buffer(offset, size_of_quote)
-    local display = display.quote(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.quote(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.quote, range, display)
   end
 
-  dissect.quote_fields(buffer, offset, packet, parent, size_of_quote)
+  siac_cqs_output_cta_v1_91_dissect.quote_fields(buffer, offset, packet, parent, size_of_quote)
 
   return offset + size_of_quote
 end
 
 -- Size: Reserved
-size_of.reserved = 1
+siac_cqs_output_cta_v1_91_size_of.reserved = 1
 
 -- Display: Reserved
-display.reserved = function(value)
+siac_cqs_output_cta_v1_91_display.reserved = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-dissect.reserved = function(buffer, offset, packet, parent)
-  local length = size_of.reserved
+siac_cqs_output_cta_v1_91_dissect.reserved = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.reserved
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reserved(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.reserved, range, value, display)
 
@@ -3052,40 +3052,40 @@ dissect.reserved = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Wide Circuit Breaker Status Message
-display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.market_wide_circuit_breaker_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Status Message
-dissect.market_wide_circuit_breaker_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Market Wide Circuit Breaker Level Indicator
-  index, market_wide_circuit_breaker_level_indicator = dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
+  index, market_wide_circuit_breaker_level_indicator = siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_level_indicator(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = siac_cqs_output_cta_v1_91_dissect.reserved(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
-dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3096,29 +3096,29 @@ dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, pa
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_status_message)
-    local display = display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.market_wide_circuit_breaker_status_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_status_message, range, display)
   end
 
-  dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
+  siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_status_message)
 
   return offset + size_of_market_wide_circuit_breaker_status_message
 end
 
 -- Size: Mwcb Level 3
-size_of.mwcb_level_3 = 8
+siac_cqs_output_cta_v1_91_size_of.mwcb_level_3 = 8
 
 -- Display: Mwcb Level 3
-display.mwcb_level_3 = function(value)
+siac_cqs_output_cta_v1_91_display.mwcb_level_3 = function(value)
   return "Mwcb Level 3: "..value
 end
 
 -- Dissect: Mwcb Level 3
-dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
-  local length = size_of.mwcb_level_3
+siac_cqs_output_cta_v1_91_dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.mwcb_level_3
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.mwcb_level_3(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.mwcb_level_3(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.mwcb_level_3, range, value, display)
 
@@ -3126,19 +3126,19 @@ dissect.mwcb_level_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mwcb Level 2
-size_of.mwcb_level_2 = 8
+siac_cqs_output_cta_v1_91_size_of.mwcb_level_2 = 8
 
 -- Display: Mwcb Level 2
-display.mwcb_level_2 = function(value)
+siac_cqs_output_cta_v1_91_display.mwcb_level_2 = function(value)
   return "Mwcb Level 2: "..value
 end
 
 -- Dissect: Mwcb Level 2
-dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
-  local length = size_of.mwcb_level_2
+siac_cqs_output_cta_v1_91_dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.mwcb_level_2
   local range = buffer(offset, length)
   local value = range:int64()
-  local display = display.mwcb_level_2(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.mwcb_level_2(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.mwcb_level_2, range, value, display)
 
@@ -3146,46 +3146,46 @@ dissect.mwcb_level_2 = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Wide Circuit Breaker Decline Level Status Message
-display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Wide Circuit Breaker Decline Level Status Message
-dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message_fields = function(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Mwcb Level 1
-  index, mwcb_level_1 = dissect.mwcb_level_1(buffer, index, packet, parent)
+  index, mwcb_level_1 = siac_cqs_output_cta_v1_91_dissect.mwcb_level_1(buffer, index, packet, parent)
 
   -- Mwcb Level 2: 8 Byte Signed Fixed Width Integer
-  index, mwcb_level_2 = dissect.mwcb_level_2(buffer, index, packet, parent)
+  index, mwcb_level_2 = siac_cqs_output_cta_v1_91_dissect.mwcb_level_2(buffer, index, packet, parent)
 
   -- Mwcb Level 3: 8 Byte Signed Fixed Width Integer
-  index, mwcb_level_3 = dissect.mwcb_level_3(buffer, index, packet, parent)
+  index, mwcb_level_3 = siac_cqs_output_cta_v1_91_dissect.mwcb_level_3(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = siac_cqs_output_cta_v1_91_dissect.reserved(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
-dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3196,73 +3196,73 @@ dissect.market_wide_circuit_breaker_decline_level_status_message = function(buff
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_status_message then
     local range = buffer(offset, size_of_market_wide_circuit_breaker_decline_level_status_message)
-    local display = display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.market_wide_circuit_breaker_decline_level_status_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.market_wide_circuit_breaker_decline_level_status_message, range, display)
   end
 
-  dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
+  siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_message)
 
   return offset + size_of_market_wide_circuit_breaker_decline_level_status_message
 end
 
 -- Calculate runtime size of: Market Status Payload
-size_of.market_status_payload = function(buffer, offset, market_status_message_type)
+siac_cqs_output_cta_v1_91_size_of.market_status_payload = function(buffer, offset, market_status_message_type)
   -- Size of Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
-    return size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
   end
   -- Size of Market Wide Circuit Breaker Status Message
   if market_status_message_type == "L" then
-    return size_of.market_wide_circuit_breaker_status_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_status_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Market Status Payload
-display.market_status_payload = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_display.market_status_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Market Status Payload
-dissect.market_status_payload_branches = function(buffer, offset, packet, parent, market_status_message_type)
+siac_cqs_output_cta_v1_91_dissect.market_status_payload_branches = function(buffer, offset, packet, parent, market_status_message_type)
   -- Dissect Market Wide Circuit Breaker Decline Level Status Message
   if market_status_message_type == "M" then
-    return dissect.market_wide_circuit_breaker_decline_level_status_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Wide Circuit Breaker Status Message
   if market_status_message_type == "L" then
-    return dissect.market_wide_circuit_breaker_status_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Market Status Payload
-dissect.market_status_payload = function(buffer, offset, packet, parent, market_status_message_type)
+siac_cqs_output_cta_v1_91_dissect.market_status_payload = function(buffer, offset, packet, parent, market_status_message_type)
   if not show.market_status_payload then
-    return dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
+    return siac_cqs_output_cta_v1_91_dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.market_status_payload(buffer, offset, market_status_message_type)
+  local size = siac_cqs_output_cta_v1_91_size_of.market_status_payload(buffer, offset, market_status_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.market_status_payload(buffer, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.market_status_payload(buffer, packet, parent)
   local element = parent:add(siac_cqs_output_cta_v1_91.fields.market_status_payload, range, display)
 
-  return dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
+  return siac_cqs_output_cta_v1_91_dissect.market_status_payload_branches(buffer, offset, packet, parent, market_status_message_type)
 end
 
 -- Size: Market Status Message Type
-size_of.market_status_message_type = 1
+siac_cqs_output_cta_v1_91_size_of.market_status_message_type = 1
 
 -- Display: Market Status Message Type
-display.market_status_message_type = function(value)
+siac_cqs_output_cta_v1_91_display.market_status_message_type = function(value)
   if value == "M" then
     return "Market Status Message Type: Market Wide Circuit Breaker Decline Level Status Message (M)"
   end
@@ -3274,11 +3274,11 @@ display.market_status_message_type = function(value)
 end
 
 -- Dissect: Market Status Message Type
-dissect.market_status_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.market_status_message_type
+siac_cqs_output_cta_v1_91_dissect.market_status_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.market_status_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_status_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.market_status_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.market_status_message_type, range, value, display)
 
@@ -3286,25 +3286,25 @@ dissect.market_status_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Market Status
-display.market_status = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.market_status = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Status
-dissect.market_status_fields = function(buffer, offset, packet, parent, size_of_market_status)
+siac_cqs_output_cta_v1_91_dissect.market_status_fields = function(buffer, offset, packet, parent, size_of_market_status)
   local index = offset
 
   -- Market Status Message Type: 1 Byte Ascii String Enum with 2 values
-  index, market_status_message_type = dissect.market_status_message_type(buffer, index, packet, parent)
+  index, market_status_message_type = siac_cqs_output_cta_v1_91_dissect.market_status_message_type(buffer, index, packet, parent)
 
   -- Market Status Payload: Runtime Type with 2 branches
-  index = dissect.market_status_payload(buffer, index, packet, parent, market_status_message_type)
+  index = siac_cqs_output_cta_v1_91_dissect.market_status_payload(buffer, index, packet, parent, market_status_message_type)
 
   return index
 end
 
 -- Dissect: Market Status
-dissect.market_status = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.market_status = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3315,44 +3315,44 @@ dissect.market_status = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_status then
     local range = buffer(offset, size_of_market_status)
-    local display = display.market_status(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.market_status(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.market_status, range, display)
   end
 
-  dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
+  siac_cqs_output_cta_v1_91_dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
 
   return offset + size_of_market_status
 end
 
 -- Display: End Of Day Message
-display.end_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Day Message
-dissect.end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
+siac_cqs_output_cta_v1_91_dissect.end_of_day_message_fields = function(buffer, offset, packet, parent, size_of_end_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Day Message
-dissect.end_of_day_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.end_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3363,44 +3363,44 @@ dissect.end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
     local range = buffer(offset, size_of_end_of_day_message)
-    local display = display.end_of_day_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.end_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.end_of_day_message, range, display)
   end
 
-  dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
+  siac_cqs_output_cta_v1_91_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
 
   return offset + size_of_end_of_day_message
 end
 
 -- Display: Line Integrity Message
-display.line_integrity_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.line_integrity_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Line Integrity Message
-dissect.line_integrity_message_fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
+siac_cqs_output_cta_v1_91_dissect.line_integrity_message_fields = function(buffer, offset, packet, parent, size_of_line_integrity_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Line Integrity Message
-dissect.line_integrity_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.line_integrity_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3411,44 +3411,44 @@ dissect.line_integrity_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
     local range = buffer(offset, size_of_line_integrity_message)
-    local display = display.line_integrity_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.line_integrity_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.line_integrity_message, range, display)
   end
 
-  dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
+  siac_cqs_output_cta_v1_91_dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
 
   return offset + size_of_line_integrity_message
 end
 
 -- Display: Disaster Recovery Data Center Activation Message
-display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.disaster_recovery_data_center_activation_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Disaster Recovery Data Center Activation Message
-dissect.disaster_recovery_data_center_activation_message_fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message_fields = function(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
-dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3459,44 +3459,44 @@ dissect.disaster_recovery_data_center_activation_message = function(buffer, offs
   -- Optionally add struct element to protocol tree
   if show.disaster_recovery_data_center_activation_message then
     local range = buffer(offset, size_of_disaster_recovery_data_center_activation_message)
-    local display = display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.disaster_recovery_data_center_activation_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.disaster_recovery_data_center_activation_message, range, display)
   end
 
-  dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
+  siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
 
   return offset + size_of_disaster_recovery_data_center_activation_message
 end
 
 -- Display: Finra Open Message
-display.finra_open_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.finra_open_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Finra Open Message
-dissect.finra_open_message_fields = function(buffer, offset, packet, parent, size_of_finra_open_message)
+siac_cqs_output_cta_v1_91_dissect.finra_open_message_fields = function(buffer, offset, packet, parent, size_of_finra_open_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Finra Open Message
-dissect.finra_open_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.finra_open_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3507,44 +3507,44 @@ dissect.finra_open_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.finra_open_message then
     local range = buffer(offset, size_of_finra_open_message)
-    local display = display.finra_open_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.finra_open_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.finra_open_message, range, display)
   end
 
-  dissect.finra_open_message_fields(buffer, offset, packet, parent, size_of_finra_open_message)
+  siac_cqs_output_cta_v1_91_dissect.finra_open_message_fields(buffer, offset, packet, parent, size_of_finra_open_message)
 
   return offset + size_of_finra_open_message
 end
 
 -- Display: End Of Test Cycle Message
-display.end_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.end_of_test_cycle_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Test Cycle Message
-dissect.end_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Test Cycle Message
-dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3555,44 +3555,44 @@ dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_test_cycle_message then
     local range = buffer(offset, size_of_end_of_test_cycle_message)
-    local display = display.end_of_test_cycle_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.end_of_test_cycle_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.end_of_test_cycle_message, range, display)
   end
 
-  dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
+  siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
 
   return offset + size_of_end_of_test_cycle_message
 end
 
 -- Display: Start Of Test Cycle Message
-display.start_of_test_cycle_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.start_of_test_cycle_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Test Cycle Message
-dissect.start_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message_fields = function(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Test Cycle Message
-dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3603,44 +3603,44 @@ dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_test_cycle_message then
     local range = buffer(offset, size_of_start_of_test_cycle_message)
-    local display = display.start_of_test_cycle_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.start_of_test_cycle_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.start_of_test_cycle_message, range, display)
   end
 
-  dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
+  siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
 
   return offset + size_of_start_of_test_cycle_message
 end
 
 -- Display: Reset Block Sequence Number Message
-display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.reset_block_sequence_number_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reset Block Sequence Number Message
-dissect.reset_block_sequence_number_message_fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message_fields = function(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reset Block Sequence Number Message
-dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3651,44 +3651,44 @@ dissect.reset_block_sequence_number_message = function(buffer, offset, packet, p
   -- Optionally add struct element to protocol tree
   if show.reset_block_sequence_number_message then
     local range = buffer(offset, size_of_reset_block_sequence_number_message)
-    local display = display.reset_block_sequence_number_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.reset_block_sequence_number_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.reset_block_sequence_number_message, range, display)
   end
 
-  dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
+  siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
 
   return offset + size_of_reset_block_sequence_number_message
 end
 
 -- Display: Finra Close Message
-display.finra_close_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.finra_close_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Finra Close Message
-dissect.finra_close_message_fields = function(buffer, offset, packet, parent, size_of_finra_close_message)
+siac_cqs_output_cta_v1_91_dissect.finra_close_message_fields = function(buffer, offset, packet, parent, size_of_finra_close_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Finra Close Message
-dissect.finra_close_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.finra_close_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3699,44 +3699,44 @@ dissect.finra_close_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.finra_close_message then
     local range = buffer(offset, size_of_finra_close_message)
-    local display = display.finra_close_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.finra_close_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.finra_close_message, range, display)
   end
 
-  dissect.finra_close_message_fields(buffer, offset, packet, parent, size_of_finra_close_message)
+  siac_cqs_output_cta_v1_91_dissect.finra_close_message_fields(buffer, offset, packet, parent, size_of_finra_close_message)
 
   return offset + size_of_finra_close_message
 end
 
 -- Display: Start Of Day Message
-display.start_of_day_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Day Message
-dissect.start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
+siac_cqs_output_cta_v1_91_dissect.start_of_day_message_fields = function(buffer, offset, packet, parent, size_of_start_of_day_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Day Message
-dissect.start_of_day_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.start_of_day_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3747,129 +3747,129 @@ dissect.start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
     local range = buffer(offset, size_of_start_of_day_message)
-    local display = display.start_of_day_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.start_of_day_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.start_of_day_message, range, display)
   end
 
-  dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
+  siac_cqs_output_cta_v1_91_dissect.start_of_day_message_fields(buffer, offset, packet, parent, size_of_start_of_day_message)
 
   return offset + size_of_start_of_day_message
 end
 
 -- Calculate runtime size of: Control Payload
-size_of.control_payload = function(buffer, offset, control_message_type)
+siac_cqs_output_cta_v1_91_size_of.control_payload = function(buffer, offset, control_message_type)
   -- Size of Start Of Day Message
   if control_message_type == "A" then
-    return size_of.start_of_day_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.start_of_day_message(buffer, offset)
   end
   -- Size of Finra Close Message
   if control_message_type == "C" then
-    return size_of.finra_close_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.finra_close_message(buffer, offset)
   end
   -- Size of Reset Block Sequence Number Message
   if control_message_type == "L" then
-    return size_of.reset_block_sequence_number_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.reset_block_sequence_number_message(buffer, offset)
   end
   -- Size of Start Of Test Cycle Message
   if control_message_type == "M" then
-    return size_of.start_of_test_cycle_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.start_of_test_cycle_message(buffer, offset)
   end
   -- Size of End Of Test Cycle Message
   if control_message_type == "N" then
-    return size_of.end_of_test_cycle_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.end_of_test_cycle_message(buffer, offset)
   end
   -- Size of Finra Open Message
   if control_message_type == "O" then
-    return size_of.finra_open_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.finra_open_message(buffer, offset)
   end
   -- Size of Disaster Recovery Data Center Activation Message
   if control_message_type == "P" then
-    return size_of.disaster_recovery_data_center_activation_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.disaster_recovery_data_center_activation_message(buffer, offset)
   end
   -- Size of Line Integrity Message
   if control_message_type == "T" then
-    return size_of.line_integrity_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.line_integrity_message(buffer, offset)
   end
   -- Size of End Of Day Message
   if control_message_type == "Z" then
-    return size_of.end_of_day_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.end_of_day_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Control Payload
-display.control_payload = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_display.control_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Control Payload
-dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
+siac_cqs_output_cta_v1_91_dissect.control_payload_branches = function(buffer, offset, packet, parent, control_message_type)
   -- Dissect Start Of Day Message
   if control_message_type == "A" then
-    return dissect.start_of_day_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Finra Close Message
   if control_message_type == "C" then
-    return dissect.finra_close_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.finra_close_message(buffer, offset, packet, parent)
   end
   -- Dissect Reset Block Sequence Number Message
   if control_message_type == "L" then
-    return dissect.reset_block_sequence_number_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Test Cycle Message
   if control_message_type == "M" then
-    return dissect.start_of_test_cycle_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Test Cycle Message
   if control_message_type == "N" then
-    return dissect.end_of_test_cycle_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message(buffer, offset, packet, parent)
   end
   -- Dissect Finra Open Message
   if control_message_type == "O" then
-    return dissect.finra_open_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.finra_open_message(buffer, offset, packet, parent)
   end
   -- Dissect Disaster Recovery Data Center Activation Message
   if control_message_type == "P" then
-    return dissect.disaster_recovery_data_center_activation_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message(buffer, offset, packet, parent)
   end
   -- Dissect Line Integrity Message
   if control_message_type == "T" then
-    return dissect.line_integrity_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.line_integrity_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if control_message_type == "Z" then
-    return dissect.end_of_day_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.end_of_day_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Control Payload
-dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
+siac_cqs_output_cta_v1_91_dissect.control_payload = function(buffer, offset, packet, parent, control_message_type)
   if not show.control_payload then
-    return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+    return siac_cqs_output_cta_v1_91_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.control_payload(buffer, offset, control_message_type)
+  local size = siac_cqs_output_cta_v1_91_size_of.control_payload(buffer, offset, control_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.control_payload(buffer, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.control_payload(buffer, packet, parent)
   local element = parent:add(siac_cqs_output_cta_v1_91.fields.control_payload, range, display)
 
-  return dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
+  return siac_cqs_output_cta_v1_91_dissect.control_payload_branches(buffer, offset, packet, parent, control_message_type)
 end
 
 -- Size: Control Message Type
-size_of.control_message_type = 1
+siac_cqs_output_cta_v1_91_size_of.control_message_type = 1
 
 -- Display: Control Message Type
-display.control_message_type = function(value)
+siac_cqs_output_cta_v1_91_display.control_message_type = function(value)
   if value == "A" then
     return "Control Message Type: Start Of Day Message (A)"
   end
@@ -3902,11 +3902,11 @@ display.control_message_type = function(value)
 end
 
 -- Dissect: Control Message Type
-dissect.control_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.control_message_type
+siac_cqs_output_cta_v1_91_dissect.control_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.control_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.control_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.control_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.control_message_type, range, value, display)
 
@@ -3914,25 +3914,25 @@ dissect.control_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Control
-display.control = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.control = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Control
-dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
+siac_cqs_output_cta_v1_91_dissect.control_fields = function(buffer, offset, packet, parent, size_of_control)
   local index = offset
 
   -- Control Message Type: 1 Byte Ascii String Enum with 9 values
-  index, control_message_type = dissect.control_message_type(buffer, index, packet, parent)
+  index, control_message_type = siac_cqs_output_cta_v1_91_dissect.control_message_type(buffer, index, packet, parent)
 
   -- Control Payload: Runtime Type with 9 branches
-  index = dissect.control_payload(buffer, index, packet, parent, control_message_type)
+  index = siac_cqs_output_cta_v1_91_dissect.control_payload(buffer, index, packet, parent, control_message_type)
 
   return index
 end
 
 -- Dissect: Control
-dissect.control = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.control = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3943,47 +3943,47 @@ dissect.control = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.control then
     local range = buffer(offset, size_of_control)
-    local display = display.control(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.control(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.control, range, display)
   end
 
-  dissect.control_fields(buffer, offset, packet, parent, size_of_control)
+  siac_cqs_output_cta_v1_91_dissect.control_fields(buffer, offset, packet, parent, size_of_control)
 
   return offset + size_of_control
 end
 
 -- Display: Administrative Unformatted Message
-display.administrative_unformatted_message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.administrative_unformatted_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative Unformatted Message
-dissect.administrative_unformatted_message_fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message_fields = function(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
   local index = offset
 
   -- Participant Id: 1 Byte Ascii String Enum with 18 values
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = siac_cqs_output_cta_v1_91_dissect.participant_id(buffer, index, packet, parent)
 
   -- Participant Timestamp: Struct of 2 fields
-  index, participant_timestamp = dissect.participant_timestamp(buffer, index, packet, parent)
+  index, participant_timestamp = siac_cqs_output_cta_v1_91_dissect.participant_timestamp(buffer, index, packet, parent)
 
   -- Message Id: 1 Byte Unsigned Fixed Width Integer
-  index, message_id = dissect.message_id(buffer, index, packet, parent)
+  index, message_id = siac_cqs_output_cta_v1_91_dissect.message_id(buffer, index, packet, parent)
 
   -- Transaction Id: 4 Byte Unsigned Fixed Width Integer
-  index, transaction_id = dissect.transaction_id(buffer, index, packet, parent)
+  index, transaction_id = siac_cqs_output_cta_v1_91_dissect.transaction_id(buffer, index, packet, parent)
 
   -- Participant Reference Number: 8 Byte Signed Fixed Width Integer
-  index, participant_reference_number = dissect.participant_reference_number(buffer, index, packet, parent)
+  index, participant_reference_number = siac_cqs_output_cta_v1_91_dissect.participant_reference_number(buffer, index, packet, parent)
 
   -- Text
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = siac_cqs_output_cta_v1_91_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Administrative Unformatted Message
-dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3994,65 +3994,65 @@ dissect.administrative_unformatted_message = function(buffer, offset, packet, pa
   -- Optionally add struct element to protocol tree
   if show.administrative_unformatted_message then
     local range = buffer(offset, size_of_administrative_unformatted_message)
-    local display = display.administrative_unformatted_message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.administrative_unformatted_message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.administrative_unformatted_message, range, display)
   end
 
-  dissect.administrative_unformatted_message_fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
+  siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message_fields(buffer, offset, packet, parent, size_of_administrative_unformatted_message)
 
   return offset + size_of_administrative_unformatted_message
 end
 
 -- Calculate runtime size of: Administrative Payload
-size_of.administrative_payload = function(buffer, offset, administrative_message_type)
+siac_cqs_output_cta_v1_91_size_of.administrative_payload = function(buffer, offset, administrative_message_type)
   -- Size of Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return size_of.administrative_unformatted_message(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.administrative_unformatted_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Administrative Payload
-display.administrative_payload = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_display.administrative_payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Administrative Payload
-dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
+siac_cqs_output_cta_v1_91_dissect.administrative_payload_branches = function(buffer, offset, packet, parent, administrative_message_type)
   -- Dissect Administrative Unformatted Message
   if administrative_message_type == "H" then
-    return dissect.administrative_unformatted_message(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Administrative Payload
-dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
+siac_cqs_output_cta_v1_91_dissect.administrative_payload = function(buffer, offset, packet, parent, administrative_message_type)
   if not show.administrative_payload then
-    return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+    return siac_cqs_output_cta_v1_91_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.administrative_payload(buffer, offset, administrative_message_type)
+  local size = siac_cqs_output_cta_v1_91_size_of.administrative_payload(buffer, offset, administrative_message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.administrative_payload(buffer, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.administrative_payload(buffer, packet, parent)
   local element = parent:add(siac_cqs_output_cta_v1_91.fields.administrative_payload, range, display)
 
-  return dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
+  return siac_cqs_output_cta_v1_91_dissect.administrative_payload_branches(buffer, offset, packet, parent, administrative_message_type)
 end
 
 -- Size: Administrative Message Type
-size_of.administrative_message_type = 1
+siac_cqs_output_cta_v1_91_size_of.administrative_message_type = 1
 
 -- Display: Administrative Message Type
-display.administrative_message_type = function(value)
+siac_cqs_output_cta_v1_91_display.administrative_message_type = function(value)
   if value == "H" then
     return "Administrative Message Type: Administrative Unformatted Message (H)"
   end
@@ -4061,11 +4061,11 @@ display.administrative_message_type = function(value)
 end
 
 -- Dissect: Administrative Message Type
-dissect.administrative_message_type = function(buffer, offset, packet, parent)
-  local length = size_of.administrative_message_type
+siac_cqs_output_cta_v1_91_dissect.administrative_message_type = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.administrative_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.administrative_message_type(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.administrative_message_type(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.administrative_message_type, range, value, display)
 
@@ -4073,25 +4073,25 @@ dissect.administrative_message_type = function(buffer, offset, packet, parent)
 end
 
 -- Display: Administrative
-display.administrative = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.administrative = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative
-dissect.administrative_fields = function(buffer, offset, packet, parent, size_of_administrative)
+siac_cqs_output_cta_v1_91_dissect.administrative_fields = function(buffer, offset, packet, parent, size_of_administrative)
   local index = offset
 
   -- Administrative Message Type: 1 Byte Ascii String Enum with 1 values
-  index, administrative_message_type = dissect.administrative_message_type(buffer, index, packet, parent)
+  index, administrative_message_type = siac_cqs_output_cta_v1_91_dissect.administrative_message_type(buffer, index, packet, parent)
 
   -- Administrative Payload: Runtime Type with 1 branches
-  index = dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
+  index = siac_cqs_output_cta_v1_91_dissect.administrative_payload(buffer, index, packet, parent, administrative_message_type)
 
   return index
 end
 
 -- Dissect: Administrative
-dissect.administrative = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.administrative = function(buffer, offset, packet, parent)
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -4102,89 +4102,89 @@ dissect.administrative = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.administrative then
     local range = buffer(offset, size_of_administrative)
-    local display = display.administrative(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.administrative(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.administrative, range, display)
   end
 
-  dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
+  siac_cqs_output_cta_v1_91_dissect.administrative_fields(buffer, offset, packet, parent, size_of_administrative)
 
   return offset + size_of_administrative
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_category)
+siac_cqs_output_cta_v1_91_size_of.payload = function(buffer, offset, message_category)
   -- Size of Administrative
   if message_category == "A" then
-    return size_of.administrative(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.administrative(buffer, offset)
   end
   -- Size of Control
   if message_category == "C" then
-    return size_of.control(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.control(buffer, offset)
   end
   -- Size of Market Status
   if message_category == "M" then
-    return size_of.market_status(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.market_status(buffer, offset)
   end
   -- Size of Quote
   if message_category == "Q" then
-    return size_of.quote(buffer, offset)
+    return siac_cqs_output_cta_v1_91_size_of.quote(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
+siac_cqs_output_cta_v1_91_dissect.payload_branches = function(buffer, offset, packet, parent, message_category)
   -- Dissect Administrative
   if message_category == "A" then
-    return dissect.administrative(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.administrative(buffer, offset, packet, parent)
   end
   -- Dissect Control
   if message_category == "C" then
-    return dissect.control(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.control(buffer, offset, packet, parent)
   end
   -- Dissect Market Status
   if message_category == "M" then
-    return dissect.market_status(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.market_status(buffer, offset, packet, parent)
   end
   -- Dissect Quote
   if message_category == "Q" then
-    return dissect.quote(buffer, offset, packet, parent)
+    return siac_cqs_output_cta_v1_91_dissect.quote(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_category)
+siac_cqs_output_cta_v1_91_dissect.payload = function(buffer, offset, packet, parent, message_category)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+    return siac_cqs_output_cta_v1_91_dissect.payload_branches(buffer, offset, packet, parent, message_category)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_category)
+  local size = siac_cqs_output_cta_v1_91_size_of.payload(buffer, offset, message_category)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.payload(buffer, packet, parent)
   local element = parent:add(siac_cqs_output_cta_v1_91.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_category)
+  return siac_cqs_output_cta_v1_91_dissect.payload_branches(buffer, offset, packet, parent, message_category)
 end
 
 -- Size: Message Category
-size_of.message_category = 1
+siac_cqs_output_cta_v1_91_size_of.message_category = 1
 
 -- Display: Message Category
-display.message_category = function(value)
+siac_cqs_output_cta_v1_91_display.message_category = function(value)
   if value == "A" then
     return "Message Category: Administrative (A)"
   end
@@ -4202,11 +4202,11 @@ display.message_category = function(value)
 end
 
 -- Dissect: Message Category
-dissect.message_category = function(buffer, offset, packet, parent)
-  local length = size_of.message_category
+siac_cqs_output_cta_v1_91_dissect.message_category = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.message_category
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_category(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.message_category(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.message_category, range, value, display)
 
@@ -4214,19 +4214,19 @@ dissect.message_category = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+siac_cqs_output_cta_v1_91_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+siac_cqs_output_cta_v1_91_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+siac_cqs_output_cta_v1_91_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.message_length, range, value, display)
 
@@ -4234,96 +4234,96 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + siac_cqs_output_cta_v1_91_size_of.message_length
 
-  index = index + size_of.message_category
+  index = index + siac_cqs_output_cta_v1_91_size_of.message_category
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = siac_cqs_output_cta_v1_91_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Category: 1 Byte Ascii String Enum with 4 values
-  index, message_category = dissect.message_category(buffer, index, packet, parent)
+  index, message_category = siac_cqs_output_cta_v1_91_dissect.message_category(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.message_header(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+siac_cqs_output_cta_v1_91_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = siac_cqs_output_cta_v1_91_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Category
   local message_category = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 4 branches
-  index = dissect.payload(buffer, index, packet, parent, message_category)
+  index = siac_cqs_output_cta_v1_91_dissect.payload(buffer, index, packet, parent, message_category)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+siac_cqs_output_cta_v1_91_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.message(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  siac_cqs_output_cta_v1_91_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Block Checksum
-size_of.block_checksum = 2
+siac_cqs_output_cta_v1_91_size_of.block_checksum = 2
 
 -- Display: Block Checksum
-display.block_checksum = function(value)
+siac_cqs_output_cta_v1_91_display.block_checksum = function(value)
   return "Block Checksum: "..value
 end
 
 -- Dissect: Block Checksum
-dissect.block_checksum = function(buffer, offset, packet, parent)
-  local length = size_of.block_checksum
+siac_cqs_output_cta_v1_91_dissect.block_checksum = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.block_checksum
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_checksum(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.block_checksum(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.block_checksum, range, value, display)
 
@@ -4331,61 +4331,61 @@ dissect.block_checksum = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sip Block Timestamp
-size_of.sip_block_timestamp = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.sip_block_timestamp = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.seconds
 
-  index = index + size_of.nanoseconds
+  index = index + siac_cqs_output_cta_v1_91_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Sip Block Timestamp
-display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.sip_block_timestamp = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sip Block Timestamp
-dissect.sip_block_timestamp_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = siac_cqs_output_cta_v1_91_dissect.seconds(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = siac_cqs_output_cta_v1_91_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sip Block Timestamp
-dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sip_block_timestamp then
-    local length = size_of.sip_block_timestamp(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.sip_block_timestamp(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sip_block_timestamp(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.sip_block_timestamp(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.sip_block_timestamp, range, display)
   end
 
-  return dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Messages In Block
-size_of.messages_in_block = 1
+siac_cqs_output_cta_v1_91_size_of.messages_in_block = 1
 
 -- Display: Messages In Block
-display.messages_in_block = function(value)
+siac_cqs_output_cta_v1_91_display.messages_in_block = function(value)
   return "Messages In Block: "..value
 end
 
 -- Dissect: Messages In Block
-dissect.messages_in_block = function(buffer, offset, packet, parent)
-  local length = size_of.messages_in_block
+siac_cqs_output_cta_v1_91_dissect.messages_in_block = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.messages_in_block
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.messages_in_block(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.messages_in_block(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.messages_in_block, range, value, display)
 
@@ -4393,19 +4393,19 @@ dissect.messages_in_block = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Sequence Number
-size_of.block_sequence_number = 4
+siac_cqs_output_cta_v1_91_size_of.block_sequence_number = 4
 
 -- Display: Block Sequence Number
-display.block_sequence_number = function(value)
+siac_cqs_output_cta_v1_91_display.block_sequence_number = function(value)
   return "Block Sequence Number: "..value
 end
 
 -- Dissect: Block Sequence Number
-dissect.block_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.block_sequence_number
+siac_cqs_output_cta_v1_91_dissect.block_sequence_number = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.block_sequence_number
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_sequence_number(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.block_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.block_sequence_number, range, value, display)
 
@@ -4413,10 +4413,10 @@ dissect.block_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Retransmission Indicator
-size_of.retransmission_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.retransmission_indicator = 1
 
 -- Display: Retransmission Indicator
-display.retransmission_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.retransmission_indicator = function(value)
   if value == "O" then
     return "Retransmission Indicator: Original (O)"
   end
@@ -4428,11 +4428,11 @@ display.retransmission_indicator = function(value)
 end
 
 -- Dissect: Retransmission Indicator
-dissect.retransmission_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.retransmission_indicator
+siac_cqs_output_cta_v1_91_dissect.retransmission_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.retransmission_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.retransmission_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.retransmission_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.retransmission_indicator, range, value, display)
 
@@ -4440,19 +4440,19 @@ dissect.retransmission_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Data Feed Indicator
-size_of.data_feed_indicator = 1
+siac_cqs_output_cta_v1_91_size_of.data_feed_indicator = 1
 
 -- Display: Data Feed Indicator
-display.data_feed_indicator = function(value)
+siac_cqs_output_cta_v1_91_display.data_feed_indicator = function(value)
   return "Data Feed Indicator: "..value
 end
 
 -- Dissect: Data Feed Indicator
-dissect.data_feed_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.data_feed_indicator
+siac_cqs_output_cta_v1_91_dissect.data_feed_indicator = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.data_feed_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.data_feed_indicator(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.data_feed_indicator(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.data_feed_indicator, range, value, display)
 
@@ -4460,19 +4460,19 @@ dissect.data_feed_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Size
-size_of.block_size = 2
+siac_cqs_output_cta_v1_91_size_of.block_size = 2
 
 -- Display: Block Size
-display.block_size = function(value)
+siac_cqs_output_cta_v1_91_display.block_size = function(value)
   return "Block Size: "..value
 end
 
 -- Dissect: Block Size
-dissect.block_size = function(buffer, offset, packet, parent)
-  local length = size_of.block_size
+siac_cqs_output_cta_v1_91_dissect.block_size = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.block_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.block_size(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.block_size(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.block_size, range, value, display)
 
@@ -4480,19 +4480,19 @@ dissect.block_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Version
-size_of.version = 1
+siac_cqs_output_cta_v1_91_size_of.version = 1
 
 -- Display: Version
-display.version = function(value)
+siac_cqs_output_cta_v1_91_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+siac_cqs_output_cta_v1_91_dissect.version = function(buffer, offset, packet, parent)
+  local length = siac_cqs_output_cta_v1_91_size_of.version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = siac_cqs_output_cta_v1_91_display.version(value, buffer, offset, packet, parent)
 
   parent:add(siac_cqs_output_cta_v1_91.fields.version, range, value, display)
 
@@ -4500,83 +4500,83 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Block Header
-size_of.block_header = function(buffer, offset)
+siac_cqs_output_cta_v1_91_size_of.block_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.version
+  index = index + siac_cqs_output_cta_v1_91_size_of.version
 
-  index = index + size_of.block_size
+  index = index + siac_cqs_output_cta_v1_91_size_of.block_size
 
-  index = index + size_of.data_feed_indicator
+  index = index + siac_cqs_output_cta_v1_91_size_of.data_feed_indicator
 
-  index = index + size_of.retransmission_indicator
+  index = index + siac_cqs_output_cta_v1_91_size_of.retransmission_indicator
 
-  index = index + size_of.block_sequence_number
+  index = index + siac_cqs_output_cta_v1_91_size_of.block_sequence_number
 
-  index = index + size_of.messages_in_block
+  index = index + siac_cqs_output_cta_v1_91_size_of.messages_in_block
 
-  index = index + size_of.sip_block_timestamp(buffer, offset + index)
+  index = index + siac_cqs_output_cta_v1_91_size_of.sip_block_timestamp(buffer, offset + index)
 
-  index = index + size_of.block_checksum
+  index = index + siac_cqs_output_cta_v1_91_size_of.block_checksum
 
   return index
 end
 
 -- Display: Block Header
-display.block_header = function(buffer, offset, size, packet, parent)
+siac_cqs_output_cta_v1_91_display.block_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Block Header
-dissect.block_header_fields = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.block_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = siac_cqs_output_cta_v1_91_dissect.version(buffer, index, packet, parent)
 
   -- Block Size: 2 Byte Unsigned Fixed Width Integer
-  index, block_size = dissect.block_size(buffer, index, packet, parent)
+  index, block_size = siac_cqs_output_cta_v1_91_dissect.block_size(buffer, index, packet, parent)
 
   -- Data Feed Indicator: 1 Byte Ascii String
-  index, data_feed_indicator = dissect.data_feed_indicator(buffer, index, packet, parent)
+  index, data_feed_indicator = siac_cqs_output_cta_v1_91_dissect.data_feed_indicator(buffer, index, packet, parent)
 
   -- Retransmission Indicator: 1 Byte Ascii String Enum with 2 values
-  index, retransmission_indicator = dissect.retransmission_indicator(buffer, index, packet, parent)
+  index, retransmission_indicator = siac_cqs_output_cta_v1_91_dissect.retransmission_indicator(buffer, index, packet, parent)
 
   -- Block Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, block_sequence_number = dissect.block_sequence_number(buffer, index, packet, parent)
+  index, block_sequence_number = siac_cqs_output_cta_v1_91_dissect.block_sequence_number(buffer, index, packet, parent)
 
   -- Messages In Block: 1 Byte Unsigned Fixed Width Integer
-  index, messages_in_block = dissect.messages_in_block(buffer, index, packet, parent)
+  index, messages_in_block = siac_cqs_output_cta_v1_91_dissect.messages_in_block(buffer, index, packet, parent)
 
   -- Sip Block Timestamp: Struct of 2 fields
-  index, sip_block_timestamp = dissect.sip_block_timestamp(buffer, index, packet, parent)
+  index, sip_block_timestamp = siac_cqs_output_cta_v1_91_dissect.sip_block_timestamp(buffer, index, packet, parent)
 
   -- Block Checksum: 2 Byte Unsigned Fixed Width Integer
-  index, block_checksum = dissect.block_checksum(buffer, index, packet, parent)
+  index, block_checksum = siac_cqs_output_cta_v1_91_dissect.block_checksum(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Block Header
-dissect.block_header = function(buffer, offset, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.block_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.block_header then
-    local length = size_of.block_header(buffer, offset)
+    local length = siac_cqs_output_cta_v1_91_size_of.block_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.block_header(buffer, packet, parent)
+    local display = siac_cqs_output_cta_v1_91_display.block_header(buffer, packet, parent)
     parent = parent:add(siac_cqs_output_cta_v1_91.fields.block_header, range, display)
   end
 
-  return dissect.block_header_fields(buffer, offset, packet, parent)
+  return siac_cqs_output_cta_v1_91_dissect.block_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+siac_cqs_output_cta_v1_91_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Block Header: Struct of 8 fields
-  index, block_header = dissect.block_header(buffer, index, packet, parent)
+  index, block_header = siac_cqs_output_cta_v1_91_dissect.block_header(buffer, index, packet, parent)
 
   -- Dependency element: Messages In Block
   local messages_in_block = buffer(index - 11, 1):uint()
@@ -4588,7 +4588,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_length = buffer(index, 2):uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = siac_cqs_output_cta_v1_91_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   -- Runtime optional field exists: Block Pad Byte
@@ -4596,7 +4596,7 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Runtime optional field: Block Pad Byte
   if block_pad_byte_exists then
-    index = dissect.block_pad_byte(buffer, index, packet, parent)
+    index = siac_cqs_output_cta_v1_91_dissect.block_pad_byte(buffer, index, packet, parent)
   end
 
   return index
@@ -4619,7 +4619,7 @@ function siac_cqs_output_cta_v1_91.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(siac_cqs_output_cta_v1_91, buffer(), siac_cqs_output_cta_v1_91.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return siac_cqs_output_cta_v1_91_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

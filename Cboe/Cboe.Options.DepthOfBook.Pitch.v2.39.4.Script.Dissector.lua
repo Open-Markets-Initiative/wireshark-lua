@@ -10,9 +10,9 @@ local cboe_options_depthofbook_pitch_v2_39_4 = Proto("Cboe.Options.DepthOfBook.P
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_options_depthofbook_pitch_v2_39_4_display = {}
+local cboe_options_depthofbook_pitch_v2_39_4_dissect = {}
+local cboe_options_depthofbook_pitch_v2_39_4_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -319,10 +319,10 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Retail Price Improvement
-size_of.retail_price_improvement = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement = 1
 
 -- Display: Retail Price Improvement
-display.retail_price_improvement = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.retail_price_improvement = function(value)
   if value == "B" then
     return "Retail Price Improvement: Buy Side (B)"
   end
@@ -340,11 +340,11 @@ display.retail_price_improvement = function(value)
 end
 
 -- Dissect: Retail Price Improvement
-dissect.retail_price_improvement = function(buffer, offset, packet, parent)
-  local length = size_of.retail_price_improvement
+cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.retail_price_improvement(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.retail_price_improvement(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.retail_price_improvement, range, value, display)
 
@@ -352,19 +352,19 @@ dissect.retail_price_improvement = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expanded Symbol
-size_of.expanded_symbol = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol = 8
 
 -- Display: Expanded Symbol
-display.expanded_symbol = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.expanded_symbol = function(value)
   return "Expanded Symbol: "..value
 end
 
 -- Dissect: Expanded Symbol
-dissect.expanded_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.expanded_symbol
+cboe_options_depthofbook_pitch_v2_39_4_dissect.expanded_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.expanded_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.expanded_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.expanded_symbol, range, value, display)
 
@@ -372,19 +372,19 @@ dissect.expanded_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Time Offset
-size_of.time_offset = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset = 4
 
 -- Display: Time Offset
-display.time_offset = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.time_offset = function(value)
   return "Time Offset: "..value
 end
 
 -- Dissect: Time Offset
-dissect.time_offset = function(buffer, offset, packet, parent)
-  local length = size_of.time_offset
+cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.time_offset(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.time_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.time_offset, range, value, display)
 
@@ -392,66 +392,66 @@ dissect.time_offset = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Retail Price Improvement Message
-size_of.retail_price_improvement_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.expanded_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol
 
-  index = index + size_of.retail_price_improvement
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement
 
   return index
 end
 
 -- Display: Retail Price Improvement Message
-display.retail_price_improvement_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.retail_price_improvement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Retail Price Improvement Message
-dissect.retail_price_improvement_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
-  index, expanded_symbol = dissect.expanded_symbol(buffer, index, packet, parent)
+  index, expanded_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Retail Price Improvement: 1 Byte Ascii String Enum with 4 values
-  index, retail_price_improvement = dissect.retail_price_improvement(buffer, index, packet, parent)
+  index, retail_price_improvement = cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Retail Price Improvement Message
-dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.retail_price_improvement_message then
-    local length = size_of.retail_price_improvement_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.retail_price_improvement_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.retail_price_improvement_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.retail_price_improvement_message, range, display)
   end
 
-  return dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Contracts
-size_of.contracts = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.contracts = 4
 
 -- Display: Contracts
-display.contracts = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.contracts = function(value)
   return "Contracts: "..value
 end
 
 -- Dissect: Contracts
-dissect.contracts = function(buffer, offset, packet, parent)
-  local length = size_of.contracts
+cboe_options_depthofbook_pitch_v2_39_4_dissect.contracts = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.contracts
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contracts(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.contracts(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.contracts, range, value, display)
 
@@ -459,10 +459,10 @@ dissect.contracts = function(buffer, offset, packet, parent)
 end
 
 -- Size: Long Price
-size_of.long_price = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price = 8
 
 -- Display: Long Price
-display.long_price = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.long_price = function(value)
   return "Long Price: "..value
 end
 
@@ -472,12 +472,12 @@ translate.long_price = function(raw)
 end
 
 -- Dissect: Long Price
-dissect.long_price = function(buffer, offset, packet, parent)
-  local length = size_of.long_price
+cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.long_price(raw)
-  local display = display.long_price(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.long_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.long_price, range, value, display)
 
@@ -485,19 +485,19 @@ dissect.long_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Execution Id
-size_of.execution_id = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id = 8
 
 -- Display: Execution Id
-display.execution_id = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.execution_id = function(value)
   return "Execution Id: "..value
 end
 
 -- Dissect: Execution Id
-dissect.execution_id = function(buffer, offset, packet, parent)
-  local length = size_of.execution_id
+cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.execution_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.execution_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.execution_id, range, value, display)
 
@@ -505,19 +505,19 @@ dissect.execution_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Id
-size_of.auction_id = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_id = 8
 
 -- Display: Auction Id
-display.auction_id = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_id = function(value)
   return "Auction Id: "..value
 end
 
 -- Dissect: Auction Id
-dissect.auction_id = function(buffer, offset, packet, parent)
-  local length = size_of.auction_id
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.auction_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_id, range, value, display)
 
@@ -525,118 +525,118 @@ dissect.auction_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Trade Message
-size_of.auction_trade_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.auction_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_id
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.contracts
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.contracts
 
   return index
 end
 
 -- Display: Auction Trade Message
-display.auction_trade_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Trade Message
-dissect.auction_trade_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_id(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, contracts = dissect.contracts(buffer, index, packet, parent)
+  index, contracts = cboe_options_depthofbook_pitch_v2_39_4_dissect.contracts(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Trade Message
-dissect.auction_trade_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_trade_message then
-    local length = size_of.auction_trade_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_trade_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_trade_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_trade_message, range, display)
   end
 
-  return dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Cancel Message
-size_of.auction_cancel_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_cancel_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.auction_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_id
 
   return index
 end
 
 -- Display: Auction Cancel Message
-display.auction_cancel_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Cancel Message
-dissect.auction_cancel_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Cancel Message
-dissect.auction_cancel_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_cancel_message then
-    local length = size_of.auction_cancel_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_cancel_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_cancel_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_cancel_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_cancel_message, range, display)
   end
 
-  return dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_cancel_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Auction End Offset
-size_of.auction_end_offset = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_end_offset = 4
 
 -- Display: Auction End Offset
-display.auction_end_offset = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_end_offset = function(value)
   return "Auction End Offset: "..value
 end
 
 -- Dissect: Auction End Offset
-dissect.auction_end_offset = function(buffer, offset, packet, parent)
-  local length = size_of.auction_end_offset
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_end_offset = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_end_offset
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.auction_end_offset(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_end_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_end_offset, range, value, display)
 
@@ -644,19 +644,19 @@ dissect.auction_end_offset = function(buffer, offset, packet, parent)
 end
 
 -- Size: Participant Id
-size_of.participant_id = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.participant_id = 4
 
 -- Display: Participant Id
-display.participant_id = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.participant_id = function(value)
   return "Participant Id: "..value
 end
 
 -- Dissect: Participant Id
-dissect.participant_id = function(buffer, offset, packet, parent)
-  local length = size_of.participant_id
+cboe_options_depthofbook_pitch_v2_39_4_dissect.participant_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.participant_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.participant_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.participant_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.participant_id, range, value, display)
 
@@ -664,10 +664,10 @@ dissect.participant_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Customer Indicator
-size_of.customer_indicator = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.customer_indicator = 1
 
 -- Display: Customer Indicator
-display.customer_indicator = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.customer_indicator = function(value)
   if value == "N" then
     return "Customer Indicator: Non Customer (N)"
   end
@@ -679,11 +679,11 @@ display.customer_indicator = function(value)
 end
 
 -- Dissect: Customer Indicator
-dissect.customer_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.customer_indicator
+cboe_options_depthofbook_pitch_v2_39_4_dissect.customer_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.customer_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.customer_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.customer_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.customer_indicator, range, value, display)
 
@@ -691,10 +691,10 @@ dissect.customer_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side Indicator
-size_of.side_indicator = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator = 1
 
 -- Display: Side Indicator
-display.side_indicator = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.side_indicator = function(value)
   if value == "B" then
     return "Side Indicator: Buy Order (B)"
   end
@@ -706,11 +706,11 @@ display.side_indicator = function(value)
 end
 
 -- Dissect: Side Indicator
-dissect.side_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.side_indicator
+cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.side_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.side_indicator, range, value, display)
 
@@ -718,10 +718,10 @@ dissect.side_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Type
-size_of.auction_type = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_type = 1
 
 -- Display: Auction Type
-display.auction_type = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_type = function(value)
   if value == "O" then
     return "Auction Type: Opening (O)"
   end
@@ -748,11 +748,11 @@ display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = size_of.auction_type
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.auction_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_type, range, value, display)
 
@@ -760,19 +760,19 @@ dissect.auction_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 6
+cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol = 6
 
 -- Display: Symbol
-display.symbol = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.symbol, range, value, display)
 
@@ -780,101 +780,101 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Notification Message
-size_of.auction_notification_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_notification_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
 
-  index = index + size_of.auction_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_id
 
-  index = index + size_of.auction_type
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_type
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.contracts
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.contracts
 
-  index = index + size_of.customer_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.customer_indicator
 
-  index = index + size_of.participant_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.participant_id
 
-  index = index + size_of.auction_end_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_end_offset
 
   return index
 end
 
 -- Display: Auction Notification Message
-display.auction_notification_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Notification Message
-dissect.auction_notification_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol(buffer, index, packet, parent)
 
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
-  index, auction_id = dissect.auction_id(buffer, index, packet, parent)
+  index, auction_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_id(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 7 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_type(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Contracts: 4 Byte Unsigned Fixed Width Integer
-  index, contracts = dissect.contracts(buffer, index, packet, parent)
+  index, contracts = cboe_options_depthofbook_pitch_v2_39_4_dissect.contracts(buffer, index, packet, parent)
 
   -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
-  index, customer_indicator = dissect.customer_indicator(buffer, index, packet, parent)
+  index, customer_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.customer_indicator(buffer, index, packet, parent)
 
   -- Participant Id: 4 Byte Ascii String
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.participant_id(buffer, index, packet, parent)
 
   -- Auction End Offset: 4 Byte Unsigned Fixed Width Integer
-  index, auction_end_offset = dissect.auction_end_offset(buffer, index, packet, parent)
+  index, auction_end_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_end_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Notification Message
-dissect.auction_notification_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_notification_message then
-    local length = size_of.auction_notification_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_notification_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_notification_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_notification_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_notification_message, range, display)
   end
 
-  return dissect.auction_notification_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Shares
-size_of.shares = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.shares = 4
 
 -- Display: Shares
-display.shares = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.shares = function(value)
   return "Shares: "..value
 end
 
 -- Dissect: Shares
-dissect.shares = function(buffer, offset, packet, parent)
-  local length = size_of.shares
+cboe_options_depthofbook_pitch_v2_39_4_dissect.shares = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.shares
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.shares(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.shares(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.shares, range, value, display)
 
@@ -882,19 +882,19 @@ dissect.shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stock Symbol
-size_of.stock_symbol = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.stock_symbol = 8
 
 -- Display: Stock Symbol
-display.stock_symbol = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.stock_symbol = function(value)
   return "Stock Symbol: "..value
 end
 
 -- Dissect: Stock Symbol
-dissect.stock_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.stock_symbol
+cboe_options_depthofbook_pitch_v2_39_4_dissect.stock_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.stock_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.stock_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.stock_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.stock_symbol, range, value, display)
 
@@ -902,67 +902,67 @@ dissect.stock_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Summary Message
-size_of.auction_summary_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.stock_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.stock_symbol
 
-  index = index + size_of.auction_type
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_type
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.shares
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.shares
 
   return index
 end
 
 -- Display: Auction Summary Message
-display.auction_summary_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Summary Message
-dissect.auction_summary_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Stock Symbol: 8 Byte Ascii String
-  index, stock_symbol = dissect.stock_symbol(buffer, index, packet, parent)
+  index, stock_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.stock_symbol(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 7 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_type(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Shares: 4 Byte Unsigned Fixed Width Integer
-  index, shares = dissect.shares(buffer, index, packet, parent)
+  index, shares = cboe_options_depthofbook_pitch_v2_39_4_dissect.shares(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Summary Message
-dissect.auction_summary_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_summary_message then
-    local length = size_of.auction_summary_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_summary_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_summary_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_summary_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_summary_message, range, display)
   end
 
-  return dissect.auction_summary_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Only Price
-size_of.auction_only_price = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_only_price = 8
 
 -- Display: Auction Only Price
-display.auction_only_price = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_only_price = function(value)
   return "Auction Only Price: "..value
 end
 
@@ -972,12 +972,12 @@ translate.auction_only_price = function(raw)
 end
 
 -- Dissect: Auction Only Price
-dissect.auction_only_price = function(buffer, offset, packet, parent)
-  local length = size_of.auction_only_price
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_only_price = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_only_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.auction_only_price(raw)
-  local display = display.auction_only_price(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_only_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_only_price, range, value, display)
 
@@ -985,10 +985,10 @@ dissect.auction_only_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Indicative Price
-size_of.indicative_price = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.indicative_price = 8
 
 -- Display: Indicative Price
-display.indicative_price = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.indicative_price = function(value)
   return "Indicative Price: "..value
 end
 
@@ -998,12 +998,12 @@ translate.indicative_price = function(raw)
 end
 
 -- Dissect: Indicative Price
-dissect.indicative_price = function(buffer, offset, packet, parent)
-  local length = size_of.indicative_price
+cboe_options_depthofbook_pitch_v2_39_4_dissect.indicative_price = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.indicative_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.indicative_price(raw)
-  local display = display.indicative_price(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.indicative_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.indicative_price, range, value, display)
 
@@ -1011,19 +1011,19 @@ dissect.indicative_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Shares
-size_of.sell_shares = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.sell_shares = 4
 
 -- Display: Sell Shares
-display.sell_shares = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.sell_shares = function(value)
   return "Sell Shares: "..value
 end
 
 -- Dissect: Sell Shares
-dissect.sell_shares = function(buffer, offset, packet, parent)
-  local length = size_of.sell_shares
+cboe_options_depthofbook_pitch_v2_39_4_dissect.sell_shares = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.sell_shares
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_shares(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.sell_shares(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.sell_shares, range, value, display)
 
@@ -1031,19 +1031,19 @@ dissect.sell_shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Shares
-size_of.buy_shares = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.buy_shares = 4
 
 -- Display: Buy Shares
-display.buy_shares = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.buy_shares = function(value)
   return "Buy Shares: "..value
 end
 
 -- Dissect: Buy Shares
-dissect.buy_shares = function(buffer, offset, packet, parent)
-  local length = size_of.buy_shares
+cboe_options_depthofbook_pitch_v2_39_4_dissect.buy_shares = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.buy_shares
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_shares(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.buy_shares(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.buy_shares, range, value, display)
 
@@ -1051,10 +1051,10 @@ dissect.buy_shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reference Price
-size_of.reference_price = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reference_price = 8
 
 -- Display: Reference Price
-display.reference_price = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.reference_price = function(value)
   return "Reference Price: "..value
 end
 
@@ -1064,12 +1064,12 @@ translate.reference_price = function(raw)
 end
 
 -- Dissect: Reference Price
-dissect.reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reference_price = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reference_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.reference_price(raw)
-  local display = display.reference_price(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reference_price, range, value, display)
 
@@ -1077,91 +1077,91 @@ dissect.reference_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Update Message
-size_of.auction_update_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.stock_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.stock_symbol
 
-  index = index + size_of.auction_type
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_type
 
-  index = index + size_of.reference_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.reference_price
 
-  index = index + size_of.buy_shares
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.buy_shares
 
-  index = index + size_of.sell_shares
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.sell_shares
 
-  index = index + size_of.indicative_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.indicative_price
 
-  index = index + size_of.auction_only_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_only_price
 
   return index
 end
 
 -- Display: Auction Update Message
-display.auction_update_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.auction_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Update Message
-dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Stock Symbol: 8 Byte Ascii String
-  index, stock_symbol = dissect.stock_symbol(buffer, index, packet, parent)
+  index, stock_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.stock_symbol(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 7 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_type(buffer, index, packet, parent)
 
   -- Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, reference_price = dissect.reference_price(buffer, index, packet, parent)
+  index, reference_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.reference_price(buffer, index, packet, parent)
 
   -- Buy Shares: 4 Byte Unsigned Fixed Width Integer
-  index, buy_shares = dissect.buy_shares(buffer, index, packet, parent)
+  index, buy_shares = cboe_options_depthofbook_pitch_v2_39_4_dissect.buy_shares(buffer, index, packet, parent)
 
   -- Sell Shares: 4 Byte Unsigned Fixed Width Integer
-  index, sell_shares = dissect.sell_shares(buffer, index, packet, parent)
+  index, sell_shares = cboe_options_depthofbook_pitch_v2_39_4_dissect.sell_shares(buffer, index, packet, parent)
 
   -- Indicative Price: 8 Byte Unsigned Fixed Width Integer
-  index, indicative_price = dissect.indicative_price(buffer, index, packet, parent)
+  index, indicative_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.indicative_price(buffer, index, packet, parent)
 
   -- Auction Only Price: 8 Byte Unsigned Fixed Width Integer
-  index, auction_only_price = dissect.auction_only_price(buffer, index, packet, parent)
+  index, auction_only_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_only_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Update Message
-dissect.auction_update_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_update_message then
-    local length = size_of.auction_update_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_update_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.auction_update_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.auction_update_message, range, display)
   end
 
-  return dissect.auction_update_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 2
-size_of.reserved_2 = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_2 = 1
 
 -- Display: Reserved 2
-display.reserved_2 = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.reserved_2 = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_2
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_2(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reserved_2, range, value, display)
 
@@ -1169,19 +1169,19 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 1
-size_of.reserved_1 = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_1 = 1
 
 -- Display: Reserved 1
-display.reserved_1 = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.reserved_1 = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_1
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_1(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reserved_1, range, value, display)
 
@@ -1189,10 +1189,10 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reg Sho Action
-size_of.reg_sho_action = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reg_sho_action = 1
 
 -- Display: Reg Sho Action
-display.reg_sho_action = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.reg_sho_action = function(value)
   if value == "0" then
     return "Reg Sho Action: No Price Test In Effect (0)"
   end
@@ -1204,11 +1204,11 @@ display.reg_sho_action = function(value)
 end
 
 -- Dissect: Reg Sho Action
-dissect.reg_sho_action = function(buffer, offset, packet, parent)
-  local length = size_of.reg_sho_action
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reg_sho_action = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reg_sho_action
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reg_sho_action(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.reg_sho_action(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reg_sho_action, range, value, display)
 
@@ -1216,10 +1216,10 @@ dissect.reg_sho_action = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Status
-size_of.trading_status = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status = 1
 
 -- Display: Trading Status
-display.trading_status = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.trading_status = function(value)
   if value == "A" then
     return "Trading Status: Accepting Orders (A)"
   end
@@ -1240,11 +1240,11 @@ display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.trading_status
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trading_status(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trading_status, range, value, display)
 
@@ -1252,72 +1252,72 @@ dissect.trading_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trading Status Message
-size_of.trading_status_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.expanded_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol
 
-  index = index + size_of.trading_status
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status
 
-  index = index + size_of.reg_sho_action
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.reg_sho_action
 
-  index = index + size_of.reserved_1
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_1
 
-  index = index + size_of.reserved_2
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.reserved_2
 
   return index
 end
 
 -- Display: Trading Status Message
-display.trading_status_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Status Message
-dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
-  index, expanded_symbol = dissect.expanded_symbol(buffer, index, packet, parent)
+  index, expanded_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 5 values
-  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status(buffer, index, packet, parent)
 
   -- Reg Sho Action: 1 Byte Ascii String Enum with 2 values
-  index, reg_sho_action = dissect.reg_sho_action(buffer, index, packet, parent)
+  index, reg_sho_action = cboe_options_depthofbook_pitch_v2_39_4_dissect.reg_sho_action(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte Ascii String
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = cboe_options_depthofbook_pitch_v2_39_4_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 1 Byte Ascii String
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = cboe_options_depthofbook_pitch_v2_39_4_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Status Message
-dissect.trading_status_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local length = size_of.trading_status_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trading_status_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.trading_status_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trading_status_message, range, display)
   end
 
-  return dissect.trading_status_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Condition
-size_of.symbol_condition = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_condition = 1
 
 -- Display: Symbol Condition
-display.symbol_condition = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.symbol_condition = function(value)
   if value == "N" then
     return "Symbol Condition: Normal (N)"
   end
@@ -1329,11 +1329,11 @@ display.symbol_condition = function(value)
 end
 
 -- Dissect: Symbol Condition
-dissect.symbol_condition = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_condition
+cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_condition = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol_condition(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.symbol_condition(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.symbol_condition, range, value, display)
 
@@ -1341,19 +1341,19 @@ dissect.symbol_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Osi Symbol
-size_of.osi_symbol = 21
+cboe_options_depthofbook_pitch_v2_39_4_size_of.osi_symbol = 21
 
 -- Display: Osi Symbol
-display.osi_symbol = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.osi_symbol = function(value)
   return "Osi Symbol: "..value
 end
 
 -- Dissect: Osi Symbol
-dissect.osi_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.osi_symbol
+cboe_options_depthofbook_pitch_v2_39_4_dissect.osi_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.osi_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.osi_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.osi_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.osi_symbol, range, value, display)
 
@@ -1361,19 +1361,19 @@ dissect.osi_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Feed Symbol
-size_of.feed_symbol = 6
+cboe_options_depthofbook_pitch_v2_39_4_size_of.feed_symbol = 6
 
 -- Display: Feed Symbol
-display.feed_symbol = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.feed_symbol = function(value)
   return "Feed Symbol: "..value
 end
 
 -- Dissect: Feed Symbol
-dissect.feed_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.feed_symbol
+cboe_options_depthofbook_pitch_v2_39_4_dissect.feed_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.feed_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.feed_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.feed_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.feed_symbol, range, value, display)
 
@@ -1381,136 +1381,136 @@ dissect.feed_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Mapping Message
-size_of.symbol_mapping_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_mapping_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.feed_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.feed_symbol
 
-  index = index + size_of.osi_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.osi_symbol
 
-  index = index + size_of.symbol_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_condition
 
   return index
 end
 
 -- Display: Symbol Mapping Message
-display.symbol_mapping_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.symbol_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Mapping Message
-dissect.symbol_mapping_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_mapping_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Feed Symbol: 6 Byte Ascii String
-  index, feed_symbol = dissect.feed_symbol(buffer, index, packet, parent)
+  index, feed_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.feed_symbol(buffer, index, packet, parent)
 
   -- Osi Symbol: 21 Byte Ascii String
-  index, osi_symbol = dissect.osi_symbol(buffer, index, packet, parent)
+  index, osi_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.osi_symbol(buffer, index, packet, parent)
 
   -- Symbol Condition: 1 Byte Ascii String Enum with 2 values
-  index, symbol_condition = dissect.symbol_condition(buffer, index, packet, parent)
+  index, symbol_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Mapping Message
-dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_mapping_message then
-    local length = size_of.symbol_mapping_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_mapping_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_mapping_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.symbol_mapping_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.symbol_mapping_message, range, display)
   end
 
-  return dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_mapping_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Session Message
-size_of.end_of_session_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.end_of_session_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
   return index
 end
 
 -- Display: End Of Session Message
-display.end_of_session_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.end_of_session_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Session Message
-dissect.end_of_session_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.end_of_session_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Session Message
-dissect.end_of_session_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.end_of_session_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_session_message then
-    local length = size_of.end_of_session_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.end_of_session_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_session_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.end_of_session_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.end_of_session_message, range, display)
   end
 
-  return dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Break Message
-size_of.trade_break_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_break_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
   return index
 end
 
 -- Display: Trade Break Message
-display.trade_break_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.trade_break_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Break Message
-dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Break Message
-dissect.trade_break_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_break_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_break_message then
-    local length = size_of.trade_break_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_break_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_break_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.trade_break_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_break_message, range, display)
   end
 
-  return dissect.trade_break_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_break_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Condition
-size_of.trade_condition = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition = 1
 
 -- Display: Trade Condition
-display.trade_condition = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.trade_condition = function(value)
   if value == " " then
     return "Trade Condition: Normal Trade (<whitespace>)"
   end
@@ -1522,11 +1522,11 @@ display.trade_condition = function(value)
 end
 
 -- Dissect: Trade Condition
-dissect.trade_condition = function(buffer, offset, packet, parent)
-  local length = size_of.trade_condition
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_condition(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_condition, range, value, display)
 
@@ -1534,19 +1534,19 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Long Quantity
-size_of.long_quantity = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity = 4
 
 -- Display: Long Quantity
-display.long_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.long_quantity = function(value)
   return "Long Quantity: "..value
 end
 
 -- Dissect: Long Quantity
-dissect.long_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.long_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.long_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.long_quantity, range, value, display)
 
@@ -1554,19 +1554,19 @@ dissect.long_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.order_id, range, value, display)
 
@@ -1574,82 +1574,82 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Expanded Message
-size_of.trade_expanded_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_expanded_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
 
-  index = index + size_of.expanded_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
 
   return index
 end
 
 -- Display: Trade Expanded Message
-display.trade_expanded_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.trade_expanded_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Expanded Message
-dissect.trade_expanded_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_expanded_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
-  index, expanded_symbol = dissect.expanded_symbol(buffer, index, packet, parent)
+  index, expanded_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Expanded Message
-dissect.trade_expanded_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_expanded_message then
-    local length = size_of.trade_expanded_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_expanded_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_expanded_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.trade_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_expanded_message, range, display)
   end
 
-  return dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_expanded_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Short Price
-size_of.short_price = 2
+cboe_options_depthofbook_pitch_v2_39_4_size_of.short_price = 2
 
 -- Display: Short Price
-display.short_price = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.short_price = function(value)
   return "Short Price: "..value
 end
 
@@ -1659,12 +1659,12 @@ translate.short_price = function(raw)
 end
 
 -- Dissect: Short Price
-dissect.short_price = function(buffer, offset, packet, parent)
-  local length = size_of.short_price
+cboe_options_depthofbook_pitch_v2_39_4_dissect.short_price = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.short_price
   local range = buffer(offset, length)
   local raw = range:le_uint()
   local value = translate.short_price(raw)
-  local display = display.short_price(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.short_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.short_price, range, value, display)
 
@@ -1672,19 +1672,19 @@ dissect.short_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Quantity
-size_of.short_quantity = 2
+cboe_options_depthofbook_pitch_v2_39_4_size_of.short_quantity = 2
 
 -- Display: Short Quantity
-display.short_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.short_quantity = function(value)
   return "Short Quantity: "..value
 end
 
 -- Dissect: Short Quantity
-dissect.short_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.short_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.short_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.short_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.short_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.short_quantity, range, value, display)
 
@@ -1692,196 +1692,196 @@ dissect.short_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Short Message
-size_of.trade_short_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.short_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
 
-  index = index + size_of.short_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_price
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
 
   return index
 end
 
 -- Display: Trade Short Message
-display.trade_short_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.trade_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Short Message
-dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Short Message
-dissect.trade_short_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_short_message then
-    local length = size_of.trade_short_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_short_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.trade_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_short_message, range, display)
   end
 
-  return dissect.trade_short_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Long Message
-size_of.trade_long_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
 
   return index
 end
 
 -- Display: Trade Long Message
-display.trade_long_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.trade_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Long Message
-dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Long Message
-dissect.trade_long_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_long_message then
-    local length = size_of.trade_long_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_long_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.trade_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.trade_long_message, range, display)
   end
 
-  return dissect.trade_long_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Delete Order Message
-size_of.delete_order_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.delete_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
   return index
 end
 
 -- Display: Delete Order Message
-display.delete_order_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.delete_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Delete Order Message
-dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Delete Order Message
-dissect.delete_order_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.delete_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local length = size_of.delete_order_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.delete_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.delete_order_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.delete_order_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.delete_order_message, range, display)
   end
 
-  return dissect.delete_order_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Modify Flags
-size_of.modify_flags = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_flags = 1
 
 -- Display: Modify Flags
-display.modify_flags = function(buffer, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.modify_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Maintain Priority flag set?
@@ -1897,7 +1897,7 @@ display.modify_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Modify Flags
-dissect.modify_flags_bits = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 6: 6 Bit
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reserved_6, buffer(offset, 1))
@@ -1910,147 +1910,147 @@ dissect.modify_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Modify Flags
-dissect.modify_flags = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.modify_flags(range, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.modify_flags(range, packet, parent)
   local element = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.modify_flags, range, display)
 
   if show.modify_flags then
-    dissect.modify_flags_bits(buffer, offset, packet, element)
+    cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Calculate size of: Modify Order Short Message
-size_of.modify_order_short_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.short_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_quantity
 
-  index = index + size_of.short_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_price
 
-  index = index + size_of.modify_flags
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_flags
 
   return index
 end
 
 -- Display: Modify Order Short Message
-display.modify_order_short_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.modify_order_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Short Message
-dissect.modify_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_price(buffer, index, packet, parent)
 
   -- Modify Flags: Struct of 3 fields
-  index, modify_flags = dissect.modify_flags(buffer, index, packet, parent)
+  index, modify_flags = cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Short Message
-dissect.modify_order_short_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_short_message then
-    local length = size_of.modify_order_short_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_order_short_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.modify_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.modify_order_short_message, range, display)
   end
 
-  return dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Order Long Message
-size_of.modify_order_long_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.modify_flags
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_flags
 
   return index
 end
 
 -- Display: Modify Order Long Message
-display.modify_order_long_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.modify_order_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Long Message
-dissect.modify_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Modify Flags: Struct of 3 fields
-  index, modify_flags = dissect.modify_flags(buffer, index, packet, parent)
+  index, modify_flags = cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Long Message
-dissect.modify_order_long_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_long_message then
-    local length = size_of.modify_order_long_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_order_long_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.modify_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.modify_order_long_message, range, display)
   end
 
-  return dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Canceled Short Quantity
-size_of.canceled_short_quantity = 2
+cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_short_quantity = 2
 
 -- Display: Canceled Short Quantity
-display.canceled_short_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.canceled_short_quantity = function(value)
   return "Canceled Short Quantity: "..value
 end
 
 -- Dissect: Canceled Short Quantity
-dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.canceled_short_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_short_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.canceled_short_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.canceled_short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.canceled_short_quantity, range, value, display)
 
@@ -2058,66 +2058,66 @@ dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reduce Size Short Message
-size_of.reduce_size_short_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.canceled_short_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_short_quantity
 
   return index
 end
 
 -- Display: Reduce Size Short Message
-display.reduce_size_short_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.reduce_size_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Short Message
-dissect.reduce_size_short_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, canceled_short_quantity = dissect.canceled_short_quantity(buffer, index, packet, parent)
+  index, canceled_short_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.canceled_short_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Short Message
-dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_short_message then
-    local length = size_of.reduce_size_short_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reduce_size_short_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.reduce_size_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reduce_size_short_message, range, display)
   end
 
-  return dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Canceled Long Quantity
-size_of.canceled_long_quantity = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_long_quantity = 4
 
 -- Display: Canceled Long Quantity
-display.canceled_long_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.canceled_long_quantity = function(value)
   return "Canceled Long Quantity: "..value
 end
 
 -- Dissect: Canceled Long Quantity
-dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.canceled_long_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_long_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.canceled_long_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.canceled_long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.canceled_long_quantity, range, value, display)
 
@@ -2125,66 +2125,66 @@ dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reduce Size Long Message
-size_of.reduce_size_long_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.canceled_long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.canceled_long_quantity
 
   return index
 end
 
 -- Display: Reduce Size Long Message
-display.reduce_size_long_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.reduce_size_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Long Message
-dissect.reduce_size_long_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, canceled_long_quantity = dissect.canceled_long_quantity(buffer, index, packet, parent)
+  index, canceled_long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.canceled_long_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Long Message
-dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_long_message then
-    local length = size_of.reduce_size_long_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reduce_size_long_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.reduce_size_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reduce_size_long_message, range, display)
   end
 
-  return dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Remaining Quantity
-size_of.remaining_quantity = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.remaining_quantity = 4
 
 -- Display: Remaining Quantity
-display.remaining_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.remaining_quantity = function(value)
   return "Remaining Quantity: "..value
 end
 
 -- Dissect: Remaining Quantity
-dissect.remaining_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.remaining_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.remaining_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.remaining_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.remaining_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.remaining_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.remaining_quantity, range, value, display)
 
@@ -2192,19 +2192,19 @@ dissect.remaining_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Executed Quantity
-size_of.executed_quantity = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.executed_quantity = 4
 
 -- Display: Executed Quantity
-display.executed_quantity = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.executed_quantity = function(value)
   return "Executed Quantity: "..value
 end
 
 -- Dissect: Executed Quantity
-dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.executed_quantity
+cboe_options_depthofbook_pitch_v2_39_4_dissect.executed_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.executed_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.executed_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.executed_quantity, range, value, display)
 
@@ -2212,134 +2212,134 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed At Price Size Message
-size_of.order_executed_at_price_size_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_at_price_size_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.executed_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.executed_quantity
 
-  index = index + size_of.remaining_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.remaining_quantity
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.trade_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
 
   return index
 end
 
 -- Display: Order Executed At Price Size Message
-display.order_executed_at_price_size_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.order_executed_at_price_size_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed At Price Size Message
-dissect.order_executed_at_price_size_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_at_price_size_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Remaining Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, remaining_quantity = dissect.remaining_quantity(buffer, index, packet, parent)
+  index, remaining_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.remaining_quantity(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed At Price Size Message
-dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_at_price_size_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_at_price_size_message then
-    local length = size_of.order_executed_at_price_size_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_at_price_size_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_at_price_size_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.order_executed_at_price_size_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.order_executed_at_price_size_message, range, display)
   end
 
-  return dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_at_price_size_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed Message
-size_of.order_executed_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.executed_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.executed_quantity
 
-  index = index + size_of.execution_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_condition
 
   return index
 end
 
 -- Display: Order Executed Message
-display.order_executed_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.order_executed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 2 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-dissect.order_executed_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = size_of.order_executed_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.order_executed_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.order_executed_message, range, display)
   end
 
-  return dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Add Flags
-size_of.add_flags = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.add_flags = 1
 
 -- Display: Add Flags
-display.add_flags = function(buffer, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.add_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Display flag set?
@@ -2351,7 +2351,7 @@ display.add_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Add Flags
-dissect.add_flags_bits = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 7: 7 Bit
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.reserved_7, buffer(offset, 1))
@@ -2361,281 +2361,281 @@ dissect.add_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Add Flags
-dissect.add_flags = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.add_flags(range, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.add_flags(range, packet, parent)
   local element = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_flags, range, display)
 
   if show.add_flags then
-    dissect.add_flags_bits(buffer, offset, packet, element)
+    cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Calculate size of: Add Order Expanded Message
-size_of.add_order_expanded_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_expanded_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
 
-  index = index + size_of.expanded_symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.expanded_symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.add_flags
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.add_flags
 
-  index = index + size_of.participant_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.participant_id
 
-  index = index + size_of.customer_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.customer_indicator
 
   return index
 end
 
 -- Display: Add Order Expanded Message
-display.add_order_expanded_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.add_order_expanded_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Expanded Message
-dissect.add_order_expanded_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_expanded_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Expanded Symbol: 8 Byte Ascii String
-  index, expanded_symbol = dissect.expanded_symbol(buffer, index, packet, parent)
+  index, expanded_symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.expanded_symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Add Flags: Struct of 2 fields
-  index, add_flags = dissect.add_flags(buffer, index, packet, parent)
+  index, add_flags = cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags(buffer, index, packet, parent)
 
   -- Participant Id: 4 Byte Ascii String
-  index, participant_id = dissect.participant_id(buffer, index, packet, parent)
+  index, participant_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.participant_id(buffer, index, packet, parent)
 
   -- Customer Indicator: 1 Byte Ascii String Enum with 2 values
-  index, customer_indicator = dissect.customer_indicator(buffer, index, packet, parent)
+  index, customer_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.customer_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Expanded Message
-dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_expanded_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_expanded_message then
-    local length = size_of.add_order_expanded_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_expanded_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_expanded_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.add_order_expanded_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_expanded_message, range, display)
   end
 
-  return dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_expanded_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Order Short Message
-size_of.add_order_short_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.short_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
 
-  index = index + size_of.short_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.short_price
 
-  index = index + size_of.add_flags
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.add_flags
 
   return index
 end
 
 -- Display: Add Order Short Message
-display.add_order_short_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.add_order_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Short Message
-dissect.add_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.short_price(buffer, index, packet, parent)
 
   -- Add Flags: Struct of 2 fields
-  index, add_flags = dissect.add_flags(buffer, index, packet, parent)
+  index, add_flags = cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Short Message
-dissect.add_order_short_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_short_message then
-    local length = size_of.add_order_short_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_short_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.add_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_short_message, range, display)
   end
 
-  return dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Order Long Message
-size_of.add_order_long_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.long_price
 
-  index = index + size_of.add_flags
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.add_flags
 
   return index
 end
 
 -- Display: Add Order Long Message
-display.add_order_long_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.add_order_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Long Message
-dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_options_depthofbook_pitch_v2_39_4_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_options_depthofbook_pitch_v2_39_4_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_options_depthofbook_pitch_v2_39_4_dissect.long_price(buffer, index, packet, parent)
 
   -- Add Flags: Struct of 2 fields
-  index, add_flags = dissect.add_flags(buffer, index, packet, parent)
+  index, add_flags = cboe_options_depthofbook_pitch_v2_39_4_dissect.add_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Long Message
-dissect.add_order_long_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_long_message then
-    local length = size_of.add_order_long_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_long_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.add_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.add_order_long_message, range, display)
   end
 
-  return dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Clear Message
-size_of.unit_clear_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.unit_clear_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time_offset
 
   return index
 end
 
 -- Display: Unit Clear Message
-display.unit_clear_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.unit_clear_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Clear Message
-dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_options_depthofbook_pitch_v2_39_4_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Clear Message
-dissect.unit_clear_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_clear_message then
-    local length = size_of.unit_clear_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.unit_clear_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_clear_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.unit_clear_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.unit_clear_message, range, display)
   end
 
-  return dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Time
-size_of.time = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.time = 4
 
 -- Display: Time
-display.time = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.time = function(value)
   return "Time: "..value
 end
 
 -- Dissect: Time
-dissect.time = function(buffer, offset, packet, parent)
-  local length = size_of.time
+cboe_options_depthofbook_pitch_v2_39_4_dissect.time = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.time
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.time(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.time, range, value, display)
 
@@ -2643,284 +2643,284 @@ dissect.time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Time Message
-size_of.time_message = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.time_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.time
 
   return index
 end
 
 -- Display: Time Message
-display.time_message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Time Message
-dissect.time_message_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = dissect.time(buffer, index, packet, parent)
+  index, time = cboe_options_depthofbook_pitch_v2_39_4_dissect.time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Message
-dissect.time_message = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_message then
-    local length = size_of.time_message(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.time_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.time_message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.time_message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.time_message, range, display)
   end
 
-  return dissect.time_message_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == 0x20 then
-    return size_of.time_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.time_message(buffer, offset)
   end
   -- Size of Unit Clear Message
   if message_type == 0x97 then
-    return size_of.unit_clear_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.unit_clear_message(buffer, offset)
   end
   -- Size of Add Order Long Message
   if message_type == 0x21 then
-    return size_of.add_order_long_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_long_message(buffer, offset)
   end
   -- Size of Add Order Short Message
   if message_type == 0x22 then
-    return size_of.add_order_short_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_short_message(buffer, offset)
   end
   -- Size of Add Order Expanded Message
   if message_type == 0x2F then
-    return size_of.add_order_expanded_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.add_order_expanded_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == 0x23 then
-    return size_of.order_executed_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_message(buffer, offset)
   end
   -- Size of Order Executed At Price Size Message
   if message_type == 0x24 then
-    return size_of.order_executed_at_price_size_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.order_executed_at_price_size_message(buffer, offset)
   end
   -- Size of Reduce Size Long Message
   if message_type == 0x25 then
-    return size_of.reduce_size_long_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_long_message(buffer, offset)
   end
   -- Size of Reduce Size Short Message
   if message_type == 0x26 then
-    return size_of.reduce_size_short_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.reduce_size_short_message(buffer, offset)
   end
   -- Size of Modify Order Long Message
   if message_type == 0x27 then
-    return size_of.modify_order_long_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_long_message(buffer, offset)
   end
   -- Size of Modify Order Short Message
   if message_type == 0x28 then
-    return size_of.modify_order_short_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.modify_order_short_message(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == 0x29 then
-    return size_of.delete_order_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.delete_order_message(buffer, offset)
   end
   -- Size of Trade Long Message
   if message_type == 0x2A then
-    return size_of.trade_long_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_long_message(buffer, offset)
   end
   -- Size of Trade Short Message
   if message_type == 0x2B then
-    return size_of.trade_short_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_short_message(buffer, offset)
   end
   -- Size of Trade Expanded Message
   if message_type == 0x30 then
-    return size_of.trade_expanded_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_expanded_message(buffer, offset)
   end
   -- Size of Trade Break Message
   if message_type == 0x2C then
-    return size_of.trade_break_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.trade_break_message(buffer, offset)
   end
   -- Size of End Of Session Message
   if message_type == 0x2D then
-    return size_of.end_of_session_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.end_of_session_message(buffer, offset)
   end
   -- Size of Symbol Mapping Message
   if message_type == 0x2E then
-    return size_of.symbol_mapping_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.symbol_mapping_message(buffer, offset)
   end
   -- Size of Trading Status Message
   if message_type == 0x31 then
-    return size_of.trading_status_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.trading_status_message(buffer, offset)
   end
   -- Size of Auction Update Message
   if message_type == 0x95 then
-    return size_of.auction_update_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_update_message(buffer, offset)
   end
   -- Size of Auction Summary Message
   if message_type == 0x96 then
-    return size_of.auction_summary_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_summary_message(buffer, offset)
   end
   -- Size of Auction Notification Message
   if message_type == 0xAD then
-    return size_of.auction_notification_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_notification_message(buffer, offset)
   end
   -- Size of Auction Cancel Message
   if message_type == 0xAE then
-    return size_of.auction_cancel_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_cancel_message(buffer, offset)
   end
   -- Size of Auction Trade Message
   if message_type == 0xAF then
-    return size_of.auction_trade_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.auction_trade_message(buffer, offset)
   end
   -- Size of Retail Price Improvement Message
   if message_type == 0x98 then
-    return size_of.retail_price_improvement_message(buffer, offset)
+    return cboe_options_depthofbook_pitch_v2_39_4_size_of.retail_price_improvement_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x20 then
-    return dissect.time_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
   if message_type == 0x97 then
-    return dissect.unit_clear_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.unit_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Long Message
   if message_type == 0x21 then
-    return dissect.add_order_long_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Short Message
   if message_type == 0x22 then
-    return dissect.add_order_short_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Expanded Message
   if message_type == 0x2F then
-    return dissect.add_order_expanded_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.add_order_expanded_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == 0x23 then
-    return dissect.order_executed_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed At Price Size Message
   if message_type == 0x24 then
-    return dissect.order_executed_at_price_size_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.order_executed_at_price_size_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Long Message
   if message_type == 0x25 then
-    return dissect.reduce_size_long_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Short Message
   if message_type == 0x26 then
-    return dissect.reduce_size_short_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.reduce_size_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Long Message
   if message_type == 0x27 then
-    return dissect.modify_order_long_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Message
   if message_type == 0x28 then
-    return dissect.modify_order_short_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.modify_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
   if message_type == 0x29 then
-    return dissect.delete_order_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Long Message
   if message_type == 0x2A then
-    return dissect.trade_long_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Short Message
   if message_type == 0x2B then
-    return dissect.trade_short_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Expanded Message
   if message_type == 0x30 then
-    return dissect.trade_expanded_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_expanded_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
   if message_type == 0x2C then
-    return dissect.trade_break_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.trade_break_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Message
   if message_type == 0x2D then
-    return dissect.end_of_session_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.end_of_session_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Mapping Message
   if message_type == 0x2E then
-    return dissect.symbol_mapping_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.symbol_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
-    return dissect.trading_status_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.trading_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Update Message
   if message_type == 0x95 then
-    return dissect.auction_update_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Summary Message
   if message_type == 0x96 then
-    return dissect.auction_summary_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Notification Message
   if message_type == 0xAD then
-    return dissect.auction_notification_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Cancel Message
   if message_type == 0xAE then
-    return dissect.auction_cancel_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Trade Message
   if message_type == 0xAF then
-    return dissect.auction_trade_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.auction_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Retail Price Improvement Message
   if message_type == 0x98 then
-    return dissect.retail_price_improvement_message(buffer, offset, packet, parent)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.retail_price_improvement_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return cboe_options_depthofbook_pitch_v2_39_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = cboe_options_depthofbook_pitch_v2_39_4_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.payload(buffer, packet, parent)
   local element = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.message_type = function(value)
   if value == 0x20 then
     return "Message Type: Time Message (0x20)"
   end
@@ -3001,11 +3001,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.message_type, range, value, display)
 
@@ -3013,19 +3013,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.message_length = 1
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.message_length, range, value, display)
 
@@ -3033,96 +3033,96 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_options_depthofbook_pitch_v2_39_4_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 25 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_options_depthofbook_pitch_v2_39_4_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_options_depthofbook_pitch_v2_39_4_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
   -- Payload: Runtime Type with 25 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = cboe_options_depthofbook_pitch_v2_39_4_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.message(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  cboe_options_depthofbook_pitch_v2_39_4_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Sequence
-size_of.sequence = 4
+cboe_options_depthofbook_pitch_v2_39_4_size_of.sequence = 4
 
 -- Display: Sequence
-display.sequence = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+cboe_options_depthofbook_pitch_v2_39_4_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.sequence
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.sequence, range, value, display)
 
@@ -3130,19 +3130,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit
-size_of.unit = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.unit = 1
 
 -- Display: Unit
-display.unit = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.unit = function(value)
   return "Unit: "..value
 end
 
 -- Dissect: Unit
-dissect.unit = function(buffer, offset, packet, parent)
-  local length = size_of.unit
+cboe_options_depthofbook_pitch_v2_39_4_dissect.unit = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.unit
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.unit, range, value, display)
 
@@ -3150,19 +3150,19 @@ dissect.unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 1
+cboe_options_depthofbook_pitch_v2_39_4_size_of.count = 1
 
 -- Display: Count
-display.count = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+cboe_options_depthofbook_pitch_v2_39_4_dissect.count = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.count, range, value, display)
 
@@ -3170,19 +3170,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+cboe_options_depthofbook_pitch_v2_39_4_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+cboe_options_depthofbook_pitch_v2_39_4_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+cboe_options_depthofbook_pitch_v2_39_4_dissect.length = function(buffer, offset, packet, parent)
+  local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = cboe_options_depthofbook_pitch_v2_39_4_display.length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.length, range, value, display)
 
@@ -3190,63 +3190,63 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+cboe_options_depthofbook_pitch_v2_39_4_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.length
 
-  index = index + size_of.count
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.count
 
-  index = index + size_of.unit
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.unit
 
-  index = index + size_of.sequence
+  index = index + cboe_options_depthofbook_pitch_v2_39_4_size_of.sequence
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = cboe_options_depthofbook_pitch_v2_39_4_dissect.length(buffer, index, packet, parent)
 
   -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = cboe_options_depthofbook_pitch_v2_39_4_dissect.count(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index, unit = dissect.unit(buffer, index, packet, parent)
+  index, unit = cboe_options_depthofbook_pitch_v2_39_4_dissect.unit(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = cboe_options_depthofbook_pitch_v2_39_4_dissect.sequence(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = cboe_options_depthofbook_pitch_v2_39_4_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = cboe_options_depthofbook_pitch_v2_39_4_display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_options_depthofbook_pitch_v2_39_4.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_options_depthofbook_pitch_v2_39_4_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = cboe_options_depthofbook_pitch_v2_39_4_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -3258,7 +3258,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_length = buffer(index, 1):le_uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = cboe_options_depthofbook_pitch_v2_39_4_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index
@@ -3281,7 +3281,7 @@ function cboe_options_depthofbook_pitch_v2_39_4.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(cboe_options_depthofbook_pitch_v2_39_4, buffer(), cboe_options_depthofbook_pitch_v2_39_4.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_options_depthofbook_pitch_v2_39_4_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

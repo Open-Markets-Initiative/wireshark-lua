@@ -10,9 +10,9 @@ local nyse_options_topfeed_xdp_v1_3_a = Proto("Nyse.Options.TopFeed.Xdp.v1.3.a.L
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local nyse_options_topfeed_xdp_v1_3_a_display = {}
+local nyse_options_topfeed_xdp_v1_3_a_dissect = {}
+local nyse_options_topfeed_xdp_v1_3_a_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -269,19 +269,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Channel Id
-size_of.channel_id = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.channel_id = 1
 
 -- Display: Channel Id
-display.channel_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.channel_id = function(value)
   return "Channel Id: "..value
 end
 
 -- Dissect: Channel Id
-dissect.channel_id = function(buffer, offset, packet, parent)
-  local length = size_of.channel_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.channel_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.channel_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.channel_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.channel_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
@@ -289,19 +289,19 @@ dissect.channel_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Product Id
-size_of.product_id = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.product_id = 1
 
 -- Display: Product Id
-display.product_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.product_id = function(value)
   return "Product Id: "..value
 end
 
 -- Dissect: Product Id
-dissect.product_id = function(buffer, offset, packet, parent)
-  local length = size_of.product_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.product_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.product_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.product_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.product_id, range, value, display)
 
@@ -309,19 +309,19 @@ dissect.product_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Time Ns
-size_of.source_time_ns = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns = 4
 
 -- Display: Source Time Ns
-display.source_time_ns = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.source_time_ns = function(value)
   return "Source Time Ns: "..value
 end
 
 -- Dissect: Source Time Ns
-dissect.source_time_ns = function(buffer, offset, packet, parent)
-  local length = size_of.source_time_ns
+nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_time_ns(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.source_time_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
@@ -329,19 +329,19 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Time
-size_of.source_time = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.source_time = 4
 
 -- Display: Source Time
-display.source_time = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.source_time = function(value)
   return "Source Time: "..value
 end
 
 -- Dissect: Source Time
-dissect.source_time = function(buffer, offset, packet, parent)
-  local length = size_of.source_time
+nyse_options_topfeed_xdp_v1_3_a_dissect.source_time = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_time(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.source_time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
@@ -349,71 +349,71 @@ dissect.source_time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sequence Number Reset Message
-size_of.sequence_number_reset_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number_reset_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.product_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.product_id
 
-  index = index + size_of.channel_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.channel_id
 
   return index
 end
 
 -- Display: Sequence Number Reset Message
-display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequence Number Reset Message
-dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_options_topfeed_xdp_v1_3_a_dissect.product_id(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_options_topfeed_xdp_v1_3_a_dissect.channel_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequence Number Reset Message
-dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number_reset_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sequence_number_reset_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number_reset_message, range, display)
   end
 
-  return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 2
-size_of.reserved_2 = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2 = 2
 
 -- Display: Reserved 2
-display.reserved_2 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reserved_2 = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_2
+nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
@@ -421,19 +421,19 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stream Id
-size_of.stream_id = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id = 2
 
 -- Display: Stream Id
-display.stream_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.stream_id = function(value)
   return "Stream Id: "..value
 end
 
 -- Dissect: Stream Id
-dissect.stream_id = function(buffer, offset, packet, parent)
-  local length = size_of.stream_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.stream_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.stream_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
@@ -441,61 +441,61 @@ dissect.stream_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stream Id Message
-size_of.stream_id_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.stream_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Stream Id Message
-display.stream_id_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.stream_id_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stream Id Message
-dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stream Id Message
-dissect.stream_id_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stream_id_message then
-    local length = size_of.stream_id_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stream_id_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.stream_id_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
   end
 
-  return dissect.stream_id_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Group Id
-size_of.group_id = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.group_id = 4
 
 -- Display: Group Id
-display.group_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.group_id = function(value)
   return "Group Id: "..value
 end
 
 -- Dissect: Group Id
-dissect.group_id = function(buffer, offset, packet, parent)
-  local length = size_of.group_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.group_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.group_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.group_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.group_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.group_id, range, value, display)
 
@@ -503,19 +503,19 @@ dissect.group_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Symbol Root
-size_of.option_symbol_root = 5
+nyse_options_topfeed_xdp_v1_3_a_size_of.option_symbol_root = 5
 
 -- Display: Option Symbol Root
-display.option_symbol_root = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.option_symbol_root = function(value)
   return "Option Symbol Root: "..value
 end
 
 -- Dissect: Option Symbol Root
-dissect.option_symbol_root = function(buffer, offset, packet, parent)
-  local length = size_of.option_symbol_root
+nyse_options_topfeed_xdp_v1_3_a_dissect.option_symbol_root = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.option_symbol_root
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.option_symbol_root(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.option_symbol_root(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.option_symbol_root, range, value, display)
 
@@ -523,19 +523,19 @@ dissect.option_symbol_root = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Symbol
-size_of.underlying_symbol = 11
+nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_symbol = 11
 
 -- Display: Underlying Symbol
-display.underlying_symbol = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.underlying_symbol = function(value)
   return "Underlying Symbol: "..value
 end
 
 -- Dissect: Underlying Symbol
-dissect.underlying_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_symbol
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_symbol = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.underlying_symbol(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_symbol, range, value, display)
 
@@ -543,19 +543,19 @@ dissect.underlying_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Scale Code
-size_of.price_scale_code = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.price_scale_code = 1
 
 -- Display: Price Scale Code
-display.price_scale_code = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.price_scale_code = function(value)
   return "Price Scale Code: "..value
 end
 
 -- Dissect: Price Scale Code
-dissect.price_scale_code = function(buffer, offset, packet, parent)
-  local length = size_of.price_scale_code
+nyse_options_topfeed_xdp_v1_3_a_dissect.price_scale_code = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.price_scale_code
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_scale_code(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.price_scale_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price_scale_code, range, value, display)
 
@@ -563,19 +563,19 @@ dissect.price_scale_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price
-size_of.strike_price = 10
+nyse_options_topfeed_xdp_v1_3_a_size_of.strike_price = 10
 
 -- Display: Strike Price
-display.strike_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
 -- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.strike_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.strike_price
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.strike_price, range, value, display)
 
@@ -583,10 +583,10 @@ dissect.strike_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Put Or Call
-size_of.put_or_call = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.put_or_call = 1
 
 -- Display: Put Or Call
-display.put_or_call = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.put_or_call = function(value)
   if value == 0 then
     return "Put Or Call: Put (0)"
   end
@@ -598,11 +598,11 @@ display.put_or_call = function(value)
 end
 
 -- Dissect: Put Or Call
-dissect.put_or_call = function(buffer, offset, packet, parent)
-  local length = size_of.put_or_call
+nyse_options_topfeed_xdp_v1_3_a_dissect.put_or_call = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.put_or_call
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.put_or_call(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.put_or_call(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.put_or_call, range, value, display)
 
@@ -610,19 +610,19 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
-size_of.maturity_date = 6
+nyse_options_topfeed_xdp_v1_3_a_size_of.maturity_date = 6
 
 -- Display: Maturity Date
-display.maturity_date = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.maturity_date = function(value)
   return "Maturity Date: "..value
 end
 
 -- Dissect: Maturity Date
-dissect.maturity_date = function(buffer, offset, packet, parent)
-  local length = size_of.maturity_date
+nyse_options_topfeed_xdp_v1_3_a_dissect.maturity_date = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.maturity_date
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.maturity_date(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.maturity_date, range, value, display)
 
@@ -630,19 +630,19 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Multiplier
-size_of.contract_multiplier = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.contract_multiplier = 2
 
 -- Display: Contract Multiplier
-display.contract_multiplier = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.contract_multiplier = function(value)
   return "Contract Multiplier: "..value
 end
 
 -- Dissect: Contract Multiplier
-dissect.contract_multiplier = function(buffer, offset, packet, parent)
-  local length = size_of.contract_multiplier
+nyse_options_topfeed_xdp_v1_3_a_dissect.contract_multiplier = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.contract_multiplier
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contract_multiplier(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.contract_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.contract_multiplier, range, value, display)
 
@@ -650,19 +650,19 @@ dissect.contract_multiplier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Index
-size_of.underlying_index = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index = 4
 
 -- Display: Underlying Index
-display.underlying_index = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.underlying_index = function(value)
   return "Underlying Index: "..value
 end
 
 -- Dissect: Underlying Index
-dissect.underlying_index = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_index
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_index(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.underlying_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index, range, value, display)
 
@@ -670,19 +670,19 @@ dissect.underlying_index = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved B 1
-size_of.reserved_b_1 = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_b_1 = 1
 
 -- Display: Reserved B 1
-display.reserved_b_1 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reserved_b_1 = function(value)
   return "Reserved B 1: "..value
 end
 
 -- Dissect: Reserved B 1
-dissect.reserved_b_1 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_b_1
+nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_b_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_b_1
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_b_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reserved_b_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_b_1, range, value, display)
 
@@ -690,19 +690,19 @@ dissect.reserved_b_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: System Id
-size_of.system_id = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.system_id = 1
 
 -- Display: System Id
-display.system_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.system_id = function(value)
   return "System Id: "..value
 end
 
 -- Dissect: System Id
-dissect.system_id = function(buffer, offset, packet, parent)
-  local length = size_of.system_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.system_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.system_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.system_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.system_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
@@ -710,10 +710,10 @@ dissect.system_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Id
-size_of.market_id = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.market_id = 2
 
 -- Display: Market Id
-display.market_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.market_id = function(value)
   if value == 1 then
     return "Market Id: Nyse Cash (1)"
   end
@@ -746,11 +746,11 @@ display.market_id = function(value)
 end
 
 -- Dissect: Market Id
-dissect.market_id = function(buffer, offset, packet, parent)
-  local length = size_of.market_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.market_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.market_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
@@ -758,19 +758,19 @@ dissect.market_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved A 1
-size_of.reserved_a_1 = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_a_1 = 1
 
 -- Display: Reserved A 1
-display.reserved_a_1 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reserved_a_1 = function(value)
   return "Reserved A 1: "..value
 end
 
 -- Dissect: Reserved A 1
-dissect.reserved_a_1 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_a_1
+nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_a_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_a_1
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_a_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reserved_a_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_a_1, range, value, display)
 
@@ -778,19 +778,19 @@ dissect.reserved_a_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Series Index
-size_of.series_index = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.series_index = 4
 
 -- Display: Series Index
-display.series_index = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.series_index = function(value)
   return "Series Index: "..value
 end
 
 -- Dissect: Series Index
-dissect.series_index = function(buffer, offset, packet, parent)
-  local length = size_of.series_index
+nyse_options_topfeed_xdp_v1_3_a_dissect.series_index = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.series_index(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.series_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.series_index, range, value, display)
 
@@ -798,131 +798,131 @@ dissect.series_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Series Index Mapping Message
-size_of.series_index_mapping_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.series_index_mapping_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.channel_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.channel_id
 
-  index = index + size_of.reserved_a_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_a_1
 
-  index = index + size_of.market_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_id
 
-  index = index + size_of.system_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.system_id
 
-  index = index + size_of.reserved_b_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_b_1
 
-  index = index + size_of.stream_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id
 
-  index = index + size_of.underlying_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index
 
-  index = index + size_of.contract_multiplier
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.contract_multiplier
 
-  index = index + size_of.maturity_date
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.maturity_date
 
-  index = index + size_of.put_or_call
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.put_or_call
 
-  index = index + size_of.strike_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.strike_price
 
-  index = index + size_of.price_scale_code
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price_scale_code
 
-  index = index + size_of.underlying_symbol
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_symbol
 
-  index = index + size_of.option_symbol_root
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.option_symbol_root
 
-  index = index + size_of.group_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.group_id
 
   return index
 end
 
 -- Display: Series Index Mapping Message
-display.series_index_mapping_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.series_index_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Series Index Mapping Message
-dissect.series_index_mapping_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_options_topfeed_xdp_v1_3_a_dissect.channel_id(buffer, index, packet, parent)
 
   -- Reserved A 1: 1 Byte
-  index, reserved_a_1 = dissect.reserved_a_1(buffer, index, packet, parent)
+  index, reserved_a_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_a_1(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, market_id = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = nyse_options_topfeed_xdp_v1_3_a_dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index, system_id = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = nyse_options_topfeed_xdp_v1_3_a_dissect.system_id(buffer, index, packet, parent)
 
   -- Reserved B 1: 1 Byte
-  index, reserved_b_1 = dissect.reserved_b_1(buffer, index, packet, parent)
+  index, reserved_b_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_b_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id(buffer, index, packet, parent)
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index(buffer, index, packet, parent)
 
   -- Contract Multiplier: 2 Byte Unsigned Fixed Width Integer
-  index, contract_multiplier = dissect.contract_multiplier(buffer, index, packet, parent)
+  index, contract_multiplier = nyse_options_topfeed_xdp_v1_3_a_dissect.contract_multiplier(buffer, index, packet, parent)
 
   -- Maturity Date: 6 Byte Ascii String
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = nyse_options_topfeed_xdp_v1_3_a_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
+  index, put_or_call = nyse_options_topfeed_xdp_v1_3_a_dissect.put_or_call(buffer, index, packet, parent)
 
   -- Strike Price: 10 Byte Ascii String
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = nyse_options_topfeed_xdp_v1_3_a_dissect.strike_price(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_options_topfeed_xdp_v1_3_a_dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Underlying Symbol: 11 Byte Ascii String
-  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Option Symbol Root: 5 Byte Ascii String
-  index, option_symbol_root = dissect.option_symbol_root(buffer, index, packet, parent)
+  index, option_symbol_root = nyse_options_topfeed_xdp_v1_3_a_dissect.option_symbol_root(buffer, index, packet, parent)
 
   -- Group Id: 4 Byte Unsigned Fixed Width Integer
-  index, group_id = dissect.group_id(buffer, index, packet, parent)
+  index, group_id = nyse_options_topfeed_xdp_v1_3_a_dissect.group_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Series Index Mapping Message
-dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.series_index_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.series_index_mapping_message then
-    local length = size_of.series_index_mapping_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.series_index_mapping_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.series_index_mapping_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.series_index_mapping_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.series_index_mapping_message, range, display)
   end
 
-  return dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.series_index_mapping_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 1
-size_of.reserved_1 = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1 = 1
 
 -- Display: Reserved 1
-display.reserved_1 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reserved_1 = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_1
+nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
@@ -930,10 +930,10 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Resolution
-size_of.price_resolution = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.price_resolution = 1
 
 -- Display: Price Resolution
-display.price_resolution = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.price_resolution = function(value)
   if value == 0 then
     return "Price Resolution: All Penny (0)"
   end
@@ -948,11 +948,11 @@ display.price_resolution = function(value)
 end
 
 -- Dissect: Price Resolution
-dissect.price_resolution = function(buffer, offset, packet, parent)
-  local length = size_of.price_resolution
+nyse_options_topfeed_xdp_v1_3_a_dissect.price_resolution = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.price_resolution
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_resolution(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.price_resolution(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price_resolution, range, value, display)
 
@@ -960,10 +960,10 @@ dissect.price_resolution = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Type
-size_of.security_type = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.security_type = 1
 
 -- Display: Security Type
-display.security_type = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.security_type = function(value)
   if value == "A" then
     return "Security Type: Adr (A)"
   end
@@ -1017,11 +1017,11 @@ display.security_type = function(value)
 end
 
 -- Dissect: Security Type
-dissect.security_type = function(buffer, offset, packet, parent)
-  local length = size_of.security_type
+nyse_options_topfeed_xdp_v1_3_a_dissect.security_type = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.security_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.security_type, range, value, display)
 
@@ -1029,10 +1029,10 @@ dissect.security_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exchange Code
-size_of.exchange_code = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.exchange_code = 1
 
 -- Display: Exchange Code
-display.exchange_code = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.exchange_code = function(value)
   if value == "N" then
     return "Exchange Code: Nyse (N)"
   end
@@ -1056,11 +1056,11 @@ display.exchange_code = function(value)
 end
 
 -- Dissect: Exchange Code
-dissect.exchange_code = function(buffer, offset, packet, parent)
-  local length = size_of.exchange_code
+nyse_options_topfeed_xdp_v1_3_a_dissect.exchange_code = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.exchange_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.exchange_code(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.exchange_code(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.exchange_code, range, value, display)
 
@@ -1068,101 +1068,101 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Underlying Index Mapping Message
-size_of.underlying_index_mapping_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index_mapping_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.underlying_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index
 
-  index = index + size_of.underlying_symbol
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_symbol
 
-  index = index + size_of.channel_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.channel_id
 
-  index = index + size_of.market_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_id
 
-  index = index + size_of.system_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.system_id
 
-  index = index + size_of.exchange_code
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.exchange_code
 
-  index = index + size_of.price_scale_code
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price_scale_code
 
-  index = index + size_of.security_type
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.security_type
 
-  index = index + size_of.price_resolution
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price_resolution
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1
 
   return index
 end
 
 -- Display: Underlying Index Mapping Message
-display.underlying_index_mapping_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.underlying_index_mapping_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Underlying Index Mapping Message
-dissect.underlying_index_mapping_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index(buffer, index, packet, parent)
 
   -- Underlying Symbol: 11 Byte Ascii String
-  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_options_topfeed_xdp_v1_3_a_dissect.channel_id(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, market_id = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = nyse_options_topfeed_xdp_v1_3_a_dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index, system_id = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = nyse_options_topfeed_xdp_v1_3_a_dissect.system_id(buffer, index, packet, parent)
 
   -- Exchange Code: 1 Byte Ascii String Enum with 6 values
-  index, exchange_code = dissect.exchange_code(buffer, index, packet, parent)
+  index, exchange_code = nyse_options_topfeed_xdp_v1_3_a_dissect.exchange_code(buffer, index, packet, parent)
 
   -- Price Scale Code: 1 Byte Unsigned Fixed Width Integer
-  index, price_scale_code = dissect.price_scale_code(buffer, index, packet, parent)
+  index, price_scale_code = nyse_options_topfeed_xdp_v1_3_a_dissect.price_scale_code(buffer, index, packet, parent)
 
   -- Security Type: 1 Byte Ascii String Enum with 16 values
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = nyse_options_topfeed_xdp_v1_3_a_dissect.security_type(buffer, index, packet, parent)
 
   -- Price Resolution: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, price_resolution = dissect.price_resolution(buffer, index, packet, parent)
+  index, price_resolution = nyse_options_topfeed_xdp_v1_3_a_dissect.price_resolution(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Underlying Index Mapping Message
-dissect.underlying_index_mapping_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_index_mapping_message then
-    local length = size_of.underlying_index_mapping_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index_mapping_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_index_mapping_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.underlying_index_mapping_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_index_mapping_message, range, display)
   end
 
-  return dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 3
-size_of.reserved_3 = 3
+nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_3 = 3
 
 -- Display: Reserved 3
-display.reserved_3 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reserved_3 = function(value)
   return "Reserved 3: "..value
 end
 
 -- Dissect: Reserved 3
-dissect.reserved_3 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_3
+nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_3 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_3
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_3(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reserved_3(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reserved_3, range, value, display)
 
@@ -1170,10 +1170,10 @@ dissect.reserved_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Imbalance Side
-size_of.market_imbalance_side = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_side = 1
 
 -- Display: Market Imbalance Side
-display.market_imbalance_side = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.market_imbalance_side = function(value)
   if value == "B" then
     return "Market Imbalance Side: Buy (B)"
   end
@@ -1188,11 +1188,11 @@ display.market_imbalance_side = function(value)
 end
 
 -- Dissect: Market Imbalance Side
-dissect.market_imbalance_side = function(buffer, offset, packet, parent)
-  local length = size_of.market_imbalance_side
+nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_side = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_imbalance_side(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.market_imbalance_side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_side, range, value, display)
 
@@ -1200,10 +1200,10 @@ dissect.market_imbalance_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Side
-size_of.imbalance_side = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.imbalance_side = 1
 
 -- Display: Imbalance Side
-display.imbalance_side = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.imbalance_side = function(value)
   if value == "B" then
     return "Imbalance Side: Buy (B)"
   end
@@ -1218,11 +1218,11 @@ display.imbalance_side = function(value)
 end
 
 -- Dissect: Imbalance Side
-dissect.imbalance_side = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_side
+nyse_options_topfeed_xdp_v1_3_a_dissect.imbalance_side = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.imbalance_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.imbalance_side(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.imbalance_side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.imbalance_side, range, value, display)
 
@@ -1230,10 +1230,10 @@ dissect.imbalance_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Type
-size_of.auction_type = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.auction_type = 1
 
 -- Display: Auction Type
-display.auction_type = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.auction_type = function(value)
   if value == "O" then
     return "Auction Type: Opening (O)"
   end
@@ -1245,11 +1245,11 @@ display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = size_of.auction_type
+nyse_options_topfeed_xdp_v1_3_a_dissect.auction_type = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.auction_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.auction_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.auction_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.auction_type, range, value, display)
 
@@ -1257,19 +1257,19 @@ dissect.auction_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Imbalance Qty
-size_of.market_imbalance_qty = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_qty = 2
 
 -- Display: Market Imbalance Qty
-display.market_imbalance_qty = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.market_imbalance_qty = function(value)
   return "Market Imbalance Qty: "..value
 end
 
 -- Dissect: Market Imbalance Qty
-dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
-  local length = size_of.market_imbalance_qty
+nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_imbalance_qty(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.market_imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.market_imbalance_qty, range, value, display)
 
@@ -1277,19 +1277,19 @@ dissect.market_imbalance_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Total Imbalance Qty
-size_of.total_imbalance_qty = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.total_imbalance_qty = 2
 
 -- Display: Total Imbalance Qty
-display.total_imbalance_qty = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.total_imbalance_qty = function(value)
   return "Total Imbalance Qty: "..value
 end
 
 -- Dissect: Total Imbalance Qty
-dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
-  local length = size_of.total_imbalance_qty
+nyse_options_topfeed_xdp_v1_3_a_dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.total_imbalance_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.total_imbalance_qty(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.total_imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.total_imbalance_qty, range, value, display)
 
@@ -1297,19 +1297,19 @@ dissect.total_imbalance_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Paired Qty
-size_of.paired_qty = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.paired_qty = 2
 
 -- Display: Paired Qty
-display.paired_qty = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.paired_qty = function(value)
   return "Paired Qty: "..value
 end
 
 -- Dissect: Paired Qty
-dissect.paired_qty = function(buffer, offset, packet, parent)
-  local length = size_of.paired_qty
+nyse_options_topfeed_xdp_v1_3_a_dissect.paired_qty = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.paired_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.paired_qty(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.paired_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.paired_qty, range, value, display)
 
@@ -1317,19 +1317,19 @@ dissect.paired_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reference Price
-size_of.reference_price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.reference_price = 4
 
 -- Display: Reference Price
-display.reference_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.reference_price = function(value)
   return "Reference Price: "..value
 end
 
 -- Dissect: Reference Price
-dissect.reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.reference_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.reference_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.reference_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.reference_price, range, value, display)
 
@@ -1337,19 +1337,19 @@ dissect.reference_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Seq Num
-size_of.symbol_seq_num = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num = 4
 
 -- Display: Symbol Seq Num
-display.symbol_seq_num = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.symbol_seq_num = function(value)
   return "Symbol Seq Num: "..value
 end
 
 -- Dissect: Symbol Seq Num
-dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_seq_num
+nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
@@ -1357,102 +1357,102 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Refresh Outright Imbalance Message
-size_of.refresh_outright_imbalance_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_imbalance_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.reference_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reference_price
 
-  index = index + size_of.paired_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.paired_qty
 
-  index = index + size_of.total_imbalance_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.total_imbalance_qty
 
-  index = index + size_of.market_imbalance_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_qty
 
-  index = index + size_of.auction_type
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.auction_type
 
-  index = index + size_of.imbalance_side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.imbalance_side
 
-  index = index + size_of.market_imbalance_side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_side
 
-  index = index + size_of.reserved_3
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_3
 
   return index
 end
 
 -- Display: Refresh Outright Imbalance Message
-display.refresh_outright_imbalance_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_imbalance_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Refresh Outright Imbalance Message
-dissect.refresh_outright_imbalance_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_imbalance_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Reference Price: 4 Byte Signed Fixed Width Integer
-  index, reference_price = dissect.reference_price(buffer, index, packet, parent)
+  index, reference_price = nyse_options_topfeed_xdp_v1_3_a_dissect.reference_price(buffer, index, packet, parent)
 
   -- Paired Qty: 2 Byte Unsigned Fixed Width Integer
-  index, paired_qty = dissect.paired_qty(buffer, index, packet, parent)
+  index, paired_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.paired_qty(buffer, index, packet, parent)
 
   -- Total Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
-  index, total_imbalance_qty = dissect.total_imbalance_qty(buffer, index, packet, parent)
+  index, total_imbalance_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.total_imbalance_qty(buffer, index, packet, parent)
 
   -- Market Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
-  index, market_imbalance_qty = dissect.market_imbalance_qty(buffer, index, packet, parent)
+  index, market_imbalance_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_qty(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 2 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = nyse_options_topfeed_xdp_v1_3_a_dissect.auction_type(buffer, index, packet, parent)
 
   -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, imbalance_side = dissect.imbalance_side(buffer, index, packet, parent)
+  index, imbalance_side = nyse_options_topfeed_xdp_v1_3_a_dissect.imbalance_side(buffer, index, packet, parent)
 
   -- Market Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, market_imbalance_side = dissect.market_imbalance_side(buffer, index, packet, parent)
+  index, market_imbalance_side = nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_side(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte
-  index, reserved_3 = dissect.reserved_3(buffer, index, packet, parent)
+  index, reserved_3 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_3(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Outright Imbalance Message
-dissect.refresh_outright_imbalance_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_imbalance_message then
-    local length = size_of.refresh_outright_imbalance_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_imbalance_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.refresh_outright_imbalance_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_imbalance_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_imbalance_message, range, display)
   end
 
-  return dissect.refresh_outright_imbalance_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_imbalance_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Cond 2
-size_of.trade_cond_2 = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_2 = 1
 
 -- Display: Trade Cond 2
-display.trade_cond_2 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.trade_cond_2 = function(value)
   if value == "P" then
     return "Trade Cond 2: Complex Trade With Equity (P)"
   end
@@ -1464,11 +1464,11 @@ display.trade_cond_2 = function(value)
 end
 
 -- Dissect: Trade Cond 2
-dissect.trade_cond_2 = function(buffer, offset, packet, parent)
-  local length = size_of.trade_cond_2
+nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_cond_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.trade_cond_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
@@ -1476,10 +1476,10 @@ dissect.trade_cond_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Cond 1
-size_of.trade_cond_1 = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_1 = 1
 
 -- Display: Trade Cond 1
-display.trade_cond_1 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.trade_cond_1 = function(value)
   if value == " " then
     return "Trade Cond 1: Regular Trade (<whitespace>)"
   end
@@ -1497,11 +1497,11 @@ display.trade_cond_1 = function(value)
 end
 
 -- Dissect: Trade Cond 1
-dissect.trade_cond_1 = function(buffer, offset, packet, parent)
-  local length = size_of.trade_cond_1
+nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_cond_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.trade_cond_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
@@ -1509,19 +1509,19 @@ dissect.trade_cond_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Volume 4
-size_of.volume_4 = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.volume_4 = 4
 
 -- Display: Volume 4
-display.volume_4 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.volume_4 = function(value)
   return "Volume 4: "..value
 end
 
 -- Dissect: Volume 4
-dissect.volume_4 = function(buffer, offset, packet, parent)
-  local length = size_of.volume_4
+nyse_options_topfeed_xdp_v1_3_a_dissect.volume_4 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.volume_4
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.volume_4(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.volume_4(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
@@ -1529,19 +1529,19 @@ dissect.volume_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.price = 4
 
 -- Display: Price
-display.price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+nyse_options_topfeed_xdp_v1_3_a_dissect.price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.price, range, value, display)
 
@@ -1549,19 +1549,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Id
-size_of.trade_id = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.trade_id = 4
 
 -- Display: Trade Id
-display.trade_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.trade_id = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.trade_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.trade_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
 
@@ -1569,92 +1569,92 @@ dissect.trade_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Refresh Outright Trade Message
-size_of.refresh_outright_trade_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.trade_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_id
 
-  index = index + size_of.price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.volume_4
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.volume_4
 
-  index = index + size_of.trade_cond_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_1
 
-  index = index + size_of.trade_cond_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_2
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Refresh Outright Trade Message
-display.refresh_outright_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Refresh Outright Trade Message
-dissect.refresh_outright_trade_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_topfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = nyse_options_topfeed_xdp_v1_3_a_dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Outright Trade Message
-dissect.refresh_outright_trade_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_trade_message then
-    local length = size_of.refresh_outright_trade_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.refresh_outright_trade_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_trade_message, range, display)
   end
 
-  return dissect.refresh_outright_trade_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Condition
-size_of.quote_condition = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.quote_condition = 1
 
 -- Display: Quote Condition
-display.quote_condition = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.quote_condition = function(value)
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -1675,11 +1675,11 @@ display.quote_condition = function(value)
 end
 
 -- Dissect: Quote Condition
-dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.quote_condition
+nyse_options_topfeed_xdp_v1_3_a_dissect.quote_condition = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_condition(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
@@ -1687,19 +1687,19 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Customer Volume
-size_of.bid_customer_volume = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.bid_customer_volume = 2
 
 -- Display: Bid Customer Volume
-display.bid_customer_volume = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.bid_customer_volume = function(value)
   return "Bid Customer Volume: "..value
 end
 
 -- Dissect: Bid Customer Volume
-dissect.bid_customer_volume = function(buffer, offset, packet, parent)
-  local length = size_of.bid_customer_volume
+nyse_options_topfeed_xdp_v1_3_a_dissect.bid_customer_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.bid_customer_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.bid_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
@@ -1707,19 +1707,19 @@ dissect.bid_customer_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Customer Volume
-size_of.ask_customer_volume = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.ask_customer_volume = 2
 
 -- Display: Ask Customer Volume
-display.ask_customer_volume = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.ask_customer_volume = function(value)
   return "Ask Customer Volume: "..value
 end
 
 -- Dissect: Ask Customer Volume
-dissect.ask_customer_volume = function(buffer, offset, packet, parent)
-  local length = size_of.ask_customer_volume
+nyse_options_topfeed_xdp_v1_3_a_dissect.ask_customer_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.ask_customer_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ask_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.ask_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
@@ -1727,19 +1727,19 @@ dissect.ask_customer_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Volume
-size_of.bid_volume = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.bid_volume = 2
 
 -- Display: Bid Volume
-display.bid_volume = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.bid_volume = function(value)
   return "Bid Volume: "..value
 end
 
 -- Dissect: Bid Volume
-dissect.bid_volume = function(buffer, offset, packet, parent)
-  local length = size_of.bid_volume
+nyse_options_topfeed_xdp_v1_3_a_dissect.bid_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.bid_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.bid_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
@@ -1747,19 +1747,19 @@ dissect.bid_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Volume
-size_of.ask_volume = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.ask_volume = 2
 
 -- Display: Ask Volume
-display.ask_volume = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.ask_volume = function(value)
   return "Ask Volume: "..value
 end
 
 -- Dissect: Ask Volume
-dissect.ask_volume = function(buffer, offset, packet, parent)
-  local length = size_of.ask_volume
+nyse_options_topfeed_xdp_v1_3_a_dissect.ask_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.ask_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ask_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.ask_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
 
@@ -1767,19 +1767,19 @@ dissect.ask_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price
-size_of.bid_price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.bid_price = 4
 
 -- Display: Bid Price
-display.bid_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
 -- Dissect: Bid Price
-dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.bid_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.bid_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.bid_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
@@ -1787,19 +1787,19 @@ dissect.bid_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Price
-size_of.ask_price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.ask_price = 4
 
 -- Display: Ask Price
-display.ask_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
 -- Dissect: Ask Price
-dissect.ask_price = function(buffer, offset, packet, parent)
-  local length = size_of.ask_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.ask_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.ask_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.ask_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
@@ -1807,116 +1807,116 @@ dissect.ask_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Refresh Outright Quote Message
-size_of.refresh_outright_quote_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_quote_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.ask_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_price
 
-  index = index + size_of.bid_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_price
 
-  index = index + size_of.ask_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_volume
 
-  index = index + size_of.bid_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_volume
 
-  index = index + size_of.ask_customer_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_customer_volume
 
-  index = index + size_of.bid_customer_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_customer_volume
 
-  index = index + size_of.quote_condition
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.quote_condition
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Refresh Outright Quote Message
-display.refresh_outright_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Refresh Outright Quote Message
-dissect.refresh_outright_quote_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_options_topfeed_xdp_v1_3_a_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Outright Quote Message
-dissect.refresh_outright_quote_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_outright_quote_message then
-    local length = size_of.refresh_outright_quote_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_quote_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.refresh_outright_quote_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.refresh_outright_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.refresh_outright_quote_message, range, display)
   end
 
-  return dissect.refresh_outright_quote_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Halt Condition
-size_of.halt_condition = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.halt_condition = 1
 
 -- Display: Halt Condition
-display.halt_condition = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.halt_condition = function(value)
   return "Halt Condition: "..value
 end
 
 -- Dissect: Halt Condition
-dissect.halt_condition = function(buffer, offset, packet, parent)
-  local length = size_of.halt_condition
+nyse_options_topfeed_xdp_v1_3_a_dissect.halt_condition = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.halt_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.halt_condition(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.halt_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
@@ -1924,10 +1924,10 @@ dissect.halt_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Status
-size_of.security_status = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.security_status = 1
 
 -- Display: Security Status
-display.security_status = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.security_status = function(value)
   if value == "L" then
     return "Security Status: Light Up A Dark Series (L)"
   end
@@ -1957,11 +1957,11 @@ display.security_status = function(value)
 end
 
 -- Dissect: Security Status
-dissect.security_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_status
+nyse_options_topfeed_xdp_v1_3_a_dissect.security_status = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.security_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_status(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
@@ -1969,86 +1969,86 @@ dissect.security_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Series Status Message
-size_of.outright_series_status_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_series_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.security_status
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.security_status
 
-  index = index + size_of.halt_condition
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.halt_condition
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Outright Series Status Message
-display.outright_series_status_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_series_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Series Status Message
-dissect.outright_series_status_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = nyse_options_topfeed_xdp_v1_3_a_dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = nyse_options_topfeed_xdp_v1_3_a_dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Series Status Message
-dissect.outright_series_status_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_series_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_series_status_message then
-    local length = size_of.outright_series_status_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_series_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_series_status_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_series_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_series_status_message, range, display)
   end
 
-  return dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_series_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Seq Num
-size_of.underlying_seq_num = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_seq_num = 4
 
 -- Display: Underlying Seq Num
-display.underlying_seq_num = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.underlying_seq_num = function(value)
   return "Underlying Seq Num: "..value
 end
 
 -- Dissect: Underlying Seq Num
-dissect.underlying_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_seq_num
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_seq_num = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.underlying_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_seq_num, range, value, display)
 
@@ -2056,86 +2056,86 @@ dissect.underlying_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Underlying Status Message
-size_of.underlying_status_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.underlying_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index
 
-  index = index + size_of.underlying_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_seq_num
 
-  index = index + size_of.security_status
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.security_status
 
-  index = index + size_of.halt_condition
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.halt_condition
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Underlying Status Message
-display.underlying_status_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.underlying_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Underlying Status Message
-dissect.underlying_status_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Underlying Index: 4 Byte Unsigned Fixed Width Integer
-  index, underlying_index = dissect.underlying_index(buffer, index, packet, parent)
+  index, underlying_index = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index(buffer, index, packet, parent)
 
   -- Underlying Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, underlying_seq_num = dissect.underlying_seq_num(buffer, index, packet, parent)
+  index, underlying_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = nyse_options_topfeed_xdp_v1_3_a_dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = nyse_options_topfeed_xdp_v1_3_a_dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Underlying Status Message
-dissect.underlying_status_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_status_message then
-    local length = size_of.underlying_status_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_status_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.underlying_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.underlying_status_message, range, display)
   end
 
-  return dissect.underlying_status_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Total Volume
-size_of.total_volume = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.total_volume = 4
 
 -- Display: Total Volume
-display.total_volume = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.total_volume = function(value)
   return "Total Volume: "..value
 end
 
 -- Dissect: Total Volume
-dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = size_of.total_volume
+nyse_options_topfeed_xdp_v1_3_a_dissect.total_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.total_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.total_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.total_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.total_volume, range, value, display)
 
@@ -2143,19 +2143,19 @@ dissect.total_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Close
-size_of.close = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.close = 4
 
 -- Display: Close
-display.close = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.close = function(value)
   return "Close: "..value
 end
 
 -- Dissect: Close
-dissect.close = function(buffer, offset, packet, parent)
-  local length = size_of.close
+nyse_options_topfeed_xdp_v1_3_a_dissect.close = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.close
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.close(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.close(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.close, range, value, display)
 
@@ -2163,19 +2163,19 @@ dissect.close = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open
-size_of.open = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.open = 4
 
 -- Display: Open
-display.open = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.open = function(value)
   return "Open: "..value
 end
 
 -- Dissect: Open
-dissect.open = function(buffer, offset, packet, parent)
-  local length = size_of.open
+nyse_options_topfeed_xdp_v1_3_a_dissect.open = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.open
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.open(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.open(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.open, range, value, display)
 
@@ -2183,19 +2183,19 @@ dissect.open = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price
-size_of.low_price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.low_price = 4
 
 -- Display: Low Price
-display.low_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.low_price = function(value)
   return "Low Price: "..value
 end
 
 -- Dissect: Low Price
-dissect.low_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.low_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.low_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.low_price, range, value, display)
 
@@ -2203,19 +2203,19 @@ dissect.low_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Price
-size_of.high_price = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.high_price = 4
 
 -- Display: High Price
-display.high_price = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.high_price = function(value)
   return "High Price: "..value
 end
 
 -- Dissect: High Price
-dissect.high_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_price
+nyse_options_topfeed_xdp_v1_3_a_dissect.high_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.high_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.high_price, range, value, display)
 
@@ -2223,96 +2223,96 @@ dissect.high_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Summary Message
-size_of.outright_summary_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.high_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.high_price
 
-  index = index + size_of.low_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.low_price
 
-  index = index + size_of.open
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.open
 
-  index = index + size_of.close
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.close
 
-  index = index + size_of.total_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.total_volume
 
   return index
 end
 
 -- Display: Outright Summary Message
-display.outright_summary_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Summary Message
-dissect.outright_summary_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- High Price: 4 Byte Signed Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = nyse_options_topfeed_xdp_v1_3_a_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 4 Byte Signed Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = nyse_options_topfeed_xdp_v1_3_a_dissect.low_price(buffer, index, packet, parent)
 
   -- Open: 4 Byte Signed Fixed Width Integer
-  index, open = dissect.open(buffer, index, packet, parent)
+  index, open = nyse_options_topfeed_xdp_v1_3_a_dissect.open(buffer, index, packet, parent)
 
   -- Close: 4 Byte Signed Fixed Width Integer
-  index, close = dissect.close(buffer, index, packet, parent)
+  index, close = nyse_options_topfeed_xdp_v1_3_a_dissect.close(buffer, index, packet, parent)
 
   -- Total Volume: 4 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.total_volume(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Summary Message
-dissect.outright_summary_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_summary_message then
-    local length = size_of.outright_summary_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_summary_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_summary_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_summary_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_summary_message, range, display)
   end
 
-  return dissect.outright_summary_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Participant
-size_of.participant = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.participant = 4
 
 -- Display: Participant
-display.participant = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.participant = function(value)
   return "Participant: "..value
 end
 
 -- Dissect: Participant
-dissect.participant = function(buffer, offset, packet, parent)
-  local length = size_of.participant
+nyse_options_topfeed_xdp_v1_3_a_dissect.participant = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.participant
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.participant(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.participant(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.participant, range, value, display)
 
@@ -2320,19 +2320,19 @@ dissect.participant = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contracts
-size_of.contracts = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.contracts = 2
 
 -- Display: Contracts
-display.contracts = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.contracts = function(value)
   return "Contracts: "..value
 end
 
 -- Dissect: Contracts
-dissect.contracts = function(buffer, offset, packet, parent)
-  local length = size_of.contracts
+nyse_options_topfeed_xdp_v1_3_a_dissect.contracts = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.contracts
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contracts(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.contracts(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.contracts, range, value, display)
 
@@ -2340,10 +2340,10 @@ dissect.contracts = function(buffer, offset, packet, parent)
 end
 
 -- Size: Capacity
-size_of.capacity = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.capacity = 1
 
 -- Display: Capacity
-display.capacity = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.capacity = function(value)
   if value == " " then
     return "Capacity: Not Specified (<whitespace>)"
   end
@@ -2367,11 +2367,11 @@ display.capacity = function(value)
 end
 
 -- Dissect: Capacity
-dissect.capacity = function(buffer, offset, packet, parent)
-  local length = size_of.capacity
+nyse_options_topfeed_xdp_v1_3_a_dissect.capacity = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.capacity
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.capacity(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.capacity(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.capacity, range, value, display)
 
@@ -2379,10 +2379,10 @@ dissect.capacity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.side = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -2394,11 +2394,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+nyse_options_topfeed_xdp_v1_3_a_dissect.side = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.side, range, value, display)
 
@@ -2406,19 +2406,19 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Ns
-size_of.source_ns = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.source_ns = 4
 
 -- Display: Source Ns
-display.source_ns = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.source_ns = function(value)
   return "Source Ns: "..value
 end
 
 -- Dissect: Source Ns
-dissect.source_ns = function(buffer, offset, packet, parent)
-  local length = size_of.source_ns
+nyse_options_topfeed_xdp_v1_3_a_dissect.source_ns = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.source_ns
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_ns(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.source_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
@@ -2426,96 +2426,96 @@ dissect.source_ns = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Bold Rfq Message
-size_of.outright_bold_rfq_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_bold_rfq_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.side
 
-  index = index + size_of.capacity
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.capacity
 
-  index = index + size_of.contracts
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.contracts
 
-  index = index + size_of.price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.participant
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.participant
 
   return index
 end
 
 -- Display: Outright Bold Rfq Message
-display.outright_bold_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_bold_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Bold Rfq Message
-dissect.outright_bold_rfq_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_bold_rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nyse_options_topfeed_xdp_v1_3_a_dissect.side(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 6 values
-  index, capacity = dissect.capacity(buffer, index, packet, parent)
+  index, capacity = nyse_options_topfeed_xdp_v1_3_a_dissect.capacity(buffer, index, packet, parent)
 
   -- Contracts: 2 Byte Unsigned Fixed Width Integer
-  index, contracts = dissect.contracts(buffer, index, packet, parent)
+  index, contracts = nyse_options_topfeed_xdp_v1_3_a_dissect.contracts(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_topfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Participant: 4 Byte Ascii String
-  index, participant = dissect.participant(buffer, index, packet, parent)
+  index, participant = nyse_options_topfeed_xdp_v1_3_a_dissect.participant(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Bold Rfq Message
-dissect.outright_bold_rfq_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_bold_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_bold_rfq_message then
-    local length = size_of.outright_bold_rfq_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_bold_rfq_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_bold_rfq_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_bold_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_bold_rfq_message, range, display)
   end
 
-  return dissect.outright_bold_rfq_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_bold_rfq_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Volume 2
-size_of.volume_2 = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.volume_2 = 2
 
 -- Display: Volume 2
-display.volume_2 = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.volume_2 = function(value)
   return "Volume 2: "..value
 end
 
 -- Dissect: Volume 2
-dissect.volume_2 = function(buffer, offset, packet, parent)
-  local length = size_of.volume_2
+nyse_options_topfeed_xdp_v1_3_a_dissect.volume_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.volume_2
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.volume_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.volume_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
 
@@ -2523,183 +2523,183 @@ dissect.volume_2 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Crossing Rfq Message
-size_of.outright_crossing_rfq_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_crossing_rfq_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.side
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.volume_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.volume_2
 
-  index = index + size_of.price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price
 
   return index
 end
 
 -- Display: Outright Crossing Rfq Message
-display.outright_crossing_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_crossing_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Crossing Rfq Message
-dissect.outright_crossing_rfq_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_crossing_rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nyse_options_topfeed_xdp_v1_3_a_dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Volume 2: 2 Byte Unsigned Fixed Width Integer
-  index, volume_2 = dissect.volume_2(buffer, index, packet, parent)
+  index, volume_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_topfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Crossing Rfq Message
-dissect.outright_crossing_rfq_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_crossing_rfq_message then
-    local length = size_of.outright_crossing_rfq_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_crossing_rfq_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_crossing_rfq_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_crossing_rfq_message, range, display)
   end
 
-  return dissect.outright_crossing_rfq_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_crossing_rfq_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Imbalance Message
-size_of.outright_imbalance_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_imbalance_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.reference_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reference_price
 
-  index = index + size_of.paired_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.paired_qty
 
-  index = index + size_of.total_imbalance_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.total_imbalance_qty
 
-  index = index + size_of.market_imbalance_qty
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_qty
 
-  index = index + size_of.auction_type
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.auction_type
 
-  index = index + size_of.imbalance_side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.imbalance_side
 
-  index = index + size_of.market_imbalance_side
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.market_imbalance_side
 
-  index = index + size_of.reserved_3
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_3
 
   return index
 end
 
 -- Display: Outright Imbalance Message
-display.outright_imbalance_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_imbalance_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Imbalance Message
-dissect.outright_imbalance_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_imbalance_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Reference Price: 4 Byte Signed Fixed Width Integer
-  index, reference_price = dissect.reference_price(buffer, index, packet, parent)
+  index, reference_price = nyse_options_topfeed_xdp_v1_3_a_dissect.reference_price(buffer, index, packet, parent)
 
   -- Paired Qty: 2 Byte Unsigned Fixed Width Integer
-  index, paired_qty = dissect.paired_qty(buffer, index, packet, parent)
+  index, paired_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.paired_qty(buffer, index, packet, parent)
 
   -- Total Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
-  index, total_imbalance_qty = dissect.total_imbalance_qty(buffer, index, packet, parent)
+  index, total_imbalance_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.total_imbalance_qty(buffer, index, packet, parent)
 
   -- Market Imbalance Qty: 2 Byte Unsigned Fixed Width Integer
-  index, market_imbalance_qty = dissect.market_imbalance_qty(buffer, index, packet, parent)
+  index, market_imbalance_qty = nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_qty(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 2 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = nyse_options_topfeed_xdp_v1_3_a_dissect.auction_type(buffer, index, packet, parent)
 
   -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, imbalance_side = dissect.imbalance_side(buffer, index, packet, parent)
+  index, imbalance_side = nyse_options_topfeed_xdp_v1_3_a_dissect.imbalance_side(buffer, index, packet, parent)
 
   -- Market Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, market_imbalance_side = dissect.market_imbalance_side(buffer, index, packet, parent)
+  index, market_imbalance_side = nyse_options_topfeed_xdp_v1_3_a_dissect.market_imbalance_side(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte
-  index, reserved_3 = dissect.reserved_3(buffer, index, packet, parent)
+  index, reserved_3 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_3(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Imbalance Message
-dissect.outright_imbalance_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_imbalance_message then
-    local length = size_of.outright_imbalance_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_imbalance_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_imbalance_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_imbalance_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_imbalance_message, range, display)
   end
 
-  return dissect.outright_imbalance_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_imbalance_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Original Trade Id
-size_of.original_trade_id = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.original_trade_id = 4
 
 -- Display: Original Trade Id
-display.original_trade_id = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.original_trade_id = function(value)
   return "Original Trade Id: "..value
 end
 
 -- Dissect: Original Trade Id
-dissect.original_trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.original_trade_id
+nyse_options_topfeed_xdp_v1_3_a_dissect.original_trade_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.original_trade_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.original_trade_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.original_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.original_trade_id, range, value, display)
 
@@ -2707,506 +2707,506 @@ dissect.original_trade_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Trade Correction Message
-size_of.outright_trade_correction_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_correction_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.original_trade_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.original_trade_id
 
-  index = index + size_of.trade_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_id
 
-  index = index + size_of.price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.volume_4
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.volume_4
 
-  index = index + size_of.trade_cond_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_1
 
-  index = index + size_of.trade_cond_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_2
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Outright Trade Correction Message
-display.outright_trade_correction_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_correction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Trade Correction Message
-dissect.outright_trade_correction_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, original_trade_id = dissect.original_trade_id(buffer, index, packet, parent)
+  index, original_trade_id = nyse_options_topfeed_xdp_v1_3_a_dissect.original_trade_id(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_topfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = nyse_options_topfeed_xdp_v1_3_a_dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Trade Correction Message
-dissect.outright_trade_correction_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_correction_message then
-    local length = size_of.outright_trade_correction_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_correction_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_trade_correction_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_correction_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_correction_message, range, display)
   end
 
-  return dissect.outright_trade_correction_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_correction_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Trade Cancel Message
-size_of.outright_trade_cancel_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_cancel_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.original_trade_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.original_trade_id
 
   return index
 end
 
 -- Display: Outright Trade Cancel Message
-display.outright_trade_cancel_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Trade Cancel Message
-dissect.outright_trade_cancel_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Original Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, original_trade_id = dissect.original_trade_id(buffer, index, packet, parent)
+  index, original_trade_id = nyse_options_topfeed_xdp_v1_3_a_dissect.original_trade_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Trade Cancel Message
-dissect.outright_trade_cancel_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_cancel_message then
-    local length = size_of.outright_trade_cancel_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_cancel_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_trade_cancel_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_cancel_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_cancel_message, range, display)
   end
 
-  return dissect.outright_trade_cancel_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_cancel_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Trade Message
-size_of.outright_trade_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.trade_id
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_id
 
-  index = index + size_of.price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.volume_4
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.volume_4
 
-  index = index + size_of.trade_cond_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_1
 
-  index = index + size_of.trade_cond_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.trade_cond_2
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Outright Trade Message
-display.outright_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Trade Message
-dissect.outright_trade_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_topfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = nyse_options_topfeed_xdp_v1_3_a_dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Trade Message
-dissect.outright_trade_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_trade_message then
-    local length = size_of.outright_trade_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_trade_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_trade_message, range, display)
   end
 
-  return dissect.outright_trade_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Quote Message
-size_of.outright_quote_message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.outright_quote_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.series_index
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.series_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.ask_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_price
 
-  index = index + size_of.bid_price
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_price
 
-  index = index + size_of.ask_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_volume
 
-  index = index + size_of.bid_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_volume
 
-  index = index + size_of.ask_customer_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.ask_customer_volume
 
-  index = index + size_of.bid_customer_volume
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.bid_customer_volume
 
-  index = index + size_of.quote_condition
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.quote_condition
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Outright Quote Message
-display.outright_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.outright_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Quote Message
-dissect.outright_quote_message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_topfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Series Index: 4 Byte Unsigned Fixed Width Integer
-  index, series_index = dissect.series_index(buffer, index, packet, parent)
+  index, series_index = nyse_options_topfeed_xdp_v1_3_a_dissect.series_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_topfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = nyse_options_topfeed_xdp_v1_3_a_dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_options_topfeed_xdp_v1_3_a_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_topfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Quote Message
-dissect.outright_quote_message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.outright_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_quote_message then
-    local length = size_of.outright_quote_message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.outright_quote_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_quote_message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.outright_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.outright_quote_message, range, display)
   end
 
-  return dissect.outright_quote_message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+nyse_options_topfeed_xdp_v1_3_a_size_of.payload = function(buffer, offset, message_type)
   -- Size of Outright Quote Message
   if message_type == 401 then
-    return size_of.outright_quote_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_quote_message(buffer, offset)
   end
   -- Size of Outright Trade Message
   if message_type == 407 then
-    return size_of.outright_trade_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_message(buffer, offset)
   end
   -- Size of Outright Trade Cancel Message
   if message_type == 409 then
-    return size_of.outright_trade_cancel_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_cancel_message(buffer, offset)
   end
   -- Size of Outright Trade Correction Message
   if message_type == 411 then
-    return size_of.outright_trade_correction_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_trade_correction_message(buffer, offset)
   end
   -- Size of Outright Imbalance Message
   if message_type == 413 then
-    return size_of.outright_imbalance_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_imbalance_message(buffer, offset)
   end
   -- Size of Outright Crossing Rfq Message
   if message_type == 415 then
-    return size_of.outright_crossing_rfq_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_crossing_rfq_message(buffer, offset)
   end
   -- Size of Outright Bold Rfq Message
   if message_type == 471 then
-    return size_of.outright_bold_rfq_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_bold_rfq_message(buffer, offset)
   end
   -- Size of Outright Summary Message
   if message_type == 417 then
-    return size_of.outright_summary_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_summary_message(buffer, offset)
   end
   -- Size of Underlying Status Message
   if message_type == 419 then
-    return size_of.underlying_status_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_status_message(buffer, offset)
   end
   -- Size of Outright Series Status Message
   if message_type == 421 then
-    return size_of.outright_series_status_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.outright_series_status_message(buffer, offset)
   end
   -- Size of Refresh Outright Quote Message
   if message_type == 501 then
-    return size_of.refresh_outright_quote_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_quote_message(buffer, offset)
   end
   -- Size of Refresh Outright Trade Message
   if message_type == 507 then
-    return size_of.refresh_outright_trade_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_trade_message(buffer, offset)
   end
   -- Size of Refresh Outright Imbalance Message
   if message_type == 509 then
-    return size_of.refresh_outright_imbalance_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.refresh_outright_imbalance_message(buffer, offset)
   end
   -- Size of Underlying Index Mapping Message
   if message_type == 435 then
-    return size_of.underlying_index_mapping_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.underlying_index_mapping_message(buffer, offset)
   end
   -- Size of Series Index Mapping Message
   if message_type == 437 then
-    return size_of.series_index_mapping_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.series_index_mapping_message(buffer, offset)
   end
   -- Size of Stream Id Message
   if message_type == 455 then
-    return size_of.stream_id_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.stream_id_message(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return size_of.sequence_number_reset_message(buffer, offset)
+    return nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number_reset_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nyse_options_topfeed_xdp_v1_3_a_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Outright Quote Message
   if message_type == 401 then
-    return dissect.outright_quote_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Message
   if message_type == 407 then
-    return dissect.outright_trade_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Cancel Message
   if message_type == 409 then
-    return dissect.outright_trade_cancel_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_cancel_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Trade Correction Message
   if message_type == 411 then
-    return dissect.outright_trade_correction_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Imbalance Message
   if message_type == 413 then
-    return dissect.outright_imbalance_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Crossing Rfq Message
   if message_type == 415 then
-    return dissect.outright_crossing_rfq_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_crossing_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Bold Rfq Message
   if message_type == 471 then
-    return dissect.outright_bold_rfq_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_bold_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Summary Message
   if message_type == 417 then
-    return dissect.outright_summary_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Status Message
   if message_type == 419 then
-    return dissect.underlying_status_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Series Status Message
   if message_type == 421 then
-    return dissect.outright_series_status_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.outright_series_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Quote Message
   if message_type == 501 then
-    return dissect.refresh_outright_quote_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Trade Message
   if message_type == 507 then
-    return dissect.refresh_outright_trade_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Outright Imbalance Message
   if message_type == 509 then
-    return dissect.refresh_outright_imbalance_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.refresh_outright_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Underlying Index Mapping Message
   if message_type == 435 then
-    return dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.underlying_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Series Index Mapping Message
   if message_type == 437 then
-    return dissect.series_index_mapping_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.series_index_mapping_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
   if message_type == 455 then
-    return dissect.stream_id_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
-    return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+nyse_options_topfeed_xdp_v1_3_a_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nyse_options_topfeed_xdp_v1_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = nyse_options_topfeed_xdp_v1_3_a_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.payload(buffer, packet, parent)
   local element = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.message_type = 2
 
 -- Display: Message Type
-display.message_type = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.message_type = function(value)
   if value == 401 then
     return "Message Type: Outright Quote Message (401)"
   end
@@ -3263,11 +3263,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
@@ -3275,19 +3275,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Size
-size_of.message_size = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.message_size = 2
 
 -- Display: Message Size
-display.message_size = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.message_size = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-dissect.message_size = function(buffer, offset, packet, parent)
-  local length = size_of.message_size
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_size = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.message_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
@@ -3295,109 +3295,109 @@ dissect.message_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_size
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.message_size
 
-  index = index + size_of.message_type
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = nyse_options_topfeed_xdp_v1_3_a_dissect.message_size(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 17 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nyse_options_topfeed_xdp_v1_3_a_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.message_header(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 2):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nyse_options_topfeed_xdp_v1_3_a_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 17 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = nyse_options_topfeed_xdp_v1_3_a_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.message(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Nanoseconds
-size_of.nanoseconds = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.nanoseconds = 4
 
 -- Display: Nanoseconds
-display.nanoseconds = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.nanoseconds = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
+nyse_options_topfeed_xdp_v1_3_a_dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.nanoseconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
@@ -3405,19 +3405,19 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp
-size_of.timestamp = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.timestamp = 4
 
 -- Display: Timestamp
-display.timestamp = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp
+nyse_options_topfeed_xdp_v1_3_a_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.timestamp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.timestamp(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
@@ -3425,19 +3425,19 @@ dissect.timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 4
+nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number = 4
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
@@ -3445,19 +3445,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Count
-size_of.message_count = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.message_count = 1
 
 -- Display: Message Count
-display.message_count = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.message_count = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-dissect.message_count = function(buffer, offset, packet, parent)
-  local length = size_of.message_count
+nyse_options_topfeed_xdp_v1_3_a_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.message_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_count(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
@@ -3465,10 +3465,10 @@ dissect.message_count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Delivery Flag
-size_of.delivery_flag = 1
+nyse_options_topfeed_xdp_v1_3_a_size_of.delivery_flag = 1
 
 -- Display: Delivery Flag
-display.delivery_flag = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.delivery_flag = function(value)
   if value == 1 then
     return "Delivery Flag: Heartbeat (1)"
   end
@@ -3507,11 +3507,11 @@ display.delivery_flag = function(value)
 end
 
 -- Dissect: Delivery Flag
-dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local length = size_of.delivery_flag
+nyse_options_topfeed_xdp_v1_3_a_dissect.delivery_flag = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.delivery_flag
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.delivery_flag(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.delivery_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
@@ -3519,19 +3519,19 @@ dissect.delivery_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Size
-size_of.packet_size = 2
+nyse_options_topfeed_xdp_v1_3_a_size_of.packet_size = 2
 
 -- Display: Packet Size
-display.packet_size = function(value)
+nyse_options_topfeed_xdp_v1_3_a_display.packet_size = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = size_of.packet_size
+nyse_options_topfeed_xdp_v1_3_a_dissect.packet_size = function(buffer, offset, packet, parent)
+  local length = nyse_options_topfeed_xdp_v1_3_a_size_of.packet_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_topfeed_xdp_v1_3_a_display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
@@ -3539,80 +3539,80 @@ dissect.packet_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+nyse_options_topfeed_xdp_v1_3_a_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.packet_size
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.packet_size
 
-  index = index + size_of.delivery_flag
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.delivery_flag
 
-  index = index + size_of.message_count
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.message_count
 
-  index = index + size_of.sequence_number
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.sequence_number
 
-  index = index + size_of.timestamp
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.timestamp
 
-  index = index + size_of.nanoseconds
+  index = index + nyse_options_topfeed_xdp_v1_3_a_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = nyse_options_topfeed_xdp_v1_3_a_dissect.packet_size(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, delivery_flag = dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = nyse_options_topfeed_xdp_v1_3_a_dissect.delivery_flag(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nyse_options_topfeed_xdp_v1_3_a_dissect.message_count(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nyse_options_topfeed_xdp_v1_3_a_dissect.sequence_number(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nyse_options_topfeed_xdp_v1_3_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nyse_options_topfeed_xdp_v1_3_a_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = nyse_options_topfeed_xdp_v1_3_a_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = nyse_options_topfeed_xdp_v1_3_a_display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_options_topfeed_xdp_v1_3_a.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+nyse_options_topfeed_xdp_v1_3_a_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nyse_options_topfeed_xdp_v1_3_a_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = nyse_options_topfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -3635,7 +3635,7 @@ function nyse_options_topfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nyse_options_topfeed_xdp_v1_3_a, buffer(), nyse_options_topfeed_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return nyse_options_topfeed_xdp_v1_3_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

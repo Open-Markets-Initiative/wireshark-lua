@@ -10,9 +10,9 @@ local cboe_futures_orderentry_boe3_v1_0 = Proto("Cboe.Futures.OrderEntry.Boe3.v1
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_futures_orderentry_boe3_v1_0_display = {}
+local cboe_futures_orderentry_boe3_v1_0_dissect = {}
+local cboe_futures_orderentry_boe3_v1_0_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -422,19 +422,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Request Received Time
-size_of.request_received_time = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time = 8
 
 -- Display: Request Received Time
-display.request_received_time = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.request_received_time = function(value)
   return "Request Received Time: "..value
 end
 
 -- Dissect: Request Received Time
-dissect.request_received_time = function(buffer, offset, packet, parent)
-  local length = size_of.request_received_time
+cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.request_received_time(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.request_received_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.request_received_time, range, value, display)
 
@@ -442,10 +442,10 @@ dissect.request_received_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Risk Reset Result
-size_of.risk_reset_result = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset_result = 1
 
 -- Display: Risk Reset Result
-display.risk_reset_result = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.risk_reset_result = function(value)
   if value == " " then
     return "Risk Reset Result: Ignored (<whitespace>)"
   end
@@ -481,11 +481,11 @@ display.risk_reset_result = function(value)
 end
 
 -- Dissect: Risk Reset Result
-dissect.risk_reset_result = function(buffer, offset, packet, parent)
-  local length = size_of.risk_reset_result
+cboe_futures_orderentry_boe3_v1_0_dissect.risk_reset_result = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset_result
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.risk_reset_result(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.risk_reset_result(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.risk_reset_result, range, value, display)
 
@@ -493,19 +493,19 @@ dissect.risk_reset_result = function(buffer, offset, packet, parent)
 end
 
 -- Size: Risk Status Id
-size_of.risk_status_id = 16
+cboe_futures_orderentry_boe3_v1_0_size_of.risk_status_id = 16
 
 -- Display: Risk Status Id
-display.risk_status_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.risk_status_id = function(value)
   return "Risk Status Id: "..value
 end
 
 -- Dissect: Risk Status Id
-dissect.risk_status_id = function(buffer, offset, packet, parent)
-  local length = size_of.risk_status_id
+cboe_futures_orderentry_boe3_v1_0_dissect.risk_status_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.risk_status_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.risk_status_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.risk_status_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.risk_status_id, range, value, display)
 
@@ -513,66 +513,66 @@ dissect.risk_status_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reset Risk Acknowledgement Message
-size_of.reset_risk_acknowledgement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_acknowledgement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.risk_status_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.risk_status_id
 
-  index = index + size_of.risk_reset_result
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset_result
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Reset Risk Acknowledgement Message
-display.reset_risk_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reset Risk Acknowledgement Message
-dissect.reset_risk_acknowledgement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Status Id: 16 Byte Ascii String
-  index, risk_status_id = dissect.risk_status_id(buffer, index, packet, parent)
+  index, risk_status_id = cboe_futures_orderentry_boe3_v1_0_dissect.risk_status_id(buffer, index, packet, parent)
 
   -- Risk Reset Result: 1 Byte Ascii String Enum with 10 values
-  index, risk_reset_result = dissect.risk_reset_result(buffer, index, packet, parent)
+  index, risk_reset_result = cboe_futures_orderentry_boe3_v1_0_dissect.risk_reset_result(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reset Risk Acknowledgement Message
-dissect.reset_risk_acknowledgement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reset_risk_acknowledgement_message then
-    local length = size_of.reset_risk_acknowledgement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reset_risk_acknowledgement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_acknowledgement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_acknowledgement_message, range, display)
   end
 
-  return dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Size
-size_of.clearing_size = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_size = 4
 
 -- Display: Clearing Size
-display.clearing_size = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_size = function(value)
   return "Clearing Size: "..value
 end
 
 -- Dissect: Clearing Size
-dissect.clearing_size = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_size
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_size = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.clearing_size(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_size(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_size, range, value, display)
 
@@ -580,10 +580,10 @@ dissect.clearing_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Price
-size_of.clearing_price = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price = 8
 
 -- Display: Clearing Price
-display.clearing_price = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_price = function(value)
   return "Clearing Price: "..value
 end
 
@@ -593,12 +593,12 @@ translate.clearing_price = function(raw)
 end
 
 -- Dissect: Clearing Price
-dissect.clearing_price = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_price
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.clearing_price(raw)
-  local display = display.clearing_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_price, range, value, display)
 
@@ -606,19 +606,19 @@ dissect.clearing_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Symbol
-size_of.clearing_symbol = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol = 8
 
 -- Display: Clearing Symbol
-display.clearing_symbol = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_symbol = function(value)
   return "Clearing Symbol: "..value
 end
 
 -- Dissect: Clearing Symbol
-dissect.clearing_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_symbol
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_symbol, range, value, display)
 
@@ -626,19 +626,19 @@ dissect.clearing_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Symbol
-size_of.quote_symbol = 6
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol = 6
 
 -- Display: Quote Symbol
-display.quote_symbol = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.quote_symbol = function(value)
   return "Quote Symbol: "..value
 end
 
 -- Dissect: Quote Symbol
-dissect.quote_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.quote_symbol
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.quote_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_symbol, range, value, display)
 
@@ -646,19 +646,19 @@ dissect.quote_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Id
-size_of.exec_id = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.exec_id = 8
 
 -- Display: Exec Id
-display.exec_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.exec_id = function(value)
   return "Exec Id: "..value
 end
 
 -- Dissect: Exec Id
-dissect.exec_id = function(buffer, offset, packet, parent)
-  local length = size_of.exec_id
+cboe_futures_orderentry_boe3_v1_0_dissect.exec_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.exec_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.exec_id, range, value, display)
 
@@ -666,19 +666,19 @@ dissect.exec_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Update Id
-size_of.quote_update_id = 16
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id = 16
 
 -- Display: Quote Update Id
-display.quote_update_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_id = function(value)
   return "Quote Update Id: "..value
 end
 
 -- Dissect: Quote Update Id
-dissect.quote_update_id = function(buffer, offset, packet, parent)
-  local length = size_of.quote_update_id
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_update_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_id, range, value, display)
 
@@ -686,19 +686,19 @@ dissect.quote_update_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transaction Time
-size_of.transaction_time = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time = 8
 
 -- Display: Transaction Time
-display.transaction_time = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.transaction_time = function(value)
   return "Transaction Time: "..value
 end
 
 -- Dissect: Transaction Time
-dissect.transaction_time = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_time
+cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.transaction_time(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.transaction_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.transaction_time, range, value, display)
 
@@ -706,139 +706,139 @@ dissect.transaction_time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Variance Quote Restatement Message
-size_of.variance_quote_restatement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.variance_quote_restatement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.clearing_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol
 
-  index = index + size_of.clearing_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price
 
-  index = index + size_of.clearing_size
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_size
 
   return index
 end
 
 -- Display: Variance Quote Restatement Message
-display.variance_quote_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Variance Quote Restatement Message
-dissect.variance_quote_restatement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Clearing Symbol: 8 Byte Ascii String
-  index, clearing_symbol = dissect.clearing_symbol(buffer, index, packet, parent)
+  index, clearing_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_symbol(buffer, index, packet, parent)
 
   -- Clearing Price: 8 Byte Signed Fixed Width Integer
-  index, clearing_price = dissect.clearing_price(buffer, index, packet, parent)
+  index, clearing_price = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_price(buffer, index, packet, parent)
 
   -- Clearing Size: 4 Byte Unsigned Fixed Width Integer
-  index, clearing_size = dissect.clearing_size(buffer, index, packet, parent)
+  index, clearing_size = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Variance Quote Restatement Message
-dissect.variance_quote_restatement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.variance_quote_restatement_message then
-    local length = size_of.variance_quote_restatement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.variance_quote_restatement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.variance_quote_restatement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_quote_restatement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_quote_restatement_message, range, display)
   end
 
-  return dissect.variance_quote_restatement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Tas Quote Restatement Message
-size_of.tas_quote_restatement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.tas_quote_restatement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.clearing_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol
 
-  index = index + size_of.clearing_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price
 
   return index
 end
 
 -- Display: Tas Quote Restatement Message
-display.tas_quote_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tas Quote Restatement Message
-dissect.tas_quote_restatement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Clearing Symbol: 8 Byte Ascii String
-  index, clearing_symbol = dissect.clearing_symbol(buffer, index, packet, parent)
+  index, clearing_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_symbol(buffer, index, packet, parent)
 
   -- Clearing Price: 8 Byte Signed Fixed Width Integer
-  index, clearing_price = dissect.clearing_price(buffer, index, packet, parent)
+  index, clearing_price = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Tas Quote Restatement Message
-dissect.tas_quote_restatement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.tas_quote_restatement_message then
-    local length = size_of.tas_quote_restatement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.tas_quote_restatement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.tas_quote_restatement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_quote_restatement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_quote_restatement_message, range, display)
   end
 
-  return dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cancel Reason
-size_of.cancel_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reason = 1
 
 -- Display: Cancel Reason
-display.cancel_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_reason = function(value)
   if value == "A" then
     return "Cancel Reason: Admin (A)"
   end
@@ -916,11 +916,11 @@ display.cancel_reason = function(value)
 end
 
 -- Dissect: Cancel Reason
-dissect.cancel_reason = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_reason, range, value, display)
 
@@ -928,10 +928,10 @@ dissect.cancel_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.side = function(value)
   if value == "1" then
     return "Side: Buy (1)"
   end
@@ -943,11 +943,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+cboe_futures_orderentry_boe3_v1_0_dissect.side = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.side(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.side, range, value, display)
 
@@ -955,19 +955,19 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+cboe_futures_orderentry_boe3_v1_0_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_id, range, value, display)
 
@@ -975,81 +975,81 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Cancelled Message
-size_of.quote_cancelled_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_cancelled_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.cancel_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reason
 
   return index
 end
 
 -- Display: Quote Cancelled Message
-display.quote_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Cancelled Message
-dissect.quote_cancelled_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Cancel Reason: 1 Byte Ascii String Enum with 24 values
-  index, cancel_reason = dissect.cancel_reason(buffer, index, packet, parent)
+  index, cancel_reason = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_reason(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Cancelled Message
-dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_cancelled_message then
-    local length = size_of.quote_cancelled_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_cancelled_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_cancelled_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_cancelled_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_cancelled_message, range, display)
   end
 
-  return dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Fee Code
-size_of.fee_code = 2
+cboe_futures_orderentry_boe3_v1_0_size_of.fee_code = 2
 
 -- Display: Fee Code
-display.fee_code = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.fee_code = function(value)
   return "Fee Code: "..value
 end
 
 -- Dissect: Fee Code
-dissect.fee_code = function(buffer, offset, packet, parent)
-  local length = size_of.fee_code
+cboe_futures_orderentry_boe3_v1_0_dissect.fee_code = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.fee_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.fee_code(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.fee_code(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.fee_code, range, value, display)
 
@@ -1057,10 +1057,10 @@ dissect.fee_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sub Liquidity Indicator
-size_of.sub_liquidity_indicator = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator = 1
 
 -- Display: Sub Liquidity Indicator
-display.sub_liquidity_indicator = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.sub_liquidity_indicator = function(value)
   if value == "C" then
     return "Sub Liquidity Indicator: Carried Order Indicator (C)"
   end
@@ -1072,11 +1072,11 @@ display.sub_liquidity_indicator = function(value)
 end
 
 -- Dissect: Sub Liquidity Indicator
-dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.sub_liquidity_indicator
+cboe_futures_orderentry_boe3_v1_0_dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sub_liquidity_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.sub_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.sub_liquidity_indicator, range, value, display)
 
@@ -1084,10 +1084,10 @@ dissect.sub_liquidity_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Base Liquidity Indicator
-size_of.base_liquidity_indicator = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator = 1
 
 -- Display: Base Liquidity Indicator
-display.base_liquidity_indicator = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.base_liquidity_indicator = function(value)
   if value == "A" then
     return "Base Liquidity Indicator: Added Liquidity (A)"
   end
@@ -1102,11 +1102,11 @@ display.base_liquidity_indicator = function(value)
 end
 
 -- Dissect: Base Liquidity Indicator
-dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.base_liquidity_indicator
+cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.base_liquidity_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.base_liquidity_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.base_liquidity_indicator, range, value, display)
 
@@ -1114,19 +1114,19 @@ dissect.base_liquidity_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leaves Qty
-size_of.leaves_qty = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty = 4
 
 -- Display: Leaves Qty
-display.leaves_qty = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.leaves_qty = function(value)
   return "Leaves Qty: "..value
 end
 
 -- Dissect: Leaves Qty
-dissect.leaves_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leaves_qty
+cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leaves_qty(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.leaves_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.leaves_qty, range, value, display)
 
@@ -1134,10 +1134,10 @@ dissect.leaves_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Px
-size_of.last_px = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.last_px = 8
 
 -- Display: Last Px
-display.last_px = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.last_px = function(value)
   return "Last Px: "..value
 end
 
@@ -1147,12 +1147,12 @@ translate.last_px = function(raw)
 end
 
 -- Dissect: Last Px
-dissect.last_px = function(buffer, offset, packet, parent)
-  local length = size_of.last_px
+cboe_futures_orderentry_boe3_v1_0_dissect.last_px = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.last_px
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.last_px(raw)
-  local display = display.last_px(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.last_px, range, value, display)
 
@@ -1160,19 +1160,19 @@ dissect.last_px = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Shares
-size_of.last_shares = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.last_shares = 4
 
 -- Display: Last Shares
-display.last_shares = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.last_shares = function(value)
   return "Last Shares: "..value
 end
 
 -- Dissect: Last Shares
-dissect.last_shares = function(buffer, offset, packet, parent)
-  local length = size_of.last_shares
+cboe_futures_orderentry_boe3_v1_0_dissect.last_shares = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.last_shares(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.last_shares(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.last_shares, range, value, display)
 
@@ -1180,19 +1180,19 @@ dissect.last_shares = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Firm
-size_of.clearing_firm = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm = 4
 
 -- Display: Clearing Firm
-display.clearing_firm = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_firm = function(value)
   return "Clearing Firm: "..value
 end
 
 -- Dissect: Clearing Firm
-dissect.clearing_firm = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_firm
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_firm(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm, range, value, display)
 
@@ -1200,107 +1200,107 @@ dissect.clearing_firm = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Execution Message
-size_of.quote_execution_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_execution_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.last_shares
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
 
-  index = index + size_of.last_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_px
 
-  index = index + size_of.leaves_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.base_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
 
-  index = index + size_of.sub_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator
 
-  index = index + size_of.fee_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.fee_code
 
   return index
 end
 
 -- Display: Quote Execution Message
-display.quote_execution_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Execution Message
-dissect.quote_execution_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_futures_orderentry_boe3_v1_0_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_futures_orderentry_boe3_v1_0_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 3 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
-  index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+  index, sub_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   -- Fee Code: 2 Byte Ascii String
-  index, fee_code = dissect.fee_code(buffer, index, packet, parent)
+  index, fee_code = cboe_futures_orderentry_boe3_v1_0_dissect.fee_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Execution Message
-dissect.quote_execution_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_execution_message then
-    local length = size_of.quote_execution_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_execution_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_execution_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_execution_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_execution_message, range, display)
   end
 
-  return dissect.quote_execution_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Restatement Reason
-size_of.restatement_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.restatement_reason = 1
 
 -- Display: Restatement Reason
-display.restatement_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.restatement_reason = function(value)
   if value == "Q" then
     return "Restatement Reason: Liquidity (Q)"
   end
@@ -1312,11 +1312,11 @@ display.restatement_reason = function(value)
 end
 
 -- Dissect: Restatement Reason
-dissect.restatement_reason = function(buffer, offset, packet, parent)
-  local length = size_of.restatement_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.restatement_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.restatement_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.restatement_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.restatement_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.restatement_reason, range, value, display)
 
@@ -1324,10 +1324,10 @@ dissect.restatement_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Working Price
-size_of.working_price = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.working_price = 8
 
 -- Display: Working Price
-display.working_price = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.working_price = function(value)
   return "Working Price: "..value
 end
 
@@ -1337,12 +1337,12 @@ translate.working_price = function(raw)
 end
 
 -- Dissect: Working Price
-dissect.working_price = function(buffer, offset, packet, parent)
-  local length = size_of.working_price
+cboe_futures_orderentry_boe3_v1_0_dissect.working_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.working_price
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.working_price(raw)
-  local display = display.working_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.working_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.working_price, range, value, display)
 
@@ -1350,82 +1350,82 @@ dissect.working_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Restated Message
-size_of.quote_restated_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_restated_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.leaves_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
 
-  index = index + size_of.working_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.working_price
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.restatement_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.restatement_reason
 
   return index
 end
 
 -- Display: Quote Restated Message
-display.quote_restated_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Restated Message
-dissect.quote_restated_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Working Price: 8 Byte Signed Fixed Width Integer
-  index, working_price = dissect.working_price(buffer, index, packet, parent)
+  index, working_price = cboe_futures_orderentry_boe3_v1_0_dissect.working_price(buffer, index, packet, parent)
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Restatement Reason: 1 Byte Ascii String Enum with 2 values
-  index, restatement_reason = dissect.restatement_reason(buffer, index, packet, parent)
+  index, restatement_reason = cboe_futures_orderentry_boe3_v1_0_dissect.restatement_reason(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Restated Message
-dissect.quote_restated_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_restated_message then
-    local length = size_of.quote_restated_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_restated_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_restated_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_restated_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_restated_message, range, display)
   end
 
-  return dissect.quote_restated_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Reject Reason
-size_of.quote_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_reject_reason = 1
 
 -- Display: Quote Reject Reason
-display.quote_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.quote_reject_reason = function(value)
   if value == "C" then
     return "Quote Reject Reason: Invalid Efid (C)"
   end
@@ -1512,11 +1512,11 @@ display.quote_reject_reason = function(value)
 end
 
 -- Dissect: Quote Reject Reason
-dissect.quote_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.quote_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.quote_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_reject_reason, range, value, display)
 
@@ -1524,57 +1524,57 @@ dissect.quote_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Update Rejected Message
-size_of.quote_update_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.quote_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_reject_reason
 
   return index
 end
 
 -- Display: Quote Update Rejected Message
-display.quote_update_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Update Rejected Message
-dissect.quote_update_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Quote Reject Reason: 1 Byte Ascii String Enum with 27 values
-  index, quote_reject_reason = dissect.quote_reject_reason(buffer, index, packet, parent)
+  index, quote_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.quote_reject_reason(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Update Rejected Message
-dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_update_rejected_message then
-    local length = size_of.quote_update_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_update_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_rejected_message, range, display)
   end
 
-  return dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Result
-size_of.quote_result = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_result = 1
 
 -- Display: Quote Result
-display.quote_result = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.quote_result = function(value)
   if value == "A" then
     return "Quote Result: New Quote (A)"
   end
@@ -1625,11 +1625,11 @@ display.quote_result = function(value)
 end
 
 -- Dissect: Quote Result
-dissect.quote_result = function(buffer, offset, packet, parent)
-  local length = size_of.quote_result
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_result = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_result
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_result(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.quote_result(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_result, range, value, display)
 
@@ -1637,66 +1637,66 @@ dissect.quote_result = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Update
-size_of.quote_update = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_update = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.quote_result
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_result
 
-  index = index + size_of.sub_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator
 
   return index
 end
 
 -- Display: Quote Update
-display.quote_update = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Update
-dissect.quote_update_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Quote Result: 1 Byte Ascii String Enum with 15 values
-  index, quote_result = dissect.quote_result(buffer, index, packet, parent)
+  index, quote_result = cboe_futures_orderentry_boe3_v1_0_dissect.quote_result(buffer, index, packet, parent)
 
   -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
-  index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+  index, sub_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Update
-dissect.quote_update = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_update then
-    local length = size_of.quote_update(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_update(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update, range, display)
   end
 
-  return dissect.quote_update_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Cnt
-size_of.quote_cnt = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_cnt = 1
 
 -- Display: Quote Cnt
-display.quote_cnt = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.quote_cnt = function(value)
   return "Quote Cnt: "..value
 end
 
 -- Dissect: Quote Cnt
-dissect.quote_cnt = function(buffer, offset, packet, parent)
-  local length = size_of.quote_cnt
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_cnt = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_cnt
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quote_cnt(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.quote_cnt(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_cnt, range, value, display)
 
@@ -1704,16 +1704,16 @@ dissect.quote_cnt = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Update Acknowledgment Message
-size_of.quote_update_acknowledgment_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgment_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
-  index = index + size_of.quote_cnt
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_cnt
 
   -- Calculate field size from count
   local quote_update_count = buffer(offset + index - 1, 1):le_uint()
@@ -1723,61 +1723,61 @@ size_of.quote_update_acknowledgment_message = function(buffer, offset)
 end
 
 -- Display: Quote Update Acknowledgment Message
-display.quote_update_acknowledgment_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgment_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Update Acknowledgment Message
-dissect.quote_update_acknowledgment_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgment_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   -- Quote Cnt: 1 Byte Unsigned Fixed Width Integer
-  index, quote_cnt = dissect.quote_cnt(buffer, index, packet, parent)
+  index, quote_cnt = cboe_futures_orderentry_boe3_v1_0_dissect.quote_cnt(buffer, index, packet, parent)
 
   -- Quote Update: Struct of 3 fields
   for i = 1, quote_cnt do
-    index = dissect.quote_update(buffer, index, packet, parent)
+    index = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Quote Update Acknowledgment Message
-dissect.quote_update_acknowledgment_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgment_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.quote_update_acknowledgment_message then
-    local length = size_of.quote_update_acknowledgment_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgment_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_update_acknowledgment_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_acknowledgment_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_acknowledgment_message, range, display)
   end
 
-  return dissect.quote_update_acknowledgment_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgment_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Secondary Exec Id
-size_of.secondary_exec_id = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.secondary_exec_id = 8
 
 -- Display: Secondary Exec Id
-display.secondary_exec_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.secondary_exec_id = function(value)
   return "Secondary Exec Id: "..value
 end
 
 -- Dissect: Secondary Exec Id
-dissect.secondary_exec_id = function(buffer, offset, packet, parent)
-  local length = size_of.secondary_exec_id
+cboe_futures_orderentry_boe3_v1_0_dissect.secondary_exec_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.secondary_exec_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.secondary_exec_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.secondary_exec_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.secondary_exec_id, range, value, display)
 
@@ -1785,10 +1785,10 @@ dissect.secondary_exec_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Multileg Reporting Type
-size_of.multileg_reporting_type = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.multileg_reporting_type = 1
 
 -- Display: Multileg Reporting Type
-display.multileg_reporting_type = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.multileg_reporting_type = function(value)
   if value == "1" then
     return "Multileg Reporting Type: Simple Instrument Execution (1)"
   end
@@ -1803,11 +1803,11 @@ display.multileg_reporting_type = function(value)
 end
 
 -- Dissect: Multileg Reporting Type
-dissect.multileg_reporting_type = function(buffer, offset, packet, parent)
-  local length = size_of.multileg_reporting_type
+cboe_futures_orderentry_boe3_v1_0_dissect.multileg_reporting_type = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.multileg_reporting_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.multileg_reporting_type(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.multileg_reporting_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.multileg_reporting_type, range, value, display)
 
@@ -1815,19 +1815,19 @@ dissect.multileg_reporting_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Date
-size_of.trade_date = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.trade_date = 4
 
 -- Display: Trade Date
-display.trade_date = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.trade_date = function(value)
   return "Trade Date: "..value
 end
 
 -- Dissect: Trade Date
-dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = size_of.trade_date
+cboe_futures_orderentry_boe3_v1_0_dissect.trade_date = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.trade_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_date(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.trade_date, range, value, display)
 
@@ -1835,19 +1835,19 @@ dissect.trade_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
-size_of.maturity_date = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date = 4
 
 -- Display: Maturity Date
-display.maturity_date = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.maturity_date = function(value)
   return "Maturity Date: "..value
 end
 
 -- Dissect: Maturity Date
-dissect.maturity_date = function(buffer, offset, packet, parent)
-  local length = size_of.maturity_date
+cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.maturity_date(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.maturity_date, range, value, display)
 
@@ -1855,19 +1855,19 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.symbol = 8
 
 -- Display: Symbol
-display.symbol = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+cboe_futures_orderentry_boe3_v1_0_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.symbol, range, value, display)
 
@@ -1875,10 +1875,10 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.price = function(value)
   return "Price: "..value
 end
 
@@ -1888,12 +1888,12 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+cboe_futures_orderentry_boe3_v1_0_dissect.price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.price
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.price(raw)
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.price, range, value, display)
 
@@ -1901,19 +1901,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cl Ord Id
-size_of.cl_ord_id = 20
+cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id = 20
 
 -- Display: Cl Ord Id
-display.cl_ord_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cl_ord_id = function(value)
   return "Cl Ord Id: "..value
 end
 
 -- Dissect: Cl Ord Id
-dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.cl_ord_id
+cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cl_ord_id, range, value, display)
 
@@ -1921,248 +1921,248 @@ dissect.cl_ord_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Variance Restatement Message
-size_of.variance_restatement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.variance_restatement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.last_shares
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
 
-  index = index + size_of.last_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_px
 
-  index = index + size_of.fee_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.fee_code
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.trade_date
 
-  index = index + size_of.clearing_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price
 
-  index = index + size_of.clearing_size
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_size
 
-  index = index + size_of.clearing_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol
 
-  index = index + size_of.multileg_reporting_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.multileg_reporting_type
 
-  index = index + size_of.secondary_exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.secondary_exec_id
 
   return index
 end
 
 -- Display: Variance Restatement Message
-display.variance_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Variance Restatement Message
-dissect.variance_restatement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_futures_orderentry_boe3_v1_0_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_futures_orderentry_boe3_v1_0_dissect.last_px(buffer, index, packet, parent)
 
   -- Fee Code: 2 Byte Ascii String
-  index, fee_code = dissect.fee_code(buffer, index, packet, parent)
+  index, fee_code = cboe_futures_orderentry_boe3_v1_0_dissect.fee_code(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_orderentry_boe3_v1_0_dissect.trade_date(buffer, index, packet, parent)
 
   -- Clearing Price: 8 Byte Signed Fixed Width Integer
-  index, clearing_price = dissect.clearing_price(buffer, index, packet, parent)
+  index, clearing_price = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_price(buffer, index, packet, parent)
 
   -- Clearing Size: 4 Byte Unsigned Fixed Width Integer
-  index, clearing_size = dissect.clearing_size(buffer, index, packet, parent)
+  index, clearing_size = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_size(buffer, index, packet, parent)
 
   -- Clearing Symbol: 8 Byte Ascii String
-  index, clearing_symbol = dissect.clearing_symbol(buffer, index, packet, parent)
+  index, clearing_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_symbol(buffer, index, packet, parent)
 
   -- Multileg Reporting Type: 1 Byte Ascii String Enum with 3 values
-  index, multileg_reporting_type = dissect.multileg_reporting_type(buffer, index, packet, parent)
+  index, multileg_reporting_type = cboe_futures_orderentry_boe3_v1_0_dissect.multileg_reporting_type(buffer, index, packet, parent)
 
   -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, secondary_exec_id = dissect.secondary_exec_id(buffer, index, packet, parent)
+  index, secondary_exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.secondary_exec_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Variance Restatement Message
-dissect.variance_restatement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.variance_restatement_message then
-    local length = size_of.variance_restatement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.variance_restatement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.variance_restatement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.variance_restatement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.variance_restatement_message, range, display)
   end
 
-  return dissect.variance_restatement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Tas Restatement Message
-size_of.tas_restatement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.tas_restatement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.last_shares
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
 
-  index = index + size_of.last_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_px
 
-  index = index + size_of.fee_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.fee_code
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.trade_date
 
-  index = index + size_of.clearing_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_price
 
-  index = index + size_of.clearing_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_symbol
 
-  index = index + size_of.multileg_reporting_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.multileg_reporting_type
 
-  index = index + size_of.secondary_exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.secondary_exec_id
 
   return index
 end
 
 -- Display: Tas Restatement Message
-display.tas_restatement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Tas Restatement Message
-dissect.tas_restatement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_futures_orderentry_boe3_v1_0_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_futures_orderentry_boe3_v1_0_dissect.last_px(buffer, index, packet, parent)
 
   -- Fee Code: 2 Byte Ascii String
-  index, fee_code = dissect.fee_code(buffer, index, packet, parent)
+  index, fee_code = cboe_futures_orderentry_boe3_v1_0_dissect.fee_code(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_orderentry_boe3_v1_0_dissect.trade_date(buffer, index, packet, parent)
 
   -- Clearing Price: 8 Byte Signed Fixed Width Integer
-  index, clearing_price = dissect.clearing_price(buffer, index, packet, parent)
+  index, clearing_price = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_price(buffer, index, packet, parent)
 
   -- Clearing Symbol: 8 Byte Ascii String
-  index, clearing_symbol = dissect.clearing_symbol(buffer, index, packet, parent)
+  index, clearing_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_symbol(buffer, index, packet, parent)
 
   -- Multileg Reporting Type: 1 Byte Ascii String Enum with 3 values
-  index, multileg_reporting_type = dissect.multileg_reporting_type(buffer, index, packet, parent)
+  index, multileg_reporting_type = cboe_futures_orderentry_boe3_v1_0_dissect.multileg_reporting_type(buffer, index, packet, parent)
 
   -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, secondary_exec_id = dissect.secondary_exec_id(buffer, index, packet, parent)
+  index, secondary_exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.secondary_exec_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Tas Restatement Message
-dissect.tas_restatement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.tas_restatement_message then
-    local length = size_of.tas_restatement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.tas_restatement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.tas_restatement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.tas_restatement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.tas_restatement_message, range, display)
   end
 
-  return dissect.tas_restatement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cmta Number
-size_of.cmta_number = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number = 4
 
 -- Display: Cmta Number
-display.cmta_number = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cmta_number = function(value)
   return "Cmta Number: "..value
 end
 
 -- Dissect: Cmta Number
-dissect.cmta_number = function(buffer, offset, packet, parent)
-  local length = size_of.cmta_number
+cboe_futures_orderentry_boe3_v1_0_dissect.cmta_number = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cmta_number(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cmta_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cmta_number, range, value, display)
 
@@ -2170,10 +2170,10 @@ dissect.cmta_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Close
-size_of.open_close = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.open_close = 1
 
 -- Display: Open Close
-display.open_close = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.open_close = function(value)
   if value == "O" then
     return "Open Close: Open (O)"
   end
@@ -2188,11 +2188,11 @@ display.open_close = function(value)
 end
 
 -- Dissect: Open Close
-dissect.open_close = function(buffer, offset, packet, parent)
-  local length = size_of.open_close
+cboe_futures_orderentry_boe3_v1_0_dissect.open_close = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.open_close
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.open_close(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.open_close(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.open_close, range, value, display)
 
@@ -2200,10 +2200,10 @@ dissect.open_close = function(buffer, offset, packet, parent)
 end
 
 -- Size: Capacity
-size_of.capacity = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.capacity = 1
 
 -- Display: Capacity
-display.capacity = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.capacity = function(value)
   if value == "C" then
     return "Capacity: Customer (C)"
   end
@@ -2215,11 +2215,11 @@ display.capacity = function(value)
 end
 
 -- Dissect: Capacity
-dissect.capacity = function(buffer, offset, packet, parent)
-  local length = size_of.capacity
+cboe_futures_orderentry_boe3_v1_0_dissect.capacity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.capacity
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.capacity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.capacity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.capacity, range, value, display)
 
@@ -2227,19 +2227,19 @@ dissect.capacity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Orig Time
-size_of.orig_time = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.orig_time = 8
 
 -- Display: Orig Time
-display.orig_time = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.orig_time = function(value)
   return "Orig Time: "..value
 end
 
 -- Dissect: Orig Time
-dissect.orig_time = function(buffer, offset, packet, parent)
-  local length = size_of.orig_time
+cboe_futures_orderentry_boe3_v1_0_dissect.orig_time = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.orig_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.orig_time(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.orig_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.orig_time, range, value, display)
 
@@ -2247,10 +2247,10 @@ dissect.orig_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Corrected Price
-size_of.corrected_price = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.corrected_price = 8
 
 -- Display: Corrected Price
-display.corrected_price = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.corrected_price = function(value)
   return "Corrected Price: "..value
 end
 
@@ -2260,12 +2260,12 @@ translate.corrected_price = function(raw)
 end
 
 -- Dissect: Corrected Price
-dissect.corrected_price = function(buffer, offset, packet, parent)
-  local length = size_of.corrected_price
+cboe_futures_orderentry_boe3_v1_0_dissect.corrected_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.corrected_price
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.corrected_price(raw)
-  local display = display.corrected_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.corrected_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.corrected_price, range, value, display)
 
@@ -2273,19 +2273,19 @@ dissect.corrected_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Account
-size_of.clearing_account = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account = 4
 
 -- Display: Clearing Account
-display.clearing_account = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_account = function(value)
   return "Clearing Account: "..value
 end
 
 -- Dissect: Clearing Account
-dissect.clearing_account = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_account
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_account = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_account(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_account(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_account, range, value, display)
 
@@ -2293,19 +2293,19 @@ dissect.clearing_account = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exec Ref Id
-size_of.exec_ref_id = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.exec_ref_id = 8
 
 -- Display: Exec Ref Id
-display.exec_ref_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.exec_ref_id = function(value)
   return "Exec Ref Id: "..value
 end
 
 -- Dissect: Exec Ref Id
-dissect.exec_ref_id = function(buffer, offset, packet, parent)
-  local length = size_of.exec_ref_id
+cboe_futures_orderentry_boe3_v1_0_dissect.exec_ref_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.exec_ref_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.exec_ref_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.exec_ref_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.exec_ref_id, range, value, display)
 
@@ -2313,131 +2313,131 @@ dissect.exec_ref_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancel Or Correct Message
-size_of.trade_cancel_or_correct_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.trade_cancel_or_correct_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.exec_ref_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_ref_id
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.base_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.clearing_account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account
 
-  index = index + size_of.last_shares
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
 
-  index = index + size_of.last_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_px
 
-  index = index + size_of.corrected_price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.corrected_price
 
-  index = index + size_of.orig_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.orig_time
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.capacity
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.capacity
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.open_close
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.open_close
 
-  index = index + size_of.cmta_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number
 
   return index
 end
 
 -- Display: Trade Cancel Or Correct Message
-display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Or Correct Message
-dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Ref Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_ref_id = dissect.exec_ref_id(buffer, index, packet, parent)
+  index, exec_ref_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_ref_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 3 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Clearing Account: 4 Byte Ascii String
-  index, clearing_account = dissect.clearing_account(buffer, index, packet, parent)
+  index, clearing_account = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_futures_orderentry_boe3_v1_0_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_futures_orderentry_boe3_v1_0_dissect.last_px(buffer, index, packet, parent)
 
   -- Corrected Price: 8 Byte Signed Fixed Width Integer
-  index, corrected_price = dissect.corrected_price(buffer, index, packet, parent)
+  index, corrected_price = cboe_futures_orderentry_boe3_v1_0_dissect.corrected_price(buffer, index, packet, parent)
 
   -- Orig Time: 8 Byte Unsigned Fixed Width Integer
-  index, orig_time = dissect.orig_time(buffer, index, packet, parent)
+  index, orig_time = cboe_futures_orderentry_boe3_v1_0_dissect.orig_time(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values
-  index, capacity = dissect.capacity(buffer, index, packet, parent)
+  index, capacity = cboe_futures_orderentry_boe3_v1_0_dissect.capacity(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = cboe_futures_orderentry_boe3_v1_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
-  index, cmta_number = dissect.cmta_number(buffer, index, packet, parent)
+  index, cmta_number = cboe_futures_orderentry_boe3_v1_0_dissect.cmta_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Or Correct Message
-dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_message then
-    local length = size_of.trade_cancel_or_correct_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.trade_cancel_or_correct_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancel_or_correct_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.trade_cancel_or_correct_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.trade_cancel_or_correct_message, range, display)
   end
 
-  return dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Text
-size_of.text = 60
+cboe_futures_orderentry_boe3_v1_0_size_of.text = 60
 
 -- Display: Text
-display.text = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.text = function(value)
   return "Text: "..value
 end
 
 -- Dissect: Text
-dissect.text = function(buffer, offset, packet, parent)
-  local length = size_of.text
+cboe_futures_orderentry_boe3_v1_0_dissect.text = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.text(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.text, range, value, display)
 
@@ -2445,10 +2445,10 @@ dissect.text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Purge Reject Reason
-size_of.purge_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.purge_reject_reason = 1
 
 -- Display: Purge Reject Reason
-display.purge_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.purge_reject_reason = function(value)
   if value == "A" then
     return "Purge Reject Reason: Admin (A)"
   end
@@ -2526,11 +2526,11 @@ display.purge_reject_reason = function(value)
 end
 
 -- Dissect: Purge Reject Reason
-dissect.purge_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.purge_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.purge_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.purge_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_reject_reason, range, value, display)
 
@@ -2538,19 +2538,19 @@ dissect.purge_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mass Cancel Id
-size_of.mass_cancel_id = 20
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id = 20
 
 -- Display: Mass Cancel Id
-display.mass_cancel_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_id = function(value)
   return "Mass Cancel Id: "..value
 end
 
 -- Dissect: Mass Cancel Id
-dissect.mass_cancel_id = function(buffer, offset, packet, parent)
-  local length = size_of.mass_cancel_id
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mass_cancel_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_id, range, value, display)
 
@@ -2558,71 +2558,71 @@ dissect.mass_cancel_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Purge Rejected Message
-size_of.purge_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.purge_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.purge_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.purge_reject_reason
 
-  index = index + size_of.text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.text
 
   return index
 end
 
 -- Display: Purge Rejected Message
-display.purge_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Rejected Message
-dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Purge Reject Reason: 1 Byte Ascii String Enum with 24 values
-  index, purge_reject_reason = dissect.purge_reject_reason(buffer, index, packet, parent)
+  index, purge_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.purge_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_futures_orderentry_boe3_v1_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Purge Rejected Message
-dissect.purge_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_message then
-    local length = size_of.purge_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.purge_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_rejected_message, range, display)
   end
 
-  return dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cancelled Order Count
-size_of.cancelled_order_count = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.cancelled_order_count = 4
 
 -- Display: Cancelled Order Count
-display.cancelled_order_count = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cancelled_order_count = function(value)
   return "Cancelled Order Count: "..value
 end
 
 -- Dissect: Cancelled Order Count
-dissect.cancelled_order_count = function(buffer, offset, packet, parent)
-  local length = size_of.cancelled_order_count
+cboe_futures_orderentry_boe3_v1_0_dissect.cancelled_order_count = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancelled_order_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cancelled_order_count(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cancelled_order_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancelled_order_count, range, value, display)
 
@@ -2630,57 +2630,57 @@ dissect.cancelled_order_count = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Purge Acknowledgement Message
-size_of.purge_acknowledgement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.purge_acknowledgement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.cancelled_order_count
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancelled_order_count
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Purge Acknowledgement Message
-display.purge_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Acknowledgement Message
-dissect.purge_acknowledgement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
-  index, cancelled_order_count = dissect.cancelled_order_count(buffer, index, packet, parent)
+  index, cancelled_order_count = cboe_futures_orderentry_boe3_v1_0_dissect.cancelled_order_count(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Purge Acknowledgement Message
-dissect.purge_acknowledgement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.purge_acknowledgement_message then
-    local length = size_of.purge_acknowledgement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.purge_acknowledgement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_acknowledgement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_acknowledgement_message, range, display)
   end
 
-  return dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Mass Cancel Reject Reason
-size_of.mass_cancel_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_reject_reason = 1
 
 -- Display: Mass Cancel Reject Reason
-display.mass_cancel_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_reject_reason = function(value)
   if value == "A" then
     return "Mass Cancel Reject Reason: Admin (A)"
   end
@@ -2758,11 +2758,11 @@ display.mass_cancel_reject_reason = function(value)
 end
 
 -- Dissect: Mass Cancel Reject Reason
-dissect.mass_cancel_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.mass_cancel_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_reject_reason, range, value, display)
 
@@ -2770,114 +2770,114 @@ dissect.mass_cancel_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Mass Cancel Rejected Message
-size_of.mass_cancel_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.mass_cancel_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_reject_reason
 
-  index = index + size_of.text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.text
 
   return index
 end
 
 -- Display: Mass Cancel Rejected Message
-display.mass_cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Cancel Rejected Message
-dissect.mass_cancel_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Mass Cancel Reject Reason: 1 Byte Ascii String Enum with 24 values
-  index, mass_cancel_reject_reason = dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
+  index, mass_cancel_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_futures_orderentry_boe3_v1_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Rejected Message
-dissect.mass_cancel_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_rejected_message then
-    local length = size_of.mass_cancel_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.mass_cancel_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_rejected_message, range, display)
   end
 
-  return dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Mass Cancel Acknowledgement Message
-size_of.mass_cancel_acknowledgement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_acknowledgement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.cancelled_order_count
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancelled_order_count
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Mass Cancel Acknowledgement Message
-display.mass_cancel_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Cancel Acknowledgement Message
-dissect.mass_cancel_acknowledgement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Cancelled Order Count: 4 Byte Unsigned Fixed Width Integer
-  index, cancelled_order_count = dissect.cancelled_order_count(buffer, index, packet, parent)
+  index, cancelled_order_count = cboe_futures_orderentry_boe3_v1_0_dissect.cancelled_order_count(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Acknowledgement Message
-dissect.mass_cancel_acknowledgement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_acknowledgement_message then
-    local length = size_of.mass_cancel_acknowledgement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.mass_cancel_acknowledgement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_acknowledgement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_acknowledgement_message, range, display)
   end
 
-  return dissect.mass_cancel_acknowledgement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cancel Reject Reason
-size_of.cancel_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reject_reason = 1
 
 -- Display: Cancel Reject Reason
-display.cancel_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_reject_reason = function(value)
   if value == "A" then
     return "Cancel Reject Reason: Admin (A)"
   end
@@ -2955,11 +2955,11 @@ display.cancel_reject_reason = function(value)
 end
 
 -- Dissect: Cancel Reject Reason
-dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_reject_reason, range, value, display)
 
@@ -2967,124 +2967,124 @@ dissect.cancel_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cancel Rejected Message
-size_of.cancel_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.cancel_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.cancel_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reject_reason
 
-  index = index + size_of.text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.text
 
   return index
 end
 
 -- Display: Cancel Rejected Message
-display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Rejected Message
-dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Cancel Reject Reason: 1 Byte Ascii String Enum with 24 values
-  index, cancel_reject_reason = dissect.cancel_reject_reason(buffer, index, packet, parent)
+  index, cancel_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_futures_orderentry_boe3_v1_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cancel Rejected Message
-dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_message then
-    local length = size_of.cancel_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cancel_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_rejected_message, range, display)
   end
 
-  return dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Message
-size_of.order_cancelled_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.order_cancelled_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.cancel_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancel_reason
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Order Cancelled Message
-display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Message
-dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Cancel Reason: 1 Byte Ascii String Enum with 24 values
-  index, cancel_reason = dissect.cancel_reason(buffer, index, packet, parent)
+  index, cancel_reason = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_reason(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Message
-dissect.order_cancelled_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
-    local length = size_of.order_cancelled_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_cancelled_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_cancelled_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_cancelled_message, range, display)
   end
 
-  return dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pending Status
-size_of.pending_status = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.pending_status = 1
 
 -- Display: Pending Status
-display.pending_status = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.pending_status = function(value)
   if value == "N" then
     return "Pending Status: Not Applicable (N)"
   end
@@ -3096,11 +3096,11 @@ display.pending_status = function(value)
 end
 
 -- Dissect: Pending Status
-dissect.pending_status = function(buffer, offset, packet, parent)
-  local length = size_of.pending_status
+cboe_futures_orderentry_boe3_v1_0_dissect.pending_status = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.pending_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.pending_status(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.pending_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.pending_status, range, value, display)
 
@@ -3108,132 +3108,132 @@ dissect.pending_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Execution Message
-size_of.order_execution_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.order_execution_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.exec_id
 
-  index = index + size_of.last_shares
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_shares
 
-  index = index + size_of.last_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.last_px
 
-  index = index + size_of.leaves_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
 
-  index = index + size_of.base_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
 
-  index = index + size_of.sub_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.fee_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.fee_code
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.trade_date
 
-  index = index + size_of.clearing_size
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_size
 
-  index = index + size_of.pending_status
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.pending_status
 
-  index = index + size_of.multileg_reporting_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.multileg_reporting_type
 
-  index = index + size_of.secondary_exec_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.secondary_exec_id
 
   return index
 end
 
 -- Display: Order Execution Message
-display.order_execution_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_execution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Execution Message
-dissect.order_execution_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, exec_id = dissect.exec_id(buffer, index, packet, parent)
+  index, exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.exec_id(buffer, index, packet, parent)
 
   -- Last Shares: 4 Byte Unsigned Fixed Width Integer
-  index, last_shares = dissect.last_shares(buffer, index, packet, parent)
+  index, last_shares = cboe_futures_orderentry_boe3_v1_0_dissect.last_shares(buffer, index, packet, parent)
 
   -- Last Px: 8 Byte Signed Fixed Width Integer
-  index, last_px = dissect.last_px(buffer, index, packet, parent)
+  index, last_px = cboe_futures_orderentry_boe3_v1_0_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 3 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
-  index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+  index, sub_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Fee Code: 2 Byte Ascii String
-  index, fee_code = dissect.fee_code(buffer, index, packet, parent)
+  index, fee_code = cboe_futures_orderentry_boe3_v1_0_dissect.fee_code(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_orderentry_boe3_v1_0_dissect.trade_date(buffer, index, packet, parent)
 
   -- Clearing Size: 4 Byte Unsigned Fixed Width Integer
-  index, clearing_size = dissect.clearing_size(buffer, index, packet, parent)
+  index, clearing_size = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_size(buffer, index, packet, parent)
 
   -- Pending Status: 1 Byte Ascii String Enum with 2 values
-  index, pending_status = dissect.pending_status(buffer, index, packet, parent)
+  index, pending_status = cboe_futures_orderentry_boe3_v1_0_dissect.pending_status(buffer, index, packet, parent)
 
   -- Multileg Reporting Type: 1 Byte Ascii String Enum with 3 values
-  index, multileg_reporting_type = dissect.multileg_reporting_type(buffer, index, packet, parent)
+  index, multileg_reporting_type = cboe_futures_orderentry_boe3_v1_0_dissect.multileg_reporting_type(buffer, index, packet, parent)
 
   -- Secondary Exec Id: 8 Byte Unsigned Fixed Width Integer
-  index, secondary_exec_id = dissect.secondary_exec_id(buffer, index, packet, parent)
+  index, secondary_exec_id = cboe_futures_orderentry_boe3_v1_0_dissect.secondary_exec_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Execution Message
-dissect.order_execution_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_execution_message then
-    local length = size_of.order_execution_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_execution_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_execution_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_execution_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_execution_message, range, display)
   end
 
-  return dissect.order_execution_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Modify Reject Reason
-size_of.modify_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.modify_reject_reason = 1
 
 -- Display: Modify Reject Reason
-display.modify_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.modify_reject_reason = function(value)
   if value == "A" then
     return "Modify Reject Reason: Admin (A)"
   end
@@ -3311,11 +3311,11 @@ display.modify_reject_reason = function(value)
 end
 
 -- Dissect: Modify Reject Reason
-dissect.modify_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.modify_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.modify_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.modify_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.modify_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.modify_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_reject_reason, range, value, display)
 
@@ -3323,19 +3323,19 @@ dissect.modify_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Orig Cl Ord Id
-size_of.orig_cl_ord_id = 20
+cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id = 20
 
 -- Display: Orig Cl Ord Id
-display.orig_cl_ord_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.orig_cl_ord_id = function(value)
   return "Orig Cl Ord Id: "..value
 end
 
 -- Dissect: Orig Cl Ord Id
-dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = size_of.orig_cl_ord_id
+cboe_futures_orderentry_boe3_v1_0_dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.orig_cl_ord_id, range, value, display)
 
@@ -3343,72 +3343,72 @@ dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Rejected Message
-size_of.modify_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.modify_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.orig_cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.modify_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.modify_reject_reason
 
-  index = index + size_of.text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.text
 
   return index
 end
 
 -- Display: Modify Rejected Message
-display.modify_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Rejected Message
-dissect.modify_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Modify Reject Reason: 1 Byte Ascii String Enum with 24 values
-  index, modify_reject_reason = dissect.modify_reject_reason(buffer, index, packet, parent)
+  index, modify_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.modify_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_futures_orderentry_boe3_v1_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Rejected Message
-dissect.modify_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_rejected_message then
-    local length = size_of.modify_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.modify_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_rejected_message, range, display)
   end
 
-  return dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cust Order Handling Inst
-size_of.cust_order_handling_inst = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst = 1
 
 -- Display: Cust Order Handling Inst
-display.cust_order_handling_inst = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cust_order_handling_inst = function(value)
   if value == "W" then
     return "Cust Order Handling Inst: Desk (W)"
   end
@@ -3432,11 +3432,11 @@ display.cust_order_handling_inst = function(value)
 end
 
 -- Dissect: Cust Order Handling Inst
-dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
-  local length = size_of.cust_order_handling_inst
+cboe_futures_orderentry_boe3_v1_0_dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cust_order_handling_inst(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cust_order_handling_inst(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cust_order_handling_inst, range, value, display)
 
@@ -3444,19 +3444,19 @@ dissect.cust_order_handling_inst = function(buffer, offset, packet, parent)
 end
 
 -- Size: Frequent Trader Id
-size_of.frequent_trader_id = 6
+cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id = 6
 
 -- Display: Frequent Trader Id
-display.frequent_trader_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.frequent_trader_id = function(value)
   return "Frequent Trader Id: "..value
 end
 
 -- Dissect: Frequent Trader Id
-dissect.frequent_trader_id = function(buffer, offset, packet, parent)
-  local length = size_of.frequent_trader_id
+cboe_futures_orderentry_boe3_v1_0_dissect.frequent_trader_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.frequent_trader_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.frequent_trader_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.frequent_trader_id, range, value, display)
 
@@ -3464,10 +3464,10 @@ dissect.frequent_trader_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stop Px
-size_of.stop_px = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.stop_px = 8
 
 -- Display: Stop Px
-display.stop_px = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.stop_px = function(value)
   return "Stop Px: "..value
 end
 
@@ -3477,12 +3477,12 @@ translate.stop_px = function(raw)
 end
 
 -- Dissect: Stop Px
-dissect.stop_px = function(buffer, offset, packet, parent)
-  local length = size_of.stop_px
+cboe_futures_orderentry_boe3_v1_0_dissect.stop_px = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.stop_px
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.stop_px(raw)
-  local display = display.stop_px(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.stop_px(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.stop_px, range, value, display)
 
@@ -3490,19 +3490,19 @@ dissect.stop_px = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Qty
-size_of.order_qty = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.order_qty = 4
 
 -- Display: Order Qty
-display.order_qty = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.order_qty = function(value)
   return "Order Qty: "..value
 end
 
 -- Dissect: Order Qty
-dissect.order_qty = function(buffer, offset, packet, parent)
-  local length = size_of.order_qty
+cboe_futures_orderentry_boe3_v1_0_dissect.order_qty = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_qty(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.order_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_qty, range, value, display)
 
@@ -3510,10 +3510,10 @@ dissect.order_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ord Type
-size_of.ord_type = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.ord_type = 1
 
 -- Display: Ord Type
-display.ord_type = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.ord_type = function(value)
   if value == "1" then
     return "Ord Type: Market (1)"
   end
@@ -3528,11 +3528,11 @@ display.ord_type = function(value)
 end
 
 -- Dissect: Ord Type
-dissect.ord_type = function(buffer, offset, packet, parent)
-  local length = size_of.ord_type
+cboe_futures_orderentry_boe3_v1_0_dissect.ord_type = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.ord_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ord_type(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.ord_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.ord_type, range, value, display)
 
@@ -3540,112 +3540,112 @@ dissect.ord_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Modified Message
-size_of.order_modified_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.order_modified_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.orig_cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.ord_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.ord_type
 
-  index = index + size_of.order_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
 
-  index = index + size_of.leaves_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
 
-  index = index + size_of.base_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
 
-  index = index + size_of.stop_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.stop_px
 
-  index = index + size_of.frequent_trader_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id
 
-  index = index + size_of.cust_order_handling_inst
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Order Modified Message
-display.order_modified_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_modified_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Modified Message
-dissect.order_modified_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = cboe_futures_orderentry_boe3_v1_0_dissect.ord_type(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_futures_orderentry_boe3_v1_0_dissect.order_qty(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 3 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = cboe_futures_orderentry_boe3_v1_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
-  index, frequent_trader_id = dissect.frequent_trader_id(buffer, index, packet, parent)
+  index, frequent_trader_id = cboe_futures_orderentry_boe3_v1_0_dissect.frequent_trader_id(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = cboe_futures_orderentry_boe3_v1_0_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Modified Message
-dissect.order_modified_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_modified_message then
-    local length = size_of.order_modified_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_modified_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_modified_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_modified_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_modified_message, range, display)
   end
 
-  return dissect.order_modified_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Order Reject Reason
-size_of.order_reject_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.order_reject_reason = 1
 
 -- Display: Order Reject Reason
-display.order_reject_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.order_reject_reason = function(value)
   if value == "A" then
     return "Order Reject Reason: Admin (A)"
   end
@@ -3723,11 +3723,11 @@ display.order_reject_reason = function(value)
 end
 
 -- Dissect: Order Reject Reason
-dissect.order_reject_reason = function(buffer, offset, packet, parent)
-  local length = size_of.order_reject_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.order_reject_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_reject_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_reject_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.order_reject_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_reject_reason, range, value, display)
 
@@ -3735,76 +3735,76 @@ dissect.order_reject_reason = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Rejected Message
-size_of.order_rejected_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.order_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.order_reject_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_reject_reason
 
-  index = index + size_of.text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.text
 
   return index
 end
 
 -- Display: Order Rejected Message
-display.order_rejected_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Rejected Message
-dissect.order_rejected_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Order Reject Reason: 1 Byte Ascii String Enum with 24 values
-  index, order_reject_reason = dissect.order_reject_reason(buffer, index, packet, parent)
+  index, order_reject_reason = cboe_futures_orderentry_boe3_v1_0_dissect.order_reject_reason(buffer, index, packet, parent)
 
   -- Text: 60 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = cboe_futures_orderentry_boe3_v1_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Rejected Message
-dissect.order_rejected_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
-    local length = size_of.order_rejected_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_rejected_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_rejected_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_rejected_message, range, display)
   end
 
-  return dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cum Qty
-size_of.cum_qty = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.cum_qty = 4
 
 -- Display: Cum Qty
-display.cum_qty = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cum_qty = function(value)
   return "Cum Qty: "..value
 end
 
 -- Dissect: Cum Qty
-dissect.cum_qty = function(buffer, offset, packet, parent)
-  local length = size_of.cum_qty
+cboe_futures_orderentry_boe3_v1_0_dissect.cum_qty = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cum_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cum_qty(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cum_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cum_qty, range, value, display)
 
@@ -3812,19 +3812,19 @@ dissect.cum_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Oeoid
-size_of.oeoid = 18
+cboe_futures_orderentry_boe3_v1_0_size_of.oeoid = 18
 
 -- Display: Oeoid
-display.oeoid = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.oeoid = function(value)
   return "Oeoid: "..value
 end
 
 -- Dissect: Oeoid
-dissect.oeoid = function(buffer, offset, packet, parent)
-  local length = size_of.oeoid
+cboe_futures_orderentry_boe3_v1_0_dissect.oeoid = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.oeoid(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.oeoid(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.oeoid, range, value, display)
 
@@ -3832,10 +3832,10 @@ dissect.oeoid = function(buffer, offset, packet, parent)
 end
 
 -- Size: Manual Order Indicator
-size_of.manual_order_indicator = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator = 1
 
 -- Display: Manual Order Indicator
-display.manual_order_indicator = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.manual_order_indicator = function(value)
   if value == "Y" then
     return "Manual Order Indicator: Manual Order Entry (Y)"
   end
@@ -3847,11 +3847,11 @@ display.manual_order_indicator = function(value)
 end
 
 -- Dissect: Manual Order Indicator
-dissect.manual_order_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.manual_order_indicator
+cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.manual_order_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.manual_order_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.manual_order_indicator, range, value, display)
 
@@ -3859,10 +3859,10 @@ dissect.manual_order_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cti Code
-size_of.cti_code = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.cti_code = 1
 
 -- Display: Cti Code
-display.cti_code = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cti_code = function(value)
   if value == "1" then
     return "Cti Code: Cti 2 (1)"
   end
@@ -3880,11 +3880,11 @@ display.cti_code = function(value)
 end
 
 -- Dissect: Cti Code
-dissect.cti_code = function(buffer, offset, packet, parent)
-  local length = size_of.cti_code
+cboe_futures_orderentry_boe3_v1_0_dissect.cti_code = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cti_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cti_code(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cti_code(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cti_code, range, value, display)
 
@@ -3892,19 +3892,19 @@ dissect.cti_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expire Time
-size_of.expire_time = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.expire_time = 8
 
 -- Display: Expire Time
-display.expire_time = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.expire_time = function(value)
   return "Expire Time: "..value
 end
 
 -- Dissect: Expire Time
-dissect.expire_time = function(buffer, offset, packet, parent)
-  local length = size_of.expire_time
+cboe_futures_orderentry_boe3_v1_0_dissect.expire_time = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.expire_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.expire_time(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.expire_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.expire_time, range, value, display)
 
@@ -3912,19 +3912,19 @@ dissect.expire_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Group Id
-size_of.trading_group_id = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.trading_group_id = 1
 
 -- Display: Trading Group Id
-display.trading_group_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.trading_group_id = function(value)
   return "Trading Group Id: "..value
 end
 
 -- Dissect: Trading Group Id
-dissect.trading_group_id = function(buffer, offset, packet, parent)
-  local length = size_of.trading_group_id
+cboe_futures_orderentry_boe3_v1_0_dissect.trading_group_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.trading_group_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trading_group_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.trading_group_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.trading_group_id, range, value, display)
 
@@ -3932,10 +3932,10 @@ dissect.trading_group_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unique Id Level
-size_of.unique_id_level = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.unique_id_level = 1
 
 -- Display: Unique Id Level
-display.unique_id_level = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.unique_id_level = function(value)
   if value == "N" then
     return "Unique Id Level: Cancel Newest (N)"
   end
@@ -3950,11 +3950,11 @@ display.unique_id_level = function(value)
 end
 
 -- Dissect: Unique Id Level
-dissect.unique_id_level = function(buffer, offset, packet, parent)
-  local length = size_of.unique_id_level
+cboe_futures_orderentry_boe3_v1_0_dissect.unique_id_level = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.unique_id_level
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.unique_id_level(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.unique_id_level(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unique_id_level, range, value, display)
 
@@ -3962,10 +3962,10 @@ dissect.unique_id_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mtp Modifier
-size_of.mtp_modifier = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.mtp_modifier = 1
 
 -- Display: Mtp Modifier
-display.mtp_modifier = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.mtp_modifier = function(value)
   if value == "N" then
     return "Mtp Modifier: Cancel Newest (N)"
   end
@@ -3980,11 +3980,11 @@ display.mtp_modifier = function(value)
 end
 
 -- Dissect: Mtp Modifier
-dissect.mtp_modifier = function(buffer, offset, packet, parent)
-  local length = size_of.mtp_modifier
+cboe_futures_orderentry_boe3_v1_0_dissect.mtp_modifier = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.mtp_modifier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mtp_modifier(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.mtp_modifier(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mtp_modifier, range, value, display)
 
@@ -3992,66 +3992,66 @@ dissect.mtp_modifier = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Prevent Match
-size_of.prevent_match = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.prevent_match = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mtp_modifier
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mtp_modifier
 
-  index = index + size_of.unique_id_level
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.unique_id_level
 
-  index = index + size_of.trading_group_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.trading_group_id
 
   return index
 end
 
 -- Display: Prevent Match
-display.prevent_match = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.prevent_match = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prevent Match
-dissect.prevent_match_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.prevent_match_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mtp Modifier: 1 Byte Ascii String Enum with 3 values
-  index, mtp_modifier = dissect.mtp_modifier(buffer, index, packet, parent)
+  index, mtp_modifier = cboe_futures_orderentry_boe3_v1_0_dissect.mtp_modifier(buffer, index, packet, parent)
 
   -- Unique Id Level: 1 Byte Ascii String Enum with 3 values
-  index, unique_id_level = dissect.unique_id_level(buffer, index, packet, parent)
+  index, unique_id_level = cboe_futures_orderentry_boe3_v1_0_dissect.unique_id_level(buffer, index, packet, parent)
 
   -- Trading Group Id: 1 Byte Ascii String
-  index, trading_group_id = dissect.trading_group_id(buffer, index, packet, parent)
+  index, trading_group_id = cboe_futures_orderentry_boe3_v1_0_dissect.trading_group_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prevent Match
-dissect.prevent_match = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.prevent_match = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prevent_match then
-    local length = size_of.prevent_match(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.prevent_match(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.prevent_match(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.prevent_match(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.prevent_match, range, display)
   end
 
-  return dissect.prevent_match_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.prevent_match_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Account
-size_of.account = 16
+cboe_futures_orderentry_boe3_v1_0_size_of.account = 16
 
 -- Display: Account
-display.account = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.account = function(value)
   return "Account: "..value
 end
 
 -- Dissect: Account
-dissect.account = function(buffer, offset, packet, parent)
-  local length = size_of.account
+cboe_futures_orderentry_boe3_v1_0_dissect.account = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.account
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.account(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.account(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.account, range, value, display)
 
@@ -4059,19 +4059,19 @@ dissect.account = function(buffer, offset, packet, parent)
 end
 
 -- Size: Min Qty
-size_of.min_qty = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.min_qty = 4
 
 -- Display: Min Qty
-display.min_qty = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.min_qty = function(value)
   return "Min Qty: "..value
 end
 
 -- Dissect: Min Qty
-dissect.min_qty = function(buffer, offset, packet, parent)
-  local length = size_of.min_qty
+cboe_futures_orderentry_boe3_v1_0_dissect.min_qty = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.min_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.min_qty(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.min_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.min_qty, range, value, display)
 
@@ -4079,10 +4079,10 @@ dissect.min_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Time In Force
-size_of.time_in_force = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.time_in_force = 1
 
 -- Display: Time In Force
-display.time_in_force = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.time_in_force = function(value)
   if value == "0" then
     return "Time In Force: Day (0)"
   end
@@ -4103,11 +4103,11 @@ display.time_in_force = function(value)
 end
 
 -- Dissect: Time In Force
-dissect.time_in_force = function(buffer, offset, packet, parent)
-  local length = size_of.time_in_force
+cboe_futures_orderentry_boe3_v1_0_dissect.time_in_force = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.time_in_force
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.time_in_force(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.time_in_force, range, value, display)
 
@@ -4115,201 +4115,201 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Acknowledgement Message
-size_of.order_acknowledgement_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.order_acknowledgement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.transaction_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.transaction_time
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_id
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.ord_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.ord_type
 
-  index = index + size_of.time_in_force
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.time_in_force
 
-  index = index + size_of.min_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.min_qty
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.capacity
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.capacity
 
-  index = index + size_of.account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.account
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.clearing_account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account
 
-  index = index + size_of.order_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
 
-  index = index + size_of.prevent_match(buffer, offset + index)
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.prevent_match(buffer, offset + index)
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.open_close
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.open_close
 
-  index = index + size_of.leaves_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.leaves_qty
 
-  index = index + size_of.base_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.base_liquidity_indicator
 
-  index = index + size_of.expire_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.expire_time
 
-  index = index + size_of.sub_liquidity_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sub_liquidity_indicator
 
-  index = index + size_of.stop_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.stop_px
 
-  index = index + size_of.cmta_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number
 
-  index = index + size_of.cti_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cti_code
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
-  index = index + size_of.cum_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cum_qty
 
-  index = index + size_of.frequent_trader_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id
 
-  index = index + size_of.cust_order_handling_inst
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst
 
-  index = index + size_of.request_received_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.request_received_time
 
   return index
 end
 
 -- Display: Order Acknowledgement Message
-display.order_acknowledgement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Acknowledgement Message
-dissect.order_acknowledgement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Transaction Time: 8 Byte Unsigned Fixed Width Integer
-  index, transaction_time = dissect.transaction_time(buffer, index, packet, parent)
+  index, transaction_time = cboe_futures_orderentry_boe3_v1_0_dissect.transaction_time(buffer, index, packet, parent)
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_orderentry_boe3_v1_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = cboe_futures_orderentry_boe3_v1_0_dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = cboe_futures_orderentry_boe3_v1_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer
-  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = cboe_futures_orderentry_boe3_v1_0_dissect.min_qty(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values
-  index, capacity = dissect.capacity(buffer, index, packet, parent)
+  index, capacity = cboe_futures_orderentry_boe3_v1_0_dissect.capacity(buffer, index, packet, parent)
 
   -- Account: 16 Byte Ascii String
-  index, account = dissect.account(buffer, index, packet, parent)
+  index, account = cboe_futures_orderentry_boe3_v1_0_dissect.account(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Clearing Account: 4 Byte Ascii String
-  index, clearing_account = dissect.clearing_account(buffer, index, packet, parent)
+  index, clearing_account = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_futures_orderentry_boe3_v1_0_dissect.order_qty(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
-  index, prevent_match = dissect.prevent_match(buffer, index, packet, parent)
+  index, prevent_match = cboe_futures_orderentry_boe3_v1_0_dissect.prevent_match(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = cboe_futures_orderentry_boe3_v1_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leaves_qty = dissect.leaves_qty(buffer, index, packet, parent)
+  index, leaves_qty = cboe_futures_orderentry_boe3_v1_0_dissect.leaves_qty(buffer, index, packet, parent)
 
   -- Base Liquidity Indicator: 1 Byte Ascii String Enum with 3 values
-  index, base_liquidity_indicator = dissect.base_liquidity_indicator(buffer, index, packet, parent)
+  index, base_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.base_liquidity_indicator(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer
-  index, expire_time = dissect.expire_time(buffer, index, packet, parent)
+  index, expire_time = cboe_futures_orderentry_boe3_v1_0_dissect.expire_time(buffer, index, packet, parent)
 
   -- Sub Liquidity Indicator: 1 Byte Ascii String Enum with 2 values
-  index, sub_liquidity_indicator = dissect.sub_liquidity_indicator(buffer, index, packet, parent)
+  index, sub_liquidity_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.sub_liquidity_indicator(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = cboe_futures_orderentry_boe3_v1_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
-  index, cmta_number = dissect.cmta_number(buffer, index, packet, parent)
+  index, cmta_number = cboe_futures_orderentry_boe3_v1_0_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Cti Code: 1 Byte Ascii String Enum with 4 values
-  index, cti_code = dissect.cti_code(buffer, index, packet, parent)
+  index, cti_code = cboe_futures_orderentry_boe3_v1_0_dissect.cti_code(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
-  index, cum_qty = dissect.cum_qty(buffer, index, packet, parent)
+  index, cum_qty = cboe_futures_orderentry_boe3_v1_0_dissect.cum_qty(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
-  index, frequent_trader_id = dissect.frequent_trader_id(buffer, index, packet, parent)
+  index, frequent_trader_id = cboe_futures_orderentry_boe3_v1_0_dissect.frequent_trader_id(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = cboe_futures_orderentry_boe3_v1_0_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   -- Request Received Time: 8 Byte Unsigned Fixed Width Integer
-  index, request_received_time = dissect.request_received_time(buffer, index, packet, parent)
+  index, request_received_time = cboe_futures_orderentry_boe3_v1_0_dissect.request_received_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Acknowledgement Message
-dissect.order_acknowledgement_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgement_message then
-    local length = size_of.order_acknowledgement_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.order_acknowledgement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_acknowledgement_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.order_acknowledgement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.order_acknowledgement_message, range, display)
   end
 
-  return dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Custom Group Id
-size_of.custom_group_id = 2
+cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id = 2
 
 -- Display: Custom Group Id
-display.custom_group_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.custom_group_id = function(value)
   return "Custom Group Id: "..value
 end
 
 -- Dissect: Custom Group Id
-dissect.custom_group_id = function(buffer, offset, packet, parent)
-  local length = size_of.custom_group_id
+cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.custom_group_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.custom_group_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id, range, value, display)
 
@@ -4317,19 +4317,19 @@ dissect.custom_group_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Product Name
-size_of.product_name = 6
+cboe_futures_orderentry_boe3_v1_0_size_of.product_name = 6
 
 -- Display: Product Name
-display.product_name = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.product_name = function(value)
   return "Product Name: "..value
 end
 
 -- Dissect: Product Name
-dissect.product_name = function(buffer, offset, packet, parent)
-  local length = size_of.product_name
+cboe_futures_orderentry_boe3_v1_0_dissect.product_name = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.product_name
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.product_name(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.product_name(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.product_name, range, value, display)
 
@@ -4337,19 +4337,19 @@ dissect.product_name = function(buffer, offset, packet, parent)
 end
 
 -- Size: Risk Reset
-size_of.risk_reset = 8
+cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset = 8
 
 -- Display: Risk Reset
-display.risk_reset = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.risk_reset = function(value)
   return "Risk Reset: "..value
 end
 
 -- Dissect: Risk Reset
-dissect.risk_reset = function(buffer, offset, packet, parent)
-  local length = size_of.risk_reset
+cboe_futures_orderentry_boe3_v1_0_dissect.risk_reset = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.risk_reset(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.risk_reset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.risk_reset, range, value, display)
 
@@ -4357,124 +4357,124 @@ dissect.risk_reset = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reset Risk Message
-size_of.reset_risk_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.risk_status_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.risk_status_id
 
-  index = index + size_of.risk_reset
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.risk_reset
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.product_name
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.product_name
 
-  index = index + size_of.custom_group_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id
 
   return index
 end
 
 -- Display: Reset Risk Message
-display.reset_risk_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reset Risk Message
-dissect.reset_risk_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Risk Status Id: 16 Byte Ascii String
-  index, risk_status_id = dissect.risk_status_id(buffer, index, packet, parent)
+  index, risk_status_id = cboe_futures_orderentry_boe3_v1_0_dissect.risk_status_id(buffer, index, packet, parent)
 
   -- Risk Reset: 8 Byte Ascii String
-  index, risk_reset = dissect.risk_reset(buffer, index, packet, parent)
+  index, risk_reset = cboe_futures_orderentry_boe3_v1_0_dissect.risk_reset(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Product Name: 6 Byte Ascii String
-  index, product_name = dissect.product_name(buffer, index, packet, parent)
+  index, product_name = cboe_futures_orderentry_boe3_v1_0_dissect.product_name(buffer, index, packet, parent)
 
   -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
-  index, custom_group_id = dissect.custom_group_id(buffer, index, packet, parent)
+  index, custom_group_id = cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reset Risk Message
-dissect.reset_risk_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reset_risk_message then
-    local length = size_of.reset_risk_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reset_risk_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.reset_risk_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reset_risk_message, range, display)
   end
 
-  return dissect.reset_risk_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote
-size_of.quote = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.quote_symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_symbol
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.open_close
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.open_close
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.order_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
 
   return index
 end
 
 -- Display: Quote
-display.quote = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote
-dissect.quote_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Quote Symbol: 6 Byte Ascii String
-  index, quote_symbol = dissect.quote_symbol(buffer, index, packet, parent)
+  index, quote_symbol = cboe_futures_orderentry_boe3_v1_0_dissect.quote_symbol(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = cboe_futures_orderentry_boe3_v1_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_futures_orderentry_boe3_v1_0_dissect.order_qty(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote
-dissect.quote = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote then
-    local length = size_of.quote(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote, range, display)
   end
 
-  return dissect.quote_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Size Modifier
-size_of.size_modifier = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.size_modifier = 1
 
 -- Display: Size Modifier
-display.size_modifier = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.size_modifier = function(value)
   if value == "R" then
     return "Size Modifier: Reduce (R)"
   end
@@ -4483,11 +4483,11 @@ display.size_modifier = function(value)
 end
 
 -- Dissect: Size Modifier
-dissect.size_modifier = function(buffer, offset, packet, parent)
-  local length = size_of.size_modifier
+cboe_futures_orderentry_boe3_v1_0_dissect.size_modifier = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.size_modifier
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.size_modifier(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.size_modifier(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.size_modifier, range, value, display)
 
@@ -4495,32 +4495,32 @@ dissect.size_modifier = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Update Message
-size_of.quote_update_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.quote_update_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.clearing_account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account
 
-  index = index + size_of.cmta_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number
 
-  index = index + size_of.account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.account
 
-  index = index + size_of.custom_group_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id
 
-  index = index + size_of.capacity
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.capacity
 
-  index = index + size_of.cti_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cti_code
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
-  index = index + size_of.size_modifier
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.size_modifier
 
-  index = index + size_of.quote_cnt
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.quote_cnt
 
   -- Calculate field size from count
   local quote_count = buffer(offset + index - 1, 1):le_uint()
@@ -4530,85 +4530,85 @@ size_of.quote_update_message = function(buffer, offset)
 end
 
 -- Display: Quote Update Message
-display.quote_update_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.quote_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Update Message
-dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Quote Update Id: 16 Byte Ascii String
-  index, quote_update_id = dissect.quote_update_id(buffer, index, packet, parent)
+  index, quote_update_id = cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Clearing Account: 4 Byte Ascii String
-  index, clearing_account = dissect.clearing_account(buffer, index, packet, parent)
+  index, clearing_account = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
-  index, cmta_number = dissect.cmta_number(buffer, index, packet, parent)
+  index, cmta_number = cboe_futures_orderentry_boe3_v1_0_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Account: 16 Byte Ascii String
-  index, account = dissect.account(buffer, index, packet, parent)
+  index, account = cboe_futures_orderentry_boe3_v1_0_dissect.account(buffer, index, packet, parent)
 
   -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
-  index, custom_group_id = dissect.custom_group_id(buffer, index, packet, parent)
+  index, custom_group_id = cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values
-  index, capacity = dissect.capacity(buffer, index, packet, parent)
+  index, capacity = cboe_futures_orderentry_boe3_v1_0_dissect.capacity(buffer, index, packet, parent)
 
   -- Cti Code: 1 Byte Ascii String Enum with 4 values
-  index, cti_code = dissect.cti_code(buffer, index, packet, parent)
+  index, cti_code = cboe_futures_orderentry_boe3_v1_0_dissect.cti_code(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   -- Size Modifier: 1 Byte Ascii String Enum with 1 values
-  index, size_modifier = dissect.size_modifier(buffer, index, packet, parent)
+  index, size_modifier = cboe_futures_orderentry_boe3_v1_0_dissect.size_modifier(buffer, index, packet, parent)
 
   -- Quote Cnt: 1 Byte Unsigned Fixed Width Integer
-  index, quote_cnt = dissect.quote_cnt(buffer, index, packet, parent)
+  index, quote_cnt = cboe_futures_orderentry_boe3_v1_0_dissect.quote_cnt(buffer, index, packet, parent)
 
   -- Quote: Struct of 5 fields
   for i = 1, quote_cnt do
-    index = dissect.quote(buffer, index, packet, parent)
+    index = cboe_futures_orderentry_boe3_v1_0_dissect.quote(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Quote Update Message
-dissect.quote_update_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.quote_update_message then
-    local length = size_of.quote_update_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_update_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.quote_update_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.quote_update_message, range, display)
   end
 
-  return dissect.quote_update_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Custom Group Id Cnt
-size_of.custom_group_id_cnt = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id_cnt = 1
 
 -- Display: Custom Group Id Cnt
-display.custom_group_id_cnt = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.custom_group_id_cnt = function(value)
   return "Custom Group Id Cnt: "..value
 end
 
 -- Dissect: Custom Group Id Cnt
-dissect.custom_group_id_cnt = function(buffer, offset, packet, parent)
-  local length = size_of.custom_group_id_cnt
+cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id_cnt = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id_cnt
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.custom_group_id_cnt(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.custom_group_id_cnt(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.custom_group_id_cnt, range, value, display)
 
@@ -4616,19 +4616,19 @@ dissect.custom_group_id_cnt = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instruction Details
-size_of.instruction_details = 11
+cboe_futures_orderentry_boe3_v1_0_size_of.instruction_details = 11
 
 -- Display: Instruction Details
-display.instruction_details = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.instruction_details = function(value)
   return "Instruction Details: "..value
 end
 
 -- Dissect: Instruction Details
-dissect.instruction_details = function(buffer, offset, packet, parent)
-  local length = size_of.instruction_details
+cboe_futures_orderentry_boe3_v1_0_dissect.instruction_details = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.instruction_details
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.instruction_details(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.instruction_details(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.instruction_details, range, value, display)
 
@@ -4636,10 +4636,10 @@ dissect.instruction_details = function(buffer, offset, packet, parent)
 end
 
 -- Size: Gtc Order Filter
-size_of.gtc_order_filter = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.gtc_order_filter = 1
 
 -- Display: Gtc Order Filter
-display.gtc_order_filter = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.gtc_order_filter = function(value)
   if value == "C" then
     return "Gtc Order Filter: Cancel Gtc And Gtd Orders (C)"
   end
@@ -4651,11 +4651,11 @@ display.gtc_order_filter = function(value)
 end
 
 -- Dissect: Gtc Order Filter
-dissect.gtc_order_filter = function(buffer, offset, packet, parent)
-  local length = size_of.gtc_order_filter
+cboe_futures_orderentry_boe3_v1_0_dissect.gtc_order_filter = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.gtc_order_filter
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.gtc_order_filter(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.gtc_order_filter(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.gtc_order_filter, range, value, display)
 
@@ -4663,10 +4663,10 @@ dissect.gtc_order_filter = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Type Filter
-size_of.instrument_type_filter = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.instrument_type_filter = 1
 
 -- Display: Instrument Type Filter
-display.instrument_type_filter = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.instrument_type_filter = function(value)
   if value == "B" then
     return "Instrument Type Filter: Both Simple And Complex Orders (B)"
   end
@@ -4681,11 +4681,11 @@ display.instrument_type_filter = function(value)
 end
 
 -- Dissect: Instrument Type Filter
-dissect.instrument_type_filter = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_type_filter
+cboe_futures_orderentry_boe3_v1_0_dissect.instrument_type_filter = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.instrument_type_filter
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.instrument_type_filter(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.instrument_type_filter(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.instrument_type_filter, range, value, display)
 
@@ -4693,10 +4693,10 @@ dissect.instrument_type_filter = function(buffer, offset, packet, parent)
 end
 
 -- Size: Lockout Instruction
-size_of.lockout_instruction = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.lockout_instruction = 1
 
 -- Display: Lockout Instruction
-display.lockout_instruction = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.lockout_instruction = function(value)
   if value == "N" then
     return "Lockout Instruction: No Lockout (N)"
   end
@@ -4708,11 +4708,11 @@ display.lockout_instruction = function(value)
 end
 
 -- Dissect: Lockout Instruction
-dissect.lockout_instruction = function(buffer, offset, packet, parent)
-  local length = size_of.lockout_instruction
+cboe_futures_orderentry_boe3_v1_0_dissect.lockout_instruction = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.lockout_instruction
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.lockout_instruction(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.lockout_instruction(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.lockout_instruction, range, value, display)
 
@@ -4720,10 +4720,10 @@ dissect.lockout_instruction = function(buffer, offset, packet, parent)
 end
 
 -- Size: Acknowledgement Style
-size_of.acknowledgement_style = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.acknowledgement_style = 1
 
 -- Display: Acknowledgement Style
-display.acknowledgement_style = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.acknowledgement_style = function(value)
   if value == "M" then
     return "Acknowledgement Style: Order Cancelled Messages Are Sent For Each Cancelled Order (M)"
   end
@@ -4738,11 +4738,11 @@ display.acknowledgement_style = function(value)
 end
 
 -- Dissect: Acknowledgement Style
-dissect.acknowledgement_style = function(buffer, offset, packet, parent)
-  local length = size_of.acknowledgement_style
+cboe_futures_orderentry_boe3_v1_0_dissect.acknowledgement_style = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.acknowledgement_style
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.acknowledgement_style(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.acknowledgement_style(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.acknowledgement_style, range, value, display)
 
@@ -4750,10 +4750,10 @@ dissect.acknowledgement_style = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Firm Filter
-size_of.clearing_firm_filter = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm_filter = 1
 
 -- Display: Clearing Firm Filter
-display.clearing_firm_filter = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.clearing_firm_filter = function(value)
   if value == "A" then
     return "Clearing Firm Filter: No Filtering By Clearing Firm (A)"
   end
@@ -4765,11 +4765,11 @@ display.clearing_firm_filter = function(value)
 end
 
 -- Dissect: Clearing Firm Filter
-dissect.clearing_firm_filter = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_firm_filter
+cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm_filter = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm_filter
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_firm_filter(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.clearing_firm_filter(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.clearing_firm_filter, range, value, display)
 
@@ -4777,84 +4777,84 @@ dissect.clearing_firm_filter = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Mass Cancel Inst
-size_of.mass_cancel_inst = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_inst = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.clearing_firm_filter
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm_filter
 
-  index = index + size_of.acknowledgement_style
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.acknowledgement_style
 
-  index = index + size_of.lockout_instruction
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.lockout_instruction
 
-  index = index + size_of.instrument_type_filter
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.instrument_type_filter
 
-  index = index + size_of.gtc_order_filter
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.gtc_order_filter
 
-  index = index + size_of.instruction_details
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.instruction_details
 
   return index
 end
 
 -- Display: Mass Cancel Inst
-display.mass_cancel_inst = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_inst = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Cancel Inst
-dissect.mass_cancel_inst_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_inst_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Clearing Firm Filter: 1 Byte Ascii String Enum with 2 values
-  index, clearing_firm_filter = dissect.clearing_firm_filter(buffer, index, packet, parent)
+  index, clearing_firm_filter = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm_filter(buffer, index, packet, parent)
 
   -- Acknowledgement Style: 1 Byte Ascii String Enum with 3 values
-  index, acknowledgement_style = dissect.acknowledgement_style(buffer, index, packet, parent)
+  index, acknowledgement_style = cboe_futures_orderentry_boe3_v1_0_dissect.acknowledgement_style(buffer, index, packet, parent)
 
   -- Lockout Instruction: 1 Byte Ascii String Enum with 2 values
-  index, lockout_instruction = dissect.lockout_instruction(buffer, index, packet, parent)
+  index, lockout_instruction = cboe_futures_orderentry_boe3_v1_0_dissect.lockout_instruction(buffer, index, packet, parent)
 
   -- Instrument Type Filter: 1 Byte Ascii String Enum with 3 values
-  index, instrument_type_filter = dissect.instrument_type_filter(buffer, index, packet, parent)
+  index, instrument_type_filter = cboe_futures_orderentry_boe3_v1_0_dissect.instrument_type_filter(buffer, index, packet, parent)
 
   -- Gtc Order Filter: 1 Byte Ascii String Enum with 2 values
-  index, gtc_order_filter = dissect.gtc_order_filter(buffer, index, packet, parent)
+  index, gtc_order_filter = cboe_futures_orderentry_boe3_v1_0_dissect.gtc_order_filter(buffer, index, packet, parent)
 
   -- Instruction Details: 11 Byte Unsigned Fixed Width Integer
-  index, instruction_details = dissect.instruction_details(buffer, index, packet, parent)
+  index, instruction_details = cboe_futures_orderentry_boe3_v1_0_dissect.instruction_details(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Inst
-dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_inst = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_inst then
-    local length = size_of.mass_cancel_inst(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_inst(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.mass_cancel_inst(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_inst(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_inst, range, display)
   end
 
-  return dissect.mass_cancel_inst_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_inst_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Purge Orders Message
-size_of.purge_orders_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.purge_orders_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.product_name
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.product_name
 
-  index = index + size_of.mass_cancel_inst(buffer, offset + index)
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_inst(buffer, offset + index)
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
-  index = index + size_of.custom_group_id_cnt
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id_cnt
 
   -- Calculate field size from count
   local custom_group_id_count = buffer(offset + index - 1, 1):le_uint()
@@ -4864,175 +4864,175 @@ size_of.purge_orders_message = function(buffer, offset)
 end
 
 -- Display: Purge Orders Message
-display.purge_orders_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.purge_orders_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Purge Orders Message
-dissect.purge_orders_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_orders_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Product Name: 6 Byte Ascii String
-  index, product_name = dissect.product_name(buffer, index, packet, parent)
+  index, product_name = cboe_futures_orderentry_boe3_v1_0_dissect.product_name(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 6 fields
-  index, mass_cancel_inst = dissect.mass_cancel_inst(buffer, index, packet, parent)
+  index, mass_cancel_inst = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   -- Custom Group Id Cnt: 1 Byte Unsigned Fixed Width Integer
-  index, custom_group_id_cnt = dissect.custom_group_id_cnt(buffer, index, packet, parent)
+  index, custom_group_id_cnt = cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id_cnt(buffer, index, packet, parent)
 
   -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
   for i = 1, custom_group_id_cnt do
-    index = dissect.custom_group_id(buffer, index, packet, parent)
+    index = cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Purge Orders Message
-dissect.purge_orders_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.purge_orders_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.purge_orders_message then
-    local length = size_of.purge_orders_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.purge_orders_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.purge_orders_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.purge_orders_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.purge_orders_message, range, display)
   end
 
-  return dissect.purge_orders_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.purge_orders_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Mass Cancel Order Message
-size_of.mass_cancel_order_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.mass_cancel_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.product_name
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.product_name
 
-  index = index + size_of.mass_cancel_inst(buffer, offset + index)
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_inst(buffer, offset + index)
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
   return index
 end
 
 -- Display: Mass Cancel Order Message
-display.mass_cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Mass Cancel Order Message
-dissect.mass_cancel_order_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Mass Cancel Id: 20 Byte Ascii String
-  index, mass_cancel_id = dissect.mass_cancel_id(buffer, index, packet, parent)
+  index, mass_cancel_id = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Product Name: 6 Byte Ascii String
-  index, product_name = dissect.product_name(buffer, index, packet, parent)
+  index, product_name = cboe_futures_orderentry_boe3_v1_0_dissect.product_name(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 6 fields
-  index, mass_cancel_inst = dissect.mass_cancel_inst(buffer, index, packet, parent)
+  index, mass_cancel_inst = cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Mass Cancel Order Message
-dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_order_message then
-    local length = size_of.mass_cancel_order_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.mass_cancel_order_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.mass_cancel_order_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.mass_cancel_order_message, range, display)
   end
 
-  return dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cancel Order Message
-size_of.cancel_order_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.cancel_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.orig_cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
   return index
 end
 
 -- Display: Cancel Order Message
-display.cancel_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Order Message
-dissect.cancel_order_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cancel Order Message
-dissect.cancel_order_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = size_of.cancel_order_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cancel_order_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_order_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_order_message, range, display)
   end
 
-  return dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cancel Orig On Reject
-size_of.cancel_orig_on_reject = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.cancel_orig_on_reject = 1
 
 -- Display: Cancel Orig On Reject
-display.cancel_orig_on_reject = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.cancel_orig_on_reject = function(value)
   if value == "N" then
     return "Cancel Orig On Reject: Leave Original Order Alone (N)"
   end
@@ -5044,11 +5044,11 @@ display.cancel_orig_on_reject = function(value)
 end
 
 -- Dissect: Cancel Orig On Reject
-dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
-  local length = size_of.cancel_orig_on_reject
+cboe_futures_orderentry_boe3_v1_0_dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.cancel_orig_on_reject
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cancel_orig_on_reject(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.cancel_orig_on_reject(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.cancel_orig_on_reject, range, value, display)
 
@@ -5056,263 +5056,263 @@ dissect.cancel_orig_on_reject = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Order Message
-size_of.modify_order_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.modify_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.orig_cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.orig_cl_ord_id
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.order_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.ord_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.ord_type
 
-  index = index + size_of.cancel_orig_on_reject
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cancel_orig_on_reject
 
-  index = index + size_of.stop_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.stop_px
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
-  index = index + size_of.frequent_trader_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id
 
-  index = index + size_of.cust_order_handling_inst
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst
 
   return index
 end
 
 -- Display: Modify Order Message
-display.modify_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Message
-dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Orig Cl Ord Id: 20 Byte Ascii String
-  index, orig_cl_ord_id = dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  index, orig_cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_futures_orderentry_boe3_v1_0_dissect.order_qty(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = cboe_futures_orderentry_boe3_v1_0_dissect.ord_type(buffer, index, packet, parent)
 
   -- Cancel Orig On Reject: 1 Byte Ascii String Enum with 2 values
-  index, cancel_orig_on_reject = dissect.cancel_orig_on_reject(buffer, index, packet, parent)
+  index, cancel_orig_on_reject = cboe_futures_orderentry_boe3_v1_0_dissect.cancel_orig_on_reject(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = cboe_futures_orderentry_boe3_v1_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
-  index, frequent_trader_id = dissect.frequent_trader_id(buffer, index, packet, parent)
+  index, frequent_trader_id = cboe_futures_orderentry_boe3_v1_0_dissect.frequent_trader_id(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = cboe_futures_orderentry_boe3_v1_0_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Message
-dissect.modify_order_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_message then
-    local length = size_of.modify_order_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.modify_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_order_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.modify_order_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.modify_order_message, range, display)
   end
 
-  return dissect.modify_order_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: New Order Message
-size_of.new_order_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.new_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.cl_ord_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cl_ord_id
 
-  index = index + size_of.side
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.side
 
-  index = index + size_of.order_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.order_qty
 
-  index = index + size_of.clearing_firm
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_firm
 
-  index = index + size_of.clearing_account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.clearing_account
 
-  index = index + size_of.price
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.price
 
-  index = index + size_of.ord_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.ord_type
 
-  index = index + size_of.time_in_force
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.time_in_force
 
-  index = index + size_of.min_qty
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.min_qty
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.symbol
 
-  index = index + size_of.capacity
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.capacity
 
-  index = index + size_of.account
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.account
 
-  index = index + size_of.prevent_match(buffer, offset + index)
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.prevent_match(buffer, offset + index)
 
-  index = index + size_of.expire_time
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.expire_time
 
-  index = index + size_of.maturity_date
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.maturity_date
 
-  index = index + size_of.open_close
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.open_close
 
-  index = index + size_of.cmta_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cmta_number
 
-  index = index + size_of.stop_px
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.stop_px
 
-  index = index + size_of.custom_group_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.custom_group_id
 
-  index = index + size_of.cti_code
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cti_code
 
-  index = index + size_of.manual_order_indicator
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.manual_order_indicator
 
-  index = index + size_of.oeoid
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.oeoid
 
-  index = index + size_of.frequent_trader_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.frequent_trader_id
 
-  index = index + size_of.cust_order_handling_inst
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.cust_order_handling_inst
 
   return index
 end
 
 -- Display: New Order Message
-display.new_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.new_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Order Message
-dissect.new_order_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = dissect.cl_ord_id(buffer, index, packet, parent)
+  index, cl_ord_id = cboe_futures_orderentry_boe3_v1_0_dissect.cl_ord_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = cboe_futures_orderentry_boe3_v1_0_dissect.side(buffer, index, packet, parent)
 
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
-  index, order_qty = dissect.order_qty(buffer, index, packet, parent)
+  index, order_qty = cboe_futures_orderentry_boe3_v1_0_dissect.order_qty(buffer, index, packet, parent)
 
   -- Clearing Firm: 4 Byte Ascii String
-  index, clearing_firm = dissect.clearing_firm(buffer, index, packet, parent)
+  index, clearing_firm = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_firm(buffer, index, packet, parent)
 
   -- Clearing Account: 4 Byte Ascii String
-  index, clearing_account = dissect.clearing_account(buffer, index, packet, parent)
+  index, clearing_account = cboe_futures_orderentry_boe3_v1_0_dissect.clearing_account(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = cboe_futures_orderentry_boe3_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Ord Type: 1 Byte Ascii String Enum with 3 values
-  index, ord_type = dissect.ord_type(buffer, index, packet, parent)
+  index, ord_type = cboe_futures_orderentry_boe3_v1_0_dissect.ord_type(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 5 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = cboe_futures_orderentry_boe3_v1_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Min Qty: 4 Byte Unsigned Fixed Width Integer
-  index, min_qty = dissect.min_qty(buffer, index, packet, parent)
+  index, min_qty = cboe_futures_orderentry_boe3_v1_0_dissect.min_qty(buffer, index, packet, parent)
 
   -- Symbol: 8 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_orderentry_boe3_v1_0_dissect.symbol(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values
-  index, capacity = dissect.capacity(buffer, index, packet, parent)
+  index, capacity = cboe_futures_orderentry_boe3_v1_0_dissect.capacity(buffer, index, packet, parent)
 
   -- Account: 16 Byte Ascii String
-  index, account = dissect.account(buffer, index, packet, parent)
+  index, account = cboe_futures_orderentry_boe3_v1_0_dissect.account(buffer, index, packet, parent)
 
   -- Prevent Match: Struct of 3 fields
-  index, prevent_match = dissect.prevent_match(buffer, index, packet, parent)
+  index, prevent_match = cboe_futures_orderentry_boe3_v1_0_dissect.prevent_match(buffer, index, packet, parent)
 
   -- Expire Time: 8 Byte Unsigned Fixed Width Integer
-  index, expire_time = dissect.expire_time(buffer, index, packet, parent)
+  index, expire_time = cboe_futures_orderentry_boe3_v1_0_dissect.expire_time(buffer, index, packet, parent)
 
   -- Maturity Date: 4 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_futures_orderentry_boe3_v1_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Ascii String Enum with 3 values
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = cboe_futures_orderentry_boe3_v1_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Cmta Number: 4 Byte Unsigned Fixed Width Integer
-  index, cmta_number = dissect.cmta_number(buffer, index, packet, parent)
+  index, cmta_number = cboe_futures_orderentry_boe3_v1_0_dissect.cmta_number(buffer, index, packet, parent)
 
   -- Stop Px: 8 Byte Signed Fixed Width Integer
-  index, stop_px = dissect.stop_px(buffer, index, packet, parent)
+  index, stop_px = cboe_futures_orderentry_boe3_v1_0_dissect.stop_px(buffer, index, packet, parent)
 
   -- Custom Group Id: 2 Byte Unsigned Fixed Width Integer
-  index, custom_group_id = dissect.custom_group_id(buffer, index, packet, parent)
+  index, custom_group_id = cboe_futures_orderentry_boe3_v1_0_dissect.custom_group_id(buffer, index, packet, parent)
 
   -- Cti Code: 1 Byte Ascii String Enum with 4 values
-  index, cti_code = dissect.cti_code(buffer, index, packet, parent)
+  index, cti_code = cboe_futures_orderentry_boe3_v1_0_dissect.cti_code(buffer, index, packet, parent)
 
   -- Manual Order Indicator: 1 Byte Ascii String Enum with 2 values
-  index, manual_order_indicator = dissect.manual_order_indicator(buffer, index, packet, parent)
+  index, manual_order_indicator = cboe_futures_orderentry_boe3_v1_0_dissect.manual_order_indicator(buffer, index, packet, parent)
 
   -- Oeoid: 18 Byte Ascii String
-  index, oeoid = dissect.oeoid(buffer, index, packet, parent)
+  index, oeoid = cboe_futures_orderentry_boe3_v1_0_dissect.oeoid(buffer, index, packet, parent)
 
   -- Frequent Trader Id: 6 Byte Ascii String
-  index, frequent_trader_id = dissect.frequent_trader_id(buffer, index, packet, parent)
+  index, frequent_trader_id = cboe_futures_orderentry_boe3_v1_0_dissect.frequent_trader_id(buffer, index, packet, parent)
 
   -- Cust Order Handling Inst: 1 Byte Ascii String Enum with 6 values
-  index, cust_order_handling_inst = dissect.cust_order_handling_inst(buffer, index, packet, parent)
+  index, cust_order_handling_inst = cboe_futures_orderentry_boe3_v1_0_dissect.cust_order_handling_inst(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: New Order Message
-dissect.new_order_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_order_message then
-    local length = size_of.new_order_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.new_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.new_order_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.new_order_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.new_order_message, range, display)
   end
 
-  return dissect.new_order_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Logout Reason Text
-size_of.logout_reason_text = 60
+cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason_text = 60
 
 -- Display: Logout Reason Text
-display.logout_reason_text = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.logout_reason_text = function(value)
   return "Logout Reason Text: "..value
 end
 
 -- Dissect: Logout Reason Text
-dissect.logout_reason_text = function(buffer, offset, packet, parent)
-  local length = size_of.logout_reason_text
+cboe_futures_orderentry_boe3_v1_0_dissect.logout_reason_text = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason_text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.logout_reason_text(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.logout_reason_text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.logout_reason_text, range, value, display)
 
@@ -5320,10 +5320,10 @@ dissect.logout_reason_text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Logout Reason
-size_of.logout_reason = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason = 1
 
 -- Display: Logout Reason
-display.logout_reason = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.logout_reason = function(value)
   if value == "U" then
     return "Logout Reason: User Requested (U)"
   end
@@ -5338,11 +5338,11 @@ display.logout_reason = function(value)
 end
 
 -- Dissect: Logout Reason
-dissect.logout_reason = function(buffer, offset, packet, parent)
-  local length = size_of.logout_reason
+cboe_futures_orderentry_boe3_v1_0_dissect.logout_reason = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.logout_reason(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.logout_reason(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.logout_reason, range, value, display)
 
@@ -5350,61 +5350,61 @@ dissect.logout_reason = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Logout Response Message
-size_of.logout_response_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.logout_response_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.logout_reason
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason
 
-  index = index + size_of.logout_reason_text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.logout_reason_text
 
   return index
 end
 
 -- Display: Logout Response Message
-display.logout_response_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.logout_response_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Logout Response Message
-dissect.logout_response_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Logout Reason: 1 Byte Ascii String Enum with 3 values
-  index, logout_reason = dissect.logout_reason(buffer, index, packet, parent)
+  index, logout_reason = cboe_futures_orderentry_boe3_v1_0_dissect.logout_reason(buffer, index, packet, parent)
 
   -- Logout Reason Text: 60 Byte Ascii String
-  index, logout_reason_text = dissect.logout_reason_text(buffer, index, packet, parent)
+  index, logout_reason_text = cboe_futures_orderentry_boe3_v1_0_dissect.logout_reason_text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Logout Response Message
-dissect.logout_response_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.logout_response_message then
-    local length = size_of.logout_response_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.logout_response_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.logout_response_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.logout_response_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.logout_response_message, range, display)
   end
 
-  return dissect.logout_response_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.sequence_number = 4
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+cboe_futures_orderentry_boe3_v1_0_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.sequence_number, range, value, display)
 
@@ -5412,19 +5412,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit Number
-size_of.unit_number = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.unit_number = 1
 
 -- Display: Unit Number
-display.unit_number = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.unit_number = function(value)
   return "Unit Number: "..value
 end
 
 -- Dissect: Unit Number
-dissect.unit_number = function(buffer, offset, packet, parent)
-  local length = size_of.unit_number
+cboe_futures_orderentry_boe3_v1_0_dissect.unit_number = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.unit_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit_number(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.unit_number(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unit_number, range, value, display)
 
@@ -5432,61 +5432,61 @@ dissect.unit_number = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Sequence
-size_of.unit_sequence = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.unit_sequence = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.unit_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.unit_number
 
-  index = index + size_of.sequence_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sequence_number
 
   return index
 end
 
 -- Display: Unit Sequence
-display.unit_sequence = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.unit_sequence = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Sequence
-dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Unit Number: 1 Byte Unsigned Fixed Width Integer
-  index, unit_number = dissect.unit_number(buffer, index, packet, parent)
+  index, unit_number = cboe_futures_orderentry_boe3_v1_0_dissect.unit_number(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = cboe_futures_orderentry_boe3_v1_0_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Sequence
-dissect.unit_sequence = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_sequence then
-    local length = size_of.unit_sequence(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.unit_sequence(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_sequence(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.unit_sequence(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.unit_sequence, range, display)
   end
 
-  return dissect.unit_sequence_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Units
-size_of.number_of_units = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.number_of_units = 1
 
 -- Display: Number Of Units
-display.number_of_units = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.number_of_units = function(value)
   return "Number Of Units: "..value
 end
 
 -- Dissect: Number Of Units
-dissect.number_of_units = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_units
+cboe_futures_orderentry_boe3_v1_0_dissect.number_of_units = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.number_of_units
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.number_of_units(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.number_of_units(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.number_of_units, range, value, display)
 
@@ -5494,19 +5494,19 @@ dissect.number_of_units = function(buffer, offset, packet, parent)
 end
 
 -- Size: Client Sequence
-size_of.client_sequence = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.client_sequence = 4
 
 -- Display: Client Sequence
-display.client_sequence = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.client_sequence = function(value)
   return "Client Sequence: "..value
 end
 
 -- Dissect: Client Sequence
-dissect.client_sequence = function(buffer, offset, packet, parent)
-  local length = size_of.client_sequence
+cboe_futures_orderentry_boe3_v1_0_dissect.client_sequence = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.client_sequence
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.client_sequence(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.client_sequence(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.client_sequence, range, value, display)
 
@@ -5514,19 +5514,19 @@ dissect.client_sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Login Response Text
-size_of.login_response_text = 60
+cboe_futures_orderentry_boe3_v1_0_size_of.login_response_text = 60
 
 -- Display: Login Response Text
-display.login_response_text = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.login_response_text = function(value)
   return "Login Response Text: "..value
 end
 
 -- Dissect: Login Response Text
-dissect.login_response_text = function(buffer, offset, packet, parent)
-  local length = size_of.login_response_text
+cboe_futures_orderentry_boe3_v1_0_dissect.login_response_text = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.login_response_text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.login_response_text(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.login_response_text(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.login_response_text, range, value, display)
 
@@ -5534,10 +5534,10 @@ dissect.login_response_text = function(buffer, offset, packet, parent)
 end
 
 -- Size: Login Response Status
-size_of.login_response_status = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.login_response_status = 1
 
 -- Display: Login Response Status
-display.login_response_status = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.login_response_status = function(value)
   if value == "A" then
     return "Login Response Status: Accepted (A)"
   end
@@ -5567,11 +5567,11 @@ display.login_response_status = function(value)
 end
 
 -- Dissect: Login Response Status
-dissect.login_response_status = function(buffer, offset, packet, parent)
-  local length = size_of.login_response_status
+cboe_futures_orderentry_boe3_v1_0_dissect.login_response_status = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.login_response_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.login_response_status(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.login_response_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.login_response_status, range, value, display)
 
@@ -5579,16 +5579,16 @@ dissect.login_response_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Login Response Message
-size_of.login_response_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.login_response_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.login_response_status
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.login_response_status
 
-  index = index + size_of.login_response_text
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.login_response_text
 
-  index = index + size_of.client_sequence
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.client_sequence
 
-  index = index + size_of.number_of_units
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.number_of_units
 
   -- Calculate field size from count
   local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
@@ -5598,52 +5598,52 @@ size_of.login_response_message = function(buffer, offset)
 end
 
 -- Display: Login Response Message
-display.login_response_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.login_response_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Response Message
-dissect.login_response_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.login_response_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Login Response Status: 1 Byte Ascii String Enum with 8 values
-  index, login_response_status = dissect.login_response_status(buffer, index, packet, parent)
+  index, login_response_status = cboe_futures_orderentry_boe3_v1_0_dissect.login_response_status(buffer, index, packet, parent)
 
   -- Login Response Text: 60 Byte Ascii String
-  index, login_response_text = dissect.login_response_text(buffer, index, packet, parent)
+  index, login_response_text = cboe_futures_orderentry_boe3_v1_0_dissect.login_response_text(buffer, index, packet, parent)
 
   -- Client Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, client_sequence = dissect.client_sequence(buffer, index, packet, parent)
+  index, client_sequence = cboe_futures_orderentry_boe3_v1_0_dissect.client_sequence(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = dissect.number_of_units(buffer, index, packet, parent)
+  index, number_of_units = cboe_futures_orderentry_boe3_v1_0_dissect.number_of_units(buffer, index, packet, parent)
 
   -- Unit Sequence: Struct of 2 fields
   for i = 1, number_of_units do
-    index = dissect.unit_sequence(buffer, index, packet, parent)
+    index = cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Login Response Message
-dissect.login_response_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.login_response_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.login_response_message then
-    local length = size_of.login_response_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.login_response_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.login_response_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.login_response_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.login_response_message, range, display)
   end
 
-  return dissect.login_response_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.login_response_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Replay Unspecified Unit
-size_of.replay_unspecified_unit = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.replay_unspecified_unit = 1
 
 -- Display: Replay Unspecified Unit
-display.replay_unspecified_unit = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.replay_unspecified_unit = function(value)
   if value == "F" then
     return "Replay Unspecified Unit: Fail If Unit Not Specified (F)"
   end
@@ -5658,11 +5658,11 @@ display.replay_unspecified_unit = function(value)
 end
 
 -- Dissect: Replay Unspecified Unit
-dissect.replay_unspecified_unit = function(buffer, offset, packet, parent)
-  local length = size_of.replay_unspecified_unit
+cboe_futures_orderentry_boe3_v1_0_dissect.replay_unspecified_unit = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.replay_unspecified_unit
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.replay_unspecified_unit(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.replay_unspecified_unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.replay_unspecified_unit, range, value, display)
 
@@ -5670,19 +5670,19 @@ dissect.replay_unspecified_unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Password
-size_of.password = 10
+cboe_futures_orderentry_boe3_v1_0_size_of.password = 10
 
 -- Display: Password
-display.password = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.password = function(value)
   return "Password: "..value
 end
 
 -- Dissect: Password
-dissect.password = function(buffer, offset, packet, parent)
-  local length = size_of.password
+cboe_futures_orderentry_boe3_v1_0_dissect.password = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.password
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.password(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.password(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.password, range, value, display)
 
@@ -5690,19 +5690,19 @@ dissect.password = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Sub Id
-size_of.session_sub_id = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.session_sub_id = 4
 
 -- Display: Session Sub Id
-display.session_sub_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.session_sub_id = function(value)
   return "Session Sub Id: "..value
 end
 
 -- Dissect: Session Sub Id
-dissect.session_sub_id = function(buffer, offset, packet, parent)
-  local length = size_of.session_sub_id
+cboe_futures_orderentry_boe3_v1_0_dissect.session_sub_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.session_sub_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session_sub_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.session_sub_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.session_sub_id, range, value, display)
 
@@ -5710,19 +5710,19 @@ dissect.session_sub_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Id
-size_of.session_id = 4
+cboe_futures_orderentry_boe3_v1_0_size_of.session_id = 4
 
 -- Display: Session Id
-display.session_id = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.session_id = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-dissect.session_id = function(buffer, offset, packet, parent)
-  local length = size_of.session_id
+cboe_futures_orderentry_boe3_v1_0_dissect.session_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.session_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.session_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.session_id, range, value, display)
 
@@ -5730,18 +5730,18 @@ dissect.session_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Login Request Message
-size_of.login_request_message = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.login_request_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.session_id
 
-  index = index + size_of.session_sub_id
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.session_sub_id
 
-  index = index + size_of.password
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.password
 
-  index = index + size_of.replay_unspecified_unit
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.replay_unspecified_unit
 
-  index = index + size_of.number_of_units
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.number_of_units
 
   -- Calculate field size from count
   local unit_sequence_count = buffer(offset + index - 1, 1):le_uint()
@@ -5751,55 +5751,55 @@ size_of.login_request_message = function(buffer, offset)
 end
 
 -- Display: Login Request Message
-display.login_request_message = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.login_request_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Request Message
-dissect.login_request_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.login_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session Id: 4 Byte Ascii String
-  index, session_id = dissect.session_id(buffer, index, packet, parent)
+  index, session_id = cboe_futures_orderentry_boe3_v1_0_dissect.session_id(buffer, index, packet, parent)
 
   -- Session Sub Id: 4 Byte Ascii String
-  index, session_sub_id = dissect.session_sub_id(buffer, index, packet, parent)
+  index, session_sub_id = cboe_futures_orderentry_boe3_v1_0_dissect.session_sub_id(buffer, index, packet, parent)
 
   -- Password: 10 Byte Ascii String
-  index, password = dissect.password(buffer, index, packet, parent)
+  index, password = cboe_futures_orderentry_boe3_v1_0_dissect.password(buffer, index, packet, parent)
 
   -- Replay Unspecified Unit: 1 Byte Ascii String Enum with 3 values
-  index, replay_unspecified_unit = dissect.replay_unspecified_unit(buffer, index, packet, parent)
+  index, replay_unspecified_unit = cboe_futures_orderentry_boe3_v1_0_dissect.replay_unspecified_unit(buffer, index, packet, parent)
 
   -- Number Of Units: 1 Byte Unsigned Fixed Width Integer
-  index, number_of_units = dissect.number_of_units(buffer, index, packet, parent)
+  index, number_of_units = cboe_futures_orderentry_boe3_v1_0_dissect.number_of_units(buffer, index, packet, parent)
 
   -- Unit Sequence: Struct of 2 fields
   for i = 1, number_of_units do
-    index = dissect.unit_sequence(buffer, index, packet, parent)
+    index = cboe_futures_orderentry_boe3_v1_0_dissect.unit_sequence(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Login Request Message
-dissect.login_request_message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.login_request_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.login_request_message then
-    local length = size_of.login_request_message(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.login_request_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.login_request_message(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.login_request_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.login_request_message, range, display)
   end
 
-  return dissect.login_request_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.login_request_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Message
-size_of.message = function(buffer, offset, message_type)
+cboe_futures_orderentry_boe3_v1_0_size_of.message = function(buffer, offset, message_type)
   -- Size of Login Request Message
   if message_type == 1 then
-    return size_of.login_request_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.login_request_message(buffer, offset)
   end
   -- Size of Logout Request Message
   if message_type == 2 then
@@ -5811,7 +5811,7 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of Login Response Message
   if message_type == 501 then
-    return size_of.login_response_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.login_response_message(buffer, offset)
   end
   -- Size of Replay Complete Message
   if message_type == 502 then
@@ -5819,7 +5819,7 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of Logout Response Message
   if message_type == 503 then
-    return size_of.logout_response_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.logout_response_message(buffer, offset)
   end
   -- Size of Replay Complete Message
   if message_type == 504 then
@@ -5827,134 +5827,134 @@ size_of.message = function(buffer, offset, message_type)
   end
   -- Size of New Order Message
   if message_type == 1001 then
-    return size_of.new_order_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.new_order_message(buffer, offset)
   end
   -- Size of Modify Order Message
   if message_type == 1002 then
-    return size_of.modify_order_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.modify_order_message(buffer, offset)
   end
   -- Size of Cancel Order Message
   if message_type == 1003 then
-    return size_of.cancel_order_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.cancel_order_message(buffer, offset)
   end
   -- Size of Mass Cancel Order Message
   if message_type == 1004 then
-    return size_of.mass_cancel_order_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_order_message(buffer, offset)
   end
   -- Size of Purge Orders Message
   if message_type == 1005 then
-    return size_of.purge_orders_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.purge_orders_message(buffer, offset)
   end
   -- Size of Quote Update Message
   if message_type == 1006 then
-    return size_of.quote_update_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_message(buffer, offset)
   end
   -- Size of Reset Risk Message
   if message_type == 1007 then
-    return size_of.reset_risk_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_message(buffer, offset)
   end
   -- Size of Order Acknowledgement Message
   if message_type == 1501 then
-    return size_of.order_acknowledgement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.order_acknowledgement_message(buffer, offset)
   end
   -- Size of Order Rejected Message
   if message_type == 1502 then
-    return size_of.order_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.order_rejected_message(buffer, offset)
   end
   -- Size of Order Modified Message
   if message_type == 1503 then
-    return size_of.order_modified_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.order_modified_message(buffer, offset)
   end
   -- Size of Modify Rejected Message
   if message_type == 1504 then
-    return size_of.modify_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.modify_rejected_message(buffer, offset)
   end
   -- Size of Order Execution Message
   if message_type == 1505 then
-    return size_of.order_execution_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.order_execution_message(buffer, offset)
   end
   -- Size of Order Cancelled Message
   if message_type == 1506 then
-    return size_of.order_cancelled_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.order_cancelled_message(buffer, offset)
   end
   -- Size of Cancel Rejected Message
   if message_type == 1507 then
-    return size_of.cancel_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.cancel_rejected_message(buffer, offset)
   end
   -- Size of Mass Cancel Acknowledgement Message
   if message_type == 1508 then
-    return size_of.mass_cancel_acknowledgement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_acknowledgement_message(buffer, offset)
   end
   -- Size of Mass Cancel Rejected Message
   if message_type == 1509 then
-    return size_of.mass_cancel_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.mass_cancel_rejected_message(buffer, offset)
   end
   -- Size of Purge Acknowledgement Message
   if message_type == 1510 then
-    return size_of.purge_acknowledgement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.purge_acknowledgement_message(buffer, offset)
   end
   -- Size of Purge Rejected Message
   if message_type == 1511 then
-    return size_of.purge_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.purge_rejected_message(buffer, offset)
   end
   -- Size of Trade Cancel Or Correct Message
   if message_type == 1512 then
-    return size_of.trade_cancel_or_correct_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.trade_cancel_or_correct_message(buffer, offset)
   end
   -- Size of Tas Restatement Message
   if message_type == 1513 then
-    return size_of.tas_restatement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.tas_restatement_message(buffer, offset)
   end
   -- Size of Variance Restatement Message
   if message_type == 1514 then
-    return size_of.variance_restatement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.variance_restatement_message(buffer, offset)
   end
   -- Size of Quote Update Acknowledgment Message
   if message_type == 1515 then
-    return size_of.quote_update_acknowledgment_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_acknowledgment_message(buffer, offset)
   end
   -- Size of Quote Update Rejected Message
   if message_type == 1516 then
-    return size_of.quote_update_rejected_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_update_rejected_message(buffer, offset)
   end
   -- Size of Quote Restated Message
   if message_type == 1517 then
-    return size_of.quote_restated_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_restated_message(buffer, offset)
   end
   -- Size of Quote Execution Message
   if message_type == 1518 then
-    return size_of.quote_execution_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_execution_message(buffer, offset)
   end
   -- Size of Quote Cancelled Message
   if message_type == 1519 then
-    return size_of.quote_cancelled_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.quote_cancelled_message(buffer, offset)
   end
   -- Size of Tas Quote Restatement Message
   if message_type == 1520 then
-    return size_of.tas_quote_restatement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.tas_quote_restatement_message(buffer, offset)
   end
   -- Size of Variance Quote Restatement Message
   if message_type == 1521 then
-    return size_of.variance_quote_restatement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.variance_quote_restatement_message(buffer, offset)
   end
   -- Size of Reset Risk Acknowledgement Message
   if message_type == 1522 then
-    return size_of.reset_risk_acknowledgement_message(buffer, offset)
+    return cboe_futures_orderentry_boe3_v1_0_size_of.reset_risk_acknowledgement_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Message
-display.message = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.message = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Message
-dissect.message_branches = function(buffer, offset, packet, parent, message_type)
+cboe_futures_orderentry_boe3_v1_0_dissect.message_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Login Request Message
   if message_type == 1 then
-    return dissect.login_request_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.login_request_message(buffer, offset, packet, parent)
   end
   -- Dissect Logout Request Message
   if message_type == 2 then
@@ -5964,172 +5964,172 @@ dissect.message_branches = function(buffer, offset, packet, parent, message_type
   end
   -- Dissect Login Response Message
   if message_type == 501 then
-    return dissect.login_response_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.login_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Complete Message
   if message_type == 502 then
   end
   -- Dissect Logout Response Message
   if message_type == 503 then
-    return dissect.logout_response_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.logout_response_message(buffer, offset, packet, parent)
   end
   -- Dissect Replay Complete Message
   if message_type == 504 then
   end
   -- Dissect New Order Message
   if message_type == 1001 then
-    return dissect.new_order_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.new_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Message
   if message_type == 1002 then
-    return dissect.modify_order_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.modify_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Message
   if message_type == 1003 then
-    return dissect.cancel_order_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Order Message
   if message_type == 1004 then
-    return dissect.mass_cancel_order_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Purge Orders Message
   if message_type == 1005 then
-    return dissect.purge_orders_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.purge_orders_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Message
   if message_type == 1006 then
-    return dissect.quote_update_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Reset Risk Message
   if message_type == 1007 then
-    return dissect.reset_risk_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Acknowledgement Message
   if message_type == 1501 then
-    return dissect.order_acknowledgement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_acknowledgement_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Message
   if message_type == 1502 then
-    return dissect.order_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Modified Message
   if message_type == 1503 then
-    return dissect.order_modified_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_modified_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Rejected Message
   if message_type == 1504 then
-    return dissect.modify_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.modify_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Execution Message
   if message_type == 1505 then
-    return dissect.order_execution_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Message
   if message_type == 1506 then
-    return dissect.order_cancelled_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.order_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Rejected Message
   if message_type == 1507 then
-    return dissect.cancel_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.cancel_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Acknowledgement Message
   if message_type == 1508 then
-    return dissect.mass_cancel_acknowledgement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_acknowledgement_message(buffer, offset, packet, parent)
   end
   -- Dissect Mass Cancel Rejected Message
   if message_type == 1509 then
-    return dissect.mass_cancel_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.mass_cancel_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Purge Acknowledgement Message
   if message_type == 1510 then
-    return dissect.purge_acknowledgement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.purge_acknowledgement_message(buffer, offset, packet, parent)
   end
   -- Dissect Purge Rejected Message
   if message_type == 1511 then
-    return dissect.purge_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.purge_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Or Correct Message
   if message_type == 1512 then
-    return dissect.trade_cancel_or_correct_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.trade_cancel_or_correct_message(buffer, offset, packet, parent)
   end
   -- Dissect Tas Restatement Message
   if message_type == 1513 then
-    return dissect.tas_restatement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.tas_restatement_message(buffer, offset, packet, parent)
   end
   -- Dissect Variance Restatement Message
   if message_type == 1514 then
-    return dissect.variance_restatement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.variance_restatement_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Acknowledgment Message
   if message_type == 1515 then
-    return dissect.quote_update_acknowledgment_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_acknowledgment_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Rejected Message
   if message_type == 1516 then
-    return dissect.quote_update_rejected_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_update_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Restated Message
   if message_type == 1517 then
-    return dissect.quote_restated_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_restated_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Execution Message
   if message_type == 1518 then
-    return dissect.quote_execution_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Cancelled Message
   if message_type == 1519 then
-    return dissect.quote_cancelled_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.quote_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Tas Quote Restatement Message
   if message_type == 1520 then
-    return dissect.tas_quote_restatement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.tas_quote_restatement_message(buffer, offset, packet, parent)
   end
   -- Dissect Variance Quote Restatement Message
   if message_type == 1521 then
-    return dissect.variance_quote_restatement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.variance_quote_restatement_message(buffer, offset, packet, parent)
   end
   -- Dissect Reset Risk Acknowledgement Message
   if message_type == 1522 then
-    return dissect.reset_risk_acknowledgement_message(buffer, offset, packet, parent)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.reset_risk_acknowledgement_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, message_type)
+cboe_futures_orderentry_boe3_v1_0_dissect.message = function(buffer, offset, packet, parent, message_type)
   if not show.message then
-    return dissect.message_branches(buffer, offset, packet, parent, message_type)
+    return cboe_futures_orderentry_boe3_v1_0_dissect.message_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.message(buffer, offset, message_type)
+  local size = cboe_futures_orderentry_boe3_v1_0_size_of.message(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.message(buffer, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.message(buffer, packet, parent)
   local element = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message, range, display)
 
-  return dissect.message_branches(buffer, offset, packet, parent, message_type)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.message_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Reserved Field
-size_of.reserved_field = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.reserved_field = 1
 
 -- Display: Reserved Field
-display.reserved_field = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.reserved_field = function(value)
   return "Reserved Field: "..value
 end
 
 -- Dissect: Reserved Field
-dissect.reserved_field = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_field
+cboe_futures_orderentry_boe3_v1_0_dissect.reserved_field = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.reserved_field
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reserved_field(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.reserved_field(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.reserved_field, range, value, display)
 
@@ -6137,19 +6137,19 @@ dissect.reserved_field = function(buffer, offset, packet, parent)
 end
 
 -- Size: Matching Unit
-size_of.matching_unit = 1
+cboe_futures_orderentry_boe3_v1_0_size_of.matching_unit = 1
 
 -- Display: Matching Unit
-display.matching_unit = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.matching_unit = function(value)
   return "Matching Unit: "..value
 end
 
 -- Dissect: Matching Unit
-dissect.matching_unit = function(buffer, offset, packet, parent)
-  local length = size_of.matching_unit
+cboe_futures_orderentry_boe3_v1_0_dissect.matching_unit = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.matching_unit
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.matching_unit(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.matching_unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.matching_unit, range, value, display)
 
@@ -6157,10 +6157,10 @@ dissect.matching_unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Type
-size_of.message_type = 2
+cboe_futures_orderentry_boe3_v1_0_size_of.message_type = 2
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.message_type = function(value)
   if value == 1 then
     return "Message Type: Login Request Message (1)"
   end
@@ -6274,11 +6274,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_futures_orderentry_boe3_v1_0_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message_type, range, value, display)
 
@@ -6286,19 +6286,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+cboe_futures_orderentry_boe3_v1_0_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_futures_orderentry_boe3_v1_0_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message_length, range, value, display)
 
@@ -6306,19 +6306,19 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Size: Start Of Message
-size_of.start_of_message = 2
+cboe_futures_orderentry_boe3_v1_0_size_of.start_of_message = 2
 
 -- Display: Start Of Message
-display.start_of_message = function(value)
+cboe_futures_orderentry_boe3_v1_0_display.start_of_message = function(value)
   return "Start Of Message: "..value
 end
 
 -- Dissect: Start Of Message
-dissect.start_of_message = function(buffer, offset, packet, parent)
-  local length = size_of.start_of_message
+cboe_futures_orderentry_boe3_v1_0_dissect.start_of_message = function(buffer, offset, packet, parent)
+  local length = cboe_futures_orderentry_boe3_v1_0_size_of.start_of_message
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.start_of_message(value, buffer, offset, packet, parent)
+  local display = cboe_futures_orderentry_boe3_v1_0_display.start_of_message(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_orderentry_boe3_v1_0.fields.start_of_message, range, value, display)
 
@@ -6326,79 +6326,79 @@ dissect.start_of_message = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_futures_orderentry_boe3_v1_0_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.start_of_message
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.start_of_message
 
-  index = index + size_of.message_length
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.message_type
 
-  index = index + size_of.matching_unit
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.matching_unit
 
-  index = index + size_of.reserved_field
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.reserved_field
 
-  index = index + size_of.sequence_number
+  index = index + cboe_futures_orderentry_boe3_v1_0_size_of.sequence_number
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Of Message: 2 Byte Unsigned Fixed Width Integer
-  index, start_of_message = dissect.start_of_message(buffer, index, packet, parent)
+  index, start_of_message = cboe_futures_orderentry_boe3_v1_0_dissect.start_of_message(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_futures_orderentry_boe3_v1_0_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 36 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_futures_orderentry_boe3_v1_0_dissect.message_type(buffer, index, packet, parent)
 
   -- Matching Unit: 1 Byte Unsigned Fixed Width Integer
-  index, matching_unit = dissect.matching_unit(buffer, index, packet, parent)
+  index, matching_unit = cboe_futures_orderentry_boe3_v1_0_dissect.matching_unit(buffer, index, packet, parent)
 
   -- Reserved Field: 1 Byte Unsigned Fixed Width Integer
-  index, reserved_field = dissect.reserved_field(buffer, index, packet, parent)
+  index, reserved_field = cboe_futures_orderentry_boe3_v1_0_dissect.reserved_field(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = cboe_futures_orderentry_boe3_v1_0_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_futures_orderentry_boe3_v1_0_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_futures_orderentry_boe3_v1_0_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_futures_orderentry_boe3_v1_0.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_futures_orderentry_boe3_v1_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Message Header: Struct of 6 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_futures_orderentry_boe3_v1_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 8, 2):le_uint()
 
   -- Message: Runtime Type with 36 branches
-  index = dissect.message(buffer, index, packet, parent, message_type)
+  index = cboe_futures_orderentry_boe3_v1_0_dissect.message(buffer, index, packet, parent, message_type)
 
   return index
 end
@@ -6420,7 +6420,7 @@ function cboe_futures_orderentry_boe3_v1_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cboe_futures_orderentry_boe3_v1_0, buffer(), cboe_futures_orderentry_boe3_v1_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_futures_orderentry_boe3_v1_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table

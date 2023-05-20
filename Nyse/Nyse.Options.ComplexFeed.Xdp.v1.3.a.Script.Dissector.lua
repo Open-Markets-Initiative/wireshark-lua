@@ -10,9 +10,9 @@ local nyse_options_complexfeed_xdp_v1_3_a = Proto("Nyse.Options.ComplexFeed.Xdp.
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local nyse_options_complexfeed_xdp_v1_3_a_display = {}
+local nyse_options_complexfeed_xdp_v1_3_a_dissect = {}
+local nyse_options_complexfeed_xdp_v1_3_a_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -200,19 +200,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Channel Id
-size_of.channel_id = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.channel_id = 1
 
 -- Display: Channel Id
-display.channel_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.channel_id = function(value)
   return "Channel Id: "..value
 end
 
 -- Dissect: Channel Id
-dissect.channel_id = function(buffer, offset, packet, parent)
-  local length = size_of.channel_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.channel_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.channel_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.channel_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.channel_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.channel_id, range, value, display)
 
@@ -220,19 +220,19 @@ dissect.channel_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Product Id
-size_of.product_id = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.product_id = 1
 
 -- Display: Product Id
-display.product_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.product_id = function(value)
   return "Product Id: "..value
 end
 
 -- Dissect: Product Id
-dissect.product_id = function(buffer, offset, packet, parent)
-  local length = size_of.product_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.product_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.product_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.product_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.product_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.product_id, range, value, display)
 
@@ -240,19 +240,19 @@ dissect.product_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Time Ns
-size_of.source_time_ns = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns = 4
 
 -- Display: Source Time Ns
-display.source_time_ns = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.source_time_ns = function(value)
   return "Source Time Ns: "..value
 end
 
 -- Dissect: Source Time Ns
-dissect.source_time_ns = function(buffer, offset, packet, parent)
-  local length = size_of.source_time_ns
+nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_time_ns(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_time_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time_ns, range, value, display)
 
@@ -260,19 +260,19 @@ dissect.source_time_ns = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Time
-size_of.source_time = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time = 4
 
 -- Display: Source Time
-display.source_time = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.source_time = function(value)
   return "Source Time: "..value
 end
 
 -- Dissect: Source Time
-dissect.source_time = function(buffer, offset, packet, parent)
-  local length = size_of.source_time
+nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_time(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_time(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_time, range, value, display)
 
@@ -280,71 +280,71 @@ dissect.source_time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sequence Number Reset Message
-size_of.sequence_number_reset_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number_reset_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.product_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.product_id
 
-  index = index + size_of.channel_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.channel_id
 
   return index
 end
 
 -- Display: Sequence Number Reset Message
-display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequence Number Reset Message
-dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Product Id: 1 Byte Unsigned Fixed Width Integer
-  index, product_id = dissect.product_id(buffer, index, packet, parent)
+  index, product_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.product_id(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.channel_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequence Number Reset Message
-dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.sequence_number_reset_message then
-    local length = size_of.sequence_number_reset_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number_reset_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sequence_number_reset_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number_reset_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number_reset_message, range, display)
   end
 
-  return dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 2
-size_of.reserved_2 = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2 = 2
 
 -- Display: Reserved 2
-display.reserved_2 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.reserved_2 = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_2
+nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_2, range, value, display)
 
@@ -352,19 +352,19 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stream Id
-size_of.stream_id = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id = 2
 
 -- Display: Stream Id
-display.stream_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.stream_id = function(value)
   return "Stream Id: "..value
 end
 
 -- Dissect: Stream Id
-dissect.stream_id = function(buffer, offset, packet, parent)
-  local length = size_of.stream_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.stream_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id, range, value, display)
 
@@ -372,52 +372,52 @@ dissect.stream_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stream Id Message
-size_of.stream_id_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.stream_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Stream Id Message
-display.stream_id_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stream Id Message
-dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stream Id Message
-dissect.stream_id_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stream_id_message then
-    local length = size_of.stream_id_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stream_id_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.stream_id_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.stream_id_message, range, display)
   end
 
-  return dissect.stream_id_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Security Type
-size_of.leg_security_type = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_security_type = 1
 
 -- Display: Leg Security Type
-display.leg_security_type = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.leg_security_type = function(value)
   if value == "O" then
     return "Leg Security Type: Options Series Leg (O)"
   end
@@ -429,11 +429,11 @@ display.leg_security_type = function(value)
 end
 
 -- Dissect: Leg Security Type
-dissect.leg_security_type = function(buffer, offset, packet, parent)
-  local length = size_of.leg_security_type
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_security_type = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_security_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.leg_security_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_security_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_security_type, range, value, display)
 
@@ -441,10 +441,10 @@ dissect.leg_security_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.side = function(value)
   if value == "B" then
     return "Side: Buy (B)"
   end
@@ -456,11 +456,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+nyse_options_complexfeed_xdp_v1_3_a_dissect.side = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.side(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.side, range, value, display)
 
@@ -468,19 +468,19 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Ratio Qty
-size_of.leg_ratio_qty = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_ratio_qty = 2
 
 -- Display: Leg Ratio Qty
-display.leg_ratio_qty = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.leg_ratio_qty = function(value)
   return "Leg Ratio Qty: "..value
 end
 
 -- Dissect: Leg Ratio Qty
-dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leg_ratio_qty
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_ratio_qty
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_ratio_qty, range, value, display)
 
@@ -488,19 +488,19 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Index
-size_of.symbol_index = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_index = 4
 
 -- Display: Symbol Index
-display.symbol_index = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.symbol_index = function(value)
   return "Symbol Index: "..value
 end
 
 -- Dissect: Symbol Index
-dissect.symbol_index = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_index
+nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_index = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.symbol_index(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_index, range, value, display)
 
@@ -508,71 +508,71 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Leg Definition
-size_of.leg_definition = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_definition = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_index
 
-  index = index + size_of.leg_ratio_qty
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_ratio_qty
 
-  index = index + size_of.side
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.side
 
-  index = index + size_of.leg_security_type
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_security_type
 
   return index
 end
 
 -- Display: Leg Definition
-display.leg_definition = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Leg Definition
-dissect.leg_definition_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Leg Ratio Qty: 2 Byte Unsigned Fixed Width Integer
-  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
+  index, leg_ratio_qty = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nyse_options_complexfeed_xdp_v1_3_a_dissect.side(buffer, index, packet, parent)
 
   -- Leg Security Type: 1 Byte Ascii String Enum with 2 values
-  index, leg_security_type = dissect.leg_security_type(buffer, index, packet, parent)
+  index, leg_security_type = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_security_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Leg Definition
-dissect.leg_definition = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.leg_definition then
-    local length = size_of.leg_definition(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.leg_definition(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.leg_definition(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.leg_definition(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.leg_definition, range, display)
   end
 
-  return dissect.leg_definition_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Of Legs
-size_of.no_of_legs = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.no_of_legs = 2
 
 -- Display: No Of Legs
-display.no_of_legs = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.no_of_legs = function(value)
   return "No Of Legs: "..value
 end
 
 -- Dissect: No Of Legs
-dissect.no_of_legs = function(buffer, offset, packet, parent)
-  local length = size_of.no_of_legs
+nyse_options_complexfeed_xdp_v1_3_a_dissect.no_of_legs = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.no_of_legs
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.no_of_legs(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.no_of_legs(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.no_of_legs, range, value, display)
 
@@ -580,19 +580,19 @@ dissect.no_of_legs = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 1
-size_of.reserved_1 = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1 = 1
 
 -- Display: Reserved 1
-display.reserved_1 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.reserved_1 = function(value)
   return "Reserved 1: "..value
 end
 
 -- Dissect: Reserved 1
-dissect.reserved_1 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_1
+nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.reserved_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.reserved_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.reserved_1, range, value, display)
 
@@ -600,19 +600,19 @@ dissect.reserved_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: System Id
-size_of.system_id = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.system_id = 1
 
 -- Display: System Id
-display.system_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.system_id = function(value)
   return "System Id: "..value
 end
 
 -- Dissect: System Id
-dissect.system_id = function(buffer, offset, packet, parent)
-  local length = size_of.system_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.system_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.system_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.system_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.system_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.system_id, range, value, display)
 
@@ -620,10 +620,10 @@ dissect.system_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Id
-size_of.market_id = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.market_id = 2
 
 -- Display: Market Id
-display.market_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.market_id = function(value)
   if value == 1 then
     return "Market Id: Nyse Cash (1)"
   end
@@ -656,11 +656,11 @@ display.market_id = function(value)
 end
 
 -- Dissect: Market Id
-dissect.market_id = function(buffer, offset, packet, parent)
-  local length = size_of.market_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.market_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.market_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.market_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.market_id, range, value, display)
 
@@ -668,19 +668,19 @@ dissect.market_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Complex Symbol
-size_of.complex_symbol = 21
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol = 21
 
 -- Display: Complex Symbol
-display.complex_symbol = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol = function(value)
   return "Complex Symbol: "..value
 end
 
 -- Dissect: Complex Symbol
-dissect.complex_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.complex_symbol
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.complex_symbol(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol, range, value, display)
 
@@ -688,19 +688,19 @@ dissect.complex_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Complex Index
-size_of.complex_index = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index = 4
 
 -- Display: Complex Index
-display.complex_index = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_index = function(value)
   return "Complex Index: "..value
 end
 
 -- Dissect: Complex Index
-dissect.complex_index = function(buffer, offset, packet, parent)
-  local length = size_of.complex_index
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.complex_index(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_index(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_index, range, value, display)
 
@@ -708,26 +708,26 @@ dissect.complex_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Symbol Definition Message
-size_of.complex_symbol_definition_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.complex_symbol
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol
 
-  index = index + size_of.channel_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.channel_id
 
-  index = index + size_of.market_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.market_id
 
-  index = index + size_of.system_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.system_id
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.stream_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id
 
-  index = index + size_of.no_of_legs
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.no_of_legs
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   -- Calculate field size from count
   local leg_definition_count = buffer(offset + index - 4, 2):le_uint()
@@ -737,67 +737,67 @@ size_of.complex_symbol_definition_message = function(buffer, offset)
 end
 
 -- Display: Complex Symbol Definition Message
-display.complex_symbol_definition_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Symbol Definition Message
-dissect.complex_symbol_definition_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Complex Symbol: 21 Byte Ascii String
-  index, complex_symbol = dissect.complex_symbol(buffer, index, packet, parent)
+  index, complex_symbol = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol(buffer, index, packet, parent)
 
   -- Channel Id: 1 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.channel_id(buffer, index, packet, parent)
 
   -- Market Id: 2 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, market_id = dissect.market_id(buffer, index, packet, parent)
+  index, market_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.market_id(buffer, index, packet, parent)
 
   -- System Id: 1 Byte Unsigned Fixed Width Integer
-  index, system_id = dissect.system_id(buffer, index, packet, parent)
+  index, system_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.system_id(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id(buffer, index, packet, parent)
 
   -- No Of Legs: 2 Byte Unsigned Fixed Width Integer
-  index, no_of_legs = dissect.no_of_legs(buffer, index, packet, parent)
+  index, no_of_legs = nyse_options_complexfeed_xdp_v1_3_a_dissect.no_of_legs(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Leg Definition: Struct of 4 fields
   for i = 1, no_of_legs do
-    index = dissect.leg_definition(buffer, index, packet, parent)
+    index = nyse_options_complexfeed_xdp_v1_3_a_dissect.leg_definition(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Complex Symbol Definition Message
-dissect.complex_symbol_definition_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.complex_symbol_definition_message then
-    local length = size_of.complex_symbol_definition_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol_definition_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_symbol_definition_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_symbol_definition_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_symbol_definition_message, range, display)
   end
 
-  return dissect.complex_symbol_definition_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Cond 2
-size_of.trade_cond_2 = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_2 = 1
 
 -- Display: Trade Cond 2
-display.trade_cond_2 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_2 = function(value)
   if value == "P" then
     return "Trade Cond 2: Complex Trade With Equity (P)"
   end
@@ -809,11 +809,11 @@ display.trade_cond_2 = function(value)
 end
 
 -- Dissect: Trade Cond 2
-dissect.trade_cond_2 = function(buffer, offset, packet, parent)
-  local length = size_of.trade_cond_2
+nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_cond_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_2, range, value, display)
 
@@ -821,10 +821,10 @@ dissect.trade_cond_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Cond 1
-size_of.trade_cond_1 = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_1 = 1
 
 -- Display: Trade Cond 1
-display.trade_cond_1 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_1 = function(value)
   if value == " " then
     return "Trade Cond 1: Regular Trade (<whitespace>)"
   end
@@ -842,11 +842,11 @@ display.trade_cond_1 = function(value)
 end
 
 -- Dissect: Trade Cond 1
-dissect.trade_cond_1 = function(buffer, offset, packet, parent)
-  local length = size_of.trade_cond_1
+nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_1 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_1
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_cond_1(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_cond_1(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_cond_1, range, value, display)
 
@@ -854,19 +854,19 @@ dissect.trade_cond_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Volume 4
-size_of.volume_4 = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_4 = 4
 
 -- Display: Volume 4
-display.volume_4 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.volume_4 = function(value)
   return "Volume 4: "..value
 end
 
 -- Dissect: Volume 4
-dissect.volume_4 = function(buffer, offset, packet, parent)
-  local length = size_of.volume_4
+nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_4 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_4
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.volume_4(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.volume_4(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_4, range, value, display)
 
@@ -874,19 +874,19 @@ dissect.volume_4 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.price = 4
 
 -- Display: Price
-display.price = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+nyse_options_complexfeed_xdp_v1_3_a_dissect.price = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.price, range, value, display)
 
@@ -894,19 +894,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Id
-size_of.trade_id = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_id = 4
 
 -- Display: Trade Id
-display.trade_id = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.trade_id = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_id
+nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_id = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_id(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.trade_id, range, value, display)
 
@@ -914,19 +914,19 @@ dissect.trade_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Seq Num
-size_of.symbol_seq_num = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num = 4
 
 -- Display: Symbol Seq Num
-display.symbol_seq_num = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.symbol_seq_num = function(value)
   return "Symbol Seq Num: "..value
 end
 
 -- Dissect: Symbol Seq Num
-dissect.symbol_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_seq_num
+nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.symbol_seq_num(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.symbol_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.symbol_seq_num, range, value, display)
 
@@ -934,92 +934,92 @@ dissect.symbol_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Refresh Complex Trade Message
-size_of.refresh_complex_trade_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.trade_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_id
 
-  index = index + size_of.price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.volume_4
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_4
 
-  index = index + size_of.trade_cond_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_1
 
-  index = index + size_of.trade_cond_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_2
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Refresh Complex Trade Message
-display.refresh_complex_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Refresh Complex Trade Message
-dissect.refresh_complex_trade_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_complexfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Complex Trade Message
-dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_complex_trade_message then
-    local length = size_of.refresh_complex_trade_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.refresh_complex_trade_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_trade_message, range, display)
   end
 
-  return dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Condition
-size_of.quote_condition = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.quote_condition = 1
 
 -- Display: Quote Condition
-display.quote_condition = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.quote_condition = function(value)
   if value == "1" then
     return "Quote Condition: Regular Trading (1)"
   end
@@ -1040,11 +1040,11 @@ display.quote_condition = function(value)
 end
 
 -- Dissect: Quote Condition
-dissect.quote_condition = function(buffer, offset, packet, parent)
-  local length = size_of.quote_condition
+nyse_options_complexfeed_xdp_v1_3_a_dissect.quote_condition = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.quote_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.quote_condition(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.quote_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.quote_condition, range, value, display)
 
@@ -1052,19 +1052,19 @@ dissect.quote_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Customer Volume
-size_of.bid_customer_volume = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_customer_volume = 2
 
 -- Display: Bid Customer Volume
-display.bid_customer_volume = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.bid_customer_volume = function(value)
   return "Bid Customer Volume: "..value
 end
 
 -- Dissect: Bid Customer Volume
-dissect.bid_customer_volume = function(buffer, offset, packet, parent)
-  local length = size_of.bid_customer_volume
+nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_customer_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_customer_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_customer_volume, range, value, display)
 
@@ -1072,19 +1072,19 @@ dissect.bid_customer_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Customer Volume
-size_of.ask_customer_volume = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_customer_volume = 2
 
 -- Display: Ask Customer Volume
-display.ask_customer_volume = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.ask_customer_volume = function(value)
   return "Ask Customer Volume: "..value
 end
 
 -- Dissect: Ask Customer Volume
-dissect.ask_customer_volume = function(buffer, offset, packet, parent)
-  local length = size_of.ask_customer_volume
+nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_customer_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_customer_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ask_customer_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_customer_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_customer_volume, range, value, display)
 
@@ -1092,19 +1092,19 @@ dissect.ask_customer_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Volume
-size_of.bid_volume = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_volume = 2
 
 -- Display: Bid Volume
-display.bid_volume = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.bid_volume = function(value)
   return "Bid Volume: "..value
 end
 
 -- Dissect: Bid Volume
-dissect.bid_volume = function(buffer, offset, packet, parent)
-  local length = size_of.bid_volume
+nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_volume, range, value, display)
 
@@ -1112,19 +1112,19 @@ dissect.bid_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Volume
-size_of.ask_volume = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_volume = 2
 
 -- Display: Ask Volume
-display.ask_volume = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.ask_volume = function(value)
   return "Ask Volume: "..value
 end
 
 -- Dissect: Ask Volume
-dissect.ask_volume = function(buffer, offset, packet, parent)
-  local length = size_of.ask_volume
+nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_volume = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ask_volume(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_volume(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_volume, range, value, display)
 
@@ -1132,19 +1132,19 @@ dissect.ask_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price
-size_of.bid_price = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_price = 4
 
 -- Display: Bid Price
-display.bid_price = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
 -- Dissect: Bid Price
-dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price
+nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.bid_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.bid_price, range, value, display)
 
@@ -1152,19 +1152,19 @@ dissect.bid_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Price
-size_of.ask_price = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_price = 4
 
 -- Display: Ask Price
-display.ask_price = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
 -- Dissect: Ask Price
-dissect.ask_price = function(buffer, offset, packet, parent)
-  local length = size_of.ask_price
+nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_price = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_price
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.ask_price(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.ask_price, range, value, display)
 
@@ -1172,116 +1172,116 @@ dissect.ask_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Refresh Complex Quote Message
-size_of.refresh_complex_quote_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_quote_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.ask_price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_price
 
-  index = index + size_of.bid_price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_price
 
-  index = index + size_of.ask_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_volume
 
-  index = index + size_of.bid_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_volume
 
-  index = index + size_of.ask_customer_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_customer_volume
 
-  index = index + size_of.bid_customer_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_customer_volume
 
-  index = index + size_of.quote_condition
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.quote_condition
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Refresh Complex Quote Message
-display.refresh_complex_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Refresh Complex Quote Message
-dissect.refresh_complex_quote_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_options_complexfeed_xdp_v1_3_a_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Refresh Complex Quote Message
-dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.refresh_complex_quote_message then
-    local length = size_of.refresh_complex_quote_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_quote_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.refresh_complex_quote_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.refresh_complex_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.refresh_complex_quote_message, range, display)
   end
 
-  return dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Halt Condition
-size_of.halt_condition = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.halt_condition = 1
 
 -- Display: Halt Condition
-display.halt_condition = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.halt_condition = function(value)
   return "Halt Condition: "..value
 end
 
 -- Dissect: Halt Condition
-dissect.halt_condition = function(buffer, offset, packet, parent)
-  local length = size_of.halt_condition
+nyse_options_complexfeed_xdp_v1_3_a_dissect.halt_condition = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.halt_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.halt_condition(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.halt_condition(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.halt_condition, range, value, display)
 
@@ -1289,10 +1289,10 @@ dissect.halt_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Status
-size_of.security_status = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.security_status = 1
 
 -- Display: Security Status
-display.security_status = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.security_status = function(value)
   if value == "L" then
     return "Security Status: Light Up A Dark Series (L)"
   end
@@ -1322,11 +1322,11 @@ display.security_status = function(value)
 end
 
 -- Dissect: Security Status
-dissect.security_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_status
+nyse_options_complexfeed_xdp_v1_3_a_dissect.security_status = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.security_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_status(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.security_status, range, value, display)
 
@@ -1334,86 +1334,86 @@ dissect.security_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Status Message
-size_of.complex_status_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.security_status
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.security_status
 
-  index = index + size_of.halt_condition
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.halt_condition
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Complex Status Message
-display.complex_status_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Status Message
-dissect.complex_status_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 8 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = nyse_options_complexfeed_xdp_v1_3_a_dissect.security_status(buffer, index, packet, parent)
 
   -- Halt Condition: 1 Byte Ascii String
-  index, halt_condition = dissect.halt_condition(buffer, index, packet, parent)
+  index, halt_condition = nyse_options_complexfeed_xdp_v1_3_a_dissect.halt_condition(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Status Message
-dissect.complex_status_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_status_message then
-    local length = size_of.complex_status_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_status_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_status_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_status_message, range, display)
   end
 
-  return dissect.complex_status_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Volume 2
-size_of.volume_2 = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_2 = 2
 
 -- Display: Volume 2
-display.volume_2 = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.volume_2 = function(value)
   return "Volume 2: "..value
 end
 
 -- Dissect: Volume 2
-dissect.volume_2 = function(buffer, offset, packet, parent)
-  local length = size_of.volume_2
+nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_2 = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_2
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.volume_2(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.volume_2(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.volume_2, range, value, display)
 
@@ -1421,19 +1421,19 @@ dissect.volume_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Ns
-size_of.source_ns = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.source_ns = 4
 
 -- Display: Source Ns
-display.source_ns = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.source_ns = function(value)
   return "Source Ns: "..value
 end
 
 -- Dissect: Source Ns
-dissect.source_ns = function(buffer, offset, packet, parent)
-  local length = size_of.source_ns
+nyse_options_complexfeed_xdp_v1_3_a_dissect.source_ns = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.source_ns
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.source_ns(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.source_ns(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.source_ns, range, value, display)
 
@@ -1441,450 +1441,450 @@ dissect.source_ns = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Cube Rfq Message
-size_of.complex_cube_rfq_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_cube_rfq_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.side
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.side
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.volume_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_2
 
-  index = index + size_of.price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.price
 
   return index
 end
 
 -- Display: Complex Cube Rfq Message
-display.complex_cube_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Cube Rfq Message
-dissect.complex_cube_rfq_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nyse_options_complexfeed_xdp_v1_3_a_dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Volume 2: 2 Byte Unsigned Fixed Width Integer
-  index, volume_2 = dissect.volume_2(buffer, index, packet, parent)
+  index, volume_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_complexfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Cube Rfq Message
-dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_cube_rfq_message then
-    local length = size_of.complex_cube_rfq_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_cube_rfq_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_cube_rfq_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_cube_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_cube_rfq_message, range, display)
   end
 
-  return dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Crossing Rfq Message
-size_of.complex_crossing_rfq_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_crossing_rfq_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.side
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.side
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.volume_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_2
 
-  index = index + size_of.price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.price
 
   return index
 end
 
 -- Display: Complex Crossing Rfq Message
-display.complex_crossing_rfq_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Crossing Rfq Message
-dissect.complex_crossing_rfq_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_ns = dissect.source_ns(buffer, index, packet, parent)
+  index, source_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = nyse_options_complexfeed_xdp_v1_3_a_dissect.side(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Volume 2: 2 Byte Unsigned Fixed Width Integer
-  index, volume_2 = dissect.volume_2(buffer, index, packet, parent)
+  index, volume_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_2(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_complexfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Crossing Rfq Message
-dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_crossing_rfq_message then
-    local length = size_of.complex_crossing_rfq_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_crossing_rfq_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_crossing_rfq_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_crossing_rfq_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_crossing_rfq_message, range, display)
   end
 
-  return dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Trade Message
-size_of.complex_trade_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.trade_id
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_id
 
-  index = index + size_of.price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.price
 
-  index = index + size_of.volume_4
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.volume_4
 
-  index = index + size_of.trade_cond_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_1
 
-  index = index + size_of.trade_cond_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.trade_cond_2
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Complex Trade Message
-display.complex_trade_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Trade Message
-dissect.complex_trade_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = nyse_options_complexfeed_xdp_v1_3_a_dissect.price(buffer, index, packet, parent)
 
   -- Volume 4: 4 Byte Unsigned Fixed Width Integer
-  index, volume_4 = dissect.volume_4(buffer, index, packet, parent)
+  index, volume_4 = nyse_options_complexfeed_xdp_v1_3_a_dissect.volume_4(buffer, index, packet, parent)
 
   -- Trade Cond 1: 1 Byte Ascii String Enum with 4 values
-  index, trade_cond_1 = dissect.trade_cond_1(buffer, index, packet, parent)
+  index, trade_cond_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_1(buffer, index, packet, parent)
 
   -- Trade Cond 2: 1 Byte Ascii String Enum with 2 values
-  index, trade_cond_2 = dissect.trade_cond_2(buffer, index, packet, parent)
+  index, trade_cond_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.trade_cond_2(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Trade Message
-dissect.complex_trade_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_trade_message then
-    local length = size_of.complex_trade_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_trade_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_trade_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_trade_message, range, display)
   end
 
-  return dissect.complex_trade_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Complex Quote Message
-size_of.complex_quote_message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_quote_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.source_time
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time
 
-  index = index + size_of.source_time_ns
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.source_time_ns
 
-  index = index + size_of.complex_index
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_index
 
-  index = index + size_of.symbol_seq_num
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.symbol_seq_num
 
-  index = index + size_of.ask_price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_price
 
-  index = index + size_of.bid_price
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_price
 
-  index = index + size_of.ask_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_volume
 
-  index = index + size_of.bid_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_volume
 
-  index = index + size_of.ask_customer_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.ask_customer_volume
 
-  index = index + size_of.bid_customer_volume
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.bid_customer_volume
 
-  index = index + size_of.quote_condition
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.quote_condition
 
-  index = index + size_of.reserved_1
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_1
 
-  index = index + size_of.reserved_2
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.reserved_2
 
   return index
 end
 
 -- Display: Complex Quote Message
-display.complex_quote_message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Complex Quote Message
-dissect.complex_quote_message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Source Time: 4 Byte Unsigned Fixed Width Integer
-  index, source_time = dissect.source_time(buffer, index, packet, parent)
+  index, source_time = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time(buffer, index, packet, parent)
 
   -- Source Time Ns: 4 Byte Unsigned Fixed Width Integer
-  index, source_time_ns = dissect.source_time_ns(buffer, index, packet, parent)
+  index, source_time_ns = nyse_options_complexfeed_xdp_v1_3_a_dissect.source_time_ns(buffer, index, packet, parent)
 
   -- Complex Index: 4 Byte Unsigned Fixed Width Integer
-  index, complex_index = dissect.complex_index(buffer, index, packet, parent)
+  index, complex_index = nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_index(buffer, index, packet, parent)
 
   -- Symbol Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_seq_num = dissect.symbol_seq_num(buffer, index, packet, parent)
+  index, symbol_seq_num = nyse_options_complexfeed_xdp_v1_3_a_dissect.symbol_seq_num(buffer, index, packet, parent)
 
   -- Ask Price: 4 Byte Signed Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_price(buffer, index, packet, parent)
 
   -- Bid Price: 4 Byte Signed Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Ask Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_volume = dissect.ask_volume(buffer, index, packet, parent)
+  index, ask_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_volume(buffer, index, packet, parent)
 
   -- Bid Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_volume = dissect.bid_volume(buffer, index, packet, parent)
+  index, bid_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_volume(buffer, index, packet, parent)
 
   -- Ask Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, ask_customer_volume = dissect.ask_customer_volume(buffer, index, packet, parent)
+  index, ask_customer_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.ask_customer_volume(buffer, index, packet, parent)
 
   -- Bid Customer Volume: 2 Byte Unsigned Fixed Width Integer
-  index, bid_customer_volume = dissect.bid_customer_volume(buffer, index, packet, parent)
+  index, bid_customer_volume = nyse_options_complexfeed_xdp_v1_3_a_dissect.bid_customer_volume(buffer, index, packet, parent)
 
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
-  index, quote_condition = dissect.quote_condition(buffer, index, packet, parent)
+  index, quote_condition = nyse_options_complexfeed_xdp_v1_3_a_dissect.quote_condition(buffer, index, packet, parent)
 
   -- Reserved 1: 1 Byte
-  index, reserved_1 = dissect.reserved_1(buffer, index, packet, parent)
+  index, reserved_1 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_1(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = nyse_options_complexfeed_xdp_v1_3_a_dissect.reserved_2(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Complex Quote Message
-dissect.complex_quote_message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.complex_quote_message then
-    local length = size_of.complex_quote_message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_quote_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.complex_quote_message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.complex_quote_message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.complex_quote_message, range, display)
   end
 
-  return dissect.complex_quote_message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.payload = function(buffer, offset, message_type)
   -- Size of Complex Quote Message
   if message_type == 423 then
-    return size_of.complex_quote_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_quote_message(buffer, offset)
   end
   -- Size of Complex Trade Message
   if message_type == 425 then
-    return size_of.complex_trade_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_trade_message(buffer, offset)
   end
   -- Size of Complex Crossing Rfq Message
   if message_type == 429 then
-    return size_of.complex_crossing_rfq_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_crossing_rfq_message(buffer, offset)
   end
   -- Size of Complex Cube Rfq Message
   if message_type == 472 then
-    return size_of.complex_cube_rfq_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_cube_rfq_message(buffer, offset)
   end
   -- Size of Complex Status Message
   if message_type == 433 then
-    return size_of.complex_status_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_status_message(buffer, offset)
   end
   -- Size of Refresh Complex Quote Message
   if message_type == 511 then
-    return size_of.refresh_complex_quote_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_quote_message(buffer, offset)
   end
   -- Size of Refresh Complex Trade Message
   if message_type == 513 then
-    return size_of.refresh_complex_trade_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.refresh_complex_trade_message(buffer, offset)
   end
   -- Size of Complex Symbol Definition Message
   if message_type == 439 then
-    return size_of.complex_symbol_definition_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.complex_symbol_definition_message(buffer, offset)
   end
   -- Size of Stream Id Message
   if message_type == 455 then
-    return size_of.stream_id_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.stream_id_message(buffer, offset)
   end
   -- Size of Sequence Number Reset Message
   if message_type == 1 then
-    return size_of.sequence_number_reset_message(buffer, offset)
+    return nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number_reset_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Complex Quote Message
   if message_type == 423 then
-    return dissect.complex_quote_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Trade Message
   if message_type == 425 then
-    return dissect.complex_trade_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Crossing Rfq Message
   if message_type == 429 then
-    return dissect.complex_crossing_rfq_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_crossing_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Cube Rfq Message
   if message_type == 472 then
-    return dissect.complex_cube_rfq_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_cube_rfq_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Status Message
   if message_type == 433 then
-    return dissect.complex_status_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Quote Message
   if message_type == 511 then
-    return dissect.refresh_complex_quote_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Refresh Complex Trade Message
   if message_type == 513 then
-    return dissect.refresh_complex_trade_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.refresh_complex_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Complex Symbol Definition Message
   if message_type == 439 then
-    return dissect.complex_symbol_definition_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.complex_symbol_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Stream Id Message
   if message_type == 455 then
-    return dissect.stream_id_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.stream_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Sequence Number Reset Message
   if message_type == 1 then
-    return dissect.sequence_number_reset_message(buffer, offset, packet, parent)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number_reset_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return nyse_options_complexfeed_xdp_v1_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = nyse_options_complexfeed_xdp_v1_3_a_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.payload(buffer, packet, parent)
   local element = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.message_type = 2
 
 -- Display: Message Type
-display.message_type = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.message_type = function(value)
   if value == 423 then
     return "Message Type: Complex Quote Message (423)"
   end
@@ -1920,11 +1920,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_type, range, value, display)
 
@@ -1932,19 +1932,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Size
-size_of.message_size = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.message_size = 2
 
 -- Display: Message Size
-display.message_size = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.message_size = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-dissect.message_size = function(buffer, offset, packet, parent)
-  local length = size_of.message_size
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_size = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_size, range, value, display)
 
@@ -1952,109 +1952,109 @@ dissect.message_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_size
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.message_size
 
-  index = index + size_of.message_type
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_size(buffer, index, packet, parent)
 
   -- Message Type: 2 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_header(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 2):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 2, 2):le_uint()
 
   -- Payload: Runtime Type with 10 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = nyse_options_complexfeed_xdp_v1_3_a_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.message(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Nanoseconds
-size_of.nanoseconds = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.nanoseconds = 4
 
 -- Display: Nanoseconds
-display.nanoseconds = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.nanoseconds = function(value)
   return "Nanoseconds: "..value
 end
 
 -- Dissect: Nanoseconds
-dissect.nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.nanoseconds
+nyse_options_complexfeed_xdp_v1_3_a_dissect.nanoseconds = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.nanoseconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.nanoseconds(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.nanoseconds, range, value, display)
 
@@ -2062,19 +2062,19 @@ dissect.nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp
-size_of.timestamp = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.timestamp = 4
 
 -- Display: Timestamp
-display.timestamp = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp
+nyse_options_complexfeed_xdp_v1_3_a_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.timestamp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.timestamp(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.timestamp, range, value, display)
 
@@ -2082,19 +2082,19 @@ dissect.timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 4
+nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number = 4
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.sequence_number, range, value, display)
 
@@ -2102,19 +2102,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Count
-size_of.message_count = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.message_count = 1
 
 -- Display: Message Count
-display.message_count = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.message_count = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-dissect.message_count = function(buffer, offset, packet, parent)
-  local length = size_of.message_count
+nyse_options_complexfeed_xdp_v1_3_a_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.message_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_count(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.message_count, range, value, display)
 
@@ -2122,10 +2122,10 @@ dissect.message_count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Delivery Flag
-size_of.delivery_flag = 1
+nyse_options_complexfeed_xdp_v1_3_a_size_of.delivery_flag = 1
 
 -- Display: Delivery Flag
-display.delivery_flag = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.delivery_flag = function(value)
   if value == 1 then
     return "Delivery Flag: Heartbeat (1)"
   end
@@ -2164,11 +2164,11 @@ display.delivery_flag = function(value)
 end
 
 -- Dissect: Delivery Flag
-dissect.delivery_flag = function(buffer, offset, packet, parent)
-  local length = size_of.delivery_flag
+nyse_options_complexfeed_xdp_v1_3_a_dissect.delivery_flag = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.delivery_flag
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.delivery_flag(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.delivery_flag(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.delivery_flag, range, value, display)
 
@@ -2176,19 +2176,19 @@ dissect.delivery_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Size
-size_of.packet_size = 2
+nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_size = 2
 
 -- Display: Packet Size
-display.packet_size = function(value)
+nyse_options_complexfeed_xdp_v1_3_a_display.packet_size = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = size_of.packet_size
+nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_size = function(buffer, offset, packet, parent)
+  local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_size(value, buffer, offset, packet, parent)
+  local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_size, range, value, display)
 
@@ -2196,80 +2196,80 @@ dissect.packet_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.packet_size
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_size
 
-  index = index + size_of.delivery_flag
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.delivery_flag
 
-  index = index + size_of.message_count
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.message_count
 
-  index = index + size_of.sequence_number
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.sequence_number
 
-  index = index + size_of.timestamp
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.timestamp
 
-  index = index + size_of.nanoseconds
+  index = index + nyse_options_complexfeed_xdp_v1_3_a_size_of.nanoseconds
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_size(buffer, index, packet, parent)
 
   -- Delivery Flag: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, delivery_flag = dissect.delivery_flag(buffer, index, packet, parent)
+  index, delivery_flag = nyse_options_complexfeed_xdp_v1_3_a_dissect.delivery_flag(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = nyse_options_complexfeed_xdp_v1_3_a_dissect.message_count(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = nyse_options_complexfeed_xdp_v1_3_a_dissect.sequence_number(buffer, index, packet, parent)
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = nyse_options_complexfeed_xdp_v1_3_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Nanoseconds: 4 Byte Unsigned Fixed Width Integer
-  index, nanoseconds = dissect.nanoseconds(buffer, index, packet, parent)
+  index, nanoseconds = nyse_options_complexfeed_xdp_v1_3_a_dissect.nanoseconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = nyse_options_complexfeed_xdp_v1_3_a_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = nyse_options_complexfeed_xdp_v1_3_a_display.packet_header(buffer, packet, parent)
     parent = parent:add(nyse_options_complexfeed_xdp_v1_3_a.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+nyse_options_complexfeed_xdp_v1_3_a_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 6 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = nyse_options_complexfeed_xdp_v1_3_a_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = nyse_options_complexfeed_xdp_v1_3_a_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -2292,7 +2292,7 @@ function nyse_options_complexfeed_xdp_v1_3_a.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(nyse_options_complexfeed_xdp_v1_3_a, buffer(), nyse_options_complexfeed_xdp_v1_3_a.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return nyse_options_complexfeed_xdp_v1_3_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

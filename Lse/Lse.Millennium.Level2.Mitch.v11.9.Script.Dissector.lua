@@ -10,9 +10,9 @@ local lse_millennium_level2_mitch_v11_9 = Proto("Lse.Millennium.Level2.Mitch.v11
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local lse_millennium_level2_mitch_v11_9_display = {}
+local lse_millennium_level2_mitch_v11_9_dissect = {}
+local lse_millennium_level2_mitch_v11_9_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -265,19 +265,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Sell Limit Size
-size_of.sell_limit_size = 4
+lse_millennium_level2_mitch_v11_9_size_of.sell_limit_size = 4
 
 -- Display: Sell Limit Size
-display.sell_limit_size = function(value)
+lse_millennium_level2_mitch_v11_9_display.sell_limit_size = function(value)
   return "Sell Limit Size: "..value
 end
 
 -- Dissect: Sell Limit Size
-dissect.sell_limit_size = function(buffer, offset, packet, parent)
-  local length = size_of.sell_limit_size
+lse_millennium_level2_mitch_v11_9_dissect.sell_limit_size = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.sell_limit_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_limit_size(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.sell_limit_size(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.sell_limit_size, range, value, display)
 
@@ -285,19 +285,19 @@ dissect.sell_limit_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Limit Price
-size_of.sell_limit_price = 8
+lse_millennium_level2_mitch_v11_9_size_of.sell_limit_price = 8
 
 -- Display: Sell Limit Price
-display.sell_limit_price = function(value)
+lse_millennium_level2_mitch_v11_9_display.sell_limit_price = function(value)
   return "Sell Limit Price: "..value
 end
 
 -- Dissect: Sell Limit Price
-dissect.sell_limit_price = function(buffer, offset, packet, parent)
-  local length = size_of.sell_limit_price
+lse_millennium_level2_mitch_v11_9_dissect.sell_limit_price = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.sell_limit_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.sell_limit_price(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.sell_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.sell_limit_price, range, value, display)
 
@@ -305,19 +305,19 @@ dissect.sell_limit_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Limit Size
-size_of.buy_limit_size = 4
+lse_millennium_level2_mitch_v11_9_size_of.buy_limit_size = 4
 
 -- Display: Buy Limit Size
-display.buy_limit_size = function(value)
+lse_millennium_level2_mitch_v11_9_display.buy_limit_size = function(value)
   return "Buy Limit Size: "..value
 end
 
 -- Dissect: Buy Limit Size
-dissect.buy_limit_size = function(buffer, offset, packet, parent)
-  local length = size_of.buy_limit_size
+lse_millennium_level2_mitch_v11_9_dissect.buy_limit_size = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.buy_limit_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_limit_size(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.buy_limit_size(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.buy_limit_size, range, value, display)
 
@@ -325,19 +325,19 @@ dissect.buy_limit_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Limit Price
-size_of.buy_limit_price = 8
+lse_millennium_level2_mitch_v11_9_size_of.buy_limit_price = 8
 
 -- Display: Buy Limit Price
-display.buy_limit_price = function(value)
+lse_millennium_level2_mitch_v11_9_display.buy_limit_price = function(value)
   return "Buy Limit Price: "..value
 end
 
 -- Dissect: Buy Limit Price
-dissect.buy_limit_price = function(buffer, offset, packet, parent)
-  local length = size_of.buy_limit_price
+lse_millennium_level2_mitch_v11_9_dissect.buy_limit_price = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.buy_limit_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.buy_limit_price(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.buy_limit_price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.buy_limit_price, range, value, display)
 
@@ -345,19 +345,19 @@ dissect.buy_limit_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Id
-size_of.instrument_id = 4
+lse_millennium_level2_mitch_v11_9_size_of.instrument_id = 4
 
 -- Display: Instrument Id
-display.instrument_id = function(value)
+lse_millennium_level2_mitch_v11_9_display.instrument_id = function(value)
   return "Instrument Id: "..value
 end
 
 -- Dissect: Instrument Id
-dissect.instrument_id = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_id
+lse_millennium_level2_mitch_v11_9_dissect.instrument_id = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.instrument_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.instrument_id(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.instrument_id(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.instrument_id, range, value, display)
 
@@ -365,19 +365,19 @@ dissect.instrument_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Nanosecond
-size_of.nanosecond = 4
+lse_millennium_level2_mitch_v11_9_size_of.nanosecond = 4
 
 -- Display: Nanosecond
-display.nanosecond = function(value)
+lse_millennium_level2_mitch_v11_9_display.nanosecond = function(value)
   return "Nanosecond: "..value
 end
 
 -- Dissect: Nanosecond
-dissect.nanosecond = function(buffer, offset, packet, parent)
-  local length = size_of.nanosecond
+lse_millennium_level2_mitch_v11_9_dissect.nanosecond = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.nanosecond
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.nanosecond(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.nanosecond(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.nanosecond, range, value, display)
 
@@ -385,81 +385,81 @@ dissect.nanosecond = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Top Of Book Message
-size_of.top_of_book_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.top_of_book_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.buy_limit_price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.buy_limit_price
 
-  index = index + size_of.buy_limit_size
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.buy_limit_size
 
-  index = index + size_of.sell_limit_price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.sell_limit_price
 
-  index = index + size_of.sell_limit_size
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.sell_limit_size
 
   return index
 end
 
 -- Display: Top Of Book Message
-display.top_of_book_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.top_of_book_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Top Of Book Message
-dissect.top_of_book_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Buy Limit Price: 8 Byte Signed Fixed Width Integer
-  index, buy_limit_price = dissect.buy_limit_price(buffer, index, packet, parent)
+  index, buy_limit_price = lse_millennium_level2_mitch_v11_9_dissect.buy_limit_price(buffer, index, packet, parent)
 
   -- Buy Limit Size: 4 Byte Unsigned Fixed Width Integer
-  index, buy_limit_size = dissect.buy_limit_size(buffer, index, packet, parent)
+  index, buy_limit_size = lse_millennium_level2_mitch_v11_9_dissect.buy_limit_size(buffer, index, packet, parent)
 
   -- Sell Limit Price: 8 Byte Signed Fixed Width Integer
-  index, sell_limit_price = dissect.sell_limit_price(buffer, index, packet, parent)
+  index, sell_limit_price = lse_millennium_level2_mitch_v11_9_dissect.sell_limit_price(buffer, index, packet, parent)
 
   -- Sell Limit Size: 4 Byte Unsigned Fixed Width Integer
-  index, sell_limit_size = dissect.sell_limit_size(buffer, index, packet, parent)
+  index, sell_limit_size = lse_millennium_level2_mitch_v11_9_dissect.sell_limit_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Top Of Book Message
-dissect.top_of_book_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.top_of_book_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.top_of_book_message then
-    local length = size_of.top_of_book_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.top_of_book_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.top_of_book_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.top_of_book_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.top_of_book_message, range, display)
   end
 
-  return dissect.top_of_book_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.top_of_book_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved Byte
-size_of.reserved_byte = 1
+lse_millennium_level2_mitch_v11_9_size_of.reserved_byte = 1
 
 -- Display: Reserved Byte
-display.reserved_byte = function(value)
+lse_millennium_level2_mitch_v11_9_display.reserved_byte = function(value)
   return "Reserved Byte: "..value
 end
 
 -- Dissect: Reserved Byte
-dissect.reserved_byte = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_byte
+lse_millennium_level2_mitch_v11_9_dissect.reserved_byte = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reserved_byte
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_byte(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reserved_byte(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_byte, range, value, display)
 
@@ -467,10 +467,10 @@ dissect.reserved_byte = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Close Price Indicator
-size_of.open_close_price_indicator = 1
+lse_millennium_level2_mitch_v11_9_size_of.open_close_price_indicator = 1
 
 -- Display: Open Close Price Indicator
-display.open_close_price_indicator = function(value)
+lse_millennium_level2_mitch_v11_9_display.open_close_price_indicator = function(value)
   if value == "Value" then
     return "Open Close Price Indicator: Meaning (Value)"
   end
@@ -500,11 +500,11 @@ display.open_close_price_indicator = function(value)
 end
 
 -- Dissect: Open Close Price Indicator
-dissect.open_close_price_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.open_close_price_indicator
+lse_millennium_level2_mitch_v11_9_dissect.open_close_price_indicator = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.open_close_price_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.open_close_price_indicator(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.open_close_price_indicator(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.open_close_price_indicator, range, value, display)
 
@@ -512,19 +512,19 @@ dissect.open_close_price_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+lse_millennium_level2_mitch_v11_9_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+lse_millennium_level2_mitch_v11_9_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+lse_millennium_level2_mitch_v11_9_dissect.price = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.price, range, value, display)
 
@@ -532,10 +532,10 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Statistic Type
-size_of.statistic_type = 1
+lse_millennium_level2_mitch_v11_9_size_of.statistic_type = 1
 
 -- Display: Statistic Type
-display.statistic_type = function(value)
+lse_millennium_level2_mitch_v11_9_display.statistic_type = function(value)
   if value == "O" then
     return "Statistic Type: Opening Price (O)"
   end
@@ -547,11 +547,11 @@ display.statistic_type = function(value)
 end
 
 -- Dissect: Statistic Type
-dissect.statistic_type = function(buffer, offset, packet, parent)
-  local length = size_of.statistic_type
+lse_millennium_level2_mitch_v11_9_dissect.statistic_type = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.statistic_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.statistic_type(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.statistic_type(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.statistic_type, range, value, display)
 
@@ -559,19 +559,19 @@ dissect.statistic_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved B
-size_of.reserved_b = 1
+lse_millennium_level2_mitch_v11_9_size_of.reserved_b = 1
 
 -- Display: Reserved B
-display.reserved_b = function(value)
+lse_millennium_level2_mitch_v11_9_display.reserved_b = function(value)
   return "Reserved B: "..value
 end
 
 -- Dissect: Reserved B
-dissect.reserved_b = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_b
+lse_millennium_level2_mitch_v11_9_dissect.reserved_b = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reserved_b
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_b(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reserved_b(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_b, range, value, display)
 
@@ -579,19 +579,19 @@ dissect.reserved_b = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved A
-size_of.reserved_a = 1
+lse_millennium_level2_mitch_v11_9_size_of.reserved_a = 1
 
 -- Display: Reserved A
-display.reserved_a = function(value)
+lse_millennium_level2_mitch_v11_9_display.reserved_a = function(value)
   return "Reserved A: "..value
 end
 
 -- Dissect: Reserved A
-dissect.reserved_a = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_a
+lse_millennium_level2_mitch_v11_9_dissect.reserved_a = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reserved_a
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_a(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reserved_a(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_a, range, value, display)
 
@@ -599,82 +599,82 @@ dissect.reserved_a = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Statistics Message
-size_of.statistics_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.statistics_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.statistic_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.statistic_type
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.open_close_price_indicator
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.open_close_price_indicator
 
-  index = index + size_of.reserved_byte
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_byte
 
   return index
 end
 
 -- Display: Statistics Message
-display.statistics_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.statistics_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Statistics Message
-dissect.statistics_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.statistics_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Statistic Type: 1 Byte Ascii String Enum with 2 values
-  index, statistic_type = dissect.statistic_type(buffer, index, packet, parent)
+  index, statistic_type = lse_millennium_level2_mitch_v11_9_dissect.statistic_type(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Open Close Price Indicator: 1 Byte Ascii String Enum with 8 values
-  index, open_close_price_indicator = dissect.open_close_price_indicator(buffer, index, packet, parent)
+  index, open_close_price_indicator = lse_millennium_level2_mitch_v11_9_dissect.open_close_price_indicator(buffer, index, packet, parent)
 
   -- Reserved Byte: 1 Byte Ascii String
-  index, reserved_byte = dissect.reserved_byte(buffer, index, packet, parent)
+  index, reserved_byte = lse_millennium_level2_mitch_v11_9_dissect.reserved_byte(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Statistics Message
-dissect.statistics_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.statistics_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.statistics_message then
-    local length = size_of.statistics_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.statistics_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.statistics_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.statistics_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.statistics_message, range, display)
   end
 
-  return dissect.statistics_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.statistics_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Type
-size_of.auction_type = 1
+lse_millennium_level2_mitch_v11_9_size_of.auction_type = 1
 
 -- Display: Auction Type
-display.auction_type = function(value)
+lse_millennium_level2_mitch_v11_9_display.auction_type = function(value)
   if value == "C" then
     return "Auction Type: Closing Auction (C)"
   end
@@ -701,11 +701,11 @@ display.auction_type = function(value)
 end
 
 -- Dissect: Auction Type
-dissect.auction_type = function(buffer, offset, packet, parent)
-  local length = size_of.auction_type
+lse_millennium_level2_mitch_v11_9_dissect.auction_type = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.auction_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.auction_type(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.auction_type(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_type, range, value, display)
 
@@ -713,19 +713,19 @@ dissect.auction_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved Uint 32
-size_of.reserved_uint_32 = 4
+lse_millennium_level2_mitch_v11_9_size_of.reserved_uint_32 = 4
 
 -- Display: Reserved Uint 32
-display.reserved_uint_32 = function(value)
+lse_millennium_level2_mitch_v11_9_display.reserved_uint_32 = function(value)
   return "Reserved Uint 32: "..value
 end
 
 -- Dissect: Reserved Uint 32
-dissect.reserved_uint_32 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_uint_32
+lse_millennium_level2_mitch_v11_9_dissect.reserved_uint_32 = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reserved_uint_32
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reserved_uint_32(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reserved_uint_32(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_uint_32, range, value, display)
 
@@ -733,19 +733,19 @@ dissect.reserved_uint_32 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Paired Quantity
-size_of.paired_quantity = 4
+lse_millennium_level2_mitch_v11_9_size_of.paired_quantity = 4
 
 -- Display: Paired Quantity
-display.paired_quantity = function(value)
+lse_millennium_level2_mitch_v11_9_display.paired_quantity = function(value)
   return "Paired Quantity: "..value
 end
 
 -- Dissect: Paired Quantity
-dissect.paired_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.paired_quantity
+lse_millennium_level2_mitch_v11_9_dissect.paired_quantity = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.paired_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.paired_quantity(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.paired_quantity(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.paired_quantity, range, value, display)
 
@@ -753,87 +753,87 @@ dissect.paired_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Info Message
-size_of.auction_info_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.auction_info_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.paired_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.paired_quantity
 
-  index = index + size_of.reserved_uint_32
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_uint_32
 
-  index = index + size_of.reserved_byte
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_byte
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.auction_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.auction_type
 
   return index
 end
 
 -- Display: Auction Info Message
-display.auction_info_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.auction_info_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Info Message
-dissect.auction_info_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Paired Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, paired_quantity = dissect.paired_quantity(buffer, index, packet, parent)
+  index, paired_quantity = lse_millennium_level2_mitch_v11_9_dissect.paired_quantity(buffer, index, packet, parent)
 
   -- Reserved Uint 32: 4 Byte Unsigned Fixed Width Integer
-  index, reserved_uint_32 = dissect.reserved_uint_32(buffer, index, packet, parent)
+  index, reserved_uint_32 = lse_millennium_level2_mitch_v11_9_dissect.reserved_uint_32(buffer, index, packet, parent)
 
   -- Reserved Byte: 1 Byte Ascii String
-  index, reserved_byte = dissect.reserved_byte(buffer, index, packet, parent)
+  index, reserved_byte = lse_millennium_level2_mitch_v11_9_dissect.reserved_byte(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 7 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = lse_millennium_level2_mitch_v11_9_dissect.auction_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Info Message
-dissect.auction_info_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.auction_info_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_info_message then
-    local length = size_of.auction_info_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.auction_info_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_info_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.auction_info_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_info_message, range, display)
   end
 
-  return dissect.auction_info_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.auction_info_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pt Mod Flags
-size_of.pt_mod_flags = 1
+lse_millennium_level2_mitch_v11_9_size_of.pt_mod_flags = 1
 
 -- Display: Pt Mod Flags
-display.pt_mod_flags = function(buffer, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.pt_mod_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Canc flag set?
@@ -849,7 +849,7 @@ display.pt_mod_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Pt Mod Flags
-dissect.pt_mod_flags_bits = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.pt_mod_flags_bits = function(buffer, offset, packet, parent)
 
   -- Canc: 1 Bit
   parent:add(lse_millennium_level2_mitch_v11_9.fields.canc, buffer(offset, 1))
@@ -862,33 +862,33 @@ dissect.pt_mod_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Pt Mod Flags
-dissect.pt_mod_flags = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.pt_mod_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.pt_mod_flags(range, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.pt_mod_flags(range, packet, parent)
   local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.pt_mod_flags, range, display)
 
   if show.pt_mod_flags then
-    dissect.pt_mod_flags_bits(buffer, offset, packet, element)
+    lse_millennium_level2_mitch_v11_9_dissect.pt_mod_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Trade Match Id
-size_of.trade_match_id = 8
+lse_millennium_level2_mitch_v11_9_size_of.trade_match_id = 8
 
 -- Display: Trade Match Id
-display.trade_match_id = function(value)
+lse_millennium_level2_mitch_v11_9_display.trade_match_id = function(value)
   return "Trade Match Id: "..value
 end
 
 -- Dissect: Trade Match Id
-dissect.trade_match_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_match_id
+lse_millennium_level2_mitch_v11_9_dissect.trade_match_id = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.trade_match_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.trade_match_id(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.trade_match_id(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.trade_match_id, range, value, display)
 
@@ -896,19 +896,19 @@ dissect.trade_match_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quantity
-size_of.quantity = 4
+lse_millennium_level2_mitch_v11_9_size_of.quantity = 4
 
 -- Display: Quantity
-display.quantity = function(value)
+lse_millennium_level2_mitch_v11_9_display.quantity = function(value)
   return "Quantity: "..value
 end
 
 -- Dissect: Quantity
-dissect.quantity = function(buffer, offset, packet, parent)
-  local length = size_of.quantity
+lse_millennium_level2_mitch_v11_9_dissect.quantity = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quantity(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.quantity, range, value, display)
 
@@ -916,87 +916,87 @@ dissect.quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Auction Trade Message
-size_of.auction_trade_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.auction_trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.quantity
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.trade_match_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.trade_match_id
 
-  index = index + size_of.auction_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.auction_type
 
-  index = index + size_of.pt_mod_flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.pt_mod_flags
 
   return index
 end
 
 -- Display: Auction Trade Message
-display.auction_trade_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.auction_trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Auction Trade Message
-dissect.auction_trade_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = lse_millennium_level2_mitch_v11_9_dissect.quantity(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Trade Match Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_match_id = dissect.trade_match_id(buffer, index, packet, parent)
+  index, trade_match_id = lse_millennium_level2_mitch_v11_9_dissect.trade_match_id(buffer, index, packet, parent)
 
   -- Auction Type: 1 Byte Ascii String Enum with 7 values
-  index, auction_type = dissect.auction_type(buffer, index, packet, parent)
+  index, auction_type = lse_millennium_level2_mitch_v11_9_dissect.auction_type(buffer, index, packet, parent)
 
   -- Pt Mod Flags: Struct of 3 fields
-  index, pt_mod_flags = dissect.pt_mod_flags(buffer, index, packet, parent)
+  index, pt_mod_flags = lse_millennium_level2_mitch_v11_9_dissect.pt_mod_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Auction Trade Message
-dissect.auction_trade_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.auction_trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.auction_trade_message then
-    local length = size_of.auction_trade_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.auction_trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.auction_trade_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.auction_trade_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.auction_trade_message, range, display)
   end
 
-  return dissect.auction_trade_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.auction_trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sub Book
-size_of.sub_book = 1
+lse_millennium_level2_mitch_v11_9_size_of.sub_book = 1
 
 -- Display: Sub Book
-display.sub_book = function(value)
+lse_millennium_level2_mitch_v11_9_display.sub_book = function(value)
   if value == 0 then
     return "Sub Book: Regular Trades (0)"
   end
@@ -1008,11 +1008,11 @@ display.sub_book = function(value)
 end
 
 -- Dissect: Sub Book
-dissect.sub_book = function(buffer, offset, packet, parent)
-  local length = size_of.sub_book
+lse_millennium_level2_mitch_v11_9_dissect.sub_book = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.sub_book
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sub_book(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.sub_book(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.sub_book, range, value, display)
 
@@ -1020,10 +1020,10 @@ dissect.sub_book = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Type
-size_of.cross_type = 1
+lse_millennium_level2_mitch_v11_9_size_of.cross_type = 1
 
 -- Display: Cross Type
-display.cross_type = function(value)
+lse_millennium_level2_mitch_v11_9_display.cross_type = function(value)
   if value == Value then
     return "Cross Type: Meaning (Value)"
   end
@@ -1044,11 +1044,11 @@ display.cross_type = function(value)
 end
 
 -- Dissect: Cross Type
-dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = size_of.cross_type
+lse_millennium_level2_mitch_v11_9_dissect.cross_type = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.cross_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.cross_type(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.cross_type, range, value, display)
 
@@ -1056,19 +1056,19 @@ dissect.cross_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Executed Quantity
-size_of.executed_quantity = 4
+lse_millennium_level2_mitch_v11_9_size_of.executed_quantity = 4
 
 -- Display: Executed Quantity
-display.executed_quantity = function(value)
+lse_millennium_level2_mitch_v11_9_display.executed_quantity = function(value)
   return "Executed Quantity: "..value
 end
 
 -- Dissect: Executed Quantity
-dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.executed_quantity
+lse_millennium_level2_mitch_v11_9_dissect.executed_quantity = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.executed_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.executed_quantity(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.executed_quantity, range, value, display)
 
@@ -1076,92 +1076,92 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Message
-size_of.trade_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.executed_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.executed_quantity
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.trade_match_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.trade_match_id
 
-  index = index + size_of.cross_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.cross_type
 
-  index = index + size_of.sub_book
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.sub_book
 
-  index = index + size_of.pt_mod_flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.pt_mod_flags
 
   return index
 end
 
 -- Display: Trade Message
-display.trade_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Message
-dissect.trade_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = lse_millennium_level2_mitch_v11_9_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Trade Match Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_match_id = dissect.trade_match_id(buffer, index, packet, parent)
+  index, trade_match_id = lse_millennium_level2_mitch_v11_9_dissect.trade_match_id(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = lse_millennium_level2_mitch_v11_9_dissect.cross_type(buffer, index, packet, parent)
 
   -- Sub Book: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, sub_book = dissect.sub_book(buffer, index, packet, parent)
+  index, sub_book = lse_millennium_level2_mitch_v11_9_dissect.sub_book(buffer, index, packet, parent)
 
   -- Pt Mod Flags: Struct of 3 fields
-  index, pt_mod_flags = dissect.pt_mod_flags(buffer, index, packet, parent)
+  index, pt_mod_flags = lse_millennium_level2_mitch_v11_9_dissect.pt_mod_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Message
-dissect.trade_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = size_of.trade_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.trade_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.trade_message, range, display)
   end
 
-  return dissect.trade_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Printable
-size_of.printable = 1
+lse_millennium_level2_mitch_v11_9_size_of.printable = 1
 
 -- Display: Printable
-display.printable = function(value)
+lse_millennium_level2_mitch_v11_9_display.printable = function(value)
   if value == "N" then
     return "Printable: Non Printable (N)"
   end
@@ -1173,11 +1173,11 @@ display.printable = function(value)
 end
 
 -- Dissect: Printable
-dissect.printable = function(buffer, offset, packet, parent)
-  local length = size_of.printable
+lse_millennium_level2_mitch_v11_9_dissect.printable = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.printable
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.printable(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.printable(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.printable, range, value, display)
 
@@ -1185,19 +1185,19 @@ dissect.printable = function(buffer, offset, packet, parent)
 end
 
 -- Size: Display Quantity
-size_of.display_quantity = 4
+lse_millennium_level2_mitch_v11_9_size_of.display_quantity = 4
 
 -- Display: Display Quantity
-display.display_quantity = function(value)
+lse_millennium_level2_mitch_v11_9_display.display_quantity = function(value)
   return "Display Quantity: "..value
 end
 
 -- Dissect: Display Quantity
-dissect.display_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.display_quantity
+lse_millennium_level2_mitch_v11_9_dissect.display_quantity = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.display_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.display_quantity(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.display_quantity(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.display_quantity, range, value, display)
 
@@ -1205,19 +1205,19 @@ dissect.display_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+lse_millennium_level2_mitch_v11_9_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+lse_millennium_level2_mitch_v11_9_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+lse_millennium_level2_mitch_v11_9_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.order_id, range, value, display)
 
@@ -1225,129 +1225,129 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed With Price Size Message
-size_of.order_executed_with_price_size_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.order_executed_with_price_size_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.executed_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.executed_quantity
 
-  index = index + size_of.display_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.display_quantity
 
-  index = index + size_of.trade_match_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.trade_match_id
 
-  index = index + size_of.printable
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.printable
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
   return index
 end
 
 -- Display: Order Executed With Price Size Message
-display.order_executed_with_price_size_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.order_executed_with_price_size_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed With Price Size Message
-dissect.order_executed_with_price_size_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = lse_millennium_level2_mitch_v11_9_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Display Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, display_quantity = dissect.display_quantity(buffer, index, packet, parent)
+  index, display_quantity = lse_millennium_level2_mitch_v11_9_dissect.display_quantity(buffer, index, packet, parent)
 
   -- Trade Match Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_match_id = dissect.trade_match_id(buffer, index, packet, parent)
+  index, trade_match_id = lse_millennium_level2_mitch_v11_9_dissect.trade_match_id(buffer, index, packet, parent)
 
   -- Printable: 1 Byte Ascii String Enum with 2 values
-  index, printable = dissect.printable(buffer, index, packet, parent)
+  index, printable = lse_millennium_level2_mitch_v11_9_dissect.printable(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed With Price Size Message
-dissect.order_executed_with_price_size_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_with_price_size_message then
-    local length = size_of.order_executed_with_price_size_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.order_executed_with_price_size_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_with_price_size_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.order_executed_with_price_size_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_executed_with_price_size_message, range, display)
   end
 
-  return dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed Message
-size_of.order_executed_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.order_executed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.executed_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.executed_quantity
 
-  index = index + size_of.trade_match_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.trade_match_id
 
   return index
 end
 
 -- Display: Order Executed Message
-display.order_executed_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.order_executed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = lse_millennium_level2_mitch_v11_9_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Trade Match Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_match_id = dissect.trade_match_id(buffer, index, packet, parent)
+  index, trade_match_id = lse_millennium_level2_mitch_v11_9_dissect.trade_match_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-dissect.order_executed_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = size_of.order_executed_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.order_executed_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_executed_message, range, display)
   end
 
-  return dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Flags
-size_of.flags = 1
+lse_millennium_level2_mitch_v11_9_size_of.flags = 1
 
 -- Display: Flags
-display.flags = function(buffer, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Priority Flag flag set?
@@ -1375,7 +1375,7 @@ display.flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Flags
-dissect.flags_bits = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.flags_bits = function(buffer, offset, packet, parent)
 
   -- Priority Flag: 1 Bit
   parent:add(lse_millennium_level2_mitch_v11_9.fields.priority_flag, buffer(offset, 1))
@@ -1397,90 +1397,90 @@ dissect.flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Flags
-dissect.flags = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.flags(range, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.flags(range, packet, parent)
   local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.flags, range, display)
 
   if show.flags then
-    dissect.flags_bits(buffer, offset, packet, element)
+    lse_millennium_level2_mitch_v11_9_dissect.flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Calculate size of: Order Book Clear Message
-size_of.order_book_clear_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.order_book_clear_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.flags
 
   return index
 end
 
 -- Display: Order Book Clear Message
-display.order_book_clear_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.order_book_clear_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Book Clear Message
-dissect.order_book_clear_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Flags: Struct of 6 fields
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = lse_millennium_level2_mitch_v11_9_dissect.flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Clear Message
-dissect.order_book_clear_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_book_clear_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_clear_message then
-    local length = size_of.order_book_clear_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.order_book_clear_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_clear_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.order_book_clear_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_book_clear_message, range, display)
   end
 
-  return dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.order_book_clear_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: New Price
-size_of.new_price = 8
+lse_millennium_level2_mitch_v11_9_size_of.new_price = 8
 
 -- Display: New Price
-display.new_price = function(value)
+lse_millennium_level2_mitch_v11_9_display.new_price = function(value)
   return "New Price: "..value
 end
 
 -- Dissect: New Price
-dissect.new_price = function(buffer, offset, packet, parent)
-  local length = size_of.new_price
+lse_millennium_level2_mitch_v11_9_dissect.new_price = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.new_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.new_price(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.new_price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.new_price, range, value, display)
 
@@ -1488,19 +1488,19 @@ dissect.new_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: New Quantity
-size_of.new_quantity = 4
+lse_millennium_level2_mitch_v11_9_size_of.new_quantity = 4
 
 -- Display: New Quantity
-display.new_quantity = function(value)
+lse_millennium_level2_mitch_v11_9_display.new_quantity = function(value)
   return "New Quantity: "..value
 end
 
 -- Dissect: New Quantity
-dissect.new_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.new_quantity
+lse_millennium_level2_mitch_v11_9_dissect.new_quantity = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.new_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.new_quantity(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.new_quantity(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.new_quantity, range, value, display)
 
@@ -1508,128 +1508,128 @@ dissect.new_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Modified Message
-size_of.order_modified_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.order_modified_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.new_quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.new_quantity
 
-  index = index + size_of.new_price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.new_price
 
-  index = index + size_of.flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.flags
 
   return index
 end
 
 -- Display: Order Modified Message
-display.order_modified_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.order_modified_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Modified Message
-dissect.order_modified_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- New Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, new_quantity = dissect.new_quantity(buffer, index, packet, parent)
+  index, new_quantity = lse_millennium_level2_mitch_v11_9_dissect.new_quantity(buffer, index, packet, parent)
 
   -- New Price: 8 Byte Signed Fixed Width Integer
-  index, new_price = dissect.new_price(buffer, index, packet, parent)
+  index, new_price = lse_millennium_level2_mitch_v11_9_dissect.new_price(buffer, index, packet, parent)
 
   -- Flags: Struct of 6 fields
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = lse_millennium_level2_mitch_v11_9_dissect.flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Modified Message
-dissect.order_modified_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_modified_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_modified_message then
-    local length = size_of.order_modified_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.order_modified_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_modified_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.order_modified_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_modified_message, range, display)
   end
 
-  return dissect.order_modified_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.order_modified_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Deleted Message
-size_of.order_deleted_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.order_deleted_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.flags
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
   return index
 end
 
 -- Display: Order Deleted Message
-display.order_deleted_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.order_deleted_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Deleted Message
-dissect.order_deleted_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- Flags: Struct of 6 fields
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = lse_millennium_level2_mitch_v11_9_dissect.flags(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Deleted Message
-dissect.order_deleted_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.order_deleted_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_deleted_message then
-    local length = size_of.order_deleted_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.order_deleted_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_deleted_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.order_deleted_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.order_deleted_message, range, display)
   end
 
-  return dissect.order_deleted_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Attribution
-size_of.attribution = 11
+lse_millennium_level2_mitch_v11_9_size_of.attribution = 11
 
 -- Display: Attribution
-display.attribution = function(value)
+lse_millennium_level2_mitch_v11_9_display.attribution = function(value)
   return "Attribution: "..value
 end
 
 -- Dissect: Attribution
-dissect.attribution = function(buffer, offset, packet, parent)
-  local length = size_of.attribution
+lse_millennium_level2_mitch_v11_9_dissect.attribution = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.attribution
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.attribution(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.attribution(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.attribution, range, value, display)
 
@@ -1637,10 +1637,10 @@ dissect.attribution = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+lse_millennium_level2_mitch_v11_9_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+lse_millennium_level2_mitch_v11_9_display.side = function(value)
   if value == "B" then
     return "Side: Buy Order (B)"
   end
@@ -1652,11 +1652,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+lse_millennium_level2_mitch_v11_9_dissect.side = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.side(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.side, range, value, display)
 
@@ -1664,101 +1664,101 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Attributed Order Message
-size_of.add_attributed_order_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.add_attributed_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.side
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.side
 
-  index = index + size_of.quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.quantity
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.attribution
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.attribution
 
-  index = index + size_of.flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.flags
 
   return index
 end
 
 -- Display: Add Attributed Order Message
-display.add_attributed_order_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.add_attributed_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Attributed Order Message
-dissect.add_attributed_order_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = lse_millennium_level2_mitch_v11_9_dissect.side(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = lse_millennium_level2_mitch_v11_9_dissect.quantity(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Attribution: 11 Byte Ascii String
-  index, attribution = dissect.attribution(buffer, index, packet, parent)
+  index, attribution = lse_millennium_level2_mitch_v11_9_dissect.attribution(buffer, index, packet, parent)
 
   -- Flags: Struct of 6 fields
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = lse_millennium_level2_mitch_v11_9_dissect.flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Attributed Order Message
-dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_attributed_order_message then
-    local length = size_of.add_attributed_order_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.add_attributed_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_attributed_order_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.add_attributed_order_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.add_attributed_order_message, range, display)
   end
 
-  return dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved Alpha
-size_of.reserved_alpha = 4
+lse_millennium_level2_mitch_v11_9_size_of.reserved_alpha = 4
 
 -- Display: Reserved Alpha
-display.reserved_alpha = function(value)
+lse_millennium_level2_mitch_v11_9_display.reserved_alpha = function(value)
   return "Reserved Alpha: "..value
 end
 
 -- Dissect: Reserved Alpha
-dissect.reserved_alpha = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_alpha
+lse_millennium_level2_mitch_v11_9_dissect.reserved_alpha = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reserved_alpha
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_alpha(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reserved_alpha(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reserved_alpha, range, value, display)
 
@@ -1766,92 +1766,92 @@ dissect.reserved_alpha = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Order Message
-size_of.add_order_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.add_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.order_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.order_id
 
-  index = index + size_of.side
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.side
 
-  index = index + size_of.quantity
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.quantity
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.price
 
-  index = index + size_of.flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.flags
 
-  index = index + size_of.reserved_alpha
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_alpha
 
   return index
 end
 
 -- Display: Add Order Message
-display.add_order_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.add_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Message
-dissect.add_order_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.add_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = lse_millennium_level2_mitch_v11_9_dissect.order_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 2 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = lse_millennium_level2_mitch_v11_9_dissect.side(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = lse_millennium_level2_mitch_v11_9_dissect.quantity(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = lse_millennium_level2_mitch_v11_9_dissect.price(buffer, index, packet, parent)
 
   -- Flags: Struct of 6 fields
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = lse_millennium_level2_mitch_v11_9_dissect.flags(buffer, index, packet, parent)
 
   -- Reserved Alpha: 4 Byte Ascii String
-  index, reserved_alpha = dissect.reserved_alpha(buffer, index, packet, parent)
+  index, reserved_alpha = lse_millennium_level2_mitch_v11_9_dissect.reserved_alpha(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Message
-dissect.add_order_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.add_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_message then
-    local length = size_of.add_order_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.add_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.add_order_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.add_order_message, range, display)
   end
 
-  return dissect.add_order_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.add_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Book Type
-size_of.book_type = 1
+lse_millennium_level2_mitch_v11_9_size_of.book_type = 1
 
 -- Display: Book Type
-display.book_type = function(value)
+lse_millennium_level2_mitch_v11_9_display.book_type = function(value)
   if value == 1 then
     return "Book Type: On Book (1)"
   end
@@ -1866,11 +1866,11 @@ display.book_type = function(value)
 end
 
 -- Dissect: Book Type
-dissect.book_type = function(buffer, offset, packet, parent)
-  local length = size_of.book_type
+lse_millennium_level2_mitch_v11_9_dissect.book_type = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.book_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.book_type(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.book_type(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.book_type, range, value, display)
 
@@ -1878,19 +1878,19 @@ dissect.book_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: New End Time
-size_of.new_end_time = 8
+lse_millennium_level2_mitch_v11_9_size_of.new_end_time = 8
 
 -- Display: New End Time
-display.new_end_time = function(value)
+lse_millennium_level2_mitch_v11_9_display.new_end_time = function(value)
   return "New End Time: "..value
 end
 
 -- Dissect: New End Time
-dissect.new_end_time = function(buffer, offset, packet, parent)
-  local length = size_of.new_end_time
+lse_millennium_level2_mitch_v11_9_dissect.new_end_time = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.new_end_time
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.new_end_time(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.new_end_time(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.new_end_time, range, value, display)
 
@@ -1898,10 +1898,10 @@ dissect.new_end_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Change Reason
-size_of.session_change_reason = 1
+lse_millennium_level2_mitch_v11_9_size_of.session_change_reason = 1
 
 -- Display: Session Change Reason
-display.session_change_reason = function(value)
+lse_millennium_level2_mitch_v11_9_display.session_change_reason = function(value)
   if value == 0 then
     return "Session Change Reason: Scheduled Transition (0)"
   end
@@ -1925,11 +1925,11 @@ display.session_change_reason = function(value)
 end
 
 -- Dissect: Session Change Reason
-dissect.session_change_reason = function(buffer, offset, packet, parent)
-  local length = size_of.session_change_reason
+lse_millennium_level2_mitch_v11_9_dissect.session_change_reason = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.session_change_reason
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session_change_reason(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.session_change_reason(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.session_change_reason, range, value, display)
 
@@ -1937,19 +1937,19 @@ dissect.session_change_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reason
-size_of.reason = 4
+lse_millennium_level2_mitch_v11_9_size_of.reason = 4
 
 -- Display: Reason
-display.reason = function(value)
+lse_millennium_level2_mitch_v11_9_display.reason = function(value)
   return "Reason: "..value
 end
 
 -- Dissect: Reason
-dissect.reason = function(buffer, offset, packet, parent)
-  local length = size_of.reason
+lse_millennium_level2_mitch_v11_9_dissect.reason = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.reason
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reason(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.reason, range, value, display)
 
@@ -1957,10 +1957,10 @@ dissect.reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Status
-size_of.trading_status = 1
+lse_millennium_level2_mitch_v11_9_size_of.trading_status = 1
 
 -- Display: Trading Status
-display.trading_status = function(value)
+lse_millennium_level2_mitch_v11_9_display.trading_status = function(value)
   if value == " " then
     return "Trading Status: Active (<whitespace>)"
   end
@@ -2029,11 +2029,11 @@ display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.trading_status
+lse_millennium_level2_mitch_v11_9_dissect.trading_status = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.trading_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trading_status(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.trading_status, range, value, display)
 
@@ -2041,101 +2041,101 @@ dissect.trading_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Status Message
-size_of.symbol_status_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.symbol_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.trading_status
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.trading_status
 
-  index = index + size_of.symbol_status_flags
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.symbol_status_flags
 
-  index = index + size_of.reason
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reason
 
-  index = index + size_of.session_change_reason
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.session_change_reason
 
-  index = index + size_of.new_end_time
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.new_end_time
 
-  index = index + size_of.book_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.book_type
 
   return index
 end
 
 -- Display: Symbol Status Message
-display.symbol_status_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.symbol_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Status Message
-dissect.symbol_status_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 21 values
-  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = lse_millennium_level2_mitch_v11_9_dissect.trading_status(buffer, index, packet, parent)
 
   -- Symbol Status Flags
-  index, symbol_status_flags = dissect.symbol_status_flags(buffer, index, packet, parent)
+  index, symbol_status_flags = lse_millennium_level2_mitch_v11_9_dissect.symbol_status_flags(buffer, index, packet, parent)
 
   -- Reason: 4 Byte Ascii String
-  index, reason = dissect.reason(buffer, index, packet, parent)
+  index, reason = lse_millennium_level2_mitch_v11_9_dissect.reason(buffer, index, packet, parent)
 
   -- Session Change Reason: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, session_change_reason = dissect.session_change_reason(buffer, index, packet, parent)
+  index, session_change_reason = lse_millennium_level2_mitch_v11_9_dissect.session_change_reason(buffer, index, packet, parent)
 
   -- New End Time: 8 Byte Ascii String
-  index, new_end_time = dissect.new_end_time(buffer, index, packet, parent)
+  index, new_end_time = lse_millennium_level2_mitch_v11_9_dissect.new_end_time(buffer, index, packet, parent)
 
   -- Book Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, book_type = dissect.book_type(buffer, index, packet, parent)
+  index, book_type = lse_millennium_level2_mitch_v11_9_dissect.book_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Status Message
-dissect.symbol_status_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.symbol_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_status_message then
-    local length = size_of.symbol_status_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.symbol_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_status_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.symbol_status_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_status_message, range, display)
   end
 
-  return dissect.symbol_status_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Close Price
-size_of.previous_close_price = 8
+lse_millennium_level2_mitch_v11_9_size_of.previous_close_price = 8
 
 -- Display: Previous Close Price
-display.previous_close_price = function(value)
+lse_millennium_level2_mitch_v11_9_display.previous_close_price = function(value)
   return "Previous Close Price: "..value
 end
 
 -- Dissect: Previous Close Price
-dissect.previous_close_price = function(buffer, offset, packet, parent)
-  local length = size_of.previous_close_price
+lse_millennium_level2_mitch_v11_9_dissect.previous_close_price = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.previous_close_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.previous_close_price(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.previous_close_price(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.previous_close_price, range, value, display)
 
@@ -2143,19 +2143,19 @@ dissect.previous_close_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
-size_of.currency = 3
+lse_millennium_level2_mitch_v11_9_size_of.currency = 3
 
 -- Display: Currency
-display.currency = function(value)
+lse_millennium_level2_mitch_v11_9_display.currency = function(value)
   return "Currency: "..value
 end
 
 -- Dissect: Currency
-dissect.currency = function(buffer, offset, packet, parent)
-  local length = size_of.currency
+lse_millennium_level2_mitch_v11_9_dissect.currency = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.currency
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.currency(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.currency, range, value, display)
 
@@ -2163,19 +2163,19 @@ dissect.currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying
-size_of.underlying = 6
+lse_millennium_level2_mitch_v11_9_size_of.underlying = 6
 
 -- Display: Underlying
-display.underlying = function(value)
+lse_millennium_level2_mitch_v11_9_display.underlying = function(value)
   return "Underlying: "..value
 end
 
 -- Dissect: Underlying
-dissect.underlying = function(buffer, offset, packet, parent)
-  local length = size_of.underlying
+lse_millennium_level2_mitch_v11_9_dissect.underlying = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.underlying
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.underlying(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.underlying(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.underlying, range, value, display)
 
@@ -2183,19 +2183,19 @@ dissect.underlying = function(buffer, offset, packet, parent)
 end
 
 -- Size: Segment
-size_of.segment = 6
+lse_millennium_level2_mitch_v11_9_size_of.segment = 6
 
 -- Display: Segment
-display.segment = function(value)
+lse_millennium_level2_mitch_v11_9_display.segment = function(value)
   return "Segment: "..value
 end
 
 -- Dissect: Segment
-dissect.segment = function(buffer, offset, packet, parent)
-  local length = size_of.segment
+lse_millennium_level2_mitch_v11_9_dissect.segment = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.segment
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.segment(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.segment(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.segment, range, value, display)
 
@@ -2203,19 +2203,19 @@ dissect.segment = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sedol
-size_of.sedol = 12
+lse_millennium_level2_mitch_v11_9_size_of.sedol = 12
 
 -- Display: Sedol
-display.sedol = function(value)
+lse_millennium_level2_mitch_v11_9_display.sedol = function(value)
   return "Sedol: "..value
 end
 
 -- Dissect: Sedol
-dissect.sedol = function(buffer, offset, packet, parent)
-  local length = size_of.sedol
+lse_millennium_level2_mitch_v11_9_dissect.sedol = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.sedol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sedol(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.sedol(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.sedol, range, value, display)
 
@@ -2223,19 +2223,19 @@ dissect.sedol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Isin
-size_of.isin = 12
+lse_millennium_level2_mitch_v11_9_size_of.isin = 12
 
 -- Display: Isin
-display.isin = function(value)
+lse_millennium_level2_mitch_v11_9_display.isin = function(value)
   return "Isin: "..value
 end
 
 -- Dissect: Isin
-dissect.isin = function(buffer, offset, packet, parent)
-  local length = size_of.isin
+lse_millennium_level2_mitch_v11_9_dissect.isin = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.isin
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.isin(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.isin(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.isin, range, value, display)
 
@@ -2243,10 +2243,10 @@ dissect.isin = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Status
-size_of.symbol_status = 1
+lse_millennium_level2_mitch_v11_9_size_of.symbol_status = 1
 
 -- Display: Symbol Status
-display.symbol_status = function(value)
+lse_millennium_level2_mitch_v11_9_display.symbol_status = function(value)
   if value == " " then
     return "Symbol Status: Active (<whitespace>)"
   end
@@ -2264,11 +2264,11 @@ display.symbol_status = function(value)
 end
 
 -- Dissect: Symbol Status
-dissect.symbol_status = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_status
+lse_millennium_level2_mitch_v11_9_dissect.symbol_status = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.symbol_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol_status(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.symbol_status(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_status, range, value, display)
 
@@ -2276,107 +2276,107 @@ dissect.symbol_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Directory Message
-size_of.symbol_directory_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.symbol_directory_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.instrument_id
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.instrument_id
 
-  index = index + size_of.reserved_a
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_a
 
-  index = index + size_of.reserved_b
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_b
 
-  index = index + size_of.symbol_status
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.symbol_status
 
-  index = index + size_of.isin
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.isin
 
-  index = index + size_of.sedol
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.sedol
 
-  index = index + size_of.segment
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.segment
 
-  index = index + size_of.underlying
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.underlying
 
-  index = index + size_of.currency
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.currency
 
-  index = index + size_of.reserved_byte
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_byte
 
-  index = index + size_of.reserved_alpha
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.reserved_alpha
 
-  index = index + size_of.previous_close_price
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.previous_close_price
 
   return index
 end
 
 -- Display: Symbol Directory Message
-display.symbol_directory_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.symbol_directory_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Directory Message
-dissect.symbol_directory_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Instrument Id: 4 Byte Unsigned Fixed Width Integer
-  index, instrument_id = dissect.instrument_id(buffer, index, packet, parent)
+  index, instrument_id = lse_millennium_level2_mitch_v11_9_dissect.instrument_id(buffer, index, packet, parent)
 
   -- Reserved A: 1 Byte Ascii String
-  index, reserved_a = dissect.reserved_a(buffer, index, packet, parent)
+  index, reserved_a = lse_millennium_level2_mitch_v11_9_dissect.reserved_a(buffer, index, packet, parent)
 
   -- Reserved B: 1 Byte Ascii String
-  index, reserved_b = dissect.reserved_b(buffer, index, packet, parent)
+  index, reserved_b = lse_millennium_level2_mitch_v11_9_dissect.reserved_b(buffer, index, packet, parent)
 
   -- Symbol Status: 1 Byte Ascii String Enum with 4 values
-  index, symbol_status = dissect.symbol_status(buffer, index, packet, parent)
+  index, symbol_status = lse_millennium_level2_mitch_v11_9_dissect.symbol_status(buffer, index, packet, parent)
 
   -- Isin: 12 Byte Ascii String
-  index, isin = dissect.isin(buffer, index, packet, parent)
+  index, isin = lse_millennium_level2_mitch_v11_9_dissect.isin(buffer, index, packet, parent)
 
   -- Sedol: 12 Byte Ascii String
-  index, sedol = dissect.sedol(buffer, index, packet, parent)
+  index, sedol = lse_millennium_level2_mitch_v11_9_dissect.sedol(buffer, index, packet, parent)
 
   -- Segment: 6 Byte Ascii String
-  index, segment = dissect.segment(buffer, index, packet, parent)
+  index, segment = lse_millennium_level2_mitch_v11_9_dissect.segment(buffer, index, packet, parent)
 
   -- Underlying: 6 Byte Ascii String
-  index, underlying = dissect.underlying(buffer, index, packet, parent)
+  index, underlying = lse_millennium_level2_mitch_v11_9_dissect.underlying(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = lse_millennium_level2_mitch_v11_9_dissect.currency(buffer, index, packet, parent)
 
   -- Reserved Byte: 1 Byte Ascii String
-  index, reserved_byte = dissect.reserved_byte(buffer, index, packet, parent)
+  index, reserved_byte = lse_millennium_level2_mitch_v11_9_dissect.reserved_byte(buffer, index, packet, parent)
 
   -- Reserved Alpha: 4 Byte Ascii String
-  index, reserved_alpha = dissect.reserved_alpha(buffer, index, packet, parent)
+  index, reserved_alpha = lse_millennium_level2_mitch_v11_9_dissect.reserved_alpha(buffer, index, packet, parent)
 
   -- Previous Close Price: 8 Byte Signed Fixed Width Integer
-  index, previous_close_price = dissect.previous_close_price(buffer, index, packet, parent)
+  index, previous_close_price = lse_millennium_level2_mitch_v11_9_dissect.previous_close_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Directory Message
-dissect.symbol_directory_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.symbol_directory_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_directory_message then
-    local length = size_of.symbol_directory_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.symbol_directory_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_directory_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.symbol_directory_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.symbol_directory_message, range, display)
   end
 
-  return dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.symbol_directory_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Event Code
-size_of.event_code = 1
+lse_millennium_level2_mitch_v11_9_size_of.event_code = 1
 
 -- Display: Event Code
-display.event_code = function(value)
+lse_millennium_level2_mitch_v11_9_display.event_code = function(value)
   if value == "C" then
     return "Event Code: End Of Day (C)"
   end
@@ -2388,11 +2388,11 @@ display.event_code = function(value)
 end
 
 -- Dissect: Event Code
-dissect.event_code = function(buffer, offset, packet, parent)
-  local length = size_of.event_code
+lse_millennium_level2_mitch_v11_9_dissect.event_code = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.event_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.event_code(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.event_code(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.event_code, range, value, display)
 
@@ -2400,61 +2400,61 @@ dissect.event_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Event Message
-size_of.system_event_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.system_event_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.nanosecond
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.nanosecond
 
-  index = index + size_of.event_code
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.event_code
 
   return index
 end
 
 -- Display: System Event Message
-display.system_event_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.system_event_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System Event Message
-dissect.system_event_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.system_event_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Nanosecond: 4 Byte Unsigned Fixed Width Integer
-  index, nanosecond = dissect.nanosecond(buffer, index, packet, parent)
+  index, nanosecond = lse_millennium_level2_mitch_v11_9_dissect.nanosecond(buffer, index, packet, parent)
 
   -- Event Code: 1 Byte Ascii String Enum with 2 values
-  index, event_code = dissect.event_code(buffer, index, packet, parent)
+  index, event_code = lse_millennium_level2_mitch_v11_9_dissect.event_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Event Message
-dissect.system_event_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.system_event_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_event_message then
-    local length = size_of.system_event_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.system_event_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_event_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.system_event_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.system_event_message, range, display)
   end
 
-  return dissect.system_event_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.system_event_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Seconds
-size_of.seconds = 4
+lse_millennium_level2_mitch_v11_9_size_of.seconds = 4
 
 -- Display: Seconds
-display.seconds = function(value)
+lse_millennium_level2_mitch_v11_9_display.seconds = function(value)
   return "Seconds: "..value
 end
 
 -- Dissect: Seconds
-dissect.seconds = function(buffer, offset, packet, parent)
-  local length = size_of.seconds
+lse_millennium_level2_mitch_v11_9_dissect.seconds = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.seconds
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.seconds(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.seconds(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.seconds, range, value, display)
 
@@ -2462,212 +2462,212 @@ dissect.seconds = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Time Message
-size_of.time_message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.time_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.seconds
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.seconds
 
   return index
 end
 
 -- Display: Time Message
-display.time_message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Time Message
-dissect.time_message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Seconds: 4 Byte Unsigned Fixed Width Integer
-  index, seconds = dissect.seconds(buffer, index, packet, parent)
+  index, seconds = lse_millennium_level2_mitch_v11_9_dissect.seconds(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Message
-dissect.time_message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_message then
-    local length = size_of.time_message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.time_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.time_message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.time_message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.time_message, range, display)
   end
 
-  return dissect.time_message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+lse_millennium_level2_mitch_v11_9_size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == 0x54 then
-    return size_of.time_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.time_message(buffer, offset)
   end
   -- Size of System Event Message
   if message_type == 0x53 then
-    return size_of.system_event_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.system_event_message(buffer, offset)
   end
   -- Size of Symbol Directory Message
   if message_type == 0x52 then
-    return size_of.symbol_directory_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.symbol_directory_message(buffer, offset)
   end
   -- Size of Symbol Status Message
   if message_type == 0x48 then
-    return size_of.symbol_status_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.symbol_status_message(buffer, offset)
   end
   -- Size of Add Order Message
   if message_type == 0x41 then
-    return size_of.add_order_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.add_order_message(buffer, offset)
   end
   -- Size of Add Attributed Order Message
   if message_type == 0x46 then
-    return size_of.add_attributed_order_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.add_attributed_order_message(buffer, offset)
   end
   -- Size of Order Deleted Message
   if message_type == 0x44 then
-    return size_of.order_deleted_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.order_deleted_message(buffer, offset)
   end
   -- Size of Order Modified Message
   if message_type == 0x55 then
-    return size_of.order_modified_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.order_modified_message(buffer, offset)
   end
   -- Size of Order Book Clear Message
   if message_type == 0x79 then
-    return size_of.order_book_clear_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.order_book_clear_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == 0x45 then
-    return size_of.order_executed_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.order_executed_message(buffer, offset)
   end
   -- Size of Order Executed With Price Size Message
   if message_type == 0x43 then
-    return size_of.order_executed_with_price_size_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.order_executed_with_price_size_message(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == 0x50 then
-    return size_of.trade_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.trade_message(buffer, offset)
   end
   -- Size of Auction Trade Message
   if message_type == 0x51 then
-    return size_of.auction_trade_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.auction_trade_message(buffer, offset)
   end
   -- Size of Auction Info Message
   if message_type == 0x49 then
-    return size_of.auction_info_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.auction_info_message(buffer, offset)
   end
   -- Size of Statistics Message
   if message_type == 0x77 then
-    return size_of.statistics_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.statistics_message(buffer, offset)
   end
   -- Size of Top Of Book Message
   if message_type == 0x71 then
-    return size_of.top_of_book_message(buffer, offset)
+    return lse_millennium_level2_mitch_v11_9_size_of.top_of_book_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+lse_millennium_level2_mitch_v11_9_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x54 then
-    return dissect.time_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect System Event Message
   if message_type == 0x53 then
-    return dissect.system_event_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.system_event_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Directory Message
   if message_type == 0x52 then
-    return dissect.symbol_directory_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.symbol_directory_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Status Message
   if message_type == 0x48 then
-    return dissect.symbol_status_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.symbol_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Message
   if message_type == 0x41 then
-    return dissect.add_order_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.add_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Attributed Order Message
   if message_type == 0x46 then
-    return dissect.add_attributed_order_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.add_attributed_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Deleted Message
   if message_type == 0x44 then
-    return dissect.order_deleted_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.order_deleted_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Modified Message
   if message_type == 0x55 then
-    return dissect.order_modified_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.order_modified_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Book Clear Message
   if message_type == 0x79 then
-    return dissect.order_book_clear_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.order_book_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == 0x45 then
-    return dissect.order_executed_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed With Price Size Message
   if message_type == 0x43 then
-    return dissect.order_executed_with_price_size_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.order_executed_with_price_size_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
   if message_type == 0x50 then
-    return dissect.trade_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Trade Message
   if message_type == 0x51 then
-    return dissect.auction_trade_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.auction_trade_message(buffer, offset, packet, parent)
   end
   -- Dissect Auction Info Message
   if message_type == 0x49 then
-    return dissect.auction_info_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.auction_info_message(buffer, offset, packet, parent)
   end
   -- Dissect Statistics Message
   if message_type == 0x77 then
-    return dissect.statistics_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.statistics_message(buffer, offset, packet, parent)
   end
   -- Dissect Top Of Book Message
   if message_type == 0x71 then
-    return dissect.top_of_book_message(buffer, offset, packet, parent)
+    return lse_millennium_level2_mitch_v11_9_dissect.top_of_book_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+lse_millennium_level2_mitch_v11_9_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return lse_millennium_level2_mitch_v11_9_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = lse_millennium_level2_mitch_v11_9_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.payload(buffer, packet, parent)
   local element = parent:add(lse_millennium_level2_mitch_v11_9.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return lse_millennium_level2_mitch_v11_9_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+lse_millennium_level2_mitch_v11_9_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+lse_millennium_level2_mitch_v11_9_display.message_type = function(value)
   if value == 0x54 then
     return "Message Type: Time Message (0x54)"
   end
@@ -2721,11 +2721,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+lse_millennium_level2_mitch_v11_9_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.message_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.message_type, range, value, display)
 
@@ -2733,19 +2733,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 1
+lse_millennium_level2_mitch_v11_9_size_of.message_length = 1
 
 -- Display: Message Length
-display.message_length = function(value)
+lse_millennium_level2_mitch_v11_9_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+lse_millennium_level2_mitch_v11_9_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.message_length, range, value, display)
 
@@ -2753,109 +2753,109 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = lse_millennium_level2_mitch_v11_9_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = lse_millennium_level2_mitch_v11_9_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.message_header(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 1, 1):uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = lse_millennium_level2_mitch_v11_9_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 16 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = lse_millennium_level2_mitch_v11_9_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.message(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 4
+lse_millennium_level2_mitch_v11_9_size_of.sequence_number = 4
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+lse_millennium_level2_mitch_v11_9_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+lse_millennium_level2_mitch_v11_9_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.sequence_number, range, value, display)
 
@@ -2863,19 +2863,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Data Group
-size_of.market_data_group = 1
+lse_millennium_level2_mitch_v11_9_size_of.market_data_group = 1
 
 -- Display: Market Data Group
-display.market_data_group = function(value)
+lse_millennium_level2_mitch_v11_9_display.market_data_group = function(value)
   return "Market Data Group: "..value
 end
 
 -- Dissect: Market Data Group
-dissect.market_data_group = function(buffer, offset, packet, parent)
-  local length = size_of.market_data_group
+lse_millennium_level2_mitch_v11_9_dissect.market_data_group = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.market_data_group
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_data_group(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.market_data_group(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.market_data_group, range, value, display)
 
@@ -2883,19 +2883,19 @@ dissect.market_data_group = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Count
-size_of.message_count = 1
+lse_millennium_level2_mitch_v11_9_size_of.message_count = 1
 
 -- Display: Message Count
-display.message_count = function(value)
+lse_millennium_level2_mitch_v11_9_display.message_count = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-dissect.message_count = function(buffer, offset, packet, parent)
-  local length = size_of.message_count
+lse_millennium_level2_mitch_v11_9_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.message_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_count(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.message_count, range, value, display)
 
@@ -2903,19 +2903,19 @@ dissect.message_count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+lse_millennium_level2_mitch_v11_9_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+lse_millennium_level2_mitch_v11_9_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+lse_millennium_level2_mitch_v11_9_dissect.length = function(buffer, offset, packet, parent)
+  local length = lse_millennium_level2_mitch_v11_9_size_of.length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = lse_millennium_level2_mitch_v11_9_display.length(value, buffer, offset, packet, parent)
 
   parent:add(lse_millennium_level2_mitch_v11_9.fields.length, range, value, display)
 
@@ -2923,70 +2923,70 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Header
-size_of.unit_header = function(buffer, offset)
+lse_millennium_level2_mitch_v11_9_size_of.unit_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.length
 
-  index = index + size_of.message_count
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.message_count
 
-  index = index + size_of.market_data_group
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.market_data_group
 
-  index = index + size_of.sequence_number
+  index = index + lse_millennium_level2_mitch_v11_9_size_of.sequence_number
 
   return index
 end
 
 -- Display: Unit Header
-display.unit_header = function(buffer, offset, size, packet, parent)
+lse_millennium_level2_mitch_v11_9_display.unit_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Header
-dissect.unit_header_fields = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.unit_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = lse_millennium_level2_mitch_v11_9_dissect.length(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = lse_millennium_level2_mitch_v11_9_dissect.message_count(buffer, index, packet, parent)
 
   -- Market Data Group: 1 Byte Ascii String
-  index, market_data_group = dissect.market_data_group(buffer, index, packet, parent)
+  index, market_data_group = lse_millennium_level2_mitch_v11_9_dissect.market_data_group(buffer, index, packet, parent)
 
   -- Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = lse_millennium_level2_mitch_v11_9_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Header
-dissect.unit_header = function(buffer, offset, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.unit_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_header then
-    local length = size_of.unit_header(buffer, offset)
+    local length = lse_millennium_level2_mitch_v11_9_size_of.unit_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_header(buffer, packet, parent)
+    local display = lse_millennium_level2_mitch_v11_9_display.unit_header(buffer, packet, parent)
     parent = parent:add(lse_millennium_level2_mitch_v11_9.fields.unit_header, range, display)
   end
 
-  return dissect.unit_header_fields(buffer, offset, packet, parent)
+  return lse_millennium_level2_mitch_v11_9_dissect.unit_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+lse_millennium_level2_mitch_v11_9_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Unit Header: Struct of 4 fields
-  index, unit_header = dissect.unit_header(buffer, index, packet, parent)
+  index, unit_header = lse_millennium_level2_mitch_v11_9_dissect.unit_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 2 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = lse_millennium_level2_mitch_v11_9_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -3009,7 +3009,7 @@ function lse_millennium_level2_mitch_v11_9.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(lse_millennium_level2_mitch_v11_9, buffer(), lse_millennium_level2_mitch_v11_9.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return lse_millennium_level2_mitch_v11_9_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

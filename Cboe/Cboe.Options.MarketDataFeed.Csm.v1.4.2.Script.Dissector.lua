@@ -10,9 +10,9 @@ local cboe_options_marketdatafeed_csm_v1_4_2 = Proto("Cboe.Options.MarketDataFee
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_options_marketdatafeed_csm_v1_4_2_display = {}
+local cboe_options_marketdatafeed_csm_v1_4_2_dissect = {}
+local cboe_options_marketdatafeed_csm_v1_4_2_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -403,10 +403,10 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Md Control Type
-size_of.md_control_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_control_type = 1
 
 -- Display: Md Control Type
-display.md_control_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_control_type = function(value)
   if value == 0 then
     return "Md Control Type: Start Of Summary (0)"
   end
@@ -424,11 +424,11 @@ display.md_control_type = function(value)
 end
 
 -- Dissect: Md Control Type
-dissect.md_control_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_control_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_control_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_control_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.md_control_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_control_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_control_type, range, value, display)
 
@@ -436,56 +436,56 @@ dissect.md_control_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Data Control Message
-size_of.market_data_control_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_control_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_control_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_control_type
 
   return index
 end
 
 -- Display: Market Data Control Message
-display.market_data_control_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.market_data_control_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Data Control Message
-dissect.market_data_control_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_control_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Control Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, md_control_type = dissect.md_control_type(buffer, index, packet, parent)
+  index, md_control_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_control_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Data Control Message
-dissect.market_data_control_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_control_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_data_control_message then
-    local length = size_of.market_data_control_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_control_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_data_control_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.market_data_control_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_control_message, range, display)
   end
 
-  return dissect.market_data_control_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_control_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Entry Px Mantissa
-size_of.md_entry_px_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_mantissa = 4
 
 -- Display: Md Entry Px Mantissa
-display.md_entry_px_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px_mantissa = function(value)
   return "Md Entry Px Mantissa: "..value
 end
 
 -- Dissect: Md Entry Px Mantissa
-dissect.md_entry_px_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_px_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.md_entry_px_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_mantissa, range, value, display)
 
@@ -493,19 +493,19 @@ dissect.md_entry_px_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Md Entry Px Exponent
-size_of.md_entry_px_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_exponent = 1
 
 -- Display: Md Entry Px Exponent
-display.md_entry_px_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px_exponent = function(value)
   return "Md Entry Px Exponent: "..value
 end
 
 -- Dissect: Md Entry Px Exponent
-dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_px_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.md_entry_px_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px_exponent, range, value, display)
 
@@ -513,52 +513,52 @@ dissect.md_entry_px_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Md Entry Px
-size_of.md_entry_px = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_px_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_exponent
 
-  index = index + size_of.md_entry_px_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px_mantissa
 
   return index
 end
 
 -- Display: Md Entry Px
-display.md_entry_px = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Md Entry Px
-dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Px Exponent: 1 Byte Signed Fixed Width Integer
-  index, md_entry_px_exponent = dissect.md_entry_px_exponent(buffer, index, packet, parent)
+  index, md_entry_px_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_exponent(buffer, index, packet, parent)
 
   -- Md Entry Px Mantissa: 4 Byte Signed Fixed Width Integer
-  index, md_entry_px_mantissa = dissect.md_entry_px_mantissa(buffer, index, packet, parent)
+  index, md_entry_px_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Entry Px
-dissect.md_entry_px = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_entry_px then
-    local length = size_of.md_entry_px(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_entry_px(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_px, range, display)
   end
 
-  return dissect.md_entry_px_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Entry Type
-size_of.md_entry_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type = 1
 
 -- Display: Md Entry Type
-display.md_entry_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_type = function(value)
   if value == "0" then
     return "Md Entry Type: Bid (0)"
   end
@@ -588,11 +588,11 @@ display.md_entry_type = function(value)
 end
 
 -- Dissect: Md Entry Type
-dissect.md_entry_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.md_entry_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_type, range, value, display)
 
@@ -600,61 +600,61 @@ dissect.md_entry_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Summary Md Entry
-size_of.summary_md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.summary_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
   return index
 end
 
 -- Display: Summary Md Entry
-display.summary_md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.summary_md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Summary Md Entry
-dissect.summary_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Summary Md Entry
-dissect.summary_md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.summary_md_entry then
-    local length = size_of.summary_md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.summary_md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.summary_md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.summary_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_md_entry, range, display)
   end
 
-  return dissect.summary_md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Entries
-size_of.no_entries = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries = 1
 
 -- Display: No Entries
-display.no_entries = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.no_entries = function(value)
   return "No Entries: "..value
 end
 
 -- Dissect: No Entries
-dissect.no_entries = function(buffer, offset, packet, parent)
-  local length = size_of.no_entries
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.no_entries(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.no_entries(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_entries, range, value, display)
 
@@ -662,19 +662,19 @@ dissect.no_entries = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Px Mantissa
-size_of.underlying_px_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_mantissa = 4
 
 -- Display: Underlying Px Mantissa
-display.underlying_px_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px_mantissa = function(value)
   return "Underlying Px Mantissa: "..value
 end
 
 -- Dissect: Underlying Px Mantissa
-dissect.underlying_px_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_px_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.underlying_px_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_mantissa, range, value, display)
 
@@ -682,19 +682,19 @@ dissect.underlying_px_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Px Exponent
-size_of.underlying_px_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_exponent = 1
 
 -- Display: Underlying Px Exponent
-display.underlying_px_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px_exponent = function(value)
   return "Underlying Px Exponent: "..value
 end
 
 -- Dissect: Underlying Px Exponent
-dissect.underlying_px_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_px_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.underlying_px_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px_exponent, range, value, display)
 
@@ -702,61 +702,61 @@ dissect.underlying_px_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Underlying Px
-size_of.underlying_px = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.underlying_px_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_exponent
 
-  index = index + size_of.underlying_px_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px_mantissa
 
   return index
 end
 
 -- Display: Underlying Px
-display.underlying_px = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Underlying Px
-dissect.underlying_px_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Px Exponent: 1 Byte Signed Fixed Width Integer
-  index, underlying_px_exponent = dissect.underlying_px_exponent(buffer, index, packet, parent)
+  index, underlying_px_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_exponent(buffer, index, packet, parent)
 
   -- Underlying Px Mantissa: 4 Byte Signed Fixed Width Integer
-  index, underlying_px_mantissa = dissect.underlying_px_mantissa(buffer, index, packet, parent)
+  index, underlying_px_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Underlying Px
-dissect.underlying_px = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.underlying_px then
-    local length = size_of.underlying_px(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_px(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_px, range, display)
   end
 
-  return dissect.underlying_px_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Net Chg Prev Day Mantissa
-size_of.net_chg_prev_day_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_mantissa = 4
 
 -- Display: Net Chg Prev Day Mantissa
-display.net_chg_prev_day_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day_mantissa = function(value)
   return "Net Chg Prev Day Mantissa: "..value
 end
 
 -- Dissect: Net Chg Prev Day Mantissa
-dissect.net_chg_prev_day_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.net_chg_prev_day_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.net_chg_prev_day_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_mantissa, range, value, display)
 
@@ -764,19 +764,19 @@ dissect.net_chg_prev_day_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Net Chg Prev Day Exponent
-size_of.net_chg_prev_day_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_exponent = 1
 
 -- Display: Net Chg Prev Day Exponent
-display.net_chg_prev_day_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day_exponent = function(value)
   return "Net Chg Prev Day Exponent: "..value
 end
 
 -- Dissect: Net Chg Prev Day Exponent
-dissect.net_chg_prev_day_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.net_chg_prev_day_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.net_chg_prev_day_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day_exponent, range, value, display)
 
@@ -784,61 +784,61 @@ dissect.net_chg_prev_day_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Net Chg Prev Day
-size_of.net_chg_prev_day = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.net_chg_prev_day_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_exponent
 
-  index = index + size_of.net_chg_prev_day_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day_mantissa
 
   return index
 end
 
 -- Display: Net Chg Prev Day
-display.net_chg_prev_day = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Net Chg Prev Day
-dissect.net_chg_prev_day_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Net Chg Prev Day Exponent: 1 Byte Signed Fixed Width Integer
-  index, net_chg_prev_day_exponent = dissect.net_chg_prev_day_exponent(buffer, index, packet, parent)
+  index, net_chg_prev_day_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_exponent(buffer, index, packet, parent)
 
   -- Net Chg Prev Day Mantissa: 4 Byte Signed Fixed Width Integer
-  index, net_chg_prev_day_mantissa = dissect.net_chg_prev_day_mantissa(buffer, index, packet, parent)
+  index, net_chg_prev_day_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Net Chg Prev Day
-dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.net_chg_prev_day then
-    local length = size_of.net_chg_prev_day(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.net_chg_prev_day(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.net_chg_prev_day(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.net_chg_prev_day, range, display)
   end
 
-  return dissect.net_chg_prev_day_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Open Interest
-size_of.open_interest = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.open_interest = 4
 
 -- Display: Open Interest
-display.open_interest = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.open_interest = function(value)
   return "Open Interest: "..value
 end
 
 -- Dissect: Open Interest
-dissect.open_interest = function(buffer, offset, packet, parent)
-  local length = size_of.open_interest
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.open_interest = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.open_interest
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.open_interest(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.open_interest, range, value, display)
 
@@ -846,19 +846,19 @@ dissect.open_interest = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Volume
-size_of.trade_volume = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_volume = 4
 
 -- Display: Trade Volume
-display.trade_volume = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.trade_volume = function(value)
   return "Trade Volume: "..value
 end
 
 -- Dissect: Trade Volume
-dissect.trade_volume = function(buffer, offset, packet, parent)
-  local length = size_of.trade_volume
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_volume = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_volume
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_volume(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.trade_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_volume, range, value, display)
 
@@ -866,19 +866,19 @@ dissect.trade_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Type
-size_of.price_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type = 1
 
 -- Display: Price Type
-display.price_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.price_type = function(value)
   return "Price Type: "..value
 end
 
 -- Dissect: Price Type
-dissect.price_type = function(buffer, offset, packet, parent)
-  local length = size_of.price_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.price_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.price_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.price_type, range, value, display)
 
@@ -886,19 +886,19 @@ dissect.price_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Id
-size_of.security_id = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id = 4
 
 -- Display: Security Id
-display.security_id = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_id = function(value)
   return "Security Id: "..value
 end
 
 -- Dissect: Security Id
-dissect.security_id = function(buffer, offset, packet, parent)
-  local length = size_of.security_id
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_id, range, value, display)
 
@@ -906,19 +906,19 @@ dissect.security_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Class Key
-size_of.class_key = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key = 4
 
 -- Display: Class Key
-display.class_key = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.class_key = function(value)
   return "Class Key: "..value
 end
 
 -- Dissect: Class Key
-dissect.class_key = function(buffer, offset, packet, parent)
-  local length = size_of.class_key
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.class_key(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.class_key(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.class_key, range, value, display)
 
@@ -926,24 +926,24 @@ dissect.class_key = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Summary Message
-size_of.summary_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.trade_volume
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_volume
 
-  index = index + size_of.open_interest
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.open_interest
 
-  index = index + size_of.net_chg_prev_day(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.net_chg_prev_day(buffer, offset + index)
 
-  index = index + size_of.underlying_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_px(buffer, offset + index)
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local summary_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -953,112 +953,112 @@ size_of.summary_message = function(buffer, offset)
 end
 
 -- Display: Summary Message
-display.summary_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Summary Message
-dissect.summary_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_volume(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Unsigned Fixed Width Integer
-  index, open_interest = dissect.open_interest(buffer, index, packet, parent)
+  index, open_interest = cboe_options_marketdatafeed_csm_v1_4_2_dissect.open_interest(buffer, index, packet, parent)
 
   -- Net Chg Prev Day: Struct of 2 fields
-  index, net_chg_prev_day = dissect.net_chg_prev_day(buffer, index, packet, parent)
+  index, net_chg_prev_day = cboe_options_marketdatafeed_csm_v1_4_2_dissect.net_chg_prev_day(buffer, index, packet, parent)
 
   -- Underlying Px: Struct of 2 fields
-  index, underlying_px = dissect.underlying_px(buffer, index, packet, parent)
+  index, underlying_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_px(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Summary Md Entry: Struct of 2 fields
   for i = 1, no_entries do
-    index = dissect.summary_md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Summary Message
-dissect.summary_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.summary_message then
-    local length = size_of.summary_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.summary_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.summary_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.summary_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.summary_message, range, display)
   end
 
-  return dissect.summary_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Settlement Value Md Entry
-size_of.settlement_value_md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.settlement_value_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
   return index
 end
 
 -- Display: Settlement Value Md Entry
-display.settlement_value_md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.settlement_value_md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Settlement Value Md Entry
-dissect.settlement_value_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Settlement Value Md Entry
-dissect.settlement_value_md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.settlement_value_md_entry then
-    local length = size_of.settlement_value_md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.settlement_value_md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.settlement_value_md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.settlement_value_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_md_entry, range, display)
   end
 
-  return dissect.settlement_value_md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Settlement Value Message
-size_of.settlement_value_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.settlement_value_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local settlement_value_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1068,99 +1068,99 @@ size_of.settlement_value_message = function(buffer, offset)
 end
 
 -- Display: Settlement Value Message
-display.settlement_value_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.settlement_value_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Settlement Value Message
-dissect.settlement_value_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Settlement Value Md Entry: Struct of 2 fields
   for i = 1, no_entries do
-    index = dissect.settlement_value_md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Settlement Value Message
-dissect.settlement_value_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.settlement_value_message then
-    local length = size_of.settlement_value_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.settlement_value_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.settlement_value_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.settlement_value_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.settlement_value_message, range, display)
   end
 
-  return dissect.settlement_value_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Index Value Md Entry
-size_of.index_value_md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.index_value_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
   return index
 end
 
 -- Display: Index Value Md Entry
-display.index_value_md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.index_value_md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Index Value Md Entry
-dissect.index_value_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Index Value Md Entry
-dissect.index_value_md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index_value_md_entry then
-    local length = size_of.index_value_md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.index_value_md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.index_value_md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.index_value_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_md_entry, range, display)
   end
 
-  return dissect.index_value_md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Symbol Text
-display.symbol_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.symbol_text = function(value)
   return "Symbol Text: "..value
 end
 
 -- Dissect runtime sized field: Symbol Text
-dissect.symbol_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.symbol_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.symbol_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_text, range, value, display)
 
@@ -1168,19 +1168,19 @@ dissect.symbol_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Symbol Length
-size_of.symbol_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol_length = 1
 
 -- Display: Symbol Length
-display.symbol_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.symbol_length = function(value)
   return "Symbol Length: "..value
 end
 
 -- Dissect: Symbol Length
-dissect.symbol_length = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.symbol_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol_length, range, value, display)
 
@@ -1188,10 +1188,10 @@ dissect.symbol_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol
-size_of.symbol = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol_length
 
   -- Parse runtime size of: Symbol Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -1200,43 +1200,43 @@ size_of.symbol = function(buffer, offset)
 end
 
 -- Display: Symbol
-display.symbol = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.symbol = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol
-dissect.symbol_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Length: 1 Byte Unsigned Fixed Width Integer
-  index, symbol_length = dissect.symbol_length(buffer, index, packet, parent)
+  index, symbol_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_length(buffer, index, packet, parent)
 
   -- Symbol Text: 0 Byte Ascii String
-  index = dissect.symbol_text(buffer, index, packet, parent, symbol_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_text(buffer, index, packet, parent, symbol_length)
 
   return index
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.symbol then
-    local length = size_of.symbol(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.symbol(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.symbol, range, display)
   end
 
-  return dissect.symbol_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Index Value Message
-size_of.index_value_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.index_value_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol(buffer, offset + index)
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local index_value_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1246,46 +1246,46 @@ size_of.index_value_message = function(buffer, offset)
 end
 
 -- Display: Index Value Message
-display.index_value_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.index_value_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Index Value Message
-dissect.index_value_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: Struct of 2 fields
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Index Value Md Entry: Struct of 2 fields
   for i = 1, no_entries do
-    index = dissect.index_value_md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Index Value Message
-dissect.index_value_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.index_value_message then
-    local length = size_of.index_value_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.index_value_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.index_value_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.index_value_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.index_value_message, range, display)
   end
 
-  return dissect.index_value_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Legal Market
-size_of.legal_market = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.legal_market = 1
 
 -- Display: Legal Market
-display.legal_market = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.legal_market = function(value)
   if value == 0 then
     return "Legal Market: Not A Legal Market (0)"
   end
@@ -1297,11 +1297,11 @@ display.legal_market = function(value)
 end
 
 -- Dissect: Legal Market
-dissect.legal_market = function(buffer, offset, packet, parent)
-  local length = size_of.legal_market
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.legal_market = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.legal_market
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.legal_market(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.legal_market(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.legal_market, range, value, display)
 
@@ -1309,10 +1309,10 @@ dissect.legal_market = function(buffer, offset, packet, parent)
 end
 
 -- Size: Eop Type
-size_of.eop_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_type = 1
 
 -- Display: Eop Type
-display.eop_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.eop_type = function(value)
   if value == 0 then
     return "Eop Type: Undefined (0)"
   end
@@ -1351,11 +1351,11 @@ display.eop_type = function(value)
 end
 
 -- Dissect: Eop Type
-dissect.eop_type = function(buffer, offset, packet, parent)
-  local length = size_of.eop_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.eop_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.eop_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_type, range, value, display)
 
@@ -1363,19 +1363,19 @@ dissect.eop_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Eos
-size_of.eos = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.eos = 4
 
 -- Display: Eos
-display.eos = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.eos = function(value)
   return "Eos: "..value
 end
 
 -- Dissect: Eos
-dissect.eos = function(buffer, offset, packet, parent)
-  local length = size_of.eos
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eos = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.eos
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.eos(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.eos(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eos, range, value, display)
 
@@ -1383,19 +1383,19 @@ dissect.eos = function(buffer, offset, packet, parent)
 end
 
 -- Size: Eop Mantissa
-size_of.eop_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_mantissa = 4
 
 -- Display: Eop Mantissa
-display.eop_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.eop_mantissa = function(value)
   return "Eop Mantissa: "..value
 end
 
 -- Dissect: Eop Mantissa
-dissect.eop_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.eop_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.eop_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.eop_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_mantissa, range, value, display)
 
@@ -1403,19 +1403,19 @@ dissect.eop_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Eop Exponent
-size_of.eop_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_exponent = 1
 
 -- Display: Eop Exponent
-display.eop_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.eop_exponent = function(value)
   return "Eop Exponent: "..value
 end
 
 -- Dissect: Eop Exponent
-dissect.eop_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.eop_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.eop_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.eop_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop_exponent, range, value, display)
 
@@ -1423,119 +1423,119 @@ dissect.eop_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Eop
-size_of.eop = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.eop_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_exponent
 
-  index = index + size_of.eop_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_mantissa
 
   return index
 end
 
 -- Display: Eop
-display.eop = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.eop = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Eop
-dissect.eop_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Eop Exponent: 1 Byte Signed Fixed Width Integer
-  index, eop_exponent = dissect.eop_exponent(buffer, index, packet, parent)
+  index, eop_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_exponent(buffer, index, packet, parent)
 
   -- Eop Mantissa: 4 Byte Signed Fixed Width Integer
-  index, eop_mantissa = dissect.eop_mantissa(buffer, index, packet, parent)
+  index, eop_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Eop
-dissect.eop = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.eop then
-    local length = size_of.eop(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.eop(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.eop(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.eop, range, display)
   end
 
-  return dissect.eop_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Expected Opening Price And Size Message
-size_of.expected_opening_price_and_size_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.expected_opening_price_and_size_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.eop(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop(buffer, offset + index)
 
-  index = index + size_of.eos
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.eos
 
-  index = index + size_of.eop_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.eop_type
 
-  index = index + size_of.legal_market
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.legal_market
 
   return index
 end
 
 -- Display: Expected Opening Price And Size Message
-display.expected_opening_price_and_size_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.expected_opening_price_and_size_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Expected Opening Price And Size Message
-dissect.expected_opening_price_and_size_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.expected_opening_price_and_size_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Eop: Struct of 2 fields
-  index, eop = dissect.eop(buffer, index, packet, parent)
+  index, eop = cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop(buffer, index, packet, parent)
 
   -- Eos: 4 Byte Unsigned Fixed Width Integer
-  index, eos = dissect.eos(buffer, index, packet, parent)
+  index, eos = cboe_options_marketdatafeed_csm_v1_4_2_dissect.eos(buffer, index, packet, parent)
 
   -- Eop Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, eop_type = dissect.eop_type(buffer, index, packet, parent)
+  index, eop_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.eop_type(buffer, index, packet, parent)
 
   -- Legal Market: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, legal_market = dissect.legal_market(buffer, index, packet, parent)
+  index, legal_market = cboe_options_marketdatafeed_csm_v1_4_2_dissect.legal_market(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Expected Opening Price And Size Message
-dissect.expected_opening_price_and_size_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.expected_opening_price_and_size_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.expected_opening_price_and_size_message then
-    local length = size_of.expected_opening_price_and_size_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.expected_opening_price_and_size_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.expected_opening_price_and_size_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.expected_opening_price_and_size_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.expected_opening_price_and_size_message, range, display)
   end
 
-  return dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.expected_opening_price_and_size_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Trade Condition Text
-display.trade_condition_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition_text = function(value)
   return "Trade Condition Text: "..value
 end
 
 -- Dissect runtime sized field: Trade Condition Text
-dissect.trade_condition_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.trade_condition_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_text, range, value, display)
 
@@ -1543,19 +1543,19 @@ dissect.trade_condition_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Trade Condition Length
-size_of.trade_condition_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition_length = 1
 
 -- Display: Trade Condition Length
-display.trade_condition_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition_length = function(value)
   return "Trade Condition Length: "..value
 end
 
 -- Dissect: Trade Condition Length
-dissect.trade_condition_length = function(buffer, offset, packet, parent)
-  local length = size_of.trade_condition_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_condition_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition_length, range, value, display)
 
@@ -1563,10 +1563,10 @@ dissect.trade_condition_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Condition
-size_of.trade_condition = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.trade_condition_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition_length
 
   -- Parse runtime size of: Trade Condition Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -1575,50 +1575,50 @@ size_of.trade_condition = function(buffer, offset)
 end
 
 -- Display: Trade Condition
-display.trade_condition = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Condition
-dissect.trade_condition_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Trade Condition Length: 1 Byte Unsigned Fixed Width Integer
-  index, trade_condition_length = dissect.trade_condition_length(buffer, index, packet, parent)
+  index, trade_condition_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_length(buffer, index, packet, parent)
 
   -- Trade Condition Text: 0 Byte Ascii String
-  index = dissect.trade_condition_text(buffer, index, packet, parent, trade_condition_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_text(buffer, index, packet, parent, trade_condition_length)
 
   return index
 end
 
 -- Dissect: Trade Condition
-dissect.trade_condition = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.trade_condition then
-    local length = size_of.trade_condition(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_condition(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.trade_condition(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.trade_condition, range, display)
   end
 
-  return dissect.trade_condition_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Entry Size
-size_of.md_entry_size = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_size = 4
 
 -- Display: Md Entry Size
-display.md_entry_size = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_size = function(value)
   return "Md Entry Size: "..value
 end
 
 -- Dissect: Md Entry Size
-dissect.md_entry_size = function(buffer, offset, packet, parent)
-  local length = size_of.md_entry_size
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_size = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.md_entry_size(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry_size(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry_size, range, value, display)
 
@@ -1626,180 +1626,180 @@ dissect.md_entry_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Ticker Md Entry
-size_of.ticker_md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_size
 
-  index = index + size_of.trade_condition(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_condition(buffer, offset + index)
 
   return index
 end
 
 -- Display: Ticker Md Entry
-display.ticker_md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.ticker_md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Ticker Md Entry
-dissect.ticker_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Trade Condition: Struct of 2 fields
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Ticker Md Entry
-dissect.ticker_md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.ticker_md_entry then
-    local length = size_of.ticker_md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.ticker_md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.ticker_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_md_entry, range, display)
   end
 
-  return dissect.ticker_md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Ticker Message
-size_of.ticker_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local ticker_md_entry_count = buffer(offset + index - 1, 1):uint()
   for i = 1, ticker_md_entry_count do
-    index = index + size_of.ticker_md_entry(buffer, offset + index)
+    index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_md_entry(buffer, offset + index)
   end
   return index
 end
 
 -- Display: Ticker Message
-display.ticker_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.ticker_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Ticker Message
-dissect.ticker_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Ticker Md Entry: Struct of 4 fields
   for i = 1, no_entries do
-    index = dissect.ticker_md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Ticker Message
-dissect.ticker_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.ticker_message then
-    local length = size_of.ticker_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.ticker_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.ticker_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.ticker_message, range, display)
   end
 
-  return dissect.ticker_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Recap Update Md Entry
-size_of.recap_update_md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.recap_update_md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_size
 
   return index
 end
 
 -- Display: Recap Update Md Entry
-display.recap_update_md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.recap_update_md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Recap Update Md Entry
-dissect.recap_update_md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Recap Update Md Entry
-dissect.recap_update_md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.recap_update_md_entry then
-    local length = size_of.recap_update_md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.recap_update_md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.recap_update_md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.recap_update_md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_md_entry, range, display)
   end
 
-  return dissect.recap_update_md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Prev Close Px Mantissa
-size_of.prev_close_px_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_mantissa = 4
 
 -- Display: Prev Close Px Mantissa
-display.prev_close_px_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px_mantissa = function(value)
   return "Prev Close Px Mantissa: "..value
 end
 
 -- Dissect: Prev Close Px Mantissa
-dissect.prev_close_px_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.prev_close_px_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.prev_close_px_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_mantissa, range, value, display)
 
@@ -1807,19 +1807,19 @@ dissect.prev_close_px_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Prev Close Px Exponent
-size_of.prev_close_px_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_exponent = 1
 
 -- Display: Prev Close Px Exponent
-display.prev_close_px_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px_exponent = function(value)
   return "Prev Close Px Exponent: "..value
 end
 
 -- Dissect: Prev Close Px Exponent
-dissect.prev_close_px_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.prev_close_px_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.prev_close_px_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px_exponent, range, value, display)
 
@@ -1827,62 +1827,62 @@ dissect.prev_close_px_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Prev Close Px
-size_of.prev_close_px = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.prev_close_px_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_exponent
 
-  index = index + size_of.prev_close_px_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px_mantissa
 
   return index
 end
 
 -- Display: Prev Close Px
-display.prev_close_px = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prev Close Px
-dissect.prev_close_px_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Prev Close Px Exponent: 1 Byte Signed Fixed Width Integer
-  index, prev_close_px_exponent = dissect.prev_close_px_exponent(buffer, index, packet, parent)
+  index, prev_close_px_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_exponent(buffer, index, packet, parent)
 
   -- Prev Close Px Mantissa: 4 Byte Signed Fixed Width Integer
-  index, prev_close_px_mantissa = dissect.prev_close_px_mantissa(buffer, index, packet, parent)
+  index, prev_close_px_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prev Close Px
-dissect.prev_close_px = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prev_close_px then
-    local length = size_of.prev_close_px(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.prev_close_px(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.prev_close_px(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.prev_close_px, range, display)
   end
 
-  return dissect.prev_close_px_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Recap Update Message
-size_of.recap_update_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.recap_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.prev_close_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px(buffer, offset + index)
 
-  index = index + size_of.trade_volume
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_volume
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local recap_update_md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -1892,58 +1892,58 @@ size_of.recap_update_message = function(buffer, offset)
 end
 
 -- Display: Recap Update Message
-display.recap_update_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.recap_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Recap Update Message
-dissect.recap_update_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- Prev Close Px: Struct of 2 fields
-  index, prev_close_px = dissect.prev_close_px(buffer, index, packet, parent)
+  index, prev_close_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_volume(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Recap Update Md Entry: Struct of 3 fields
   for i = 1, no_entries do
-    index = dissect.recap_update_md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Recap Update Message
-dissect.recap_update_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.recap_update_message then
-    local length = size_of.recap_update_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.recap_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.recap_update_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.recap_update_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.recap_update_message, range, display)
   end
 
-  return dissect.recap_update_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Md Volume Type
-size_of.md_volume_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_volume_type = 1
 
 -- Display: Md Volume Type
-display.md_volume_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_volume_type = function(value)
   if value == 0 then
     return "Md Volume Type: Total Limit (0)"
   end
@@ -1961,11 +1961,11 @@ display.md_volume_type = function(value)
 end
 
 -- Dissect: Md Volume Type
-dissect.md_volume_type = function(buffer, offset, packet, parent)
-  local length = size_of.md_volume_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_volume_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_volume_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.md_volume_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_volume_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_volume_type, range, value, display)
 
@@ -1973,62 +1973,62 @@ dissect.md_volume_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Md Entry
-size_of.md_entry = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_entry_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_type
 
-  index = index + size_of.md_entry_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_px(buffer, offset + index)
 
-  index = index + size_of.md_entry_size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry_size
 
-  index = index + size_of.md_volume_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_volume_type
 
   return index
 end
 
 -- Display: Md Entry
-display.md_entry = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Md Entry
-dissect.md_entry_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Entry Type: 1 Byte Ascii String Enum with 8 values
-  index, md_entry_type = dissect.md_entry_type(buffer, index, packet, parent)
+  index, md_entry_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_type(buffer, index, packet, parent)
 
   -- Md Entry Px: Struct of 2 fields
-  index, md_entry_px = dissect.md_entry_px(buffer, index, packet, parent)
+  index, md_entry_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_px(buffer, index, packet, parent)
 
   -- Md Entry Size: 4 Byte Unsigned Fixed Width Integer
-  index, md_entry_size = dissect.md_entry_size(buffer, index, packet, parent)
+  index, md_entry_size = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_size(buffer, index, packet, parent)
 
   -- Md Volume Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, md_volume_type = dissect.md_volume_type(buffer, index, packet, parent)
+  index, md_volume_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_volume_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Md Entry
-dissect.md_entry = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.md_entry then
-    local length = size_of.md_entry(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.md_entry(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.md_entry(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.md_entry(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.md_entry, range, display)
   end
 
-  return dissect.md_entry_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Trading Status
-size_of.security_trading_status = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
-display.security_trading_status = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_trading_status = function(value)
   if value == 2 then
     return "Security Trading Status: Halted (2)"
   end
@@ -2061,11 +2061,11 @@ display.security_trading_status = function(value)
 end
 
 -- Dissect: Security Trading Status
-dissect.security_trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_trading_status
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_trading_status = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_trading_status
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_trading_status(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_trading_status, range, value, display)
 
@@ -2073,18 +2073,18 @@ dissect.security_trading_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Current Market Update Message
-size_of.current_market_update_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.security_trading_status
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_trading_status
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -2094,64 +2094,64 @@ size_of.current_market_update_message = function(buffer, offset)
 end
 
 -- Display: Current Market Update Message
-display.current_market_update_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.current_market_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Current Market Update Message
-dissect.current_market_update_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Md Entry: Struct of 4 fields
   for i = 1, no_entries do
-    index = dissect.md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Current Market Update Message
-dissect.current_market_update_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.current_market_update_message then
-    local length = size_of.current_market_update_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.current_market_update_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.current_market_update_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_update_message, range, display)
   end
 
-  return dissect.current_market_update_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Appl Seq Num
-size_of.appl_seq_num = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.appl_seq_num = 4
 
 -- Display: Appl Seq Num
-display.appl_seq_num = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.appl_seq_num = function(value)
   return "Appl Seq Num: "..value
 end
 
 -- Dissect: Appl Seq Num
-dissect.appl_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.appl_seq_num
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.appl_seq_num = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.appl_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.appl_seq_num(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.appl_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.appl_seq_num, range, value, display)
 
@@ -2159,24 +2159,24 @@ dissect.appl_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Data Refresh Message
-size_of.market_data_refresh_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_refresh_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.security_trading_status
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_trading_status
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.appl_seq_num
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.appl_seq_num
 
-  index = index + size_of.prev_close_px(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.prev_close_px(buffer, offset + index)
 
-  index = index + size_of.trade_volume
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.trade_volume
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -2186,74 +2186,74 @@ size_of.market_data_refresh_message = function(buffer, offset)
 end
 
 -- Display: Market Data Refresh Message
-display.market_data_refresh_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.market_data_refresh_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Data Refresh Message
-dissect.market_data_refresh_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_refresh_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, appl_seq_num = dissect.appl_seq_num(buffer, index, packet, parent)
+  index, appl_seq_num = cboe_options_marketdatafeed_csm_v1_4_2_dissect.appl_seq_num(buffer, index, packet, parent)
 
   -- Prev Close Px: Struct of 2 fields
-  index, prev_close_px = dissect.prev_close_px(buffer, index, packet, parent)
+  index, prev_close_px = cboe_options_marketdatafeed_csm_v1_4_2_dissect.prev_close_px(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Unsigned Fixed Width Integer
-  index, trade_volume = dissect.trade_volume(buffer, index, packet, parent)
+  index, trade_volume = cboe_options_marketdatafeed_csm_v1_4_2_dissect.trade_volume(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Md Entry: Struct of 4 fields
   for i = 1, no_entries do
-    index = dissect.md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Market Data Refresh Message
-dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_refresh_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.market_data_refresh_message then
-    local length = size_of.market_data_refresh_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_refresh_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_data_refresh_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.market_data_refresh_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.market_data_refresh_message, range, display)
   end
 
-  return dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_refresh_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Current Market Refresh Message
-size_of.current_market_refresh_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_refresh_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.security_trading_status
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_trading_status
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.appl_seq_num
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.appl_seq_num
 
-  index = index + size_of.no_entries
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_entries
 
   -- Calculate field size from count
   local md_entry_count = buffer(offset + index - 1, 1):uint()
@@ -2263,58 +2263,58 @@ size_of.current_market_refresh_message = function(buffer, offset)
 end
 
 -- Display: Current Market Refresh Message
-display.current_market_refresh_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.current_market_refresh_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Current Market Refresh Message
-dissect.current_market_refresh_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_refresh_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Security Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, security_trading_status = dissect.security_trading_status(buffer, index, packet, parent)
+  index, security_trading_status = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- Appl Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, appl_seq_num = dissect.appl_seq_num(buffer, index, packet, parent)
+  index, appl_seq_num = cboe_options_marketdatafeed_csm_v1_4_2_dissect.appl_seq_num(buffer, index, packet, parent)
 
   -- No Entries: 1 Byte Unsigned Fixed Width Integer
-  index, no_entries = dissect.no_entries(buffer, index, packet, parent)
+  index, no_entries = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_entries(buffer, index, packet, parent)
 
   -- Md Entry: Struct of 4 fields
   for i = 1, no_entries do
-    index = dissect.md_entry(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.md_entry(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Current Market Refresh Message
-dissect.current_market_refresh_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_refresh_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.current_market_refresh_message then
-    local length = size_of.current_market_refresh_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_refresh_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.current_market_refresh_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.current_market_refresh_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.current_market_refresh_message, range, display)
   end
 
-  return dissect.current_market_refresh_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_refresh_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Side
-size_of.leg_side = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_side = 1
 
 -- Display: Leg Side
-display.leg_side = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.leg_side = function(value)
   if value == "B" then
     return "Leg Side: Buy Bid (B)"
   end
@@ -2326,11 +2326,11 @@ display.leg_side = function(value)
 end
 
 -- Dissect: Leg Side
-dissect.leg_side = function(buffer, offset, packet, parent)
-  local length = size_of.leg_side
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_side = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.leg_side(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.leg_side(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_side, range, value, display)
 
@@ -2338,19 +2338,19 @@ dissect.leg_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Security Id
-size_of.leg_security_id = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_security_id = 4
 
 -- Display: Leg Security Id
-display.leg_security_id = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.leg_security_id = function(value)
   return "Leg Security Id: "..value
 end
 
 -- Dissect: Leg Security Id
-dissect.leg_security_id = function(buffer, offset, packet, parent)
-  local length = size_of.leg_security_id
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_security_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_security_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.leg_security_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.leg_security_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_security_id, range, value, display)
 
@@ -2358,19 +2358,19 @@ dissect.leg_security_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Ratio Qty
-size_of.leg_ratio_qty = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_ratio_qty = 4
 
 -- Display: Leg Ratio Qty
-display.leg_ratio_qty = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.leg_ratio_qty = function(value)
   return "Leg Ratio Qty: "..value
 end
 
 -- Dissect: Leg Ratio Qty
-dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
-  local length = size_of.leg_ratio_qty
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_ratio_qty
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.leg_ratio_qty(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.leg_ratio_qty(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.leg_ratio_qty, range, value, display)
 
@@ -2378,66 +2378,66 @@ dissect.leg_ratio_qty = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Definition Leg
-size_of.security_definition_leg = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_definition_leg = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.leg_ratio_qty
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_ratio_qty
 
-  index = index + size_of.leg_security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_security_id
 
-  index = index + size_of.leg_side
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.leg_side
 
   return index
 end
 
 -- Display: Security Definition Leg
-display.security_definition_leg = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_definition_leg = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Definition Leg
-dissect.security_definition_leg_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Ratio Qty: 4 Byte Unsigned Fixed Width Integer
-  index, leg_ratio_qty = dissect.leg_ratio_qty(buffer, index, packet, parent)
+  index, leg_ratio_qty = cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_ratio_qty(buffer, index, packet, parent)
 
   -- Leg Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, leg_security_id = dissect.leg_security_id(buffer, index, packet, parent)
+  index, leg_security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_security_id(buffer, index, packet, parent)
 
   -- Leg Side: 1 Byte Ascii String Enum with 2 values
-  index, leg_side = dissect.leg_side(buffer, index, packet, parent)
+  index, leg_side = cboe_options_marketdatafeed_csm_v1_4_2_dissect.leg_side(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Definition Leg
-dissect.security_definition_leg = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_definition_leg then
-    local length = size_of.security_definition_leg(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_definition_leg(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_definition_leg(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_definition_leg(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_leg, range, display)
   end
 
-  return dissect.security_definition_leg_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_leg_fields(buffer, offset, packet, parent)
 end
 
 -- Size: No Legs
-size_of.no_legs = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_legs = 1
 
 -- Display: No Legs
-display.no_legs = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.no_legs = function(value)
   return "No Legs: "..value
 end
 
 -- Dissect: No Legs
-dissect.no_legs = function(buffer, offset, packet, parent)
-  local length = size_of.no_legs
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_legs = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_legs
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.no_legs(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.no_legs(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.no_legs, range, value, display)
 
@@ -2445,19 +2445,19 @@ dissect.no_legs = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Size
-size_of.contract_size = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.contract_size = 4
 
 -- Display: Contract Size
-display.contract_size = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.contract_size = function(value)
   return "Contract Size: "..value
 end
 
 -- Dissect: Contract Size
-dissect.contract_size = function(buffer, offset, packet, parent)
-  local length = size_of.contract_size
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.contract_size = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.contract_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.contract_size(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.contract_size(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.contract_size, range, value, display)
 
@@ -2465,15 +2465,15 @@ dissect.contract_size = function(buffer, offset, packet, parent)
 end
 
 -- Display: Underlying Type Text
-display.underlying_type_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type_text = function(value)
   return "Underlying Type Text: "..value
 end
 
 -- Dissect runtime sized field: Underlying Type Text
-dissect.underlying_type_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.underlying_type_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_text, range, value, display)
 
@@ -2481,19 +2481,19 @@ dissect.underlying_type_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Underlying Type Length
-size_of.underlying_type_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type_length = 1
 
 -- Display: Underlying Type Length
-display.underlying_type_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type_length = function(value)
   return "Underlying Type Length: "..value
 end
 
 -- Dissect: Underlying Type Length
-dissect.underlying_type_length = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_type_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.underlying_type_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type_length, range, value, display)
 
@@ -2501,10 +2501,10 @@ dissect.underlying_type_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Underlying Type
-size_of.underlying_type = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.underlying_type_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type_length
 
   -- Parse runtime size of: Underlying Type Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2513,46 +2513,46 @@ size_of.underlying_type = function(buffer, offset)
 end
 
 -- Display: Underlying Type
-display.underlying_type = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Underlying Type
-dissect.underlying_type_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Type Length: 1 Byte Unsigned Fixed Width Integer
-  index, underlying_type_length = dissect.underlying_type_length(buffer, index, packet, parent)
+  index, underlying_type_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_length(buffer, index, packet, parent)
 
   -- Underlying Type Text: 0 Byte Ascii String
-  index = dissect.underlying_type_text(buffer, index, packet, parent, underlying_type_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_text(buffer, index, packet, parent, underlying_type_length)
 
   return index
 end
 
 -- Dissect: Underlying Type
-dissect.underlying_type = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.underlying_type then
-    local length = size_of.underlying_type(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_type(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_type(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_type, range, display)
   end
 
-  return dissect.underlying_type_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Underlying Symbol Text
-display.underlying_symbol_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol_text = function(value)
   return "Underlying Symbol Text: "..value
 end
 
 -- Dissect runtime sized field: Underlying Symbol Text
-dissect.underlying_symbol_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.underlying_symbol_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_text, range, value, display)
 
@@ -2560,19 +2560,19 @@ dissect.underlying_symbol_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Underlying Symbol Length
-size_of.underlying_symbol_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol_length = 1
 
 -- Display: Underlying Symbol Length
-display.underlying_symbol_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol_length = function(value)
   return "Underlying Symbol Length: "..value
 end
 
 -- Dissect: Underlying Symbol Length
-dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_symbol_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.underlying_symbol_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol_length, range, value, display)
 
@@ -2580,10 +2580,10 @@ dissect.underlying_symbol_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Underlying Symbol
-size_of.underlying_symbol = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.underlying_symbol_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol_length
 
   -- Parse runtime size of: Underlying Symbol Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2592,46 +2592,46 @@ size_of.underlying_symbol = function(buffer, offset)
 end
 
 -- Display: Underlying Symbol
-display.underlying_symbol = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Underlying Symbol
-dissect.underlying_symbol_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Underlying Symbol Length: 1 Byte Unsigned Fixed Width Integer
-  index, underlying_symbol_length = dissect.underlying_symbol_length(buffer, index, packet, parent)
+  index, underlying_symbol_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_length(buffer, index, packet, parent)
 
   -- Underlying Symbol Text: 0 Byte Ascii String
-  index = dissect.underlying_symbol_text(buffer, index, packet, parent, underlying_symbol_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_text(buffer, index, packet, parent, underlying_symbol_length)
 
   return index
 end
 
 -- Dissect: Underlying Symbol
-dissect.underlying_symbol = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.underlying_symbol then
-    local length = size_of.underlying_symbol(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.underlying_symbol(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.underlying_symbol(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.underlying_symbol, range, display)
   end
 
-  return dissect.underlying_symbol_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Currency Code Text
-display.currency_code_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code_text = function(value)
   return "Currency Code Text: "..value
 end
 
 -- Dissect runtime sized field: Currency Code Text
-dissect.currency_code_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.currency_code_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_text, range, value, display)
 
@@ -2639,19 +2639,19 @@ dissect.currency_code_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Currency Code Length
-size_of.currency_code_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code_length = 1
 
 -- Display: Currency Code Length
-display.currency_code_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code_length = function(value)
   return "Currency Code Length: "..value
 end
 
 -- Dissect: Currency Code Length
-dissect.currency_code_length = function(buffer, offset, packet, parent)
-  local length = size_of.currency_code_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.currency_code_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code_length, range, value, display)
 
@@ -2659,10 +2659,10 @@ dissect.currency_code_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Currency Code
-size_of.currency_code = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.currency_code_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code_length
 
   -- Parse runtime size of: Currency Code Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -2671,41 +2671,41 @@ size_of.currency_code = function(buffer, offset)
 end
 
 -- Display: Currency Code
-display.currency_code = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Currency Code
-dissect.currency_code_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Currency Code Length: 1 Byte Unsigned Fixed Width Integer
-  index, currency_code_length = dissect.currency_code_length(buffer, index, packet, parent)
+  index, currency_code_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_length(buffer, index, packet, parent)
 
   -- Currency Code Text: 0 Byte Ascii String
-  index = dissect.currency_code_text(buffer, index, packet, parent, currency_code_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_text(buffer, index, packet, parent, currency_code_length)
 
   return index
 end
 
 -- Dissect: Currency Code
-dissect.currency_code = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.currency_code then
-    local length = size_of.currency_code(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.currency_code(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.currency_code(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.currency_code, range, display)
   end
 
-  return dissect.currency_code_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Exercise Style
-size_of.exercise_style = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.exercise_style = 1
 
 -- Display: Exercise Style
-display.exercise_style = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.exercise_style = function(value)
   if value == 0 then
     return "Exercise Style: American (0)"
   end
@@ -2717,11 +2717,11 @@ display.exercise_style = function(value)
 end
 
 -- Dissect: Exercise Style
-dissect.exercise_style = function(buffer, offset, packet, parent)
-  local length = size_of.exercise_style
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.exercise_style = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.exercise_style
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.exercise_style(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.exercise_style(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.exercise_style, range, value, display)
 
@@ -2729,19 +2729,19 @@ dissect.exercise_style = function(buffer, offset, packet, parent)
 end
 
 -- Size: Minimum Below Premium Fraction Mantissa
-size_of.minimum_below_premium_fraction_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_mantissa = 4
 
 -- Display: Minimum Below Premium Fraction Mantissa
-display.minimum_below_premium_fraction_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction_mantissa = function(value)
   return "Minimum Below Premium Fraction Mantissa: "..value
 end
 
 -- Dissect: Minimum Below Premium Fraction Mantissa
-dissect.minimum_below_premium_fraction_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_below_premium_fraction_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_below_premium_fraction_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_mantissa, range, value, display)
 
@@ -2749,19 +2749,19 @@ dissect.minimum_below_premium_fraction_mantissa = function(buffer, offset, packe
 end
 
 -- Size: Minimum Below Premium Fraction Exponent
-size_of.minimum_below_premium_fraction_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_exponent = 1
 
 -- Display: Minimum Below Premium Fraction Exponent
-display.minimum_below_premium_fraction_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction_exponent = function(value)
   return "Minimum Below Premium Fraction Exponent: "..value
 end
 
 -- Dissect: Minimum Below Premium Fraction Exponent
-dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_below_premium_fraction_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_below_premium_fraction_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction_exponent, range, value, display)
 
@@ -2769,61 +2769,61 @@ dissect.minimum_below_premium_fraction_exponent = function(buffer, offset, packe
 end
 
 -- Calculate size of: Minimum Below Premium Fraction
-size_of.minimum_below_premium_fraction = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.minimum_below_premium_fraction_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_exponent
 
-  index = index + size_of.minimum_below_premium_fraction_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction_mantissa
 
   return index
 end
 
 -- Display: Minimum Below Premium Fraction
-display.minimum_below_premium_fraction = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Minimum Below Premium Fraction
-dissect.minimum_below_premium_fraction_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Minimum Below Premium Fraction Exponent: 1 Byte Signed Fixed Width Integer
-  index, minimum_below_premium_fraction_exponent = dissect.minimum_below_premium_fraction_exponent(buffer, index, packet, parent)
+  index, minimum_below_premium_fraction_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_exponent(buffer, index, packet, parent)
 
   -- Minimum Below Premium Fraction Mantissa: 4 Byte Signed Fixed Width Integer
-  index, minimum_below_premium_fraction_mantissa = dissect.minimum_below_premium_fraction_mantissa(buffer, index, packet, parent)
+  index, minimum_below_premium_fraction_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Minimum Below Premium Fraction
-dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_below_premium_fraction then
-    local length = size_of.minimum_below_premium_fraction(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.minimum_below_premium_fraction(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_below_premium_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_below_premium_fraction, range, display)
   end
 
-  return dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Minimum Above Premium Fraction Mantissa
-size_of.minimum_above_premium_fraction_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_mantissa = 4
 
 -- Display: Minimum Above Premium Fraction Mantissa
-display.minimum_above_premium_fraction_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction_mantissa = function(value)
   return "Minimum Above Premium Fraction Mantissa: "..value
 end
 
 -- Dissect: Minimum Above Premium Fraction Mantissa
-dissect.minimum_above_premium_fraction_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_above_premium_fraction_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_above_premium_fraction_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_mantissa, range, value, display)
 
@@ -2831,19 +2831,19 @@ dissect.minimum_above_premium_fraction_mantissa = function(buffer, offset, packe
 end
 
 -- Size: Minimum Above Premium Fraction Exponent
-size_of.minimum_above_premium_fraction_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_exponent = 1
 
 -- Display: Minimum Above Premium Fraction Exponent
-display.minimum_above_premium_fraction_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction_exponent = function(value)
   return "Minimum Above Premium Fraction Exponent: "..value
 end
 
 -- Dissect: Minimum Above Premium Fraction Exponent
-dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_above_premium_fraction_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_above_premium_fraction_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction_exponent, range, value, display)
 
@@ -2851,61 +2851,61 @@ dissect.minimum_above_premium_fraction_exponent = function(buffer, offset, packe
 end
 
 -- Calculate size of: Minimum Above Premium Fraction
-size_of.minimum_above_premium_fraction = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.minimum_above_premium_fraction_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_exponent
 
-  index = index + size_of.minimum_above_premium_fraction_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction_mantissa
 
   return index
 end
 
 -- Display: Minimum Above Premium Fraction
-display.minimum_above_premium_fraction = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Minimum Above Premium Fraction
-dissect.minimum_above_premium_fraction_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Minimum Above Premium Fraction Exponent: 1 Byte Signed Fixed Width Integer
-  index, minimum_above_premium_fraction_exponent = dissect.minimum_above_premium_fraction_exponent(buffer, index, packet, parent)
+  index, minimum_above_premium_fraction_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_exponent(buffer, index, packet, parent)
 
   -- Minimum Above Premium Fraction Mantissa: 4 Byte Signed Fixed Width Integer
-  index, minimum_above_premium_fraction_mantissa = dissect.minimum_above_premium_fraction_mantissa(buffer, index, packet, parent)
+  index, minimum_above_premium_fraction_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Minimum Above Premium Fraction
-dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_above_premium_fraction then
-    local length = size_of.minimum_above_premium_fraction(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.minimum_above_premium_fraction(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_above_premium_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_above_premium_fraction, range, display)
   end
 
-  return dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Premium Break Point Mantissa
-size_of.premium_break_point_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_mantissa = 4
 
 -- Display: Premium Break Point Mantissa
-display.premium_break_point_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point_mantissa = function(value)
   return "Premium Break Point Mantissa: "..value
 end
 
 -- Dissect: Premium Break Point Mantissa
-dissect.premium_break_point_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.premium_break_point_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.premium_break_point_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_mantissa, range, value, display)
 
@@ -2913,19 +2913,19 @@ dissect.premium_break_point_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Premium Break Point Exponent
-size_of.premium_break_point_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_exponent = 1
 
 -- Display: Premium Break Point Exponent
-display.premium_break_point_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point_exponent = function(value)
   return "Premium Break Point Exponent: "..value
 end
 
 -- Dissect: Premium Break Point Exponent
-dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.premium_break_point_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.premium_break_point_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point_exponent, range, value, display)
 
@@ -2933,61 +2933,61 @@ dissect.premium_break_point_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Premium Break Point
-size_of.premium_break_point = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.premium_break_point_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_exponent
 
-  index = index + size_of.premium_break_point_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point_mantissa
 
   return index
 end
 
 -- Display: Premium Break Point
-display.premium_break_point = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Premium Break Point
-dissect.premium_break_point_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Premium Break Point Exponent: 1 Byte Signed Fixed Width Integer
-  index, premium_break_point_exponent = dissect.premium_break_point_exponent(buffer, index, packet, parent)
+  index, premium_break_point_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_exponent(buffer, index, packet, parent)
 
   -- Premium Break Point Mantissa: 4 Byte Signed Fixed Width Integer
-  index, premium_break_point_mantissa = dissect.premium_break_point_mantissa(buffer, index, packet, parent)
+  index, premium_break_point_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Premium Break Point
-dissect.premium_break_point = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.premium_break_point then
-    local length = size_of.premium_break_point(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.premium_break_point(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.premium_break_point(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.premium_break_point, range, display)
   end
 
-  return dissect.premium_break_point_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Max Strike Price Mantissa
-size_of.max_strike_price_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_mantissa = 4
 
 -- Display: Max Strike Price Mantissa
-display.max_strike_price_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price_mantissa = function(value)
   return "Max Strike Price Mantissa: "..value
 end
 
 -- Dissect: Max Strike Price Mantissa
-dissect.max_strike_price_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.max_strike_price_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.max_strike_price_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_mantissa, range, value, display)
 
@@ -2995,19 +2995,19 @@ dissect.max_strike_price_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Max Strike Price Exponent
-size_of.max_strike_price_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_exponent = 1
 
 -- Display: Max Strike Price Exponent
-display.max_strike_price_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price_exponent = function(value)
   return "Max Strike Price Exponent: "..value
 end
 
 -- Dissect: Max Strike Price Exponent
-dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.max_strike_price_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.max_strike_price_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price_exponent, range, value, display)
 
@@ -3015,61 +3015,61 @@ dissect.max_strike_price_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Max Strike Price
-size_of.max_strike_price = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.max_strike_price_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_exponent
 
-  index = index + size_of.max_strike_price_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price_mantissa
 
   return index
 end
 
 -- Display: Max Strike Price
-display.max_strike_price = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Max Strike Price
-dissect.max_strike_price_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Max Strike Price Exponent: 1 Byte Signed Fixed Width Integer
-  index, max_strike_price_exponent = dissect.max_strike_price_exponent(buffer, index, packet, parent)
+  index, max_strike_price_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_exponent(buffer, index, packet, parent)
 
   -- Max Strike Price Mantissa: 4 Byte Signed Fixed Width Integer
-  index, max_strike_price_mantissa = dissect.max_strike_price_mantissa(buffer, index, packet, parent)
+  index, max_strike_price_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Max Strike Price
-dissect.max_strike_price = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.max_strike_price then
-    local length = size_of.max_strike_price(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.max_strike_price(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.max_strike_price(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.max_strike_price, range, display)
   end
 
-  return dissect.max_strike_price_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Minimum Strike Price Fraction Mantissa
-size_of.minimum_strike_price_fraction_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_mantissa = 4
 
 -- Display: Minimum Strike Price Fraction Mantissa
-display.minimum_strike_price_fraction_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction_mantissa = function(value)
   return "Minimum Strike Price Fraction Mantissa: "..value
 end
 
 -- Dissect: Minimum Strike Price Fraction Mantissa
-dissect.minimum_strike_price_fraction_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_strike_price_fraction_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_strike_price_fraction_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_mantissa, range, value, display)
 
@@ -3077,19 +3077,19 @@ dissect.minimum_strike_price_fraction_mantissa = function(buffer, offset, packet
 end
 
 -- Size: Minimum Strike Price Fraction Exponent
-size_of.minimum_strike_price_fraction_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_exponent = 1
 
 -- Display: Minimum Strike Price Fraction Exponent
-display.minimum_strike_price_fraction_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction_exponent = function(value)
   return "Minimum Strike Price Fraction Exponent: "..value
 end
 
 -- Dissect: Minimum Strike Price Fraction Exponent
-dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_strike_price_fraction_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.minimum_strike_price_fraction_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction_exponent, range, value, display)
 
@@ -3097,52 +3097,52 @@ dissect.minimum_strike_price_fraction_exponent = function(buffer, offset, packet
 end
 
 -- Calculate size of: Minimum Strike Price Fraction
-size_of.minimum_strike_price_fraction = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.minimum_strike_price_fraction_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_exponent
 
-  index = index + size_of.minimum_strike_price_fraction_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction_mantissa
 
   return index
 end
 
 -- Display: Minimum Strike Price Fraction
-display.minimum_strike_price_fraction = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Minimum Strike Price Fraction
-dissect.minimum_strike_price_fraction_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Minimum Strike Price Fraction Exponent: 1 Byte Signed Fixed Width Integer
-  index, minimum_strike_price_fraction_exponent = dissect.minimum_strike_price_fraction_exponent(buffer, index, packet, parent)
+  index, minimum_strike_price_fraction_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_exponent(buffer, index, packet, parent)
 
   -- Minimum Strike Price Fraction Mantissa: 4 Byte Signed Fixed Width Integer
-  index, minimum_strike_price_fraction_mantissa = dissect.minimum_strike_price_fraction_mantissa(buffer, index, packet, parent)
+  index, minimum_strike_price_fraction_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Minimum Strike Price Fraction
-dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.minimum_strike_price_fraction then
-    local length = size_of.minimum_strike_price_fraction(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.minimum_strike_price_fraction(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.minimum_strike_price_fraction(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.minimum_strike_price_fraction, range, display)
   end
 
-  return dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Put Or Call
-size_of.put_or_call = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.put_or_call = 1
 
 -- Display: Put Or Call
-display.put_or_call = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.put_or_call = function(value)
   if value == 0 then
     return "Put Or Call: Put (0)"
   end
@@ -3154,11 +3154,11 @@ display.put_or_call = function(value)
 end
 
 -- Dissect: Put Or Call
-dissect.put_or_call = function(buffer, offset, packet, parent)
-  local length = size_of.put_or_call
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.put_or_call = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.put_or_call
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.put_or_call(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.put_or_call(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.put_or_call, range, value, display)
 
@@ -3166,19 +3166,19 @@ dissect.put_or_call = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price Mantissa
-size_of.strike_price_mantissa = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_mantissa = 4
 
 -- Display: Strike Price Mantissa
-display.strike_price_mantissa = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price_mantissa = function(value)
   return "Strike Price Mantissa: "..value
 end
 
 -- Dissect: Strike Price Mantissa
-dissect.strike_price_mantissa = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_mantissa
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_mantissa = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_mantissa
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.strike_price_mantissa(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price_mantissa(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_mantissa, range, value, display)
 
@@ -3186,19 +3186,19 @@ dissect.strike_price_mantissa = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price Exponent
-size_of.strike_price_exponent = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_exponent = 1
 
 -- Display: Strike Price Exponent
-display.strike_price_exponent = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price_exponent = function(value)
   return "Strike Price Exponent: "..value
 end
 
 -- Dissect: Strike Price Exponent
-dissect.strike_price_exponent = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_exponent
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_exponent = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_exponent
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.strike_price_exponent(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price_exponent(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price_exponent, range, value, display)
 
@@ -3206,61 +3206,61 @@ dissect.strike_price_exponent = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strike Price
-size_of.strike_price = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.strike_price_exponent
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_exponent
 
-  index = index + size_of.strike_price_mantissa
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price_mantissa
 
   return index
 end
 
 -- Display: Strike Price
-display.strike_price = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strike Price
-dissect.strike_price_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Strike Price Exponent: 1 Byte Signed Fixed Width Integer
-  index, strike_price_exponent = dissect.strike_price_exponent(buffer, index, packet, parent)
+  index, strike_price_exponent = cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_exponent(buffer, index, packet, parent)
 
   -- Strike Price Mantissa: 4 Byte Signed Fixed Width Integer
-  index, strike_price_mantissa = dissect.strike_price_mantissa(buffer, index, packet, parent)
+  index, strike_price_mantissa = cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_mantissa(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strike_price then
-    local length = size_of.strike_price(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strike_price(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.strike_price(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.strike_price, range, display)
   end
 
-  return dissect.strike_price_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
-size_of.maturity_date = 8
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.maturity_date = 8
 
 -- Display: Maturity Date
-display.maturity_date = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.maturity_date = function(value)
   return "Maturity Date: "..value
 end
 
 -- Dissect: Maturity Date
-dissect.maturity_date = function(buffer, offset, packet, parent)
-  local length = size_of.maturity_date
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.maturity_date = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.maturity_date
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.maturity_date(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.maturity_date, range, value, display)
 
@@ -3268,15 +3268,15 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
 end
 
 -- Display: Target Location Id Text
-display.target_location_id_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id_text = function(value)
   return "Target Location Id Text: "..value
 end
 
 -- Dissect runtime sized field: Target Location Id Text
-dissect.target_location_id_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.target_location_id_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_text, range, value, display)
 
@@ -3284,19 +3284,19 @@ dissect.target_location_id_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Target Location Id Length
-size_of.target_location_id_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id_length = 1
 
 -- Display: Target Location Id Length
-display.target_location_id_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id_length = function(value)
   return "Target Location Id Length: "..value
 end
 
 -- Dissect: Target Location Id Length
-dissect.target_location_id_length = function(buffer, offset, packet, parent)
-  local length = size_of.target_location_id_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.target_location_id_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id_length, range, value, display)
 
@@ -3304,10 +3304,10 @@ dissect.target_location_id_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Target Location Id
-size_of.target_location_id = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.target_location_id_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id_length
 
   -- Parse runtime size of: Target Location Id Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -3316,41 +3316,41 @@ size_of.target_location_id = function(buffer, offset)
 end
 
 -- Display: Target Location Id
-display.target_location_id = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Target Location Id
-dissect.target_location_id_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Target Location Id Length: 1 Byte Unsigned Fixed Width Integer
-  index, target_location_id_length = dissect.target_location_id_length(buffer, index, packet, parent)
+  index, target_location_id_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_length(buffer, index, packet, parent)
 
   -- Target Location Id Text: 0 Byte Ascii String
-  index = dissect.target_location_id_text(buffer, index, packet, parent, target_location_id_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_text(buffer, index, packet, parent, target_location_id_length)
 
   return index
 end
 
 -- Dissect: Target Location Id
-dissect.target_location_id = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.target_location_id then
-    local length = size_of.target_location_id(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.target_location_id(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.target_location_id(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.target_location_id, range, display)
   end
 
-  return dissect.target_location_id_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Security Exchange
-size_of.security_exchange = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_exchange = 1
 
 -- Display: Security Exchange
-display.security_exchange = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_exchange = function(value)
   if value == "C" then
     return "Security Exchange: Cboe (C)"
   end
@@ -3371,11 +3371,11 @@ display.security_exchange = function(value)
 end
 
 -- Dissect: Security Exchange
-dissect.security_exchange = function(buffer, offset, packet, parent)
-  local length = size_of.security_exchange
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_exchange = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_exchange
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_exchange(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_exchange(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_exchange, range, value, display)
 
@@ -3383,15 +3383,15 @@ dissect.security_exchange = function(buffer, offset, packet, parent)
 end
 
 -- Display: Security Type Text
-display.security_type_text = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_type_text = function(value)
   return "Security Type Text: "..value
 end
 
 -- Dissect runtime sized field: Security Type Text
-dissect.security_type_text = function(buffer, offset, packet, parent, size)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_text = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.security_type_text(value, buffer, offset, packet, parent, size)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_type_text(value, buffer, offset, packet, parent, size)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_text, range, value, display)
 
@@ -3399,19 +3399,19 @@ dissect.security_type_text = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Security Type Length
-size_of.security_type_length = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type_length = 1
 
 -- Display: Security Type Length
-display.security_type_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_type_length = function(value)
   return "Security Type Length: "..value
 end
 
 -- Dissect: Security Type Length
-dissect.security_type_length = function(buffer, offset, packet, parent)
-  local length = size_of.security_type_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_type_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_type_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type_length, range, value, display)
 
@@ -3419,10 +3419,10 @@ dissect.security_type_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Type
-size_of.security_type = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.security_type_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type_length
 
   -- Parse runtime size of: Security Type Text
   index = index + buffer(offset + index - 1, 1):uint()
@@ -3431,81 +3431,81 @@ size_of.security_type = function(buffer, offset)
 end
 
 -- Display: Security Type
-display.security_type = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_type = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Type
-dissect.security_type_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Type Length: 1 Byte Unsigned Fixed Width Integer
-  index, security_type_length = dissect.security_type_length(buffer, index, packet, parent)
+  index, security_type_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_length(buffer, index, packet, parent)
 
   -- Security Type Text: 0 Byte Ascii String
-  index = dissect.security_type_text(buffer, index, packet, parent, security_type_length)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_text(buffer, index, packet, parent, security_type_length)
 
   return index
 end
 
 -- Dissect: Security Type
-dissect.security_type = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.security_type then
-    local length = size_of.security_type(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_type(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_type(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_type, range, display)
   end
 
-  return dissect.security_type_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Definition Message
-size_of.security_definition_message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.security_type(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_type(buffer, offset + index)
 
-  index = index + size_of.security_exchange
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_exchange
 
-  index = index + size_of.symbol(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.symbol(buffer, offset + index)
 
-  index = index + size_of.target_location_id(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.target_location_id(buffer, offset + index)
 
-  index = index + size_of.class_key
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.class_key
 
-  index = index + size_of.security_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_id
 
-  index = index + size_of.maturity_date
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.maturity_date
 
-  index = index + size_of.price_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.price_type
 
-  index = index + size_of.strike_price(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.strike_price(buffer, offset + index)
 
-  index = index + size_of.put_or_call
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.put_or_call
 
-  index = index + size_of.minimum_strike_price_fraction(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_strike_price_fraction(buffer, offset + index)
 
-  index = index + size_of.max_strike_price(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.max_strike_price(buffer, offset + index)
 
-  index = index + size_of.premium_break_point(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.premium_break_point(buffer, offset + index)
 
-  index = index + size_of.minimum_above_premium_fraction(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_above_premium_fraction(buffer, offset + index)
 
-  index = index + size_of.minimum_below_premium_fraction(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.minimum_below_premium_fraction(buffer, offset + index)
 
-  index = index + size_of.exercise_style
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.exercise_style
 
-  index = index + size_of.currency_code(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.currency_code(buffer, offset + index)
 
-  index = index + size_of.underlying_symbol(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_symbol(buffer, offset + index)
 
-  index = index + size_of.underlying_type(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.underlying_type(buffer, offset + index)
 
-  index = index + size_of.contract_size
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.contract_size
 
-  index = index + size_of.no_legs
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.no_legs
 
   -- Calculate field size from count
   local security_definition_leg_count = buffer(offset + index - 1, 1):uint()
@@ -3515,143 +3515,143 @@ size_of.security_definition_message = function(buffer, offset)
 end
 
 -- Display: Security Definition Message
-display.security_definition_message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.security_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Definition Message
-dissect.security_definition_message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Security Type: Struct of 2 fields
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_type(buffer, index, packet, parent)
 
   -- Security Exchange: 1 Byte Ascii String Enum with 5 values
-  index, security_exchange = dissect.security_exchange(buffer, index, packet, parent)
+  index, security_exchange = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_exchange(buffer, index, packet, parent)
 
   -- Symbol: Struct of 2 fields
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_options_marketdatafeed_csm_v1_4_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Target Location Id: Struct of 2 fields
-  index, target_location_id = dissect.target_location_id(buffer, index, packet, parent)
+  index, target_location_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.target_location_id(buffer, index, packet, parent)
 
   -- Class Key: 4 Byte Unsigned Fixed Width Integer
-  index, class_key = dissect.class_key(buffer, index, packet, parent)
+  index, class_key = cboe_options_marketdatafeed_csm_v1_4_2_dissect.class_key(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_id(buffer, index, packet, parent)
 
   -- Maturity Date: 8 Byte Unsigned Fixed Width Integer
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = cboe_options_marketdatafeed_csm_v1_4_2_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.price_type(buffer, index, packet, parent)
 
   -- Strike Price: Struct of 2 fields
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = cboe_options_marketdatafeed_csm_v1_4_2_dissect.strike_price(buffer, index, packet, parent)
 
   -- Put Or Call: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, put_or_call = dissect.put_or_call(buffer, index, packet, parent)
+  index, put_or_call = cboe_options_marketdatafeed_csm_v1_4_2_dissect.put_or_call(buffer, index, packet, parent)
 
   -- Minimum Strike Price Fraction: Struct of 2 fields
-  index, minimum_strike_price_fraction = dissect.minimum_strike_price_fraction(buffer, index, packet, parent)
+  index, minimum_strike_price_fraction = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_strike_price_fraction(buffer, index, packet, parent)
 
   -- Max Strike Price: Struct of 2 fields
-  index, max_strike_price = dissect.max_strike_price(buffer, index, packet, parent)
+  index, max_strike_price = cboe_options_marketdatafeed_csm_v1_4_2_dissect.max_strike_price(buffer, index, packet, parent)
 
   -- Premium Break Point: Struct of 2 fields
-  index, premium_break_point = dissect.premium_break_point(buffer, index, packet, parent)
+  index, premium_break_point = cboe_options_marketdatafeed_csm_v1_4_2_dissect.premium_break_point(buffer, index, packet, parent)
 
   -- Minimum Above Premium Fraction: Struct of 2 fields
-  index, minimum_above_premium_fraction = dissect.minimum_above_premium_fraction(buffer, index, packet, parent)
+  index, minimum_above_premium_fraction = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_above_premium_fraction(buffer, index, packet, parent)
 
   -- Minimum Below Premium Fraction: Struct of 2 fields
-  index, minimum_below_premium_fraction = dissect.minimum_below_premium_fraction(buffer, index, packet, parent)
+  index, minimum_below_premium_fraction = cboe_options_marketdatafeed_csm_v1_4_2_dissect.minimum_below_premium_fraction(buffer, index, packet, parent)
 
   -- Exercise Style: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, exercise_style = dissect.exercise_style(buffer, index, packet, parent)
+  index, exercise_style = cboe_options_marketdatafeed_csm_v1_4_2_dissect.exercise_style(buffer, index, packet, parent)
 
   -- Currency Code: Struct of 2 fields
-  index, currency_code = dissect.currency_code(buffer, index, packet, parent)
+  index, currency_code = cboe_options_marketdatafeed_csm_v1_4_2_dissect.currency_code(buffer, index, packet, parent)
 
   -- Underlying Symbol: Struct of 2 fields
-  index, underlying_symbol = dissect.underlying_symbol(buffer, index, packet, parent)
+  index, underlying_symbol = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_symbol(buffer, index, packet, parent)
 
   -- Underlying Type: Struct of 2 fields
-  index, underlying_type = dissect.underlying_type(buffer, index, packet, parent)
+  index, underlying_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.underlying_type(buffer, index, packet, parent)
 
   -- Contract Size: 4 Byte Unsigned Fixed Width Integer
-  index, contract_size = dissect.contract_size(buffer, index, packet, parent)
+  index, contract_size = cboe_options_marketdatafeed_csm_v1_4_2_dissect.contract_size(buffer, index, packet, parent)
 
   -- No Legs: 1 Byte Unsigned Fixed Width Integer
-  index, no_legs = dissect.no_legs(buffer, index, packet, parent)
+  index, no_legs = cboe_options_marketdatafeed_csm_v1_4_2_dissect.no_legs(buffer, index, packet, parent)
 
   -- Security Definition Leg: Struct of 3 fields
   for i = 1, no_legs do
-    index = dissect.security_definition_leg(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_leg(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Security Definition Message
-dissect.security_definition_message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.security_definition_message then
-    local length = size_of.security_definition_message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_definition_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_definition_message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.security_definition_message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.security_definition_message, range, display)
   end
 
-  return dissect.security_definition_message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, template_id)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.payload = function(buffer, offset, template_id)
   -- Size of Security Definition Message
   if template_id == 13 then
-    return size_of.security_definition_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.security_definition_message(buffer, offset)
   end
   -- Size of Current Market Refresh Message
   if template_id == 11 then
-    return size_of.current_market_refresh_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_refresh_message(buffer, offset)
   end
   -- Size of Market Data Refresh Message
   if template_id == 20 then
-    return size_of.market_data_refresh_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_refresh_message(buffer, offset)
   end
   -- Size of Current Market Update Message
   if template_id == 12 then
-    return size_of.current_market_update_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.current_market_update_message(buffer, offset)
   end
   -- Size of Recap Update Message
   if template_id == 21 then
-    return size_of.recap_update_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.recap_update_message(buffer, offset)
   end
   -- Size of Ticker Message
   if template_id == 14 then
-    return size_of.ticker_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.ticker_message(buffer, offset)
   end
   -- Size of Expected Opening Price And Size Message
   if template_id == 15 then
-    return size_of.expected_opening_price_and_size_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.expected_opening_price_and_size_message(buffer, offset)
   end
   -- Size of Index Value Message
   if template_id == 22 then
-    return size_of.index_value_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.index_value_message(buffer, offset)
   end
   -- Size of Settlement Value Message
   if template_id == 23 then
-    return size_of.settlement_value_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.settlement_value_message(buffer, offset)
   end
   -- Size of Summary Message
   if template_id == 24 then
-    return size_of.summary_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.summary_message(buffer, offset)
   end
   -- Size of Market Data Control Message
   if template_id == 25 then
-    return size_of.market_data_control_message(buffer, offset)
+    return cboe_options_marketdatafeed_csm_v1_4_2_size_of.market_data_control_message(buffer, offset)
   end
   -- Size of Heartbeat Message
   if template_id == 16 then
@@ -3662,55 +3662,55 @@ size_of.payload = function(buffer, offset, template_id)
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Security Definition Message
   if template_id == 13 then
-    return dissect.security_definition_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.security_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Current Market Refresh Message
   if template_id == 11 then
-    return dissect.current_market_refresh_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Data Refresh Message
   if template_id == 20 then
-    return dissect.market_data_refresh_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_refresh_message(buffer, offset, packet, parent)
   end
   -- Dissect Current Market Update Message
   if template_id == 12 then
-    return dissect.current_market_update_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.current_market_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Recap Update Message
   if template_id == 21 then
-    return dissect.recap_update_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.recap_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Ticker Message
   if template_id == 14 then
-    return dissect.ticker_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.ticker_message(buffer, offset, packet, parent)
   end
   -- Dissect Expected Opening Price And Size Message
   if template_id == 15 then
-    return dissect.expected_opening_price_and_size_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.expected_opening_price_and_size_message(buffer, offset, packet, parent)
   end
   -- Dissect Index Value Message
   if template_id == 22 then
-    return dissect.index_value_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.index_value_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Value Message
   if template_id == 23 then
-    return dissect.settlement_value_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.settlement_value_message(buffer, offset, packet, parent)
   end
   -- Dissect Summary Message
   if template_id == 24 then
-    return dissect.summary_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Data Control Message
   if template_id == 25 then
-    return dissect.market_data_control_message(buffer, offset, packet, parent)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.market_data_control_message(buffer, offset, packet, parent)
   end
   -- Dissect Heartbeat Message
   if template_id == 16 then
@@ -3720,39 +3720,39 @@ dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, template_id)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, template_id)
+    return cboe_options_marketdatafeed_csm_v1_4_2_dissect.payload_branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, template_id)
+  local size = cboe_options_marketdatafeed_csm_v1_4_2_size_of.payload(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.payload(buffer, packet, parent)
   local element = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Size: Msg Seq Num
-size_of.msg_seq_num = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.msg_seq_num = 4
 
 -- Display: Msg Seq Num
-display.msg_seq_num = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.msg_seq_num = function(value)
   return "Msg Seq Num: "..value
 end
 
 -- Dissect: Msg Seq Num
-dissect.msg_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.msg_seq_num
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.msg_seq_num = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.msg_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.msg_seq_num(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.msg_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.msg_seq_num, range, value, display)
 
@@ -3760,19 +3760,19 @@ dissect.msg_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.message_type = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_type, range, value, display)
 
@@ -3780,10 +3780,10 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Template Id
-size_of.template_id = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.template_id = 1
 
 -- Display: Template Id
-display.template_id = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.template_id = function(value)
   if value == 13 then
     return "Template Id: Security Definition Message (13)"
   end
@@ -3825,11 +3825,11 @@ display.template_id = function(value)
 end
 
 -- Dissect: Template Id
-dissect.template_id = function(buffer, offset, packet, parent)
-  local length = size_of.template_id
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.template_id = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.template_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.template_id(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.template_id, range, value, display)
 
@@ -3837,19 +3837,19 @@ dissect.template_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_length, range, value, display)
 
@@ -3857,119 +3857,119 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_length
 
-  index = index + size_of.template_id
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.template_id
 
-  index = index + size_of.message_type
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_type
 
-  index = index + size_of.msg_seq_num
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.msg_seq_num
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_length(buffer, index, packet, parent)
 
   -- Template Id: 1 Byte Unsigned Fixed Width Integer Enum with 12 values
-  index, template_id = dissect.template_id(buffer, index, packet, parent)
+  index, template_id = cboe_options_marketdatafeed_csm_v1_4_2_dissect.template_id(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Ascii String
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_type(buffer, index, packet, parent)
 
   -- Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, msg_seq_num = dissect.msg_seq_num(buffer, index, packet, parent)
+  index, msg_seq_num = cboe_options_marketdatafeed_csm_v1_4_2_dissect.msg_seq_num(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 6, 1):uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Header: Struct of 4 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 1):uint()
 
   -- Payload: Runtime Type with 12 branches
-  index = dissect.payload(buffer, index, packet, parent, template_id)
+  index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.message(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: First Msg Seq Num
-size_of.first_msg_seq_num = 4
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.first_msg_seq_num = 4
 
 -- Display: First Msg Seq Num
-display.first_msg_seq_num = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.first_msg_seq_num = function(value)
   return "First Msg Seq Num: "..value
 end
 
 -- Dissect: First Msg Seq Num
-dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.first_msg_seq_num
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.first_msg_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.first_msg_seq_num(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.first_msg_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.first_msg_seq_num, range, value, display)
 
@@ -3977,19 +3977,19 @@ dissect.first_msg_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Count
-size_of.message_count = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_count = 1
 
 -- Display: Message Count
-display.message_count = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.message_count = function(value)
   return "Message Count: "..value
 end
 
 -- Dissect: Message Count
-dissect.message_count = function(buffer, offset, packet, parent)
-  local length = size_of.message_count
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_count = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_count
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_count(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.message_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.message_count, range, value, display)
 
@@ -3997,19 +3997,19 @@ dissect.message_count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sending Time
-size_of.sending_time = 8
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.sending_time = 8
 
 -- Display: Sending Time
-display.sending_time = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.sending_time = function(value)
   return "Sending Time: "..value
 end
 
 -- Dissect: Sending Time
-dissect.sending_time = function(buffer, offset, packet, parent)
-  local length = size_of.sending_time
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.sending_time = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.sending_time
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.sending_time(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.sending_time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.sending_time, range, value, display)
 
@@ -4017,19 +4017,19 @@ dissect.sending_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Length
-size_of.packet_length = 2
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.packet_length = 2
 
 -- Display: Packet Length
-display.packet_length = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.packet_length = function(value)
   return "Packet Length: "..value
 end
 
 -- Dissect: Packet Length
-dissect.packet_length = function(buffer, offset, packet, parent)
-  local length = size_of.packet_length
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_length = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.packet_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.packet_length(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.packet_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_length, range, value, display)
 
@@ -4037,19 +4037,19 @@ dissect.packet_length = function(buffer, offset, packet, parent)
 end
 
 -- Size: Version
-size_of.version = 1
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.version = 1
 
 -- Display: Version
-display.version = function(value)
+cboe_options_marketdatafeed_csm_v1_4_2_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.version = function(buffer, offset, packet, parent)
+  local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = cboe_options_marketdatafeed_csm_v1_4_2_display.version(value, buffer, offset, packet, parent)
 
   parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.version, range, value, display)
 
@@ -4057,75 +4057,75 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+cboe_options_marketdatafeed_csm_v1_4_2_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.version
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.version
 
-  index = index + size_of.packet_length
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.packet_length
 
-  index = index + size_of.sending_time
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.sending_time
 
-  index = index + size_of.message_count
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.message_count
 
-  index = index + size_of.first_msg_seq_num
+  index = index + cboe_options_marketdatafeed_csm_v1_4_2_size_of.first_msg_seq_num
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Version: 1 Byte Unsigned Fixed Width Integer
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = cboe_options_marketdatafeed_csm_v1_4_2_dissect.version(buffer, index, packet, parent)
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = dissect.packet_length(buffer, index, packet, parent)
+  index, packet_length = cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_length(buffer, index, packet, parent)
 
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
-  index, sending_time = dissect.sending_time(buffer, index, packet, parent)
+  index, sending_time = cboe_options_marketdatafeed_csm_v1_4_2_dissect.sending_time(buffer, index, packet, parent)
 
   -- Message Count: 1 Byte Unsigned Fixed Width Integer
-  index, message_count = dissect.message_count(buffer, index, packet, parent)
+  index, message_count = cboe_options_marketdatafeed_csm_v1_4_2_dissect.message_count(buffer, index, packet, parent)
 
   -- First Msg Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, first_msg_seq_num = dissect.first_msg_seq_num(buffer, index, packet, parent)
+  index, first_msg_seq_num = cboe_options_marketdatafeed_csm_v1_4_2_dissect.first_msg_seq_num(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = cboe_options_marketdatafeed_csm_v1_4_2_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = cboe_options_marketdatafeed_csm_v1_4_2_display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_options_marketdatafeed_csm_v1_4_2.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 5 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Count
   local message_count = buffer(index - 5, 1):uint()
 
   -- Message: Struct of 2 fields
   for i = 1, message_count do
-    index = dissect.message(buffer, index, packet, parent)
+    index = cboe_options_marketdatafeed_csm_v1_4_2_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -4148,7 +4148,7 @@ function cboe_options_marketdatafeed_csm_v1_4_2.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(cboe_options_marketdatafeed_csm_v1_4_2, buffer(), cboe_options_marketdatafeed_csm_v1_4_2.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_options_marketdatafeed_csm_v1_4_2_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

@@ -10,9 +10,9 @@ local miax_pearl_equities_topofmarket_mach_v1_1_a = Proto("Miax.Pearl.Equities.T
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local miax_pearl_equities_topofmarket_mach_v1_1_a_display = {}
+local miax_pearl_equities_topofmarket_mach_v1_1_a_dissect = {}
+local miax_pearl_equities_topofmarket_mach_v1_1_a_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -166,19 +166,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Size
-size_of.size = 4
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.size = 4
 
 -- Display: Size
-display.size = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.size = function(value)
   return "Size: "..value
 end
 
 -- Dissect: Size
-dissect.size = function(buffer, offset, packet, parent)
-  local length = size_of.size
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.size = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.size(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.size(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.size, range, value, display)
 
@@ -186,19 +186,19 @@ dissect.size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.price = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.price, range, value, display)
 
@@ -206,19 +206,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Correction Number
-size_of.correction_number = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.correction_number = 1
 
 -- Display: Correction Number
-display.correction_number = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.correction_number = function(value)
   return "Correction Number: "..value
 end
 
 -- Dissect: Correction Number
-dissect.correction_number = function(buffer, offset, packet, parent)
-  local length = size_of.correction_number
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.correction_number = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.correction_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.correction_number(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.correction_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.correction_number, range, value, display)
 
@@ -226,19 +226,19 @@ dissect.correction_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Id
-size_of.trade_id = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_id = 8
 
 -- Display: Trade Id
-display.trade_id = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.trade_id = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_id
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_id = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.trade_id(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.trade_id, range, value, display)
 
@@ -246,19 +246,19 @@ dissect.trade_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Id
-size_of.symbol_id = 4
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id = 4
 
 -- Display: Symbol Id
-display.symbol_id = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.symbol_id = function(value)
   return "Symbol Id: "..value
 end
 
 -- Dissect: Symbol Id
-dissect.symbol_id = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_id
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.symbol_id(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.symbol_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.symbol_id, range, value, display)
 
@@ -266,19 +266,19 @@ dissect.symbol_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp
-size_of.timestamp = 4
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp = 4
 
 -- Display: Timestamp
-display.timestamp = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.timestamp = function(value)
   return "Timestamp: "..value
 end
 
 -- Dissect: Timestamp
-dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.timestamp(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.timestamp(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.timestamp, range, value, display)
 
@@ -286,148 +286,148 @@ dissect.timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancel Message
-size_of.trade_cancel_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_cancel_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.trade_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_id
 
-  index = index + size_of.correction_number
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.correction_number
 
-  index = index + size_of.price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.price
 
-  index = index + size_of.size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.size
 
   return index
 end
 
 -- Display: Trade Cancel Message
-display.trade_cancel_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.trade_cancel_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancel Message
-dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Correction Number: 1 Byte Unsigned Fixed Width Integer
-  index, correction_number = dissect.correction_number(buffer, index, packet, parent)
+  index, correction_number = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.correction_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancel Message
-dissect.trade_cancel_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_message then
-    local length = size_of.trade_cancel_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_cancel_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancel_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.trade_cancel_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.trade_cancel_message, range, display)
   end
 
-  return dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Last Sale Message
-size_of.last_sale_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.last_sale_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.trade_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_id
 
-  index = index + size_of.correction_number
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.correction_number
 
-  index = index + size_of.price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.price
 
-  index = index + size_of.size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.size
 
-  index = index + size_of.flags
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.flags
 
   return index
 end
 
 -- Display: Last Sale Message
-display.last_sale_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.last_sale_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Last Sale Message
-dissect.last_sale_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.last_sale_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_id(buffer, index, packet, parent)
 
   -- Correction Number: 1 Byte Unsigned Fixed Width Integer
-  index, correction_number = dissect.correction_number(buffer, index, packet, parent)
+  index, correction_number = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.correction_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.size(buffer, index, packet, parent)
 
   -- Flags
-  index, flags = dissect.flags(buffer, index, packet, parent)
+  index, flags = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Last Sale Message
-dissect.last_sale_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.last_sale_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.last_sale_message then
-    local length = size_of.last_sale_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.last_sale_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.last_sale_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.last_sale_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.last_sale_message, range, display)
   end
 
-  return dissect.last_sale_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.last_sale_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Size
-size_of.offer_size = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_size = 2
 
 -- Display: Offer Size
-display.offer_size = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.offer_size = function(value)
   return "Offer Size: "..value
 end
 
 -- Dissect: Offer Size
-dissect.offer_size = function(buffer, offset, packet, parent)
-  local length = size_of.offer_size
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_size = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.offer_size(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.offer_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.offer_size, range, value, display)
 
@@ -435,19 +435,19 @@ dissect.offer_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Offer Price
-size_of.offer_price = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_price = 2
 
 -- Display: Offer Price
-display.offer_price = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.offer_price = function(value)
   return "Offer Price: "..value
 end
 
 -- Dissect: Offer Price
-dissect.offer_price = function(buffer, offset, packet, parent)
-  local length = size_of.offer_price
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_price = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_price
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.offer_price(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.offer_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.offer_price, range, value, display)
 
@@ -455,19 +455,19 @@ dissect.offer_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size
-size_of.bid_size = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_size = 2
 
 -- Display: Bid Size
-display.bid_size = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.bid_size = function(value)
   return "Bid Size: "..value
 end
 
 -- Dissect: Bid Size
-dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_size = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_size(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.bid_size, range, value, display)
 
@@ -475,19 +475,19 @@ dissect.bid_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price
-size_of.bid_price = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_price = 2
 
 -- Display: Bid Price
-display.bid_price = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
 -- Dissect: Bid Price
-dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_price = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_price
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.bid_price(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.bid_price, range, value, display)
 
@@ -495,134 +495,134 @@ dissect.bid_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Wide Top Of Market Best Bid And Offer Message
-size_of.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.bid_price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_price
 
-  index = index + size_of.bid_size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_size
 
-  index = index + size_of.offer_price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_price
 
-  index = index + size_of.offer_size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_size
 
   return index
 end
 
 -- Display: Wide Top Of Market Best Bid And Offer Message
-display.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Wide Top Of Market Best Bid And Offer Message
-dissect.wide_top_of_market_best_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Bid Price: 2 Byte Unsigned Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Price: 2 Byte Unsigned Fixed Width Integer
-  index, offer_price = dissect.offer_price(buffer, index, packet, parent)
+  index, offer_price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_price(buffer, index, packet, parent)
 
   -- Offer Size: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Wide Top Of Market Best Bid And Offer Message
-dissect.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.wide_top_of_market_best_bid_and_offer_message then
-    local length = size_of.wide_top_of_market_best_bid_and_offer_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.wide_top_of_market_best_bid_and_offer_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.wide_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.wide_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.wide_top_of_market_best_bid_and_offer_message, range, display)
   end
 
-  return dissect.wide_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Compact Top Of Market Best Bid And Offer Message
-size_of.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.bid_price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_price
 
-  index = index + size_of.bid_size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.bid_size
 
-  index = index + size_of.offer_price
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_price
 
-  index = index + size_of.offer_size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.offer_size
 
   return index
 end
 
 -- Display: Compact Top Of Market Best Bid And Offer Message
-display.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Compact Top Of Market Best Bid And Offer Message
-dissect.compact_top_of_market_best_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Bid Price: 2 Byte Unsigned Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.bid_size(buffer, index, packet, parent)
 
   -- Offer Price: 2 Byte Unsigned Fixed Width Integer
-  index, offer_price = dissect.offer_price(buffer, index, packet, parent)
+  index, offer_price = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_price(buffer, index, packet, parent)
 
   -- Offer Size: 2 Byte Unsigned Fixed Width Integer
-  index, offer_size = dissect.offer_size(buffer, index, packet, parent)
+  index, offer_size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.offer_size(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Compact Top Of Market Best Bid And Offer Message
-dissect.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.compact_top_of_market_best_bid_and_offer_message then
-    local length = size_of.compact_top_of_market_best_bid_and_offer_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.compact_top_of_market_best_bid_and_offer_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.compact_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.compact_top_of_market_best_bid_and_offer_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.compact_top_of_market_best_bid_and_offer_message, range, display)
   end
 
-  return dissect.compact_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Short Sale Restriction
-size_of.short_sale_restriction = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.short_sale_restriction = 1
 
 -- Display: Short Sale Restriction
-display.short_sale_restriction = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.short_sale_restriction = function(value)
   if value == "Y" then
     return "Short Sale Restriction: Ssr In Effect (Y)"
   end
@@ -634,11 +634,11 @@ display.short_sale_restriction = function(value)
 end
 
 -- Dissect: Short Sale Restriction
-dissect.short_sale_restriction = function(buffer, offset, packet, parent)
-  local length = size_of.short_sale_restriction
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.short_sale_restriction = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.short_sale_restriction
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.short_sale_restriction(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.short_sale_restriction(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.short_sale_restriction, range, value, display)
 
@@ -646,10 +646,10 @@ dissect.short_sale_restriction = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market State
-size_of.market_state = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.market_state = 1
 
 -- Display: Market State
-display.market_state = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.market_state = function(value)
   if value == 1 then
     return "Market State: Pre Opening (1)"
   end
@@ -667,11 +667,11 @@ display.market_state = function(value)
 end
 
 -- Dissect: Market State
-dissect.market_state = function(buffer, offset, packet, parent)
-  local length = size_of.market_state
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.market_state = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.market_state
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_state(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.market_state(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.market_state, range, value, display)
 
@@ -679,10 +679,10 @@ dissect.market_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Status
-size_of.trading_status = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trading_status = 1
 
 -- Display: Trading Status
-display.trading_status = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.trading_status = function(value)
   if value == 1 then
     return "Trading Status: Pre Open (1)"
   end
@@ -703,11 +703,11 @@ display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.trading_status
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trading_status = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trading_status
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trading_status(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.trading_status, range, value, display)
 
@@ -715,67 +715,67 @@ dissect.trading_status = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Trading Status Notification Message
-size_of.security_trading_status_notification_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.security_trading_status_notification_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.trading_status
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trading_status
 
-  index = index + size_of.market_state
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.market_state
 
-  index = index + size_of.short_sale_restriction
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.short_sale_restriction
 
   return index
 end
 
 -- Display: Security Trading Status Notification Message
-display.security_trading_status_notification_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Trading Status Notification Message
-dissect.security_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trading_status(buffer, index, packet, parent)
 
   -- Market State: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, market_state = dissect.market_state(buffer, index, packet, parent)
+  index, market_state = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.market_state(buffer, index, packet, parent)
 
   -- Short Sale Restriction: 1 Byte Ascii String Enum with 2 values
-  index, short_sale_restriction = dissect.short_sale_restriction(buffer, index, packet, parent)
+  index, short_sale_restriction = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.short_sale_restriction(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Trading Status Notification Message
-dissect.security_trading_status_notification_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_trading_status_notification_message then
-    local length = size_of.security_trading_status_notification_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.security_trading_status_notification_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_trading_status_notification_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.security_trading_status_notification_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.security_trading_status_notification_message, range, display)
   end
 
-  return dissect.security_trading_status_notification_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: System Status
-size_of.system_status = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_status = 1
 
 -- Display: System Status
-display.system_status = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_status = function(value)
   if value == "S" then
     return "System Status: Start (S)"
   end
@@ -793,11 +793,11 @@ display.system_status = function(value)
 end
 
 -- Dissect: System Status
-dissect.system_status = function(buffer, offset, packet, parent)
-  local length = size_of.system_status
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_status = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.system_status(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_status(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.system_status, range, value, display)
 
@@ -805,19 +805,19 @@ dissect.system_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Id
-size_of.session_id = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_id = 1
 
 -- Display: Session Id
-display.session_id = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.session_id = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-dissect.session_id = function(buffer, offset, packet, parent)
-  local length = size_of.session_id
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.session_id = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session_id(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.session_id(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.session_id, range, value, display)
 
@@ -825,19 +825,19 @@ dissect.session_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: To M Version
-size_of.to_m_version = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.to_m_version = 8
 
 -- Display: To M Version
-display.to_m_version = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.to_m_version = function(value)
   return "To M Version: "..value
 end
 
 -- Dissect: To M Version
-dissect.to_m_version = function(buffer, offset, packet, parent)
-  local length = size_of.to_m_version
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.to_m_version = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.to_m_version
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.to_m_version(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.to_m_version(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.to_m_version, range, value, display)
 
@@ -845,62 +845,62 @@ dissect.to_m_version = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System State Message
-size_of.system_state_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.to_m_version
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.to_m_version
 
-  index = index + size_of.session_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_id
 
-  index = index + size_of.system_status
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_status
 
   return index
 end
 
 -- Display: System State Message
-display.system_state_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_state_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System State Message
-dissect.system_state_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- To M Version: 8 Byte Ascii String
-  index, to_m_version = dissect.to_m_version(buffer, index, packet, parent)
+  index, to_m_version = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.to_m_version(buffer, index, packet, parent)
 
   -- Session Id: 1 Byte Unsigned Fixed Width Integer
-  index, session_id = dissect.session_id(buffer, index, packet, parent)
+  index, session_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.session_id(buffer, index, packet, parent)
 
   -- System Status: 1 Byte Ascii String Enum with 4 values
-  index, system_status = dissect.system_status(buffer, index, packet, parent)
+  index, system_status = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_status(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System State Message
-dissect.system_state_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_state_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_state_message then
-    local length = size_of.system_state_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_state_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_state_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_state_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.system_state_message, range, display)
   end
 
-  return dissect.system_state_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_state_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Primary Market Code
-size_of.primary_market_code = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.primary_market_code = 1
 
 -- Display: Primary Market Code
-display.primary_market_code = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.primary_market_code = function(value)
   if value == "A" then
     return "Primary Market Code: Nyse American (A)"
   end
@@ -960,11 +960,11 @@ display.primary_market_code = function(value)
 end
 
 -- Dissect: Primary Market Code
-dissect.primary_market_code = function(buffer, offset, packet, parent)
-  local length = size_of.primary_market_code
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.primary_market_code = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.primary_market_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.primary_market_code(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.primary_market_code(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.primary_market_code, range, value, display)
 
@@ -972,19 +972,19 @@ dissect.primary_market_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Time
-size_of.closing_time = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.closing_time = 8
 
 -- Display: Closing Time
-display.closing_time = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.closing_time = function(value)
   return "Closing Time: "..value
 end
 
 -- Dissect: Closing Time
-dissect.closing_time = function(buffer, offset, packet, parent)
-  local length = size_of.closing_time
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.closing_time = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.closing_time
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.closing_time(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.closing_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.closing_time, range, value, display)
 
@@ -992,19 +992,19 @@ dissect.closing_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Opening Time
-size_of.opening_time = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.opening_time = 8
 
 -- Display: Opening Time
-display.opening_time = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.opening_time = function(value)
   return "Opening Time: "..value
 end
 
 -- Dissect: Opening Time
-dissect.opening_time = function(buffer, offset, packet, parent)
-  local length = size_of.opening_time
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.opening_time = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.opening_time
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.opening_time(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.opening_time(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.opening_time, range, value, display)
 
@@ -1012,19 +1012,19 @@ dissect.opening_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Lot Size
-size_of.lot_size = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.lot_size = 2
 
 -- Display: Lot Size
-display.lot_size = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.lot_size = function(value)
   return "Lot Size: "..value
 end
 
 -- Dissect: Lot Size
-dissect.lot_size = function(buffer, offset, packet, parent)
-  local length = size_of.lot_size
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.lot_size = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.lot_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.lot_size(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.lot_size(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.lot_size, range, value, display)
 
@@ -1032,19 +1032,19 @@ dissect.lot_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved
-size_of.reserved = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.reserved = 1
 
 -- Display: Reserved
-display.reserved = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.reserved = function(value)
   return "Reserved: "..value
 end
 
 -- Dissect: Reserved
-dissect.reserved = function(buffer, offset, packet, parent)
-  local length = size_of.reserved
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.reserved = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.reserved
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reserved(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.reserved(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.reserved, range, value, display)
 
@@ -1052,10 +1052,10 @@ dissect.reserved = function(buffer, offset, packet, parent)
 end
 
 -- Size: Test Security Indicator
-size_of.test_security_indicator = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.test_security_indicator = 1
 
 -- Display: Test Security Indicator
-display.test_security_indicator = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.test_security_indicator = function(value)
   if value == "Y" then
     return "Test Security Indicator: Yes (Y)"
   end
@@ -1067,11 +1067,11 @@ display.test_security_indicator = function(value)
 end
 
 -- Dissect: Test Security Indicator
-dissect.test_security_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.test_security_indicator
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.test_security_indicator = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.test_security_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.test_security_indicator(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.test_security_indicator(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.test_security_indicator, range, value, display)
 
@@ -1079,19 +1079,19 @@ dissect.test_security_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ticker Symbol
-size_of.ticker_symbol = 11
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.ticker_symbol = 11
 
 -- Display: Ticker Symbol
-display.ticker_symbol = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.ticker_symbol = function(value)
   return "Ticker Symbol: "..value
 end
 
 -- Dissect: Ticker Symbol
-dissect.ticker_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.ticker_symbol
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.ticker_symbol = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.ticker_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ticker_symbol(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.ticker_symbol(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.ticker_symbol, range, value, display)
 
@@ -1099,230 +1099,230 @@ dissect.ticker_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Update Message
-size_of.symbol_update_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
-  index = index + size_of.symbol_id
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_id
 
-  index = index + size_of.ticker_symbol
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.ticker_symbol
 
-  index = index + size_of.reserved
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.reserved
 
-  index = index + size_of.test_security_indicator
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.test_security_indicator
 
-  index = index + size_of.reserved
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.reserved
 
-  index = index + size_of.lot_size
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.lot_size
 
-  index = index + size_of.opening_time
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.opening_time
 
-  index = index + size_of.closing_time
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.closing_time
 
-  index = index + size_of.primary_market_code
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.primary_market_code
 
   return index
 end
 
 -- Display: Symbol Update Message
-display.symbol_update_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.symbol_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Update Message
-dissect.symbol_update_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
-  index, symbol_id = dissect.symbol_id(buffer, index, packet, parent)
+  index, symbol_id = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_id(buffer, index, packet, parent)
 
   -- Ticker Symbol: 11 Byte Ascii String
-  index, ticker_symbol = dissect.ticker_symbol(buffer, index, packet, parent)
+  index, ticker_symbol = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.ticker_symbol(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.reserved(buffer, index, packet, parent)
 
   -- Test Security Indicator: 1 Byte Ascii String Enum with 2 values
-  index, test_security_indicator = dissect.test_security_indicator(buffer, index, packet, parent)
+  index, test_security_indicator = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.test_security_indicator(buffer, index, packet, parent)
 
   -- Reserved: 1 Byte Unsigned Fixed Width Integer
-  index, reserved = dissect.reserved(buffer, index, packet, parent)
+  index, reserved = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.reserved(buffer, index, packet, parent)
 
   -- Lot Size: 2 Byte Unsigned Fixed Width Integer
-  index, lot_size = dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.lot_size(buffer, index, packet, parent)
 
   -- Opening Time: 8 Byte Ascii String
-  index, opening_time = dissect.opening_time(buffer, index, packet, parent)
+  index, opening_time = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.opening_time(buffer, index, packet, parent)
 
   -- Closing Time: 8 Byte Ascii String
-  index, closing_time = dissect.closing_time(buffer, index, packet, parent)
+  index, closing_time = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.closing_time(buffer, index, packet, parent)
 
   -- Primary Market Code: 1 Byte Ascii String Enum with 18 values
-  index, primary_market_code = dissect.primary_market_code(buffer, index, packet, parent)
+  index, primary_market_code = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.primary_market_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Update Message
-dissect.symbol_update_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_update_message then
-    local length = size_of.symbol_update_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_update_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.symbol_update_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.symbol_update_message, range, display)
   end
 
-  return dissect.symbol_update_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: System Time Message
-size_of.system_time_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_time_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.timestamp
 
   return index
 end
 
 -- Display: System Time Message
-display.system_time_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: System Time Message
-dissect.system_time_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, timestamp = dissect.timestamp(buffer, index, packet, parent)
+  index, timestamp = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.timestamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: System Time Message
-dissect.system_time_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.system_time_message then
-    local length = size_of.system_time_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_time_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.system_time_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.system_time_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.system_time_message, range, display)
   end
 
-  return dissect.system_time_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
-size_of.data = function(buffer, offset, message_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.data = function(buffer, offset, message_type)
   -- Size of System Time Message
   if message_type == "49" then
-    return size_of.system_time_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_time_message(buffer, offset)
   end
   -- Size of Symbol Update Message
   if message_type == "1" then
-    return size_of.symbol_update_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.symbol_update_message(buffer, offset)
   end
   -- Size of System State Message
   if message_type == "83" then
-    return size_of.system_state_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.system_state_message(buffer, offset)
   end
   -- Size of Security Trading Status Notification Message
   if message_type == "4" then
-    return size_of.security_trading_status_notification_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.security_trading_status_notification_message(buffer, offset)
   end
   -- Size of Compact Top Of Market Best Bid And Offer Message
   if message_type == "2" then
-    return size_of.compact_top_of_market_best_bid_and_offer_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.compact_top_of_market_best_bid_and_offer_message(buffer, offset)
   end
   -- Size of Wide Top Of Market Best Bid And Offer Message
   if message_type == "3" then
-    return size_of.wide_top_of_market_best_bid_and_offer_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.wide_top_of_market_best_bid_and_offer_message(buffer, offset)
   end
   -- Size of Last Sale Message
   if message_type == "10" then
-    return size_of.last_sale_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.last_sale_message(buffer, offset)
   end
   -- Size of Trade Cancel Message
   if message_type == "11" then
-    return size_of.trade_cancel_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.trade_cancel_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Data
-display.data = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.data = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Data
-dissect.data_branches = function(buffer, offset, packet, parent, message_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect System Time Message
   if message_type == "49" then
-    return dissect.system_time_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_time_message(buffer, offset, packet, parent)
   end
   -- Dissect Symbol Update Message
   if message_type == "1" then
-    return dissect.symbol_update_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.symbol_update_message(buffer, offset, packet, parent)
   end
   -- Dissect System State Message
   if message_type == "83" then
-    return dissect.system_state_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.system_state_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Trading Status Notification Message
   if message_type == "4" then
-    return dissect.security_trading_status_notification_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.security_trading_status_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Compact Top Of Market Best Bid And Offer Message
   if message_type == "2" then
-    return dissect.compact_top_of_market_best_bid_and_offer_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.compact_top_of_market_best_bid_and_offer_message(buffer, offset, packet, parent)
   end
   -- Dissect Wide Top Of Market Best Bid And Offer Message
   if message_type == "3" then
-    return dissect.wide_top_of_market_best_bid_and_offer_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.wide_top_of_market_best_bid_and_offer_message(buffer, offset, packet, parent)
   end
   -- Dissect Last Sale Message
   if message_type == "10" then
-    return dissect.last_sale_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.last_sale_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancel Message
   if message_type == "11" then
-    return dissect.trade_cancel_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.trade_cancel_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Data
-dissect.data = function(buffer, offset, packet, parent, message_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.data = function(buffer, offset, packet, parent, message_type)
   if not show.data then
-    return dissect.data_branches(buffer, offset, packet, parent, message_type)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.data_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.data(buffer, offset, message_type)
+  local size = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.data(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.data(buffer, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.data(buffer, packet, parent)
   local element = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.data, range, display)
 
-  return dissect.data_branches(buffer, offset, packet, parent, message_type)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.message_type = function(value)
   if value == "49" then
     return "Message Type: System Time Message (49)"
   end
@@ -1352,11 +1352,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.message_type, range, value, display)
 
@@ -1364,109 +1364,109 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Application Message
-size_of.application_message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.application_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_type
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.message_type
 
   -- Calculate runtime size of Data field
   local data_offset = offset + index
   local data_type = buffer(data_offset - 1, 1):string()
-  index = index + size_of.data(buffer, data_offset, data_type)
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.data(buffer, data_offset, data_type)
 
   return index
 end
 
 -- Display: Application Message
-display.application_message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.application_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Application Message
-dissect.application_message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.application_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 8 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message_type(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 8 branches
-  index = dissect.data(buffer, index, packet, parent, message_type)
+  index = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.data(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Application Message
-dissect.application_message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.application_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.application_message then
-    local length = size_of.application_message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.application_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.application_message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.application_message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.application_message, range, display)
   end
 
-  return dissect.application_message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.application_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, packet_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.payload = function(buffer, offset, packet_type)
   -- Size of Application Message
   if packet_type == 3 then
-    return size_of.application_message(buffer, offset)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.application_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Application Message
   if packet_type == 3 then
-    return dissect.application_message(buffer, offset, packet, parent)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.application_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, packet_type)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.payload = function(buffer, offset, packet, parent, packet_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+    return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, packet_type)
+  local size = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.payload(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.payload(buffer, packet, parent)
   local element = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Size: Session Number
-size_of.session_number = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_number = 1
 
 -- Display: Session Number
-display.session_number = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.session_number = function(value)
   return "Session Number: "..value
 end
 
 -- Dissect: Session Number
-dissect.session_number = function(buffer, offset, packet, parent)
-  local length = size_of.session_number
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.session_number = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session_number(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.session_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.session_number, range, value, display)
 
@@ -1474,10 +1474,10 @@ dissect.session_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Type
-size_of.packet_type = 1
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_type = 1
 
 -- Display: Packet Type
-display.packet_type = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.packet_type = function(value)
   if value == 0 then
     return "Packet Type: Heartbeat (0)"
   end
@@ -1495,11 +1495,11 @@ display.packet_type = function(value)
 end
 
 -- Dissect: Packet Type
-dissect.packet_type = function(buffer, offset, packet, parent)
-  local length = size_of.packet_type
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet_type = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_type(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.packet_type, range, value, display)
 
@@ -1507,19 +1507,19 @@ dissect.packet_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Length
-size_of.packet_length = 2
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_length = 2
 
 -- Display: Packet Length
-display.packet_length = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.packet_length = function(value)
   return "Packet Length: "..value
 end
 
 -- Dissect: Packet Length
-dissect.packet_length = function(buffer, offset, packet, parent)
-  local length = size_of.packet_length
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet_length = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_length(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.packet_length(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.packet_length, range, value, display)
 
@@ -1527,19 +1527,19 @@ dissect.packet_length = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 8
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.sequence_number = 8
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.sequence_number, range, value, display)
 
@@ -1547,67 +1547,67 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.sequence_number
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.sequence_number
 
-  index = index + size_of.packet_length
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_length
 
-  index = index + size_of.packet_type
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.packet_type
 
-  index = index + size_of.session_number
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.session_number
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 2, 1):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Sequence Number: 8 Byte Unsigned Fixed Width Integer
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.sequence_number(buffer, index, packet, parent)
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = dissect.packet_length(buffer, index, packet, parent)
+  index, packet_length = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet_length(buffer, index, packet, parent)
 
   -- Packet Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, packet_type = dissect.packet_type(buffer, index, packet, parent)
+  index, packet_type = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet_type(buffer, index, packet, parent)
 
   -- Session Number: 1 Byte Unsigned Fixed Width Integer
-  index, session_number = dissect.session_number(buffer, index, packet, parent)
+  index, session_number = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.session_number(buffer, index, packet, parent)
 
   -- Payload: Runtime Type with 1 branches
-  index = dissect.payload(buffer, index, packet, parent, packet_type)
+  index = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.payload(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = miax_pearl_equities_topofmarket_mach_v1_1_a_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = miax_pearl_equities_topofmarket_mach_v1_1_a_display.message(buffer, packet, parent)
     parent = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Message
@@ -1615,7 +1615,7 @@ dissect.packet = function(buffer, packet, parent)
 
   -- Message: Struct of 5 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -1638,7 +1638,7 @@ function miax_pearl_equities_topofmarket_mach_v1_1_a.dissector(buffer, packet, p
 
   -- Dissect protocol
   local protocol = parent:add(miax_pearl_equities_topofmarket_mach_v1_1_a, buffer(), miax_pearl_equities_topofmarket_mach_v1_1_a.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return miax_pearl_equities_topofmarket_mach_v1_1_a_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

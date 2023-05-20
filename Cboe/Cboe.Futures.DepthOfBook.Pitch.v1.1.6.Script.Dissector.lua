@@ -10,9 +10,9 @@ local cboe_futures_depthofbook_pitch_v1_1_6 = Proto("Cboe.Futures.DepthOfBook.Pi
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local cboe_futures_depthofbook_pitch_v1_1_6_display = {}
+local cboe_futures_depthofbook_pitch_v1_1_6_dissect = {}
+local cboe_futures_depthofbook_pitch_v1_1_6_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -327,19 +327,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Time Offset
-size_of.time_offset = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset = 4
 
 -- Display: Time Offset
-display.time_offset = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.time_offset = function(value)
   return "Time Offset: "..value
 end
 
 -- Dissect: Time Offset
-dissect.time_offset = function(buffer, offset, packet, parent)
-  local length = size_of.time_offset
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.time_offset(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.time_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time_offset, range, value, display)
 
@@ -347,56 +347,56 @@ dissect.time_offset = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Session Message
-size_of.end_of_session_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_session_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
   return index
 end
 
 -- Display: End Of Session Message
-display.end_of_session_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.end_of_session_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Session Message
-dissect.end_of_session_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_session_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Session Message
-dissect.end_of_session_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_session_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_session_message then
-    local length = size_of.end_of_session_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_session_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_session_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.end_of_session_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.end_of_session_message, range, display)
   end
 
-  return dissect.end_of_session_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_session_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 3
-size_of.reserved_3 = 3
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_3 = 3
 
 -- Display: Reserved 3
-display.reserved_3 = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.reserved_3 = function(value)
   return "Reserved 3: "..value
 end
 
 -- Dissect: Reserved 3
-dissect.reserved_3 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_3
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reserved_3 = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_3
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_3(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.reserved_3(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reserved_3, range, value, display)
 
@@ -404,10 +404,10 @@ dissect.reserved_3 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Status
-size_of.trading_status = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status = 1
 
 -- Display: Trading Status
-display.trading_status = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trading_status = function(value)
   if value == "H" then
     return "Trading Status: Halted (H)"
   end
@@ -425,11 +425,11 @@ display.trading_status = function(value)
 end
 
 -- Dissect: Trading Status
-dissect.trading_status = function(buffer, offset, packet, parent)
-  local length = size_of.trading_status
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trading_status(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trading_status(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trading_status, range, value, display)
 
@@ -437,19 +437,19 @@ dissect.trading_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reserved 2
-size_of.reserved_2 = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_2 = 2
 
 -- Display: Reserved 2
-display.reserved_2 = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.reserved_2 = function(value)
   return "Reserved 2: "..value
 end
 
 -- Dissect: Reserved 2
-dissect.reserved_2 = function(buffer, offset, packet, parent)
-  local length = size_of.reserved_2
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reserved_2 = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_2
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reserved_2(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.reserved_2(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reserved_2, range, value, display)
 
@@ -457,19 +457,19 @@ dissect.reserved_2 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 6
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol = 6
 
 -- Display: Symbol
-display.symbol = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.symbol, range, value, display)
 
@@ -477,67 +477,67 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trading Status Message
-size_of.trading_status_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.reserved_2
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_2
 
-  index = index + size_of.trading_status
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status
 
-  index = index + size_of.reserved_3
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.reserved_3
 
   return index
 end
 
 -- Display: Trading Status Message
-display.trading_status_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trading_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trading Status Message
-dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Reserved 2: 2 Byte Ascii String
-  index, reserved_2 = dissect.reserved_2(buffer, index, packet, parent)
+  index, reserved_2 = cboe_futures_depthofbook_pitch_v1_1_6_dissect.reserved_2(buffer, index, packet, parent)
 
   -- Trading Status: 1 Byte Ascii String Enum with 4 values
-  index, trading_status = dissect.trading_status(buffer, index, packet, parent)
+  index, trading_status = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status(buffer, index, packet, parent)
 
   -- Reserved 3: 3 Byte Ascii String
-  index, reserved_3 = dissect.reserved_3(buffer, index, packet, parent)
+  index, reserved_3 = cboe_futures_depthofbook_pitch_v1_1_6_dissect.reserved_3(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trading Status Message
-dissect.trading_status_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trading_status_message then
-    local length = size_of.trading_status_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trading_status_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trading_status_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trading_status_message, range, display)
   end
 
-  return dissect.trading_status_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Summary Flags
-size_of.summary_flags = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.summary_flags = 1
 
 -- Display: Summary Flags
-display.summary_flags = function(buffer, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.summary_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Offer Close Valid flag set?
@@ -565,7 +565,7 @@ display.summary_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Summary Flags
-dissect.summary_flags_bits = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.summary_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Flags: 7 Bit
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reserved_flags, buffer(offset, 1))
@@ -587,33 +587,33 @@ dissect.summary_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Summary Flags
-dissect.summary_flags = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.summary_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.summary_flags(range, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.summary_flags(range, packet, parent)
   local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.summary_flags, range, display)
 
   if show.summary_flags then
-    dissect.summary_flags_bits(buffer, offset, packet, element)
+    cboe_futures_depthofbook_pitch_v1_1_6_dissect.summary_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Ecrp Volume
-size_of.ecrp_volume = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.ecrp_volume = 4
 
 -- Display: Ecrp Volume
-display.ecrp_volume = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.ecrp_volume = function(value)
   return "Ecrp Volume: "..value
 end
 
 -- Dissect: Ecrp Volume
-dissect.ecrp_volume = function(buffer, offset, packet, parent)
-  local length = size_of.ecrp_volume
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.ecrp_volume = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.ecrp_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ecrp_volume(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.ecrp_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.ecrp_volume, range, value, display)
 
@@ -621,19 +621,19 @@ dissect.ecrp_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Volume
-size_of.block_volume = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.block_volume = 4
 
 -- Display: Block Volume
-display.block_volume = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.block_volume = function(value)
   return "Block Volume: "..value
 end
 
 -- Dissect: Block Volume
-dissect.block_volume = function(buffer, offset, packet, parent)
-  local length = size_of.block_volume
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.block_volume = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.block_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.block_volume(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.block_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.block_volume, range, value, display)
 
@@ -641,19 +641,19 @@ dissect.block_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Total Volume
-size_of.total_volume = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.total_volume = 4
 
 -- Display: Total Volume
-display.total_volume = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.total_volume = function(value)
   return "Total Volume: "..value
 end
 
 -- Dissect: Total Volume
-dissect.total_volume = function(buffer, offset, packet, parent)
-  local length = size_of.total_volume
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.total_volume = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.total_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.total_volume(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.total_volume(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.total_volume, range, value, display)
 
@@ -661,19 +661,19 @@ dissect.total_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Close Price
-size_of.close_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.close_price = 8
 
 -- Display: Close Price
-display.close_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.close_price = function(value)
   return "Close Price: "..value
 end
 
 -- Dissect: Close Price
-dissect.close_price = function(buffer, offset, packet, parent)
-  local length = size_of.close_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.close_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.close_price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.close_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.close_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.close_price, range, value, display)
 
@@ -681,19 +681,19 @@ dissect.close_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Price
-size_of.open_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_price = 8
 
 -- Display: Open Price
-display.open_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.open_price = function(value)
   return "Open Price: "..value
 end
 
 -- Dissect: Open Price
-dissect.open_price = function(buffer, offset, packet, parent)
-  local length = size_of.open_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.open_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.open_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.open_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.open_price, range, value, display)
 
@@ -701,19 +701,19 @@ dissect.open_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Price
-size_of.low_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.low_price = 8
 
 -- Display: Low Price
-display.low_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.low_price = function(value)
   return "Low Price: "..value
 end
 
 -- Dissect: Low Price
-dissect.low_price = function(buffer, offset, packet, parent)
-  local length = size_of.low_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.low_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.low_price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.low_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.low_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.low_price, range, value, display)
 
@@ -721,19 +721,19 @@ dissect.low_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Price
-size_of.high_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.high_price = 8
 
 -- Display: High Price
-display.high_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.high_price = function(value)
   return "High Price: "..value
 end
 
 -- Dissect: High Price
-dissect.high_price = function(buffer, offset, packet, parent)
-  local length = size_of.high_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.high_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.high_price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.high_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.high_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.high_price, range, value, display)
 
@@ -741,19 +741,19 @@ dissect.high_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Interest
-size_of.open_interest = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_interest = 4
 
 -- Display: Open Interest
-display.open_interest = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.open_interest = function(value)
   return "Open Interest: "..value
 end
 
 -- Dissect: Open Interest
-dissect.open_interest = function(buffer, offset, packet, parent)
-  local length = size_of.open_interest
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.open_interest = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_interest
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.open_interest(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.open_interest(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.open_interest, range, value, display)
 
@@ -761,19 +761,19 @@ dissect.open_interest = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Date
-size_of.trade_date = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_date = 4
 
 -- Display: Trade Date
-display.trade_date = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trade_date = function(value)
   return "Trade Date: "..value
 end
 
 -- Dissect: Trade Date
-dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = size_of.trade_date
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_date = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_date(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_date, range, value, display)
 
@@ -781,102 +781,102 @@ dissect.trade_date = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Day Summary Message
-size_of.end_of_day_summary_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_day_summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_date
 
-  index = index + size_of.open_interest
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_interest
 
-  index = index + size_of.high_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.high_price
 
-  index = index + size_of.low_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.low_price
 
-  index = index + size_of.open_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.open_price
 
-  index = index + size_of.close_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.close_price
 
-  index = index + size_of.total_volume
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.total_volume
 
-  index = index + size_of.block_volume
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.block_volume
 
-  index = index + size_of.ecrp_volume
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.ecrp_volume
 
-  index = index + size_of.summary_flags
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.summary_flags
 
   return index
 end
 
 -- Display: End Of Day Summary Message
-display.end_of_day_summary_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.end_of_day_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Day Summary Message
-dissect.end_of_day_summary_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_day_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_date(buffer, index, packet, parent)
 
   -- Open Interest: 4 Byte Unsigned Fixed Width Integer
-  index, open_interest = dissect.open_interest(buffer, index, packet, parent)
+  index, open_interest = cboe_futures_depthofbook_pitch_v1_1_6_dissect.open_interest(buffer, index, packet, parent)
 
   -- High Price: 8 Byte Unsigned Fixed Width Integer
-  index, high_price = dissect.high_price(buffer, index, packet, parent)
+  index, high_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.high_price(buffer, index, packet, parent)
 
   -- Low Price: 8 Byte Unsigned Fixed Width Integer
-  index, low_price = dissect.low_price(buffer, index, packet, parent)
+  index, low_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.low_price(buffer, index, packet, parent)
 
   -- Open Price: 8 Byte Unsigned Fixed Width Integer
-  index, open_price = dissect.open_price(buffer, index, packet, parent)
+  index, open_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.open_price(buffer, index, packet, parent)
 
   -- Close Price: 8 Byte Unsigned Fixed Width Integer
-  index, close_price = dissect.close_price(buffer, index, packet, parent)
+  index, close_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.close_price(buffer, index, packet, parent)
 
   -- Total Volume: 4 Byte Unsigned Fixed Width Integer
-  index, total_volume = dissect.total_volume(buffer, index, packet, parent)
+  index, total_volume = cboe_futures_depthofbook_pitch_v1_1_6_dissect.total_volume(buffer, index, packet, parent)
 
   -- Block Volume: 4 Byte Unsigned Fixed Width Integer
-  index, block_volume = dissect.block_volume(buffer, index, packet, parent)
+  index, block_volume = cboe_futures_depthofbook_pitch_v1_1_6_dissect.block_volume(buffer, index, packet, parent)
 
   -- Ecrp Volume: 4 Byte Unsigned Fixed Width Integer
-  index, ecrp_volume = dissect.ecrp_volume(buffer, index, packet, parent)
+  index, ecrp_volume = cboe_futures_depthofbook_pitch_v1_1_6_dissect.ecrp_volume(buffer, index, packet, parent)
 
   -- Summary Flags: Struct of 6 fields
-  index, summary_flags = dissect.summary_flags(buffer, index, packet, parent)
+  index, summary_flags = cboe_futures_depthofbook_pitch_v1_1_6_dissect.summary_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Day Summary Message
-dissect.end_of_day_summary_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_day_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_summary_message then
-    local length = size_of.end_of_day_summary_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_day_summary_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_day_summary_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.end_of_day_summary_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.end_of_day_summary_message, range, display)
   end
 
-  return dissect.end_of_day_summary_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_day_summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Issue
-size_of.issue = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.issue = 1
 
 -- Display: Issue
-display.issue = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.issue = function(value)
   if value == "S" then
     return "Issue: Initial Settlement (S)"
   end
@@ -888,11 +888,11 @@ display.issue = function(value)
 end
 
 -- Dissect: Issue
-dissect.issue = function(buffer, offset, packet, parent)
-  local length = size_of.issue
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.issue = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.issue
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.issue(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.issue(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.issue, range, value, display)
 
@@ -900,19 +900,19 @@ dissect.issue = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Price
-size_of.settlement_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_price = 8
 
 -- Display: Settlement Price
-display.settlement_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.settlement_price = function(value)
   return "Settlement Price: "..value
 end
 
 -- Dissect: Settlement Price
-dissect.settlement_price = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_price
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.settlement_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.settlement_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.settlement_price, range, value, display)
 
@@ -920,76 +920,76 @@ dissect.settlement_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Settlement Message
-size_of.settlement_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_date
 
-  index = index + size_of.settlement_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_price
 
-  index = index + size_of.issue
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.issue
 
   return index
 end
 
 -- Display: Settlement Message
-display.settlement_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.settlement_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Settlement Message
-dissect.settlement_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_date(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Unsigned Fixed Width Integer
-  index, settlement_price = dissect.settlement_price(buffer, index, packet, parent)
+  index, settlement_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_price(buffer, index, packet, parent)
 
   -- Issue: 1 Byte Ascii String Enum with 2 values
-  index, issue = dissect.issue(buffer, index, packet, parent)
+  index, issue = cboe_futures_depthofbook_pitch_v1_1_6_dissect.issue(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Settlement Message
-dissect.settlement_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.settlement_message then
-    local length = size_of.settlement_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.settlement_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.settlement_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.settlement_message, range, display)
   end
 
-  return dissect.settlement_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Execution Id
-size_of.execution_id = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id = 8
 
 -- Display: Execution Id
-display.execution_id = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.execution_id = function(value)
   return "Execution Id: "..value
 end
 
 -- Dissect: Execution Id
-dissect.execution_id = function(buffer, offset, packet, parent)
-  local length = size_of.execution_id
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.execution_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.execution_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.execution_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.execution_id, range, value, display)
 
@@ -997,126 +997,126 @@ dissect.execution_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Break Message
-size_of.trade_break_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_break_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.execution_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id
 
   return index
 end
 
 -- Display: Trade Break Message
-display.trade_break_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trade_break_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Break Message
-dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_break_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.execution_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Break Message
-dissect.trade_break_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_break_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_break_message then
-    local length = size_of.trade_break_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_break_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_break_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trade_break_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_break_message, range, display)
   end
 
-  return dissect.trade_break_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_break_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Transaction End
-size_of.transaction_end = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_end = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
   return index
 end
 
 -- Display: Transaction End
-display.transaction_end = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.transaction_end = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Transaction End
-dissect.transaction_end_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_end_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Transaction End
-dissect.transaction_end = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_end = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.transaction_end then
-    local length = size_of.transaction_end(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_end(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.transaction_end(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.transaction_end(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.transaction_end, range, display)
   end
 
-  return dissect.transaction_end_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_end_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Transaction Begin
-size_of.transaction_begin = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_begin = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
   return index
 end
 
 -- Display: Transaction Begin
-display.transaction_begin = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.transaction_begin = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Transaction Begin
-dissect.transaction_begin_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_begin_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Transaction Begin
-dissect.transaction_begin = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_begin = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.transaction_begin then
-    local length = size_of.transaction_begin(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_begin(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.transaction_begin(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.transaction_begin(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.transaction_begin, range, display)
   end
 
-  return dissect.transaction_begin_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_begin_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Condition
-size_of.trade_condition = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_condition = 1
 
 -- Display: Trade Condition
-display.trade_condition = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trade_condition = function(value)
   if value == " " then
     return "Trade Condition: Normal Trade (<whitespace>)"
   end
@@ -1137,11 +1137,11 @@ display.trade_condition = function(value)
 end
 
 -- Dissect: Trade Condition
-dissect.trade_condition = function(buffer, offset, packet, parent)
-  local length = size_of.trade_condition
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_condition = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_condition
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.trade_condition(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trade_condition(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_condition, range, value, display)
 
@@ -1149,10 +1149,10 @@ dissect.trade_condition = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Price
-size_of.short_price = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_price = 2
 
 -- Display: Short Price
-display.short_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.short_price = function(value)
   return "Short Price: "..value
 end
 
@@ -1162,12 +1162,12 @@ translate.short_price = function(raw)
 end
 
 -- Dissect: Short Price
-dissect.short_price = function(buffer, offset, packet, parent)
-  local length = size_of.short_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_price
   local range = buffer(offset, length)
   local raw = range:le_uint()
   local value = translate.short_price(raw)
-  local display = display.short_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.short_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.short_price, range, value, display)
 
@@ -1175,19 +1175,19 @@ dissect.short_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Quantity
-size_of.short_quantity = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_quantity = 2
 
 -- Display: Short Quantity
-display.short_quantity = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.short_quantity = function(value)
   return "Short Quantity: "..value
 end
 
 -- Dissect: Short Quantity
-dissect.short_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.short_quantity
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.short_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.short_quantity, range, value, display)
 
@@ -1195,10 +1195,10 @@ dissect.short_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side Indicator
-size_of.side_indicator = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator = 1
 
 -- Display: Side Indicator
-display.side_indicator = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.side_indicator = function(value)
   if value == "B" then
     return "Side Indicator: Buy Order (B)"
   end
@@ -1210,11 +1210,11 @@ display.side_indicator = function(value)
 end
 
 -- Dissect: Side Indicator
-dissect.side_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.side_indicator
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.side_indicator = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side_indicator(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.side_indicator(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.side_indicator, range, value, display)
 
@@ -1222,19 +1222,19 @@ dissect.side_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.order_id, range, value, display)
 
@@ -1242,82 +1242,82 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Short Message
-size_of.trade_short_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator
 
-  index = index + size_of.short_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.short_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_price
 
-  index = index + size_of.execution_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_condition
 
   return index
 end
 
 -- Display: Trade Short Message
-display.trade_short_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trade_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Short Message
-dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_futures_depthofbook_pitch_v1_1_6_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Short Message
-dissect.trade_short_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_short_message then
-    local length = size_of.trade_short_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_short_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trade_short_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_short_message, range, display)
   end
 
-  return dissect.trade_short_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Long Price
-size_of.long_price = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_price = 8
 
 -- Display: Long Price
-display.long_price = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.long_price = function(value)
   return "Long Price: "..value
 end
 
@@ -1327,12 +1327,12 @@ translate.long_price = function(raw)
 end
 
 -- Dissect: Long Price
-dissect.long_price = function(buffer, offset, packet, parent)
-  local length = size_of.long_price
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_price = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.long_price(raw)
-  local display = display.long_price(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.long_price(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.long_price, range, value, display)
 
@@ -1340,19 +1340,19 @@ dissect.long_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Long Quantity
-size_of.long_quantity = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_quantity = 4
 
 -- Display: Long Quantity
-display.long_quantity = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.long_quantity = function(value)
   return "Long Quantity: "..value
 end
 
 -- Dissect: Long Quantity
-dissect.long_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.long_quantity
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.long_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.long_quantity, range, value, display)
 
@@ -1360,237 +1360,237 @@ dissect.long_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Long Message
-size_of.trade_long_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_price
 
-  index = index + size_of.execution_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_condition
 
   return index
 end
 
 -- Display: Trade Long Message
-display.trade_long_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.trade_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Long Message
-dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_futures_depthofbook_pitch_v1_1_6_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_price(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Long Message
-dissect.trade_long_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_long_message then
-    local length = size_of.trade_long_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_long_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.trade_long_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.trade_long_message, range, display)
   end
 
-  return dissect.trade_long_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Delete Order Message
-size_of.delete_order_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.delete_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
   return index
 end
 
 -- Display: Delete Order Message
-display.delete_order_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.delete_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Delete Order Message
-dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.delete_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Delete Order Message
-dissect.delete_order_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.delete_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.delete_order_message then
-    local length = size_of.delete_order_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.delete_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.delete_order_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.delete_order_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.delete_order_message, range, display)
   end
 
-  return dissect.delete_order_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.delete_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Order Short Message
-size_of.modify_order_short_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.short_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_quantity
 
-  index = index + size_of.short_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_price
 
   return index
 end
 
 -- Display: Modify Order Short Message
-display.modify_order_short_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.modify_order_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Short Message
-dissect.modify_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Short Message
-dissect.modify_order_short_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_short_message then
-    local length = size_of.modify_order_short_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_order_short_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.modify_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.modify_order_short_message, range, display)
   end
 
-  return dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Modify Order Long Message
-size_of.modify_order_long_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.long_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_quantity
 
-  index = index + size_of.long_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_price
 
   return index
 end
 
 -- Display: Modify Order Long Message
-display.modify_order_long_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.modify_order_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Modify Order Long Message
-dissect.modify_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Modify Order Long Message
-dissect.modify_order_long_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.modify_order_long_message then
-    local length = size_of.modify_order_long_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.modify_order_long_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.modify_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.modify_order_long_message, range, display)
   end
 
-  return dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Canceled Short Quantity
-size_of.canceled_short_quantity = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_short_quantity = 2
 
 -- Display: Canceled Short Quantity
-display.canceled_short_quantity = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.canceled_short_quantity = function(value)
   return "Canceled Short Quantity: "..value
 end
 
 -- Dissect: Canceled Short Quantity
-dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.canceled_short_quantity
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_short_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.canceled_short_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.canceled_short_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.canceled_short_quantity, range, value, display)
 
@@ -1598,66 +1598,66 @@ dissect.canceled_short_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reduce Size Short Message
-size_of.reduce_size_short_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.canceled_short_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_short_quantity
 
   return index
 end
 
 -- Display: Reduce Size Short Message
-display.reduce_size_short_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.reduce_size_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Short Message
-dissect.reduce_size_short_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, canceled_short_quantity = dissect.canceled_short_quantity(buffer, index, packet, parent)
+  index, canceled_short_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.canceled_short_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Short Message
-dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_short_message then
-    local length = size_of.reduce_size_short_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reduce_size_short_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.reduce_size_short_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reduce_size_short_message, range, display)
   end
 
-  return dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Canceled Long Quantity
-size_of.canceled_long_quantity = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_long_quantity = 4
 
 -- Display: Canceled Long Quantity
-display.canceled_long_quantity = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.canceled_long_quantity = function(value)
   return "Canceled Long Quantity: "..value
 end
 
 -- Dissect: Canceled Long Quantity
-dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.canceled_long_quantity
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_long_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.canceled_long_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.canceled_long_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.canceled_long_quantity, range, value, display)
 
@@ -1665,66 +1665,66 @@ dissect.canceled_long_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reduce Size Long Message
-size_of.reduce_size_long_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.canceled_long_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.canceled_long_quantity
 
   return index
 end
 
 -- Display: Reduce Size Long Message
-display.reduce_size_long_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.reduce_size_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reduce Size Long Message
-dissect.reduce_size_long_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Canceled Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, canceled_long_quantity = dissect.canceled_long_quantity(buffer, index, packet, parent)
+  index, canceled_long_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.canceled_long_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reduce Size Long Message
-dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reduce_size_long_message then
-    local length = size_of.reduce_size_long_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reduce_size_long_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.reduce_size_long_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.reduce_size_long_message, range, display)
   end
 
-  return dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Executed Quantity
-size_of.executed_quantity = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.executed_quantity = 4
 
 -- Display: Executed Quantity
-display.executed_quantity = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.executed_quantity = function(value)
   return "Executed Quantity: "..value
 end
 
 -- Dissect: Executed Quantity
-dissect.executed_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.executed_quantity
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.executed_quantity = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.executed_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.executed_quantity(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.executed_quantity(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.executed_quantity, range, value, display)
 
@@ -1732,200 +1732,200 @@ dissect.executed_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed Message
-size_of.order_executed_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_executed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.executed_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.executed_quantity
 
-  index = index + size_of.execution_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.execution_id
 
-  index = index + size_of.trade_condition
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_condition
 
   return index
 end
 
 -- Display: Order Executed Message
-display.order_executed_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.order_executed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Executed Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, executed_quantity = dissect.executed_quantity(buffer, index, packet, parent)
+  index, executed_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.executed_quantity(buffer, index, packet, parent)
 
   -- Execution Id: 8 Byte Unsigned Fixed Width Integer
-  index, execution_id = dissect.execution_id(buffer, index, packet, parent)
+  index, execution_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.execution_id(buffer, index, packet, parent)
 
   -- Trade Condition: 1 Byte Ascii String Enum with 5 values
-  index, trade_condition = dissect.trade_condition(buffer, index, packet, parent)
+  index, trade_condition = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_condition(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-dissect.order_executed_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = size_of.order_executed_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.order_executed_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.order_executed_message, range, display)
   end
 
-  return dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Order Short Message
-size_of.add_order_short_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_short_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator
 
-  index = index + size_of.short_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.short_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.short_price
 
   return index
 end
 
 -- Display: Add Order Short Message
-display.add_order_short_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.add_order_short_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Short Message
-dissect.add_order_short_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_short_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_futures_depthofbook_pitch_v1_1_6_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Short Quantity: 2 Byte Unsigned Fixed Width Integer
-  index, short_quantity = dissect.short_quantity(buffer, index, packet, parent)
+  index, short_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Short Price: 2 Byte Unsigned Fixed Width Integer
-  index, short_price = dissect.short_price(buffer, index, packet, parent)
+  index, short_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.short_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Short Message
-dissect.add_order_short_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_short_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_short_message then
-    local length = size_of.add_order_short_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_short_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_short_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.add_order_short_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.add_order_short_message, range, display)
   end
 
-  return dissect.add_order_short_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_short_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Add Order Long Message
-size_of.add_order_long_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_long_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.order_id
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_id
 
-  index = index + size_of.side_indicator
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.side_indicator
 
-  index = index + size_of.long_quantity
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_quantity
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.long_price
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.long_price
 
   return index
 end
 
 -- Display: Add Order Long Message
-display.add_order_long_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.add_order_long_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Add Order Long Message
-dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_long_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Side Indicator: 1 Byte Ascii String Enum with 2 values
-  index, side_indicator = dissect.side_indicator(buffer, index, packet, parent)
+  index, side_indicator = cboe_futures_depthofbook_pitch_v1_1_6_dissect.side_indicator(buffer, index, packet, parent)
 
   -- Long Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, long_quantity = dissect.long_quantity(buffer, index, packet, parent)
+  index, long_quantity = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_quantity(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Long Price: 8 Byte Unsigned Fixed Width Integer
-  index, long_price = dissect.long_price(buffer, index, packet, parent)
+  index, long_price = cboe_futures_depthofbook_pitch_v1_1_6_dissect.long_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Add Order Long Message
-dissect.add_order_long_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_long_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.add_order_long_message then
-    local length = size_of.add_order_long_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_long_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.add_order_long_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.add_order_long_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.add_order_long_message, range, display)
   end
 
-  return dissect.add_order_long_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_long_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Symbol
-size_of.leg_symbol = 6
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_symbol = 6
 
 -- Display: Leg Symbol
-display.leg_symbol = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.leg_symbol = function(value)
   return "Leg Symbol: "..value
 end
 
 -- Dissect: Leg Symbol
-dissect.leg_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.leg_symbol
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.leg_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.leg_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_symbol, range, value, display)
 
@@ -1933,19 +1933,19 @@ dissect.leg_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Ratio
-size_of.leg_ratio = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_ratio = 4
 
 -- Display: Leg Ratio
-display.leg_ratio = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.leg_ratio = function(value)
   return "Leg Ratio: "..value
 end
 
 -- Dissect: Leg Ratio
-dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.leg_ratio
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_ratio
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.leg_ratio(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_ratio, range, value, display)
 
@@ -1953,61 +1953,61 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Future Leg
-size_of.future_leg = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.future_leg = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.leg_ratio
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_ratio
 
-  index = index + size_of.leg_symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_symbol
 
   return index
 end
 
 -- Display: Future Leg
-display.future_leg = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.future_leg = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Future Leg
-dissect.future_leg_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Ratio: 4 Byte Signed Fixed Width Integer
-  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_ratio(buffer, index, packet, parent)
 
   -- Leg Symbol: 6 Byte Ascii String
-  index, leg_symbol = dissect.leg_symbol(buffer, index, packet, parent)
+  index, leg_symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_symbol(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Future Leg
-dissect.future_leg = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.future_leg then
-    local length = size_of.future_leg(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.future_leg(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.future_leg(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.future_leg(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_leg, range, display)
   end
 
-  return dissect.future_leg_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Fed Funds Rate
-size_of.fed_funds_rate = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.fed_funds_rate = 8
 
 -- Display: Fed Funds Rate
-display.fed_funds_rate = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.fed_funds_rate = function(value)
   return "Fed Funds Rate: "..value
 end
 
 -- Dissect: Fed Funds Rate
-dissect.fed_funds_rate = function(buffer, offset, packet, parent)
-  local length = size_of.fed_funds_rate
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.fed_funds_rate = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.fed_funds_rate
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.fed_funds_rate(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.fed_funds_rate(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.fed_funds_rate, range, value, display)
 
@@ -2015,19 +2015,19 @@ dissect.fed_funds_rate = function(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Armvm
-size_of.previous_armvm = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_armvm = 8
 
 -- Display: Previous Armvm
-display.previous_armvm = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.previous_armvm = function(value)
   return "Previous Armvm: "..value
 end
 
 -- Dissect: Previous Armvm
-dissect.previous_armvm = function(buffer, offset, packet, parent)
-  local length = size_of.previous_armvm
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.previous_armvm = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_armvm
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.previous_armvm(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.previous_armvm(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_armvm, range, value, display)
 
@@ -2035,19 +2035,19 @@ dissect.previous_armvm = function(buffer, offset, packet, parent)
 end
 
 -- Size: Initial Strike
-size_of.initial_strike = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.initial_strike = 8
 
 -- Display: Initial Strike
-display.initial_strike = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.initial_strike = function(value)
   return "Initial Strike: "..value
 end
 
 -- Dissect: Initial Strike
-dissect.initial_strike = function(buffer, offset, packet, parent)
-  local length = size_of.initial_strike
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.initial_strike = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.initial_strike
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.initial_strike(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.initial_strike(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.initial_strike, range, value, display)
 
@@ -2055,19 +2055,19 @@ dissect.initial_strike = function(buffer, offset, packet, parent)
 end
 
 -- Size: Discount Factor
-size_of.discount_factor = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.discount_factor = 8
 
 -- Display: Discount Factor
-display.discount_factor = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.discount_factor = function(value)
   return "Discount Factor: "..value
 end
 
 -- Dissect: Discount Factor
-dissect.discount_factor = function(buffer, offset, packet, parent)
-  local length = size_of.discount_factor
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.discount_factor = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.discount_factor
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.discount_factor(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.discount_factor(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.discount_factor, range, value, display)
 
@@ -2075,19 +2075,19 @@ dissect.discount_factor = function(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Settlement
-size_of.previous_settlement = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_settlement = 8
 
 -- Display: Previous Settlement
-display.previous_settlement = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.previous_settlement = function(value)
   return "Previous Settlement: "..value
 end
 
 -- Dissect: Previous Settlement
-dissect.previous_settlement = function(buffer, offset, packet, parent)
-  local length = size_of.previous_settlement
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.previous_settlement = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_settlement
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.previous_settlement(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.previous_settlement(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.previous_settlement, range, value, display)
 
@@ -2095,19 +2095,19 @@ dissect.previous_settlement = function(buffer, offset, packet, parent)
 end
 
 -- Size: Num Elapsed Returns
-size_of.num_elapsed_returns = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_elapsed_returns = 2
 
 -- Display: Num Elapsed Returns
-display.num_elapsed_returns = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.num_elapsed_returns = function(value)
   return "Num Elapsed Returns: "..value
 end
 
 -- Dissect: Num Elapsed Returns
-dissect.num_elapsed_returns = function(buffer, offset, packet, parent)
-  local length = size_of.num_elapsed_returns
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.num_elapsed_returns = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_elapsed_returns
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_elapsed_returns(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.num_elapsed_returns(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_elapsed_returns, range, value, display)
 
@@ -2115,19 +2115,19 @@ dissect.num_elapsed_returns = function(buffer, offset, packet, parent)
 end
 
 -- Size: Num Expected Prices
-size_of.num_expected_prices = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_expected_prices = 2
 
 -- Display: Num Expected Prices
-display.num_expected_prices = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.num_expected_prices = function(value)
   return "Num Expected Prices: "..value
 end
 
 -- Dissect: Num Expected Prices
-dissect.num_expected_prices = function(buffer, offset, packet, parent)
-  local length = size_of.num_expected_prices
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.num_expected_prices = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_expected_prices
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_expected_prices(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.num_expected_prices(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.num_expected_prices, range, value, display)
 
@@ -2135,19 +2135,19 @@ dissect.num_expected_prices = function(buffer, offset, packet, parent)
 end
 
 -- Size: Realized Variance
-size_of.realized_variance = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.realized_variance = 8
 
 -- Display: Realized Variance
-display.realized_variance = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.realized_variance = function(value)
   return "Realized Variance: "..value
 end
 
 -- Dissect: Realized Variance
-dissect.realized_variance = function(buffer, offset, packet, parent)
-  local length = size_of.realized_variance
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.realized_variance = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.realized_variance
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.realized_variance(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.realized_variance(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.realized_variance, range, value, display)
 
@@ -2155,24 +2155,24 @@ dissect.realized_variance = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Variance
-size_of.variance = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.realized_variance
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.realized_variance
 
-  index = index + size_of.num_expected_prices
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_expected_prices
 
-  index = index + size_of.num_elapsed_returns
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.num_elapsed_returns
 
-  index = index + size_of.previous_settlement
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_settlement
 
-  index = index + size_of.discount_factor
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.discount_factor
 
-  index = index + size_of.initial_strike
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.initial_strike
 
-  index = index + size_of.previous_armvm
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.previous_armvm
 
-  index = index + size_of.fed_funds_rate
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.fed_funds_rate
 
   -- Calculate field size from count
   local future_leg_count = buffer(offset + index - 55, 1):le_uint()
@@ -2182,64 +2182,64 @@ size_of.variance = function(buffer, offset)
 end
 
 -- Display: Variance
-display.variance = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.variance = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Variance
-dissect.variance_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Realized Variance: 8 Byte Signed Fixed Width Integer
-  index, realized_variance = dissect.realized_variance(buffer, index, packet, parent)
+  index, realized_variance = cboe_futures_depthofbook_pitch_v1_1_6_dissect.realized_variance(buffer, index, packet, parent)
 
   -- Num Expected Prices: 2 Byte Unsigned Fixed Width Integer
-  index, num_expected_prices = dissect.num_expected_prices(buffer, index, packet, parent)
+  index, num_expected_prices = cboe_futures_depthofbook_pitch_v1_1_6_dissect.num_expected_prices(buffer, index, packet, parent)
 
   -- Num Elapsed Returns: 2 Byte Unsigned Fixed Width Integer
-  index, num_elapsed_returns = dissect.num_elapsed_returns(buffer, index, packet, parent)
+  index, num_elapsed_returns = cboe_futures_depthofbook_pitch_v1_1_6_dissect.num_elapsed_returns(buffer, index, packet, parent)
 
   -- Previous Settlement: 8 Byte Unsigned Fixed Width Integer
-  index, previous_settlement = dissect.previous_settlement(buffer, index, packet, parent)
+  index, previous_settlement = cboe_futures_depthofbook_pitch_v1_1_6_dissect.previous_settlement(buffer, index, packet, parent)
 
   -- Discount Factor: 8 Byte Signed Fixed Width Integer
-  index, discount_factor = dissect.discount_factor(buffer, index, packet, parent)
+  index, discount_factor = cboe_futures_depthofbook_pitch_v1_1_6_dissect.discount_factor(buffer, index, packet, parent)
 
   -- Initial Strike: 8 Byte Unsigned Fixed Width Integer
-  index, initial_strike = dissect.initial_strike(buffer, index, packet, parent)
+  index, initial_strike = cboe_futures_depthofbook_pitch_v1_1_6_dissect.initial_strike(buffer, index, packet, parent)
 
   -- Previous Armvm: 8 Byte Signed Fixed Width Integer
-  index, previous_armvm = dissect.previous_armvm(buffer, index, packet, parent)
+  index, previous_armvm = cboe_futures_depthofbook_pitch_v1_1_6_dissect.previous_armvm(buffer, index, packet, parent)
 
   -- Fed Funds Rate: 8 Byte Signed Fixed Width Integer
-  index, fed_funds_rate = dissect.fed_funds_rate(buffer, index, packet, parent)
+  index, fed_funds_rate = cboe_futures_depthofbook_pitch_v1_1_6_dissect.fed_funds_rate(buffer, index, packet, parent)
 
   -- Dependency element: Leg Count
   local leg_count = buffer(offset - 3, 1):le_uint()
 
   -- Future Leg: Struct of 2 fields
   for i = 1, leg_count do
-    index = dissect.future_leg(buffer, index, packet, parent)
+    index = cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Variance
-dissect.variance = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.variance then
-    local length = size_of.variance(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.variance(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.variance(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.variance, range, display)
   end
 
-  return dissect.variance_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Standard
-size_of.standard = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.standard = function(buffer, offset)
   local index = 0
 
   -- Calculate field size from count
@@ -2250,12 +2250,12 @@ size_of.standard = function(buffer, offset)
 end
 
 -- Display: Standard
-display.standard = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.standard = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Standard
-dissect.standard_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.standard_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Leg Count
@@ -2263,92 +2263,92 @@ dissect.standard_fields = function(buffer, offset, packet, parent)
 
   -- Future Leg: Struct of 2 fields
   for i = 1, leg_count do
-    index = dissect.future_leg(buffer, index, packet, parent)
+    index = cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_leg(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Standard
-dissect.standard = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.standard = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.standard then
-    local length = size_of.standard(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.standard(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.standard(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.standard(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.standard, range, display)
   end
 
-  return dissect.standard_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.standard_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Future Block
-size_of.future_block = function(buffer, offset, futures_flags)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.future_block = function(buffer, offset, futures_flags)
   -- Size of Standard
   if futures_flags == 0 then
-    return size_of.standard(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.standard(buffer, offset)
   end
   -- Size of Variance
   if futures_flags == 1 then
-    return size_of.variance(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Future Block
-display.future_block = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.future_block = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Future Block
-dissect.future_block_branches = function(buffer, offset, packet, parent, futures_flags)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_block_branches = function(buffer, offset, packet, parent, futures_flags)
   -- Dissect Standard
   if futures_flags == 0 then
-    return dissect.standard(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.standard(buffer, offset, packet, parent)
   end
   -- Dissect Variance
   if futures_flags == 1 then
-    return dissect.variance(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Future Block
-dissect.future_block = function(buffer, offset, packet, parent, futures_flags)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_block = function(buffer, offset, packet, parent, futures_flags)
   if not show.future_block then
-    return dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.future_block(buffer, offset, futures_flags)
+  local size = cboe_futures_depthofbook_pitch_v1_1_6_size_of.future_block(buffer, offset, futures_flags)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.future_block(buffer, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.future_block(buffer, packet, parent)
   local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.future_block, range, display)
 
-  return dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_block_branches(buffer, offset, packet, parent, futures_flags)
 end
 
 -- Size: Variance Block Offset
-size_of.variance_block_offset = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance_block_offset = 1
 
 -- Display: Variance Block Offset
-display.variance_block_offset = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.variance_block_offset = function(value)
   return "Variance Block Offset: "..value
 end
 
 -- Dissect: Variance Block Offset
-dissect.variance_block_offset = function(buffer, offset, packet, parent)
-  local length = size_of.variance_block_offset
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance_block_offset = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance_block_offset
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.variance_block_offset(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.variance_block_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.variance_block_offset, range, value, display)
 
@@ -2356,19 +2356,19 @@ dissect.variance_block_offset = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Offset
-size_of.leg_offset = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_offset = 1
 
 -- Display: Leg Offset
-display.leg_offset = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.leg_offset = function(value)
   return "Leg Offset: "..value
 end
 
 -- Dissect: Leg Offset
-dissect.leg_offset = function(buffer, offset, packet, parent)
-  local length = size_of.leg_offset
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_offset = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_offset
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leg_offset(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.leg_offset(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_offset, range, value, display)
 
@@ -2376,19 +2376,19 @@ dissect.leg_offset = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Count
-size_of.leg_count = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_count = 1
 
 -- Display: Leg Count
-display.leg_count = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.leg_count = function(value)
   return "Leg Count: "..value
 end
 
 -- Dissect: Leg Count
-dissect.leg_count = function(buffer, offset, packet, parent)
-  local length = size_of.leg_count
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_count = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leg_count(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.leg_count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.leg_count, range, value, display)
 
@@ -2396,19 +2396,19 @@ dissect.leg_count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Increment
-size_of.price_increment = 8
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.price_increment = 8
 
 -- Display: Price Increment
-display.price_increment = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.price_increment = function(value)
   return "Price Increment: "..value
 end
 
 -- Dissect: Price Increment
-dissect.price_increment = function(buffer, offset, packet, parent)
-  local length = size_of.price_increment
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.price_increment = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.price_increment
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.price_increment(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.price_increment(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.price_increment, range, value, display)
 
@@ -2416,10 +2416,10 @@ dissect.price_increment = function(buffer, offset, packet, parent)
 end
 
 -- Size: Listing State
-size_of.listing_state = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.listing_state = 1
 
 -- Display: Listing State
-display.listing_state = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.listing_state = function(value)
   if value == "A" then
     return "Listing State: Active (A)"
   end
@@ -2434,11 +2434,11 @@ display.listing_state = function(value)
 end
 
 -- Dissect: Listing State
-dissect.listing_state = function(buffer, offset, packet, parent)
-  local length = size_of.listing_state
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.listing_state = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.listing_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.listing_state(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.listing_state(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.listing_state, range, value, display)
 
@@ -2446,19 +2446,19 @@ dissect.listing_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Size
-size_of.contract_size = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.contract_size = 2
 
 -- Display: Contract Size
-display.contract_size = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.contract_size = function(value)
   return "Contract Size: "..value
 end
 
 -- Dissect: Contract Size
-dissect.contract_size = function(buffer, offset, packet, parent)
-  local length = size_of.contract_size
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.contract_size = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.contract_size
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contract_size(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.contract_size(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.contract_size, range, value, display)
 
@@ -2466,19 +2466,19 @@ dissect.contract_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiration Date
-size_of.expiration_date = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.expiration_date = 4
 
 -- Display: Expiration Date
-display.expiration_date = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.expiration_date = function(value)
   return "Expiration Date: "..value
 end
 
 -- Dissect: Expiration Date
-dissect.expiration_date = function(buffer, offset, packet, parent)
-  local length = size_of.expiration_date
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.expiration_date = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.expiration_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.expiration_date(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.expiration_date(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.expiration_date, range, value, display)
 
@@ -2486,10 +2486,10 @@ dissect.expiration_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Futures Flags
-size_of.futures_flags = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_flags = 1
 
 -- Display: Futures Flags
-display.futures_flags = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.futures_flags = function(value)
   if value == 0 then
     return "Futures Flags: Standard (0)"
   end
@@ -2501,11 +2501,11 @@ display.futures_flags = function(value)
 end
 
 -- Dissect: Futures Flags
-dissect.futures_flags = function(buffer, offset, packet, parent)
-  local length = size_of.futures_flags
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_flags = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_flags
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.futures_flags(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.futures_flags(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_flags, range, value, display)
 
@@ -2513,19 +2513,19 @@ dissect.futures_flags = function(buffer, offset, packet, parent)
 end
 
 -- Size: Report Symbol
-size_of.report_symbol = 6
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.report_symbol = 6
 
 -- Display: Report Symbol
-display.report_symbol = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.report_symbol = function(value)
   return "Report Symbol: "..value
 end
 
 -- Dissect: Report Symbol
-dissect.report_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.report_symbol
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.report_symbol = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.report_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.report_symbol(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.report_symbol(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.report_symbol, range, value, display)
 
@@ -2533,19 +2533,19 @@ dissect.report_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit Timestamp
-size_of.unit_timestamp = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_timestamp = 4
 
 -- Display: Unit Timestamp
-display.unit_timestamp = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.unit_timestamp = function(value)
   return "Unit Timestamp: "..value
 end
 
 -- Dissect: Unit Timestamp
-dissect.unit_timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.unit_timestamp
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_timestamp = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_timestamp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit_timestamp(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.unit_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.unit_timestamp, range, value, display)
 
@@ -2553,119 +2553,119 @@ dissect.unit_timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Futures Instrument Definition Message
-size_of.futures_instrument_definition_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_instrument_definition_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.symbol
 
-  index = index + size_of.unit_timestamp
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_timestamp
 
-  index = index + size_of.report_symbol
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.report_symbol
 
-  index = index + size_of.futures_flags
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_flags
 
-  index = index + size_of.expiration_date
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.expiration_date
 
-  index = index + size_of.contract_size
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.contract_size
 
-  index = index + size_of.listing_state
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.listing_state
 
-  index = index + size_of.price_increment
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.price_increment
 
-  index = index + size_of.leg_count
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_count
 
-  index = index + size_of.leg_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.leg_offset
 
-  index = index + size_of.variance_block_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.variance_block_offset
 
   -- Calculate runtime size of Future Block field
   local future_block_offset = offset + index
   local future_block_type = buffer(future_block_offset - 19, 1):le_uint()
-  index = index + size_of.future_block(buffer, future_block_offset, future_block_type)
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.future_block(buffer, future_block_offset, future_block_type)
 
   return index
 end
 
 -- Display: Futures Instrument Definition Message
-display.futures_instrument_definition_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.futures_instrument_definition_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Futures Instrument Definition Message
-dissect.futures_instrument_definition_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_instrument_definition_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Unit Timestamp: 4 Byte Unsigned Fixed Width Integer
-  index, unit_timestamp = dissect.unit_timestamp(buffer, index, packet, parent)
+  index, unit_timestamp = cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_timestamp(buffer, index, packet, parent)
 
   -- Report Symbol: 6 Byte Ascii String
-  index, report_symbol = dissect.report_symbol(buffer, index, packet, parent)
+  index, report_symbol = cboe_futures_depthofbook_pitch_v1_1_6_dissect.report_symbol(buffer, index, packet, parent)
 
   -- Futures Flags: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, futures_flags = dissect.futures_flags(buffer, index, packet, parent)
+  index, futures_flags = cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_flags(buffer, index, packet, parent)
 
   -- Expiration Date: 4 Byte Unsigned Fixed Width Integer
-  index, expiration_date = dissect.expiration_date(buffer, index, packet, parent)
+  index, expiration_date = cboe_futures_depthofbook_pitch_v1_1_6_dissect.expiration_date(buffer, index, packet, parent)
 
   -- Contract Size: 2 Byte Unsigned Fixed Width Integer
-  index, contract_size = dissect.contract_size(buffer, index, packet, parent)
+  index, contract_size = cboe_futures_depthofbook_pitch_v1_1_6_dissect.contract_size(buffer, index, packet, parent)
 
   -- Listing State: 1 Byte Ascii String Enum with 3 values
-  index, listing_state = dissect.listing_state(buffer, index, packet, parent)
+  index, listing_state = cboe_futures_depthofbook_pitch_v1_1_6_dissect.listing_state(buffer, index, packet, parent)
 
   -- Price Increment: 8 Byte Unsigned Fixed Width Integer
-  index, price_increment = dissect.price_increment(buffer, index, packet, parent)
+  index, price_increment = cboe_futures_depthofbook_pitch_v1_1_6_dissect.price_increment(buffer, index, packet, parent)
 
   -- Leg Count: 1 Byte Unsigned Fixed Width Integer
-  index, leg_count = dissect.leg_count(buffer, index, packet, parent)
+  index, leg_count = cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_count(buffer, index, packet, parent)
 
   -- Leg Offset: 1 Byte Unsigned Fixed Width Integer
-  index, leg_offset = dissect.leg_offset(buffer, index, packet, parent)
+  index, leg_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.leg_offset(buffer, index, packet, parent)
 
   -- Variance Block Offset: 1 Byte Unsigned Fixed Width Integer
-  index, variance_block_offset = dissect.variance_block_offset(buffer, index, packet, parent)
+  index, variance_block_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.variance_block_offset(buffer, index, packet, parent)
 
   -- Future Block: Runtime Type with 2 branches
-  index = dissect.future_block(buffer, index, packet, parent, futures_flags)
+  index = cboe_futures_depthofbook_pitch_v1_1_6_dissect.future_block(buffer, index, packet, parent, futures_flags)
 
   return index
 end
 
 -- Dissect: Futures Instrument Definition Message
-dissect.futures_instrument_definition_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_instrument_definition_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.futures_instrument_definition_message then
-    local length = size_of.futures_instrument_definition_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_instrument_definition_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.futures_instrument_definition_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.futures_instrument_definition_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.futures_instrument_definition_message, range, display)
   end
 
-  return dissect.futures_instrument_definition_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_instrument_definition_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Time
-size_of.time = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.time = 4
 
 -- Display: Time
-display.time = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.time = function(value)
   return "Time: "..value
 end
 
 -- Dissect: Time
-dissect.time = function(buffer, offset, packet, parent)
-  local length = size_of.time
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.time
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.time(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.time(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time, range, value, display)
 
@@ -2673,19 +2673,19 @@ dissect.time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Midnight Reference
-size_of.midnight_reference = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.midnight_reference = 4
 
 -- Display: Midnight Reference
-display.midnight_reference = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.midnight_reference = function(value)
   return "Midnight Reference: "..value
 end
 
 -- Dissect: Midnight Reference
-dissect.midnight_reference = function(buffer, offset, packet, parent)
-  local length = size_of.midnight_reference
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.midnight_reference = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.midnight_reference
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.midnight_reference(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.midnight_reference(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.midnight_reference, range, value, display)
 
@@ -2693,108 +2693,108 @@ dissect.midnight_reference = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Time Reference Message
-size_of.time_reference_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_reference_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.midnight_reference
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.midnight_reference
 
-  index = index + size_of.time
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
-  index = index + size_of.trade_date
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_date
 
   return index
 end
 
 -- Display: Time Reference Message
-display.time_reference_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.time_reference_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Time Reference Message
-dissect.time_reference_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_reference_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Midnight Reference: 4 Byte Unsigned Fixed Width Integer
-  index, midnight_reference = dissect.midnight_reference(buffer, index, packet, parent)
+  index, midnight_reference = cboe_futures_depthofbook_pitch_v1_1_6_dissect.midnight_reference(buffer, index, packet, parent)
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = dissect.time(buffer, index, packet, parent)
+  index, time = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time(buffer, index, packet, parent)
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_date(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Reference Message
-dissect.time_reference_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_reference_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_reference_message then
-    local length = size_of.time_reference_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_reference_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.time_reference_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.time_reference_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time_reference_message, range, display)
   end
 
-  return dissect.time_reference_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_reference_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unit Clear Message
-size_of.unit_clear_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_clear_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time_offset
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_offset
 
   return index
 end
 
 -- Display: Unit Clear Message
-display.unit_clear_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.unit_clear_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unit Clear Message
-dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_clear_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time Offset: 4 Byte Unsigned Fixed Width Integer
-  index, time_offset = dissect.time_offset(buffer, index, packet, parent)
+  index, time_offset = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unit Clear Message
-dissect.unit_clear_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_clear_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.unit_clear_message then
-    local length = size_of.unit_clear_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_clear_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unit_clear_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.unit_clear_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.unit_clear_message, range, display)
   end
 
-  return dissect.unit_clear_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_clear_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Epoch
-size_of.epoch = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.epoch = 4
 
 -- Display: Epoch
-display.epoch = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.epoch = function(value)
   return "Epoch: "..value
 end
 
 -- Dissect: Epoch
-dissect.epoch = function(buffer, offset, packet, parent)
-  local length = size_of.epoch
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.epoch = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.epoch
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.epoch(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.epoch(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.epoch, range, value, display)
 
@@ -2802,257 +2802,257 @@ dissect.epoch = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Time Message
-size_of.time_message = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.time
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.time
 
-  index = index + size_of.epoch
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.epoch
 
   return index
 end
 
 -- Display: Time Message
-display.time_message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.time_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Time Message
-dissect.time_message_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Time: 4 Byte Unsigned Fixed Width Integer
-  index, time = dissect.time(buffer, index, packet, parent)
+  index, time = cboe_futures_depthofbook_pitch_v1_1_6_dissect.time(buffer, index, packet, parent)
 
   -- Epoch: 4 Byte Unsigned Fixed Width Integer
-  index, epoch = dissect.epoch(buffer, index, packet, parent)
+  index, epoch = cboe_futures_depthofbook_pitch_v1_1_6_dissect.epoch(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Time Message
-dissect.time_message = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.time_message then
-    local length = size_of.time_message(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.time_message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.time_message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.time_message, range, display)
   end
 
-  return dissect.time_message_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.payload = function(buffer, offset, message_type)
   -- Size of Time Message
   if message_type == 0x20 then
-    return size_of.time_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_message(buffer, offset)
   end
   -- Size of Unit Clear Message
   if message_type == 0x97 then
-    return size_of.unit_clear_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit_clear_message(buffer, offset)
   end
   -- Size of Time Reference Message
   if message_type == 0xB1 then
-    return size_of.time_reference_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.time_reference_message(buffer, offset)
   end
   -- Size of Futures Instrument Definition Message
   if message_type == 0xBB then
-    return size_of.futures_instrument_definition_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.futures_instrument_definition_message(buffer, offset)
   end
   -- Size of Add Order Long Message
   if message_type == 0x21 then
-    return size_of.add_order_long_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_long_message(buffer, offset)
   end
   -- Size of Add Order Short Message
   if message_type == 0x22 then
-    return size_of.add_order_short_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.add_order_short_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == 0x23 then
-    return size_of.order_executed_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.order_executed_message(buffer, offset)
   end
   -- Size of Reduce Size Long Message
   if message_type == 0x25 then
-    return size_of.reduce_size_long_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_long_message(buffer, offset)
   end
   -- Size of Reduce Size Short Message
   if message_type == 0x26 then
-    return size_of.reduce_size_short_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.reduce_size_short_message(buffer, offset)
   end
   -- Size of Modify Order Long Message
   if message_type == 0x27 then
-    return size_of.modify_order_long_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_long_message(buffer, offset)
   end
   -- Size of Modify Order Short Message
   if message_type == 0x28 then
-    return size_of.modify_order_short_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.modify_order_short_message(buffer, offset)
   end
   -- Size of Delete Order Message
   if message_type == 0x29 then
-    return size_of.delete_order_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.delete_order_message(buffer, offset)
   end
   -- Size of Trade Long Message
   if message_type == 0x2A then
-    return size_of.trade_long_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_long_message(buffer, offset)
   end
   -- Size of Trade Short Message
   if message_type == 0x2B then
-    return size_of.trade_short_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_short_message(buffer, offset)
   end
   -- Size of Transaction Begin
   if message_type == 0xBC then
-    return size_of.transaction_begin(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_begin(buffer, offset)
   end
   -- Size of Transaction End
   if message_type == 0xBD then
-    return size_of.transaction_end(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.transaction_end(buffer, offset)
   end
   -- Size of Trade Break Message
   if message_type == 0x2C then
-    return size_of.trade_break_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.trade_break_message(buffer, offset)
   end
   -- Size of Settlement Message
   if message_type == 0xB9 then
-    return size_of.settlement_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.settlement_message(buffer, offset)
   end
   -- Size of End Of Day Summary Message
   if message_type == 0xBA then
-    return size_of.end_of_day_summary_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_day_summary_message(buffer, offset)
   end
   -- Size of Trading Status Message
   if message_type == 0x31 then
-    return size_of.trading_status_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.trading_status_message(buffer, offset)
   end
   -- Size of End Of Session Message
   if message_type == 0x2D then
-    return size_of.end_of_session_message(buffer, offset)
+    return cboe_futures_depthofbook_pitch_v1_1_6_size_of.end_of_session_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Time Message
   if message_type == 0x20 then
-    return dissect.time_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_message(buffer, offset, packet, parent)
   end
   -- Dissect Unit Clear Message
   if message_type == 0x97 then
-    return dissect.unit_clear_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit_clear_message(buffer, offset, packet, parent)
   end
   -- Dissect Time Reference Message
   if message_type == 0xB1 then
-    return dissect.time_reference_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.time_reference_message(buffer, offset, packet, parent)
   end
   -- Dissect Futures Instrument Definition Message
   if message_type == 0xBB then
-    return dissect.futures_instrument_definition_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.futures_instrument_definition_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Long Message
   if message_type == 0x21 then
-    return dissect.add_order_long_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Add Order Short Message
   if message_type == 0x22 then
-    return dissect.add_order_short_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.add_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == 0x23 then
-    return dissect.order_executed_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.order_executed_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Long Message
   if message_type == 0x25 then
-    return dissect.reduce_size_long_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Reduce Size Short Message
   if message_type == 0x26 then
-    return dissect.reduce_size_short_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.reduce_size_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Long Message
   if message_type == 0x27 then
-    return dissect.modify_order_long_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Modify Order Short Message
   if message_type == 0x28 then
-    return dissect.modify_order_short_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.modify_order_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Delete Order Message
   if message_type == 0x29 then
-    return dissect.delete_order_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.delete_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Long Message
   if message_type == 0x2A then
-    return dissect.trade_long_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_long_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Short Message
   if message_type == 0x2B then
-    return dissect.trade_short_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_short_message(buffer, offset, packet, parent)
   end
   -- Dissect Transaction Begin
   if message_type == 0xBC then
-    return dissect.transaction_begin(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_begin(buffer, offset, packet, parent)
   end
   -- Dissect Transaction End
   if message_type == 0xBD then
-    return dissect.transaction_end(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.transaction_end(buffer, offset, packet, parent)
   end
   -- Dissect Trade Break Message
   if message_type == 0x2C then
-    return dissect.trade_break_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trade_break_message(buffer, offset, packet, parent)
   end
   -- Dissect Settlement Message
   if message_type == 0xB9 then
-    return dissect.settlement_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.settlement_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Summary Message
   if message_type == 0xBA then
-    return dissect.end_of_day_summary_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_day_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Trading Status Message
   if message_type == 0x31 then
-    return dissect.trading_status_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.trading_status_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Session Message
   if message_type == 0x2D then
-    return dissect.end_of_session_message(buffer, offset, packet, parent)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.end_of_session_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return cboe_futures_depthofbook_pitch_v1_1_6_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = cboe_futures_depthofbook_pitch_v1_1_6_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.payload(buffer, packet, parent)
   local element = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.message_type = function(value)
   if value == 0x20 then
     return "Message Type: Time Message (0x20)"
   end
@@ -3121,11 +3121,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_type, range, value, display)
 
@@ -3133,19 +3133,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_length = 1
 
 -- Display: Message Length
-display.message_length = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_length, range, value, display)
 
@@ -3153,96 +3153,96 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_length
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_length
 
-  index = index + size_of.message_type
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Length: 1 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_length(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer Enum with 21 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message_header(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):le_uint()
 
   -- Payload: Runtime Type with 21 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = cboe_futures_depthofbook_pitch_v1_1_6_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.message(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  cboe_futures_depthofbook_pitch_v1_1_6_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Sequence
-size_of.sequence = 4
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.sequence = 4
 
 -- Display: Sequence
-display.sequence = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.sequence = function(value)
   return "Sequence: "..value
 end
 
 -- Dissect: Sequence
-dissect.sequence = function(buffer, offset, packet, parent)
-  local length = size_of.sequence
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.sequence = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.sequence
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.sequence(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.sequence, range, value, display)
 
@@ -3250,19 +3250,19 @@ dissect.sequence = function(buffer, offset, packet, parent)
 end
 
 -- Size: Unit
-size_of.unit = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit = 1
 
 -- Display: Unit
-display.unit = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.unit = function(value)
   return "Unit: "..value
 end
 
 -- Dissect: Unit
-dissect.unit = function(buffer, offset, packet, parent)
-  local length = size_of.unit
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.unit(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.unit(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.unit, range, value, display)
 
@@ -3270,19 +3270,19 @@ dissect.unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Count
-size_of.count = 1
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.count = 1
 
 -- Display: Count
-display.count = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.count = function(value)
   return "Count: "..value
 end
 
 -- Dissect: Count
-dissect.count = function(buffer, offset, packet, parent)
-  local length = size_of.count
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.count = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.count
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.count(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.count(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.count, range, value, display)
 
@@ -3290,19 +3290,19 @@ dissect.count = function(buffer, offset, packet, parent)
 end
 
 -- Size: Length
-size_of.length = 2
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.length = 2
 
 -- Display: Length
-display.length = function(value)
+cboe_futures_depthofbook_pitch_v1_1_6_display.length = function(value)
   return "Length: "..value
 end
 
 -- Dissect: Length
-dissect.length = function(buffer, offset, packet, parent)
-  local length = size_of.length
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.length = function(buffer, offset, packet, parent)
+  local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.length(value, buffer, offset, packet, parent)
+  local display = cboe_futures_depthofbook_pitch_v1_1_6_display.length(value, buffer, offset, packet, parent)
 
   parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.length, range, value, display)
 
@@ -3310,63 +3310,63 @@ dissect.length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+cboe_futures_depthofbook_pitch_v1_1_6_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.length
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.length
 
-  index = index + size_of.count
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.count
 
-  index = index + size_of.unit
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.unit
 
-  index = index + size_of.sequence
+  index = index + cboe_futures_depthofbook_pitch_v1_1_6_size_of.sequence
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Length: 2 Byte Unsigned Fixed Width Integer
-  index, length = dissect.length(buffer, index, packet, parent)
+  index, length = cboe_futures_depthofbook_pitch_v1_1_6_dissect.length(buffer, index, packet, parent)
 
   -- Count: 1 Byte Unsigned Fixed Width Integer
-  index, count = dissect.count(buffer, index, packet, parent)
+  index, count = cboe_futures_depthofbook_pitch_v1_1_6_dissect.count(buffer, index, packet, parent)
 
   -- Unit: 1 Byte Unsigned Fixed Width Integer
-  index, unit = dissect.unit(buffer, index, packet, parent)
+  index, unit = cboe_futures_depthofbook_pitch_v1_1_6_dissect.unit(buffer, index, packet, parent)
 
   -- Sequence: 4 Byte Unsigned Fixed Width Integer
-  index, sequence = dissect.sequence(buffer, index, packet, parent)
+  index, sequence = cboe_futures_depthofbook_pitch_v1_1_6_dissect.sequence(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = cboe_futures_depthofbook_pitch_v1_1_6_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = cboe_futures_depthofbook_pitch_v1_1_6_display.packet_header(buffer, packet, parent)
     parent = parent:add(cboe_futures_depthofbook_pitch_v1_1_6.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 4 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -3378,7 +3378,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_length = buffer(index, 1):le_uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_length)
+    index = cboe_futures_depthofbook_pitch_v1_1_6_dissect.message(buffer, index, packet, parent, message_length)
   end
 
   return index
@@ -3401,7 +3401,7 @@ function cboe_futures_depthofbook_pitch_v1_1_6.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(cboe_futures_depthofbook_pitch_v1_1_6, buffer(), cboe_futures_depthofbook_pitch_v1_1_6.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return cboe_futures_depthofbook_pitch_v1_1_6_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

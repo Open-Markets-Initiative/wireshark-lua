@@ -10,9 +10,9 @@ local euronext_optiq_marketdatagateway_sbe_v3_0 = Proto("Euronext.Optiq.MarketDa
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local euronext_optiq_marketdatagateway_sbe_v3_0_display = {}
+local euronext_optiq_marketdatagateway_sbe_v3_0_dissect = {}
+local euronext_optiq_marketdatagateway_sbe_v3_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -771,19 +771,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Snapshot Time
-size_of.snapshot_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.snapshot_time = 8
 
 -- Display: Snapshot Time
-display.snapshot_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.snapshot_time = function(value)
   return "Snapshot Time: "..value
 end
 
 -- Dissect: Snapshot Time
-dissect.snapshot_time = function(buffer, offset, packet, parent)
-  local length = size_of.snapshot_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.snapshot_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.snapshot_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.snapshot_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.snapshot_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.snapshot_time, range, value, display)
 
@@ -791,10 +791,10 @@ dissect.snapshot_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Md Seq Num
-size_of.last_md_seq_num = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_md_seq_num = 8
 
 -- Display: Last Md Seq Num
-display.last_md_seq_num = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.last_md_seq_num = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Last Md Seq Num: No Value"
@@ -804,11 +804,11 @@ display.last_md_seq_num = function(value)
 end
 
 -- Dissect: Last Md Seq Num
-dissect.last_md_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.last_md_seq_num
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_md_seq_num = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_md_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.last_md_seq_num(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.last_md_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.last_md_seq_num, range, value, display)
 
@@ -816,94 +816,94 @@ dissect.last_md_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Snapshot Message
-size_of.end_of_snapshot_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_snapshot_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.last_md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_md_seq_num
 
-  index = index + size_of.snapshot_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.snapshot_time
 
   return index
 end
 
 -- Display: End Of Snapshot Message
-display.end_of_snapshot_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.end_of_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Snapshot Message
-dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_snapshot_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_md_seq_num = dissect.last_md_seq_num(buffer, index, packet, parent)
+  index, last_md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_md_seq_num(buffer, index, packet, parent)
 
   -- Snapshot Time: 8 Byte Unsigned Fixed Width Integer
-  index, snapshot_time = dissect.snapshot_time(buffer, index, packet, parent)
+  index, snapshot_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.snapshot_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Snapshot Message
-dissect.end_of_snapshot_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_snapshot_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_snapshot_message then
-    local length = size_of.end_of_snapshot_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_snapshot_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.end_of_snapshot_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.end_of_snapshot_message, range, display)
   end
 
-  return dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_snapshot_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Start Of Snapshot Message
-size_of.start_of_snapshot_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_snapshot_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.last_md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_md_seq_num
 
-  index = index + size_of.snapshot_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.snapshot_time
 
   return index
 end
 
 -- Display: Start Of Snapshot Message
-display.start_of_snapshot_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.start_of_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Snapshot Message
-dissect.start_of_snapshot_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_snapshot_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Last Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, last_md_seq_num = dissect.last_md_seq_num(buffer, index, packet, parent)
+  index, last_md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_md_seq_num(buffer, index, packet, parent)
 
   -- Snapshot Time: 8 Byte Unsigned Fixed Width Integer
-  index, snapshot_time = dissect.snapshot_time(buffer, index, packet, parent)
+  index, snapshot_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.snapshot_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Snapshot Message
-dissect.start_of_snapshot_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_snapshot_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_snapshot_message then
-    local length = size_of.start_of_snapshot_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_snapshot_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.start_of_snapshot_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.start_of_snapshot_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.start_of_snapshot_message, range, display)
   end
 
-  return dissect.start_of_snapshot_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_snapshot_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Mi Fid Emission Allowance Type
-size_of.mi_fid_emission_allowance_type = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_emission_allowance_type = 4
 
 -- Display: Mi Fid Emission Allowance Type
-display.mi_fid_emission_allowance_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_emission_allowance_type = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mi Fid Emission Allowance Type: No Value"
@@ -913,8 +913,8 @@ display.mi_fid_emission_allowance_type = function(value)
 end
 
 -- Dissect: Mi Fid Emission Allowance Type
-dissect.mi_fid_emission_allowance_type = function(buffer, offset, packet, parent)
-  local length = size_of.mi_fid_emission_allowance_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_emission_allowance_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_emission_allowance_type
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -928,7 +928,7 @@ dissect.mi_fid_emission_allowance_type = function(buffer, offset, packet, parent
     value = range:string()
   end
 
-  local display = display.mi_fid_emission_allowance_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_emission_allowance_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mi_fid_emission_allowance_type, range, value, display)
 
@@ -936,10 +936,10 @@ dissect.mi_fid_emission_allowance_type = function(buffer, offset, packet, parent
 end
 
 -- Size: Venue
-size_of.venue = 11
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.venue = 11
 
 -- Display: Venue
-display.venue = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.venue = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Venue: No Value"
@@ -949,8 +949,8 @@ display.venue = function(value)
 end
 
 -- Dissect: Venue
-dissect.venue = function(buffer, offset, packet, parent)
-  local length = size_of.venue
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.venue = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.venue
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -964,7 +964,7 @@ dissect.venue = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.venue(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.venue(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.venue, range, value, display)
 
@@ -972,10 +972,10 @@ dissect.venue = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Multiplier Decimals
-size_of.price_multiplier_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier_decimals = 1
 
 -- Display: Price Multiplier Decimals
-display.price_multiplier_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_multiplier_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Price Multiplier Decimals: No Value"
@@ -985,11 +985,11 @@ display.price_multiplier_decimals = function(value)
 end
 
 -- Dissect: Price Multiplier Decimals
-dissect.price_multiplier_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.price_multiplier_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_multiplier_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_multiplier_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_multiplier_decimals, range, value, display)
 
@@ -997,10 +997,10 @@ dissect.price_multiplier_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Multiplier
-size_of.price_multiplier = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier = 4
 
 -- Display: Price Multiplier
-display.price_multiplier = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_multiplier = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Price Multiplier: No Value"
@@ -1010,11 +1010,11 @@ display.price_multiplier = function(value)
 end
 
 -- Dissect: Price Multiplier
-dissect.price_multiplier = function(buffer, offset, packet, parent)
-  local length = size_of.price_multiplier
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_multiplier(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_multiplier, range, value, display)
 
@@ -1022,10 +1022,10 @@ dissect.price_multiplier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Original Report Timestamp
-size_of.original_report_timestamp = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.original_report_timestamp = 8
 
 -- Display: Original Report Timestamp
-display.original_report_timestamp = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.original_report_timestamp = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Original Report Timestamp: No Value"
@@ -1035,11 +1035,11 @@ display.original_report_timestamp = function(value)
 end
 
 -- Dissect: Original Report Timestamp
-dissect.original_report_timestamp = function(buffer, offset, packet, parent)
-  local length = size_of.original_report_timestamp
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.original_report_timestamp = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.original_report_timestamp
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.original_report_timestamp(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.original_report_timestamp(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.original_report_timestamp, range, value, display)
 
@@ -1047,10 +1047,10 @@ dissect.original_report_timestamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Reference
-size_of.trade_reference = 30
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_reference = 30
 
 -- Display: Trade Reference
-display.trade_reference = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_reference = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Trade Reference: No Value"
@@ -1060,8 +1060,8 @@ display.trade_reference = function(value)
 end
 
 -- Dissect: Trade Reference
-dissect.trade_reference = function(buffer, offset, packet, parent)
-  local length = size_of.trade_reference
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_reference = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_reference
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1075,7 +1075,7 @@ dissect.trade_reference = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.trade_reference(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_reference(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trade_reference, range, value, display)
 
@@ -1083,10 +1083,10 @@ dissect.trade_reference = function(buffer, offset, packet, parent)
 end
 
 -- Size: Efficient Mmt Duplicative Indicator
-size_of.efficient_mmt_duplicative_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_duplicative_indicator = 1
 
 -- Display: Efficient Mmt Duplicative Indicator
-display.efficient_mmt_duplicative_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_duplicative_indicator = function(value)
   if value == "1" then
     return "Efficient Mmt Duplicative Indicator: Dupl (1)"
   end
@@ -1101,8 +1101,8 @@ display.efficient_mmt_duplicative_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Duplicative Indicator
-dissect.efficient_mmt_duplicative_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_duplicative_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_duplicative_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_duplicative_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1115,7 +1115,7 @@ dissect.efficient_mmt_duplicative_indicator = function(buffer, offset, packet, p
     value = range:string()
   end
 
-  local display = display.efficient_mmt_duplicative_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_duplicative_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_duplicative_indicator, range, value, display)
 
@@ -1123,10 +1123,10 @@ dissect.efficient_mmt_duplicative_indicator = function(buffer, offset, packet, p
 end
 
 -- Size: Efficient Mmt Post Trade Deferral
-size_of.efficient_mmt_post_trade_deferral = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_post_trade_deferral = 1
 
 -- Display: Efficient Mmt Post Trade Deferral
-display.efficient_mmt_post_trade_deferral = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_post_trade_deferral = function(value)
   if value == "1" then
     return "Efficient Mmt Post Trade Deferral: Lmtf (1)"
   end
@@ -1171,8 +1171,8 @@ display.efficient_mmt_post_trade_deferral = function(value)
 end
 
 -- Dissect: Efficient Mmt Post Trade Deferral
-dissect.efficient_mmt_post_trade_deferral = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_post_trade_deferral
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_post_trade_deferral = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_post_trade_deferral
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1185,7 +1185,7 @@ dissect.efficient_mmt_post_trade_deferral = function(buffer, offset, packet, par
     value = range:string()
   end
 
-  local display = display.efficient_mmt_post_trade_deferral(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_post_trade_deferral(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_post_trade_deferral, range, value, display)
 
@@ -1193,10 +1193,10 @@ dissect.efficient_mmt_post_trade_deferral = function(buffer, offset, packet, par
 end
 
 -- Size: Efficient Mmt Publication Mode
-size_of.efficient_mmt_publication_mode = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_publication_mode = 1
 
 -- Display: Efficient Mmt Publication Mode
-display.efficient_mmt_publication_mode = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_publication_mode = function(value)
   if value == "1" then
     return "Efficient Mmt Publication Mode: Non Immediate Publication (1)"
   end
@@ -1226,8 +1226,8 @@ display.efficient_mmt_publication_mode = function(value)
 end
 
 -- Dissect: Efficient Mmt Publication Mode
-dissect.efficient_mmt_publication_mode = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_publication_mode
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_publication_mode = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_publication_mode
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1240,7 +1240,7 @@ dissect.efficient_mmt_publication_mode = function(buffer, offset, packet, parent
     value = range:string()
   end
 
-  local display = display.efficient_mmt_publication_mode(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_publication_mode(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_publication_mode, range, value, display)
 
@@ -1248,10 +1248,10 @@ dissect.efficient_mmt_publication_mode = function(buffer, offset, packet, parent
 end
 
 -- Size: Efficient Mmt Algorithmic Indicator
-size_of.efficient_mmt_algorithmic_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_algorithmic_indicator = 1
 
 -- Display: Efficient Mmt Algorithmic Indicator
-display.efficient_mmt_algorithmic_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_algorithmic_indicator = function(value)
   if value == "H" then
     return "Efficient Mmt Algorithmic Indicator: Algo (H)"
   end
@@ -1266,8 +1266,8 @@ display.efficient_mmt_algorithmic_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Algorithmic Indicator
-dissect.efficient_mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_algorithmic_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_algorithmic_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1280,7 +1280,7 @@ dissect.efficient_mmt_algorithmic_indicator = function(buffer, offset, packet, p
     value = range:string()
   end
 
-  local display = display.efficient_mmt_algorithmic_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_algorithmic_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_algorithmic_indicator, range, value, display)
 
@@ -1288,10 +1288,10 @@ dissect.efficient_mmt_algorithmic_indicator = function(buffer, offset, packet, p
 end
 
 -- Size: Efficient Mmt Contributionto Price
-size_of.efficient_mmt_contributionto_price = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_contributionto_price = 1
 
 -- Display: Efficient Mmt Contributionto Price
-display.efficient_mmt_contributionto_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_contributionto_price = function(value)
   if value == "J" then
     return "Efficient Mmt Contributionto Price: Tncp (J)"
   end
@@ -1312,8 +1312,8 @@ display.efficient_mmt_contributionto_price = function(value)
 end
 
 -- Dissect: Efficient Mmt Contributionto Price
-dissect.efficient_mmt_contributionto_price = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_contributionto_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_contributionto_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_contributionto_price
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1326,7 +1326,7 @@ dissect.efficient_mmt_contributionto_price = function(buffer, offset, packet, pa
     value = range:string()
   end
 
-  local display = display.efficient_mmt_contributionto_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_contributionto_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_contributionto_price, range, value, display)
 
@@ -1334,10 +1334,10 @@ dissect.efficient_mmt_contributionto_price = function(buffer, offset, packet, pa
 end
 
 -- Size: Efficient Mmt Off Book Automated Indicator
-size_of.efficient_mmt_off_book_automated_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_off_book_automated_indicator = 1
 
 -- Display: Efficient Mmt Off Book Automated Indicator
-display.efficient_mmt_off_book_automated_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_off_book_automated_indicator = function(value)
   if value == "M" then
     return "Efficient Mmt Off Book Automated Indicator: Off Book Non Automated (M)"
   end
@@ -1355,8 +1355,8 @@ display.efficient_mmt_off_book_automated_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Off Book Automated Indicator
-dissect.efficient_mmt_off_book_automated_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_off_book_automated_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_off_book_automated_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_off_book_automated_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1369,7 +1369,7 @@ dissect.efficient_mmt_off_book_automated_indicator = function(buffer, offset, pa
     value = range:string()
   end
 
-  local display = display.efficient_mmt_off_book_automated_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_off_book_automated_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_off_book_automated_indicator, range, value, display)
 
@@ -1377,10 +1377,10 @@ dissect.efficient_mmt_off_book_automated_indicator = function(buffer, offset, pa
 end
 
 -- Size: Efficient Mmt Special Dividend Indicator
-size_of.efficient_mmt_special_dividend_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_special_dividend_indicator = 1
 
 -- Display: Efficient Mmt Special Dividend Indicator
-display.efficient_mmt_special_dividend_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_special_dividend_indicator = function(value)
   if value == "E" then
     return "Efficient Mmt Special Dividend Indicator: Sdiv (E)"
   end
@@ -1395,8 +1395,8 @@ display.efficient_mmt_special_dividend_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Special Dividend Indicator
-dissect.efficient_mmt_special_dividend_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_special_dividend_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_special_dividend_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_special_dividend_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1409,7 +1409,7 @@ dissect.efficient_mmt_special_dividend_indicator = function(buffer, offset, pack
     value = range:string()
   end
 
-  local display = display.efficient_mmt_special_dividend_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_special_dividend_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_special_dividend_indicator, range, value, display)
 
@@ -1417,10 +1417,10 @@ dissect.efficient_mmt_special_dividend_indicator = function(buffer, offset, pack
 end
 
 -- Size: Efficient Mmt Benchmark Indicator
-size_of.efficient_mmt_benchmark_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_benchmark_indicator = 1
 
 -- Display: Efficient Mmt Benchmark Indicator
-display.efficient_mmt_benchmark_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_benchmark_indicator = function(value)
   if value == "B" then
     return "Efficient Mmt Benchmark Indicator: Benc (B)"
   end
@@ -1438,8 +1438,8 @@ display.efficient_mmt_benchmark_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Benchmark Indicator
-dissect.efficient_mmt_benchmark_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_benchmark_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_benchmark_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_benchmark_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1452,7 +1452,7 @@ dissect.efficient_mmt_benchmark_indicator = function(buffer, offset, packet, par
     value = range:string()
   end
 
-  local display = display.efficient_mmt_benchmark_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_benchmark_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_benchmark_indicator, range, value, display)
 
@@ -1460,10 +1460,10 @@ dissect.efficient_mmt_benchmark_indicator = function(buffer, offset, packet, par
 end
 
 -- Size: Efficient Mmt Modification Indicator
-size_of.efficient_mmt_modification_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_modification_indicator = 1
 
 -- Display: Efficient Mmt Modification Indicator
-display.efficient_mmt_modification_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_modification_indicator = function(value)
   if value == "A" then
     return "Efficient Mmt Modification Indicator: Amnd (A)"
   end
@@ -1481,8 +1481,8 @@ display.efficient_mmt_modification_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Modification Indicator
-dissect.efficient_mmt_modification_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_modification_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_modification_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_modification_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1495,7 +1495,7 @@ dissect.efficient_mmt_modification_indicator = function(buffer, offset, packet, 
     value = range:string()
   end
 
-  local display = display.efficient_mmt_modification_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_modification_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_modification_indicator, range, value, display)
 
@@ -1503,10 +1503,10 @@ dissect.efficient_mmt_modification_indicator = function(buffer, offset, packet, 
 end
 
 -- Size: Efficient Mmt Agency Cross Trade Indicator
-size_of.efficient_mmt_agency_cross_trade_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_agency_cross_trade_indicator = 1
 
 -- Display: Efficient Mmt Agency Cross Trade Indicator
-display.efficient_mmt_agency_cross_trade_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_agency_cross_trade_indicator = function(value)
   if value == "X" then
     return "Efficient Mmt Agency Cross Trade Indicator: Actx (X)"
   end
@@ -1521,8 +1521,8 @@ display.efficient_mmt_agency_cross_trade_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Agency Cross Trade Indicator
-dissect.efficient_mmt_agency_cross_trade_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_agency_cross_trade_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_agency_cross_trade_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_agency_cross_trade_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1535,7 +1535,7 @@ dissect.efficient_mmt_agency_cross_trade_indicator = function(buffer, offset, pa
     value = range:string()
   end
 
-  local display = display.efficient_mmt_agency_cross_trade_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_agency_cross_trade_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_agency_cross_trade_indicator, range, value, display)
 
@@ -1543,10 +1543,10 @@ dissect.efficient_mmt_agency_cross_trade_indicator = function(buffer, offset, pa
 end
 
 -- Size: Efficient Mmt Negotiation Indicator
-size_of.efficient_mmt_negotiation_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_negotiation_indicator = 1
 
 -- Display: Efficient Mmt Negotiation Indicator
-display.efficient_mmt_negotiation_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_negotiation_indicator = function(value)
   if value == "1" then
     return "Efficient Mmt Negotiation Indicator: Nliq (1)"
   end
@@ -1579,8 +1579,8 @@ display.efficient_mmt_negotiation_indicator = function(value)
 end
 
 -- Dissect: Efficient Mmt Negotiation Indicator
-dissect.efficient_mmt_negotiation_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_negotiation_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_negotiation_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_negotiation_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1593,7 +1593,7 @@ dissect.efficient_mmt_negotiation_indicator = function(buffer, offset, packet, p
     value = range:string()
   end
 
-  local display = display.efficient_mmt_negotiation_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_negotiation_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_negotiation_indicator, range, value, display)
 
@@ -1601,10 +1601,10 @@ dissect.efficient_mmt_negotiation_indicator = function(buffer, offset, packet, p
 end
 
 -- Size: Efficient Mmt Transaction Category
-size_of.efficient_mmt_transaction_category = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_transaction_category = 1
 
 -- Display: Efficient Mmt Transaction Category
-display.efficient_mmt_transaction_category = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_transaction_category = function(value)
   if value == "D" then
     return "Efficient Mmt Transaction Category: Dark Trade (D)"
   end
@@ -1628,8 +1628,8 @@ display.efficient_mmt_transaction_category = function(value)
 end
 
 -- Dissect: Efficient Mmt Transaction Category
-dissect.efficient_mmt_transaction_category = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_transaction_category
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_transaction_category = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_transaction_category
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1642,7 +1642,7 @@ dissect.efficient_mmt_transaction_category = function(buffer, offset, packet, pa
     value = range:string()
   end
 
-  local display = display.efficient_mmt_transaction_category(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_transaction_category(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_transaction_category, range, value, display)
 
@@ -1650,10 +1650,10 @@ dissect.efficient_mmt_transaction_category = function(buffer, offset, packet, pa
 end
 
 -- Size: Efficient Mmt Trading Mode
-size_of.efficient_mmt_trading_mode = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_trading_mode = 1
 
 -- Display: Efficient Mmt Trading Mode
-display.efficient_mmt_trading_mode = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_trading_mode = function(value)
   if value == "1" then
     return "Efficient Mmt Trading Mode: Undefined Auctionequal Uncrossing (1)"
   end
@@ -1695,8 +1695,8 @@ display.efficient_mmt_trading_mode = function(value)
 end
 
 -- Dissect: Efficient Mmt Trading Mode
-dissect.efficient_mmt_trading_mode = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_trading_mode
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_trading_mode = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_trading_mode
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -1709,7 +1709,7 @@ dissect.efficient_mmt_trading_mode = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.efficient_mmt_trading_mode(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_trading_mode(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_trading_mode, range, value, display)
 
@@ -1717,10 +1717,10 @@ dissect.efficient_mmt_trading_mode = function(buffer, offset, packet, parent)
 end
 
 -- Size: Efficient Mmt Market Mechanism
-size_of.efficient_mmt_market_mechanism = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_market_mechanism = 1
 
 -- Display: Efficient Mmt Market Mechanism
-display.efficient_mmt_market_mechanism = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_market_mechanism = function(value)
   if value == 1 then
     return "Efficient Mmt Market Mechanism: Central Limit Order Book (1)"
   end
@@ -1750,11 +1750,11 @@ display.efficient_mmt_market_mechanism = function(value)
 end
 
 -- Dissect: Efficient Mmt Market Mechanism
-dissect.efficient_mmt_market_mechanism = function(buffer, offset, packet, parent)
-  local length = size_of.efficient_mmt_market_mechanism
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_market_mechanism = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_market_mechanism
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.efficient_mmt_market_mechanism(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.efficient_mmt_market_mechanism(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.efficient_mmt_market_mechanism, range, value, display)
 
@@ -1762,10 +1762,10 @@ dissect.efficient_mmt_market_mechanism = function(buffer, offset, packet, parent
 end
 
 -- Size: Mi Fid Clearing Flag
-size_of.mi_fid_clearing_flag = 5
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_clearing_flag = 5
 
 -- Display: Mi Fid Clearing Flag
-display.mi_fid_clearing_flag = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_clearing_flag = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mi Fid Clearing Flag: No Value"
@@ -1775,8 +1775,8 @@ display.mi_fid_clearing_flag = function(value)
 end
 
 -- Dissect: Mi Fid Clearing Flag
-dissect.mi_fid_clearing_flag = function(buffer, offset, packet, parent)
-  local length = size_of.mi_fid_clearing_flag
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_clearing_flag = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_clearing_flag
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1790,7 +1790,7 @@ dissect.mi_fid_clearing_flag = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mi_fid_clearing_flag(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_clearing_flag(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mi_fid_clearing_flag, range, value, display)
 
@@ -1798,10 +1798,10 @@ dissect.mi_fid_clearing_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Notional Currency
-size_of.notional_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.notional_currency = 3
 
 -- Display: Notional Currency
-display.notional_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.notional_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Notional Currency: No Value"
@@ -1811,8 +1811,8 @@ display.notional_currency = function(value)
 end
 
 -- Dissect: Notional Currency
-dissect.notional_currency = function(buffer, offset, packet, parent)
-  local length = size_of.notional_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.notional_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.notional_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1826,7 +1826,7 @@ dissect.notional_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.notional_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.notional_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.notional_currency, range, value, display)
 
@@ -1834,10 +1834,10 @@ dissect.notional_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mi Fid Notional Amount
-size_of.mi_fid_notional_amount = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_notional_amount = 20
 
 -- Display: Mi Fid Notional Amount
-display.mi_fid_notional_amount = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_notional_amount = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mi Fid Notional Amount: No Value"
@@ -1847,8 +1847,8 @@ display.mi_fid_notional_amount = function(value)
 end
 
 -- Dissect: Mi Fid Notional Amount
-dissect.mi_fid_notional_amount = function(buffer, offset, packet, parent)
-  local length = size_of.mi_fid_notional_amount
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_notional_amount = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_notional_amount
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1862,7 +1862,7 @@ dissect.mi_fid_notional_amount = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mi_fid_notional_amount(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_notional_amount(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mi_fid_notional_amount, range, value, display)
 
@@ -1870,10 +1870,10 @@ dissect.mi_fid_notional_amount = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Quantity Measurement Unit
-size_of.mifid_quantity_measurement_unit = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity_measurement_unit = 20
 
 -- Display: Mifid Quantity Measurement Unit
-display.mifid_quantity_measurement_unit = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_quantity_measurement_unit = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Quantity Measurement Unit: No Value"
@@ -1883,8 +1883,8 @@ display.mifid_quantity_measurement_unit = function(value)
 end
 
 -- Dissect: Mifid Quantity Measurement Unit
-dissect.mifid_quantity_measurement_unit = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_quantity_measurement_unit
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity_measurement_unit = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity_measurement_unit
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1898,7 +1898,7 @@ dissect.mifid_quantity_measurement_unit = function(buffer, offset, packet, paren
     value = range:string()
   end
 
-  local display = display.mifid_quantity_measurement_unit(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_quantity_measurement_unit(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_quantity_measurement_unit, range, value, display)
 
@@ -1906,10 +1906,10 @@ dissect.mifid_quantity_measurement_unit = function(buffer, offset, packet, paren
 end
 
 -- Size: Mi Fid Qtyin Msrmt Unit Notation
-size_of.mi_fid_qtyin_msrmt_unit_notation = 25
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_qtyin_msrmt_unit_notation = 25
 
 -- Display: Mi Fid Qtyin Msrmt Unit Notation
-display.mi_fid_qtyin_msrmt_unit_notation = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_qtyin_msrmt_unit_notation = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mi Fid Qtyin Msrmt Unit Notation: No Value"
@@ -1919,8 +1919,8 @@ display.mi_fid_qtyin_msrmt_unit_notation = function(value)
 end
 
 -- Dissect: Mi Fid Qtyin Msrmt Unit Notation
-dissect.mi_fid_qtyin_msrmt_unit_notation = function(buffer, offset, packet, parent)
-  local length = size_of.mi_fid_qtyin_msrmt_unit_notation
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_qtyin_msrmt_unit_notation = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_qtyin_msrmt_unit_notation
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1934,7 +1934,7 @@ dissect.mi_fid_qtyin_msrmt_unit_notation = function(buffer, offset, packet, pare
     value = range:string()
   end
 
-  local display = display.mi_fid_qtyin_msrmt_unit_notation(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_qtyin_msrmt_unit_notation(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mi_fid_qtyin_msrmt_unit_notation, range, value, display)
 
@@ -1942,10 +1942,10 @@ dissect.mi_fid_qtyin_msrmt_unit_notation = function(buffer, offset, packet, pare
 end
 
 -- Size: Mifid Currency
-size_of.mifid_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_currency = 3
 
 -- Display: Mifid Currency
-display.mifid_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Currency: No Value"
@@ -1955,8 +1955,8 @@ display.mifid_currency = function(value)
 end
 
 -- Dissect: Mifid Currency
-dissect.mifid_currency = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1970,7 +1970,7 @@ dissect.mifid_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_currency, range, value, display)
 
@@ -1978,10 +1978,10 @@ dissect.mifid_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Price Notation
-size_of.mifid_price_notation = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price_notation = 4
 
 -- Display: Mifid Price Notation
-display.mifid_price_notation = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_price_notation = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Price Notation: No Value"
@@ -1991,8 +1991,8 @@ display.mifid_price_notation = function(value)
 end
 
 -- Dissect: Mifid Price Notation
-dissect.mifid_price_notation = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_price_notation
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price_notation = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price_notation
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2006,7 +2006,7 @@ dissect.mifid_price_notation = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_price_notation(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_price_notation(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_price_notation, range, value, display)
 
@@ -2014,10 +2014,10 @@ dissect.mifid_price_notation = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Quantity
-size_of.mifid_quantity = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity = 20
 
 -- Display: Mifid Quantity
-display.mifid_quantity = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_quantity = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Quantity: No Value"
@@ -2027,8 +2027,8 @@ display.mifid_quantity = function(value)
 end
 
 -- Dissect: Mifid Quantity
-dissect.mifid_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_quantity
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2042,7 +2042,7 @@ dissect.mifid_quantity = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_quantity(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_quantity(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_quantity, range, value, display)
 
@@ -2050,10 +2050,10 @@ dissect.mifid_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Price
-size_of.mifid_price = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price = 20
 
 -- Display: Mifid Price
-display.mifid_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_price = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Price: No Value"
@@ -2063,8 +2063,8 @@ display.mifid_price = function(value)
 end
 
 -- Dissect: Mifid Price
-dissect.mifid_price = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2078,7 +2078,7 @@ dissect.mifid_price = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_price, range, value, display)
 
@@ -2086,10 +2086,10 @@ dissect.mifid_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mi Fid Transaction Id
-size_of.mi_fid_transaction_id = 52
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_transaction_id = 52
 
 -- Display: Mi Fid Transaction Id
-display.mi_fid_transaction_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_transaction_id = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mi Fid Transaction Id: No Value"
@@ -2099,8 +2099,8 @@ display.mi_fid_transaction_id = function(value)
 end
 
 -- Dissect: Mi Fid Transaction Id
-dissect.mi_fid_transaction_id = function(buffer, offset, packet, parent)
-  local length = size_of.mi_fid_transaction_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_transaction_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_transaction_id
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2114,7 +2114,7 @@ dissect.mi_fid_transaction_id = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mi_fid_transaction_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mi_fid_transaction_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mi_fid_transaction_id, range, value, display)
 
@@ -2122,10 +2122,10 @@ dissect.mi_fid_transaction_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Instrument Id
-size_of.mifid_instrument_id = 12
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id = 12
 
 -- Display: Mifid Instrument Id
-display.mifid_instrument_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_instrument_id = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Instrument Id: No Value"
@@ -2135,8 +2135,8 @@ display.mifid_instrument_id = function(value)
 end
 
 -- Dissect: Mifid Instrument Id
-dissect.mifid_instrument_id = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_instrument_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2150,7 +2150,7 @@ dissect.mifid_instrument_id = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_instrument_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_instrument_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_instrument_id, range, value, display)
 
@@ -2158,10 +2158,10 @@ dissect.mifid_instrument_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Instrument Id Type
-size_of.mifid_instrument_id_type = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type = 4
 
 -- Display: Mifid Instrument Id Type
-display.mifid_instrument_id_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_instrument_id_type = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Instrument Id Type: No Value"
@@ -2171,8 +2171,8 @@ display.mifid_instrument_id_type = function(value)
 end
 
 -- Dissect: Mifid Instrument Id Type
-dissect.mifid_instrument_id_type = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_instrument_id_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2186,7 +2186,7 @@ dissect.mifid_instrument_id_type = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_instrument_id_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_instrument_id_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_instrument_id_type, range, value, display)
 
@@ -2194,10 +2194,10 @@ dissect.mifid_instrument_id_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Type
-size_of.trade_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_type = 1
 
 -- Display: Trade Type
-display.trade_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_type = function(value)
   if value == 1 then
     return "Trade Type: Conventional Trade (1)"
   end
@@ -2332,11 +2332,11 @@ display.trade_type = function(value)
 end
 
 -- Dissect: Trade Type
-dissect.trade_type = function(buffer, offset, packet, parent)
-  local length = size_of.trade_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trade_type, range, value, display)
 
@@ -2344,10 +2344,10 @@ dissect.trade_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Publication Date Time
-size_of.publication_date_time = 27
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.publication_date_time = 27
 
 -- Display: Publication Date Time
-display.publication_date_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.publication_date_time = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Publication Date Time: No Value"
@@ -2357,8 +2357,8 @@ display.publication_date_time = function(value)
 end
 
 -- Dissect: Publication Date Time
-dissect.publication_date_time = function(buffer, offset, packet, parent)
-  local length = size_of.publication_date_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.publication_date_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.publication_date_time
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2372,7 +2372,7 @@ dissect.publication_date_time = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.publication_date_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.publication_date_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.publication_date_time, range, value, display)
 
@@ -2380,10 +2380,10 @@ dissect.publication_date_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Date Time
-size_of.trading_date_time = 27
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_date_time = 27
 
 -- Display: Trading Date Time
-display.trading_date_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_date_time = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Trading Date Time: No Value"
@@ -2393,8 +2393,8 @@ display.trading_date_time = function(value)
 end
 
 -- Dissect: Trading Date Time
-dissect.trading_date_time = function(buffer, offset, packet, parent)
-  local length = size_of.trading_date_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_date_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_date_time
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2408,7 +2408,7 @@ dissect.trading_date_time = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.trading_date_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_date_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_date_time, range, value, display)
 
@@ -2416,19 +2416,19 @@ dissect.trading_date_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Event Time
-size_of.event_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time = 8
 
 -- Display: Event Time
-display.event_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.event_time = function(value)
   return "Event Time: "..value
 end
 
 -- Dissect: Event Time
-dissect.event_time = function(buffer, offset, packet, parent)
-  local length = size_of.event_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.event_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.event_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.event_time, range, value, display)
 
@@ -2436,10 +2436,10 @@ dissect.event_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Emm
-size_of.emm = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm = 1
 
 -- Display: Emm
-display.emm = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.emm = function(value)
   if value == 1 then
     return "Emm: Cashand Derivative Central Order Book (1)"
   end
@@ -2478,11 +2478,11 @@ display.emm = function(value)
 end
 
 -- Dissect: Emm
-dissect.emm = function(buffer, offset, packet, parent)
-  local length = size_of.emm
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.emm(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.emm(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.emm, range, value, display)
 
@@ -2490,19 +2490,19 @@ dissect.emm = function(buffer, offset, packet, parent)
 end
 
 -- Size: Rebroadcast Indicator
-size_of.rebroadcast_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator = 1
 
 -- Display: Rebroadcast Indicator
-display.rebroadcast_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.rebroadcast_indicator = function(value)
   return "Rebroadcast Indicator: "..value
 end
 
 -- Dissect: Rebroadcast Indicator
-dissect.rebroadcast_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.rebroadcast_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.rebroadcast_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.rebroadcast_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.rebroadcast_indicator, range, value, display)
 
@@ -2510,10 +2510,10 @@ dissect.rebroadcast_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Md Seq Num
-size_of.md_seq_num = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num = 8
 
 -- Display: Md Seq Num
-display.md_seq_num = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.md_seq_num = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Md Seq Num: No Value"
@@ -2523,11 +2523,11 @@ display.md_seq_num = function(value)
 end
 
 -- Dissect: Md Seq Num
-dissect.md_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.md_seq_num
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.md_seq_num(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.md_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.md_seq_num, range, value, display)
 
@@ -2535,237 +2535,237 @@ dissect.md_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Apa Full Trade Information Message
-size_of.apa_full_trade_information_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_full_trade_information_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.trading_date_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_date_time
 
-  index = index + size_of.publication_date_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.publication_date_time
 
-  index = index + size_of.trade_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_type
 
-  index = index + size_of.mifid_instrument_id_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type
 
-  index = index + size_of.mifid_instrument_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id
 
-  index = index + size_of.mi_fid_transaction_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_transaction_id
 
-  index = index + size_of.mifid_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price
 
-  index = index + size_of.mifid_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity
 
-  index = index + size_of.mifid_price_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price_notation
 
-  index = index + size_of.mifid_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_currency
 
-  index = index + size_of.mi_fid_qtyin_msrmt_unit_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_qtyin_msrmt_unit_notation
 
-  index = index + size_of.mifid_quantity_measurement_unit
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity_measurement_unit
 
-  index = index + size_of.mi_fid_notional_amount
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_notional_amount
 
-  index = index + size_of.notional_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.notional_currency
 
-  index = index + size_of.mi_fid_clearing_flag
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_clearing_flag
 
-  index = index + size_of.efficient_mmt_market_mechanism
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_market_mechanism
 
-  index = index + size_of.efficient_mmt_trading_mode
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_trading_mode
 
-  index = index + size_of.efficient_mmt_transaction_category
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_transaction_category
 
-  index = index + size_of.efficient_mmt_negotiation_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_negotiation_indicator
 
-  index = index + size_of.efficient_mmt_agency_cross_trade_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_agency_cross_trade_indicator
 
-  index = index + size_of.efficient_mmt_modification_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_modification_indicator
 
-  index = index + size_of.efficient_mmt_benchmark_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_benchmark_indicator
 
-  index = index + size_of.efficient_mmt_special_dividend_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_special_dividend_indicator
 
-  index = index + size_of.efficient_mmt_off_book_automated_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_off_book_automated_indicator
 
-  index = index + size_of.efficient_mmt_contributionto_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_contributionto_price
 
-  index = index + size_of.efficient_mmt_algorithmic_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_algorithmic_indicator
 
-  index = index + size_of.efficient_mmt_publication_mode
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_publication_mode
 
-  index = index + size_of.efficient_mmt_post_trade_deferral
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_post_trade_deferral
 
-  index = index + size_of.efficient_mmt_duplicative_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.efficient_mmt_duplicative_indicator
 
-  index = index + size_of.trade_reference
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_reference
 
-  index = index + size_of.original_report_timestamp
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.original_report_timestamp
 
-  index = index + size_of.price_multiplier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier
 
-  index = index + size_of.price_multiplier_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier_decimals
 
-  index = index + size_of.venue
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.venue
 
-  index = index + size_of.mi_fid_emission_allowance_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_emission_allowance_type
 
   return index
 end
 
 -- Display: Apa Full Trade Information Message
-display.apa_full_trade_information_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_full_trade_information_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Apa Full Trade Information Message
-dissect.apa_full_trade_information_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_full_trade_information_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Trading Date Time: 27 Byte Ascii String
-  index, trading_date_time = dissect.trading_date_time(buffer, index, packet, parent)
+  index, trading_date_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_date_time(buffer, index, packet, parent)
 
   -- Publication Date Time: 27 Byte Ascii String Nullable
-  index, publication_date_time = dissect.publication_date_time(buffer, index, packet, parent)
+  index, publication_date_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.publication_date_time(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 43 values
-  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Type: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type = dissect.mifid_instrument_id_type(buffer, index, packet, parent)
+  index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id: 12 Byte Ascii String Nullable
-  index, mifid_instrument_id = dissect.mifid_instrument_id(buffer, index, packet, parent)
+  index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id(buffer, index, packet, parent)
 
   -- Mi Fid Transaction Id: 52 Byte Ascii String
-  index, mi_fid_transaction_id = dissect.mi_fid_transaction_id(buffer, index, packet, parent)
+  index, mi_fid_transaction_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_transaction_id(buffer, index, packet, parent)
 
   -- Mifid Price: 20 Byte Ascii String Nullable
-  index, mifid_price = dissect.mifid_price(buffer, index, packet, parent)
+  index, mifid_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price(buffer, index, packet, parent)
 
   -- Mifid Quantity: 20 Byte Ascii String
-  index, mifid_quantity = dissect.mifid_quantity(buffer, index, packet, parent)
+  index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity(buffer, index, packet, parent)
 
   -- Mifid Price Notation: 4 Byte Ascii String Nullable
-  index, mifid_price_notation = dissect.mifid_price_notation(buffer, index, packet, parent)
+  index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price_notation(buffer, index, packet, parent)
 
   -- Mifid Currency: 3 Byte Ascii String Nullable
-  index, mifid_currency = dissect.mifid_currency(buffer, index, packet, parent)
+  index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_currency(buffer, index, packet, parent)
 
   -- Mi Fid Qtyin Msrmt Unit Notation: 25 Byte Ascii String Nullable
-  index, mi_fid_qtyin_msrmt_unit_notation = dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
+  index, mi_fid_qtyin_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
 
   -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
-  index, mifid_quantity_measurement_unit = dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
+  index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
 
   -- Mi Fid Notional Amount: 20 Byte Ascii String Nullable
-  index, mi_fid_notional_amount = dissect.mi_fid_notional_amount(buffer, index, packet, parent)
+  index, mi_fid_notional_amount = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_notional_amount(buffer, index, packet, parent)
 
   -- Notional Currency: 3 Byte Ascii String Nullable
-  index, notional_currency = dissect.notional_currency(buffer, index, packet, parent)
+  index, notional_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.notional_currency(buffer, index, packet, parent)
 
   -- Mi Fid Clearing Flag: 5 Byte Ascii String Nullable
-  index, mi_fid_clearing_flag = dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
+  index, mi_fid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
 
   -- Efficient Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, efficient_mmt_market_mechanism = dissect.efficient_mmt_market_mechanism(buffer, index, packet, parent)
+  index, efficient_mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_market_mechanism(buffer, index, packet, parent)
 
   -- Efficient Mmt Trading Mode: 1 Byte Ascii String Enum with 12 values
-  index, efficient_mmt_trading_mode = dissect.efficient_mmt_trading_mode(buffer, index, packet, parent)
+  index, efficient_mmt_trading_mode = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_trading_mode(buffer, index, packet, parent)
 
   -- Efficient Mmt Transaction Category: 1 Byte Ascii String Enum with 6 values
-  index, efficient_mmt_transaction_category = dissect.efficient_mmt_transaction_category(buffer, index, packet, parent)
+  index, efficient_mmt_transaction_category = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_transaction_category(buffer, index, packet, parent)
 
   -- Efficient Mmt Negotiation Indicator: 1 Byte Ascii String Enum with 9 values
-  index, efficient_mmt_negotiation_indicator = dissect.efficient_mmt_negotiation_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_negotiation_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_negotiation_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Agency Cross Trade Indicator: 1 Byte Ascii String Enum with 3 values
-  index, efficient_mmt_agency_cross_trade_indicator = dissect.efficient_mmt_agency_cross_trade_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_agency_cross_trade_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_agency_cross_trade_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Modification Indicator: 1 Byte Ascii String Enum with 4 values
-  index, efficient_mmt_modification_indicator = dissect.efficient_mmt_modification_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_modification_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Benchmark Indicator: 1 Byte Ascii String Enum with 4 values
-  index, efficient_mmt_benchmark_indicator = dissect.efficient_mmt_benchmark_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_benchmark_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_benchmark_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Special Dividend Indicator: 1 Byte Ascii String Enum with 3 values
-  index, efficient_mmt_special_dividend_indicator = dissect.efficient_mmt_special_dividend_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_special_dividend_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_special_dividend_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Off Book Automated Indicator: 1 Byte Ascii String Enum with 4 values
-  index, efficient_mmt_off_book_automated_indicator = dissect.efficient_mmt_off_book_automated_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_off_book_automated_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_off_book_automated_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Contributionto Price: 1 Byte Ascii String Enum with 5 values
-  index, efficient_mmt_contributionto_price = dissect.efficient_mmt_contributionto_price(buffer, index, packet, parent)
+  index, efficient_mmt_contributionto_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_contributionto_price(buffer, index, packet, parent)
 
   -- Efficient Mmt Algorithmic Indicator: 1 Byte Ascii String Enum with 3 values
-  index, efficient_mmt_algorithmic_indicator = dissect.efficient_mmt_algorithmic_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_algorithmic_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_algorithmic_indicator(buffer, index, packet, parent)
 
   -- Efficient Mmt Publication Mode: 1 Byte Ascii String Enum with 8 values
-  index, efficient_mmt_publication_mode = dissect.efficient_mmt_publication_mode(buffer, index, packet, parent)
+  index, efficient_mmt_publication_mode = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_publication_mode(buffer, index, packet, parent)
 
   -- Efficient Mmt Post Trade Deferral: 1 Byte Ascii String Enum with 13 values
-  index, efficient_mmt_post_trade_deferral = dissect.efficient_mmt_post_trade_deferral(buffer, index, packet, parent)
+  index, efficient_mmt_post_trade_deferral = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_post_trade_deferral(buffer, index, packet, parent)
 
   -- Efficient Mmt Duplicative Indicator: 1 Byte Ascii String Enum with 3 values
-  index, efficient_mmt_duplicative_indicator = dissect.efficient_mmt_duplicative_indicator(buffer, index, packet, parent)
+  index, efficient_mmt_duplicative_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.efficient_mmt_duplicative_indicator(buffer, index, packet, parent)
 
   -- Trade Reference: 30 Byte Ascii String Nullable
-  index, trade_reference = dissect.trade_reference(buffer, index, packet, parent)
+  index, trade_reference = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_reference(buffer, index, packet, parent)
 
   -- Original Report Timestamp: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, original_report_timestamp = dissect.original_report_timestamp(buffer, index, packet, parent)
+  index, original_report_timestamp = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.original_report_timestamp(buffer, index, packet, parent)
 
   -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier = dissect.price_multiplier(buffer, index, packet, parent)
+  index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier(buffer, index, packet, parent)
 
   -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier_decimals = dissect.price_multiplier_decimals(buffer, index, packet, parent)
+  index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier_decimals(buffer, index, packet, parent)
 
   -- Venue: 11 Byte Ascii String
-  index, venue = dissect.venue(buffer, index, packet, parent)
+  index, venue = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.venue(buffer, index, packet, parent)
 
   -- Mi Fid Emission Allowance Type: 4 Byte Ascii String Nullable
-  index, mi_fid_emission_allowance_type = dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
+  index, mi_fid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Apa Full Trade Information Message
-dissect.apa_full_trade_information_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_full_trade_information_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.apa_full_trade_information_message then
-    local length = size_of.apa_full_trade_information_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_full_trade_information_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.apa_full_trade_information_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_full_trade_information_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.apa_full_trade_information_message, range, display)
   end
 
-  return dissect.apa_full_trade_information_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_full_trade_information_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Method
-size_of.settlement_method = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_method = 1
 
 -- Display: Settlement Method
-display.settlement_method = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_method = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Settlement Method: No Value"
@@ -2775,8 +2775,8 @@ display.settlement_method = function(value)
 end
 
 -- Dissect: Settlement Method
-dissect.settlement_method = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_method
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_method = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_method
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -2789,7 +2789,7 @@ dissect.settlement_method = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.settlement_method(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_method(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.settlement_method, range, value, display)
 
@@ -2797,10 +2797,10 @@ dissect.settlement_method = function(buffer, offset, packet, parent)
 end
 
 -- Size: Expiry Date
-size_of.expiry_date = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_date = 8
 
 -- Display: Expiry Date
-display.expiry_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.expiry_date = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Expiry Date: No Value"
@@ -2810,8 +2810,8 @@ display.expiry_date = function(value)
 end
 
 -- Dissect: Expiry Date
-dissect.expiry_date = function(buffer, offset, packet, parent)
-  local length = size_of.expiry_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.expiry_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_date
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2825,7 +2825,7 @@ dissect.expiry_date = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.expiry_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.expiry_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.expiry_date, range, value, display)
 
@@ -2833,10 +2833,10 @@ dissect.expiry_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date
-size_of.maturity_date = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date = 8
 
 -- Display: Maturity Date
-display.maturity_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.maturity_date = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Maturity Date: No Value"
@@ -2846,8 +2846,8 @@ display.maturity_date = function(value)
 end
 
 -- Dissect: Maturity Date
-dissect.maturity_date = function(buffer, offset, packet, parent)
-  local length = size_of.maturity_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maturity_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2861,7 +2861,7 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.maturity_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.maturity_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.maturity_date, range, value, display)
 
@@ -2869,10 +2869,10 @@ dissect.maturity_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exer Style
-size_of.exer_style = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exer_style = 1
 
 -- Display: Exer Style
-display.exer_style = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.exer_style = function(value)
   if value == 0 then
     return "Exer Style: European (0)"
   end
@@ -2896,11 +2896,11 @@ display.exer_style = function(value)
 end
 
 -- Dissect: Exer Style
-dissect.exer_style = function(buffer, offset, packet, parent)
-  local length = size_of.exer_style
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exer_style = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exer_style
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.exer_style(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.exer_style(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.exer_style, range, value, display)
 
@@ -2908,10 +2908,10 @@ dissect.exer_style = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price Decimals
-size_of.strike_price_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals = 1
 
 -- Display: Strike Price Decimals
-display.strike_price_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Strike Price Decimals: No Value"
@@ -2921,11 +2921,11 @@ display.strike_price_decimals = function(value)
 end
 
 -- Dissect: Strike Price Decimals
-dissect.strike_price_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.strike_price_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strike_price_decimals, range, value, display)
 
@@ -2933,10 +2933,10 @@ dissect.strike_price_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Price
-size_of.strike_price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price = 8
 
 -- Display: Strike Price
-display.strike_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Strike Price: No Value"
@@ -2946,11 +2946,11 @@ display.strike_price = function(value)
 end
 
 -- Dissect: Strike Price
-dissect.strike_price = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.strike_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strike_price, range, value, display)
 
@@ -2958,10 +2958,10 @@ dissect.strike_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Option Type
-size_of.option_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.option_type = 1
 
 -- Display: Option Type
-display.option_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.option_type = function(value)
   if value == 1 then
     return "Option Type: Call (1)"
   end
@@ -2976,11 +2976,11 @@ display.option_type = function(value)
 end
 
 -- Dissect: Option Type
-dissect.option_type = function(buffer, offset, packet, parent)
-  local length = size_of.option_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.option_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.option_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.option_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.option_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.option_type, range, value, display)
 
@@ -2988,10 +2988,10 @@ dissect.option_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Index Term
-size_of.underlying_index_term = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_term = 8
 
 -- Display: Underlying Index Term
-display.underlying_index_term = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_index_term = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Underlying Index Term: No Value"
@@ -3001,8 +3001,8 @@ display.underlying_index_term = function(value)
 end
 
 -- Dissect: Underlying Index Term
-dissect.underlying_index_term = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_index_term
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_index_term = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_term
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3016,7 +3016,7 @@ dissect.underlying_index_term = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.underlying_index_term(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_index_term(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_index_term, range, value, display)
 
@@ -3024,10 +3024,10 @@ dissect.underlying_index_term = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Index Name
-size_of.underlying_index_name = 25
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_name = 25
 
 -- Display: Underlying Index Name
-display.underlying_index_name = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_index_name = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Underlying Index Name: No Value"
@@ -3037,8 +3037,8 @@ display.underlying_index_name = function(value)
 end
 
 -- Dissect: Underlying Index Name
-dissect.underlying_index_name = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_index_name
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_index_name = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_name
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3052,7 +3052,7 @@ dissect.underlying_index_name = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.underlying_index_name(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_index_name(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_index_name, range, value, display)
 
@@ -3060,10 +3060,10 @@ dissect.underlying_index_name = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Isin Code
-size_of.underlying_isin_code = 12
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_isin_code = 12
 
 -- Display: Underlying Isin Code
-display.underlying_isin_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_isin_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Underlying Isin Code: No Value"
@@ -3073,8 +3073,8 @@ display.underlying_isin_code = function(value)
 end
 
 -- Dissect: Underlying Isin Code
-dissect.underlying_isin_code = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_isin_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_isin_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_isin_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3088,7 +3088,7 @@ dissect.underlying_isin_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.underlying_isin_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_isin_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_isin_code, range, value, display)
 
@@ -3096,10 +3096,10 @@ dissect.underlying_isin_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Second Notional Currency
-size_of.second_notional_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.second_notional_currency = 3
 
 -- Display: Second Notional Currency
-display.second_notional_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.second_notional_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Second Notional Currency: No Value"
@@ -3109,8 +3109,8 @@ display.second_notional_currency = function(value)
 end
 
 -- Dissect: Second Notional Currency
-dissect.second_notional_currency = function(buffer, offset, packet, parent)
-  local length = size_of.second_notional_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.second_notional_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.second_notional_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3124,7 +3124,7 @@ dissect.second_notional_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.second_notional_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.second_notional_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.second_notional_currency, range, value, display)
 
@@ -3132,10 +3132,10 @@ dissect.second_notional_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cfi
-size_of.cfi = 6
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi = 6
 
 -- Display: Cfi
-display.cfi = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.cfi = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Cfi: No Value"
@@ -3145,8 +3145,8 @@ display.cfi = function(value)
 end
 
 -- Dissect: Cfi
-dissect.cfi = function(buffer, offset, packet, parent)
-  local length = size_of.cfi
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.cfi = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3160,7 +3160,7 @@ dissect.cfi = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.cfi(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.cfi(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.cfi, range, value, display)
 
@@ -3168,10 +3168,10 @@ dissect.cfi = function(buffer, offset, packet, parent)
 end
 
 -- Size: Full Instrument Name
-size_of.full_instrument_name = 102
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_instrument_name = 102
 
 -- Display: Full Instrument Name
-display.full_instrument_name = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.full_instrument_name = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Full Instrument Name: No Value"
@@ -3181,8 +3181,8 @@ display.full_instrument_name = function(value)
 end
 
 -- Dissect: Full Instrument Name
-dissect.full_instrument_name = function(buffer, offset, packet, parent)
-  local length = size_of.full_instrument_name
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_instrument_name = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_instrument_name
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3196,7 +3196,7 @@ dissect.full_instrument_name = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.full_instrument_name(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.full_instrument_name(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.full_instrument_name, range, value, display)
 
@@ -3204,142 +3204,142 @@ dissect.full_instrument_name = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Apa Standing Data Message
-size_of.apa_standing_data_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_standing_data_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.mifid_instrument_id_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type
 
-  index = index + size_of.mifid_instrument_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id
 
-  index = index + size_of.full_instrument_name
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_instrument_name
 
-  index = index + size_of.cfi
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi
 
-  index = index + size_of.notional_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.notional_currency
 
-  index = index + size_of.second_notional_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.second_notional_currency
 
-  index = index + size_of.price_multiplier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier
 
-  index = index + size_of.price_multiplier_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier_decimals
 
-  index = index + size_of.underlying_isin_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_isin_code
 
-  index = index + size_of.underlying_index_name
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_name
 
-  index = index + size_of.underlying_index_term
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_index_term
 
-  index = index + size_of.option_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.option_type
 
-  index = index + size_of.strike_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price
 
-  index = index + size_of.strike_price_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals
 
-  index = index + size_of.exer_style
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exer_style
 
-  index = index + size_of.maturity_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date
 
-  index = index + size_of.expiry_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_date
 
-  index = index + size_of.settlement_method
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_method
 
   return index
 end
 
 -- Display: Apa Standing Data Message
-display.apa_standing_data_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_standing_data_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Apa Standing Data Message
-dissect.apa_standing_data_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_standing_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Type: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type = dissect.mifid_instrument_id_type(buffer, index, packet, parent)
+  index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id: 12 Byte Ascii String Nullable
-  index, mifid_instrument_id = dissect.mifid_instrument_id(buffer, index, packet, parent)
+  index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id(buffer, index, packet, parent)
 
   -- Full Instrument Name: 102 Byte Ascii String Nullable
-  index, full_instrument_name = dissect.full_instrument_name(buffer, index, packet, parent)
+  index, full_instrument_name = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_instrument_name(buffer, index, packet, parent)
 
   -- Cfi: 6 Byte Ascii String Nullable
-  index, cfi = dissect.cfi(buffer, index, packet, parent)
+  index, cfi = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.cfi(buffer, index, packet, parent)
 
   -- Notional Currency: 3 Byte Ascii String Nullable
-  index, notional_currency = dissect.notional_currency(buffer, index, packet, parent)
+  index, notional_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.notional_currency(buffer, index, packet, parent)
 
   -- Second Notional Currency: 3 Byte Ascii String Nullable
-  index, second_notional_currency = dissect.second_notional_currency(buffer, index, packet, parent)
+  index, second_notional_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.second_notional_currency(buffer, index, packet, parent)
 
   -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier = dissect.price_multiplier(buffer, index, packet, parent)
+  index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier(buffer, index, packet, parent)
 
   -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier_decimals = dissect.price_multiplier_decimals(buffer, index, packet, parent)
+  index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier_decimals(buffer, index, packet, parent)
 
   -- Underlying Isin Code: 12 Byte Ascii String Nullable
-  index, underlying_isin_code = dissect.underlying_isin_code(buffer, index, packet, parent)
+  index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_isin_code(buffer, index, packet, parent)
 
   -- Underlying Index Name: 25 Byte Ascii String Nullable
-  index, underlying_index_name = dissect.underlying_index_name(buffer, index, packet, parent)
+  index, underlying_index_name = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_index_name(buffer, index, packet, parent)
 
   -- Underlying Index Term: 8 Byte Ascii String Nullable
-  index, underlying_index_term = dissect.underlying_index_term(buffer, index, packet, parent)
+  index, underlying_index_term = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_index_term(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, option_type = dissect.option_type(buffer, index, packet, parent)
+  index, option_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.option_type(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price(buffer, index, packet, parent)
 
   -- Strike Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, strike_price_decimals = dissect.strike_price_decimals(buffer, index, packet, parent)
+  index, strike_price_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price_decimals(buffer, index, packet, parent)
 
   -- Exer Style: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exer_style = dissect.exer_style(buffer, index, packet, parent)
+  index, exer_style = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exer_style(buffer, index, packet, parent)
 
   -- Maturity Date: 8 Byte Ascii String Nullable
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Expiry Date: 8 Byte Ascii String Nullable
-  index, expiry_date = dissect.expiry_date(buffer, index, packet, parent)
+  index, expiry_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.expiry_date(buffer, index, packet, parent)
 
   -- Settlement Method: 1 Byte Ascii String Nullable
-  index, settlement_method = dissect.settlement_method(buffer, index, packet, parent)
+  index, settlement_method = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_method(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Apa Standing Data Message
-dissect.apa_standing_data_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_standing_data_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.apa_standing_data_message then
-    local length = size_of.apa_standing_data_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_standing_data_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.apa_standing_data_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_standing_data_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.apa_standing_data_message, range, display)
   end
 
-  return dissect.apa_standing_data_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_standing_data_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Update Type
-size_of.quote_update_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_update_type = 1
 
 -- Display: Quote Update Type
-display.quote_update_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.quote_update_type = function(value)
   if value == 1 then
     return "Quote Update Type: Best Bid (1)"
   end
@@ -3357,11 +3357,11 @@ display.quote_update_type = function(value)
 end
 
 -- Dissect: Quote Update Type
-dissect.quote_update_type = function(buffer, offset, packet, parent)
-  local length = size_of.quote_update_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quote_update_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_update_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quote_update_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.quote_update_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.quote_update_type, range, value, display)
 
@@ -3369,10 +3369,10 @@ dissect.quote_update_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Lei Code
-size_of.lei_code = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lei_code = 20
 
 -- Display: Lei Code
-display.lei_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.lei_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Lei Code: No Value"
@@ -3382,8 +3382,8 @@ display.lei_code = function(value)
 end
 
 -- Dissect: Lei Code
-dissect.lei_code = function(buffer, offset, packet, parent)
-  local length = size_of.lei_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lei_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lei_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3397,7 +3397,7 @@ dissect.lei_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.lei_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.lei_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.lei_code, range, value, display)
 
@@ -3405,10 +3405,10 @@ dissect.lei_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
-size_of.currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency = 3
 
 -- Display: Currency
-display.currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Currency: No Value"
@@ -3418,8 +3418,8 @@ display.currency = function(value)
 end
 
 -- Dissect: Currency
-dissect.currency = function(buffer, offset, packet, parent)
-  local length = size_of.currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3433,7 +3433,7 @@ dissect.currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.currency, range, value, display)
 
@@ -3441,10 +3441,10 @@ dissect.currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mic
-size_of.mic = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic = 4
 
 -- Display: Mic
-display.mic = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mic = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mic: No Value"
@@ -3454,8 +3454,8 @@ display.mic = function(value)
 end
 
 -- Dissect: Mic
-dissect.mic = function(buffer, offset, packet, parent)
-  local length = size_of.mic
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3469,7 +3469,7 @@ dissect.mic = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mic(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mic(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mic, range, value, display)
 
@@ -3477,106 +3477,106 @@ dissect.mic = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Apa Quotes Message
-size_of.apa_quotes_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_quotes_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.mifid_instrument_id_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type
 
-  index = index + size_of.mifid_instrument_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id
 
-  index = index + size_of.mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic
 
-  index = index + size_of.currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency
 
-  index = index + size_of.lei_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lei_code
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.quote_update_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_update_type
 
-  index = index + size_of.mifid_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price
 
-  index = index + size_of.mifid_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity
 
   return index
 end
 
 -- Display: Apa Quotes Message
-display.apa_quotes_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_quotes_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Apa Quotes Message
-dissect.apa_quotes_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_quotes_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Type: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type = dissect.mifid_instrument_id_type(buffer, index, packet, parent)
+  index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id: 12 Byte Ascii String Nullable
-  index, mifid_instrument_id = dissect.mifid_instrument_id(buffer, index, packet, parent)
+  index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id(buffer, index, packet, parent)
 
   -- Mic: 4 Byte Ascii String
-  index, mic = dissect.mic(buffer, index, packet, parent)
+  index, mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic(buffer, index, packet, parent)
 
   -- Currency: 3 Byte Ascii String
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.currency(buffer, index, packet, parent)
 
   -- Lei Code: 20 Byte Ascii String
-  index, lei_code = dissect.lei_code(buffer, index, packet, parent)
+  index, lei_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lei_code(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Quote Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quote_update_type = dissect.quote_update_type(buffer, index, packet, parent)
+  index, quote_update_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quote_update_type(buffer, index, packet, parent)
 
   -- Mifid Price: 20 Byte Ascii String Nullable
-  index, mifid_price = dissect.mifid_price(buffer, index, packet, parent)
+  index, mifid_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price(buffer, index, packet, parent)
 
   -- Mifid Quantity: 20 Byte Ascii String
-  index, mifid_quantity = dissect.mifid_quantity(buffer, index, packet, parent)
+  index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Apa Quotes Message
-dissect.apa_quotes_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_quotes_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.apa_quotes_message then
-    local length = size_of.apa_quotes_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_quotes_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.apa_quotes_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.apa_quotes_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.apa_quotes_message, range, display)
   end
 
-  return dissect.apa_quotes_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_quotes_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Ratio
-size_of.leg_ratio = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_ratio = 4
 
 -- Display: Leg Ratio
-display.leg_ratio = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_ratio = function(value)
   return "Leg Ratio: "..value
 end
 
 -- Dissect: Leg Ratio
-dissect.leg_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.leg_ratio
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_ratio = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_ratio
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leg_ratio(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_ratio(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.leg_ratio, range, value, display)
 
@@ -3584,19 +3584,19 @@ dissect.leg_ratio = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Symbol Index
-size_of.leg_symbol_index = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_symbol_index = 4
 
 -- Display: Leg Symbol Index
-display.leg_symbol_index = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_symbol_index = function(value)
   return "Leg Symbol Index: "..value
 end
 
 -- Dissect: Leg Symbol Index
-dissect.leg_symbol_index = function(buffer, offset, packet, parent)
-  local length = size_of.leg_symbol_index
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_symbol_index = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_symbol_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.leg_symbol_index(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.leg_symbol_index, range, value, display)
 
@@ -3604,61 +3604,61 @@ dissect.leg_symbol_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Package Components Group
-size_of.package_components_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.package_components_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.leg_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_symbol_index
 
-  index = index + size_of.leg_ratio
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_ratio
 
   return index
 end
 
 -- Display: Package Components Group
-display.package_components_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.package_components_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Package Components Group
-dissect.package_components_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, leg_symbol_index = dissect.leg_symbol_index(buffer, index, packet, parent)
+  index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_symbol_index(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_ratio(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Package Components Group
-dissect.package_components_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.package_components_group then
-    local length = size_of.package_components_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.package_components_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.package_components_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.package_components_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.package_components_group, range, display)
   end
 
-  return dissect.package_components_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_group_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Num In Group
-size_of.num_in_group = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_in_group = 1
 
 -- Display: Num In Group
-display.num_in_group = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.num_in_group = function(value)
   return "Num In Group: "..value
 end
 
 -- Dissect: Num In Group
-dissect.num_in_group = function(buffer, offset, packet, parent)
-  local length = size_of.num_in_group
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.num_in_group = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_in_group
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_in_group(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.num_in_group(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.num_in_group, range, value, display)
 
@@ -3666,19 +3666,19 @@ dissect.num_in_group = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Length uint 8
-size_of.block_length_uint_8 = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_8 = 1
 
 -- Display: Block Length uint 8
-display.block_length_uint_8 = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.block_length_uint_8 = function(value)
   return "Block Length uint 8: "..value
 end
 
 -- Dissect: Block Length uint 8
-dissect.block_length_uint_8 = function(buffer, offset, packet, parent)
-  local length = size_of.block_length_uint_8
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_length_uint_8 = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_8
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.block_length_uint_8(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.block_length_uint_8(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.block_length_uint_8, range, value, display)
 
@@ -3686,52 +3686,52 @@ dissect.block_length_uint_8 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Group Size Encoding
-size_of.group_size_encoding = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.block_length_uint_8
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_8
 
-  index = index + size_of.num_in_group
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_in_group
 
   return index
 end
 
 -- Display: Group Size Encoding
-display.group_size_encoding = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.group_size_encoding = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Group Size Encoding
-dissect.group_size_encoding_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, block_length_uint_8 = dissect.block_length_uint_8(buffer, index, packet, parent)
+  index, block_length_uint_8 = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_length_uint_8(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
-  index, num_in_group = dissect.num_in_group(buffer, index, packet, parent)
+  index, num_in_group = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.num_in_group(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Group Size Encoding
-dissect.group_size_encoding = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.group_size_encoding then
-    local length = size_of.group_size_encoding(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.group_size_encoding(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.group_size_encoding(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.group_size_encoding, range, display)
   end
 
-  return dissect.group_size_encoding_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Package Components Groups
-size_of.package_components_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.package_components_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local package_components_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -3741,46 +3741,46 @@ size_of.package_components_groups = function(buffer, offset)
 end
 
 -- Display: Package Components Groups
-display.package_components_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.package_components_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Package Components Groups
-dissect.package_components_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Package Components Group: Struct of 2 fields
   for i = 1, num_in_group do
-    index = dissect.package_components_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Package Components Groups
-dissect.package_components_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.package_components_groups then
-    local length = size_of.package_components_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.package_components_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.package_components_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.package_components_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.package_components_groups, range, display)
   end
 
-  return dissect.package_components_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Strategy Code
-size_of.strategy_code = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_code = 1
 
 -- Display: Strategy Code
-display.strategy_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_code = function(value)
   if value == "A" then
     return "Strategy Code: Jelly Roll (A)"
   end
@@ -3930,8 +3930,8 @@ display.strategy_code = function(value)
 end
 
 -- Dissect: Strategy Code
-dissect.strategy_code = function(buffer, offset, packet, parent)
-  local length = size_of.strategy_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_code
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -3944,7 +3944,7 @@ dissect.strategy_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.strategy_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strategy_code, range, value, display)
 
@@ -3952,10 +3952,10 @@ dissect.strategy_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifid Execution Id
-size_of.mifid_execution_id = 52
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_execution_id = 52
 
 -- Display: Mifid Execution Id
-display.mifid_execution_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_execution_id = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mifid Execution Id: No Value"
@@ -3965,8 +3965,8 @@ display.mifid_execution_id = function(value)
 end
 
 -- Dissect: Mifid Execution Id
-dissect.mifid_execution_id = function(buffer, offset, packet, parent)
-  local length = size_of.mifid_execution_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_execution_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_execution_id
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3980,7 +3980,7 @@ dissect.mifid_execution_id = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mifid_execution_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifid_execution_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifid_execution_id, range, value, display)
 
@@ -3988,19 +3988,19 @@ dissect.mifid_execution_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Symbol Index
-size_of.contract_symbol_index = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_symbol_index = 4
 
 -- Display: Contract Symbol Index
-display.contract_symbol_index = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_symbol_index = function(value)
   return "Contract Symbol Index: "..value
 end
 
 -- Dissect: Contract Symbol Index
-dissect.contract_symbol_index = function(buffer, offset, packet, parent)
-  local length = size_of.contract_symbol_index
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_symbol_index = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_symbol_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contract_symbol_index(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_symbol_index, range, value, display)
 
@@ -4008,119 +4008,119 @@ dissect.contract_symbol_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Lis Package Structure Message
-size_of.lis_package_structure_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lis_package_structure_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.contract_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_symbol_index
 
-  index = index + size_of.mifid_execution_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_execution_id
 
-  index = index + size_of.strategy_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_code
 
-  index = index + size_of.package_components_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.package_components_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Lis Package Structure Message
-display.lis_package_structure_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.lis_package_structure_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Lis Package Structure Message
-dissect.lis_package_structure_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lis_package_structure_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, contract_symbol_index = dissect.contract_symbol_index(buffer, index, packet, parent)
+  index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_symbol_index(buffer, index, packet, parent)
 
   -- Mifid Execution Id: 52 Byte Ascii String
-  index, mifid_execution_id = dissect.mifid_execution_id(buffer, index, packet, parent)
+  index, mifid_execution_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_execution_id(buffer, index, packet, parent)
 
   -- Strategy Code: 1 Byte Ascii String Enum with 48 values
-  index, strategy_code = dissect.strategy_code(buffer, index, packet, parent)
+  index, strategy_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_code(buffer, index, packet, parent)
 
   -- Package Components Groups: Struct of 2 fields
-  index, package_components_groups = dissect.package_components_groups(buffer, index, packet, parent)
+  index, package_components_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.package_components_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Lis Package Structure Message
-dissect.lis_package_structure_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lis_package_structure_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.lis_package_structure_message then
-    local length = size_of.lis_package_structure_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lis_package_structure_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.lis_package_structure_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.lis_package_structure_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.lis_package_structure_message, range, display)
   end
 
-  return dissect.lis_package_structure_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lis_package_structure_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Rep Group
-size_of.outright_rep_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_rep_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
   return index
 end
 
 -- Display: Outright Rep Group
-display.outright_rep_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_rep_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Rep Group
-dissect.outright_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Rep Group
-dissect.outright_rep_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.outright_rep_group then
-    local length = size_of.outright_rep_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_rep_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_rep_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_rep_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.outright_rep_group, range, display)
   end
 
-  return dissect.outright_rep_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Rep Groups
-size_of.outright_rep_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_rep_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local outright_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -4130,46 +4130,46 @@ size_of.outright_rep_groups = function(buffer, offset)
 end
 
 -- Display: Outright Rep Groups
-display.outright_rep_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_rep_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Rep Groups
-dissect.outright_rep_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Outright Rep Group: Struct of 1 fields
   for i = 1, num_in_group do
-    index = dissect.outright_rep_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Outright Rep Groups
-dissect.outright_rep_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.outright_rep_groups then
-    local length = size_of.outright_rep_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_rep_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_rep_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_rep_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.outright_rep_groups, range, display)
   end
 
-  return dissect.outright_rep_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Symbol Index
-size_of.underlying_symbol_index = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_symbol_index = 4
 
 -- Display: Underlying Symbol Index
-display.underlying_symbol_index = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_symbol_index = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Underlying Symbol Index: No Value"
@@ -4179,11 +4179,11 @@ display.underlying_symbol_index = function(value)
 end
 
 -- Dissect: Underlying Symbol Index
-dissect.underlying_symbol_index = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_symbol_index
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_symbol_index = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_symbol_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_symbol_index(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_symbol_index, range, value, display)
 
@@ -4191,10 +4191,10 @@ dissect.underlying_symbol_index = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Derivatives Instrument Trading Code
-size_of.underlying_derivatives_instrument_trading_code = 18
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_derivatives_instrument_trading_code = 18
 
 -- Display: Underlying Derivatives Instrument Trading Code
-display.underlying_derivatives_instrument_trading_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_derivatives_instrument_trading_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Underlying Derivatives Instrument Trading Code: No Value"
@@ -4204,8 +4204,8 @@ display.underlying_derivatives_instrument_trading_code = function(value)
 end
 
 -- Dissect: Underlying Derivatives Instrument Trading Code
-dissect.underlying_derivatives_instrument_trading_code = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_derivatives_instrument_trading_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_derivatives_instrument_trading_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_derivatives_instrument_trading_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4219,7 +4219,7 @@ dissect.underlying_derivatives_instrument_trading_code = function(buffer, offset
     value = range:string()
   end
 
-  local display = display.underlying_derivatives_instrument_trading_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_derivatives_instrument_trading_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_derivatives_instrument_trading_code, range, value, display)
 
@@ -4227,10 +4227,10 @@ dissect.underlying_derivatives_instrument_trading_code = function(buffer, offset
 end
 
 -- Size: Expiry Cycle Type
-size_of.expiry_cycle_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_cycle_type = 1
 
 -- Display: Expiry Cycle Type
-display.expiry_cycle_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.expiry_cycle_type = function(value)
   if value == 1 then
     return "Expiry Cycle Type: Daily (1)"
   end
@@ -4248,11 +4248,11 @@ display.expiry_cycle_type = function(value)
 end
 
 -- Dissect: Expiry Cycle Type
-dissect.expiry_cycle_type = function(buffer, offset, packet, parent)
-  local length = size_of.expiry_cycle_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.expiry_cycle_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_cycle_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.expiry_cycle_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.expiry_cycle_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.expiry_cycle_type, range, value, display)
 
@@ -4260,10 +4260,10 @@ dissect.expiry_cycle_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Derivatives Instrument Type
-size_of.derivatives_instrument_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_type = 1
 
 -- Display: Derivatives Instrument Type
-display.derivatives_instrument_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_instrument_type = function(value)
   if value == 0 then
     return "Derivatives Instrument Type: Call Option (0)"
   end
@@ -4287,11 +4287,11 @@ display.derivatives_instrument_type = function(value)
 end
 
 -- Dissect: Derivatives Instrument Type
-dissect.derivatives_instrument_type = function(buffer, offset, packet, parent)
-  local length = size_of.derivatives_instrument_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_instrument_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.derivatives_instrument_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_instrument_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.derivatives_instrument_type, range, value, display)
 
@@ -4299,10 +4299,10 @@ dissect.derivatives_instrument_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Derivatives Instrument Trading Code
-size_of.derivatives_instrument_trading_code = 18
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_trading_code = 18
 
 -- Display: Derivatives Instrument Trading Code
-display.derivatives_instrument_trading_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_instrument_trading_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Derivatives Instrument Trading Code: No Value"
@@ -4312,8 +4312,8 @@ display.derivatives_instrument_trading_code = function(value)
 end
 
 -- Dissect: Derivatives Instrument Trading Code
-dissect.derivatives_instrument_trading_code = function(buffer, offset, packet, parent)
-  local length = size_of.derivatives_instrument_trading_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_instrument_trading_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_trading_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4327,7 +4327,7 @@ dissect.derivatives_instrument_trading_code = function(buffer, offset, packet, p
     value = range:string()
   end
 
-  local display = display.derivatives_instrument_trading_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_instrument_trading_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.derivatives_instrument_trading_code, range, value, display)
 
@@ -4335,10 +4335,10 @@ dissect.derivatives_instrument_trading_code = function(buffer, offset, packet, p
 end
 
 -- Size: Days To Expiry
-size_of.days_to_expiry = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.days_to_expiry = 2
 
 -- Display: Days To Expiry
-display.days_to_expiry = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.days_to_expiry = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Days To Expiry: No Value"
@@ -4348,11 +4348,11 @@ display.days_to_expiry = function(value)
 end
 
 -- Dissect: Days To Expiry
-dissect.days_to_expiry = function(buffer, offset, packet, parent)
-  local length = size_of.days_to_expiry
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.days_to_expiry = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.days_to_expiry
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.days_to_expiry(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.days_to_expiry(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.days_to_expiry, range, value, display)
 
@@ -4360,10 +4360,10 @@ dissect.days_to_expiry = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Trading Date
-size_of.last_trading_date = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_trading_date = 2
 
 -- Display: Last Trading Date
-display.last_trading_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.last_trading_date = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Last Trading Date: No Value"
@@ -4373,11 +4373,11 @@ display.last_trading_date = function(value)
 end
 
 -- Dissect: Last Trading Date
-dissect.last_trading_date = function(buffer, offset, packet, parent)
-  local length = size_of.last_trading_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_trading_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_trading_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.last_trading_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.last_trading_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.last_trading_date, range, value, display)
 
@@ -4385,10 +4385,10 @@ dissect.last_trading_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Lot Size
-size_of.lot_size = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size = 8
 
 -- Display: Lot Size
-display.lot_size = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.lot_size = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Lot Size: No Value"
@@ -4398,11 +4398,11 @@ display.lot_size = function(value)
 end
 
 -- Dissect: Lot Size
-dissect.lot_size = function(buffer, offset, packet, parent)
-  local length = size_of.lot_size
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lot_size = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.lot_size(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.lot_size(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.lot_size, range, value, display)
 
@@ -4410,10 +4410,10 @@ dissect.lot_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Isin Code
-size_of.isin_code = 12
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.isin_code = 12
 
 -- Display: Isin Code
-display.isin_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.isin_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Isin Code: No Value"
@@ -4423,8 +4423,8 @@ display.isin_code = function(value)
 end
 
 -- Dissect: Isin Code
-dissect.isin_code = function(buffer, offset, packet, parent)
-  local length = size_of.isin_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.isin_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.isin_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -4438,7 +4438,7 @@ dissect.isin_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.isin_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.isin_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.isin_code, range, value, display)
 
@@ -4446,19 +4446,19 @@ dissect.isin_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Event Date
-size_of.instrument_event_date = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_event_date = 2
 
 -- Display: Instrument Event Date
-display.instrument_event_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_event_date = function(value)
   return "Instrument Event Date: "..value
 end
 
 -- Dissect: Instrument Event Date
-dissect.instrument_event_date = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_event_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_event_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_event_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.instrument_event_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_event_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.instrument_event_date, range, value, display)
 
@@ -4466,10 +4466,10 @@ dissect.instrument_event_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol Index
-size_of.symbol_index = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index = 4
 
 -- Display: Symbol Index
-display.symbol_index = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.symbol_index = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Symbol Index: No Value"
@@ -4479,11 +4479,11 @@ display.symbol_index = function(value)
 end
 
 -- Dissect: Symbol Index
-dissect.symbol_index = function(buffer, offset, packet, parent)
-  local length = size_of.symbol_index
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.symbol_index(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.symbol_index(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.symbol_index, range, value, display)
 
@@ -4491,132 +4491,132 @@ dissect.symbol_index = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Outright Standing Data Message
-size_of.outright_standing_data_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_standing_data_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.contract_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_symbol_index
 
-  index = index + size_of.instrument_event_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_event_date
 
-  index = index + size_of.isin_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.isin_code
 
-  index = index + size_of.cfi
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi
 
-  index = index + size_of.maturity_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date
 
-  index = index + size_of.lot_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size
 
-  index = index + size_of.strike_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price
 
-  index = index + size_of.last_trading_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_trading_date
 
-  index = index + size_of.days_to_expiry
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.days_to_expiry
 
-  index = index + size_of.derivatives_instrument_trading_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_trading_code
 
-  index = index + size_of.derivatives_instrument_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_type
 
-  index = index + size_of.expiry_cycle_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.expiry_cycle_type
 
-  index = index + size_of.underlying_derivatives_instrument_trading_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_derivatives_instrument_trading_code
 
-  index = index + size_of.underlying_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_symbol_index
 
-  index = index + size_of.outright_rep_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_rep_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Outright Standing Data Message
-display.outright_standing_data_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_standing_data_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Outright Standing Data Message
-dissect.outright_standing_data_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_standing_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, contract_symbol_index = dissect.contract_symbol_index(buffer, index, packet, parent)
+  index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_symbol_index(buffer, index, packet, parent)
 
   -- Instrument Event Date: 2 Byte Unsigned Fixed Width Integer
-  index, instrument_event_date = dissect.instrument_event_date(buffer, index, packet, parent)
+  index, instrument_event_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_event_date(buffer, index, packet, parent)
 
   -- Isin Code: 12 Byte Ascii String
-  index, isin_code = dissect.isin_code(buffer, index, packet, parent)
+  index, isin_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.isin_code(buffer, index, packet, parent)
 
   -- Cfi: 6 Byte Ascii String Nullable
-  index, cfi = dissect.cfi(buffer, index, packet, parent)
+  index, cfi = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.cfi(buffer, index, packet, parent)
 
   -- Maturity Date: 8 Byte Ascii String Nullable
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Lot Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, lot_size = dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lot_size(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price(buffer, index, packet, parent)
 
   -- Last Trading Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, last_trading_date = dissect.last_trading_date(buffer, index, packet, parent)
+  index, last_trading_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_trading_date(buffer, index, packet, parent)
 
   -- Days To Expiry: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, days_to_expiry = dissect.days_to_expiry(buffer, index, packet, parent)
+  index, days_to_expiry = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.days_to_expiry(buffer, index, packet, parent)
 
   -- Derivatives Instrument Trading Code: 18 Byte Ascii String Nullable
-  index, derivatives_instrument_trading_code = dissect.derivatives_instrument_trading_code(buffer, index, packet, parent)
+  index, derivatives_instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_instrument_trading_code(buffer, index, packet, parent)
 
   -- Derivatives Instrument Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, derivatives_instrument_type = dissect.derivatives_instrument_type(buffer, index, packet, parent)
+  index, derivatives_instrument_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_instrument_type(buffer, index, packet, parent)
 
   -- Expiry Cycle Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, expiry_cycle_type = dissect.expiry_cycle_type(buffer, index, packet, parent)
+  index, expiry_cycle_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.expiry_cycle_type(buffer, index, packet, parent)
 
   -- Underlying Derivatives Instrument Trading Code: 18 Byte Ascii String Nullable
-  index, underlying_derivatives_instrument_trading_code = dissect.underlying_derivatives_instrument_trading_code(buffer, index, packet, parent)
+  index, underlying_derivatives_instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_derivatives_instrument_trading_code(buffer, index, packet, parent)
 
   -- Underlying Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_symbol_index = dissect.underlying_symbol_index(buffer, index, packet, parent)
+  index, underlying_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_symbol_index(buffer, index, packet, parent)
 
   -- Outright Rep Groups: Struct of 2 fields
-  index, outright_rep_groups = dissect.outright_rep_groups(buffer, index, packet, parent)
+  index, outright_rep_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_rep_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Outright Standing Data Message
-dissect.outright_standing_data_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_standing_data_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.outright_standing_data_message then
-    local length = size_of.outright_standing_data_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_standing_data_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.outright_standing_data_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.outright_standing_data_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.outright_standing_data_message, range, display)
   end
 
-  return dissect.outright_standing_data_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_standing_data_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Collar Unhalt Delay
-size_of.collar_unhalt_delay = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_unhalt_delay = 4
 
 -- Display: Collar Unhalt Delay
-display.collar_unhalt_delay = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_unhalt_delay = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Collar Unhalt Delay: No Value"
@@ -4626,11 +4626,11 @@ display.collar_unhalt_delay = function(value)
 end
 
 -- Dissect: Collar Unhalt Delay
-dissect.collar_unhalt_delay = function(buffer, offset, packet, parent)
-  local length = size_of.collar_unhalt_delay
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_unhalt_delay = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_unhalt_delay
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.collar_unhalt_delay(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_unhalt_delay(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.collar_unhalt_delay, range, value, display)
 
@@ -4638,10 +4638,10 @@ dissect.collar_unhalt_delay = function(buffer, offset, packet, parent)
 end
 
 -- Size: Collar Max Unhalt Nb
-size_of.collar_max_unhalt_nb = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_max_unhalt_nb = 1
 
 -- Display: Collar Max Unhalt Nb
-display.collar_max_unhalt_nb = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_max_unhalt_nb = function(value)
   -- Check if field has value
   if value == 255 then
     return "Collar Max Unhalt Nb: No Value"
@@ -4651,11 +4651,11 @@ display.collar_max_unhalt_nb = function(value)
 end
 
 -- Dissect: Collar Max Unhalt Nb
-dissect.collar_max_unhalt_nb = function(buffer, offset, packet, parent)
-  local length = size_of.collar_max_unhalt_nb
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_max_unhalt_nb = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_max_unhalt_nb
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.collar_max_unhalt_nb(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_max_unhalt_nb(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.collar_max_unhalt_nb, range, value, display)
 
@@ -4663,10 +4663,10 @@ dissect.collar_max_unhalt_nb = function(buffer, offset, packet, parent)
 end
 
 -- Size: Dynamic Collar Logic
-size_of.dynamic_collar_logic = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dynamic_collar_logic = 1
 
 -- Display: Dynamic Collar Logic
-display.dynamic_collar_logic = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.dynamic_collar_logic = function(value)
   if value == 0 then
     return "Dynamic Collar Logic: Not Active (0)"
   end
@@ -4684,11 +4684,11 @@ display.dynamic_collar_logic = function(value)
 end
 
 -- Dissect: Dynamic Collar Logic
-dissect.dynamic_collar_logic = function(buffer, offset, packet, parent)
-  local length = size_of.dynamic_collar_logic
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dynamic_collar_logic = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dynamic_collar_logic
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.dynamic_collar_logic(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.dynamic_collar_logic(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.dynamic_collar_logic, range, value, display)
 
@@ -4696,10 +4696,10 @@ dissect.dynamic_collar_logic = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strategy Authorized
-size_of.strategy_authorized = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_authorized = 8
 
 -- Display: Strategy Authorized
-display.strategy_authorized = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_authorized = function(buffer, packet, parent)
   local display = ""
 
   -- Is Put Straddle Versus Sell A Call Or A Put flag set?
@@ -4899,7 +4899,7 @@ display.strategy_authorized = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Strategy Authorized
-dissect.strategy_authorized_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_authorized_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 16: 16 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reserved_16, buffer(offset, 8))
@@ -5050,24 +5050,24 @@ dissect.strategy_authorized_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Strategy Authorized
-dissect.strategy_authorized = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_authorized = function(buffer, offset, packet, parent)
   local size = 8
   local range = buffer(offset, size)
-  local display = display.strategy_authorized(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_authorized(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strategy_authorized, range, display)
 
   if show.strategy_authorized then
-    dissect.strategy_authorized_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_authorized_bits(buffer, offset, packet, element)
   end
 
   return offset + 8, range
 end
 
 -- Size: Pattern Id
-size_of.pattern_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pattern_id = 2
 
 -- Display: Pattern Id
-display.pattern_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.pattern_id = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Pattern Id: No Value"
@@ -5077,11 +5077,11 @@ display.pattern_id = function(value)
 end
 
 -- Dissect: Pattern Id
-dissect.pattern_id = function(buffer, offset, packet, parent)
-  local length = size_of.pattern_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pattern_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pattern_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.pattern_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.pattern_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.pattern_id, range, value, display)
 
@@ -5089,10 +5089,10 @@ dissect.pattern_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tick Size Index Id
-size_of.tick_size_index_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tick_size_index_id = 2
 
 -- Display: Tick Size Index Id
-display.tick_size_index_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.tick_size_index_id = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Tick Size Index Id: No Value"
@@ -5102,11 +5102,11 @@ display.tick_size_index_id = function(value)
 end
 
 -- Dissect: Tick Size Index Id
-dissect.tick_size_index_id = function(buffer, offset, packet, parent)
-  local length = size_of.tick_size_index_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.tick_size_index_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tick_size_index_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.tick_size_index_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.tick_size_index_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.tick_size_index_id, range, value, display)
 
@@ -5114,82 +5114,82 @@ dissect.tick_size_index_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Contract Em M Properties Group
-size_of.contract_em_m_properties_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_em_m_properties_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.tick_size_index_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tick_size_index_id
 
-  index = index + size_of.pattern_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pattern_id
 
-  index = index + size_of.lot_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size
 
-  index = index + size_of.strategy_authorized
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_authorized
 
-  index = index + size_of.dynamic_collar_logic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dynamic_collar_logic
 
-  index = index + size_of.collar_max_unhalt_nb
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_max_unhalt_nb
 
-  index = index + size_of.collar_unhalt_delay
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_unhalt_delay
 
   return index
 end
 
 -- Display: Contract Em M Properties Group
-display.contract_em_m_properties_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_em_m_properties_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Contract Em M Properties Group
-dissect.contract_em_m_properties_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Tick Size Index Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, tick_size_index_id = dissect.tick_size_index_id(buffer, index, packet, parent)
+  index, tick_size_index_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.tick_size_index_id(buffer, index, packet, parent)
 
   -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, pattern_id = dissect.pattern_id(buffer, index, packet, parent)
+  index, pattern_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pattern_id(buffer, index, packet, parent)
 
   -- Lot Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, lot_size = dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lot_size(buffer, index, packet, parent)
 
   -- Strategy Authorized: Struct of 49 fields
-  index, strategy_authorized = dissect.strategy_authorized(buffer, index, packet, parent)
+  index, strategy_authorized = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_authorized(buffer, index, packet, parent)
 
   -- Dynamic Collar Logic: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, dynamic_collar_logic = dissect.dynamic_collar_logic(buffer, index, packet, parent)
+  index, dynamic_collar_logic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dynamic_collar_logic(buffer, index, packet, parent)
 
   -- Collar Max Unhalt Nb: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, collar_max_unhalt_nb = dissect.collar_max_unhalt_nb(buffer, index, packet, parent)
+  index, collar_max_unhalt_nb = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_max_unhalt_nb(buffer, index, packet, parent)
 
   -- Collar Unhalt Delay: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, collar_unhalt_delay = dissect.collar_unhalt_delay(buffer, index, packet, parent)
+  index, collar_unhalt_delay = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_unhalt_delay(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Contract Em M Properties Group
-dissect.contract_em_m_properties_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.contract_em_m_properties_group then
-    local length = size_of.contract_em_m_properties_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_em_m_properties_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.contract_em_m_properties_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_em_m_properties_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_em_m_properties_group, range, display)
   end
 
-  return dissect.contract_em_m_properties_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Contract Em M Properties Groups
-size_of.contract_em_m_properties_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_em_m_properties_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local contract_em_m_properties_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -5199,46 +5199,46 @@ size_of.contract_em_m_properties_groups = function(buffer, offset)
 end
 
 -- Display: Contract Em M Properties Groups
-display.contract_em_m_properties_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_em_m_properties_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Contract Em M Properties Groups
-dissect.contract_em_m_properties_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Contract Em M Properties Group: Struct of 8 fields
   for i = 1, num_in_group do
-    index = dissect.contract_em_m_properties_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Contract Em M Properties Groups
-dissect.contract_em_m_properties_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.contract_em_m_properties_groups then
-    local length = size_of.contract_em_m_properties_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_em_m_properties_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.contract_em_m_properties_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_em_m_properties_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_em_m_properties_groups, range, display)
   end
 
-  return dissect.contract_em_m_properties_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Pricing Algorithm
-size_of.pricing_algorithm = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pricing_algorithm = 1
 
 -- Display: Pricing Algorithm
-display.pricing_algorithm = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.pricing_algorithm = function(value)
   if value == 0 then
     return "Pricing Algorithm: Standard (0)"
   end
@@ -5253,11 +5253,11 @@ display.pricing_algorithm = function(value)
 end
 
 -- Dissect: Pricing Algorithm
-dissect.pricing_algorithm = function(buffer, offset, packet, parent)
-  local length = size_of.pricing_algorithm
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pricing_algorithm = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pricing_algorithm
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.pricing_algorithm(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.pricing_algorithm(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.pricing_algorithm, range, value, display)
 
@@ -5265,19 +5265,19 @@ dissect.pricing_algorithm = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mifidii Liquid Flag
-size_of.mifidii_liquid_flag = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifidii_liquid_flag = 1
 
 -- Display: Mifidii Liquid Flag
-display.mifidii_liquid_flag = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mifidii_liquid_flag = function(value)
   return "Mifidii Liquid Flag: "..value
 end
 
 -- Dissect: Mifidii Liquid Flag
-dissect.mifidii_liquid_flag = function(buffer, offset, packet, parent)
-  local length = size_of.mifidii_liquid_flag
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifidii_liquid_flag = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifidii_liquid_flag
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.mifidii_liquid_flag(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mifidii_liquid_flag(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mifidii_liquid_flag, range, value, display)
 
@@ -5285,10 +5285,10 @@ dissect.mifidii_liquid_flag = function(buffer, offset, packet, parent)
 end
 
 -- Size: Collar Expansion Factor
-size_of.collar_expansion_factor = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_expansion_factor = 1
 
 -- Display: Collar Expansion Factor
-display.collar_expansion_factor = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_expansion_factor = function(value)
   -- Check if field has value
   if value == 255 then
     return "Collar Expansion Factor: No Value"
@@ -5298,11 +5298,11 @@ display.collar_expansion_factor = function(value)
 end
 
 -- Dissect: Collar Expansion Factor
-dissect.collar_expansion_factor = function(buffer, offset, packet, parent)
-  local length = size_of.collar_expansion_factor
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_expansion_factor = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_expansion_factor
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.collar_expansion_factor(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.collar_expansion_factor(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.collar_expansion_factor, range, value, display)
 
@@ -5310,10 +5310,10 @@ dissect.collar_expansion_factor = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reference Price Origin In Trading Interruption
-size_of.reference_price_origin_in_trading_interruption = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_trading_interruption = 1
 
 -- Display: Reference Price Origin In Trading Interruption
-display.reference_price_origin_in_trading_interruption = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_trading_interruption = function(value)
   if value == 1 then
     return "Reference Price Origin In Trading Interruption: Internal (1)"
   end
@@ -5343,11 +5343,11 @@ display.reference_price_origin_in_trading_interruption = function(value)
 end
 
 -- Dissect: Reference Price Origin In Trading Interruption
-dissect.reference_price_origin_in_trading_interruption = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price_origin_in_trading_interruption
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_trading_interruption = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_trading_interruption
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reference_price_origin_in_trading_interruption(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_trading_interruption(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reference_price_origin_in_trading_interruption, range, value, display)
 
@@ -5355,10 +5355,10 @@ dissect.reference_price_origin_in_trading_interruption = function(buffer, offset
 end
 
 -- Size: Reference Price Origin In Continuous
-size_of.reference_price_origin_in_continuous = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_continuous = 1
 
 -- Display: Reference Price Origin In Continuous
-display.reference_price_origin_in_continuous = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_continuous = function(value)
   if value == 1 then
     return "Reference Price Origin In Continuous: Internal (1)"
   end
@@ -5388,11 +5388,11 @@ display.reference_price_origin_in_continuous = function(value)
 end
 
 -- Dissect: Reference Price Origin In Continuous
-dissect.reference_price_origin_in_continuous = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price_origin_in_continuous
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_continuous = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_continuous
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reference_price_origin_in_continuous(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_continuous(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reference_price_origin_in_continuous, range, value, display)
 
@@ -5400,10 +5400,10 @@ dissect.reference_price_origin_in_continuous = function(buffer, offset, packet, 
 end
 
 -- Size: Reference Price Origin In Opening Call
-size_of.reference_price_origin_in_opening_call = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_opening_call = 1
 
 -- Display: Reference Price Origin In Opening Call
-display.reference_price_origin_in_opening_call = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_opening_call = function(value)
   if value == 1 then
     return "Reference Price Origin In Opening Call: Internal (1)"
   end
@@ -5433,11 +5433,11 @@ display.reference_price_origin_in_opening_call = function(value)
 end
 
 -- Dissect: Reference Price Origin In Opening Call
-dissect.reference_price_origin_in_opening_call = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price_origin_in_opening_call
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_opening_call = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_opening_call
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reference_price_origin_in_opening_call(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_price_origin_in_opening_call(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reference_price_origin_in_opening_call, range, value, display)
 
@@ -5445,10 +5445,10 @@ dissect.reference_price_origin_in_opening_call = function(buffer, offset, packet
 end
 
 -- Size: Trading Unit
-size_of.trading_unit = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_unit = 8
 
 -- Display: Trading Unit
-display.trading_unit = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_unit = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Trading Unit: No Value"
@@ -5458,11 +5458,11 @@ display.trading_unit = function(value)
 end
 
 -- Dissect: Trading Unit
-dissect.trading_unit = function(buffer, offset, packet, parent)
-  local length = size_of.trading_unit
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_unit = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_unit
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.trading_unit(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_unit(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_unit, range, value, display)
 
@@ -5470,10 +5470,10 @@ dissect.trading_unit = function(buffer, offset, packet, parent)
 end
 
 -- Size: Derivatives Market Model
-size_of.derivatives_market_model = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_market_model = 1
 
 -- Display: Derivatives Market Model
-display.derivatives_market_model = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_market_model = function(value)
   if value == 0 then
     return "Derivatives Market Model: No Synthetic Quote (0)"
   end
@@ -5491,11 +5491,11 @@ display.derivatives_market_model = function(value)
 end
 
 -- Dissect: Derivatives Market Model
-dissect.derivatives_market_model = function(buffer, offset, packet, parent)
-  local length = size_of.derivatives_market_model
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_market_model = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_market_model
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.derivatives_market_model(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.derivatives_market_model(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.derivatives_market_model, range, value, display)
 
@@ -5503,10 +5503,10 @@ dissect.derivatives_market_model = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reference Spread Table Id
-size_of.reference_spread_table_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_spread_table_id = 2
 
 -- Display: Reference Spread Table Id
-display.reference_spread_table_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_spread_table_id = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Reference Spread Table Id: No Value"
@@ -5516,11 +5516,11 @@ display.reference_spread_table_id = function(value)
 end
 
 -- Dissect: Reference Spread Table Id
-dissect.reference_spread_table_id = function(buffer, offset, packet, parent)
-  local length = size_of.reference_spread_table_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_spread_table_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_spread_table_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.reference_spread_table_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.reference_spread_table_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reference_spread_table_id, range, value, display)
 
@@ -5528,10 +5528,10 @@ dissect.reference_spread_table_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Policy
-size_of.trading_policy = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_policy = 1
 
 -- Display: Trading Policy
-display.trading_policy = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_policy = function(value)
   if value == 1 then
     return "Trading Policy: Price Explicit Time (1)"
   end
@@ -5546,11 +5546,11 @@ display.trading_policy = function(value)
 end
 
 -- Dissect: Trading Policy
-dissect.trading_policy = function(buffer, offset, packet, parent)
-  local length = size_of.trading_policy
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_policy = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_policy
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trading_policy(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_policy(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_policy, range, value, display)
 
@@ -5558,10 +5558,10 @@ dissect.trading_policy = function(buffer, offset, packet, parent)
 end
 
 -- Size: Edsp Tick Size
-size_of.edsp_tick_size = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.edsp_tick_size = 8
 
 -- Display: Edsp Tick Size
-display.edsp_tick_size = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.edsp_tick_size = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Edsp Tick Size: No Value"
@@ -5571,11 +5571,11 @@ display.edsp_tick_size = function(value)
 end
 
 -- Dissect: Edsp Tick Size
-dissect.edsp_tick_size = function(buffer, offset, packet, parent)
-  local length = size_of.edsp_tick_size
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.edsp_tick_size = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.edsp_tick_size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.edsp_tick_size(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.edsp_tick_size(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.edsp_tick_size, range, value, display)
 
@@ -5583,10 +5583,10 @@ dissect.edsp_tick_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Tick Size
-size_of.settlement_tick_size = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_tick_size = 8
 
 -- Display: Settlement Tick Size
-display.settlement_tick_size = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_tick_size = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Settlement Tick Size: No Value"
@@ -5596,11 +5596,11 @@ display.settlement_tick_size = function(value)
 end
 
 -- Dissect: Settlement Tick Size
-dissect.settlement_tick_size = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_tick_size
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_tick_size = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_tick_size
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.settlement_tick_size(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_tick_size(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.settlement_tick_size, range, value, display)
 
@@ -5608,10 +5608,10 @@ dissect.settlement_tick_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mother Stock Isin
-size_of.mother_stock_isin = 12
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mother_stock_isin = 12
 
 -- Display: Mother Stock Isin
-display.mother_stock_isin = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mother_stock_isin = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mother Stock Isin: No Value"
@@ -5621,8 +5621,8 @@ display.mother_stock_isin = function(value)
 end
 
 -- Dissect: Mother Stock Isin
-dissect.mother_stock_isin = function(buffer, offset, packet, parent)
-  local length = size_of.mother_stock_isin
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mother_stock_isin = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mother_stock_isin
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -5636,7 +5636,7 @@ dissect.mother_stock_isin = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mother_stock_isin(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mother_stock_isin(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mother_stock_isin, range, value, display)
 
@@ -5644,10 +5644,10 @@ dissect.mother_stock_isin = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Subtype
-size_of.underlying_subtype = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_subtype = 1
 
 -- Display: Underlying Subtype
-display.underlying_subtype = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_subtype = function(value)
   if value == 0 then
     return "Underlying Subtype: Basket (0)"
   end
@@ -5734,11 +5734,11 @@ display.underlying_subtype = function(value)
 end
 
 -- Dissect: Underlying Subtype
-dissect.underlying_subtype = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_subtype
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_subtype = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_subtype
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_subtype(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_subtype(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_subtype, range, value, display)
 
@@ -5746,10 +5746,10 @@ dissect.underlying_subtype = function(buffer, offset, packet, parent)
 end
 
 -- Size: Inst Unit Exp
-size_of.inst_unit_exp = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.inst_unit_exp = 1
 
 -- Display: Inst Unit Exp
-display.inst_unit_exp = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.inst_unit_exp = function(value)
   if value == 1 then
     return "Inst Unit Exp: Units (1)"
   end
@@ -5776,11 +5776,11 @@ display.inst_unit_exp = function(value)
 end
 
 -- Dissect: Inst Unit Exp
-dissect.inst_unit_exp = function(buffer, offset, packet, parent)
-  local length = size_of.inst_unit_exp
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.inst_unit_exp = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.inst_unit_exp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.inst_unit_exp(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.inst_unit_exp(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.inst_unit_exp, range, value, display)
 
@@ -5788,10 +5788,10 @@ dissect.inst_unit_exp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Trading Type
-size_of.contract_trading_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_trading_type = 1
 
 -- Display: Contract Trading Type
-display.contract_trading_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_trading_type = function(value)
   if value == 1 then
     return "Contract Trading Type: Tradedasanoutright (1)"
   end
@@ -5809,11 +5809,11 @@ display.contract_trading_type = function(value)
 end
 
 -- Dissect: Contract Trading Type
-dissect.contract_trading_type = function(buffer, offset, packet, parent)
-  local length = size_of.contract_trading_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_trading_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_trading_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contract_trading_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_trading_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_trading_type, range, value, display)
 
@@ -5821,10 +5821,10 @@ dissect.contract_trading_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mm Protections
-size_of.mm_protections = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mm_protections = 1
 
 -- Display: Mm Protections
-display.mm_protections = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mm_protections = function(buffer, packet, parent)
   local display = ""
 
   -- Is Volume flag set?
@@ -5840,7 +5840,7 @@ display.mm_protections = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Mm Protections
-dissect.mm_protections_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mm_protections_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 6: 6 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reserved_6, buffer(offset, 1))
@@ -5853,24 +5853,24 @@ dissect.mm_protections_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Mm Protections
-dissect.mm_protections = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mm_protections = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.mm_protections(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mm_protections(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mm_protections, range, display)
 
   if show.mm_protections then
-    dissect.mm_protections_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mm_protections_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Strike Price Decimals Ratio
-size_of.strike_price_decimals_ratio = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals_ratio = 1
 
 -- Display: Strike Price Decimals Ratio
-display.strike_price_decimals_ratio = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price_decimals_ratio = function(value)
   -- Check if field has value
   if value == 255 then
     return "Strike Price Decimals Ratio: No Value"
@@ -5880,11 +5880,11 @@ display.strike_price_decimals_ratio = function(value)
 end
 
 -- Dissect: Strike Price Decimals Ratio
-dissect.strike_price_decimals_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.strike_price_decimals_ratio
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price_decimals_ratio = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals_ratio
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.strike_price_decimals_ratio(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_price_decimals_ratio(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strike_price_decimals_ratio, range, value, display)
 
@@ -5892,10 +5892,10 @@ dissect.strike_price_decimals_ratio = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Currency
-size_of.trading_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency = 3
 
 -- Display: Trading Currency
-display.trading_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Trading Currency: No Value"
@@ -5905,8 +5905,8 @@ display.trading_currency = function(value)
 end
 
 -- Dissect: Trading Currency
-dissect.trading_currency = function(buffer, offset, packet, parent)
-  local length = size_of.trading_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -5920,7 +5920,7 @@ dissect.trading_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.trading_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_currency, range, value, display)
 
@@ -5928,10 +5928,10 @@ dissect.trading_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Type Rules
-size_of.order_type_rules = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_type_rules = 2
 
 -- Display: Order Type Rules
-display.order_type_rules = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_type_rules = function(buffer, packet, parent)
   local display = ""
 
   -- Is Trade At Settlement flag set?
@@ -5963,7 +5963,7 @@ display.order_type_rules = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Order Type Rules
-dissect.order_type_rules_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type_rules_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 10: 10 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reserved_10, buffer(offset, 2))
@@ -5988,24 +5988,24 @@ dissect.order_type_rules_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Order Type Rules
-dissect.order_type_rules = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type_rules = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local display = display.order_type_rules(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_type_rules(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_type_rules, range, display)
 
   if show.order_type_rules then
-    dissect.order_type_rules_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type_rules_bits(buffer, offset, packet, element)
   end
 
   return offset + 2, range
 end
 
 -- Size: Underlying Expiry
-size_of.underlying_expiry = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_expiry = 4
 
 -- Display: Underlying Expiry
-display.underlying_expiry = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_expiry = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Underlying Expiry: No Value"
@@ -6015,11 +6015,11 @@ display.underlying_expiry = function(value)
 end
 
 -- Dissect: Underlying Expiry
-dissect.underlying_expiry = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_expiry
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_expiry = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_expiry
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.underlying_expiry(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_expiry(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_expiry, range, value, display)
 
@@ -6027,10 +6027,10 @@ dissect.underlying_expiry = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Mic
-size_of.underlying_mic = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_mic = 4
 
 -- Display: Underlying Mic
-display.underlying_mic = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_mic = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Underlying Mic: No Value"
@@ -6040,8 +6040,8 @@ display.underlying_mic = function(value)
 end
 
 -- Dissect: Underlying Mic
-dissect.underlying_mic = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_mic
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_mic = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_mic
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6055,7 +6055,7 @@ dissect.underlying_mic = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.underlying_mic(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_mic(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_mic, range, value, display)
 
@@ -6063,10 +6063,10 @@ dissect.underlying_mic = function(buffer, offset, packet, parent)
 end
 
 -- Size: Product Code
-size_of.product_code = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.product_code = 4
 
 -- Display: Product Code
-display.product_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.product_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Product Code: No Value"
@@ -6076,8 +6076,8 @@ display.product_code = function(value)
 end
 
 -- Dissect: Product Code
-dissect.product_code = function(buffer, offset, packet, parent)
-  local length = size_of.product_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.product_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.product_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6091,7 +6091,7 @@ dissect.product_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.product_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.product_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.product_code, range, value, display)
 
@@ -6099,10 +6099,10 @@ dissect.product_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Country Of Exchange
-size_of.country_of_exchange = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.country_of_exchange = 3
 
 -- Display: Country Of Exchange
-display.country_of_exchange = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.country_of_exchange = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Country Of Exchange: No Value"
@@ -6112,8 +6112,8 @@ display.country_of_exchange = function(value)
 end
 
 -- Dissect: Country Of Exchange
-dissect.country_of_exchange = function(buffer, offset, packet, parent)
-  local length = size_of.country_of_exchange
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.country_of_exchange = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.country_of_exchange
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6127,7 +6127,7 @@ dissect.country_of_exchange = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.country_of_exchange(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.country_of_exchange(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.country_of_exchange, range, value, display)
 
@@ -6135,10 +6135,10 @@ dissect.country_of_exchange = function(buffer, offset, packet, parent)
 end
 
 -- Size: Main Depositary
-size_of.main_depositary = 5
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.main_depositary = 5
 
 -- Display: Main Depositary
-display.main_depositary = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.main_depositary = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Main Depositary: No Value"
@@ -6148,8 +6148,8 @@ display.main_depositary = function(value)
 end
 
 -- Dissect: Main Depositary
-dissect.main_depositary = function(buffer, offset, packet, parent)
-  local length = size_of.main_depositary
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.main_depositary = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.main_depositary
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6163,7 +6163,7 @@ dissect.main_depositary = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.main_depositary(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.main_depositary(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.main_depositary, range, value, display)
 
@@ -6171,10 +6171,10 @@ dissect.main_depositary = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ratio Decimals
-size_of.ratio_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.ratio_decimals = 1
 
 -- Display: Ratio Decimals
-display.ratio_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.ratio_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Ratio Decimals: No Value"
@@ -6184,11 +6184,11 @@ display.ratio_decimals = function(value)
 end
 
 -- Dissect: Ratio Decimals
-dissect.ratio_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.ratio_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.ratio_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.ratio_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.ratio_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.ratio_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.ratio_decimals, range, value, display)
 
@@ -6196,10 +6196,10 @@ dissect.ratio_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Amount Decimals
-size_of.amount_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.amount_decimals = 1
 
 -- Display: Amount Decimals
-display.amount_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.amount_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Amount Decimals: No Value"
@@ -6209,11 +6209,11 @@ display.amount_decimals = function(value)
 end
 
 -- Dissect: Amount Decimals
-dissect.amount_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.amount_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.amount_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.amount_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.amount_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.amount_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.amount_decimals, range, value, display)
 
@@ -6221,10 +6221,10 @@ dissect.amount_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quantity Decimals
-size_of.quantity_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_decimals = 1
 
 -- Display: Quantity Decimals
-display.quantity_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Quantity Decimals: No Value"
@@ -6234,11 +6234,11 @@ display.quantity_decimals = function(value)
 end
 
 -- Dissect: Quantity Decimals
-dissect.quantity_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.quantity_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quantity_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.quantity_decimals, range, value, display)
 
@@ -6246,10 +6246,10 @@ dissect.quantity_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Decimals
-size_of.price_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_decimals = 1
 
 -- Display: Price Decimals
-display.price_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Price Decimals: No Value"
@@ -6259,11 +6259,11 @@ display.price_decimals = function(value)
 end
 
 -- Dissect: Price Decimals
-dissect.price_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.price_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_decimals, range, value, display)
 
@@ -6271,10 +6271,10 @@ dissect.price_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Underlying Type
-size_of.underlying_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_type = 1
 
 -- Display: Underlying Type
-display.underlying_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_type = function(value)
   if value == "C" then
     return "Underlying Type: Commodity (C)"
   end
@@ -6295,8 +6295,8 @@ display.underlying_type = function(value)
 end
 
 -- Dissect: Underlying Type
-dissect.underlying_type = function(buffer, offset, packet, parent)
-  local length = size_of.underlying_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_type
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -6309,7 +6309,7 @@ dissect.underlying_type = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.underlying_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.underlying_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.underlying_type, range, value, display)
 
@@ -6317,10 +6317,10 @@ dissect.underlying_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Type
-size_of.contract_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_type = 1
 
 -- Display: Contract Type
-display.contract_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_type = function(value)
   if value == "F" then
     return "Contract Type: Future (F)"
   end
@@ -6338,8 +6338,8 @@ display.contract_type = function(value)
 end
 
 -- Dissect: Contract Type
-dissect.contract_type = function(buffer, offset, packet, parent)
-  local length = size_of.contract_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_type
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -6352,7 +6352,7 @@ dissect.contract_type = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.contract_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_type, range, value, display)
 
@@ -6360,10 +6360,10 @@ dissect.contract_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Name
-size_of.contract_name = 60
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_name = 60
 
 -- Display: Contract Name
-display.contract_name = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_name = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Contract Name: No Value"
@@ -6373,8 +6373,8 @@ display.contract_name = function(value)
 end
 
 -- Dissect: Contract Name
-dissect.contract_name = function(buffer, offset, packet, parent)
-  local length = size_of.contract_name
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_name = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_name
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -6388,7 +6388,7 @@ dissect.contract_name = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.contract_name(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_name(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_name, range, value, display)
 
@@ -6396,10 +6396,10 @@ dissect.contract_name = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exchange Code
-size_of.exchange_code = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exchange_code = 1
 
 -- Display: Exchange Code
-display.exchange_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.exchange_code = function(value)
   if value == "A" then
     return "Exchange Code: Amsterdam Equity Derivatives (A)"
   end
@@ -6450,8 +6450,8 @@ display.exchange_code = function(value)
 end
 
 -- Dissect: Exchange Code
-dissect.exchange_code = function(buffer, offset, packet, parent)
-  local length = size_of.exchange_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exchange_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exchange_code
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -6464,7 +6464,7 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.exchange_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.exchange_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.exchange_code, range, value, display)
 
@@ -6472,10 +6472,10 @@ dissect.exchange_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Contract Event Date
-size_of.contract_event_date = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_event_date = 2
 
 -- Display: Contract Event Date
-display.contract_event_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_event_date = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Contract Event Date: No Value"
@@ -6485,11 +6485,11 @@ display.contract_event_date = function(value)
 end
 
 -- Dissect: Contract Event Date
-dissect.contract_event_date = function(buffer, offset, packet, parent)
-  local length = size_of.contract_event_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_event_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_event_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.contract_event_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_event_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_event_date, range, value, display)
 
@@ -6497,19 +6497,19 @@ dissect.contract_event_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Partition Id
-size_of.partition_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.partition_id = 2
 
 -- Display: Partition Id
-display.partition_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.partition_id = function(value)
   return "Partition Id: "..value
 end
 
 -- Dissect: Partition Id
-dissect.partition_id = function(buffer, offset, packet, parent)
-  local length = size_of.partition_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.partition_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.partition_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.partition_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.partition_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.partition_id, range, value, display)
 
@@ -6517,10 +6517,10 @@ dissect.partition_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Optiq Segment
-size_of.optiq_segment = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.optiq_segment = 1
 
 -- Display: Optiq Segment
-display.optiq_segment = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.optiq_segment = function(value)
   if value == 1 then
     return "Optiq Segment: Equities (1)"
   end
@@ -6571,11 +6571,11 @@ display.optiq_segment = function(value)
 end
 
 -- Dissect: Optiq Segment
-dissect.optiq_segment = function(buffer, offset, packet, parent)
-  local length = size_of.optiq_segment
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.optiq_segment = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.optiq_segment
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.optiq_segment(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.optiq_segment(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.optiq_segment, range, value, display)
 
@@ -6583,267 +6583,267 @@ dissect.optiq_segment = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Contract Standing Data Message
-size_of.contract_standing_data_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_standing_data_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.optiq_segment
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.optiq_segment
 
-  index = index + size_of.partition_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.partition_id
 
-  index = index + size_of.contract_event_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_event_date
 
-  index = index + size_of.exchange_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exchange_code
 
-  index = index + size_of.exer_style
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exer_style
 
-  index = index + size_of.contract_name
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_name
 
-  index = index + size_of.contract_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_type
 
-  index = index + size_of.underlying_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_type
 
-  index = index + size_of.price_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_decimals
 
-  index = index + size_of.quantity_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_decimals
 
-  index = index + size_of.amount_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.amount_decimals
 
-  index = index + size_of.ratio_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.ratio_decimals
 
-  index = index + size_of.main_depositary
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.main_depositary
 
-  index = index + size_of.mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic
 
-  index = index + size_of.country_of_exchange
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.country_of_exchange
 
-  index = index + size_of.product_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.product_code
 
-  index = index + size_of.underlying_mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_mic
 
-  index = index + size_of.underlying_isin_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_isin_code
 
-  index = index + size_of.underlying_expiry
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_expiry
 
-  index = index + size_of.order_type_rules
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_type_rules
 
-  index = index + size_of.settlement_method
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_method
 
-  index = index + size_of.trading_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency
 
-  index = index + size_of.strike_price_decimals_ratio
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals_ratio
 
-  index = index + size_of.mm_protections
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mm_protections
 
-  index = index + size_of.contract_trading_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_trading_type
 
-  index = index + size_of.inst_unit_exp
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.inst_unit_exp
 
-  index = index + size_of.underlying_subtype
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_subtype
 
-  index = index + size_of.mother_stock_isin
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mother_stock_isin
 
-  index = index + size_of.settlement_tick_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_tick_size
 
-  index = index + size_of.edsp_tick_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.edsp_tick_size
 
-  index = index + size_of.underlying_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_symbol_index
 
-  index = index + size_of.trading_policy
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_policy
 
-  index = index + size_of.reference_spread_table_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_spread_table_id
 
-  index = index + size_of.derivatives_market_model
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_market_model
 
-  index = index + size_of.trading_unit
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_unit
 
-  index = index + size_of.reference_price_origin_in_opening_call
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_opening_call
 
-  index = index + size_of.reference_price_origin_in_continuous
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_continuous
 
-  index = index + size_of.reference_price_origin_in_trading_interruption
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.reference_price_origin_in_trading_interruption
 
-  index = index + size_of.collar_expansion_factor
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.collar_expansion_factor
 
-  index = index + size_of.mifidii_liquid_flag
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifidii_liquid_flag
 
-  index = index + size_of.pricing_algorithm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pricing_algorithm
 
-  index = index + size_of.contract_em_m_properties_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_em_m_properties_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Contract Standing Data Message
-display.contract_standing_data_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_standing_data_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Contract Standing Data Message
-dissect.contract_standing_data_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_standing_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Optiq Segment: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, optiq_segment = dissect.optiq_segment(buffer, index, packet, parent)
+  index, optiq_segment = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.optiq_segment(buffer, index, packet, parent)
 
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer
-  index, partition_id = dissect.partition_id(buffer, index, packet, parent)
+  index, partition_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.partition_id(buffer, index, packet, parent)
 
   -- Contract Event Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, contract_event_date = dissect.contract_event_date(buffer, index, packet, parent)
+  index, contract_event_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_event_date(buffer, index, packet, parent)
 
   -- Exchange Code: 1 Byte Ascii String Enum with 15 values
-  index, exchange_code = dissect.exchange_code(buffer, index, packet, parent)
+  index, exchange_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exchange_code(buffer, index, packet, parent)
 
   -- Exer Style: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, exer_style = dissect.exer_style(buffer, index, packet, parent)
+  index, exer_style = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exer_style(buffer, index, packet, parent)
 
   -- Contract Name: 60 Byte Ascii String
-  index, contract_name = dissect.contract_name(buffer, index, packet, parent)
+  index, contract_name = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_name(buffer, index, packet, parent)
 
   -- Contract Type: 1 Byte Ascii String Enum with 4 values
-  index, contract_type = dissect.contract_type(buffer, index, packet, parent)
+  index, contract_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_type(buffer, index, packet, parent)
 
   -- Underlying Type: 1 Byte Ascii String Enum with 5 values
-  index, underlying_type = dissect.underlying_type(buffer, index, packet, parent)
+  index, underlying_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_type(buffer, index, packet, parent)
 
   -- Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, price_decimals = dissect.price_decimals(buffer, index, packet, parent)
+  index, price_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_decimals(buffer, index, packet, parent)
 
   -- Quantity Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity_decimals = dissect.quantity_decimals(buffer, index, packet, parent)
+  index, quantity_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity_decimals(buffer, index, packet, parent)
 
   -- Amount Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, amount_decimals = dissect.amount_decimals(buffer, index, packet, parent)
+  index, amount_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.amount_decimals(buffer, index, packet, parent)
 
   -- Ratio Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, ratio_decimals = dissect.ratio_decimals(buffer, index, packet, parent)
+  index, ratio_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.ratio_decimals(buffer, index, packet, parent)
 
   -- Main Depositary: 5 Byte Ascii String Nullable
-  index, main_depositary = dissect.main_depositary(buffer, index, packet, parent)
+  index, main_depositary = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.main_depositary(buffer, index, packet, parent)
 
   -- Mic: 4 Byte Ascii String
-  index, mic = dissect.mic(buffer, index, packet, parent)
+  index, mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic(buffer, index, packet, parent)
 
   -- Country Of Exchange: 3 Byte Ascii String Nullable
-  index, country_of_exchange = dissect.country_of_exchange(buffer, index, packet, parent)
+  index, country_of_exchange = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.country_of_exchange(buffer, index, packet, parent)
 
   -- Product Code: 4 Byte Ascii String
-  index, product_code = dissect.product_code(buffer, index, packet, parent)
+  index, product_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.product_code(buffer, index, packet, parent)
 
   -- Underlying Mic: 4 Byte Ascii String Nullable
-  index, underlying_mic = dissect.underlying_mic(buffer, index, packet, parent)
+  index, underlying_mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_mic(buffer, index, packet, parent)
 
   -- Underlying Isin Code: 12 Byte Ascii String Nullable
-  index, underlying_isin_code = dissect.underlying_isin_code(buffer, index, packet, parent)
+  index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_isin_code(buffer, index, packet, parent)
 
   -- Underlying Expiry: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_expiry = dissect.underlying_expiry(buffer, index, packet, parent)
+  index, underlying_expiry = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_expiry(buffer, index, packet, parent)
 
   -- Order Type Rules: Struct of 7 fields
-  index, order_type_rules = dissect.order_type_rules(buffer, index, packet, parent)
+  index, order_type_rules = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type_rules(buffer, index, packet, parent)
 
   -- Settlement Method: 1 Byte Ascii String Nullable
-  index, settlement_method = dissect.settlement_method(buffer, index, packet, parent)
+  index, settlement_method = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_method(buffer, index, packet, parent)
 
   -- Trading Currency: 3 Byte Ascii String Nullable
-  index, trading_currency = dissect.trading_currency(buffer, index, packet, parent)
+  index, trading_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_currency(buffer, index, packet, parent)
 
   -- Strike Price Decimals Ratio: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, strike_price_decimals_ratio = dissect.strike_price_decimals_ratio(buffer, index, packet, parent)
+  index, strike_price_decimals_ratio = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price_decimals_ratio(buffer, index, packet, parent)
 
   -- Mm Protections: Struct of 3 fields
-  index, mm_protections = dissect.mm_protections(buffer, index, packet, parent)
+  index, mm_protections = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mm_protections(buffer, index, packet, parent)
 
   -- Contract Trading Type: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, contract_trading_type = dissect.contract_trading_type(buffer, index, packet, parent)
+  index, contract_trading_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_trading_type(buffer, index, packet, parent)
 
   -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, inst_unit_exp = dissect.inst_unit_exp(buffer, index, packet, parent)
+  index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.inst_unit_exp(buffer, index, packet, parent)
 
   -- Underlying Subtype: 1 Byte Unsigned Fixed Width Integer Enum with 27 values
-  index, underlying_subtype = dissect.underlying_subtype(buffer, index, packet, parent)
+  index, underlying_subtype = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_subtype(buffer, index, packet, parent)
 
   -- Mother Stock Isin: 12 Byte Ascii String Nullable
-  index, mother_stock_isin = dissect.mother_stock_isin(buffer, index, packet, parent)
+  index, mother_stock_isin = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mother_stock_isin(buffer, index, packet, parent)
 
   -- Settlement Tick Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, settlement_tick_size = dissect.settlement_tick_size(buffer, index, packet, parent)
+  index, settlement_tick_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_tick_size(buffer, index, packet, parent)
 
   -- Edsp Tick Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, edsp_tick_size = dissect.edsp_tick_size(buffer, index, packet, parent)
+  index, edsp_tick_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.edsp_tick_size(buffer, index, packet, parent)
 
   -- Underlying Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, underlying_symbol_index = dissect.underlying_symbol_index(buffer, index, packet, parent)
+  index, underlying_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_symbol_index(buffer, index, packet, parent)
 
   -- Trading Policy: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, trading_policy = dissect.trading_policy(buffer, index, packet, parent)
+  index, trading_policy = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_policy(buffer, index, packet, parent)
 
   -- Reference Spread Table Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, reference_spread_table_id = dissect.reference_spread_table_id(buffer, index, packet, parent)
+  index, reference_spread_table_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_spread_table_id(buffer, index, packet, parent)
 
   -- Derivatives Market Model: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, derivatives_market_model = dissect.derivatives_market_model(buffer, index, packet, parent)
+  index, derivatives_market_model = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_market_model(buffer, index, packet, parent)
 
   -- Trading Unit: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, trading_unit = dissect.trading_unit(buffer, index, packet, parent)
+  index, trading_unit = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_unit(buffer, index, packet, parent)
 
   -- Reference Price Origin In Opening Call: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, reference_price_origin_in_opening_call = dissect.reference_price_origin_in_opening_call(buffer, index, packet, parent)
+  index, reference_price_origin_in_opening_call = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_opening_call(buffer, index, packet, parent)
 
   -- Reference Price Origin In Continuous: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, reference_price_origin_in_continuous = dissect.reference_price_origin_in_continuous(buffer, index, packet, parent)
+  index, reference_price_origin_in_continuous = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_continuous(buffer, index, packet, parent)
 
   -- Reference Price Origin In Trading Interruption: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, reference_price_origin_in_trading_interruption = dissect.reference_price_origin_in_trading_interruption(buffer, index, packet, parent)
+  index, reference_price_origin_in_trading_interruption = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.reference_price_origin_in_trading_interruption(buffer, index, packet, parent)
 
   -- Collar Expansion Factor: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, collar_expansion_factor = dissect.collar_expansion_factor(buffer, index, packet, parent)
+  index, collar_expansion_factor = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.collar_expansion_factor(buffer, index, packet, parent)
 
   -- Mifidii Liquid Flag: 1 Byte Unsigned Fixed Width Integer
-  index, mifidii_liquid_flag = dissect.mifidii_liquid_flag(buffer, index, packet, parent)
+  index, mifidii_liquid_flag = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifidii_liquid_flag(buffer, index, packet, parent)
 
   -- Pricing Algorithm: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, pricing_algorithm = dissect.pricing_algorithm(buffer, index, packet, parent)
+  index, pricing_algorithm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pricing_algorithm(buffer, index, packet, parent)
 
   -- Contract Em M Properties Groups: Struct of 2 fields
-  index, contract_em_m_properties_groups = dissect.contract_em_m_properties_groups(buffer, index, packet, parent)
+  index, contract_em_m_properties_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_em_m_properties_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Contract Standing Data Message
-dissect.contract_standing_data_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_standing_data_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.contract_standing_data_message then
-    local length = size_of.contract_standing_data_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_standing_data_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.contract_standing_data_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.contract_standing_data_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.contract_standing_data_message, range, display)
   end
 
-  return dissect.contract_standing_data_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_standing_data_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Buy Sell
-size_of.leg_buy_sell = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_buy_sell = 1
 
 -- Display: Leg Buy Sell
-display.leg_buy_sell = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_buy_sell = function(value)
   if value == "B" then
     return "Leg Buy Sell: Buy (B)"
   end
@@ -6855,8 +6855,8 @@ display.leg_buy_sell = function(value)
 end
 
 -- Dissect: Leg Buy Sell
-dissect.leg_buy_sell = function(buffer, offset, packet, parent)
-  local length = size_of.leg_buy_sell
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_buy_sell = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_buy_sell
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -6869,7 +6869,7 @@ dissect.leg_buy_sell = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.leg_buy_sell(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_buy_sell(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.leg_buy_sell, range, value, display)
 
@@ -6877,10 +6877,10 @@ dissect.leg_buy_sell = function(buffer, offset, packet, parent)
 end
 
 -- Size: Leg Price
-size_of.leg_price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_price = 8
 
 -- Display: Leg Price
-display.leg_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Leg Price: No Value"
@@ -6890,11 +6890,11 @@ display.leg_price = function(value)
 end
 
 -- Dissect: Leg Price
-dissect.leg_price = function(buffer, offset, packet, parent)
-  local length = size_of.leg_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.leg_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.leg_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.leg_price, range, value, display)
 
@@ -6902,62 +6902,62 @@ dissect.leg_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strategy Standing Datarep 1 Group
-size_of.strategy_standing_datarep_1_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_datarep_1_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.leg_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_symbol_index
 
-  index = index + size_of.leg_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_price
 
-  index = index + size_of.leg_ratio
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_ratio
 
-  index = index + size_of.leg_buy_sell
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.leg_buy_sell
 
   return index
 end
 
 -- Display: Strategy Standing Datarep 1 Group
-display.strategy_standing_datarep_1_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_datarep_1_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strategy Standing Datarep 1 Group
-dissect.strategy_standing_datarep_1_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Leg Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, leg_symbol_index = dissect.leg_symbol_index(buffer, index, packet, parent)
+  index, leg_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_symbol_index(buffer, index, packet, parent)
 
   -- Leg Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, leg_price = dissect.leg_price(buffer, index, packet, parent)
+  index, leg_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_price(buffer, index, packet, parent)
 
   -- Leg Ratio: 4 Byte Unsigned Fixed Width Integer
-  index, leg_ratio = dissect.leg_ratio(buffer, index, packet, parent)
+  index, leg_ratio = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_ratio(buffer, index, packet, parent)
 
   -- Leg Buy Sell: 1 Byte Ascii String Enum with 2 values
-  index, leg_buy_sell = dissect.leg_buy_sell(buffer, index, packet, parent)
+  index, leg_buy_sell = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.leg_buy_sell(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Strategy Standing Datarep 1 Group
-dissect.strategy_standing_datarep_1_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.strategy_standing_datarep_1_group then
-    local length = size_of.strategy_standing_datarep_1_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_datarep_1_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_standing_datarep_1_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_datarep_1_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strategy_standing_datarep_1_group, range, display)
   end
 
-  return dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strategy Standing Datarep 1 Groups
-size_of.strategy_standing_datarep_1_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_datarep_1_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local strategy_standing_datarep_1_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -6967,133 +6967,133 @@ size_of.strategy_standing_datarep_1_groups = function(buffer, offset)
 end
 
 -- Display: Strategy Standing Datarep 1 Groups
-display.strategy_standing_datarep_1_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_datarep_1_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strategy Standing Datarep 1 Groups
-dissect.strategy_standing_datarep_1_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Strategy Standing Datarep 1 Group: Struct of 4 fields
   for i = 1, num_in_group do
-    index = dissect.strategy_standing_datarep_1_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Strategy Standing Datarep 1 Groups
-dissect.strategy_standing_datarep_1_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.strategy_standing_datarep_1_groups then
-    local length = size_of.strategy_standing_datarep_1_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_datarep_1_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_standing_datarep_1_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_datarep_1_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strategy_standing_datarep_1_groups, range, display)
   end
 
-  return dissect.strategy_standing_datarep_1_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Strategy Standing Data Message
-size_of.strategy_standing_data_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_data_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.derivatives_instrument_trading_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.derivatives_instrument_trading_code
 
-  index = index + size_of.exchange_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.exchange_code
 
-  index = index + size_of.maturity_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date
 
-  index = index + size_of.strategy_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_code
 
-  index = index + size_of.contract_symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_symbol_index
 
-  index = index + size_of.cfi
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi
 
-  index = index + size_of.strategy_standing_datarep_1_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_datarep_1_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Strategy Standing Data Message
-display.strategy_standing_data_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_data_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Strategy Standing Data Message
-dissect.strategy_standing_data_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Derivatives Instrument Trading Code: 18 Byte Ascii String Nullable
-  index, derivatives_instrument_trading_code = dissect.derivatives_instrument_trading_code(buffer, index, packet, parent)
+  index, derivatives_instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.derivatives_instrument_trading_code(buffer, index, packet, parent)
 
   -- Exchange Code: 1 Byte Ascii String Enum with 15 values
-  index, exchange_code = dissect.exchange_code(buffer, index, packet, parent)
+  index, exchange_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.exchange_code(buffer, index, packet, parent)
 
   -- Maturity Date: 8 Byte Ascii String Nullable
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Strategy Code: 1 Byte Ascii String Enum with 48 values
-  index, strategy_code = dissect.strategy_code(buffer, index, packet, parent)
+  index, strategy_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_code(buffer, index, packet, parent)
 
   -- Contract Symbol Index: 4 Byte Unsigned Fixed Width Integer
-  index, contract_symbol_index = dissect.contract_symbol_index(buffer, index, packet, parent)
+  index, contract_symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_symbol_index(buffer, index, packet, parent)
 
   -- Cfi: 6 Byte Ascii String Nullable
-  index, cfi = dissect.cfi(buffer, index, packet, parent)
+  index, cfi = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.cfi(buffer, index, packet, parent)
 
   -- Strategy Standing Datarep 1 Groups: Struct of 2 fields
-  index, strategy_standing_datarep_1_groups = dissect.strategy_standing_datarep_1_groups(buffer, index, packet, parent)
+  index, strategy_standing_datarep_1_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_datarep_1_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Strategy Standing Data Message
-dissect.strategy_standing_data_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_data_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.strategy_standing_data_message then
-    local length = size_of.strategy_standing_data_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_data_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.strategy_standing_data_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strategy_standing_data_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strategy_standing_data_message, range, display)
   end
 
-  return dissect.strategy_standing_data_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_data_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Liquidation Time
-size_of.liquidation_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_time = 8
 
 -- Display: Liquidation Time
-display.liquidation_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.liquidation_time = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Liquidation Time: No Value"
@@ -7103,11 +7103,11 @@ display.liquidation_time = function(value)
 end
 
 -- Dissect: Liquidation Time
-dissect.liquidation_time = function(buffer, offset, packet, parent)
-  local length = size_of.liquidation_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquidation_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.liquidation_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.liquidation_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.liquidation_time, range, value, display)
 
@@ -7115,10 +7115,10 @@ dissect.liquidation_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Liquidation Level
-size_of.liquidation_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_level = 8
 
 -- Display: Liquidation Level
-display.liquidation_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.liquidation_level = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Liquidation Level: No Value"
@@ -7128,11 +7128,11 @@ display.liquidation_level = function(value)
 end
 
 -- Dissect: Liquidation Level
-dissect.liquidation_level = function(buffer, offset, packet, parent)
-  local length = size_of.liquidation_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquidation_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.liquidation_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.liquidation_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.liquidation_level, range, value, display)
 
@@ -7140,19 +7140,19 @@ dissect.liquidation_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Time
-size_of.low_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_time = 8
 
 -- Display: Low Time
-display.low_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.low_time = function(value)
   return "Low Time: "..value
 end
 
 -- Dissect: Low Time
-dissect.low_time = function(buffer, offset, packet, parent)
-  local length = size_of.low_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.low_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.low_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.low_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.low_time, range, value, display)
 
@@ -7160,19 +7160,19 @@ dissect.low_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Low Level
-size_of.low_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_level = 8
 
 -- Display: Low Level
-display.low_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.low_level = function(value)
   return "Low Level: "..value
 end
 
 -- Dissect: Low Level
-dissect.low_level = function(buffer, offset, packet, parent)
-  local length = size_of.low_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.low_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.low_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.low_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.low_level, range, value, display)
 
@@ -7180,19 +7180,19 @@ dissect.low_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Time
-size_of.high_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_time = 8
 
 -- Display: High Time
-display.high_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.high_time = function(value)
   return "High Time: "..value
 end
 
 -- Dissect: High Time
-dissect.high_time = function(buffer, offset, packet, parent)
-  local length = size_of.high_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.high_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.high_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.high_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.high_time, range, value, display)
 
@@ -7200,19 +7200,19 @@ dissect.high_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: High Level
-size_of.high_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_level = 8
 
 -- Display: High Level
-display.high_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.high_level = function(value)
   return "High Level: "..value
 end
 
 -- Dissect: High Level
-dissect.high_level = function(buffer, offset, packet, parent)
-  local length = size_of.high_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.high_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.high_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.high_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.high_level, range, value, display)
 
@@ -7220,19 +7220,19 @@ dissect.high_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Prct Varfrom Prev Close
-size_of.prct_varfrom_prev_close = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prct_varfrom_prev_close = 8
 
 -- Display: Prct Varfrom Prev Close
-display.prct_varfrom_prev_close = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.prct_varfrom_prev_close = function(value)
   return "Prct Varfrom Prev Close: "..value
 end
 
 -- Dissect: Prct Varfrom Prev Close
-dissect.prct_varfrom_prev_close = function(buffer, offset, packet, parent)
-  local length = size_of.prct_varfrom_prev_close
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prct_varfrom_prev_close = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prct_varfrom_prev_close
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.prct_varfrom_prev_close(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.prct_varfrom_prev_close(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.prct_varfrom_prev_close, range, value, display)
 
@@ -7240,19 +7240,19 @@ dissect.prct_varfrom_prev_close = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Reference Time
-size_of.closing_reference_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_time = 8
 
 -- Display: Closing Reference Time
-display.closing_reference_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.closing_reference_time = function(value)
   return "Closing Reference Time: "..value
 end
 
 -- Dissect: Closing Reference Time
-dissect.closing_reference_time = function(buffer, offset, packet, parent)
-  local length = size_of.closing_reference_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.closing_reference_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.closing_reference_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.closing_reference_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.closing_reference_time, range, value, display)
 
@@ -7260,19 +7260,19 @@ dissect.closing_reference_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Closing Reference Level
-size_of.closing_reference_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_level = 8
 
 -- Display: Closing Reference Level
-display.closing_reference_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.closing_reference_level = function(value)
   return "Closing Reference Level: "..value
 end
 
 -- Dissect: Closing Reference Level
-dissect.closing_reference_level = function(buffer, offset, packet, parent)
-  local length = size_of.closing_reference_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.closing_reference_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.closing_reference_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.closing_reference_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.closing_reference_level, range, value, display)
 
@@ -7280,10 +7280,10 @@ dissect.closing_reference_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Confirmed Reference Time
-size_of.confirmed_reference_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_time = 8
 
 -- Display: Confirmed Reference Time
-display.confirmed_reference_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.confirmed_reference_time = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Confirmed Reference Time: No Value"
@@ -7293,11 +7293,11 @@ display.confirmed_reference_time = function(value)
 end
 
 -- Dissect: Confirmed Reference Time
-dissect.confirmed_reference_time = function(buffer, offset, packet, parent)
-  local length = size_of.confirmed_reference_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.confirmed_reference_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.confirmed_reference_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.confirmed_reference_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.confirmed_reference_time, range, value, display)
 
@@ -7305,10 +7305,10 @@ dissect.confirmed_reference_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Confirmed Reference Level
-size_of.confirmed_reference_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_level = 8
 
 -- Display: Confirmed Reference Level
-display.confirmed_reference_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.confirmed_reference_level = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Confirmed Reference Level: No Value"
@@ -7318,11 +7318,11 @@ display.confirmed_reference_level = function(value)
 end
 
 -- Dissect: Confirmed Reference Level
-dissect.confirmed_reference_level = function(buffer, offset, packet, parent)
-  local length = size_of.confirmed_reference_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.confirmed_reference_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.confirmed_reference_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.confirmed_reference_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.confirmed_reference_level, range, value, display)
 
@@ -7330,19 +7330,19 @@ dissect.confirmed_reference_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Opening Time
-size_of.opening_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_time = 8
 
 -- Display: Opening Time
-display.opening_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.opening_time = function(value)
   return "Opening Time: "..value
 end
 
 -- Dissect: Opening Time
-dissect.opening_time = function(buffer, offset, packet, parent)
-  local length = size_of.opening_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.opening_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.opening_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.opening_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.opening_time, range, value, display)
 
@@ -7350,19 +7350,19 @@ dissect.opening_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Opening Level
-size_of.opening_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_level = 8
 
 -- Display: Opening Level
-display.opening_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.opening_level = function(value)
   return "Opening Level: "..value
 end
 
 -- Dissect: Opening Level
-dissect.opening_level = function(buffer, offset, packet, parent)
-  local length = size_of.opening_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.opening_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.opening_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.opening_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.opening_level, range, value, display)
 
@@ -7370,132 +7370,132 @@ dissect.opening_level = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Index Summary Message
-size_of.index_summary_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_summary_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.opening_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_level
 
-  index = index + size_of.opening_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.opening_time
 
-  index = index + size_of.confirmed_reference_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_level
 
-  index = index + size_of.confirmed_reference_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.confirmed_reference_time
 
-  index = index + size_of.closing_reference_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_level
 
-  index = index + size_of.closing_reference_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.closing_reference_time
 
-  index = index + size_of.prct_varfrom_prev_close
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prct_varfrom_prev_close
 
-  index = index + size_of.high_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_level
 
-  index = index + size_of.high_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.high_time
 
-  index = index + size_of.low_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_level
 
-  index = index + size_of.low_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.low_time
 
-  index = index + size_of.liquidation_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_level
 
-  index = index + size_of.liquidation_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquidation_time
 
   return index
 end
 
 -- Display: Index Summary Message
-display.index_summary_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.index_summary_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Index Summary Message
-dissect.index_summary_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_summary_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Opening Level: 8 Byte Signed Fixed Width Integer
-  index, opening_level = dissect.opening_level(buffer, index, packet, parent)
+  index, opening_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.opening_level(buffer, index, packet, parent)
 
   -- Opening Time: 8 Byte Unsigned Fixed Width Integer
-  index, opening_time = dissect.opening_time(buffer, index, packet, parent)
+  index, opening_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.opening_time(buffer, index, packet, parent)
 
   -- Confirmed Reference Level: 8 Byte Signed Fixed Width Integer Nullable
-  index, confirmed_reference_level = dissect.confirmed_reference_level(buffer, index, packet, parent)
+  index, confirmed_reference_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.confirmed_reference_level(buffer, index, packet, parent)
 
   -- Confirmed Reference Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, confirmed_reference_time = dissect.confirmed_reference_time(buffer, index, packet, parent)
+  index, confirmed_reference_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.confirmed_reference_time(buffer, index, packet, parent)
 
   -- Closing Reference Level: 8 Byte Signed Fixed Width Integer
-  index, closing_reference_level = dissect.closing_reference_level(buffer, index, packet, parent)
+  index, closing_reference_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.closing_reference_level(buffer, index, packet, parent)
 
   -- Closing Reference Time: 8 Byte Unsigned Fixed Width Integer
-  index, closing_reference_time = dissect.closing_reference_time(buffer, index, packet, parent)
+  index, closing_reference_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.closing_reference_time(buffer, index, packet, parent)
 
   -- Prct Varfrom Prev Close: 8 Byte Signed Fixed Width Integer
-  index, prct_varfrom_prev_close = dissect.prct_varfrom_prev_close(buffer, index, packet, parent)
+  index, prct_varfrom_prev_close = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prct_varfrom_prev_close(buffer, index, packet, parent)
 
   -- High Level: 8 Byte Signed Fixed Width Integer
-  index, high_level = dissect.high_level(buffer, index, packet, parent)
+  index, high_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.high_level(buffer, index, packet, parent)
 
   -- High Time: 8 Byte Unsigned Fixed Width Integer
-  index, high_time = dissect.high_time(buffer, index, packet, parent)
+  index, high_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.high_time(buffer, index, packet, parent)
 
   -- Low Level: 8 Byte Signed Fixed Width Integer
-  index, low_level = dissect.low_level(buffer, index, packet, parent)
+  index, low_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.low_level(buffer, index, packet, parent)
 
   -- Low Time: 8 Byte Unsigned Fixed Width Integer
-  index, low_time = dissect.low_time(buffer, index, packet, parent)
+  index, low_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.low_time(buffer, index, packet, parent)
 
   -- Liquidation Level: 8 Byte Signed Fixed Width Integer Nullable
-  index, liquidation_level = dissect.liquidation_level(buffer, index, packet, parent)
+  index, liquidation_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquidation_level(buffer, index, packet, parent)
 
   -- Liquidation Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, liquidation_time = dissect.liquidation_time(buffer, index, packet, parent)
+  index, liquidation_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquidation_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Index Summary Message
-dissect.index_summary_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_summary_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.index_summary_message then
-    local length = size_of.index_summary_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_summary_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.index_summary_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.index_summary_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.index_summary_message, range, display)
   end
 
-  return dissect.index_summary_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_summary_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Stats Update Value
-size_of.stats_update_value = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_value = 8
 
 -- Display: Stats Update Value
-display.stats_update_value = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.stats_update_value = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Stats Update Value: No Value"
@@ -7505,11 +7505,11 @@ display.stats_update_value = function(value)
 end
 
 -- Dissect: Stats Update Value
-dissect.stats_update_value = function(buffer, offset, packet, parent)
-  local length = size_of.stats_update_value
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.stats_update_value = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_value
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.stats_update_value(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.stats_update_value(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.stats_update_value, range, value, display)
 
@@ -7517,10 +7517,10 @@ dissect.stats_update_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stats Update Type
-size_of.stats_update_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_type = 1
 
 -- Display: Stats Update Type
-display.stats_update_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.stats_update_type = function(value)
   if value == 5 then
     return "Stats Update Type: Daily High (5)"
   end
@@ -7571,11 +7571,11 @@ display.stats_update_type = function(value)
 end
 
 -- Dissect: Stats Update Type
-dissect.stats_update_type = function(buffer, offset, packet, parent)
-  local length = size_of.stats_update_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.stats_update_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.stats_update_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.stats_update_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.stats_update_type, range, value, display)
 
@@ -7583,52 +7583,52 @@ dissect.stats_update_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: New Stats Group
-size_of.new_stats_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.new_stats_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.stats_update_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_type
 
-  index = index + size_of.stats_update_value
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.stats_update_value
 
   return index
 end
 
 -- Display: New Stats Group
-display.new_stats_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.new_stats_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Stats Group
-dissect.new_stats_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stats Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, stats_update_type = dissect.stats_update_type(buffer, index, packet, parent)
+  index, stats_update_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.stats_update_type(buffer, index, packet, parent)
 
   -- Stats Update Value: 8 Byte Signed Fixed Width Integer Nullable
-  index, stats_update_value = dissect.stats_update_value(buffer, index, packet, parent)
+  index, stats_update_value = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.stats_update_value(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: New Stats Group
-dissect.new_stats_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.new_stats_group then
-    local length = size_of.new_stats_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.new_stats_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.new_stats_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.new_stats_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.new_stats_group, range, display)
   end
 
-  return dissect.new_stats_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: New Stats Groups
-size_of.new_stats_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.new_stats_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local new_stats_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -7638,98 +7638,98 @@ size_of.new_stats_groups = function(buffer, offset)
 end
 
 -- Display: New Stats Groups
-display.new_stats_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.new_stats_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: New Stats Groups
-dissect.new_stats_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- New Stats Group: Struct of 2 fields
   for i = 1, num_in_group do
-    index = dissect.new_stats_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: New Stats Groups
-dissect.new_stats_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.new_stats_groups then
-    local length = size_of.new_stats_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.new_stats_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.new_stats_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.new_stats_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.new_stats_groups, range, display)
   end
 
-  return dissect.new_stats_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Statistics Message
-size_of.statistics_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.statistics_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.new_stats_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.new_stats_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Statistics Message
-display.statistics_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.statistics_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Statistics Message
-dissect.statistics_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.statistics_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- New Stats Groups: Struct of 2 fields
-  index, new_stats_groups = dissect.new_stats_groups(buffer, index, packet, parent)
+  index, new_stats_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.new_stats_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Statistics Message
-dissect.statistics_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.statistics_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.statistics_message then
-    local length = size_of.statistics_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.statistics_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.statistics_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.statistics_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.statistics_message, range, display)
   end
 
-  return dissect.statistics_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.statistics_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Index Price Code
-size_of.index_price_code = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_price_code = 1
 
 -- Display: Index Price Code
-display.index_price_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.index_price_code = function(value)
   if value == 0 then
     return "Index Price Code: Only Index (0)"
   end
@@ -7756,11 +7756,11 @@ display.index_price_code = function(value)
 end
 
 -- Dissect: Index Price Code
-dissect.index_price_code = function(buffer, offset, packet, parent)
-  local length = size_of.index_price_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_price_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_price_code
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.index_price_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.index_price_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.index_price_code, range, value, display)
 
@@ -7768,10 +7768,10 @@ dissect.index_price_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Index Level Type
-size_of.index_level_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level_type = 1
 
 -- Display: Index Level Type
-display.index_level_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.index_level_type = function(value)
   if value == 0 then
     return "Index Level Type: Indicative Index (0)"
   end
@@ -7801,11 +7801,11 @@ display.index_level_type = function(value)
 end
 
 -- Dissect: Index Level Type
-dissect.index_level_type = function(buffer, offset, packet, parent)
-  local length = size_of.index_level_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_level_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.index_level_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.index_level_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.index_level_type, range, value, display)
 
@@ -7813,10 +7813,10 @@ dissect.index_level_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Num Traded Instruments
-size_of.num_traded_instruments = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_traded_instruments = 2
 
 -- Display: Num Traded Instruments
-display.num_traded_instruments = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.num_traded_instruments = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Num Traded Instruments: No Value"
@@ -7826,11 +7826,11 @@ display.num_traded_instruments = function(value)
 end
 
 -- Dissect: Num Traded Instruments
-dissect.num_traded_instruments = function(buffer, offset, packet, parent)
-  local length = size_of.num_traded_instruments
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.num_traded_instruments = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_traded_instruments
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.num_traded_instruments(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.num_traded_instruments(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.num_traded_instruments, range, value, display)
 
@@ -7838,10 +7838,10 @@ dissect.num_traded_instruments = function(buffer, offset, packet, parent)
 end
 
 -- Size: Pctg Of Capitalization
-size_of.pctg_of_capitalization = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pctg_of_capitalization = 8
 
 -- Display: Pctg Of Capitalization
-display.pctg_of_capitalization = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.pctg_of_capitalization = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Pctg Of Capitalization: No Value"
@@ -7851,11 +7851,11 @@ display.pctg_of_capitalization = function(value)
 end
 
 -- Dissect: Pctg Of Capitalization
-dissect.pctg_of_capitalization = function(buffer, offset, packet, parent)
-  local length = size_of.pctg_of_capitalization
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pctg_of_capitalization = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pctg_of_capitalization
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.pctg_of_capitalization(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.pctg_of_capitalization(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.pctg_of_capitalization, range, value, display)
 
@@ -7863,19 +7863,19 @@ dissect.pctg_of_capitalization = function(buffer, offset, packet, parent)
 end
 
 -- Size: Index Level
-size_of.index_level = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level = 8
 
 -- Display: Index Level
-display.index_level = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.index_level = function(value)
   return "Index Level: "..value
 end
 
 -- Dissect: Index Level
-dissect.index_level = function(buffer, offset, packet, parent)
-  local length = size_of.index_level
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_level = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.index_level(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.index_level(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.index_level, range, value, display)
 
@@ -7883,97 +7883,97 @@ dissect.index_level = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Real Time Index Message
-size_of.real_time_index_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.real_time_index_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.index_level
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level
 
-  index = index + size_of.pctg_of_capitalization
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pctg_of_capitalization
 
-  index = index + size_of.prct_varfrom_prev_close
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prct_varfrom_prev_close
 
-  index = index + size_of.num_traded_instruments
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.num_traded_instruments
 
-  index = index + size_of.index_level_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_level_type
 
-  index = index + size_of.index_price_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_price_code
 
   return index
 end
 
 -- Display: Real Time Index Message
-display.real_time_index_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.real_time_index_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Real Time Index Message
-dissect.real_time_index_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.real_time_index_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Index Level: 8 Byte Signed Fixed Width Integer
-  index, index_level = dissect.index_level(buffer, index, packet, parent)
+  index, index_level = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_level(buffer, index, packet, parent)
 
   -- Pctg Of Capitalization: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, pctg_of_capitalization = dissect.pctg_of_capitalization(buffer, index, packet, parent)
+  index, pctg_of_capitalization = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pctg_of_capitalization(buffer, index, packet, parent)
 
   -- Prct Varfrom Prev Close: 8 Byte Signed Fixed Width Integer
-  index, prct_varfrom_prev_close = dissect.prct_varfrom_prev_close(buffer, index, packet, parent)
+  index, prct_varfrom_prev_close = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prct_varfrom_prev_close(buffer, index, packet, parent)
 
   -- Num Traded Instruments: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, num_traded_instruments = dissect.num_traded_instruments(buffer, index, packet, parent)
+  index, num_traded_instruments = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.num_traded_instruments(buffer, index, packet, parent)
 
   -- Index Level Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, index_level_type = dissect.index_level_type(buffer, index, packet, parent)
+  index, index_level_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_level_type(buffer, index, packet, parent)
 
   -- Index Price Code: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, index_price_code = dissect.index_price_code(buffer, index, packet, parent)
+  index, index_price_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_price_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Real Time Index Message
-dissect.real_time_index_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.real_time_index_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.real_time_index_message then
-    local length = size_of.real_time_index_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.real_time_index_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.real_time_index_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.real_time_index_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.real_time_index_message, range, display)
   end
 
-  return dissect.real_time_index_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.real_time_index_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Market Model
-size_of.market_model = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_model = 1
 
 -- Display: Market Model
-display.market_model = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_model = function(value)
   if value == 1 then
     return "Market Model: Order Driven (1)"
   end
@@ -8000,11 +8000,11 @@ display.market_model = function(value)
 end
 
 -- Dissect: Market Model
-dissect.market_model = function(buffer, offset, packet, parent)
-  local length = size_of.market_model
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_model = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_model
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_model(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_model(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_model, range, value, display)
 
@@ -8012,72 +8012,72 @@ dissect.market_model = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Em M Pattern Rep Group
-size_of.em_m_pattern_rep_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.em_m_pattern_rep_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.pattern_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pattern_id
 
-  index = index + size_of.tick_size_index_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tick_size_index_id
 
-  index = index + size_of.market_model
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_model
 
-  index = index + size_of.lot_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size
 
-  index = index + size_of.inst_unit_exp
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.inst_unit_exp
 
   return index
 end
 
 -- Display: Em M Pattern Rep Group
-display.em_m_pattern_rep_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.em_m_pattern_rep_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Em M Pattern Rep Group
-dissect.em_m_pattern_rep_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, pattern_id = dissect.pattern_id(buffer, index, packet, parent)
+  index, pattern_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pattern_id(buffer, index, packet, parent)
 
   -- Tick Size Index Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, tick_size_index_id = dissect.tick_size_index_id(buffer, index, packet, parent)
+  index, tick_size_index_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.tick_size_index_id(buffer, index, packet, parent)
 
   -- Market Model: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, market_model = dissect.market_model(buffer, index, packet, parent)
+  index, market_model = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_model(buffer, index, packet, parent)
 
   -- Lot Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, lot_size = dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lot_size(buffer, index, packet, parent)
 
   -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, inst_unit_exp = dissect.inst_unit_exp(buffer, index, packet, parent)
+  index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.inst_unit_exp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Em M Pattern Rep Group
-dissect.em_m_pattern_rep_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.em_m_pattern_rep_group then
-    local length = size_of.em_m_pattern_rep_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.em_m_pattern_rep_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.em_m_pattern_rep_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.em_m_pattern_rep_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.em_m_pattern_rep_group, range, display)
   end
 
-  return dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Em M Pattern Rep Groups
-size_of.em_m_pattern_rep_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.em_m_pattern_rep_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local em_m_pattern_rep_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -8087,46 +8087,46 @@ size_of.em_m_pattern_rep_groups = function(buffer, offset)
 end
 
 -- Display: Em M Pattern Rep Groups
-display.em_m_pattern_rep_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.em_m_pattern_rep_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Em M Pattern Rep Groups
-dissect.em_m_pattern_rep_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Em M Pattern Rep Group: Struct of 6 fields
   for i = 1, num_in_group do
-    index = dissect.em_m_pattern_rep_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Em M Pattern Rep Groups
-dissect.em_m_pattern_rep_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.em_m_pattern_rep_groups then
-    local length = size_of.em_m_pattern_rep_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.em_m_pattern_rep_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.em_m_pattern_rep_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.em_m_pattern_rep_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.em_m_pattern_rep_groups, range, display)
   end
 
-  return dissect.em_m_pattern_rep_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Threshold Lis Post Trade Eod
-size_of.threshold_lis_post_trade_eod = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_eod = 8
 
 -- Display: Threshold Lis Post Trade Eod
-display.threshold_lis_post_trade_eod = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_eod = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade Eod: No Value"
@@ -8136,11 +8136,11 @@ display.threshold_lis_post_trade_eod = function(value)
 end
 
 -- Dissect: Threshold Lis Post Trade Eod
-dissect.threshold_lis_post_trade_eod = function(buffer, offset, packet, parent)
-  local length = size_of.threshold_lis_post_trade_eod
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_eod = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_eod
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.threshold_lis_post_trade_eod(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_eod(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.threshold_lis_post_trade_eod, range, value, display)
 
@@ -8148,10 +8148,10 @@ dissect.threshold_lis_post_trade_eod = function(buffer, offset, packet, parent)
 end
 
 -- Size: Threshold Lis Post Trade 120mn
-size_of.threshold_lis_post_trade_120mn = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_120mn = 8
 
 -- Display: Threshold Lis Post Trade 120mn
-display.threshold_lis_post_trade_120mn = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_120mn = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade 120mn: No Value"
@@ -8161,11 +8161,11 @@ display.threshold_lis_post_trade_120mn = function(value)
 end
 
 -- Dissect: Threshold Lis Post Trade 120mn
-dissect.threshold_lis_post_trade_120mn = function(buffer, offset, packet, parent)
-  local length = size_of.threshold_lis_post_trade_120mn
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_120mn = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_120mn
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.threshold_lis_post_trade_120mn(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_120mn(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.threshold_lis_post_trade_120mn, range, value, display)
 
@@ -8173,10 +8173,10 @@ dissect.threshold_lis_post_trade_120mn = function(buffer, offset, packet, parent
 end
 
 -- Size: Threshold Lis Post Trade 60mn
-size_of.threshold_lis_post_trade_60mn = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_60mn = 8
 
 -- Display: Threshold Lis Post Trade 60mn
-display.threshold_lis_post_trade_60mn = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_60mn = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Threshold Lis Post Trade 60mn: No Value"
@@ -8186,11 +8186,11 @@ display.threshold_lis_post_trade_60mn = function(value)
 end
 
 -- Dissect: Threshold Lis Post Trade 60mn
-dissect.threshold_lis_post_trade_60mn = function(buffer, offset, packet, parent)
-  local length = size_of.threshold_lis_post_trade_60mn
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_60mn = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_60mn
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.threshold_lis_post_trade_60mn(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.threshold_lis_post_trade_60mn(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.threshold_lis_post_trade_60mn, range, value, display)
 
@@ -8198,10 +8198,10 @@ dissect.threshold_lis_post_trade_60mn = function(buffer, offset, packet, parent)
 end
 
 -- Size: Icb Code
-size_of.icb_code = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb_code = 8
 
 -- Display: Icb Code
-display.icb_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.icb_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Icb Code: No Value"
@@ -8211,8 +8211,8 @@ display.icb_code = function(value)
 end
 
 -- Dissect: Icb Code
-dissect.icb_code = function(buffer, offset, packet, parent)
-  local length = size_of.icb_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.icb_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8226,7 +8226,7 @@ dissect.icb_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.icb_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.icb_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.icb_code, range, value, display)
 
@@ -8234,10 +8234,10 @@ dissect.icb_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Of Reference Mic
-size_of.market_of_reference_mic = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_of_reference_mic = 4
 
 -- Display: Market Of Reference Mic
-display.market_of_reference_mic = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_of_reference_mic = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Market Of Reference Mic: No Value"
@@ -8247,8 +8247,8 @@ display.market_of_reference_mic = function(value)
 end
 
 -- Dissect: Market Of Reference Mic
-dissect.market_of_reference_mic = function(buffer, offset, packet, parent)
-  local length = size_of.market_of_reference_mic
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_of_reference_mic = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_of_reference_mic
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8262,7 +8262,7 @@ dissect.market_of_reference_mic = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.market_of_reference_mic(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_of_reference_mic(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_of_reference_mic, range, value, display)
 
@@ -8270,10 +8270,10 @@ dissect.market_of_reference_mic = function(buffer, offset, packet, parent)
 end
 
 -- Size: Liquid Instrument Indicator
-size_of.liquid_instrument_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquid_instrument_indicator = 1
 
 -- Display: Liquid Instrument Indicator
-display.liquid_instrument_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.liquid_instrument_indicator = function(value)
   -- Check if field has value
   if value == 255 then
     return "Liquid Instrument Indicator: No Value"
@@ -8283,11 +8283,11 @@ display.liquid_instrument_indicator = function(value)
 end
 
 -- Dissect: Liquid Instrument Indicator
-dissect.liquid_instrument_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.liquid_instrument_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquid_instrument_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquid_instrument_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.liquid_instrument_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.liquid_instrument_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.liquid_instrument_indicator, range, value, display)
 
@@ -8295,10 +8295,10 @@ dissect.liquid_instrument_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Issue Price Decimals
-size_of.issue_price_decimals = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price_decimals = 1
 
 -- Display: Issue Price Decimals
-display.issue_price_decimals = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.issue_price_decimals = function(value)
   -- Check if field has value
   if value == 255 then
     return "Issue Price Decimals: No Value"
@@ -8308,11 +8308,11 @@ display.issue_price_decimals = function(value)
 end
 
 -- Dissect: Issue Price Decimals
-dissect.issue_price_decimals = function(buffer, offset, packet, parent)
-  local length = size_of.issue_price_decimals
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issue_price_decimals = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price_decimals
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.issue_price_decimals(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.issue_price_decimals(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.issue_price_decimals, range, value, display)
 
@@ -8320,10 +8320,10 @@ dissect.issue_price_decimals = function(buffer, offset, packet, parent)
 end
 
 -- Size: Nominal Currency
-size_of.nominal_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.nominal_currency = 3
 
 -- Display: Nominal Currency
-display.nominal_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.nominal_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Nominal Currency: No Value"
@@ -8333,8 +8333,8 @@ display.nominal_currency = function(value)
 end
 
 -- Dissect: Nominal Currency
-dissect.nominal_currency = function(buffer, offset, packet, parent)
-  local length = size_of.nominal_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.nominal_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.nominal_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8348,7 +8348,7 @@ dissect.nominal_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.nominal_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.nominal_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.nominal_currency, range, value, display)
 
@@ -8356,10 +8356,10 @@ dissect.nominal_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Issue Price
-size_of.issue_price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price = 8
 
 -- Display: Issue Price
-display.issue_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.issue_price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Issue Price: No Value"
@@ -8369,11 +8369,11 @@ display.issue_price = function(value)
 end
 
 -- Dissect: Issue Price
-dissect.issue_price = function(buffer, offset, packet, parent)
-  local length = size_of.issue_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issue_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.issue_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.issue_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.issue_price, range, value, display)
 
@@ -8381,10 +8381,10 @@ dissect.issue_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Repo Indicator
-size_of.repo_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.repo_indicator = 1
 
 -- Display: Repo Indicator
-display.repo_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.repo_indicator = function(value)
   if value == 0 then
     return "Repo Indicator: Instrneithereligiblefor Sr Dor Loanand Lending Mkt (0)"
   end
@@ -8414,11 +8414,11 @@ display.repo_indicator = function(value)
 end
 
 -- Dissect: Repo Indicator
-dissect.repo_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.repo_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.repo_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.repo_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.repo_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.repo_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.repo_indicator, range, value, display)
 
@@ -8426,10 +8426,10 @@ dissect.repo_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Type Of Market Admission
-size_of.type_of_market_admission = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_market_admission = 1
 
 -- Display: Type Of Market Admission
-display.type_of_market_admission = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.type_of_market_admission = function(value)
   if value == "A" then
     return "Type Of Market Admission: Instrumentstradedontheprimarymarket (A)"
   end
@@ -8486,8 +8486,8 @@ display.type_of_market_admission = function(value)
 end
 
 -- Dissect: Type Of Market Admission
-dissect.type_of_market_admission = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_market_admission
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.type_of_market_admission = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_market_admission
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -8500,7 +8500,7 @@ dissect.type_of_market_admission = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.type_of_market_admission(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.type_of_market_admission(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.type_of_market_admission, range, value, display)
 
@@ -8508,10 +8508,10 @@ dissect.type_of_market_admission = function(buffer, offset, packet, parent)
 end
 
 -- Size: Type Of Corporate Event
-size_of.type_of_corporate_event = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_corporate_event = 2
 
 -- Display: Type Of Corporate Event
-display.type_of_corporate_event = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.type_of_corporate_event = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Type Of Corporate Event: No Value"
@@ -8521,8 +8521,8 @@ display.type_of_corporate_event = function(value)
 end
 
 -- Dissect: Type Of Corporate Event
-dissect.type_of_corporate_event = function(buffer, offset, packet, parent)
-  local length = size_of.type_of_corporate_event
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.type_of_corporate_event = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_corporate_event
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8536,7 +8536,7 @@ dissect.type_of_corporate_event = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.type_of_corporate_event(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.type_of_corporate_event(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.type_of_corporate_event, range, value, display)
 
@@ -8544,10 +8544,10 @@ dissect.type_of_corporate_event = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tax Code
-size_of.tax_code = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tax_code = 1
 
 -- Display: Tax Code
-display.tax_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.tax_code = function(value)
   if value == 0 then
     return "Tax Code: Noteligibleto Pea Thestockhasneverbeena Monorystock (0)"
   end
@@ -8565,11 +8565,11 @@ display.tax_code = function(value)
 end
 
 -- Dissect: Tax Code
-dissect.tax_code = function(buffer, offset, packet, parent)
-  local length = size_of.tax_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.tax_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tax_code
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.tax_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.tax_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.tax_code, range, value, display)
 
@@ -8577,10 +8577,10 @@ dissect.tax_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Currency
-size_of.strike_currency = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency = 3
 
 -- Display: Strike Currency
-display.strike_currency = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_currency = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Strike Currency: No Value"
@@ -8590,8 +8590,8 @@ display.strike_currency = function(value)
 end
 
 -- Dissect: Strike Currency
-dissect.strike_currency = function(buffer, offset, packet, parent)
-  local length = size_of.strike_currency
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_currency = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8605,7 +8605,7 @@ dissect.strike_currency = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.strike_currency(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_currency(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strike_currency, range, value, display)
 
@@ -8613,10 +8613,10 @@ dissect.strike_currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Delay
-size_of.settlement_delay = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_delay = 2
 
 -- Display: Settlement Delay
-display.settlement_delay = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_delay = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Settlement Delay: No Value"
@@ -8626,8 +8626,8 @@ display.settlement_delay = function(value)
 end
 
 -- Dissect: Settlement Delay
-dissect.settlement_delay = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_delay
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_delay = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_delay
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8641,7 +8641,7 @@ dissect.settlement_delay = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.settlement_delay(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.settlement_delay(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.settlement_delay, range, value, display)
 
@@ -8649,10 +8649,10 @@ dissect.settlement_delay = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quantity Notation
-size_of.quantity_notation = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_notation = 3
 
 -- Display: Quantity Notation
-display.quantity_notation = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity_notation = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Quantity Notation: No Value"
@@ -8662,8 +8662,8 @@ display.quantity_notation = function(value)
 end
 
 -- Dissect: Quantity Notation
-dissect.quantity_notation = function(buffer, offset, packet, parent)
-  local length = size_of.quantity_notation
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity_notation = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_notation
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8677,7 +8677,7 @@ dissect.quantity_notation = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.quantity_notation(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity_notation(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.quantity_notation, range, value, display)
 
@@ -8685,10 +8685,10 @@ dissect.quantity_notation = function(buffer, offset, packet, parent)
 end
 
 -- Size: Par Value
-size_of.par_value = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.par_value = 8
 
 -- Display: Par Value
-display.par_value = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.par_value = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Par Value: No Value"
@@ -8698,11 +8698,11 @@ display.par_value = function(value)
 end
 
 -- Dissect: Par Value
-dissect.par_value = function(buffer, offset, packet, parent)
-  local length = size_of.par_value
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.par_value = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.par_value
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.par_value(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.par_value(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.par_value, range, value, display)
 
@@ -8710,10 +8710,10 @@ dissect.par_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Number Instrument Circulating
-size_of.number_instrument_circulating = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_instrument_circulating = 8
 
 -- Display: Number Instrument Circulating
-display.number_instrument_circulating = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.number_instrument_circulating = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Number Instrument Circulating: No Value"
@@ -8723,11 +8723,11 @@ display.number_instrument_circulating = function(value)
 end
 
 -- Dissect: Number Instrument Circulating
-dissect.number_instrument_circulating = function(buffer, offset, packet, parent)
-  local length = size_of.number_instrument_circulating
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.number_instrument_circulating = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_instrument_circulating
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.number_instrument_circulating(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.number_instrument_circulating(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.number_instrument_circulating, range, value, display)
 
@@ -8735,10 +8735,10 @@ dissect.number_instrument_circulating = function(buffer, offset, packet, parent)
 end
 
 -- Size: Strike Currency Indicator
-size_of.strike_currency_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency_indicator = 1
 
 -- Display: Strike Currency Indicator
-display.strike_currency_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_currency_indicator = function(value)
   if value == 0 then
     return "Strike Currency Indicator: Changeratenotappliedtothestrikeprice (0)"
   end
@@ -8753,11 +8753,11 @@ display.strike_currency_indicator = function(value)
 end
 
 -- Dissect: Strike Currency Indicator
-dissect.strike_currency_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.strike_currency_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_currency_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.strike_currency_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.strike_currency_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.strike_currency_indicator, range, value, display)
 
@@ -8765,10 +8765,10 @@ dissect.strike_currency_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Currency Indicator
-size_of.trading_currency_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency_indicator = 1
 
 -- Display: Trading Currency Indicator
-display.trading_currency_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_currency_indicator = function(value)
   if value == 0 then
     return "Trading Currency Indicator: Changeratenotappliedtothetradedprice (0)"
   end
@@ -8783,11 +8783,11 @@ display.trading_currency_indicator = function(value)
 end
 
 -- Dissect: Trading Currency Indicator
-dissect.trading_currency_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.trading_currency_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_currency_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trading_currency_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_currency_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_currency_indicator, range, value, display)
 
@@ -8795,10 +8795,10 @@ dissect.trading_currency_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Currency Coefficient
-size_of.currency_coefficient = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency_coefficient = 4
 
 -- Display: Currency Coefficient
-display.currency_coefficient = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.currency_coefficient = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Currency Coefficient: No Value"
@@ -8808,11 +8808,11 @@ display.currency_coefficient = function(value)
 end
 
 -- Dissect: Currency Coefficient
-dissect.currency_coefficient = function(buffer, offset, packet, parent)
-  local length = size_of.currency_coefficient
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.currency_coefficient = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency_coefficient
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.currency_coefficient(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.currency_coefficient(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.currency_coefficient, range, value, display)
 
@@ -8820,10 +8820,10 @@ dissect.currency_coefficient = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mnemonic
-size_of.mnemonic = 5
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mnemonic = 5
 
 -- Display: Mnemonic
-display.mnemonic = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mnemonic = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mnemonic: No Value"
@@ -8833,8 +8833,8 @@ display.mnemonic = function(value)
 end
 
 -- Dissect: Mnemonic
-dissect.mnemonic = function(buffer, offset, packet, parent)
-  local length = size_of.mnemonic
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mnemonic = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mnemonic
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8848,7 +8848,7 @@ dissect.mnemonic = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mnemonic(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mnemonic(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mnemonic, range, value, display)
 
@@ -8856,10 +8856,10 @@ dissect.mnemonic = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mic List
-size_of.mic_list = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic_list = 20
 
 -- Display: Mic List
-display.mic_list = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mic_list = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mic List: No Value"
@@ -8869,8 +8869,8 @@ display.mic_list = function(value)
 end
 
 -- Dissect: Mic List
-dissect.mic_list = function(buffer, offset, packet, parent)
-  local length = size_of.mic_list
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic_list = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic_list
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8884,7 +8884,7 @@ dissect.mic_list = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mic_list(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mic_list(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mic_list, range, value, display)
 
@@ -8892,10 +8892,10 @@ dissect.mic_list = function(buffer, offset, packet, parent)
 end
 
 -- Size: Maximum Decimals In Quantity
-size_of.maximum_decimals_in_quantity = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maximum_decimals_in_quantity = 1
 
 -- Display: Maximum Decimals In Quantity
-display.maximum_decimals_in_quantity = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.maximum_decimals_in_quantity = function(value)
   -- Check if field has value
   if value == 255 then
     return "Maximum Decimals In Quantity: No Value"
@@ -8905,11 +8905,11 @@ display.maximum_decimals_in_quantity = function(value)
 end
 
 -- Dissect: Maximum Decimals In Quantity
-dissect.maximum_decimals_in_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.maximum_decimals_in_quantity
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maximum_decimals_in_quantity = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maximum_decimals_in_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.maximum_decimals_in_quantity(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.maximum_decimals_in_quantity(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.maximum_decimals_in_quantity, range, value, display)
 
@@ -8917,10 +8917,10 @@ dissect.maximum_decimals_in_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Adjusted Closing Price
-size_of.last_adjusted_closing_price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_adjusted_closing_price = 8
 
 -- Display: Last Adjusted Closing Price
-display.last_adjusted_closing_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.last_adjusted_closing_price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Last Adjusted Closing Price: No Value"
@@ -8930,11 +8930,11 @@ display.last_adjusted_closing_price = function(value)
 end
 
 -- Dissect: Last Adjusted Closing Price
-dissect.last_adjusted_closing_price = function(buffer, offset, packet, parent)
-  local length = size_of.last_adjusted_closing_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_adjusted_closing_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_adjusted_closing_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.last_adjusted_closing_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.last_adjusted_closing_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.last_adjusted_closing_price, range, value, display)
 
@@ -8942,10 +8942,10 @@ dissect.last_adjusted_closing_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Issuing Country
-size_of.issuing_country = 3
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issuing_country = 3
 
 -- Display: Issuing Country
-display.issuing_country = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.issuing_country = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Issuing Country: No Value"
@@ -8955,8 +8955,8 @@ display.issuing_country = function(value)
 end
 
 -- Dissect: Issuing Country
-dissect.issuing_country = function(buffer, offset, packet, parent)
-  local length = size_of.issuing_country
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issuing_country = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issuing_country
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -8970,7 +8970,7 @@ dissect.issuing_country = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.issuing_country(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.issuing_country(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.issuing_country, range, value, display)
 
@@ -8978,10 +8978,10 @@ dissect.issuing_country = function(buffer, offset, packet, parent)
 end
 
 -- Size: Icb
-size_of.icb = 16
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb = 16
 
 -- Display: Icb
-display.icb = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.icb = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Icb: No Value"
@@ -8991,8 +8991,8 @@ display.icb = function(value)
 end
 
 -- Dissect: Icb
-dissect.icb = function(buffer, offset, packet, parent)
-  local length = size_of.icb
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.icb = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -9006,7 +9006,7 @@ dissect.icb = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.icb(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.icb(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.icb, range, value, display)
 
@@ -9014,10 +9014,10 @@ dissect.icb = function(buffer, offset, packet, parent)
 end
 
 -- Size: Guarantee Indicator
-size_of.guarantee_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.guarantee_indicator = 1
 
 -- Display: Guarantee Indicator
-display.guarantee_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.guarantee_indicator = function(value)
   if value == 0 then
     return "Guarantee Indicator: Thisinstrumentisnotguaranteed (0)"
   end
@@ -9038,11 +9038,11 @@ display.guarantee_indicator = function(value)
 end
 
 -- Dissect: Guarantee Indicator
-dissect.guarantee_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.guarantee_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.guarantee_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.guarantee_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.guarantee_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.guarantee_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.guarantee_indicator, range, value, display)
 
@@ -9050,10 +9050,10 @@ dissect.guarantee_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: First Settlement Date
-size_of.first_settlement_date = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.first_settlement_date = 2
 
 -- Display: First Settlement Date
-display.first_settlement_date = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.first_settlement_date = function(value)
   -- Check if field has value
   if value == 65535 then
     return "First Settlement Date: No Value"
@@ -9063,11 +9063,11 @@ display.first_settlement_date = function(value)
 end
 
 -- Dissect: First Settlement Date
-dissect.first_settlement_date = function(buffer, offset, packet, parent)
-  local length = size_of.first_settlement_date
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.first_settlement_date = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.first_settlement_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.first_settlement_date(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.first_settlement_date(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.first_settlement_date, range, value, display)
 
@@ -9075,10 +9075,10 @@ dissect.first_settlement_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Depositary List
-size_of.depositary_list = 20
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.depositary_list = 20
 
 -- Display: Depositary List
-display.depositary_list = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.depositary_list = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Depositary List: No Value"
@@ -9088,8 +9088,8 @@ display.depositary_list = function(value)
 end
 
 -- Dissect: Depositary List
-dissect.depositary_list = function(buffer, offset, packet, parent)
-  local length = size_of.depositary_list
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.depositary_list = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.depositary_list
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -9103,7 +9103,7 @@ dissect.depositary_list = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.depositary_list(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.depositary_list(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.depositary_list, range, value, display)
 
@@ -9111,10 +9111,10 @@ dissect.depositary_list = function(buffer, offset, packet, parent)
 end
 
 -- Size: Date Of Last Trade
-size_of.date_of_last_trade = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.date_of_last_trade = 2
 
 -- Display: Date Of Last Trade
-display.date_of_last_trade = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.date_of_last_trade = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Date Of Last Trade: No Value"
@@ -9124,11 +9124,11 @@ display.date_of_last_trade = function(value)
 end
 
 -- Dissect: Date Of Last Trade
-dissect.date_of_last_trade = function(buffer, offset, packet, parent)
-  local length = size_of.date_of_last_trade
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.date_of_last_trade = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.date_of_last_trade
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.date_of_last_trade(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.date_of_last_trade(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.date_of_last_trade, range, value, display)
 
@@ -9136,10 +9136,10 @@ dissect.date_of_last_trade = function(buffer, offset, packet, parent)
 end
 
 -- Size: Dark Min Quantity
-size_of.dark_min_quantity = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_min_quantity = 4
 
 -- Display: Dark Min Quantity
-display.dark_min_quantity = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_min_quantity = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Dark Min Quantity: No Value"
@@ -9149,11 +9149,11 @@ display.dark_min_quantity = function(value)
 end
 
 -- Dissect: Dark Min Quantity
-dissect.dark_min_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.dark_min_quantity
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_min_quantity = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_min_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.dark_min_quantity(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_min_quantity(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.dark_min_quantity, range, value, display)
 
@@ -9161,10 +9161,10 @@ dissect.dark_min_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Dark Lis Threshold
-size_of.dark_lis_threshold = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_lis_threshold = 8
 
 -- Display: Dark Lis Threshold
-display.dark_lis_threshold = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_lis_threshold = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Dark Lis Threshold: No Value"
@@ -9174,11 +9174,11 @@ display.dark_lis_threshold = function(value)
 end
 
 -- Dissect: Dark Lis Threshold
-dissect.dark_lis_threshold = function(buffer, offset, packet, parent)
-  local length = size_of.dark_lis_threshold
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_lis_threshold = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_lis_threshold
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.dark_lis_threshold(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_lis_threshold(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.dark_lis_threshold, range, value, display)
 
@@ -9186,10 +9186,10 @@ dissect.dark_lis_threshold = function(buffer, offset, packet, parent)
 end
 
 -- Size: Dark Eligibility
-size_of.dark_eligibility = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_eligibility = 1
 
 -- Display: Dark Eligibility
-display.dark_eligibility = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_eligibility = function(value)
   -- Check if field has value
   if value == 255 then
     return "Dark Eligibility: No Value"
@@ -9199,11 +9199,11 @@ display.dark_eligibility = function(value)
 end
 
 -- Dissect: Dark Eligibility
-dissect.dark_eligibility = function(buffer, offset, packet, parent)
-  local length = size_of.dark_eligibility
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_eligibility = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_eligibility
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.dark_eligibility(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.dark_eligibility(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.dark_eligibility, range, value, display)
 
@@ -9211,10 +9211,10 @@ dissect.dark_eligibility = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Group Code
-size_of.instrument_group_code = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_group_code = 2
 
 -- Display: Instrument Group Code
-display.instrument_group_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_group_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Instrument Group Code: No Value"
@@ -9224,8 +9224,8 @@ display.instrument_group_code = function(value)
 end
 
 -- Dissect: Instrument Group Code
-dissect.instrument_group_code = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_group_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_group_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_group_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -9239,7 +9239,7 @@ dissect.instrument_group_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.instrument_group_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_group_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.instrument_group_code, range, value, display)
 
@@ -9247,10 +9247,10 @@ dissect.instrument_group_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Trading Code
-size_of.instrument_trading_code = 15
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_trading_code = 15
 
 -- Display: Instrument Trading Code
-display.instrument_trading_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_trading_code = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Instrument Trading Code: No Value"
@@ -9260,8 +9260,8 @@ display.instrument_trading_code = function(value)
 end
 
 -- Dissect: Instrument Trading Code
-dissect.instrument_trading_code = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_trading_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_trading_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_trading_code
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -9275,7 +9275,7 @@ dissect.instrument_trading_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.instrument_trading_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_trading_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.instrument_trading_code, range, value, display)
 
@@ -9283,10 +9283,10 @@ dissect.instrument_trading_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument Name
-size_of.instrument_name = 18
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_name = 18
 
 -- Display: Instrument Name
-display.instrument_name = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_name = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Instrument Name: No Value"
@@ -9296,8 +9296,8 @@ display.instrument_name = function(value)
 end
 
 -- Dissect: Instrument Name
-dissect.instrument_name = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_name
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_name = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_name
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -9311,7 +9311,7 @@ dissect.instrument_name = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.instrument_name(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_name(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.instrument_name, range, value, display)
 
@@ -9319,352 +9319,352 @@ dissect.instrument_name = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Standing Data Message
-size_of.standing_data_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.standing_data_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.optiq_segment
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.optiq_segment
 
-  index = index + size_of.partition_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.partition_id
 
-  index = index + size_of.full_instrument_name
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_instrument_name
 
-  index = index + size_of.instrument_name
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_name
 
-  index = index + size_of.instrument_trading_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_trading_code
 
-  index = index + size_of.instrument_group_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_group_code
 
-  index = index + size_of.isin_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.isin_code
 
-  index = index + size_of.price_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_decimals
 
-  index = index + size_of.quantity_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_decimals
 
-  index = index + size_of.amount_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.amount_decimals
 
-  index = index + size_of.ratio_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.ratio_decimals
 
-  index = index + size_of.cfi
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.cfi
 
-  index = index + size_of.instrument_event_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_event_date
 
-  index = index + size_of.strike_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price
 
-  index = index + size_of.dark_eligibility
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_eligibility
 
-  index = index + size_of.dark_lis_threshold
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_lis_threshold
 
-  index = index + size_of.dark_min_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.dark_min_quantity
 
-  index = index + size_of.date_of_last_trade
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.date_of_last_trade
 
-  index = index + size_of.depositary_list
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.depositary_list
 
-  index = index + size_of.main_depositary
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.main_depositary
 
-  index = index + size_of.first_settlement_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.first_settlement_date
 
-  index = index + size_of.guarantee_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.guarantee_indicator
 
-  index = index + size_of.icb
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb
 
-  index = index + size_of.issuing_country
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issuing_country
 
-  index = index + size_of.last_adjusted_closing_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.last_adjusted_closing_price
 
-  index = index + size_of.lot_size
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lot_size
 
-  index = index + size_of.maturity_date
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maturity_date
 
-  index = index + size_of.maximum_decimals_in_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.maximum_decimals_in_quantity
 
-  index = index + size_of.mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic
 
-  index = index + size_of.mic_list
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mic_list
 
-  index = index + size_of.country_of_exchange
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.country_of_exchange
 
-  index = index + size_of.mnemonic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mnemonic
 
-  index = index + size_of.underlying_mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_mic
 
-  index = index + size_of.underlying_isin_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.underlying_isin_code
 
-  index = index + size_of.trading_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency
 
-  index = index + size_of.currency_coefficient
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency_coefficient
 
-  index = index + size_of.trading_currency_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_currency_indicator
 
-  index = index + size_of.strike_currency_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency_indicator
 
-  index = index + size_of.number_instrument_circulating
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_instrument_circulating
 
-  index = index + size_of.par_value
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.par_value
 
-  index = index + size_of.quantity_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity_notation
 
-  index = index + size_of.inst_unit_exp
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.inst_unit_exp
 
-  index = index + size_of.settlement_delay
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.settlement_delay
 
-  index = index + size_of.strike_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_currency
 
-  index = index + size_of.tax_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.tax_code
 
-  index = index + size_of.type_of_corporate_event
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_corporate_event
 
-  index = index + size_of.type_of_market_admission
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.type_of_market_admission
 
-  index = index + size_of.repo_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.repo_indicator
 
-  index = index + size_of.issue_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price
 
-  index = index + size_of.nominal_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.nominal_currency
 
-  index = index + size_of.issue_price_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.issue_price_decimals
 
-  index = index + size_of.strike_price_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strike_price_decimals
 
-  index = index + size_of.liquid_instrument_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.liquid_instrument_indicator
 
-  index = index + size_of.market_of_reference_mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_of_reference_mic
 
-  index = index + size_of.icb_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.icb_code
 
-  index = index + size_of.threshold_lis_post_trade_60mn
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_60mn
 
-  index = index + size_of.threshold_lis_post_trade_120mn
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_120mn
 
-  index = index + size_of.threshold_lis_post_trade_eod
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.threshold_lis_post_trade_eod
 
-  index = index + size_of.em_m_pattern_rep_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.em_m_pattern_rep_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Standing Data Message
-display.standing_data_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.standing_data_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Standing Data Message
-dissect.standing_data_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.standing_data_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Optiq Segment: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, optiq_segment = dissect.optiq_segment(buffer, index, packet, parent)
+  index, optiq_segment = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.optiq_segment(buffer, index, packet, parent)
 
   -- Partition Id: 2 Byte Unsigned Fixed Width Integer
-  index, partition_id = dissect.partition_id(buffer, index, packet, parent)
+  index, partition_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.partition_id(buffer, index, packet, parent)
 
   -- Full Instrument Name: 102 Byte Ascii String Nullable
-  index, full_instrument_name = dissect.full_instrument_name(buffer, index, packet, parent)
+  index, full_instrument_name = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_instrument_name(buffer, index, packet, parent)
 
   -- Instrument Name: 18 Byte Ascii String
-  index, instrument_name = dissect.instrument_name(buffer, index, packet, parent)
+  index, instrument_name = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_name(buffer, index, packet, parent)
 
   -- Instrument Trading Code: 15 Byte Ascii String Nullable
-  index, instrument_trading_code = dissect.instrument_trading_code(buffer, index, packet, parent)
+  index, instrument_trading_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_trading_code(buffer, index, packet, parent)
 
   -- Instrument Group Code: 2 Byte Ascii String
-  index, instrument_group_code = dissect.instrument_group_code(buffer, index, packet, parent)
+  index, instrument_group_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_group_code(buffer, index, packet, parent)
 
   -- Isin Code: 12 Byte Ascii String
-  index, isin_code = dissect.isin_code(buffer, index, packet, parent)
+  index, isin_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.isin_code(buffer, index, packet, parent)
 
   -- Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, price_decimals = dissect.price_decimals(buffer, index, packet, parent)
+  index, price_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_decimals(buffer, index, packet, parent)
 
   -- Quantity Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity_decimals = dissect.quantity_decimals(buffer, index, packet, parent)
+  index, quantity_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity_decimals(buffer, index, packet, parent)
 
   -- Amount Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, amount_decimals = dissect.amount_decimals(buffer, index, packet, parent)
+  index, amount_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.amount_decimals(buffer, index, packet, parent)
 
   -- Ratio Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, ratio_decimals = dissect.ratio_decimals(buffer, index, packet, parent)
+  index, ratio_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.ratio_decimals(buffer, index, packet, parent)
 
   -- Cfi: 6 Byte Ascii String Nullable
-  index, cfi = dissect.cfi(buffer, index, packet, parent)
+  index, cfi = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.cfi(buffer, index, packet, parent)
 
   -- Instrument Event Date: 2 Byte Unsigned Fixed Width Integer
-  index, instrument_event_date = dissect.instrument_event_date(buffer, index, packet, parent)
+  index, instrument_event_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_event_date(buffer, index, packet, parent)
 
   -- Strike Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, strike_price = dissect.strike_price(buffer, index, packet, parent)
+  index, strike_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price(buffer, index, packet, parent)
 
   -- Dark Eligibility: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, dark_eligibility = dissect.dark_eligibility(buffer, index, packet, parent)
+  index, dark_eligibility = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_eligibility(buffer, index, packet, parent)
 
   -- Dark Lis Threshold: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, dark_lis_threshold = dissect.dark_lis_threshold(buffer, index, packet, parent)
+  index, dark_lis_threshold = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_lis_threshold(buffer, index, packet, parent)
 
   -- Dark Min Quantity: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, dark_min_quantity = dissect.dark_min_quantity(buffer, index, packet, parent)
+  index, dark_min_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.dark_min_quantity(buffer, index, packet, parent)
 
   -- Date Of Last Trade: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, date_of_last_trade = dissect.date_of_last_trade(buffer, index, packet, parent)
+  index, date_of_last_trade = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.date_of_last_trade(buffer, index, packet, parent)
 
   -- Depositary List: 20 Byte Ascii String Nullable
-  index, depositary_list = dissect.depositary_list(buffer, index, packet, parent)
+  index, depositary_list = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.depositary_list(buffer, index, packet, parent)
 
   -- Main Depositary: 5 Byte Ascii String Nullable
-  index, main_depositary = dissect.main_depositary(buffer, index, packet, parent)
+  index, main_depositary = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.main_depositary(buffer, index, packet, parent)
 
   -- First Settlement Date: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, first_settlement_date = dissect.first_settlement_date(buffer, index, packet, parent)
+  index, first_settlement_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.first_settlement_date(buffer, index, packet, parent)
 
   -- Guarantee Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, guarantee_indicator = dissect.guarantee_indicator(buffer, index, packet, parent)
+  index, guarantee_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.guarantee_indicator(buffer, index, packet, parent)
 
   -- Icb: 16 Byte Ascii String Nullable
-  index, icb = dissect.icb(buffer, index, packet, parent)
+  index, icb = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.icb(buffer, index, packet, parent)
 
   -- Issuing Country: 3 Byte Ascii String Nullable
-  index, issuing_country = dissect.issuing_country(buffer, index, packet, parent)
+  index, issuing_country = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issuing_country(buffer, index, packet, parent)
 
   -- Last Adjusted Closing Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, last_adjusted_closing_price = dissect.last_adjusted_closing_price(buffer, index, packet, parent)
+  index, last_adjusted_closing_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.last_adjusted_closing_price(buffer, index, packet, parent)
 
   -- Lot Size: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, lot_size = dissect.lot_size(buffer, index, packet, parent)
+  index, lot_size = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lot_size(buffer, index, packet, parent)
 
   -- Maturity Date: 8 Byte Ascii String Nullable
-  index, maturity_date = dissect.maturity_date(buffer, index, packet, parent)
+  index, maturity_date = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maturity_date(buffer, index, packet, parent)
 
   -- Maximum Decimals In Quantity: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, maximum_decimals_in_quantity = dissect.maximum_decimals_in_quantity(buffer, index, packet, parent)
+  index, maximum_decimals_in_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.maximum_decimals_in_quantity(buffer, index, packet, parent)
 
   -- Mic: 4 Byte Ascii String
-  index, mic = dissect.mic(buffer, index, packet, parent)
+  index, mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic(buffer, index, packet, parent)
 
   -- Mic List: 20 Byte Ascii String Nullable
-  index, mic_list = dissect.mic_list(buffer, index, packet, parent)
+  index, mic_list = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mic_list(buffer, index, packet, parent)
 
   -- Country Of Exchange: 3 Byte Ascii String Nullable
-  index, country_of_exchange = dissect.country_of_exchange(buffer, index, packet, parent)
+  index, country_of_exchange = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.country_of_exchange(buffer, index, packet, parent)
 
   -- Mnemonic: 5 Byte Ascii String Nullable
-  index, mnemonic = dissect.mnemonic(buffer, index, packet, parent)
+  index, mnemonic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mnemonic(buffer, index, packet, parent)
 
   -- Underlying Mic: 4 Byte Ascii String Nullable
-  index, underlying_mic = dissect.underlying_mic(buffer, index, packet, parent)
+  index, underlying_mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_mic(buffer, index, packet, parent)
 
   -- Underlying Isin Code: 12 Byte Ascii String Nullable
-  index, underlying_isin_code = dissect.underlying_isin_code(buffer, index, packet, parent)
+  index, underlying_isin_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.underlying_isin_code(buffer, index, packet, parent)
 
   -- Trading Currency: 3 Byte Ascii String Nullable
-  index, trading_currency = dissect.trading_currency(buffer, index, packet, parent)
+  index, trading_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_currency(buffer, index, packet, parent)
 
   -- Currency Coefficient: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, currency_coefficient = dissect.currency_coefficient(buffer, index, packet, parent)
+  index, currency_coefficient = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.currency_coefficient(buffer, index, packet, parent)
 
   -- Trading Currency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, trading_currency_indicator = dissect.trading_currency_indicator(buffer, index, packet, parent)
+  index, trading_currency_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_currency_indicator(buffer, index, packet, parent)
 
   -- Strike Currency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, strike_currency_indicator = dissect.strike_currency_indicator(buffer, index, packet, parent)
+  index, strike_currency_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_currency_indicator(buffer, index, packet, parent)
 
   -- Number Instrument Circulating: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, number_instrument_circulating = dissect.number_instrument_circulating(buffer, index, packet, parent)
+  index, number_instrument_circulating = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.number_instrument_circulating(buffer, index, packet, parent)
 
   -- Par Value: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, par_value = dissect.par_value(buffer, index, packet, parent)
+  index, par_value = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.par_value(buffer, index, packet, parent)
 
   -- Quantity Notation: 3 Byte Ascii String Nullable
-  index, quantity_notation = dissect.quantity_notation(buffer, index, packet, parent)
+  index, quantity_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity_notation(buffer, index, packet, parent)
 
   -- Inst Unit Exp: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, inst_unit_exp = dissect.inst_unit_exp(buffer, index, packet, parent)
+  index, inst_unit_exp = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.inst_unit_exp(buffer, index, packet, parent)
 
   -- Settlement Delay: 2 Byte Ascii String Nullable
-  index, settlement_delay = dissect.settlement_delay(buffer, index, packet, parent)
+  index, settlement_delay = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.settlement_delay(buffer, index, packet, parent)
 
   -- Strike Currency: 3 Byte Ascii String Nullable
-  index, strike_currency = dissect.strike_currency(buffer, index, packet, parent)
+  index, strike_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_currency(buffer, index, packet, parent)
 
   -- Tax Code: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, tax_code = dissect.tax_code(buffer, index, packet, parent)
+  index, tax_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.tax_code(buffer, index, packet, parent)
 
   -- Type Of Corporate Event: 2 Byte Ascii String Nullable
-  index, type_of_corporate_event = dissect.type_of_corporate_event(buffer, index, packet, parent)
+  index, type_of_corporate_event = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.type_of_corporate_event(buffer, index, packet, parent)
 
   -- Type Of Market Admission: 1 Byte Ascii String Enum with 17 values
-  index, type_of_market_admission = dissect.type_of_market_admission(buffer, index, packet, parent)
+  index, type_of_market_admission = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.type_of_market_admission(buffer, index, packet, parent)
 
   -- Repo Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, repo_indicator = dissect.repo_indicator(buffer, index, packet, parent)
+  index, repo_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.repo_indicator(buffer, index, packet, parent)
 
   -- Issue Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, issue_price = dissect.issue_price(buffer, index, packet, parent)
+  index, issue_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issue_price(buffer, index, packet, parent)
 
   -- Nominal Currency: 3 Byte Ascii String Nullable
-  index, nominal_currency = dissect.nominal_currency(buffer, index, packet, parent)
+  index, nominal_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.nominal_currency(buffer, index, packet, parent)
 
   -- Issue Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, issue_price_decimals = dissect.issue_price_decimals(buffer, index, packet, parent)
+  index, issue_price_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.issue_price_decimals(buffer, index, packet, parent)
 
   -- Strike Price Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, strike_price_decimals = dissect.strike_price_decimals(buffer, index, packet, parent)
+  index, strike_price_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strike_price_decimals(buffer, index, packet, parent)
 
   -- Liquid Instrument Indicator: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, liquid_instrument_indicator = dissect.liquid_instrument_indicator(buffer, index, packet, parent)
+  index, liquid_instrument_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.liquid_instrument_indicator(buffer, index, packet, parent)
 
   -- Market Of Reference Mic: 4 Byte Ascii String Nullable
-  index, market_of_reference_mic = dissect.market_of_reference_mic(buffer, index, packet, parent)
+  index, market_of_reference_mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_of_reference_mic(buffer, index, packet, parent)
 
   -- Icb Code: 8 Byte Ascii String Nullable
-  index, icb_code = dissect.icb_code(buffer, index, packet, parent)
+  index, icb_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.icb_code(buffer, index, packet, parent)
 
   -- Threshold Lis Post Trade 60mn: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, threshold_lis_post_trade_60mn = dissect.threshold_lis_post_trade_60mn(buffer, index, packet, parent)
+  index, threshold_lis_post_trade_60mn = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_60mn(buffer, index, packet, parent)
 
   -- Threshold Lis Post Trade 120mn: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, threshold_lis_post_trade_120mn = dissect.threshold_lis_post_trade_120mn(buffer, index, packet, parent)
+  index, threshold_lis_post_trade_120mn = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_120mn(buffer, index, packet, parent)
 
   -- Threshold Lis Post Trade Eod: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, threshold_lis_post_trade_eod = dissect.threshold_lis_post_trade_eod(buffer, index, packet, parent)
+  index, threshold_lis_post_trade_eod = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.threshold_lis_post_trade_eod(buffer, index, packet, parent)
 
   -- Em M Pattern Rep Groups: Struct of 2 fields
-  index, em_m_pattern_rep_groups = dissect.em_m_pattern_rep_groups(buffer, index, packet, parent)
+  index, em_m_pattern_rep_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.em_m_pattern_rep_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Standing Data Message
-dissect.standing_data_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.standing_data_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.standing_data_message then
-    local length = size_of.standing_data_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.standing_data_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.standing_data_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.standing_data_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.standing_data_message, range, display)
   end
 
-  return dissect.standing_data_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.standing_data_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Scheduled Event
-size_of.scheduled_event = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event = 1
 
 -- Display: Scheduled Event
-display.scheduled_event = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.scheduled_event = function(value)
   if value == 0 then
     return "Scheduled Event: Cancel Previously Scheduled Event (0)"
   end
@@ -9718,11 +9718,11 @@ display.scheduled_event = function(value)
 end
 
 -- Dissect: Scheduled Event
-dissect.scheduled_event = function(buffer, offset, packet, parent)
-  local length = size_of.scheduled_event
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.scheduled_event = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.scheduled_event(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.scheduled_event(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.scheduled_event, range, value, display)
 
@@ -9730,10 +9730,10 @@ dissect.scheduled_event = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session
-size_of.session = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session = 1
 
 -- Display: Session
-display.session = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.session = function(value)
   if value == 0 then
     return "Session: Session 0 (0)"
   end
@@ -9769,11 +9769,11 @@ display.session = function(value)
 end
 
 -- Dissect: Session
-dissect.session = function(buffer, offset, packet, parent)
-  local length = size_of.session
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.session(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.session, range, value, display)
 
@@ -9781,10 +9781,10 @@ dissect.session = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Entry Qualifier
-size_of.order_entry_qualifier = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_entry_qualifier = 1
 
 -- Display: Order Entry Qualifier
-display.order_entry_qualifier = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_entry_qualifier = function(value)
   if value == 0 then
     return "Order Entry Qualifier: Order Entry Cancel Modify Disabled (0)"
   end
@@ -9805,11 +9805,11 @@ display.order_entry_qualifier = function(value)
 end
 
 -- Dissect: Order Entry Qualifier
-dissect.order_entry_qualifier = function(buffer, offset, packet, parent)
-  local length = size_of.order_entry_qualifier
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_entry_qualifier = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_entry_qualifier
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_entry_qualifier(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_entry_qualifier(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_entry_qualifier, range, value, display)
 
@@ -9817,10 +9817,10 @@ dissect.order_entry_qualifier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Period
-size_of.trading_period = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_period = 1
 
 -- Display: Trading Period
-display.trading_period = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_period = function(value)
   if value == 1 then
     return "Trading Period: Opening (1)"
   end
@@ -9838,11 +9838,11 @@ display.trading_period = function(value)
 end
 
 -- Dissect: Trading Period
-dissect.trading_period = function(buffer, offset, packet, parent)
-  local length = size_of.trading_period
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_period = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_period
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trading_period(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_period(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_period, range, value, display)
 
@@ -9850,10 +9850,10 @@ dissect.trading_period = function(buffer, offset, packet, parent)
 end
 
 -- Size: Phase Qualifier
-size_of.phase_qualifier = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_qualifier = 2
 
 -- Display: Phase Qualifier
-display.phase_qualifier = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_qualifier = function(buffer, packet, parent)
   local display = ""
 
   -- Is Wholesale Allowed flag set?
@@ -9885,7 +9885,7 @@ display.phase_qualifier = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Phase Qualifier
-dissect.phase_qualifier_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_qualifier_bits = function(buffer, offset, packet, parent)
 
   -- Reserved 10: 10 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reserved_10, buffer(offset, 2))
@@ -9910,24 +9910,24 @@ dissect.phase_qualifier_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Phase Qualifier
-dissect.phase_qualifier = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_qualifier = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local display = display.phase_qualifier(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_qualifier(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.phase_qualifier, range, display)
 
   if show.phase_qualifier then
-    dissect.phase_qualifier_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_qualifier_bits(buffer, offset, packet, element)
   end
 
   return offset + 2, range
 end
 
 -- Size: Phase Id
-size_of.phase_id = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_id = 1
 
 -- Display: Phase Id
-display.phase_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_id = function(value)
   if value == 1 then
     return "Phase Id: Inaccessible (1)"
   end
@@ -9951,11 +9951,11 @@ display.phase_id = function(value)
 end
 
 -- Dissect: Phase Id
-dissect.phase_id = function(buffer, offset, packet, parent)
-  local length = size_of.phase_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.phase_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.phase_id, range, value, display)
 
@@ -9963,19 +9963,19 @@ dissect.phase_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Phase Time
-size_of.phase_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_time = 8
 
 -- Display: Phase Time
-display.phase_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_time = function(value)
   return "Phase Time: "..value
 end
 
 -- Dissect: Phase Time
-dissect.phase_time = function(buffer, offset, packet, parent)
-  local length = size_of.phase_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.phase_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.phase_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.phase_time, range, value, display)
 
@@ -9983,77 +9983,77 @@ dissect.phase_time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timetables Group
-size_of.timetables_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetables_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.phase_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_time
 
-  index = index + size_of.phase_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_id
 
-  index = index + size_of.phase_qualifier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_qualifier
 
-  index = index + size_of.trading_period
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_period
 
-  index = index + size_of.order_entry_qualifier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_entry_qualifier
 
-  index = index + size_of.session
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session
 
-  index = index + size_of.scheduled_event
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event
 
   return index
 end
 
 -- Display: Timetables Group
-display.timetables_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.timetables_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timetables Group
-dissect.timetables_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Phase Time: 8 Byte Unsigned Fixed Width Integer
-  index, phase_time = dissect.phase_time(buffer, index, packet, parent)
+  index, phase_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_time(buffer, index, packet, parent)
 
   -- Phase Id: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
-  index, phase_id = dissect.phase_id(buffer, index, packet, parent)
+  index, phase_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_id(buffer, index, packet, parent)
 
   -- Phase Qualifier: Struct of 7 fields
-  index, phase_qualifier = dissect.phase_qualifier(buffer, index, packet, parent)
+  index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_qualifier(buffer, index, packet, parent)
 
   -- Trading Period: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_period = dissect.trading_period(buffer, index, packet, parent)
+  index, trading_period = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_period(buffer, index, packet, parent)
 
   -- Order Entry Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, order_entry_qualifier = dissect.order_entry_qualifier(buffer, index, packet, parent)
+  index, order_entry_qualifier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_entry_qualifier(buffer, index, packet, parent)
 
   -- Session: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session(buffer, index, packet, parent)
 
   -- Scheduled Event: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, scheduled_event = dissect.scheduled_event(buffer, index, packet, parent)
+  index, scheduled_event = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.scheduled_event(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Timetables Group
-dissect.timetables_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.timetables_group then
-    local length = size_of.timetables_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetables_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timetables_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.timetables_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.timetables_group, range, display)
   end
 
-  return dissect.timetables_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timetables Groups
-size_of.timetables_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetables_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local timetables_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10063,108 +10063,108 @@ size_of.timetables_groups = function(buffer, offset)
 end
 
 -- Display: Timetables Groups
-display.timetables_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.timetables_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timetables Groups
-dissect.timetables_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Timetables Group: Struct of 7 fields
   for i = 1, num_in_group do
-    index = dissect.timetables_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Timetables Groups
-dissect.timetables_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.timetables_groups then
-    local length = size_of.timetables_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetables_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timetables_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.timetables_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.timetables_groups, range, display)
   end
 
-  return dissect.timetables_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Timetable Message
-size_of.timetable_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetable_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.pattern_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.pattern_id
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.timetables_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetables_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Timetable Message
-display.timetable_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.timetable_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Timetable Message
-dissect.timetable_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetable_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Pattern Id: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, pattern_id = dissect.pattern_id(buffer, index, packet, parent)
+  index, pattern_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.pattern_id(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Timetables Groups: Struct of 2 fields
-  index, timetables_groups = dissect.timetables_groups(buffer, index, packet, parent)
+  index, timetables_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetables_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Timetable Message
-dissect.timetable_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetable_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.timetable_message then
-    local length = size_of.timetable_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetable_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.timetable_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.timetable_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.timetable_message, range, display)
   end
 
-  return dissect.timetable_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetable_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Instrument State
-size_of.instrument_state = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_state = 1
 
 -- Display: Instrument State
-display.instrument_state = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_state = function(value)
   if value == 1 then
     return "Instrument State: Scheduled (1)"
   end
@@ -10230,11 +10230,11 @@ display.instrument_state = function(value)
 end
 
 -- Dissect: Instrument State
-dissect.instrument_state = function(buffer, offset, packet, parent)
-  local length = size_of.instrument_state
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_state = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_state
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.instrument_state(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.instrument_state(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.instrument_state, range, value, display)
 
@@ -10242,10 +10242,10 @@ dissect.instrument_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Scheduled Event Time
-size_of.scheduled_event_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event_time = 8
 
 -- Display: Scheduled Event Time
-display.scheduled_event_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.scheduled_event_time = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Scheduled Event Time: No Value"
@@ -10255,11 +10255,11 @@ display.scheduled_event_time = function(value)
 end
 
 -- Dissect: Scheduled Event Time
-dissect.scheduled_event_time = function(buffer, offset, packet, parent)
-  local length = size_of.scheduled_event_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.scheduled_event_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.scheduled_event_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.scheduled_event_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.scheduled_event_time, range, value, display)
 
@@ -10267,10 +10267,10 @@ dissect.scheduled_event_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Spread Multiplier
-size_of.quote_spread_multiplier = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_spread_multiplier = 1
 
 -- Display: Quote Spread Multiplier
-display.quote_spread_multiplier = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.quote_spread_multiplier = function(value)
   if value == 1 then
     return "Quote Spread Multiplier: Quote Spread Multiplier 1 (1)"
   end
@@ -10288,11 +10288,11 @@ display.quote_spread_multiplier = function(value)
 end
 
 -- Dissect: Quote Spread Multiplier
-dissect.quote_spread_multiplier = function(buffer, offset, packet, parent)
-  local length = size_of.quote_spread_multiplier
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quote_spread_multiplier = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_spread_multiplier
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.quote_spread_multiplier(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.quote_spread_multiplier(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.quote_spread_multiplier, range, value, display)
 
@@ -10300,10 +10300,10 @@ dissect.quote_spread_multiplier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Limits
-size_of.price_limits = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_limits = 1
 
 -- Display: Price Limits
-display.price_limits = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_limits = function(value)
   if value == 1 then
     return "Price Limits: Price Limits Enabled Normal (1)"
   end
@@ -10324,11 +10324,11 @@ display.price_limits = function(value)
 end
 
 -- Dissect: Price Limits
-dissect.price_limits = function(buffer, offset, packet, parent)
-  local length = size_of.price_limits
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_limits = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_limits
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_limits(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_limits(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_limits, range, value, display)
 
@@ -10336,10 +10336,10 @@ dissect.price_limits = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trading Side
-size_of.trading_side = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_side = 1
 
 -- Display: Trading Side
-display.trading_side = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_side = function(value)
   if value == 1 then
     return "Trading Side: Bid Only (1)"
   end
@@ -10360,11 +10360,11 @@ display.trading_side = function(value)
 end
 
 -- Dissect: Trading Side
-dissect.trading_side = function(buffer, offset, packet, parent)
-  local length = size_of.trading_side
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_side = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_side
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trading_side(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trading_side(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trading_side, range, value, display)
 
@@ -10372,10 +10372,10 @@ dissect.trading_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Status Reason
-size_of.status_reason = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.status_reason = 1
 
 -- Display: Status Reason
-display.status_reason = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.status_reason = function(value)
   if value == 0 then
     return "Status Reason: Scheduled (0)"
   end
@@ -10426,11 +10426,11 @@ display.status_reason = function(value)
 end
 
 -- Dissect: Status Reason
-dissect.status_reason = function(buffer, offset, packet, parent)
-  local length = size_of.status_reason
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.status_reason = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.status_reason
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.status_reason(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.status_reason(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.status_reason, range, value, display)
 
@@ -10438,10 +10438,10 @@ dissect.status_reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Book State
-size_of.book_state = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.book_state = 1
 
 -- Display: Book State
-display.book_state = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.book_state = function(value)
   if value == 1 then
     return "Book State: Inaccessible (1)"
   end
@@ -10477,11 +10477,11 @@ display.book_state = function(value)
 end
 
 -- Dissect: Book State
-dissect.book_state = function(buffer, offset, packet, parent)
-  local length = size_of.book_state
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.book_state = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.book_state
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.book_state(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.book_state(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.book_state, range, value, display)
 
@@ -10489,10 +10489,10 @@ dissect.book_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Change Type
-size_of.change_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.change_type = 1
 
 -- Display: Change Type
-display.change_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.change_type = function(value)
   if value == 0 then
     return "Change Type: Status Changes (0)"
   end
@@ -10507,11 +10507,11 @@ display.change_type = function(value)
 end
 
 -- Dissect: Change Type
-dissect.change_type = function(buffer, offset, packet, parent)
-  local length = size_of.change_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.change_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.change_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.change_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.change_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.change_type, range, value, display)
 
@@ -10519,117 +10519,117 @@ dissect.change_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market States Group
-size_of.market_states_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_states_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.change_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.change_type
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.book_state
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.book_state
 
-  index = index + size_of.status_reason
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.status_reason
 
-  index = index + size_of.phase_qualifier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.phase_qualifier
 
-  index = index + size_of.trading_period
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_period
 
-  index = index + size_of.trading_side
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_side
 
-  index = index + size_of.price_limits
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_limits
 
-  index = index + size_of.quote_spread_multiplier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quote_spread_multiplier
 
-  index = index + size_of.order_entry_qualifier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_entry_qualifier
 
-  index = index + size_of.session
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session
 
-  index = index + size_of.scheduled_event
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event
 
-  index = index + size_of.scheduled_event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.scheduled_event_time
 
-  index = index + size_of.instrument_state
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.instrument_state
 
   return index
 end
 
 -- Display: Market States Group
-display.market_states_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_states_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market States Group
-dissect.market_states_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Change Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, change_type = dissect.change_type(buffer, index, packet, parent)
+  index, change_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.change_type(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Book State: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, book_state = dissect.book_state(buffer, index, packet, parent)
+  index, book_state = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.book_state(buffer, index, packet, parent)
 
   -- Status Reason: 1 Byte Unsigned Fixed Width Integer Enum with 15 values
-  index, status_reason = dissect.status_reason(buffer, index, packet, parent)
+  index, status_reason = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.status_reason(buffer, index, packet, parent)
 
   -- Phase Qualifier: Struct of 7 fields
-  index, phase_qualifier = dissect.phase_qualifier(buffer, index, packet, parent)
+  index, phase_qualifier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.phase_qualifier(buffer, index, packet, parent)
 
   -- Trading Period: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, trading_period = dissect.trading_period(buffer, index, packet, parent)
+  index, trading_period = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_period(buffer, index, packet, parent)
 
   -- Trading Side: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, trading_side = dissect.trading_side(buffer, index, packet, parent)
+  index, trading_side = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_side(buffer, index, packet, parent)
 
   -- Price Limits: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, price_limits = dissect.price_limits(buffer, index, packet, parent)
+  index, price_limits = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_limits(buffer, index, packet, parent)
 
   -- Quote Spread Multiplier: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, quote_spread_multiplier = dissect.quote_spread_multiplier(buffer, index, packet, parent)
+  index, quote_spread_multiplier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quote_spread_multiplier(buffer, index, packet, parent)
 
   -- Order Entry Qualifier: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
-  index, order_entry_qualifier = dissect.order_entry_qualifier(buffer, index, packet, parent)
+  index, order_entry_qualifier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_entry_qualifier(buffer, index, packet, parent)
 
   -- Session: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session(buffer, index, packet, parent)
 
   -- Scheduled Event: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
-  index, scheduled_event = dissect.scheduled_event(buffer, index, packet, parent)
+  index, scheduled_event = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.scheduled_event(buffer, index, packet, parent)
 
   -- Scheduled Event Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, scheduled_event_time = dissect.scheduled_event_time(buffer, index, packet, parent)
+  index, scheduled_event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.scheduled_event_time(buffer, index, packet, parent)
 
   -- Instrument State: 1 Byte Unsigned Fixed Width Integer Enum with 20 values
-  index, instrument_state = dissect.instrument_state(buffer, index, packet, parent)
+  index, instrument_state = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.instrument_state(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market States Group
-dissect.market_states_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_states_group then
-    local length = size_of.market_states_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_states_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_states_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_states_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_states_group, range, display)
   end
 
-  return dissect.market_states_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market States Groups
-size_of.market_states_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_states_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local market_states_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10639,98 +10639,98 @@ size_of.market_states_groups = function(buffer, offset)
 end
 
 -- Display: Market States Groups
-display.market_states_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_states_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market States Groups
-dissect.market_states_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Market States Group: Struct of 15 fields
   for i = 1, num_in_group do
-    index = dissect.market_states_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Market States Groups
-dissect.market_states_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.market_states_groups then
-    local length = size_of.market_states_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_states_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_states_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_states_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_states_groups, range, display)
   end
 
-  return dissect.market_states_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Status Change Message
-size_of.market_status_change_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_status_change_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.market_states_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_states_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Market Status Change Message
-display.market_status_change_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_status_change_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Status Change Message
-dissect.market_status_change_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_status_change_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Market States Groups: Struct of 2 fields
-  index, market_states_groups = dissect.market_states_groups(buffer, index, packet, parent)
+  index, market_states_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_states_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Status Change Message
-dissect.market_status_change_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_status_change_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.market_status_change_message then
-    local length = size_of.market_status_change_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_status_change_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_status_change_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_status_change_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_status_change_message, range, display)
   end
 
-  return dissect.market_status_change_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_status_change_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Not Used Group 1 Groups
-size_of.not_used_group_1_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.not_used_group_1_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local not_used_group_1_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -10740,46 +10740,46 @@ size_of.not_used_group_1_groups = function(buffer, offset)
 end
 
 -- Display: Not Used Group 1 Groups
-display.not_used_group_1_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.not_used_group_1_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Not Used Group 1 Groups
-dissect.not_used_group_1_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.not_used_group_1_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Not Used Group 1 Group
   for i = 1, num_in_group do
-    index = dissect.not_used_group_1_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.not_used_group_1_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Not Used Group 1 Groups
-dissect.not_used_group_1_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.not_used_group_1_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.not_used_group_1_groups then
-    local length = size_of.not_used_group_1_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.not_used_group_1_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.not_used_group_1_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.not_used_group_1_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.not_used_group_1_groups, range, display)
   end
 
-  return dissect.not_used_group_1_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.not_used_group_1_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Message Price Notation
-size_of.message_price_notation = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_price_notation = 1
 
 -- Display: Message Price Notation
-display.message_price_notation = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.message_price_notation = function(value)
   if value == 1 then
     return "Message Price Notation: Price (1)"
   end
@@ -10797,11 +10797,11 @@ display.message_price_notation = function(value)
 end
 
 -- Dissect: Message Price Notation
-dissect.message_price_notation = function(buffer, offset, packet, parent)
-  local length = size_of.message_price_notation
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_price_notation = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_price_notation
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_price_notation(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.message_price_notation(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.message_price_notation, range, value, display)
 
@@ -10809,10 +10809,10 @@ dissect.message_price_notation = function(buffer, offset, packet, parent)
 end
 
 -- Size: Evaluated Price
-size_of.evaluated_price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.evaluated_price = 8
 
 -- Display: Evaluated Price
-display.evaluated_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.evaluated_price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Evaluated Price: No Value"
@@ -10822,11 +10822,11 @@ display.evaluated_price = function(value)
 end
 
 -- Dissect: Evaluated Price
-dissect.evaluated_price = function(buffer, offset, packet, parent)
-  local length = size_of.evaluated_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.evaluated_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.evaluated_price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.evaluated_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.evaluated_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.evaluated_price, range, value, display)
 
@@ -10834,10 +10834,10 @@ dissect.evaluated_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: End Time Vwap
-size_of.end_time_vwap = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_time_vwap = 4
 
 -- Display: End Time Vwap
-display.end_time_vwap = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.end_time_vwap = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "End Time Vwap: No Value"
@@ -10847,11 +10847,11 @@ display.end_time_vwap = function(value)
 end
 
 -- Dissect: End Time Vwap
-dissect.end_time_vwap = function(buffer, offset, packet, parent)
-  local length = size_of.end_time_vwap
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_time_vwap = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_time_vwap
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.end_time_vwap(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.end_time_vwap(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.end_time_vwap, range, value, display)
 
@@ -10859,10 +10859,10 @@ dissect.end_time_vwap = function(buffer, offset, packet, parent)
 end
 
 -- Size: Start Time Vwap
-size_of.start_time_vwap = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_time_vwap = 4
 
 -- Display: Start Time Vwap
-display.start_time_vwap = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.start_time_vwap = function(value)
   -- Check if field has value
   if value == 4294967295 then
     return "Start Time Vwap: No Value"
@@ -10872,11 +10872,11 @@ display.start_time_vwap = function(value)
 end
 
 -- Dissect: Start Time Vwap
-dissect.start_time_vwap = function(buffer, offset, packet, parent)
-  local length = size_of.start_time_vwap
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_time_vwap = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_time_vwap
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.start_time_vwap(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.start_time_vwap(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.start_time_vwap, range, value, display)
 
@@ -10884,10 +10884,10 @@ dissect.start_time_vwap = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transparency Indicator
-size_of.transparency_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transparency_indicator = 1
 
 -- Display: Transparency Indicator
-display.transparency_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.transparency_indicator = function(value)
   if value == 0 then
     return "Transparency Indicator: Lit Regular Trade (0)"
   end
@@ -10905,11 +10905,11 @@ display.transparency_indicator = function(value)
 end
 
 -- Dissect: Transparency Indicator
-dissect.transparency_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.transparency_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.transparency_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transparency_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.transparency_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.transparency_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.transparency_indicator, range, value, display)
 
@@ -10917,10 +10917,10 @@ dissect.transparency_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Trade Code
-size_of.block_trade_code = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_trade_code = 1
 
 -- Display: Block Trade Code
-display.block_trade_code = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.block_trade_code = function(value)
   if value == "B" then
     return "Block Trade Code: Block Trade (B)"
   end
@@ -10938,8 +10938,8 @@ display.block_trade_code = function(value)
 end
 
 -- Dissect: Block Trade Code
-dissect.block_trade_code = function(buffer, offset, packet, parent)
-  local length = size_of.block_trade_code
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_trade_code = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_trade_code
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -10952,7 +10952,7 @@ dissect.block_trade_code = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.block_trade_code(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.block_trade_code(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.block_trade_code, range, value, display)
 
@@ -10960,10 +10960,10 @@ dissect.block_trade_code = function(buffer, offset, packet, parent)
 end
 
 -- Size: Effective Date Indicator
-size_of.effective_date_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.effective_date_indicator = 1
 
 -- Display: Effective Date Indicator
-display.effective_date_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.effective_date_indicator = function(value)
   if value == 0 then
     return "Effective Date Indicator: Sellerdeclarationisreceivedonthecurtradingsessionday (0)"
   end
@@ -10978,11 +10978,11 @@ display.effective_date_indicator = function(value)
 end
 
 -- Dissect: Effective Date Indicator
-dissect.effective_date_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.effective_date_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.effective_date_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.effective_date_indicator
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.effective_date_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.effective_date_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.effective_date_indicator, range, value, display)
 
@@ -10990,10 +10990,10 @@ dissect.effective_date_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Transaction Type
-size_of.transaction_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transaction_type = 1
 
 -- Display: Transaction Type
-display.transaction_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.transaction_type = function(value)
   if value == 1 then
     return "Transaction Type: Plain Vanilla Trade (1)"
   end
@@ -11026,11 +11026,11 @@ display.transaction_type = function(value)
 end
 
 -- Dissect: Transaction Type
-dissect.transaction_type = function(buffer, offset, packet, parent)
-  local length = size_of.transaction_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.transaction_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transaction_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.transaction_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.transaction_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.transaction_type, range, value, display)
 
@@ -11038,10 +11038,10 @@ dissect.transaction_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Qualifier
-size_of.trade_qualifier = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_qualifier = 1
 
 -- Display: Trade Qualifier
-display.trade_qualifier = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_qualifier = function(buffer, packet, parent)
   local display = ""
 
   -- Is Deferred Publication flag set?
@@ -11081,7 +11081,7 @@ display.trade_qualifier = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Qualifier
-dissect.trade_qualifier_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_qualifier_bits = function(buffer, offset, packet, parent)
 
   -- Deferred Publication: 1 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.deferred_publication, buffer(offset, 1))
@@ -11109,24 +11109,24 @@ dissect.trade_qualifier_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Trade Qualifier
-dissect.trade_qualifier = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_qualifier = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_qualifier(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.trade_qualifier(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.trade_qualifier, range, display)
 
   if show.trade_qualifier then
-    dissect.trade_qualifier_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_qualifier_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Mmt Duplicative Indicator
-size_of.mmt_duplicative_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_duplicative_indicator = 4
 
 -- Display: Mmt Duplicative Indicator
-display.mmt_duplicative_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_duplicative_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Duplicative Indicator: No Value"
@@ -11136,8 +11136,8 @@ display.mmt_duplicative_indicator = function(value)
 end
 
 -- Dissect: Mmt Duplicative Indicator
-dissect.mmt_duplicative_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_duplicative_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_duplicative_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_duplicative_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11151,7 +11151,7 @@ dissect.mmt_duplicative_indicator = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_duplicative_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_duplicative_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_duplicative_indicator, range, value, display)
 
@@ -11159,10 +11159,10 @@ dissect.mmt_duplicative_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Post Trade Deferral
-size_of.mmt_post_trade_deferral = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_post_trade_deferral = 4
 
 -- Display: Mmt Post Trade Deferral
-display.mmt_post_trade_deferral = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_post_trade_deferral = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Post Trade Deferral: No Value"
@@ -11172,8 +11172,8 @@ display.mmt_post_trade_deferral = function(value)
 end
 
 -- Dissect: Mmt Post Trade Deferral
-dissect.mmt_post_trade_deferral = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_post_trade_deferral
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_post_trade_deferral = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_post_trade_deferral
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11187,7 +11187,7 @@ dissect.mmt_post_trade_deferral = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_post_trade_deferral(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_post_trade_deferral(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_post_trade_deferral, range, value, display)
 
@@ -11195,10 +11195,10 @@ dissect.mmt_post_trade_deferral = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Publication Mode
-size_of.mmt_publication_mode = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_publication_mode = 4
 
 -- Display: Mmt Publication Mode
-display.mmt_publication_mode = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_publication_mode = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Publication Mode: No Value"
@@ -11208,8 +11208,8 @@ display.mmt_publication_mode = function(value)
 end
 
 -- Dissect: Mmt Publication Mode
-dissect.mmt_publication_mode = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_publication_mode
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_publication_mode = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_publication_mode
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11223,7 +11223,7 @@ dissect.mmt_publication_mode = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_publication_mode(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_publication_mode(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_publication_mode, range, value, display)
 
@@ -11231,10 +11231,10 @@ dissect.mmt_publication_mode = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Algorithmic Indicator
-size_of.mmt_algorithmic_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_algorithmic_indicator = 4
 
 -- Display: Mmt Algorithmic Indicator
-display.mmt_algorithmic_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_algorithmic_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Algorithmic Indicator: No Value"
@@ -11244,8 +11244,8 @@ display.mmt_algorithmic_indicator = function(value)
 end
 
 -- Dissect: Mmt Algorithmic Indicator
-dissect.mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_algorithmic_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_algorithmic_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11259,7 +11259,7 @@ dissect.mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_algorithmic_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_algorithmic_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_algorithmic_indicator, range, value, display)
 
@@ -11267,10 +11267,10 @@ dissect.mmt_algorithmic_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Contributionto Price
-size_of.mmt_contributionto_price = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_contributionto_price = 4
 
 -- Display: Mmt Contributionto Price
-display.mmt_contributionto_price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_contributionto_price = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Contributionto Price: No Value"
@@ -11280,8 +11280,8 @@ display.mmt_contributionto_price = function(value)
 end
 
 -- Dissect: Mmt Contributionto Price
-dissect.mmt_contributionto_price = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_contributionto_price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_contributionto_price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_contributionto_price
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11295,7 +11295,7 @@ dissect.mmt_contributionto_price = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_contributionto_price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_contributionto_price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_contributionto_price, range, value, display)
 
@@ -11303,10 +11303,10 @@ dissect.mmt_contributionto_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Off Book Automated Indicator
-size_of.mmt_off_book_automated_indicator = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_off_book_automated_indicator = 1
 
 -- Display: Mmt Off Book Automated Indicator
-display.mmt_off_book_automated_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_off_book_automated_indicator = function(value)
   if value == "M" then
     return "Mmt Off Book Automated Indicator: Off Book Non Automated (M)"
   end
@@ -11324,8 +11324,8 @@ display.mmt_off_book_automated_indicator = function(value)
 end
 
 -- Dissect: Mmt Off Book Automated Indicator
-dissect.mmt_off_book_automated_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_off_book_automated_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_off_book_automated_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_off_book_automated_indicator
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -11338,7 +11338,7 @@ dissect.mmt_off_book_automated_indicator = function(buffer, offset, packet, pare
     value = range:string()
   end
 
-  local display = display.mmt_off_book_automated_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_off_book_automated_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_off_book_automated_indicator, range, value, display)
 
@@ -11346,10 +11346,10 @@ dissect.mmt_off_book_automated_indicator = function(buffer, offset, packet, pare
 end
 
 -- Size: Mmt Special Dividend Indicator
-size_of.mmt_special_dividend_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_special_dividend_indicator = 4
 
 -- Display: Mmt Special Dividend Indicator
-display.mmt_special_dividend_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_special_dividend_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Special Dividend Indicator: No Value"
@@ -11359,8 +11359,8 @@ display.mmt_special_dividend_indicator = function(value)
 end
 
 -- Dissect: Mmt Special Dividend Indicator
-dissect.mmt_special_dividend_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_special_dividend_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_special_dividend_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_special_dividend_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11374,7 +11374,7 @@ dissect.mmt_special_dividend_indicator = function(buffer, offset, packet, parent
     value = range:string()
   end
 
-  local display = display.mmt_special_dividend_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_special_dividend_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_special_dividend_indicator, range, value, display)
 
@@ -11382,10 +11382,10 @@ dissect.mmt_special_dividend_indicator = function(buffer, offset, packet, parent
 end
 
 -- Size: Mmt Benchmark Indicator
-size_of.mmt_benchmark_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_benchmark_indicator = 4
 
 -- Display: Mmt Benchmark Indicator
-display.mmt_benchmark_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_benchmark_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Benchmark Indicator: No Value"
@@ -11395,8 +11395,8 @@ display.mmt_benchmark_indicator = function(value)
 end
 
 -- Dissect: Mmt Benchmark Indicator
-dissect.mmt_benchmark_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_benchmark_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_benchmark_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_benchmark_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11410,7 +11410,7 @@ dissect.mmt_benchmark_indicator = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_benchmark_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_benchmark_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_benchmark_indicator, range, value, display)
 
@@ -11418,10 +11418,10 @@ dissect.mmt_benchmark_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Modification Indicator
-size_of.mmt_modification_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_modification_indicator = 4
 
 -- Display: Mmt Modification Indicator
-display.mmt_modification_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_modification_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Modification Indicator: No Value"
@@ -11431,8 +11431,8 @@ display.mmt_modification_indicator = function(value)
 end
 
 -- Dissect: Mmt Modification Indicator
-dissect.mmt_modification_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_modification_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_modification_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_modification_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11446,7 +11446,7 @@ dissect.mmt_modification_indicator = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_modification_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_modification_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_modification_indicator, range, value, display)
 
@@ -11454,10 +11454,10 @@ dissect.mmt_modification_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Agency Cross Trade Indicator
-size_of.mmt_agency_cross_trade_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_agency_cross_trade_indicator = 4
 
 -- Display: Mmt Agency Cross Trade Indicator
-display.mmt_agency_cross_trade_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_agency_cross_trade_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Agency Cross Trade Indicator: No Value"
@@ -11467,8 +11467,8 @@ display.mmt_agency_cross_trade_indicator = function(value)
 end
 
 -- Dissect: Mmt Agency Cross Trade Indicator
-dissect.mmt_agency_cross_trade_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_agency_cross_trade_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_agency_cross_trade_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_agency_cross_trade_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11482,7 +11482,7 @@ dissect.mmt_agency_cross_trade_indicator = function(buffer, offset, packet, pare
     value = range:string()
   end
 
-  local display = display.mmt_agency_cross_trade_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_agency_cross_trade_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_agency_cross_trade_indicator, range, value, display)
 
@@ -11490,10 +11490,10 @@ dissect.mmt_agency_cross_trade_indicator = function(buffer, offset, packet, pare
 end
 
 -- Size: Mmt Negotiation Indicator
-size_of.mmt_negotiation_indicator = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_negotiation_indicator = 4
 
 -- Display: Mmt Negotiation Indicator
-display.mmt_negotiation_indicator = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_negotiation_indicator = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Negotiation Indicator: No Value"
@@ -11503,8 +11503,8 @@ display.mmt_negotiation_indicator = function(value)
 end
 
 -- Dissect: Mmt Negotiation Indicator
-dissect.mmt_negotiation_indicator = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_negotiation_indicator
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_negotiation_indicator = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_negotiation_indicator
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11518,7 +11518,7 @@ dissect.mmt_negotiation_indicator = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_negotiation_indicator(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_negotiation_indicator(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_negotiation_indicator, range, value, display)
 
@@ -11526,10 +11526,10 @@ dissect.mmt_negotiation_indicator = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Transaction Category
-size_of.mmt_transaction_category = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_transaction_category = 4
 
 -- Display: Mmt Transaction Category
-display.mmt_transaction_category = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_transaction_category = function(value)
   -- Check if field has value
   if value == nil or value == '' then
     return "Mmt Transaction Category: No Value"
@@ -11539,8 +11539,8 @@ display.mmt_transaction_category = function(value)
 end
 
 -- Dissect: Mmt Transaction Category
-dissect.mmt_transaction_category = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_transaction_category
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_transaction_category = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_transaction_category
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -11554,7 +11554,7 @@ dissect.mmt_transaction_category = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_transaction_category(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_transaction_category(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_transaction_category, range, value, display)
 
@@ -11562,10 +11562,10 @@ dissect.mmt_transaction_category = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Trading Mode
-size_of.mmt_trading_mode = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_trading_mode = 1
 
 -- Display: Mmt Trading Mode
-display.mmt_trading_mode = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_trading_mode = function(value)
   if value == "1" then
     return "Mmt Trading Mode: Undefined Auctionequal Uncrossing (1)"
   end
@@ -11607,8 +11607,8 @@ display.mmt_trading_mode = function(value)
 end
 
 -- Dissect: Mmt Trading Mode
-dissect.mmt_trading_mode = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_trading_mode
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_trading_mode = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_trading_mode
   local range = buffer(offset, length)
 
   -- parse as byte
@@ -11621,7 +11621,7 @@ dissect.mmt_trading_mode = function(buffer, offset, packet, parent)
     value = range:string()
   end
 
-  local display = display.mmt_trading_mode(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_trading_mode(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_trading_mode, range, value, display)
 
@@ -11629,10 +11629,10 @@ dissect.mmt_trading_mode = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mmt Market Mechanism
-size_of.mmt_market_mechanism = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_market_mechanism = 1
 
 -- Display: Mmt Market Mechanism
-display.mmt_market_mechanism = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_market_mechanism = function(value)
   if value == 1 then
     return "Mmt Market Mechanism: Central Limit Order Book (1)"
   end
@@ -11659,11 +11659,11 @@ display.mmt_market_mechanism = function(value)
 end
 
 -- Dissect: Mmt Market Mechanism
-dissect.mmt_market_mechanism = function(buffer, offset, packet, parent)
-  local length = size_of.mmt_market_mechanism
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_market_mechanism = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_market_mechanism
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.mmt_market_mechanism(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.mmt_market_mechanism(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.mmt_market_mechanism, range, value, display)
 
@@ -11671,302 +11671,302 @@ dissect.mmt_market_mechanism = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Full Trade Information Message
-size_of.full_trade_information_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_trade_information_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.trading_date_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trading_date_time
 
-  index = index + size_of.publication_date_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.publication_date_time
 
-  index = index + size_of.trade_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_type
 
-  index = index + size_of.mifid_instrument_id_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id_type
 
-  index = index + size_of.mifid_instrument_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_instrument_id
 
-  index = index + size_of.mifid_execution_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_execution_id
 
-  index = index + size_of.mifid_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price
 
-  index = index + size_of.mifid_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity
 
-  index = index + size_of.mifid_price_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_price_notation
 
-  index = index + size_of.mifid_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_currency
 
-  index = index + size_of.mi_fid_qtyin_msrmt_unit_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_qtyin_msrmt_unit_notation
 
-  index = index + size_of.mifid_quantity_measurement_unit
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mifid_quantity_measurement_unit
 
-  index = index + size_of.mi_fid_notional_amount
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_notional_amount
 
-  index = index + size_of.notional_currency
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.notional_currency
 
-  index = index + size_of.mi_fid_clearing_flag
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_clearing_flag
 
-  index = index + size_of.mmt_market_mechanism
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_market_mechanism
 
-  index = index + size_of.mmt_trading_mode
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_trading_mode
 
-  index = index + size_of.mmt_transaction_category
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_transaction_category
 
-  index = index + size_of.mmt_negotiation_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_negotiation_indicator
 
-  index = index + size_of.mmt_agency_cross_trade_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_agency_cross_trade_indicator
 
-  index = index + size_of.mmt_modification_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_modification_indicator
 
-  index = index + size_of.mmt_benchmark_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_benchmark_indicator
 
-  index = index + size_of.mmt_special_dividend_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_special_dividend_indicator
 
-  index = index + size_of.mmt_off_book_automated_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_off_book_automated_indicator
 
-  index = index + size_of.mmt_contributionto_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_contributionto_price
 
-  index = index + size_of.mmt_algorithmic_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_algorithmic_indicator
 
-  index = index + size_of.mmt_publication_mode
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_publication_mode
 
-  index = index + size_of.mmt_post_trade_deferral
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_post_trade_deferral
 
-  index = index + size_of.mmt_duplicative_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mmt_duplicative_indicator
 
-  index = index + size_of.trade_qualifier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_qualifier
 
-  index = index + size_of.transaction_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transaction_type
 
-  index = index + size_of.effective_date_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.effective_date_indicator
 
-  index = index + size_of.block_trade_code
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_trade_code
 
-  index = index + size_of.trade_reference
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.trade_reference
 
-  index = index + size_of.original_report_timestamp
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.original_report_timestamp
 
-  index = index + size_of.transparency_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.transparency_indicator
 
-  index = index + size_of.currency_coefficient
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.currency_coefficient
 
-  index = index + size_of.price_multiplier
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier
 
-  index = index + size_of.price_multiplier_decimals
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_multiplier_decimals
 
-  index = index + size_of.venue
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.venue
 
-  index = index + size_of.start_time_vwap
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_time_vwap
 
-  index = index + size_of.end_time_vwap
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_time_vwap
 
-  index = index + size_of.mi_fid_emission_allowance_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.mi_fid_emission_allowance_type
 
-  index = index + size_of.market_of_reference_mic
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_of_reference_mic
 
-  index = index + size_of.evaluated_price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.evaluated_price
 
-  index = index + size_of.message_price_notation
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_price_notation
 
-  index = index + size_of.not_used_group_1_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.not_used_group_1_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Full Trade Information Message
-display.full_trade_information_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.full_trade_information_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Full Trade Information Message
-dissect.full_trade_information_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_trade_information_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Trading Date Time: 27 Byte Ascii String
-  index, trading_date_time = dissect.trading_date_time(buffer, index, packet, parent)
+  index, trading_date_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trading_date_time(buffer, index, packet, parent)
 
   -- Publication Date Time: 27 Byte Ascii String Nullable
-  index, publication_date_time = dissect.publication_date_time(buffer, index, packet, parent)
+  index, publication_date_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.publication_date_time(buffer, index, packet, parent)
 
   -- Trade Type: 1 Byte Unsigned Fixed Width Integer Enum with 43 values
-  index, trade_type = dissect.trade_type(buffer, index, packet, parent)
+  index, trade_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id Type: 4 Byte Ascii String Nullable
-  index, mifid_instrument_id_type = dissect.mifid_instrument_id_type(buffer, index, packet, parent)
+  index, mifid_instrument_id_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id_type(buffer, index, packet, parent)
 
   -- Mifid Instrument Id: 12 Byte Ascii String Nullable
-  index, mifid_instrument_id = dissect.mifid_instrument_id(buffer, index, packet, parent)
+  index, mifid_instrument_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_instrument_id(buffer, index, packet, parent)
 
   -- Mifid Execution Id: 52 Byte Ascii String
-  index, mifid_execution_id = dissect.mifid_execution_id(buffer, index, packet, parent)
+  index, mifid_execution_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_execution_id(buffer, index, packet, parent)
 
   -- Mifid Price: 20 Byte Ascii String Nullable
-  index, mifid_price = dissect.mifid_price(buffer, index, packet, parent)
+  index, mifid_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price(buffer, index, packet, parent)
 
   -- Mifid Quantity: 20 Byte Ascii String
-  index, mifid_quantity = dissect.mifid_quantity(buffer, index, packet, parent)
+  index, mifid_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity(buffer, index, packet, parent)
 
   -- Mifid Price Notation: 4 Byte Ascii String Nullable
-  index, mifid_price_notation = dissect.mifid_price_notation(buffer, index, packet, parent)
+  index, mifid_price_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_price_notation(buffer, index, packet, parent)
 
   -- Mifid Currency: 3 Byte Ascii String Nullable
-  index, mifid_currency = dissect.mifid_currency(buffer, index, packet, parent)
+  index, mifid_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_currency(buffer, index, packet, parent)
 
   -- Mi Fid Qtyin Msrmt Unit Notation: 25 Byte Ascii String Nullable
-  index, mi_fid_qtyin_msrmt_unit_notation = dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
+  index, mi_fid_qtyin_msrmt_unit_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_qtyin_msrmt_unit_notation(buffer, index, packet, parent)
 
   -- Mifid Quantity Measurement Unit: 20 Byte Ascii String Nullable
-  index, mifid_quantity_measurement_unit = dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
+  index, mifid_quantity_measurement_unit = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mifid_quantity_measurement_unit(buffer, index, packet, parent)
 
   -- Mi Fid Notional Amount: 20 Byte Ascii String Nullable
-  index, mi_fid_notional_amount = dissect.mi_fid_notional_amount(buffer, index, packet, parent)
+  index, mi_fid_notional_amount = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_notional_amount(buffer, index, packet, parent)
 
   -- Notional Currency: 3 Byte Ascii String Nullable
-  index, notional_currency = dissect.notional_currency(buffer, index, packet, parent)
+  index, notional_currency = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.notional_currency(buffer, index, packet, parent)
 
   -- Mi Fid Clearing Flag: 5 Byte Ascii String Nullable
-  index, mi_fid_clearing_flag = dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
+  index, mi_fid_clearing_flag = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_clearing_flag(buffer, index, packet, parent)
 
   -- Mmt Market Mechanism: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, mmt_market_mechanism = dissect.mmt_market_mechanism(buffer, index, packet, parent)
+  index, mmt_market_mechanism = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_market_mechanism(buffer, index, packet, parent)
 
   -- Mmt Trading Mode: 1 Byte Ascii String Enum with 12 values
-  index, mmt_trading_mode = dissect.mmt_trading_mode(buffer, index, packet, parent)
+  index, mmt_trading_mode = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_trading_mode(buffer, index, packet, parent)
 
   -- Mmt Transaction Category: 4 Byte Ascii String Nullable
-  index, mmt_transaction_category = dissect.mmt_transaction_category(buffer, index, packet, parent)
+  index, mmt_transaction_category = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_transaction_category(buffer, index, packet, parent)
 
   -- Mmt Negotiation Indicator: 4 Byte Ascii String Nullable
-  index, mmt_negotiation_indicator = dissect.mmt_negotiation_indicator(buffer, index, packet, parent)
+  index, mmt_negotiation_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_negotiation_indicator(buffer, index, packet, parent)
 
   -- Mmt Agency Cross Trade Indicator: 4 Byte Ascii String Nullable
-  index, mmt_agency_cross_trade_indicator = dissect.mmt_agency_cross_trade_indicator(buffer, index, packet, parent)
+  index, mmt_agency_cross_trade_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_agency_cross_trade_indicator(buffer, index, packet, parent)
 
   -- Mmt Modification Indicator: 4 Byte Ascii String Nullable
-  index, mmt_modification_indicator = dissect.mmt_modification_indicator(buffer, index, packet, parent)
+  index, mmt_modification_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_modification_indicator(buffer, index, packet, parent)
 
   -- Mmt Benchmark Indicator: 4 Byte Ascii String Nullable
-  index, mmt_benchmark_indicator = dissect.mmt_benchmark_indicator(buffer, index, packet, parent)
+  index, mmt_benchmark_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_benchmark_indicator(buffer, index, packet, parent)
 
   -- Mmt Special Dividend Indicator: 4 Byte Ascii String Nullable
-  index, mmt_special_dividend_indicator = dissect.mmt_special_dividend_indicator(buffer, index, packet, parent)
+  index, mmt_special_dividend_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_special_dividend_indicator(buffer, index, packet, parent)
 
   -- Mmt Off Book Automated Indicator: 1 Byte Ascii String Enum with 4 values
-  index, mmt_off_book_automated_indicator = dissect.mmt_off_book_automated_indicator(buffer, index, packet, parent)
+  index, mmt_off_book_automated_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_off_book_automated_indicator(buffer, index, packet, parent)
 
   -- Mmt Contributionto Price: 4 Byte Ascii String Nullable
-  index, mmt_contributionto_price = dissect.mmt_contributionto_price(buffer, index, packet, parent)
+  index, mmt_contributionto_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_contributionto_price(buffer, index, packet, parent)
 
   -- Mmt Algorithmic Indicator: 4 Byte Ascii String Nullable
-  index, mmt_algorithmic_indicator = dissect.mmt_algorithmic_indicator(buffer, index, packet, parent)
+  index, mmt_algorithmic_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_algorithmic_indicator(buffer, index, packet, parent)
 
   -- Mmt Publication Mode: 4 Byte Ascii String Nullable
-  index, mmt_publication_mode = dissect.mmt_publication_mode(buffer, index, packet, parent)
+  index, mmt_publication_mode = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_publication_mode(buffer, index, packet, parent)
 
   -- Mmt Post Trade Deferral: 4 Byte Ascii String Nullable
-  index, mmt_post_trade_deferral = dissect.mmt_post_trade_deferral(buffer, index, packet, parent)
+  index, mmt_post_trade_deferral = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_post_trade_deferral(buffer, index, packet, parent)
 
   -- Mmt Duplicative Indicator: 4 Byte Ascii String Nullable
-  index, mmt_duplicative_indicator = dissect.mmt_duplicative_indicator(buffer, index, packet, parent)
+  index, mmt_duplicative_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mmt_duplicative_indicator(buffer, index, packet, parent)
 
   -- Trade Qualifier: Struct of 8 fields
-  index, trade_qualifier = dissect.trade_qualifier(buffer, index, packet, parent)
+  index, trade_qualifier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_qualifier(buffer, index, packet, parent)
 
   -- Transaction Type: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
-  index, transaction_type = dissect.transaction_type(buffer, index, packet, parent)
+  index, transaction_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.transaction_type(buffer, index, packet, parent)
 
   -- Effective Date Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, effective_date_indicator = dissect.effective_date_indicator(buffer, index, packet, parent)
+  index, effective_date_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.effective_date_indicator(buffer, index, packet, parent)
 
   -- Block Trade Code: 1 Byte Ascii String Enum with 4 values
-  index, block_trade_code = dissect.block_trade_code(buffer, index, packet, parent)
+  index, block_trade_code = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_trade_code(buffer, index, packet, parent)
 
   -- Trade Reference: 30 Byte Ascii String Nullable
-  index, trade_reference = dissect.trade_reference(buffer, index, packet, parent)
+  index, trade_reference = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.trade_reference(buffer, index, packet, parent)
 
   -- Original Report Timestamp: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, original_report_timestamp = dissect.original_report_timestamp(buffer, index, packet, parent)
+  index, original_report_timestamp = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.original_report_timestamp(buffer, index, packet, parent)
 
   -- Transparency Indicator: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, transparency_indicator = dissect.transparency_indicator(buffer, index, packet, parent)
+  index, transparency_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.transparency_indicator(buffer, index, packet, parent)
 
   -- Currency Coefficient: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, currency_coefficient = dissect.currency_coefficient(buffer, index, packet, parent)
+  index, currency_coefficient = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.currency_coefficient(buffer, index, packet, parent)
 
   -- Price Multiplier: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier = dissect.price_multiplier(buffer, index, packet, parent)
+  index, price_multiplier = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier(buffer, index, packet, parent)
 
   -- Price Multiplier Decimals: 1 Byte Unsigned Fixed Width Integer Nullable
-  index, price_multiplier_decimals = dissect.price_multiplier_decimals(buffer, index, packet, parent)
+  index, price_multiplier_decimals = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_multiplier_decimals(buffer, index, packet, parent)
 
   -- Venue: 11 Byte Ascii String
-  index, venue = dissect.venue(buffer, index, packet, parent)
+  index, venue = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.venue(buffer, index, packet, parent)
 
   -- Start Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, start_time_vwap = dissect.start_time_vwap(buffer, index, packet, parent)
+  index, start_time_vwap = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_time_vwap(buffer, index, packet, parent)
 
   -- End Time Vwap: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, end_time_vwap = dissect.end_time_vwap(buffer, index, packet, parent)
+  index, end_time_vwap = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_time_vwap(buffer, index, packet, parent)
 
   -- Mi Fid Emission Allowance Type: 4 Byte Ascii String Nullable
-  index, mi_fid_emission_allowance_type = dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
+  index, mi_fid_emission_allowance_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.mi_fid_emission_allowance_type(buffer, index, packet, parent)
 
   -- Market Of Reference Mic: 4 Byte Ascii String Nullable
-  index, market_of_reference_mic = dissect.market_of_reference_mic(buffer, index, packet, parent)
+  index, market_of_reference_mic = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_of_reference_mic(buffer, index, packet, parent)
 
   -- Evaluated Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, evaluated_price = dissect.evaluated_price(buffer, index, packet, parent)
+  index, evaluated_price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.evaluated_price(buffer, index, packet, parent)
 
   -- Message Price Notation: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, message_price_notation = dissect.message_price_notation(buffer, index, packet, parent)
+  index, message_price_notation = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_price_notation(buffer, index, packet, parent)
 
   -- Not Used Group 1 Groups: Struct of 2 fields
-  index, not_used_group_1_groups = dissect.not_used_group_1_groups(buffer, index, packet, parent)
+  index, not_used_group_1_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.not_used_group_1_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Full Trade Information Message
-dissect.full_trade_information_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_trade_information_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.full_trade_information_message then
-    local length = size_of.full_trade_information_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_trade_information_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.full_trade_information_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.full_trade_information_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.full_trade_information_message, range, display)
   end
 
-  return dissect.full_trade_information_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_trade_information_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Qty Side
-size_of.imbalance_qty_side = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty_side = 1
 
 -- Display: Imbalance Qty Side
-display.imbalance_qty_side = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.imbalance_qty_side = function(value)
   if value == 0 then
     return "Imbalance Qty Side: Noimbalance (0)"
   end
@@ -11984,11 +11984,11 @@ display.imbalance_qty_side = function(value)
 end
 
 -- Dissect: Imbalance Qty Side
-dissect.imbalance_qty_side = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_qty_side
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.imbalance_qty_side = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty_side
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.imbalance_qty_side(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.imbalance_qty_side(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.imbalance_qty_side, range, value, display)
 
@@ -11996,10 +11996,10 @@ dissect.imbalance_qty_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Qty
-size_of.imbalance_qty = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty = 8
 
 -- Display: Imbalance Qty
-display.imbalance_qty = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.imbalance_qty = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Imbalance Qty: No Value"
@@ -12009,11 +12009,11 @@ display.imbalance_qty = function(value)
 end
 
 -- Dissect: Imbalance Qty
-dissect.imbalance_qty = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_qty
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.imbalance_qty = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.imbalance_qty(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.imbalance_qty(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.imbalance_qty, range, value, display)
 
@@ -12021,10 +12021,10 @@ dissect.imbalance_qty = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quantity
-size_of.quantity = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity = 8
 
 -- Display: Quantity
-display.quantity = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Quantity: No Value"
@@ -12034,11 +12034,11 @@ display.quantity = function(value)
 end
 
 -- Dissect: Quantity
-dissect.quantity = function(buffer, offset, packet, parent)
-  local length = size_of.quantity
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.quantity(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.quantity, range, value, display)
 
@@ -12046,10 +12046,10 @@ dissect.quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
@@ -12059,11 +12059,11 @@ display.price = function(value)
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price, range, value, display)
 
@@ -12071,10 +12071,10 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price Type
-size_of.price_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_type = 1
 
 -- Display: Price Type
-display.price_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_type = function(value)
   if value == 2 then
     return "Price Type: Official Daily (2)"
   end
@@ -12146,11 +12146,11 @@ display.price_type = function(value)
 end
 
 -- Dissect: Price Type
-dissect.price_type = function(buffer, offset, packet, parent)
-  local length = size_of.price_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.price_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_type, range, value, display)
 
@@ -12158,72 +12158,72 @@ dissect.price_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Prices Group
-size_of.prices_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prices_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.price_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_type
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price
 
-  index = index + size_of.quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity
 
-  index = index + size_of.imbalance_qty
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty
 
-  index = index + size_of.imbalance_qty_side
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.imbalance_qty_side
 
   return index
 end
 
 -- Display: Prices Group
-display.prices_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.prices_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prices Group
-dissect.prices_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Price Type: 1 Byte Unsigned Fixed Width Integer Enum with 22 values
-  index, price_type = dissect.price_type(buffer, index, packet, parent)
+  index, price_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_type(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity(buffer, index, packet, parent)
 
   -- Imbalance Qty: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, imbalance_qty = dissect.imbalance_qty(buffer, index, packet, parent)
+  index, imbalance_qty = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.imbalance_qty(buffer, index, packet, parent)
 
   -- Imbalance Qty Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, imbalance_qty_side = dissect.imbalance_qty_side(buffer, index, packet, parent)
+  index, imbalance_qty_side = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.imbalance_qty_side(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Prices Group
-dissect.prices_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.prices_group then
-    local length = size_of.prices_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prices_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.prices_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.prices_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.prices_group, range, display)
   end
 
-  return dissect.prices_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Prices Groups
-size_of.prices_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prices_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local prices_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12233,103 +12233,103 @@ size_of.prices_groups = function(buffer, offset)
 end
 
 -- Display: Prices Groups
-display.prices_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.prices_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Prices Groups
-dissect.prices_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Prices Group: Struct of 6 fields
   for i = 1, num_in_group do
-    index = dissect.prices_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Prices Groups
-dissect.prices_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.prices_groups then
-    local length = size_of.prices_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prices_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.prices_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.prices_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.prices_groups, range, display)
   end
 
-  return dissect.prices_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Price Update Message
-size_of.price_update_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.prices_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.prices_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Price Update Message
-display.price_update_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.price_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Price Update Message
-dissect.price_update_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Prices Groups: Struct of 2 fields
-  index, prices_groups = dissect.prices_groups(buffer, index, packet, parent)
+  index, prices_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.prices_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Price Update Message
-dissect.price_update_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.price_update_message then
-    local length = size_of.price_update_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.price_update_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.price_update_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.price_update_message, range, display)
   end
 
-  return dissect.price_update_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Peg Offset
-size_of.peg_offset = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.peg_offset = 1
 
 -- Display: Peg Offset
-display.peg_offset = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.peg_offset = function(value)
   -- Check if field has value
   if value == 128 then
     return "Peg Offset: No Value"
@@ -12339,11 +12339,11 @@ display.peg_offset = function(value)
 end
 
 -- Dissect: Peg Offset
-dissect.peg_offset = function(buffer, offset, packet, parent)
-  local length = size_of.peg_offset
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.peg_offset = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.peg_offset
   local range = buffer(offset, length)
   local value = range:le_int()
-  local display = display.peg_offset(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.peg_offset(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.peg_offset, range, value, display)
 
@@ -12351,10 +12351,10 @@ dissect.peg_offset = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Quantity
-size_of.order_quantity = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_quantity = 8
 
 -- Display: Order Quantity
-display.order_quantity = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_quantity = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Order Quantity: No Value"
@@ -12364,11 +12364,11 @@ display.order_quantity = function(value)
 end
 
 -- Dissect: Order Quantity
-dissect.order_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.order_quantity
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_quantity = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_quantity
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_quantity(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_quantity(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_quantity, range, value, display)
 
@@ -12376,10 +12376,10 @@ dissect.order_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Side
-size_of.order_side = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_side = 1
 
 -- Display: Order Side
-display.order_side = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_side = function(value)
   if value == 1 then
     return "Order Side: Buy (1)"
   end
@@ -12397,11 +12397,11 @@ display.order_side = function(value)
 end
 
 -- Dissect: Order Side
-dissect.order_side = function(buffer, offset, packet, parent)
-  local length = size_of.order_side
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_side = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_side
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_side(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_side(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_side, range, value, display)
 
@@ -12409,10 +12409,10 @@ dissect.order_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Px
-size_of.order_px = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_px = 8
 
 -- Display: Order Px
-display.order_px = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_px = function(value)
   -- Check if field has value
   if value == Int64(0x00000000, 0x80000000) then
     return "Order Px: No Value"
@@ -12422,11 +12422,11 @@ display.order_px = function(value)
 end
 
 -- Dissect: Order Px
-dissect.order_px = function(buffer, offset, packet, parent)
-  local length = size_of.order_px
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_px = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_px
   local range = buffer(offset, length)
   local value = range:le_int64()
-  local display = display.order_px(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_px(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_px, range, value, display)
 
@@ -12434,10 +12434,10 @@ dissect.order_px = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Type
-size_of.order_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_type = 1
 
 -- Display: Order Type
-display.order_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_type = function(value)
   if value == 1 then
     return "Order Type: Market (1)"
   end
@@ -12476,11 +12476,11 @@ display.order_type = function(value)
 end
 
 -- Dissect: Order Type
-dissect.order_type = function(buffer, offset, packet, parent)
-  local length = size_of.order_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.order_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_type, range, value, display)
 
@@ -12488,10 +12488,10 @@ dissect.order_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Priority
-size_of.previous_priority = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.previous_priority = 8
 
 -- Display: Previous Priority
-display.previous_priority = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.previous_priority = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Previous Priority: No Value"
@@ -12501,11 +12501,11 @@ display.previous_priority = function(value)
 end
 
 -- Dissect: Previous Priority
-dissect.previous_priority = function(buffer, offset, packet, parent)
-  local length = size_of.previous_priority
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.previous_priority = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.previous_priority
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.previous_priority(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.previous_priority(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.previous_priority, range, value, display)
 
@@ -12513,10 +12513,10 @@ dissect.previous_priority = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Priority
-size_of.order_priority = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_priority = 8
 
 -- Display: Order Priority
-display.order_priority = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_priority = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Order Priority: No Value"
@@ -12526,11 +12526,11 @@ display.order_priority = function(value)
 end
 
 -- Dissect: Order Priority
-dissect.order_priority = function(buffer, offset, packet, parent)
-  local length = size_of.order_priority
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_priority = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_priority
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_priority(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_priority(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_priority, range, value, display)
 
@@ -12538,10 +12538,10 @@ dissect.order_priority = function(buffer, offset, packet, parent)
 end
 
 -- Size: Action Type
-size_of.action_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.action_type = 1
 
 -- Display: Action Type
-display.action_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.action_type = function(value)
   if value == 1 then
     return "Action Type: New Order (1)"
   end
@@ -12571,11 +12571,11 @@ display.action_type = function(value)
 end
 
 -- Dissect: Action Type
-dissect.action_type = function(buffer, offset, packet, parent)
-  local length = size_of.action_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.action_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.action_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.action_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.action_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.action_type, range, value, display)
 
@@ -12583,87 +12583,87 @@ dissect.action_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Orders Group
-size_of.orders_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.orders_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.action_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.action_type
 
-  index = index + size_of.order_priority
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_priority
 
-  index = index + size_of.previous_priority
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.previous_priority
 
-  index = index + size_of.order_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_type
 
-  index = index + size_of.order_px
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_px
 
-  index = index + size_of.order_side
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_side
 
-  index = index + size_of.order_quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_quantity
 
-  index = index + size_of.peg_offset
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.peg_offset
 
   return index
 end
 
 -- Display: Orders Group
-display.orders_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.orders_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Orders Group
-dissect.orders_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Action Type: 1 Byte Unsigned Fixed Width Integer Enum with 8 values
-  index, action_type = dissect.action_type(buffer, index, packet, parent)
+  index, action_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.action_type(buffer, index, packet, parent)
 
   -- Order Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_priority = dissect.order_priority(buffer, index, packet, parent)
+  index, order_priority = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_priority(buffer, index, packet, parent)
 
   -- Previous Priority: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, previous_priority = dissect.previous_priority(buffer, index, packet, parent)
+  index, previous_priority = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.previous_priority(buffer, index, packet, parent)
 
   -- Order Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, order_type = dissect.order_type(buffer, index, packet, parent)
+  index, order_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_type(buffer, index, packet, parent)
 
   -- Order Px: 8 Byte Signed Fixed Width Integer Nullable
-  index, order_px = dissect.order_px(buffer, index, packet, parent)
+  index, order_px = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_px(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, order_quantity = dissect.order_quantity(buffer, index, packet, parent)
+  index, order_quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_quantity(buffer, index, packet, parent)
 
   -- Peg Offset: 1 Byte Signed Fixed Width Integer Nullable
-  index, peg_offset = dissect.peg_offset(buffer, index, packet, parent)
+  index, peg_offset = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.peg_offset(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Orders Group
-dissect.orders_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.orders_group then
-    local length = size_of.orders_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.orders_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.orders_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.orders_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.orders_group, range, display)
   end
 
-  return dissect.orders_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Orders Groups
-size_of.orders_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.orders_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local orders_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -12673,103 +12673,103 @@ size_of.orders_groups = function(buffer, offset)
 end
 
 -- Display: Orders Groups
-display.orders_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.orders_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Orders Groups
-dissect.orders_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Orders Group: Struct of 9 fields
   for i = 1, num_in_group do
-    index = dissect.orders_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Orders Groups
-dissect.orders_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.orders_groups then
-    local length = size_of.orders_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.orders_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.orders_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.orders_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.orders_groups, range, display)
   end
 
-  return dissect.orders_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Update Message
-size_of.order_update_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.orders_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.orders_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Update Message
-display.order_update_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.order_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Update Message
-dissect.order_update_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Orders Groups: Struct of 2 fields
-  index, orders_groups = dissect.orders_groups(buffer, index, packet, parent)
+  index, orders_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.orders_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Update Message
-dissect.order_update_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.order_update_message then
-    local length = size_of.order_update_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_update_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.order_update_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.order_update_message, range, display)
   end
 
-  return dissect.order_update_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Number Of Orders
-size_of.number_of_orders = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_of_orders = 2
 
 -- Display: Number Of Orders
-display.number_of_orders = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.number_of_orders = function(value)
   -- Check if field has value
   if value == 65535 then
     return "Number Of Orders: No Value"
@@ -12779,11 +12779,11 @@ display.number_of_orders = function(value)
 end
 
 -- Dissect: Number Of Orders
-dissect.number_of_orders = function(buffer, offset, packet, parent)
-  local length = size_of.number_of_orders
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.number_of_orders = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_of_orders
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.number_of_orders(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.number_of_orders(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.number_of_orders, range, value, display)
 
@@ -12791,10 +12791,10 @@ dissect.number_of_orders = function(buffer, offset, packet, parent)
 end
 
 -- Size: Update Type
-size_of.update_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.update_type = 1
 
 -- Display: Update Type
-display.update_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.update_type = function(value)
   if value == 1 then
     return "Update Type: Best Bid (1)"
   end
@@ -13067,11 +13067,11 @@ display.update_type = function(value)
 end
 
 -- Dissect: Update Type
-dissect.update_type = function(buffer, offset, packet, parent)
-  local length = size_of.update_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.update_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.update_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.update_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.update_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.update_type, range, value, display)
 
@@ -13079,67 +13079,67 @@ dissect.update_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Updates Group
-size_of.updates_group = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.updates_group = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.update_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.update_type
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
-  index = index + size_of.number_of_orders
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.number_of_orders
 
-  index = index + size_of.price
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price
 
-  index = index + size_of.quantity
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.quantity
 
   return index
 end
 
 -- Display: Updates Group
-display.updates_group = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.updates_group = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Updates Group
-dissect.updates_group_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_group_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Update Type: 1 Byte Unsigned Fixed Width Integer Enum with 89 values
-  index, update_type = dissect.update_type(buffer, index, packet, parent)
+  index, update_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.update_type(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   -- Number Of Orders: 2 Byte Unsigned Fixed Width Integer Nullable
-  index, number_of_orders = dissect.number_of_orders(buffer, index, packet, parent)
+  index, number_of_orders = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.number_of_orders(buffer, index, packet, parent)
 
   -- Price: 8 Byte Signed Fixed Width Integer Nullable
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Updates Group
-dissect.updates_group = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_group = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.updates_group then
-    local length = size_of.updates_group(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.updates_group(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.updates_group(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.updates_group(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.updates_group, range, display)
   end
 
-  return dissect.updates_group_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_group_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Updates Groups
-size_of.updates_groups = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.updates_groups = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.group_size_encoding(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.group_size_encoding(buffer, offset + index)
 
   -- Calculate field size from count
   local updates_group_count = buffer(offset + index - 1, 1):le_uint()
@@ -13149,103 +13149,103 @@ size_of.updates_groups = function(buffer, offset)
 end
 
 -- Display: Updates Groups
-display.updates_groups = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.updates_groups = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Updates Groups
-dissect.updates_groups_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_groups_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Group Size Encoding: Struct of 2 fields
-  index, group_size_encoding = dissect.group_size_encoding(buffer, index, packet, parent)
+  index, group_size_encoding = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.group_size_encoding(buffer, index, packet, parent)
 
   -- Dependency element: Num In Group
   local num_in_group = buffer(index - 1, 1):le_uint()
 
   -- Updates Group: Struct of 5 fields
   for i = 1, num_in_group do
-    index = dissect.updates_group(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_group(buffer, index, packet, parent)
   end
 
   return index
 end
 
 -- Dissect: Updates Groups
-dissect.updates_groups = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_groups = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.updates_groups then
-    local length = size_of.updates_groups(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.updates_groups(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.updates_groups(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.updates_groups(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.updates_groups, range, display)
   end
 
-  return dissect.updates_groups_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_groups_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Update Message
-size_of.market_update_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.emm
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.emm
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
-  index = index + size_of.updates_groups(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.updates_groups(buffer, offset + index)
 
   return index
 end
 
 -- Display: Market Update Message
-display.market_update_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Update Message
-dissect.market_update_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Emm: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
-  index, emm = dissect.emm(buffer, index, packet, parent)
+  index, emm = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.emm(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   -- Updates Groups: Struct of 2 fields
-  index, updates_groups = dissect.updates_groups(buffer, index, packet, parent)
+  index, updates_groups = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.updates_groups(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Update Message
-dissect.market_update_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_update_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.market_update_message then
-    local length = size_of.market_update_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_update_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_update_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_update_message, range, display)
   end
 
-  return dissect.market_update_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Retransmission End Time
-size_of.retransmission_end_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_end_time = 8
 
 -- Display: Retransmission End Time
-display.retransmission_end_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.retransmission_end_time = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission End Time: No Value"
@@ -13255,11 +13255,11 @@ display.retransmission_end_time = function(value)
 end
 
 -- Dissect: Retransmission End Time
-dissect.retransmission_end_time = function(buffer, offset, packet, parent)
-  local length = size_of.retransmission_end_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.retransmission_end_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_end_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.retransmission_end_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.retransmission_end_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.retransmission_end_time, range, value, display)
 
@@ -13267,10 +13267,10 @@ dissect.retransmission_end_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Retransmission Start Time
-size_of.retransmission_start_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_start_time = 8
 
 -- Display: Retransmission Start Time
-display.retransmission_start_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.retransmission_start_time = function(value)
   -- Check if field has value
   if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
     return "Retransmission Start Time: No Value"
@@ -13280,11 +13280,11 @@ display.retransmission_start_time = function(value)
 end
 
 -- Dissect: Retransmission Start Time
-dissect.retransmission_start_time = function(buffer, offset, packet, parent)
-  local length = size_of.retransmission_start_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.retransmission_start_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_start_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.retransmission_start_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.retransmission_start_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.retransmission_start_time, range, value, display)
 
@@ -13292,10 +13292,10 @@ dissect.retransmission_start_time = function(buffer, offset, packet, parent)
 end
 
 -- Size: Technical Notification Type
-size_of.technical_notification_type = 1
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_type = 1
 
 -- Display: Technical Notification Type
-display.technical_notification_type = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.technical_notification_type = function(value)
   if value == 1 then
     return "Technical Notification Type: Instrument Book Retransmission End (1)"
   end
@@ -13310,11 +13310,11 @@ display.technical_notification_type = function(value)
 end
 
 -- Dissect: Technical Notification Type
-dissect.technical_notification_type = function(buffer, offset, packet, parent)
-  local length = size_of.technical_notification_type
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_type = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_type
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.technical_notification_type(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.technical_notification_type(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.technical_notification_type, range, value, display)
 
@@ -13322,123 +13322,123 @@ dissect.technical_notification_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Technical Notification Message
-size_of.technical_notification_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.technical_notification_type
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_type
 
-  index = index + size_of.rebroadcast_indicator
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.rebroadcast_indicator
 
-  index = index + size_of.retransmission_start_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_start_time
 
-  index = index + size_of.retransmission_end_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.retransmission_end_time
 
-  index = index + size_of.symbol_index
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.symbol_index
 
   return index
 end
 
 -- Display: Technical Notification Message
-display.technical_notification_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.technical_notification_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Technical Notification Message
-dissect.technical_notification_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Technical Notification Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, technical_notification_type = dissect.technical_notification_type(buffer, index, packet, parent)
+  index, technical_notification_type = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_type(buffer, index, packet, parent)
 
   -- Rebroadcast Indicator: 1 Byte Unsigned Fixed Width Integer
-  index, rebroadcast_indicator = dissect.rebroadcast_indicator(buffer, index, packet, parent)
+  index, rebroadcast_indicator = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.rebroadcast_indicator(buffer, index, packet, parent)
 
   -- Retransmission Start Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, retransmission_start_time = dissect.retransmission_start_time(buffer, index, packet, parent)
+  index, retransmission_start_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.retransmission_start_time(buffer, index, packet, parent)
 
   -- Retransmission End Time: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, retransmission_end_time = dissect.retransmission_end_time(buffer, index, packet, parent)
+  index, retransmission_end_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.retransmission_end_time(buffer, index, packet, parent)
 
   -- Symbol Index: 4 Byte Unsigned Fixed Width Integer Nullable
-  index, symbol_index = dissect.symbol_index(buffer, index, packet, parent)
+  index, symbol_index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.symbol_index(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Technical Notification Message
-dissect.technical_notification_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.technical_notification_message then
-    local length = size_of.technical_notification_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.technical_notification_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.technical_notification_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.technical_notification_message, range, display)
   end
 
-  return dissect.technical_notification_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Health Status Message
-size_of.health_status_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.health_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.event_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.event_time
 
   return index
 end
 
 -- Display: Health Status Message
-display.health_status_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.health_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Health Status Message
-dissect.health_status_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.health_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Event Time: 8 Byte Unsigned Fixed Width Integer
-  index, event_time = dissect.event_time(buffer, index, packet, parent)
+  index, event_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.event_time(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Health Status Message
-dissect.health_status_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.health_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.health_status_message then
-    local length = size_of.health_status_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.health_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.health_status_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.health_status_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.health_status_message, range, display)
   end
 
-  return dissect.health_status_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.health_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Session Trading Day
-size_of.session_trading_day = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session_trading_day = 2
 
 -- Display: Session Trading Day
-display.session_trading_day = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.session_trading_day = function(value)
   return "Session Trading Day: "..value
 end
 
 -- Dissect: Session Trading Day
-dissect.session_trading_day = function(buffer, offset, packet, parent)
-  local length = size_of.session_trading_day
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session_trading_day = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session_trading_day
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session_trading_day(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.session_trading_day(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.session_trading_day, range, value, display)
 
@@ -13446,324 +13446,324 @@ dissect.session_trading_day = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Day Message
-size_of.end_of_day_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_day_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.session_trading_day
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session_trading_day
 
   return index
 end
 
 -- Display: End Of Day Message
-display.end_of_day_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.end_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Day Message
-dissect.end_of_day_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Session Trading Day: 2 Byte Unsigned Fixed Width Integer
-  index, session_trading_day = dissect.session_trading_day(buffer, index, packet, parent)
+  index, session_trading_day = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session_trading_day(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Day Message
-dissect.end_of_day_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
-    local length = size_of.end_of_day_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_day_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_day_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.end_of_day_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.end_of_day_message, range, display)
   end
 
-  return dissect.end_of_day_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_day_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Start Of Day Message
-size_of.start_of_day_message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_day_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.md_seq_num
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.md_seq_num
 
-  index = index + size_of.session_trading_day
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.session_trading_day
 
   return index
 end
 
 -- Display: Start Of Day Message
-display.start_of_day_message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.start_of_day_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Day Message
-dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_day_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Md Seq Num: 8 Byte Unsigned Fixed Width Integer Nullable
-  index, md_seq_num = dissect.md_seq_num(buffer, index, packet, parent)
+  index, md_seq_num = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.md_seq_num(buffer, index, packet, parent)
 
   -- Session Trading Day: 2 Byte Unsigned Fixed Width Integer
-  index, session_trading_day = dissect.session_trading_day(buffer, index, packet, parent)
+  index, session_trading_day = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.session_trading_day(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Day Message
-dissect.start_of_day_message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_day_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
-    local length = size_of.start_of_day_message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_day_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.start_of_day_message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.start_of_day_message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.start_of_day_message, range, display)
   end
 
-  return dissect.start_of_day_message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_day_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, template_id)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.payload = function(buffer, offset, template_id)
   -- Size of Start Of Day Message
   if template_id == 1101 then
-    return size_of.start_of_day_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_day_message(buffer, offset)
   end
   -- Size of End Of Day Message
   if template_id == 1102 then
-    return size_of.end_of_day_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_day_message(buffer, offset)
   end
   -- Size of Health Status Message
   if template_id == 1103 then
-    return size_of.health_status_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.health_status_message(buffer, offset)
   end
   -- Size of Technical Notification Message
   if template_id == 1106 then
-    return size_of.technical_notification_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.technical_notification_message(buffer, offset)
   end
   -- Size of Market Update Message
   if template_id == 1001 then
-    return size_of.market_update_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_update_message(buffer, offset)
   end
   -- Size of Order Update Message
   if template_id == 1002 then
-    return size_of.order_update_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.order_update_message(buffer, offset)
   end
   -- Size of Price Update Message
   if template_id == 1003 then
-    return size_of.price_update_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.price_update_message(buffer, offset)
   end
   -- Size of Full Trade Information Message
   if template_id == 1004 then
-    return size_of.full_trade_information_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.full_trade_information_message(buffer, offset)
   end
   -- Size of Market Status Change Message
   if template_id == 1005 then
-    return size_of.market_status_change_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_status_change_message(buffer, offset)
   end
   -- Size of Timetable Message
   if template_id == 1006 then
-    return size_of.timetable_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.timetable_message(buffer, offset)
   end
   -- Size of Standing Data Message
   if template_id == 1007 then
-    return size_of.standing_data_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.standing_data_message(buffer, offset)
   end
   -- Size of Real Time Index Message
   if template_id == 1008 then
-    return size_of.real_time_index_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.real_time_index_message(buffer, offset)
   end
   -- Size of Statistics Message
   if template_id == 1009 then
-    return size_of.statistics_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.statistics_message(buffer, offset)
   end
   -- Size of Index Summary Message
   if template_id == 1011 then
-    return size_of.index_summary_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.index_summary_message(buffer, offset)
   end
   -- Size of Strategy Standing Data Message
   if template_id == 1012 then
-    return size_of.strategy_standing_data_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.strategy_standing_data_message(buffer, offset)
   end
   -- Size of Contract Standing Data Message
   if template_id == 1013 then
-    return size_of.contract_standing_data_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.contract_standing_data_message(buffer, offset)
   end
   -- Size of Outright Standing Data Message
   if template_id == 1014 then
-    return size_of.outright_standing_data_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.outright_standing_data_message(buffer, offset)
   end
   -- Size of Lis Package Structure Message
   if template_id == 1016 then
-    return size_of.lis_package_structure_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.lis_package_structure_message(buffer, offset)
   end
   -- Size of Apa Quotes Message
   if template_id == 1026 then
-    return size_of.apa_quotes_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_quotes_message(buffer, offset)
   end
   -- Size of Apa Standing Data Message
   if template_id == 1027 then
-    return size_of.apa_standing_data_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_standing_data_message(buffer, offset)
   end
   -- Size of Apa Full Trade Information Message
   if template_id == 1028 then
-    return size_of.apa_full_trade_information_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.apa_full_trade_information_message(buffer, offset)
   end
   -- Size of Start Of Snapshot Message
   if template_id == 2101 then
-    return size_of.start_of_snapshot_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.start_of_snapshot_message(buffer, offset)
   end
   -- Size of End Of Snapshot Message
   if template_id == 2102 then
-    return size_of.end_of_snapshot_message(buffer, offset)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_size_of.end_of_snapshot_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Start Of Day Message
   if template_id == 1101 then
-    return dissect.start_of_day_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Day Message
   if template_id == 1102 then
-    return dissect.end_of_day_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_day_message(buffer, offset, packet, parent)
   end
   -- Dissect Health Status Message
   if template_id == 1103 then
-    return dissect.health_status_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.health_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Technical Notification Message
   if template_id == 1106 then
-    return dissect.technical_notification_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.technical_notification_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Update Message
   if template_id == 1001 then
-    return dissect.market_update_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Update Message
   if template_id == 1002 then
-    return dissect.order_update_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.order_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Price Update Message
   if template_id == 1003 then
-    return dissect.price_update_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.price_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Full Trade Information Message
   if template_id == 1004 then
-    return dissect.full_trade_information_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.full_trade_information_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Status Change Message
   if template_id == 1005 then
-    return dissect.market_status_change_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_status_change_message(buffer, offset, packet, parent)
   end
   -- Dissect Timetable Message
   if template_id == 1006 then
-    return dissect.timetable_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.timetable_message(buffer, offset, packet, parent)
   end
   -- Dissect Standing Data Message
   if template_id == 1007 then
-    return dissect.standing_data_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.standing_data_message(buffer, offset, packet, parent)
   end
   -- Dissect Real Time Index Message
   if template_id == 1008 then
-    return dissect.real_time_index_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.real_time_index_message(buffer, offset, packet, parent)
   end
   -- Dissect Statistics Message
   if template_id == 1009 then
-    return dissect.statistics_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.statistics_message(buffer, offset, packet, parent)
   end
   -- Dissect Index Summary Message
   if template_id == 1011 then
-    return dissect.index_summary_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.index_summary_message(buffer, offset, packet, parent)
   end
   -- Dissect Strategy Standing Data Message
   if template_id == 1012 then
-    return dissect.strategy_standing_data_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.strategy_standing_data_message(buffer, offset, packet, parent)
   end
   -- Dissect Contract Standing Data Message
   if template_id == 1013 then
-    return dissect.contract_standing_data_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.contract_standing_data_message(buffer, offset, packet, parent)
   end
   -- Dissect Outright Standing Data Message
   if template_id == 1014 then
-    return dissect.outright_standing_data_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.outright_standing_data_message(buffer, offset, packet, parent)
   end
   -- Dissect Lis Package Structure Message
   if template_id == 1016 then
-    return dissect.lis_package_structure_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.lis_package_structure_message(buffer, offset, packet, parent)
   end
   -- Dissect Apa Quotes Message
   if template_id == 1026 then
-    return dissect.apa_quotes_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_quotes_message(buffer, offset, packet, parent)
   end
   -- Dissect Apa Standing Data Message
   if template_id == 1027 then
-    return dissect.apa_standing_data_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_standing_data_message(buffer, offset, packet, parent)
   end
   -- Dissect Apa Full Trade Information Message
   if template_id == 1028 then
-    return dissect.apa_full_trade_information_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.apa_full_trade_information_message(buffer, offset, packet, parent)
   end
   -- Dissect Start Of Snapshot Message
   if template_id == 2101 then
-    return dissect.start_of_snapshot_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.start_of_snapshot_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Snapshot Message
   if template_id == 2102 then
-    return dissect.end_of_snapshot_message(buffer, offset, packet, parent)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.end_of_snapshot_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, template_id)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.payload = function(buffer, offset, packet, parent, template_id)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, template_id)
+    return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, template_id)
+  local size = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.payload(buffer, offset, template_id)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.payload(buffer, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
 end
 
 -- Size: Version
-size_of.version = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.version = 2
 
 -- Display: Version
-display.version = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.version = function(value)
   return "Version: "..value
 end
 
 -- Dissect: Version
-dissect.version = function(buffer, offset, packet, parent)
-  local length = size_of.version
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.version = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.version
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.version(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.version(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.version, range, value, display)
 
@@ -13771,19 +13771,19 @@ dissect.version = function(buffer, offset, packet, parent)
 end
 
 -- Size: Schema Id
-size_of.schema_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.schema_id = 2
 
 -- Display: Schema Id
-display.schema_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.schema_id = function(value)
   return "Schema Id: "..value
 end
 
 -- Dissect: Schema Id
-dissect.schema_id = function(buffer, offset, packet, parent)
-  local length = size_of.schema_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.schema_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.schema_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.schema_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.schema_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.schema_id, range, value, display)
 
@@ -13791,10 +13791,10 @@ dissect.schema_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Template Id
-size_of.template_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.template_id = 2
 
 -- Display: Template Id
-display.template_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.template_id = function(value)
   if value == 1101 then
     return "Template Id: Start Of Day Message (1101)"
   end
@@ -13869,11 +13869,11 @@ display.template_id = function(value)
 end
 
 -- Dissect: Template Id
-dissect.template_id = function(buffer, offset, packet, parent)
-  local length = size_of.template_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.template_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.template_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.template_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.template_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.template_id, range, value, display)
 
@@ -13881,19 +13881,19 @@ dissect.template_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Block Length uint 16
-size_of.block_length_uint_16 = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_16 = 2
 
 -- Display: Block Length uint 16
-display.block_length_uint_16 = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.block_length_uint_16 = function(value)
   return "Block Length uint 16: "..value
 end
 
 -- Dissect: Block Length uint 16
-dissect.block_length_uint_16 = function(buffer, offset, packet, parent)
-  local length = size_of.block_length_uint_16
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_length_uint_16 = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_16
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.block_length_uint_16(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.block_length_uint_16(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.block_length_uint_16, range, value, display)
 
@@ -13901,71 +13901,71 @@ dissect.block_length_uint_16 = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.block_length_uint_16
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.block_length_uint_16
 
-  index = index + size_of.template_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.template_id
 
-  index = index + size_of.schema_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.schema_id
 
-  index = index + size_of.version
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.version
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Block Length uint 16: 2 Byte Unsigned Fixed Width Integer
-  index, block_length_uint_16 = dissect.block_length_uint_16(buffer, index, packet, parent)
+  index, block_length_uint_16 = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.block_length_uint_16(buffer, index, packet, parent)
 
   -- Template Id: 2 Byte Unsigned Fixed Width Integer Enum with 23 values
-  index, template_id = dissect.template_id(buffer, index, packet, parent)
+  index, template_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.template_id(buffer, index, packet, parent)
 
   -- Schema Id: 2 Byte Unsigned Fixed Width Integer Static
-  index, schema_id = dissect.schema_id(buffer, index, packet, parent)
+  index, schema_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.schema_id(buffer, index, packet, parent)
 
   -- Version: 2 Byte Unsigned Fixed Width Integer Static
-  index, version = dissect.version(buffer, index, packet, parent)
+  index, version = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.version(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.message_header(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Frame
-size_of.frame = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.frame = 2
 
 -- Display: Frame
-display.frame = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.frame = function(value)
   return "Frame: "..value
 end
 
 -- Dissect: Frame
-dissect.frame = function(buffer, offset, packet, parent)
-  local length = size_of.frame
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.frame = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.frame
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.frame(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.frame(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.frame, range, value, display)
 
@@ -13973,72 +13973,72 @@ dissect.frame = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.frame
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.frame
 
-  index = index + size_of.message_header(buffer, offset + index)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message_header(buffer, offset + index)
 
   -- Calculate runtime size of Payload field
   local payload_offset = offset + index
   local payload_type = buffer(payload_offset - 6, 2):le_uint()
-  index = index + size_of.payload(buffer, payload_offset, payload_type)
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.payload(buffer, payload_offset, payload_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Frame: 2 Byte Unsigned Fixed Width Integer
-  index, frame = dissect.frame(buffer, index, packet, parent)
+  index, frame = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.frame(buffer, index, packet, parent)
 
   -- Message Header: Struct of 4 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Template Id
   local template_id = buffer(index - 6, 2):le_uint()
 
   -- Payload: Runtime Type with 23 branches
-  index = dissect.payload(buffer, index, packet, parent, template_id)
+  index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.payload(buffer, index, packet, parent, template_id)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.message(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Channel Id
-size_of.channel_id = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.channel_id = 2
 
 -- Display: Channel Id
-display.channel_id = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.channel_id = function(value)
   return "Channel Id: "..value
 end
 
 -- Dissect: Channel Id
-dissect.channel_id = function(buffer, offset, packet, parent)
-  local length = size_of.channel_id
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.channel_id = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.channel_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.channel_id(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.channel_id(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.channel_id, range, value, display)
 
@@ -14046,10 +14046,10 @@ dissect.channel_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Flags
-size_of.packet_flags = 2
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_flags = 2
 
 -- Display: Packet Flags
-display.packet_flags = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Has Status Message flag set?
@@ -14073,7 +14073,7 @@ display.packet_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Packet Flags
-dissect.packet_flags_bits = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Bits: 6 Bit
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.reserved_bits, buffer(offset, 2))
@@ -14098,33 +14098,33 @@ dissect.packet_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Packet Flags
-dissect.packet_flags = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_flags = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local display = display.packet_flags(range, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_flags(range, packet, parent)
   local element = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.packet_flags, range, display)
 
   if show.packet_flags then
-    dissect.packet_flags_bits(buffer, offset, packet, element)
+    euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 2, range
 end
 
 -- Size: Packet Sequence Number
-size_of.packet_sequence_number = 4
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_sequence_number = 4
 
 -- Display: Packet Sequence Number
-display.packet_sequence_number = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_sequence_number = function(value)
   return "Packet Sequence Number: "..value
 end
 
 -- Dissect: Packet Sequence Number
-dissect.packet_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.packet_sequence_number
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_sequence_number = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_sequence_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.packet_sequence_number(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.packet_sequence_number, range, value, display)
 
@@ -14132,19 +14132,19 @@ dissect.packet_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Time
-size_of.packet_time = 8
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_time = 8
 
 -- Display: Packet Time
-display.packet_time = function(value)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_time = function(value)
   return "Packet Time: "..value
 end
 
 -- Dissect: Packet Time
-dissect.packet_time = function(buffer, offset, packet, parent)
-  local length = size_of.packet_time
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_time = function(buffer, offset, packet, parent)
+  local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_time
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.packet_time(value, buffer, offset, packet, parent)
+  local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.packet_time(value, buffer, offset, packet, parent)
 
   parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.packet_time, range, value, display)
 
@@ -14152,70 +14152,70 @@ dissect.packet_time = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Data Packet Header
-size_of.market_data_packet_header = function(buffer, offset)
+euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_data_packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.packet_time
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_time
 
-  index = index + size_of.packet_sequence_number
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_sequence_number
 
-  index = index + size_of.packet_flags
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.packet_flags
 
-  index = index + size_of.channel_id
+  index = index + euronext_optiq_marketdatagateway_sbe_v3_0_size_of.channel_id
 
   return index
 end
 
 -- Display: Market Data Packet Header
-display.market_data_packet_header = function(buffer, offset, size, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_display.market_data_packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Data Packet Header
-dissect.market_data_packet_header_fields = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_data_packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Time: 8 Byte Unsigned Fixed Width Integer
-  index, packet_time = dissect.packet_time(buffer, index, packet, parent)
+  index, packet_time = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_time(buffer, index, packet, parent)
 
   -- Packet Sequence Number: 4 Byte Unsigned Fixed Width Integer
-  index, packet_sequence_number = dissect.packet_sequence_number(buffer, index, packet, parent)
+  index, packet_sequence_number = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_sequence_number(buffer, index, packet, parent)
 
   -- Packet Flags: Struct of 7 fields
-  index, packet_flags = dissect.packet_flags(buffer, index, packet, parent)
+  index, packet_flags = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet_flags(buffer, index, packet, parent)
 
   -- Channel Id: 2 Byte Unsigned Fixed Width Integer
-  index, channel_id = dissect.channel_id(buffer, index, packet, parent)
+  index, channel_id = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.channel_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Data Packet Header
-dissect.market_data_packet_header = function(buffer, offset, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_data_packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_data_packet_header then
-    local length = size_of.market_data_packet_header(buffer, offset)
+    local length = euronext_optiq_marketdatagateway_sbe_v3_0_size_of.market_data_packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_data_packet_header(buffer, packet, parent)
+    local display = euronext_optiq_marketdatagateway_sbe_v3_0_display.market_data_packet_header(buffer, packet, parent)
     parent = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0.fields.market_data_packet_header, range, display)
   end
 
-  return dissect.market_data_packet_header_fields(buffer, offset, packet, parent)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_data_packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Market Data Packet Header: Struct of 4 fields
-  index, market_data_packet_header = dissect.market_data_packet_header(buffer, index, packet, parent)
+  index, market_data_packet_header = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.market_data_packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
 
   -- Message: Struct of 3 fields
   while index < end_of_payload do
-    index = dissect.message(buffer, index, packet, parent)
+    index = euronext_optiq_marketdatagateway_sbe_v3_0_dissect.message(buffer, index, packet, parent)
   end
 
   return index
@@ -14238,7 +14238,7 @@ function euronext_optiq_marketdatagateway_sbe_v3_0.dissector(buffer, packet, par
 
   -- Dissect protocol
   local protocol = parent:add(euronext_optiq_marketdatagateway_sbe_v3_0, buffer(), euronext_optiq_marketdatagateway_sbe_v3_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return euronext_optiq_marketdatagateway_sbe_v3_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

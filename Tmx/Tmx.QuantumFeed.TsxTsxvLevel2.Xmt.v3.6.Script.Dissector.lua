@@ -10,9 +10,9 @@ local tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6 = Proto("Tmx.QuantumFeed.TsxTsxvLev
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display = {}
+local tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect = {}
+local tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of = {}
 local verify = {}
 local translate = {}
 
@@ -661,10 +661,10 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Trading System Time Stamp
-size_of.trading_system_time_stamp = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp = 8
 
 -- Display: Trading System Time Stamp
-display.trading_system_time_stamp = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trading_system_time_stamp = function(value)
   -- Parse unix timestamp
   local seconds = value:tonumber()/1000000000
   local nanoseconds = value:tonumber()%1000000000
@@ -673,11 +673,11 @@ display.trading_system_time_stamp = function(value)
 end
 
 -- Dissect: Trading System Time Stamp
-dissect.trading_system_time_stamp = function(buffer, offset, packet, parent)
-  local length = size_of.trading_system_time_stamp
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.trading_system_time_stamp(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trading_system_time_stamp(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trading_system_time_stamp, range, value, display)
 
@@ -685,10 +685,10 @@ dissect.trading_system_time_stamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Type
-size_of.cross_type = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type = 1
 
 -- Display: Cross Type
-display.cross_type = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cross_type = function(value)
   if value == "I" then
     return "Cross Type: Internal (I)"
   end
@@ -718,11 +718,11 @@ display.cross_type = function(value)
 end
 
 -- Dissect: Cross Type
-dissect.cross_type = function(buffer, offset, packet, parent)
-  local length = size_of.cross_type
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cross_type(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cross_type(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cross_type, range, value, display)
 
@@ -730,19 +730,19 @@ dissect.cross_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Date
-size_of.settlement_date = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date = 4
 
 -- Display: Settlement Date
-display.settlement_date = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_date = function(value)
   return "Settlement Date: "..value
 end
 
 -- Dissect: Settlement Date
-dissect.settlement_date = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_date
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.settlement_date(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_date(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_date, range, value, display)
 
@@ -750,10 +750,10 @@ dissect.settlement_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Settlement Terms
-size_of.settlement_terms = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms = 1
 
 -- Display: Settlement Terms
-display.settlement_terms = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_terms = function(value)
   if value == "C" then
     return "Settlement Terms: Cash (C)"
   end
@@ -777,11 +777,11 @@ display.settlement_terms = function(value)
 end
 
 -- Dissect: Settlement Terms
-dissect.settlement_terms = function(buffer, offset, packet, parent)
-  local length = size_of.settlement_terms
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.settlement_terms(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.settlement_terms(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.settlement_terms, range, value, display)
 
@@ -789,10 +789,10 @@ dissect.settlement_terms = function(buffer, offset, packet, parent)
 end
 
 -- Size: Non Resident
-size_of.non_resident = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident = 1
 
 -- Display: Non Resident
-display.non_resident = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.non_resident = function(value)
   if value == "Y" then
     return "Non Resident: Yes (Y)"
   end
@@ -804,11 +804,11 @@ display.non_resident = function(value)
 end
 
 -- Dissect: Non Resident
-dissect.non_resident = function(buffer, offset, packet, parent)
-  local length = size_of.non_resident
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.non_resident(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.non_resident(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.non_resident, range, value, display)
 
@@ -816,19 +816,19 @@ dissect.non_resident = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Time Stamp
-size_of.trade_time_stamp = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp = 4
 
 -- Display: Trade Time Stamp
-display.trade_time_stamp = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_time_stamp = function(value)
   return "Trade Time Stamp: "..value
 end
 
 -- Dissect: Trade Time Stamp
-dissect.trade_time_stamp = function(buffer, offset, packet, parent)
-  local length = size_of.trade_time_stamp
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_time_stamp(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_time_stamp(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_time_stamp, range, value, display)
 
@@ -836,19 +836,19 @@ dissect.trade_time_stamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Orig Trade Number
-size_of.orig_trade_number = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.orig_trade_number = 4
 
 -- Display: Orig Trade Number
-display.orig_trade_number = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.orig_trade_number = function(value)
   return "Orig Trade Number: "..value
 end
 
 -- Dissect: Orig Trade Number
-dissect.orig_trade_number = function(buffer, offset, packet, parent)
-  local length = size_of.orig_trade_number
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.orig_trade_number = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.orig_trade_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.orig_trade_number(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.orig_trade_number(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.orig_trade_number, range, value, display)
 
@@ -856,10 +856,10 @@ dissect.orig_trade_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Initiated By
-size_of.initiated_by = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.initiated_by = 1
 
 -- Display: Initiated By
-display.initiated_by = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.initiated_by = function(value)
   if value == "B" then
     return "Initiated By: Buy (B)"
   end
@@ -874,11 +874,11 @@ display.initiated_by = function(value)
 end
 
 -- Dissect: Initiated By
-dissect.initiated_by = function(buffer, offset, packet, parent)
-  local length = size_of.initiated_by
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.initiated_by = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.initiated_by
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.initiated_by(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.initiated_by(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.initiated_by, range, value, display)
 
@@ -886,19 +886,19 @@ dissect.initiated_by = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Broker Number
-size_of.sell_broker_number = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number = 2
 
 -- Display: Sell Broker Number
-display.sell_broker_number = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_broker_number = function(value)
   return "Sell Broker Number: "..value
 end
 
 -- Dissect: Sell Broker Number
-dissect.sell_broker_number = function(buffer, offset, packet, parent)
-  local length = size_of.sell_broker_number
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_broker_number(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_broker_number(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_broker_number, range, value, display)
 
@@ -906,19 +906,19 @@ dissect.sell_broker_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Broker Number
-size_of.buy_broker_number = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number = 2
 
 -- Display: Buy Broker Number
-display.buy_broker_number = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_broker_number = function(value)
   return "Buy Broker Number: "..value
 end
 
 -- Dissect: Buy Broker Number
-dissect.buy_broker_number = function(buffer, offset, packet, parent)
-  local length = size_of.buy_broker_number
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_broker_number(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_broker_number(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_broker_number, range, value, display)
 
@@ -926,19 +926,19 @@ dissect.buy_broker_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Volume
-size_of.volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume = 4
 
 -- Display: Volume
-display.volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.volume = function(value)
   return "Volume: "..value
 end
 
 -- Dissect: Volume
-dissect.volume = function(buffer, offset, packet, parent)
-  local length = size_of.volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.volume, range, value, display)
 
@@ -946,10 +946,10 @@ dissect.volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.price = function(value)
   return "Price: "..value
 end
 
@@ -959,12 +959,12 @@ translate.price = function(raw)
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.price(raw)
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.price(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.price, range, value, display)
 
@@ -972,19 +972,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Number
-size_of.trade_number = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number = 4
 
 -- Display: Trade Number
-display.trade_number = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_number = function(value)
   return "Trade Number: "..value
 end
 
 -- Dissect: Trade Number
-dissect.trade_number = function(buffer, offset, packet, parent)
-  local length = size_of.trade_number
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_number(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_number(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_number, range, value, display)
 
@@ -992,19 +992,19 @@ dissect.trade_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 12
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol = 12
 
 -- Display: Symbol
-display.symbol = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol, range, value, display)
 
@@ -1012,121 +1012,121 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Correction Terms Body
-size_of.trade_correction_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.buy_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number
 
-  index = index + size_of.sell_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number
 
-  index = index + size_of.initiated_by
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.initiated_by
 
-  index = index + size_of.orig_trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.orig_trade_number
 
-  index = index + size_of.trade_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp
 
-  index = index + size_of.non_resident
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
 
-  index = index + size_of.settlement_terms
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
 
-  index = index + size_of.settlement_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
 
-  index = index + size_of.cross_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Trade Correction Terms Body
-display.trade_correction_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Terms Body
-dissect.trade_correction_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, buy_broker_number = dissect.buy_broker_number(buffer, index, packet, parent)
+  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number(buffer, index, packet, parent)
 
   -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, sell_broker_number = dissect.sell_broker_number(buffer, index, packet, parent)
+  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number(buffer, index, packet, parent)
 
   -- Initiated By: 1 Byte Ascii String Enum with 3 values
-  index, initiated_by = dissect.initiated_by(buffer, index, packet, parent)
+  index, initiated_by = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.initiated_by(buffer, index, packet, parent)
 
   -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, orig_trade_number = dissect.orig_trade_number(buffer, index, packet, parent)
+  index, orig_trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.orig_trade_number(buffer, index, packet, parent)
 
   -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, trade_time_stamp = dissect.trade_time_stamp(buffer, index, packet, parent)
+  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
-  index, non_resident = dissect.non_resident(buffer, index, packet, parent)
+  index, non_resident = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
-  index, settlement_terms = dissect.settlement_terms(buffer, index, packet, parent)
+  index, settlement_terms = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms(buffer, index, packet, parent)
 
   -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
-  index, settlement_date = dissect.settlement_date(buffer, index, packet, parent)
+  index, settlement_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Terms Body
-dissect.trade_correction_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_terms_body then
-    local length = size_of.trade_correction_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_correction_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_body, range, display)
   end
 
-  return dissect.trade_correction_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence 1
-size_of.sequence_1 = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_1 = 4
 
 -- Display: Sequence 1
-display.sequence_1 = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_1 = function(value)
   return "Sequence 1: "..value
 end
 
 -- Dissect: Sequence 1
-dissect.sequence_1 = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_1 = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_1
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_1(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_1(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_1, range, value, display)
 
@@ -1134,19 +1134,19 @@ dissect.sequence_1 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence 0
-size_of.sequence_0 = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_0 = 1
 
 -- Display: Sequence 0
-display.sequence_0 = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_0 = function(value)
   return "Sequence 0: "..value
 end
 
 -- Dissect: Sequence 0
-dissect.sequence_0 = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_0
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_0 = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_0
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sequence_0(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sequence_0(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sequence_0, range, value, display)
 
@@ -1154,19 +1154,19 @@ dissect.sequence_0 = function(buffer, offset, packet, parent)
 end
 
 -- Size: Stream Id
-size_of.stream_id = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stream_id = 2
 
 -- Display: Stream Id
-display.stream_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stream_id = function(value)
   return "Stream Id: "..value
 end
 
 -- Dissect: Stream Id
-dissect.stream_id = function(buffer, offset, packet, parent)
-  local length = size_of.stream_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stream_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stream_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.stream_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stream_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stream_id, range, value, display)
 
@@ -1174,19 +1174,19 @@ dissect.stream_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Source Id
-size_of.source_id = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.source_id = 1
 
 -- Display: Source Id
-display.source_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.source_id = function(value)
   return "Source Id: "..value
 end
 
 -- Dissect: Source Id
-dissect.source_id = function(buffer, offset, packet, parent)
-  local length = size_of.source_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.source_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.source_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.source_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.source_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.source_id, range, value, display)
 
@@ -1194,19 +1194,19 @@ dissect.source_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Msg Version
-size_of.msg_version = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_version = 1
 
 -- Display: Msg Version
-display.msg_version = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_version = function(value)
   return "Msg Version: "..value
 end
 
 -- Dissect: Msg Version
-dissect.msg_version = function(buffer, offset, packet, parent)
-  local length = size_of.msg_version
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_version = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_version
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.msg_version(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_version(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_version, range, value, display)
 
@@ -1214,109 +1214,109 @@ dissect.msg_version = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Business Header
-size_of.business_header = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.msg_version
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_version
 
-  index = index + size_of.source_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.source_id
 
-  index = index + size_of.stream_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stream_id
 
-  index = index + size_of.sequence_0
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_0
 
-  index = index + size_of.sequence_1
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sequence_1
 
   return index
 end
 
 -- Display: Business Header
-display.business_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.business_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Business Header
-dissect.business_header_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Version: 1 Byte Unsigned Fixed Width Integer
-  index, msg_version = dissect.msg_version(buffer, index, packet, parent)
+  index, msg_version = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_version(buffer, index, packet, parent)
 
   -- Source Id: 1 Byte Ascii String
-  index, source_id = dissect.source_id(buffer, index, packet, parent)
+  index, source_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.source_id(buffer, index, packet, parent)
 
   -- Stream Id: 2 Byte Unsigned Fixed Width Integer
-  index, stream_id = dissect.stream_id(buffer, index, packet, parent)
+  index, stream_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stream_id(buffer, index, packet, parent)
 
   -- Sequence 0: 1 Byte Unsigned Fixed Width Integer
-  index, sequence_0 = dissect.sequence_0(buffer, index, packet, parent)
+  index, sequence_0 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_0(buffer, index, packet, parent)
 
   -- Sequence 1: 4 Byte Unsigned Fixed Width Integer
-  index, sequence_1 = dissect.sequence_1(buffer, index, packet, parent)
+  index, sequence_1 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sequence_1(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Business Header
-dissect.business_header = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.business_header then
-    local length = size_of.business_header(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.business_header(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.business_header(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.business_header, range, display)
   end
 
-  return dissect.business_header_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Correction Terms Message
-size_of.trade_correction_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_correction_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Correction Terms Message
-display.trade_correction_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Terms Message
-dissect.trade_correction_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Correction Terms Body: Struct of 14 fields
-  index, trade_correction_terms_body = dissect.trade_correction_terms_body(buffer, index, packet, parent)
+  index, trade_correction_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Terms Message
-dissect.trade_correction_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_terms_message then
-    local length = size_of.trade_correction_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_correction_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_terms_message, range, display)
   end
 
-  return dissect.trade_correction_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Is Conditional
-size_of.is_conditional = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_conditional = 1
 
 -- Display: Is Conditional
-display.is_conditional = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_conditional = function(value)
   if value == "Y" then
     return "Is Conditional: Yes (Y)"
   end
@@ -1328,11 +1328,11 @@ display.is_conditional = function(value)
 end
 
 -- Dissect: Is Conditional
-dissect.is_conditional = function(buffer, offset, packet, parent)
-  local length = size_of.is_conditional
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_conditional = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_conditional
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.is_conditional(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_conditional(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_conditional, range, value, display)
 
@@ -1340,10 +1340,10 @@ dissect.is_conditional = function(buffer, offset, packet, parent)
 end
 
 -- Size: Is Dark
-size_of.is_dark = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_dark = 1
 
 -- Display: Is Dark
-display.is_dark = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_dark = function(value)
   if value == "Y" then
     return "Is Dark: Yes (Y)"
   end
@@ -1355,11 +1355,11 @@ display.is_dark = function(value)
 end
 
 -- Dissect: Is Dark
-dissect.is_dark = function(buffer, offset, packet, parent)
-  local length = size_of.is_dark
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_dark = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_dark
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.is_dark(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_dark(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_dark, range, value, display)
 
@@ -1367,10 +1367,10 @@ dissect.is_dark = function(buffer, offset, packet, parent)
 end
 
 -- Size: Is Mid Only
-size_of.is_mid_only = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_mid_only = 1
 
 -- Display: Is Mid Only
-display.is_mid_only = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_mid_only = function(value)
   if value == "Y" then
     return "Is Mid Only: Yes (Y)"
   end
@@ -1382,11 +1382,11 @@ display.is_mid_only = function(value)
 end
 
 -- Dissect: Is Mid Only
-dissect.is_mid_only = function(buffer, offset, packet, parent)
-  local length = size_of.is_mid_only
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_mid_only = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_mid_only
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.is_mid_only(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.is_mid_only(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.is_mid_only, range, value, display)
 
@@ -1394,19 +1394,19 @@ dissect.is_mid_only = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Date
-size_of.trade_date = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_date = 4
 
 -- Display: Trade Date
-display.trade_date = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_date = function(value)
   return "Trade Date: "..value
 end
 
 -- Dissect: Trade Date
-dissect.trade_date = function(buffer, offset, packet, parent)
-  local length = size_of.trade_date
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_date = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_date
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.trade_date(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_date(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_date, range, value, display)
 
@@ -1414,10 +1414,10 @@ dissect.trade_date = function(buffer, offset, packet, parent)
 end
 
 -- Size: Product Type
-size_of.product_type = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type = 1
 
 -- Display: Product Type
-display.product_type = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.product_type = function(value)
   if value == "B" then
     return "Product Type: Debenture (B)"
   end
@@ -1441,11 +1441,11 @@ display.product_type = function(value)
 end
 
 -- Dissect: Product Type
-dissect.product_type = function(buffer, offset, packet, parent)
-  local length = size_of.product_type
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.product_type(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.product_type(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.product_type, range, value, display)
 
@@ -1453,10 +1453,10 @@ dissect.product_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Listing Market
-size_of.listing_market = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market = 1
 
 -- Display: Listing Market
-display.listing_market = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.listing_market = function(value)
   if value == "T" then
     return "Listing Market: Tsx (T)"
   end
@@ -1483,11 +1483,11 @@ display.listing_market = function(value)
 end
 
 -- Dissect: Listing Market
-dissect.listing_market = function(buffer, offset, packet, parent)
-  local length = size_of.listing_market
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.listing_market(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.listing_market(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.listing_market, range, value, display)
 
@@ -1495,10 +1495,10 @@ dissect.listing_market = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bypass
-size_of.bypass = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.bypass = 1
 
 -- Display: Bypass
-display.bypass = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.bypass = function(value)
   if value == "Y" then
     return "Bypass: The Order Is A Bypass (Y)"
   end
@@ -1510,11 +1510,11 @@ display.bypass = function(value)
 end
 
 -- Dissect: Bypass
-dissect.bypass = function(buffer, offset, packet, parent)
-  local length = size_of.bypass
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.bypass = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.bypass
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.bypass(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.bypass(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.bypass, range, value, display)
 
@@ -1522,376 +1522,376 @@ dissect.bypass = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Correction Body
-size_of.trade_correction_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.buy_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number
 
-  index = index + size_of.sell_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number
 
-  index = index + size_of.initiated_by
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.initiated_by
 
-  index = index + size_of.orig_trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.orig_trade_number
 
-  index = index + size_of.bypass
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.bypass
 
-  index = index + size_of.trade_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp
 
-  index = index + size_of.cross_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
-  index = index + size_of.listing_market
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
 
-  index = index + size_of.product_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
 
-  index = index + size_of.trade_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_date
 
-  index = index + size_of.is_mid_only
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_mid_only
 
-  index = index + size_of.is_dark
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_dark
 
-  index = index + size_of.is_conditional
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_conditional
 
   return index
 end
 
 -- Display: Trade Correction Body
-display.trade_correction_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Body
-dissect.trade_correction_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, buy_broker_number = dissect.buy_broker_number(buffer, index, packet, parent)
+  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number(buffer, index, packet, parent)
 
   -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, sell_broker_number = dissect.sell_broker_number(buffer, index, packet, parent)
+  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number(buffer, index, packet, parent)
 
   -- Initiated By: 1 Byte Ascii String Enum with 3 values
-  index, initiated_by = dissect.initiated_by(buffer, index, packet, parent)
+  index, initiated_by = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.initiated_by(buffer, index, packet, parent)
 
   -- Orig Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, orig_trade_number = dissect.orig_trade_number(buffer, index, packet, parent)
+  index, orig_trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.orig_trade_number(buffer, index, packet, parent)
 
   -- Bypass: 1 Byte Ascii String Enum with 2 values
-  index, bypass = dissect.bypass(buffer, index, packet, parent)
+  index, bypass = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.bypass(buffer, index, packet, parent)
 
   -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, trade_time_stamp = dissect.trade_time_stamp(buffer, index, packet, parent)
+  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = dissect.product_type(buffer, index, packet, parent)
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_date(buffer, index, packet, parent)
 
   -- Is Mid Only: 1 Byte Ascii String Enum with 2 values
-  index, is_mid_only = dissect.is_mid_only(buffer, index, packet, parent)
+  index, is_mid_only = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_mid_only(buffer, index, packet, parent)
 
   -- Is Dark: 1 Byte Ascii String Enum with 2 values
-  index, is_dark = dissect.is_dark(buffer, index, packet, parent)
+  index, is_dark = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_dark(buffer, index, packet, parent)
 
   -- Is Conditional: 1 Byte Ascii String Enum with 2 values
-  index, is_conditional = dissect.is_conditional(buffer, index, packet, parent)
+  index, is_conditional = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_conditional(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Body
-dissect.trade_correction_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_body then
-    local length = size_of.trade_correction_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_correction_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_body, range, display)
   end
 
-  return dissect.trade_correction_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Correction Message
-size_of.trade_correction_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_correction_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Correction Message
-display.trade_correction_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Correction Message
-dissect.trade_correction_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Correction Body: Struct of 18 fields
-  index, trade_correction_body = dissect.trade_correction_body(buffer, index, packet, parent)
+  index, trade_correction_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Correction Message
-dissect.trade_correction_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_correction_message then
-    local length = size_of.trade_correction_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_correction_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_correction_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_correction_message, range, display)
   end
 
-  return dissect.trade_correction_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancelled Terms Body
-size_of.trade_cancelled_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Trade Cancelled Terms Body
-display.trade_cancelled_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancelled Terms Body
-dissect.trade_cancelled_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancelled Terms Body
-dissect.trade_cancelled_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancelled_terms_body then
-    local length = size_of.trade_cancelled_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancelled_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_body, range, display)
   end
 
-  return dissect.trade_cancelled_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancelled Terms Message
-size_of.trade_cancelled_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_cancelled_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Cancelled Terms Message
-display.trade_cancelled_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancelled Terms Message
-dissect.trade_cancelled_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Cancelled Terms Body: Struct of 3 fields
-  index, trade_cancelled_terms_body = dissect.trade_cancelled_terms_body(buffer, index, packet, parent)
+  index, trade_cancelled_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancelled Terms Message
-dissect.trade_cancelled_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancelled_terms_message then
-    local length = size_of.trade_cancelled_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancelled_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_terms_message, range, display)
   end
 
-  return dissect.trade_cancelled_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancelled Body
-size_of.trade_cancelled_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
-  index = index + size_of.listing_market
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
 
-  index = index + size_of.product_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
 
-  index = index + size_of.trade_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_date
 
   return index
 end
 
 -- Display: Trade Cancelled Body
-display.trade_cancelled_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancelled Body
-dissect.trade_cancelled_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = dissect.product_type(buffer, index, packet, parent)
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_date(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancelled Body
-dissect.trade_cancelled_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancelled_body then
-    local length = size_of.trade_cancelled_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancelled_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_body, range, display)
   end
 
-  return dissect.trade_cancelled_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Cancelled Message
-size_of.trade_cancelled_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_cancelled_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Cancelled Message
-display.trade_cancelled_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Cancelled Message
-dissect.trade_cancelled_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Cancelled Body: Struct of 6 fields
-  index, trade_cancelled_body = dissect.trade_cancelled_body(buffer, index, packet, parent)
+  index, trade_cancelled_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Cancelled Message
-dissect.trade_cancelled_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_cancelled_message then
-    local length = size_of.trade_cancelled_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_cancelled_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_cancelled_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_cancelled_message, range, display)
   end
 
-  return dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Display Volume
-size_of.sell_display_volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_display_volume = 4
 
 -- Display: Sell Display Volume
-display.sell_display_volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_display_volume = function(value)
   return "Sell Display Volume: "..value
 end
 
 -- Dissect: Sell Display Volume
-dissect.sell_display_volume = function(buffer, offset, packet, parent)
-  local length = size_of.sell_display_volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_display_volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_display_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_display_volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_display_volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_display_volume, range, value, display)
 
@@ -1899,19 +1899,19 @@ dissect.sell_display_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Order Id
-size_of.sell_order_id = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_order_id = 8
 
 -- Display: Sell Order Id
-display.sell_order_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_order_id = function(value)
   return "Sell Order Id: "..value
 end
 
 -- Dissect: Sell Order Id
-dissect.sell_order_id = function(buffer, offset, packet, parent)
-  local length = size_of.sell_order_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_order_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.sell_order_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_order_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_order_id, range, value, display)
 
@@ -1919,19 +1919,19 @@ dissect.sell_order_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Display Volume
-size_of.buy_display_volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_display_volume = 4
 
 -- Display: Buy Display Volume
-display.buy_display_volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_display_volume = function(value)
   return "Buy Display Volume: "..value
 end
 
 -- Dissect: Buy Display Volume
-dissect.buy_display_volume = function(buffer, offset, packet, parent)
-  local length = size_of.buy_display_volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_display_volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_display_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_display_volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_display_volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_display_volume, range, value, display)
 
@@ -1939,19 +1939,19 @@ dissect.buy_display_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Order Id
-size_of.buy_order_id = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_order_id = 8
 
 -- Display: Buy Order Id
-display.buy_order_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_order_id = function(value)
   return "Buy Order Id: "..value
 end
 
 -- Dissect: Buy Order Id
-dissect.buy_order_id = function(buffer, offset, packet, parent)
-  local length = size_of.buy_order_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_order_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.buy_order_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_order_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_order_id, range, value, display)
 
@@ -1959,338 +1959,338 @@ dissect.buy_order_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Terms Body
-size_of.trade_report_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.buy_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number
 
-  index = index + size_of.buy_order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_order_id
 
-  index = index + size_of.buy_display_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_display_volume
 
-  index = index + size_of.sell_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number
 
-  index = index + size_of.sell_order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_order_id
 
-  index = index + size_of.sell_display_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_display_volume
 
-  index = index + size_of.trade_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp
 
-  index = index + size_of.non_resident
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
 
-  index = index + size_of.settlement_terms
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
 
-  index = index + size_of.settlement_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
 
-  index = index + size_of.cross_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Trade Report Terms Body
-display.trade_report_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Terms Body
-dissect.trade_report_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, buy_broker_number = dissect.buy_broker_number(buffer, index, packet, parent)
+  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number(buffer, index, packet, parent)
 
   -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
+  index, buy_order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_order_id(buffer, index, packet, parent)
 
   -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer
-  index, buy_display_volume = dissect.buy_display_volume(buffer, index, packet, parent)
+  index, buy_display_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_display_volume(buffer, index, packet, parent)
 
   -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, sell_broker_number = dissect.sell_broker_number(buffer, index, packet, parent)
+  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number(buffer, index, packet, parent)
 
   -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
+  index, sell_order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_order_id(buffer, index, packet, parent)
 
   -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer
-  index, sell_display_volume = dissect.sell_display_volume(buffer, index, packet, parent)
+  index, sell_display_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_display_volume(buffer, index, packet, parent)
 
   -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, trade_time_stamp = dissect.trade_time_stamp(buffer, index, packet, parent)
+  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
-  index, non_resident = dissect.non_resident(buffer, index, packet, parent)
+  index, non_resident = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
-  index, settlement_terms = dissect.settlement_terms(buffer, index, packet, parent)
+  index, settlement_terms = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms(buffer, index, packet, parent)
 
   -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
-  index, settlement_date = dissect.settlement_date(buffer, index, packet, parent)
+  index, settlement_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Terms Body
-dissect.trade_report_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_terms_body then
-    local length = size_of.trade_report_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_body, range, display)
   end
 
-  return dissect.trade_report_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Terms Message
-size_of.trade_report_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_report_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Report Terms Message
-display.trade_report_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Terms Message
-dissect.trade_report_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Report Terms Body: Struct of 16 fields
-  index, trade_report_terms_body = dissect.trade_report_terms_body(buffer, index, packet, parent)
+  index, trade_report_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Terms Message
-dissect.trade_report_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_terms_message then
-    local length = size_of.trade_report_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_terms_message, range, display)
   end
 
-  return dissect.trade_report_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Body
-size_of.trade_report_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.trade_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_number
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.buy_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_broker_number
 
-  index = index + size_of.buy_order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_order_id
 
-  index = index + size_of.buy_display_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_display_volume
 
-  index = index + size_of.sell_broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_broker_number
 
-  index = index + size_of.sell_order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_order_id
 
-  index = index + size_of.sell_display_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_display_volume
 
-  index = index + size_of.bypass
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.bypass
 
-  index = index + size_of.trade_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_time_stamp
 
-  index = index + size_of.cross_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cross_type
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
-  index = index + size_of.listing_market
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
 
-  index = index + size_of.product_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
 
-  index = index + size_of.trade_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_date
 
-  index = index + size_of.is_mid_only
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_mid_only
 
-  index = index + size_of.is_dark
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_dark
 
-  index = index + size_of.is_conditional
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.is_conditional
 
   return index
 end
 
 -- Display: Trade Report Body
-display.trade_report_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Body
-dissect.trade_report_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Number: 4 Byte Unsigned Fixed Width Integer
-  index, trade_number = dissect.trade_number(buffer, index, packet, parent)
+  index, trade_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_number(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Buy Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, buy_broker_number = dissect.buy_broker_number(buffer, index, packet, parent)
+  index, buy_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_broker_number(buffer, index, packet, parent)
 
   -- Buy Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, buy_order_id = dissect.buy_order_id(buffer, index, packet, parent)
+  index, buy_order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_order_id(buffer, index, packet, parent)
 
   -- Buy Display Volume: 4 Byte Unsigned Fixed Width Integer
-  index, buy_display_volume = dissect.buy_display_volume(buffer, index, packet, parent)
+  index, buy_display_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_display_volume(buffer, index, packet, parent)
 
   -- Sell Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, sell_broker_number = dissect.sell_broker_number(buffer, index, packet, parent)
+  index, sell_broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_broker_number(buffer, index, packet, parent)
 
   -- Sell Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, sell_order_id = dissect.sell_order_id(buffer, index, packet, parent)
+  index, sell_order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_order_id(buffer, index, packet, parent)
 
   -- Sell Display Volume: 4 Byte Unsigned Fixed Width Integer
-  index, sell_display_volume = dissect.sell_display_volume(buffer, index, packet, parent)
+  index, sell_display_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_display_volume(buffer, index, packet, parent)
 
   -- Bypass: 1 Byte Ascii String Enum with 2 values
-  index, bypass = dissect.bypass(buffer, index, packet, parent)
+  index, bypass = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.bypass(buffer, index, packet, parent)
 
   -- Trade Time Stamp: 4 Byte Unsigned Fixed Width Integer
-  index, trade_time_stamp = dissect.trade_time_stamp(buffer, index, packet, parent)
+  index, trade_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_time_stamp(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 8 values
-  index, cross_type = dissect.cross_type(buffer, index, packet, parent)
+  index, cross_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cross_type(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = dissect.product_type(buffer, index, packet, parent)
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type(buffer, index, packet, parent)
 
   -- Trade Date: 4 Byte Unsigned Fixed Width Integer
-  index, trade_date = dissect.trade_date(buffer, index, packet, parent)
+  index, trade_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_date(buffer, index, packet, parent)
 
   -- Is Mid Only: 1 Byte Ascii String Enum with 2 values
-  index, is_mid_only = dissect.is_mid_only(buffer, index, packet, parent)
+  index, is_mid_only = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_mid_only(buffer, index, packet, parent)
 
   -- Is Dark: 1 Byte Ascii String Enum with 2 values
-  index, is_dark = dissect.is_dark(buffer, index, packet, parent)
+  index, is_dark = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_dark(buffer, index, packet, parent)
 
   -- Is Conditional: 1 Byte Ascii String Enum with 2 values
-  index, is_conditional = dissect.is_conditional(buffer, index, packet, parent)
+  index, is_conditional = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.is_conditional(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Body
-dissect.trade_report_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_body then
-    local length = size_of.trade_report_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_body, range, display)
   end
 
-  return dissect.trade_report_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Report Message
-size_of.trade_report_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.trade_report_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Trade Report Message
-display.trade_report_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Report Message
-dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Trade Report Body: Struct of 20 fields
-  index, trade_report_body = dissect.trade_report_body(buffer, index, packet, parent)
+  index, trade_report_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Report Message
-dissect.trade_report_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_report_message then
-    local length = size_of.trade_report_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_report_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.trade_report_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.trade_report_message, range, display)
   end
 
-  return dissect.trade_report_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Stock State
-size_of.stock_state = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_state = 2
 
 -- Display: Stock State
-display.stock_state = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_state = function(value)
   if value == "AR" then
     return "Stock State: Authorized Delayed (AR)"
   end
@@ -2320,11 +2320,11 @@ display.stock_state = function(value)
 end
 
 -- Dissect: Stock State
-dissect.stock_state = function(buffer, offset, packet, parent)
-  local length = size_of.stock_state
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_state = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.stock_state(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_state(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_state, range, value, display)
 
@@ -2332,19 +2332,19 @@ dissect.stock_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Comment
-size_of.comment = 40
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.comment = 40
 
 -- Display: Comment
-display.comment = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.comment = function(value)
   return "Comment: "..value
 end
 
 -- Dissect: Comment
-dissect.comment = function(buffer, offset, packet, parent)
-  local length = size_of.comment
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.comment = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.comment
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.comment(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.comment(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.comment, range, value, display)
 
@@ -2352,114 +2352,114 @@ dissect.comment = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stock Status Body
-size_of.stock_status_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.comment
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.comment
 
-  index = index + size_of.stock_state
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_state
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
-  index = index + size_of.listing_market
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
 
-  index = index + size_of.product_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
 
   return index
 end
 
 -- Display: Stock Status Body
-display.stock_status_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_status_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stock Status Body
-dissect.stock_status_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Comment: 40 Byte Ascii String
-  index, comment = dissect.comment(buffer, index, packet, parent)
+  index, comment = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.comment(buffer, index, packet, parent)
 
   -- Stock State: 2 Byte Ascii String Enum with 8 values
-  index, stock_state = dissect.stock_state(buffer, index, packet, parent)
+  index, stock_state = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_state(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = dissect.product_type(buffer, index, packet, parent)
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stock Status Body
-dissect.stock_status_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_status_body then
-    local length = size_of.stock_status_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stock_status_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_status_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_body, range, display)
   end
 
-  return dissect.stock_status_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Stock Status Message
-size_of.stock_status_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.stock_status_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Stock Status Message
-display.stock_status_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Stock Status Message
-dissect.stock_status_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Stock Status Body: Struct of 6 fields
-  index, stock_status_body = dissect.stock_status_body(buffer, index, packet, parent)
+  index, stock_status_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Stock Status Message
-dissect.stock_status_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.stock_status_message then
-    local length = size_of.stock_status_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.stock_status_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_status_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_status_message, range, display)
   end
 
-  return dissect.stock_status_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Priority Time Stamp
-size_of.priority_time_stamp = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp = 8
 
 -- Display: Priority Time Stamp
-display.priority_time_stamp = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.priority_time_stamp = function(value)
   -- Parse unix timestamp
   local seconds = value:tonumber()/1000000
   local microseconds = value:tonumber()%1000000
@@ -2468,11 +2468,11 @@ display.priority_time_stamp = function(value)
 end
 
 -- Dissect: Priority Time Stamp
-dissect.priority_time_stamp = function(buffer, offset, packet, parent)
-  local length = size_of.priority_time_stamp
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.priority_time_stamp(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.priority_time_stamp(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.priority_time_stamp, range, value, display)
 
@@ -2480,19 +2480,19 @@ dissect.priority_time_stamp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
   local range = buffer(offset, length)
   local value = range:le_uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_id, range, value, display)
 
@@ -2500,10 +2500,10 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Side
-size_of.order_side = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side = 1
 
 -- Display: Order Side
-display.order_side = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_side = function(value)
   if value == "B" then
     return "Order Side: Buy (B)"
   end
@@ -2515,11 +2515,11 @@ display.order_side = function(value)
 end
 
 -- Dissect: Order Side
-dissect.order_side = function(buffer, offset, packet, parent)
-  local length = size_of.order_side
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_side(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_side(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_side, range, value, display)
 
@@ -2527,19 +2527,19 @@ dissect.order_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Broker Number
-size_of.broker_number = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number = 2
 
 -- Display: Broker Number
-display.broker_number = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.broker_number = function(value)
   return "Broker Number: "..value
 end
 
 -- Dissect: Broker Number
-dissect.broker_number = function(buffer, offset, packet, parent)
-  local length = size_of.broker_number
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.broker_number(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.broker_number(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.broker_number, range, value, display)
 
@@ -2547,679 +2547,679 @@ dissect.broker_number = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Price Time Assigned Terms Body
-size_of.order_price_time_assigned_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Price Time Assigned Terms Body
-display.order_price_time_assigned_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Price Time Assigned Terms Body
-dissect.order_price_time_assigned_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Price Time Assigned Terms Body
-dissect.order_price_time_assigned_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_price_time_assigned_terms_body then
-    local length = size_of.order_price_time_assigned_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_price_time_assigned_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_body, range, display)
   end
 
-  return dissect.order_price_time_assigned_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Price Time Assigned Terms Message
-size_of.order_price_time_assigned_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_price_time_assigned_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Price Time Assigned Terms Message
-display.order_price_time_assigned_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Price Time Assigned Terms Message
-dissect.order_price_time_assigned_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Price Time Assigned Terms Body: Struct of 8 fields
-  index, order_price_time_assigned_terms_body = dissect.order_price_time_assigned_terms_body(buffer, index, packet, parent)
+  index, order_price_time_assigned_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Price Time Assigned Terms Message
-dissect.order_price_time_assigned_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_price_time_assigned_terms_message then
-    local length = size_of.order_price_time_assigned_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_price_time_assigned_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_terms_message, range, display)
   end
 
-  return dissect.order_price_time_assigned_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Price Time Assigned Body
-size_of.order_price_time_assigned_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Price Time Assigned Body
-display.order_price_time_assigned_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Price Time Assigned Body
-dissect.order_price_time_assigned_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Price Time Assigned Body
-dissect.order_price_time_assigned_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_price_time_assigned_body then
-    local length = size_of.order_price_time_assigned_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_price_time_assigned_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_body, range, display)
   end
 
-  return dissect.order_price_time_assigned_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Price Time Assigned Message
-size_of.order_price_time_assigned_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_price_time_assigned_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Price Time Assigned Message
-display.order_price_time_assigned_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Price Time Assigned Message
-dissect.order_price_time_assigned_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Price Time Assigned Body: Struct of 8 fields
-  index, order_price_time_assigned_body = dissect.order_price_time_assigned_body(buffer, index, packet, parent)
+  index, order_price_time_assigned_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Price Time Assigned Message
-dissect.order_price_time_assigned_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_price_time_assigned_message then
-    local length = size_of.order_price_time_assigned_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_price_time_assigned_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_price_time_assigned_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_price_time_assigned_message, range, display)
   end
 
-  return dissect.order_price_time_assigned_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Terms Body
-size_of.order_cancelled_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Cancelled Terms Body
-display.order_cancelled_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Terms Body
-dissect.order_cancelled_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Terms Body
-dissect.order_cancelled_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_terms_body then
-    local length = size_of.order_cancelled_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_body, range, display)
   end
 
-  return dissect.order_cancelled_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Terms Message
-size_of.order_cancelled_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_cancelled_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Cancelled Terms Message
-display.order_cancelled_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Terms Message
-dissect.order_cancelled_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Cancelled Terms Body: Struct of 5 fields
-  index, order_cancelled_terms_body = dissect.order_cancelled_terms_body(buffer, index, packet, parent)
+  index, order_cancelled_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Terms Message
-dissect.order_cancelled_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_terms_message then
-    local length = size_of.order_cancelled_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_terms_message, range, display)
   end
 
-  return dissect.order_cancelled_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Body
-size_of.order_cancelled_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Cancelled Body
-display.order_cancelled_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Body
-dissect.order_cancelled_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Body
-dissect.order_cancelled_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_body then
-    local length = size_of.order_cancelled_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_body, range, display)
   end
 
-  return dissect.order_cancelled_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Message
-size_of.order_cancelled_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_cancelled_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Cancelled Message
-display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Message
-dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Cancelled Body: Struct of 5 fields
-  index, order_cancelled_body = dissect.order_cancelled_body(buffer, index, packet, parent)
+  index, order_cancelled_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Message
-dissect.order_cancelled_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
-    local length = size_of.order_cancelled_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_cancelled_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_cancelled_message, range, display)
   end
 
-  return dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Booked Terms Body
-size_of.order_booked_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.non_resident
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
 
-  index = index + size_of.settlement_terms
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
 
-  index = index + size_of.settlement_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Booked Terms Body
-display.order_booked_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Booked Terms Body
-dissect.order_booked_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
-  index, non_resident = dissect.non_resident(buffer, index, packet, parent)
+  index, non_resident = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
-  index, settlement_terms = dissect.settlement_terms(buffer, index, packet, parent)
+  index, settlement_terms = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms(buffer, index, packet, parent)
 
   -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
-  index, settlement_date = dissect.settlement_date(buffer, index, packet, parent)
+  index, settlement_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Booked Terms Body
-dissect.order_booked_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_booked_terms_body then
-    local length = size_of.order_booked_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_booked_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_body, range, display)
   end
 
-  return dissect.order_booked_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Booked Terms Message
-size_of.order_booked_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_booked_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Booked Terms Message
-display.order_booked_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Booked Terms Message
-dissect.order_booked_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Booked Terms Body: Struct of 11 fields
-  index, order_booked_terms_body = dissect.order_booked_terms_body(buffer, index, packet, parent)
+  index, order_booked_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Booked Terms Message
-dissect.order_booked_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_booked_terms_message then
-    local length = size_of.order_booked_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_booked_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_terms_message, range, display)
   end
 
-  return dissect.order_booked_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Booked Body
-size_of.order_booked_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Order Booked Body
-display.order_booked_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Booked Body
-dissect.order_booked_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Booked Body
-dissect.order_booked_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_booked_body then
-    local length = size_of.order_booked_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_booked_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_body, range, display)
   end
 
-  return dissect.order_booked_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Booked Message
-size_of.order_booked_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_booked_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Booked Message
-display.order_booked_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Booked Message
-dissect.order_booked_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Booked Body: Struct of 8 fields
-  index, order_booked_body = dissect.order_booked_body(buffer, index, packet, parent)
+  index, order_booked_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Booked Message
-dissect.order_booked_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_booked_message then
-    local length = size_of.order_booked_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_booked_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_booked_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_booked_message, range, display)
   end
 
-  return dissect.order_booked_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Far Indicative Closing Price
-size_of.far_indicative_closing_price = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.far_indicative_closing_price = 8
 
 -- Display: Far Indicative Closing Price
-display.far_indicative_closing_price = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.far_indicative_closing_price = function(value)
   return "Far Indicative Closing Price: "..value
 end
 
@@ -3229,12 +3229,12 @@ translate.far_indicative_closing_price = function(raw)
 end
 
 -- Dissect: Far Indicative Closing Price
-dissect.far_indicative_closing_price = function(buffer, offset, packet, parent)
-  local length = size_of.far_indicative_closing_price
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.far_indicative_closing_price = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.far_indicative_closing_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.far_indicative_closing_price(raw)
-  local display = display.far_indicative_closing_price(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.far_indicative_closing_price(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.far_indicative_closing_price, range, value, display)
 
@@ -3242,10 +3242,10 @@ dissect.far_indicative_closing_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Near Indicative Closing Price
-size_of.near_indicative_closing_price = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.near_indicative_closing_price = 8
 
 -- Display: Near Indicative Closing Price
-display.near_indicative_closing_price = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.near_indicative_closing_price = function(value)
   return "Near Indicative Closing Price: "..value
 end
 
@@ -3255,12 +3255,12 @@ translate.near_indicative_closing_price = function(raw)
 end
 
 -- Dissect: Near Indicative Closing Price
-dissect.near_indicative_closing_price = function(buffer, offset, packet, parent)
-  local length = size_of.near_indicative_closing_price
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.near_indicative_closing_price = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.near_indicative_closing_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.near_indicative_closing_price(raw)
-  local display = display.near_indicative_closing_price(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.near_indicative_closing_price(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.near_indicative_closing_price, range, value, display)
 
@@ -3268,10 +3268,10 @@ dissect.near_indicative_closing_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Order Imbalance Side
-size_of.market_order_imbalance_side = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_side = 1
 
 -- Display: Market Order Imbalance Side
-display.market_order_imbalance_side = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_side = function(value)
   if value == "B" then
     return "Market Order Imbalance Side: Buy (B)"
   end
@@ -3286,11 +3286,11 @@ display.market_order_imbalance_side = function(value)
 end
 
 -- Dissect: Market Order Imbalance Side
-dissect.market_order_imbalance_side = function(buffer, offset, packet, parent)
-  local length = size_of.market_order_imbalance_side
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_side = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_order_imbalance_side(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_side(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_side, range, value, display)
 
@@ -3298,19 +3298,19 @@ dissect.market_order_imbalance_side = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Order Imbalance Volume
-size_of.market_order_imbalance_volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_volume = 4
 
 -- Display: Market Order Imbalance Volume
-display.market_order_imbalance_volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_volume = function(value)
   return "Market Order Imbalance Volume: "..value
 end
 
 -- Dissect: Market Order Imbalance Volume
-dissect.market_order_imbalance_volume = function(buffer, offset, packet, parent)
-  local length = size_of.market_order_imbalance_volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.market_order_imbalance_volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_order_imbalance_volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_order_imbalance_volume, range, value, display)
 
@@ -3318,19 +3318,19 @@ dissect.market_order_imbalance_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Paired Volume
-size_of.paired_volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.paired_volume = 4
 
 -- Display: Paired Volume
-display.paired_volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.paired_volume = function(value)
   return "Paired Volume: "..value
 end
 
 -- Dissect: Paired Volume
-dissect.paired_volume = function(buffer, offset, packet, parent)
-  local length = size_of.paired_volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.paired_volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.paired_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.paired_volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.paired_volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.paired_volume, range, value, display)
 
@@ -3338,10 +3338,10 @@ dissect.paired_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Reference Price
-size_of.imbalance_reference_price = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_reference_price = 8
 
 -- Display: Imbalance Reference Price
-display.imbalance_reference_price = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_reference_price = function(value)
   return "Imbalance Reference Price: "..value
 end
 
@@ -3351,12 +3351,12 @@ translate.imbalance_reference_price = function(raw)
 end
 
 -- Dissect: Imbalance Reference Price
-dissect.imbalance_reference_price = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_reference_price
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_reference_price = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_reference_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.imbalance_reference_price(raw)
-  local display = display.imbalance_reference_price(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_reference_price, range, value, display)
 
@@ -3364,19 +3364,19 @@ dissect.imbalance_reference_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Volume
-size_of.imbalance_volume = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_volume = 4
 
 -- Display: Imbalance Volume
-display.imbalance_volume = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_volume = function(value)
   return "Imbalance Volume: "..value
 end
 
 -- Dissect: Imbalance Volume
-dissect.imbalance_volume = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_volume
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_volume = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_volume
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.imbalance_volume(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_volume(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_volume, range, value, display)
 
@@ -3384,10 +3384,10 @@ dissect.imbalance_volume = function(buffer, offset, packet, parent)
 end
 
 -- Size: Imbalance Side
-size_of.imbalance_side = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_side = 1
 
 -- Display: Imbalance Side
-display.imbalance_side = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_side = function(value)
   if value == "B" then
     return "Imbalance Side: Buy (B)"
   end
@@ -3402,11 +3402,11 @@ display.imbalance_side = function(value)
 end
 
 -- Dissect: Imbalance Side
-dissect.imbalance_side = function(buffer, offset, packet, parent)
-  local length = size_of.imbalance_side
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_side = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.imbalance_side(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.imbalance_side(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.imbalance_side, range, value, display)
 
@@ -3414,143 +3414,143 @@ dissect.imbalance_side = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Moc Imbalance Body
-size_of.moc_imbalance_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.imbalance_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_side
 
-  index = index + size_of.imbalance_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_volume
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
-  index = index + size_of.imbalance_reference_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.imbalance_reference_price
 
-  index = index + size_of.paired_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.paired_volume
 
-  index = index + size_of.market_order_imbalance_volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_volume
 
-  index = index + size_of.market_order_imbalance_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_order_imbalance_side
 
-  index = index + size_of.near_indicative_closing_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.near_indicative_closing_price
 
-  index = index + size_of.far_indicative_closing_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.far_indicative_closing_price
 
   return index
 end
 
 -- Display: Moc Imbalance Body
-display.moc_imbalance_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_imbalance_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Moc Imbalance Body
-dissect.moc_imbalance_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, imbalance_side = dissect.imbalance_side(buffer, index, packet, parent)
+  index, imbalance_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_side(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index, imbalance_volume = dissect.imbalance_volume(buffer, index, packet, parent)
+  index, imbalance_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_volume(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   -- Imbalance Reference Price: 8 Byte Unsigned Fixed Width Integer
-  index, imbalance_reference_price = dissect.imbalance_reference_price(buffer, index, packet, parent)
+  index, imbalance_reference_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.imbalance_reference_price(buffer, index, packet, parent)
 
   -- Paired Volume: 4 Byte Unsigned Fixed Width Integer
-  index, paired_volume = dissect.paired_volume(buffer, index, packet, parent)
+  index, paired_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.paired_volume(buffer, index, packet, parent)
 
   -- Market Order Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
-  index, market_order_imbalance_volume = dissect.market_order_imbalance_volume(buffer, index, packet, parent)
+  index, market_order_imbalance_volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_volume(buffer, index, packet, parent)
 
   -- Market Order Imbalance Side: 1 Byte Ascii String Enum with 3 values
-  index, market_order_imbalance_side = dissect.market_order_imbalance_side(buffer, index, packet, parent)
+  index, market_order_imbalance_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_order_imbalance_side(buffer, index, packet, parent)
 
   -- Near Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
-  index, near_indicative_closing_price = dissect.near_indicative_closing_price(buffer, index, packet, parent)
+  index, near_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.near_indicative_closing_price(buffer, index, packet, parent)
 
   -- Far Indicative Closing Price: 8 Byte Unsigned Fixed Width Integer
-  index, far_indicative_closing_price = dissect.far_indicative_closing_price(buffer, index, packet, parent)
+  index, far_indicative_closing_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.far_indicative_closing_price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Moc Imbalance Body
-dissect.moc_imbalance_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.moc_imbalance_body then
-    local length = size_of.moc_imbalance_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.moc_imbalance_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_imbalance_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_body, range, display)
   end
 
-  return dissect.moc_imbalance_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Moc Imbalance Message
-size_of.moc_imbalance_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.moc_imbalance_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Moc Imbalance Message
-display.moc_imbalance_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_imbalance_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Moc Imbalance Message
-dissect.moc_imbalance_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Moc Imbalance Body: Struct of 10 fields
-  index, moc_imbalance_body = dissect.moc_imbalance_body(buffer, index, packet, parent)
+  index, moc_imbalance_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Moc Imbalance Message
-dissect.moc_imbalance_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.moc_imbalance_message then
-    local length = size_of.moc_imbalance_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.moc_imbalance_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_imbalance_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_imbalance_message, range, display)
   end
 
-  return dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Stock Group
-size_of.stock_group = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_group = 1
 
 -- Display: Stock Group
-display.stock_group = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_group = function(value)
   return "Stock Group: "..value
 end
 
 -- Dissect: Stock Group
-dissect.stock_group = function(buffer, offset, packet, parent)
-  local length = size_of.stock_group
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_group = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_group
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.stock_group(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.stock_group(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.stock_group, range, value, display)
 
@@ -3558,10 +3558,10 @@ dissect.stock_group = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market State
-size_of.market_state = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state = 1
 
 -- Display: Market State
-display.market_state = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state = function(value)
   if value == "P" then
     return "Market State: Preopen (P)"
   end
@@ -3618,11 +3618,11 @@ display.market_state = function(value)
 end
 
 -- Dissect: Market State
-dissect.market_state = function(buffer, offset, packet, parent)
-  local length = size_of.market_state
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.market_state(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state, range, value, display)
 
@@ -3630,804 +3630,804 @@ dissect.market_state = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market State Update Body
-size_of.market_state_update_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.market_state
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state
 
-  index = index + size_of.stock_group
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_group
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Market State Update Body
-display.market_state_update_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state_update_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market State Update Body
-dissect.market_state_update_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Market State: 1 Byte Ascii String Enum with 17 values
-  index, market_state = dissect.market_state(buffer, index, packet, parent)
+  index, market_state = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state(buffer, index, packet, parent)
 
   -- Stock Group: 1 Byte Unsigned Fixed Width Integer
-  index, stock_group = dissect.stock_group(buffer, index, packet, parent)
+  index, stock_group = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_group(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market State Update Body
-dissect.market_state_update_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_state_update_body then
-    local length = size_of.market_state_update_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_state_update_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state_update_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_body, range, display)
   end
 
-  return dissect.market_state_update_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market State Update Message
-size_of.market_state_update_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.market_state_update_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Market State Update Message
-display.market_state_update_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market State Update Message
-dissect.market_state_update_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Market State Update Body: Struct of 3 fields
-  index, market_state_update_body = dissect.market_state_update_body(buffer, index, packet, parent)
+  index, market_state_update_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market State Update Message
-dissect.market_state_update_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_state_update_message then
-    local length = size_of.market_state_update_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_state_update_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.market_state_update_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.market_state_update_message, range, display)
   end
 
-  return dissect.market_state_update_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 15
-size_of.cop_limit_15 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_15 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 15
-display.cop_limit_15 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_15 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 15
-dissect.cop_limit_15_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_15_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 15
-dissect.cop_limit_15 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_15 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_15 then
-    local length = size_of.cop_limit_15(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_15(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_15(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_15(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_15, range, display)
   end
 
-  return dissect.cop_limit_15_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_15_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 14
-size_of.cop_limit_14 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_14 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 14
-display.cop_limit_14 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_14 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 14
-dissect.cop_limit_14_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_14_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 14
-dissect.cop_limit_14 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_14 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_14 then
-    local length = size_of.cop_limit_14(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_14(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_14(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_14(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_14, range, display)
   end
 
-  return dissect.cop_limit_14_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_14_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 13
-size_of.cop_limit_13 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_13 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 13
-display.cop_limit_13 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_13 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 13
-dissect.cop_limit_13_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_13_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 13
-dissect.cop_limit_13 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_13 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_13 then
-    local length = size_of.cop_limit_13(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_13(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_13(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_13(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_13, range, display)
   end
 
-  return dissect.cop_limit_13_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_13_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 12
-size_of.cop_limit_12 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_12 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 12
-display.cop_limit_12 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_12 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 12
-dissect.cop_limit_12_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_12_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 12
-dissect.cop_limit_12 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_12 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_12 then
-    local length = size_of.cop_limit_12(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_12(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_12(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_12(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_12, range, display)
   end
 
-  return dissect.cop_limit_12_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_12_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 11
-size_of.cop_limit_11 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_11 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 11
-display.cop_limit_11 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_11 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 11
-dissect.cop_limit_11_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_11_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 11
-dissect.cop_limit_11 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_11 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_11 then
-    local length = size_of.cop_limit_11(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_11(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_11(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_11(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_11, range, display)
   end
 
-  return dissect.cop_limit_11_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_11_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 10
-size_of.cop_limit_10 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_10 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 10
-display.cop_limit_10 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_10 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 10
-dissect.cop_limit_10_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_10_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 10
-dissect.cop_limit_10 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_10 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_10 then
-    local length = size_of.cop_limit_10(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_10(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_10(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_10(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_10, range, display)
   end
 
-  return dissect.cop_limit_10_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_10_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 9
-size_of.cop_limit_9 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_9 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 9
-display.cop_limit_9 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_9 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 9
-dissect.cop_limit_9_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_9_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 9
-dissect.cop_limit_9 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_9 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_9 then
-    local length = size_of.cop_limit_9(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_9(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_9(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_9(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_9, range, display)
   end
 
-  return dissect.cop_limit_9_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_9_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 8
-size_of.cop_limit_8 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_8 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 8
-display.cop_limit_8 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_8 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 8
-dissect.cop_limit_8_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_8_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 8
-dissect.cop_limit_8 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_8 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_8 then
-    local length = size_of.cop_limit_8(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_8(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_8(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_8(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_8, range, display)
   end
 
-  return dissect.cop_limit_8_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_8_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 7
-size_of.cop_limit_7 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_7 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 7
-display.cop_limit_7 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_7 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 7
-dissect.cop_limit_7_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_7_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 7
-dissect.cop_limit_7 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_7 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_7 then
-    local length = size_of.cop_limit_7(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_7(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_7(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_7(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_7, range, display)
   end
 
-  return dissect.cop_limit_7_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_7_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 6
-size_of.cop_limit_6 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_6 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 6
-display.cop_limit_6 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_6 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 6
-dissect.cop_limit_6_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_6_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 6
-dissect.cop_limit_6 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_6 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_6 then
-    local length = size_of.cop_limit_6(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_6(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_6(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_6(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_6, range, display)
   end
 
-  return dissect.cop_limit_6_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_6_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 5
-size_of.cop_limit_5 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_5 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 5
-display.cop_limit_5 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_5 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 5
-dissect.cop_limit_5_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_5_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 5
-dissect.cop_limit_5 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_5 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_5 then
-    local length = size_of.cop_limit_5(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_5(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_5(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_5(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_5, range, display)
   end
 
-  return dissect.cop_limit_5_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_5_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 4
-size_of.cop_limit_4 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_4 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 4
-display.cop_limit_4 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_4 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 4
-dissect.cop_limit_4_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_4_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 4
-dissect.cop_limit_4 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_4 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_4 then
-    local length = size_of.cop_limit_4(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_4(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_4(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_4(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_4, range, display)
   end
 
-  return dissect.cop_limit_4_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_4_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 3
-size_of.cop_limit_3 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_3 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 3
-display.cop_limit_3 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_3 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 3
-dissect.cop_limit_3_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_3_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 3
-dissect.cop_limit_3 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_3 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_3 then
-    local length = size_of.cop_limit_3(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_3(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_3(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_3(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_3, range, display)
   end
 
-  return dissect.cop_limit_3_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_3_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 2
-size_of.cop_limit_2 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_2 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 2
-display.cop_limit_2 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_2 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 2
-dissect.cop_limit_2_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_2_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 2
-dissect.cop_limit_2 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_2 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_2 then
-    local length = size_of.cop_limit_2(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_2(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_2(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_2(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_2, range, display)
   end
 
-  return dissect.cop_limit_2_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_2_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Limit 1
-size_of.cop_limit_1 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_1 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
   return index
 end
 
 -- Display: Cop Limit 1
-display.cop_limit_1 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_1 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Limit 1
-dissect.cop_limit_1_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_1_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Limit 1
-dissect.cop_limit_1 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_1 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_limit_1 then
-    local length = size_of.cop_limit_1(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_1(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_limit_1(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_limit_1(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_limit_1, range, display)
   end
 
-  return dissect.cop_limit_1_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_1_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Calculated Opening Price
-size_of.calculated_opening_price = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price = 8
 
 -- Display: Calculated Opening Price
-display.calculated_opening_price = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.calculated_opening_price = function(value)
   return "Calculated Opening Price: "..value
 end
 
@@ -4437,12 +4437,12 @@ translate.calculated_opening_price = function(raw)
 end
 
 -- Dissect: Calculated Opening Price
-dissect.calculated_opening_price = function(buffer, offset, packet, parent)
-  local length = size_of.calculated_opening_price
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.calculated_opening_price = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.calculated_opening_price(raw)
-  local display = display.calculated_opening_price(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.calculated_opening_price(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.calculated_opening_price, range, value, display)
 
@@ -4450,1315 +4450,1315 @@ dissect.calculated_opening_price = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Limit Body
-size_of.assign_limit_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.calculated_opening_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.cop_limit_1(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_1(buffer, offset + index)
 
-  index = index + size_of.cop_limit_2(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_2(buffer, offset + index)
 
-  index = index + size_of.cop_limit_3(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_3(buffer, offset + index)
 
-  index = index + size_of.cop_limit_4(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_4(buffer, offset + index)
 
-  index = index + size_of.cop_limit_5(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_5(buffer, offset + index)
 
-  index = index + size_of.cop_limit_6(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_6(buffer, offset + index)
 
-  index = index + size_of.cop_limit_7(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_7(buffer, offset + index)
 
-  index = index + size_of.cop_limit_8(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_8(buffer, offset + index)
 
-  index = index + size_of.cop_limit_9(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_9(buffer, offset + index)
 
-  index = index + size_of.cop_limit_10(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_10(buffer, offset + index)
 
-  index = index + size_of.cop_limit_11(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_11(buffer, offset + index)
 
-  index = index + size_of.cop_limit_12(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_12(buffer, offset + index)
 
-  index = index + size_of.cop_limit_13(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_13(buffer, offset + index)
 
-  index = index + size_of.cop_limit_14(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_14(buffer, offset + index)
 
-  index = index + size_of.cop_limit_15(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_limit_15(buffer, offset + index)
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Assign Limit Body
-display.assign_limit_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_limit_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Limit Body
-dissect.assign_limit_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
-  index, calculated_opening_price = dissect.calculated_opening_price(buffer, index, packet, parent)
+  index, calculated_opening_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.calculated_opening_price(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Cop Limit 1: Struct of 3 fields
-  index, cop_limit_1 = dissect.cop_limit_1(buffer, index, packet, parent)
+  index, cop_limit_1 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_1(buffer, index, packet, parent)
 
   -- Cop Limit 2: Struct of 3 fields
-  index, cop_limit_2 = dissect.cop_limit_2(buffer, index, packet, parent)
+  index, cop_limit_2 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_2(buffer, index, packet, parent)
 
   -- Cop Limit 3: Struct of 3 fields
-  index, cop_limit_3 = dissect.cop_limit_3(buffer, index, packet, parent)
+  index, cop_limit_3 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_3(buffer, index, packet, parent)
 
   -- Cop Limit 4: Struct of 3 fields
-  index, cop_limit_4 = dissect.cop_limit_4(buffer, index, packet, parent)
+  index, cop_limit_4 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_4(buffer, index, packet, parent)
 
   -- Cop Limit 5: Struct of 3 fields
-  index, cop_limit_5 = dissect.cop_limit_5(buffer, index, packet, parent)
+  index, cop_limit_5 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_5(buffer, index, packet, parent)
 
   -- Cop Limit 6: Struct of 3 fields
-  index, cop_limit_6 = dissect.cop_limit_6(buffer, index, packet, parent)
+  index, cop_limit_6 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_6(buffer, index, packet, parent)
 
   -- Cop Limit 7: Struct of 3 fields
-  index, cop_limit_7 = dissect.cop_limit_7(buffer, index, packet, parent)
+  index, cop_limit_7 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_7(buffer, index, packet, parent)
 
   -- Cop Limit 8: Struct of 3 fields
-  index, cop_limit_8 = dissect.cop_limit_8(buffer, index, packet, parent)
+  index, cop_limit_8 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_8(buffer, index, packet, parent)
 
   -- Cop Limit 9: Struct of 3 fields
-  index, cop_limit_9 = dissect.cop_limit_9(buffer, index, packet, parent)
+  index, cop_limit_9 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_9(buffer, index, packet, parent)
 
   -- Cop Limit 10: Struct of 3 fields
-  index, cop_limit_10 = dissect.cop_limit_10(buffer, index, packet, parent)
+  index, cop_limit_10 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_10(buffer, index, packet, parent)
 
   -- Cop Limit 11: Struct of 3 fields
-  index, cop_limit_11 = dissect.cop_limit_11(buffer, index, packet, parent)
+  index, cop_limit_11 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_11(buffer, index, packet, parent)
 
   -- Cop Limit 12: Struct of 3 fields
-  index, cop_limit_12 = dissect.cop_limit_12(buffer, index, packet, parent)
+  index, cop_limit_12 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_12(buffer, index, packet, parent)
 
   -- Cop Limit 13: Struct of 3 fields
-  index, cop_limit_13 = dissect.cop_limit_13(buffer, index, packet, parent)
+  index, cop_limit_13 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_13(buffer, index, packet, parent)
 
   -- Cop Limit 14: Struct of 3 fields
-  index, cop_limit_14 = dissect.cop_limit_14(buffer, index, packet, parent)
+  index, cop_limit_14 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_14(buffer, index, packet, parent)
 
   -- Cop Limit 15: Struct of 3 fields
-  index, cop_limit_15 = dissect.cop_limit_15(buffer, index, packet, parent)
+  index, cop_limit_15 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_limit_15(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Limit Body
-dissect.assign_limit_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_limit_body then
-    local length = size_of.assign_limit_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_limit_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_limit_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_body, range, display)
   end
 
-  return dissect.assign_limit_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Limit Message
-size_of.assign_limit_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.assign_limit_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Assign Limit Message
-display.assign_limit_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_limit_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Limit Message
-dissect.assign_limit_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Assign Limit Body: Struct of 19 fields
-  index, assign_limit_body = dissect.assign_limit_body(buffer, index, packet, parent)
+  index, assign_limit_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Limit Message
-dissect.assign_limit_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_limit_message then
-    local length = size_of.assign_limit_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_limit_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_limit_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_limit_message, range, display)
   end
 
-  return dissect.assign_limit_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Cop No Orders Body
-size_of.assign_cop_no_orders_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.calculated_opening_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Assign Cop No Orders Body
-display.assign_cop_no_orders_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_no_orders_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Cop No Orders Body
-dissect.assign_cop_no_orders_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
-  index, calculated_opening_price = dissect.calculated_opening_price(buffer, index, packet, parent)
+  index, calculated_opening_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.calculated_opening_price(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Cop No Orders Body
-dissect.assign_cop_no_orders_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_cop_no_orders_body then
-    local length = size_of.assign_cop_no_orders_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_cop_no_orders_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_no_orders_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_body, range, display)
   end
 
-  return dissect.assign_cop_no_orders_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Cop No Orders Message
-size_of.assign_cop_no_orders_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.assign_cop_no_orders_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Assign Cop No Orders Message
-display.assign_cop_no_orders_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_no_orders_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Cop No Orders Message
-dissect.assign_cop_no_orders_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Assign Cop No Orders Body: Struct of 3 fields
-  index, assign_cop_no_orders_body = dissect.assign_cop_no_orders_body(buffer, index, packet, parent)
+  index, assign_cop_no_orders_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Cop No Orders Message
-dissect.assign_cop_no_orders_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_cop_no_orders_message then
-    local length = size_of.assign_cop_no_orders_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_cop_no_orders_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_no_orders_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_no_orders_message, range, display)
   end
 
-  return dissect.assign_cop_no_orders_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 15
-size_of.cop_order_15 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_15 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 15
-display.cop_order_15 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_15 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 15
-dissect.cop_order_15_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_15_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 15
-dissect.cop_order_15 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_15 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_15 then
-    local length = size_of.cop_order_15(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_15(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_15(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_15(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_15, range, display)
   end
 
-  return dissect.cop_order_15_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_15_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 14
-size_of.cop_order_14 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_14 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 14
-display.cop_order_14 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_14 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 14
-dissect.cop_order_14_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_14_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 14
-dissect.cop_order_14 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_14 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_14 then
-    local length = size_of.cop_order_14(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_14(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_14(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_14(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_14, range, display)
   end
 
-  return dissect.cop_order_14_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_14_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 13
-size_of.cop_order_13 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_13 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 13
-display.cop_order_13 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_13 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 13
-dissect.cop_order_13_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_13_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 13
-dissect.cop_order_13 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_13 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_13 then
-    local length = size_of.cop_order_13(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_13(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_13(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_13(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_13, range, display)
   end
 
-  return dissect.cop_order_13_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_13_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 12
-size_of.cop_order_12 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_12 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 12
-display.cop_order_12 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_12 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 12
-dissect.cop_order_12_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_12_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 12
-dissect.cop_order_12 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_12 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_12 then
-    local length = size_of.cop_order_12(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_12(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_12(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_12(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_12, range, display)
   end
 
-  return dissect.cop_order_12_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_12_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 11
-size_of.cop_order_11 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_11 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 11
-display.cop_order_11 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_11 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 11
-dissect.cop_order_11_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_11_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 11
-dissect.cop_order_11 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_11 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_11 then
-    local length = size_of.cop_order_11(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_11(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_11(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_11(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_11, range, display)
   end
 
-  return dissect.cop_order_11_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_11_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 10
-size_of.cop_order_10 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_10 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 10
-display.cop_order_10 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_10 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 10
-dissect.cop_order_10_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_10_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 10
-dissect.cop_order_10 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_10 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_10 then
-    local length = size_of.cop_order_10(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_10(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_10(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_10(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_10, range, display)
   end
 
-  return dissect.cop_order_10_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_10_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 9
-size_of.cop_order_9 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_9 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 9
-display.cop_order_9 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_9 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 9
-dissect.cop_order_9_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_9_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 9
-dissect.cop_order_9 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_9 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_9 then
-    local length = size_of.cop_order_9(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_9(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_9(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_9(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_9, range, display)
   end
 
-  return dissect.cop_order_9_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_9_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 8
-size_of.cop_order_8 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_8 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 8
-display.cop_order_8 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_8 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 8
-dissect.cop_order_8_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_8_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 8
-dissect.cop_order_8 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_8 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_8 then
-    local length = size_of.cop_order_8(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_8(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_8(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_8(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_8, range, display)
   end
 
-  return dissect.cop_order_8_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_8_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 7
-size_of.cop_order_7 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_7 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 7
-display.cop_order_7 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_7 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 7
-dissect.cop_order_7_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_7_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 7
-dissect.cop_order_7 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_7 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_7 then
-    local length = size_of.cop_order_7(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_7(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_7(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_7(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_7, range, display)
   end
 
-  return dissect.cop_order_7_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_7_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 6
-size_of.cop_order_6 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_6 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 6
-display.cop_order_6 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_6 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 6
-dissect.cop_order_6_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_6_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 6
-dissect.cop_order_6 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_6 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_6 then
-    local length = size_of.cop_order_6(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_6(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_6(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_6(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_6, range, display)
   end
 
-  return dissect.cop_order_6_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_6_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 5
-size_of.cop_order_5 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_5 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 5
-display.cop_order_5 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_5 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 5
-dissect.cop_order_5_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_5_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 5
-dissect.cop_order_5 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_5 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_5 then
-    local length = size_of.cop_order_5(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_5(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_5(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_5(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_5, range, display)
   end
 
-  return dissect.cop_order_5_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_5_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 4
-size_of.cop_order_4 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_4 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 4
-display.cop_order_4 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_4 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 4
-dissect.cop_order_4_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_4_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 4
-dissect.cop_order_4 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_4 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_4 then
-    local length = size_of.cop_order_4(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_4(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_4(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_4(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_4, range, display)
   end
 
-  return dissect.cop_order_4_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_4_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 3
-size_of.cop_order_3 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_3 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 3
-display.cop_order_3 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_3 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 3
-dissect.cop_order_3_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_3_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 3
-dissect.cop_order_3 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_3 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_3 then
-    local length = size_of.cop_order_3(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_3(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_3(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_3(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_3, range, display)
   end
 
-  return dissect.cop_order_3_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_3_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 2
-size_of.cop_order_2 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_2 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 2
-display.cop_order_2 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_2 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 2
-dissect.cop_order_2_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_2_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 2
-dissect.cop_order_2 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_2 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_2 then
-    local length = size_of.cop_order_2(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_2(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_2(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_2(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_2, range, display)
   end
 
-  return dissect.cop_order_2_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_2_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cop Order 1
-size_of.cop_order_1 = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_1 = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
   return index
 end
 
 -- Display: Cop Order 1
-display.cop_order_1 = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_1 = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cop Order 1
-dissect.cop_order_1_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_1_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cop Order 1
-dissect.cop_order_1 = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_1 = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cop_order_1 then
-    local length = size_of.cop_order_1(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_1(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cop_order_1(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cop_order_1(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cop_order_1, range, display)
   end
 
-  return dissect.cop_order_1_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_1_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Cop Orders Body
-size_of.assign_cop_orders_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.calculated_opening_price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.calculated_opening_price
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.cop_order_1(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_1(buffer, offset + index)
 
-  index = index + size_of.cop_order_2(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_2(buffer, offset + index)
 
-  index = index + size_of.cop_order_3(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_3(buffer, offset + index)
 
-  index = index + size_of.cop_order_4(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_4(buffer, offset + index)
 
-  index = index + size_of.cop_order_5(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_5(buffer, offset + index)
 
-  index = index + size_of.cop_order_6(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_6(buffer, offset + index)
 
-  index = index + size_of.cop_order_7(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_7(buffer, offset + index)
 
-  index = index + size_of.cop_order_8(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_8(buffer, offset + index)
 
-  index = index + size_of.cop_order_9(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_9(buffer, offset + index)
 
-  index = index + size_of.cop_order_10(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_10(buffer, offset + index)
 
-  index = index + size_of.cop_order_11(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_11(buffer, offset + index)
 
-  index = index + size_of.cop_order_12(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_12(buffer, offset + index)
 
-  index = index + size_of.cop_order_13(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_13(buffer, offset + index)
 
-  index = index + size_of.cop_order_14(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_14(buffer, offset + index)
 
-  index = index + size_of.cop_order_15(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cop_order_15(buffer, offset + index)
 
-  index = index + size_of.trading_system_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trading_system_time_stamp
 
   return index
 end
 
 -- Display: Assign Cop Orders Body
-display.assign_cop_orders_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_orders_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Cop Orders Body
-dissect.assign_cop_orders_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Calculated Opening Price: 8 Byte Unsigned Fixed Width Integer
-  index, calculated_opening_price = dissect.calculated_opening_price(buffer, index, packet, parent)
+  index, calculated_opening_price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.calculated_opening_price(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Cop Order 1: Struct of 2 fields
-  index, cop_order_1 = dissect.cop_order_1(buffer, index, packet, parent)
+  index, cop_order_1 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_1(buffer, index, packet, parent)
 
   -- Cop Order 2: Struct of 2 fields
-  index, cop_order_2 = dissect.cop_order_2(buffer, index, packet, parent)
+  index, cop_order_2 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_2(buffer, index, packet, parent)
 
   -- Cop Order 3: Struct of 2 fields
-  index, cop_order_3 = dissect.cop_order_3(buffer, index, packet, parent)
+  index, cop_order_3 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_3(buffer, index, packet, parent)
 
   -- Cop Order 4: Struct of 2 fields
-  index, cop_order_4 = dissect.cop_order_4(buffer, index, packet, parent)
+  index, cop_order_4 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_4(buffer, index, packet, parent)
 
   -- Cop Order 5: Struct of 2 fields
-  index, cop_order_5 = dissect.cop_order_5(buffer, index, packet, parent)
+  index, cop_order_5 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_5(buffer, index, packet, parent)
 
   -- Cop Order 6: Struct of 2 fields
-  index, cop_order_6 = dissect.cop_order_6(buffer, index, packet, parent)
+  index, cop_order_6 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_6(buffer, index, packet, parent)
 
   -- Cop Order 7: Struct of 2 fields
-  index, cop_order_7 = dissect.cop_order_7(buffer, index, packet, parent)
+  index, cop_order_7 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_7(buffer, index, packet, parent)
 
   -- Cop Order 8: Struct of 2 fields
-  index, cop_order_8 = dissect.cop_order_8(buffer, index, packet, parent)
+  index, cop_order_8 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_8(buffer, index, packet, parent)
 
   -- Cop Order 9: Struct of 2 fields
-  index, cop_order_9 = dissect.cop_order_9(buffer, index, packet, parent)
+  index, cop_order_9 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_9(buffer, index, packet, parent)
 
   -- Cop Order 10: Struct of 2 fields
-  index, cop_order_10 = dissect.cop_order_10(buffer, index, packet, parent)
+  index, cop_order_10 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_10(buffer, index, packet, parent)
 
   -- Cop Order 11: Struct of 2 fields
-  index, cop_order_11 = dissect.cop_order_11(buffer, index, packet, parent)
+  index, cop_order_11 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_11(buffer, index, packet, parent)
 
   -- Cop Order 12: Struct of 2 fields
-  index, cop_order_12 = dissect.cop_order_12(buffer, index, packet, parent)
+  index, cop_order_12 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_12(buffer, index, packet, parent)
 
   -- Cop Order 13: Struct of 2 fields
-  index, cop_order_13 = dissect.cop_order_13(buffer, index, packet, parent)
+  index, cop_order_13 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_13(buffer, index, packet, parent)
 
   -- Cop Order 14: Struct of 2 fields
-  index, cop_order_14 = dissect.cop_order_14(buffer, index, packet, parent)
+  index, cop_order_14 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_14(buffer, index, packet, parent)
 
   -- Cop Order 15: Struct of 2 fields
-  index, cop_order_15 = dissect.cop_order_15(buffer, index, packet, parent)
+  index, cop_order_15 = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cop_order_15(buffer, index, packet, parent)
 
   -- Trading System Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, trading_system_time_stamp = dissect.trading_system_time_stamp(buffer, index, packet, parent)
+  index, trading_system_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trading_system_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Cop Orders Body
-dissect.assign_cop_orders_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_cop_orders_body then
-    local length = size_of.assign_cop_orders_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_cop_orders_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_orders_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_body, range, display)
   end
 
-  return dissect.assign_cop_orders_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Assign Cop Orders Message
-size_of.assign_cop_orders_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.assign_cop_orders_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Assign Cop Orders Message
-display.assign_cop_orders_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_orders_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Assign Cop Orders Message
-dissect.assign_cop_orders_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Assign Cop Orders Body: Struct of 19 fields
-  index, assign_cop_orders_body = dissect.assign_cop_orders_body(buffer, index, packet, parent)
+  index, assign_cop_orders_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Assign Cop Orders Message
-dissect.assign_cop_orders_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.assign_cop_orders_message then
-    local length = size_of.assign_cop_orders_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.assign_cop_orders_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.assign_cop_orders_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.assign_cop_orders_message, range, display)
   end
 
-  return dissect.assign_cop_orders_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Book Terms Body
-size_of.order_book_terms_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.non_resident
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
 
-  index = index + size_of.settlement_terms
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
 
-  index = index + size_of.settlement_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
   return index
 end
 
 -- Display: Order Book Terms Body
-display.order_book_terms_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_terms_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Book Terms Body
-dissect.order_book_terms_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
-  index, non_resident = dissect.non_resident(buffer, index, packet, parent)
+  index, non_resident = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
-  index, settlement_terms = dissect.settlement_terms(buffer, index, packet, parent)
+  index, settlement_terms = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms(buffer, index, packet, parent)
 
   -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
-  index, settlement_date = dissect.settlement_date(buffer, index, packet, parent)
+  index, settlement_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Terms Body
-dissect.order_book_terms_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_terms_body then
-    local length = size_of.order_book_terms_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_terms_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_terms_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_body, range, display)
   end
 
-  return dissect.order_book_terms_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Book Terms Message
-size_of.order_book_terms_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_book_terms_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Book Terms Message
-display.order_book_terms_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_terms_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Book Terms Message
-dissect.order_book_terms_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Book Terms Body: Struct of 10 fields
-  index, order_book_terms_body = dissect.order_book_terms_body(buffer, index, packet, parent)
+  index, order_book_terms_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Terms Message
-dissect.order_book_terms_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_terms_message then
-    local length = size_of.order_book_terms_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_terms_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_terms_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_terms_message, range, display)
   end
 
-  return dissect.order_book_terms_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Book Body
-size_of.order_book_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.broker_number
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.broker_number
 
-  index = index + size_of.order_side
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_side
 
-  index = index + size_of.order_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_id
 
-  index = index + size_of.price
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.price
 
-  index = index + size_of.volume
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.volume
 
-  index = index + size_of.non_resident
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.non_resident
 
-  index = index + size_of.settlement_terms
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_terms
 
-  index = index + size_of.settlement_date
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.settlement_date
 
-  index = index + size_of.priority_time_stamp
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.priority_time_stamp
 
   return index
 end
 
 -- Display: Order Book Body
-display.order_book_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Book Body
-dissect.order_book_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Broker Number: 2 Byte Unsigned Fixed Width Integer
-  index, broker_number = dissect.broker_number(buffer, index, packet, parent)
+  index, broker_number = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.broker_number(buffer, index, packet, parent)
 
   -- Order Side: 1 Byte Ascii String Enum with 2 values
-  index, order_side = dissect.order_side(buffer, index, packet, parent)
+  index, order_side = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_id(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
-  index, volume = dissect.volume(buffer, index, packet, parent)
+  index, volume = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.volume(buffer, index, packet, parent)
 
   -- Non Resident: 1 Byte Ascii String Enum with 2 values
-  index, non_resident = dissect.non_resident(buffer, index, packet, parent)
+  index, non_resident = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.non_resident(buffer, index, packet, parent)
 
   -- Settlement Terms: 1 Byte Ascii String Enum with 6 values
-  index, settlement_terms = dissect.settlement_terms(buffer, index, packet, parent)
+  index, settlement_terms = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_terms(buffer, index, packet, parent)
 
   -- Settlement Date: 4 Byte Unsigned Fixed Width Integer
-  index, settlement_date = dissect.settlement_date(buffer, index, packet, parent)
+  index, settlement_date = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.settlement_date(buffer, index, packet, parent)
 
   -- Priority Time Stamp: 8 Byte Unsigned Fixed Width Integer
-  index, priority_time_stamp = dissect.priority_time_stamp(buffer, index, packet, parent)
+  index, priority_time_stamp = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.priority_time_stamp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Body
-dissect.order_book_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_body then
-    local length = size_of.order_book_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_body, range, display)
   end
 
-  return dissect.order_book_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Book Message
-size_of.order_book_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.order_book_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Order Book Message
-display.order_book_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Book Message
-dissect.order_book_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Order Book Body: Struct of 10 fields
-  index, order_book_body = dissect.order_book_body(buffer, index, packet, parent)
+  index, order_book_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Book Message
-dissect.order_book_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_book_message then
-    local length = size_of.order_book_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_book_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.order_book_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.order_book_message, range, display)
   end
 
-  return dissect.order_book_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Moc Eligible
-size_of.moc_eligible = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_eligible = 1
 
 -- Display: Moc Eligible
-display.moc_eligible = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_eligible = function(value)
   if value == "Y" then
     return "Moc Eligible: Yes (Y)"
   end
@@ -5770,11 +5770,11 @@ display.moc_eligible = function(value)
 end
 
 -- Dissect: Moc Eligible
-dissect.moc_eligible = function(buffer, offset, packet, parent)
-  local length = size_of.moc_eligible
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_eligible = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_eligible
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.moc_eligible(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.moc_eligible(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.moc_eligible, range, value, display)
 
@@ -5782,10 +5782,10 @@ dissect.moc_eligible = function(buffer, offset, packet, parent)
 end
 
 -- Size: Test Symbol
-size_of.test_symbol = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.test_symbol = 1
 
 -- Display: Test Symbol
-display.test_symbol = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.test_symbol = function(value)
   if value == "Y" then
     return "Test Symbol: Yes (Y)"
   end
@@ -5797,11 +5797,11 @@ display.test_symbol = function(value)
 end
 
 -- Dissect: Test Symbol
-dissect.test_symbol = function(buffer, offset, packet, parent)
-  local length = size_of.test_symbol
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.test_symbol = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.test_symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.test_symbol(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.test_symbol(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.test_symbol, range, value, display)
 
@@ -5809,19 +5809,19 @@ dissect.test_symbol = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Minimum Quantity
-size_of.sell_minimum_quantity = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_minimum_quantity = 4
 
 -- Display: Sell Minimum Quantity
-display.sell_minimum_quantity = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_minimum_quantity = function(value)
   return "Sell Minimum Quantity: "..value
 end
 
 -- Dissect: Sell Minimum Quantity
-dissect.sell_minimum_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.sell_minimum_quantity
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_minimum_quantity = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_minimum_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_minimum_quantity(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_minimum_quantity(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_minimum_quantity, range, value, display)
 
@@ -5829,19 +5829,19 @@ dissect.sell_minimum_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Sell Maximum Quantity
-size_of.sell_maximum_quantity = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_maximum_quantity = 4
 
 -- Display: Sell Maximum Quantity
-display.sell_maximum_quantity = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_maximum_quantity = function(value)
   return "Sell Maximum Quantity: "..value
 end
 
 -- Dissect: Sell Maximum Quantity
-dissect.sell_maximum_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.sell_maximum_quantity
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_maximum_quantity = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_maximum_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.sell_maximum_quantity(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.sell_maximum_quantity(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.sell_maximum_quantity, range, value, display)
 
@@ -5849,19 +5849,19 @@ dissect.sell_maximum_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Minimum Quantity
-size_of.buy_minimum_quantity = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_minimum_quantity = 4
 
 -- Display: Buy Minimum Quantity
-display.buy_minimum_quantity = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_minimum_quantity = function(value)
   return "Buy Minimum Quantity: "..value
 end
 
 -- Dissect: Buy Minimum Quantity
-dissect.buy_minimum_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.buy_minimum_quantity
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_minimum_quantity = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_minimum_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_minimum_quantity(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_minimum_quantity(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_minimum_quantity, range, value, display)
 
@@ -5869,19 +5869,19 @@ dissect.buy_minimum_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Buy Maximum Quantity
-size_of.buy_maximum_quantity = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_maximum_quantity = 4
 
 -- Display: Buy Maximum Quantity
-display.buy_maximum_quantity = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_maximum_quantity = function(value)
   return "Buy Maximum Quantity: "..value
 end
 
 -- Dissect: Buy Maximum Quantity
-dissect.buy_maximum_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.buy_maximum_quantity
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_maximum_quantity = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_maximum_quantity
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.buy_maximum_quantity(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.buy_maximum_quantity(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.buy_maximum_quantity, range, value, display)
 
@@ -5889,10 +5889,10 @@ dissect.buy_maximum_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Sale
-size_of.last_sale = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.last_sale = 8
 
 -- Display: Last Sale
-display.last_sale = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.last_sale = function(value)
   return "Last Sale: "..value
 end
 
@@ -5902,12 +5902,12 @@ translate.last_sale = function(raw)
 end
 
 -- Dissect: Last Sale
-dissect.last_sale = function(buffer, offset, packet, parent)
-  local length = size_of.last_sale
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.last_sale = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.last_sale
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.last_sale(raw)
-  local display = display.last_sale(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.last_sale(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.last_sale, range, value, display)
 
@@ -5915,10 +5915,10 @@ dissect.last_sale = function(buffer, offset, packet, parent)
 end
 
 -- Size: Face Value
-size_of.face_value = 8
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.face_value = 8
 
 -- Display: Face Value
-display.face_value = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.face_value = function(value)
   return "Face Value: "..value
 end
 
@@ -5928,12 +5928,12 @@ translate.face_value = function(raw)
 end
 
 -- Dissect: Face Value
-dissect.face_value = function(buffer, offset, packet, parent)
-  local length = size_of.face_value
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.face_value = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.face_value
   local range = buffer(offset, length)
   local raw = range:le_uint64()
   local value = translate.face_value(raw)
-  local display = display.face_value(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.face_value(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.face_value, range, value, display)
 
@@ -5941,10 +5941,10 @@ dissect.face_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Currency
-size_of.currency = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.currency = 1
 
 -- Display: Currency
-display.currency = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.currency = function(value)
   if value == "U" then
     return "Currency: Usd (U)"
   end
@@ -5956,11 +5956,11 @@ display.currency = function(value)
 end
 
 -- Dissect: Currency
-dissect.currency = function(buffer, offset, packet, parent)
-  local length = size_of.currency
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.currency = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.currency
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.currency(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.currency, range, value, display)
 
@@ -5968,19 +5968,19 @@ dissect.currency = function(buffer, offset, packet, parent)
 end
 
 -- Size: Board Lot
-size_of.board_lot = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.board_lot = 2
 
 -- Display: Board Lot
-display.board_lot = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.board_lot = function(value)
   return "Board Lot: "..value
 end
 
 -- Dissect: Board Lot
-dissect.board_lot = function(buffer, offset, packet, parent)
-  local length = size_of.board_lot
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.board_lot = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.board_lot
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.board_lot(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.board_lot(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.board_lot, range, value, display)
 
@@ -5988,19 +5988,19 @@ dissect.board_lot = function(buffer, offset, packet, parent)
 end
 
 -- Size: Cusip
-size_of.cusip = 12
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cusip = 12
 
 -- Display: Cusip
-display.cusip = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cusip = function(value)
   return "Cusip: "..value
 end
 
 -- Dissect: Cusip
-dissect.cusip = function(buffer, offset, packet, parent)
-  local length = size_of.cusip
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cusip = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cusip
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cusip(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.cusip(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.cusip, range, value, display)
 
@@ -6008,369 +6008,369 @@ dissect.cusip = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Status Body
-size_of.symbol_status_body = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_body = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol
 
-  index = index + size_of.stock_group
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_group
 
-  index = index + size_of.cusip
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.cusip
 
-  index = index + size_of.board_lot
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.board_lot
 
-  index = index + size_of.currency
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.currency
 
-  index = index + size_of.face_value
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.face_value
 
-  index = index + size_of.last_sale
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.last_sale
 
-  index = index + size_of.listing_market
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.listing_market
 
-  index = index + size_of.product_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.product_type
 
-  index = index + size_of.buy_maximum_quantity
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_maximum_quantity
 
-  index = index + size_of.buy_minimum_quantity
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.buy_minimum_quantity
 
-  index = index + size_of.sell_maximum_quantity
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_maximum_quantity
 
-  index = index + size_of.sell_minimum_quantity
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.sell_minimum_quantity
 
-  index = index + size_of.stock_state
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_state
 
-  index = index + size_of.test_symbol
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.test_symbol
 
-  index = index + size_of.moc_eligible
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_eligible
 
   return index
 end
 
 -- Display: Symbol Status Body
-display.symbol_status_body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol_status_body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Status Body
-dissect.symbol_status_body_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_body_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Symbol: 12 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol(buffer, index, packet, parent)
 
   -- Stock Group: 1 Byte Unsigned Fixed Width Integer
-  index, stock_group = dissect.stock_group(buffer, index, packet, parent)
+  index, stock_group = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_group(buffer, index, packet, parent)
 
   -- Cusip: 12 Byte Ascii String
-  index, cusip = dissect.cusip(buffer, index, packet, parent)
+  index, cusip = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.cusip(buffer, index, packet, parent)
 
   -- Board Lot: 2 Byte Unsigned Fixed Width Integer
-  index, board_lot = dissect.board_lot(buffer, index, packet, parent)
+  index, board_lot = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.board_lot(buffer, index, packet, parent)
 
   -- Currency: 1 Byte Ascii String Enum with 2 values
-  index, currency = dissect.currency(buffer, index, packet, parent)
+  index, currency = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.currency(buffer, index, packet, parent)
 
   -- Face Value: 8 Byte Unsigned Fixed Width Integer
-  index, face_value = dissect.face_value(buffer, index, packet, parent)
+  index, face_value = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.face_value(buffer, index, packet, parent)
 
   -- Last Sale: 8 Byte Unsigned Fixed Width Integer
-  index, last_sale = dissect.last_sale(buffer, index, packet, parent)
+  index, last_sale = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.last_sale(buffer, index, packet, parent)
 
   -- Listing Market: 1 Byte Ascii String Enum with 7 values
-  index, listing_market = dissect.listing_market(buffer, index, packet, parent)
+  index, listing_market = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.listing_market(buffer, index, packet, parent)
 
   -- Product Type: 1 Byte Ascii String Enum with 6 values
-  index, product_type = dissect.product_type(buffer, index, packet, parent)
+  index, product_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.product_type(buffer, index, packet, parent)
 
   -- Buy Maximum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, buy_maximum_quantity = dissect.buy_maximum_quantity(buffer, index, packet, parent)
+  index, buy_maximum_quantity = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_maximum_quantity(buffer, index, packet, parent)
 
   -- Buy Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, buy_minimum_quantity = dissect.buy_minimum_quantity(buffer, index, packet, parent)
+  index, buy_minimum_quantity = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.buy_minimum_quantity(buffer, index, packet, parent)
 
   -- Sell Maximum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, sell_maximum_quantity = dissect.sell_maximum_quantity(buffer, index, packet, parent)
+  index, sell_maximum_quantity = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_maximum_quantity(buffer, index, packet, parent)
 
   -- Sell Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
-  index, sell_minimum_quantity = dissect.sell_minimum_quantity(buffer, index, packet, parent)
+  index, sell_minimum_quantity = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.sell_minimum_quantity(buffer, index, packet, parent)
 
   -- Stock State: 2 Byte Ascii String Enum with 8 values
-  index, stock_state = dissect.stock_state(buffer, index, packet, parent)
+  index, stock_state = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_state(buffer, index, packet, parent)
 
   -- Test Symbol: 1 Byte Ascii String Enum with 2 values
-  index, test_symbol = dissect.test_symbol(buffer, index, packet, parent)
+  index, test_symbol = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.test_symbol(buffer, index, packet, parent)
 
   -- Moc Eligible: 1 Byte Ascii String Enum with 2 values
-  index, moc_eligible = dissect.moc_eligible(buffer, index, packet, parent)
+  index, moc_eligible = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_eligible(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Status Body
-dissect.symbol_status_body = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_body = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_status_body then
-    local length = size_of.symbol_status_body(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_body(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_status_body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol_status_body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_body, range, display)
   end
 
-  return dissect.symbol_status_body_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_body_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Symbol Status Message
-size_of.symbol_status_message = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.business_header(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.business_header(buffer, offset + index)
 
-  index = index + size_of.symbol_status_body(buffer, offset + index)
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_body(buffer, offset + index)
 
   return index
 end
 
 -- Display: Symbol Status Message
-display.symbol_status_message = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol_status_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Symbol Status Message
-dissect.symbol_status_message_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Business Header: Struct of 5 fields
-  index, business_header = dissect.business_header(buffer, index, packet, parent)
+  index, business_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.business_header(buffer, index, packet, parent)
 
   -- Symbol Status Body: Struct of 16 fields
-  index, symbol_status_body = dissect.symbol_status_body(buffer, index, packet, parent)
+  index, symbol_status_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Symbol Status Message
-dissect.symbol_status_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.symbol_status_message then
-    local length = size_of.symbol_status_message(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.symbol_status_message(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.symbol_status_message(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.symbol_status_message, range, display)
   end
 
-  return dissect.symbol_status_message_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Body Message
-size_of.body_message = function(buffer, offset, msg_type)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.body_message = function(buffer, offset, msg_type)
   -- Size of Symbol Status Message
   if msg_type == "J" then
-    return size_of.symbol_status_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.symbol_status_message(buffer, offset)
   end
   -- Size of Order Book Message
   if msg_type == "G" then
-    return size_of.order_book_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_message(buffer, offset)
   end
   -- Size of Order Book Terms Message
   if msg_type == "j" then
-    return size_of.order_book_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_book_terms_message(buffer, offset)
   end
   -- Size of Assign Cop Orders Message
   if msg_type == "A" then
-    return size_of.assign_cop_orders_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_orders_message(buffer, offset)
   end
   -- Size of Assign Cop No Orders Message
   if msg_type == "B" then
-    return size_of.assign_cop_no_orders_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_cop_no_orders_message(buffer, offset)
   end
   -- Size of Assign Limit Message
   if msg_type == "C" then
-    return size_of.assign_limit_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.assign_limit_message(buffer, offset)
   end
   -- Size of Market State Update Message
   if msg_type == "E" then
-    return size_of.market_state_update_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.market_state_update_message(buffer, offset)
   end
   -- Size of Moc Imbalance Message
   if msg_type == "F" then
-    return size_of.moc_imbalance_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.moc_imbalance_message(buffer, offset)
   end
   -- Size of Order Booked Message
   if msg_type == "P" then
-    return size_of.order_booked_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_message(buffer, offset)
   end
   -- Size of Order Booked Terms Message
   if msg_type == "m" then
-    return size_of.order_booked_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_booked_terms_message(buffer, offset)
   end
   -- Size of Order Cancelled Message
   if msg_type == "Q" then
-    return size_of.order_cancelled_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_message(buffer, offset)
   end
   -- Size of Order Cancelled Terms Message
   if msg_type == "n" then
-    return size_of.order_cancelled_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_cancelled_terms_message(buffer, offset)
   end
   -- Size of Order Price Time Assigned Message
   if msg_type == "R" then
-    return size_of.order_price_time_assigned_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_message(buffer, offset)
   end
   -- Size of Order Price Time Assigned Terms Message
   if msg_type == "o" then
-    return size_of.order_price_time_assigned_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.order_price_time_assigned_terms_message(buffer, offset)
   end
   -- Size of Stock Status Message
   if msg_type == "I" then
-    return size_of.stock_status_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.stock_status_message(buffer, offset)
   end
   -- Size of Trade Report Message
   if msg_type == "S" then
-    return size_of.trade_report_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_message(buffer, offset)
   end
   -- Size of Trade Report Terms Message
   if msg_type == "P" then
-    return size_of.trade_report_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_report_terms_message(buffer, offset)
   end
   -- Size of Trade Cancelled Message
   if msg_type == "T" then
-    return size_of.trade_cancelled_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_message(buffer, offset)
   end
   -- Size of Trade Cancelled Terms Message
   if msg_type == "q" then
-    return size_of.trade_cancelled_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_cancelled_terms_message(buffer, offset)
   end
   -- Size of Trade Correction Message
   if msg_type == "U" then
-    return size_of.trade_correction_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_message(buffer, offset)
   end
   -- Size of Trade Correction Terms Message
   if msg_type == "r" then
-    return size_of.trade_correction_terms_message(buffer, offset)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.trade_correction_terms_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Body Message
-display.body_message = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_message = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Body Message
-dissect.body_message_branches = function(buffer, offset, packet, parent, msg_type)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_branches = function(buffer, offset, packet, parent, msg_type)
   -- Dissect Symbol Status Message
   if msg_type == "J" then
-    return dissect.symbol_status_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.symbol_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Book Message
   if msg_type == "G" then
-    return dissect.order_book_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Book Terms Message
   if msg_type == "j" then
-    return dissect.order_book_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_book_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Assign Cop Orders Message
   if msg_type == "A" then
-    return dissect.assign_cop_orders_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_orders_message(buffer, offset, packet, parent)
   end
   -- Dissect Assign Cop No Orders Message
   if msg_type == "B" then
-    return dissect.assign_cop_no_orders_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_cop_no_orders_message(buffer, offset, packet, parent)
   end
   -- Dissect Assign Limit Message
   if msg_type == "C" then
-    return dissect.assign_limit_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.assign_limit_message(buffer, offset, packet, parent)
   end
   -- Dissect Market State Update Message
   if msg_type == "E" then
-    return dissect.market_state_update_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.market_state_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Moc Imbalance Message
   if msg_type == "F" then
-    return dissect.moc_imbalance_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.moc_imbalance_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Booked Message
   if msg_type == "P" then
-    return dissect.order_booked_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Booked Terms Message
   if msg_type == "m" then
-    return dissect.order_booked_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_booked_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Message
   if msg_type == "Q" then
-    return dissect.order_cancelled_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Terms Message
   if msg_type == "n" then
-    return dissect.order_cancelled_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_cancelled_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Price Time Assigned Message
   if msg_type == "R" then
-    return dissect.order_price_time_assigned_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Price Time Assigned Terms Message
   if msg_type == "o" then
-    return dissect.order_price_time_assigned_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.order_price_time_assigned_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Stock Status Message
   if msg_type == "I" then
-    return dissect.stock_status_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.stock_status_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Message
   if msg_type == "S" then
-    return dissect.trade_report_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Report Terms Message
   if msg_type == "P" then
-    return dissect.trade_report_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_report_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancelled Message
   if msg_type == "T" then
-    return dissect.trade_cancelled_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Cancelled Terms Message
   if msg_type == "q" then
-    return dissect.trade_cancelled_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_cancelled_terms_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Correction Message
   if msg_type == "U" then
-    return dissect.trade_correction_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Correction Terms Message
   if msg_type == "r" then
-    return dissect.trade_correction_terms_message(buffer, offset, packet, parent)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.trade_correction_terms_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Body Message
-dissect.body_message = function(buffer, offset, packet, parent, msg_type)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message = function(buffer, offset, packet, parent, msg_type)
   if not show.body_message then
-    return dissect.body_message_branches(buffer, offset, packet, parent, msg_type)
+    return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_branches(buffer, offset, packet, parent, msg_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.body_message(buffer, offset, msg_type)
+  local size = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.body_message(buffer, offset, msg_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.body_message(buffer, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_message(buffer, packet, parent)
   local element = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_message, range, display)
 
-  return dissect.body_message_branches(buffer, offset, packet, parent, msg_type)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message_branches(buffer, offset, packet, parent, msg_type)
 end
 
 -- Size: Msg Type
-size_of.msg_type = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_type = 1
 
 -- Display: Msg Type
-display.msg_type = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_type = function(value)
   if value == "J" then
     return "Msg Type: Symbol Status Message (J)"
   end
@@ -6439,11 +6439,11 @@ display.msg_type = function(value)
 end
 
 -- Dissect: Msg Type
-dissect.msg_type = function(buffer, offset, packet, parent)
-  local length = size_of.msg_type
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_type = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.msg_type(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_type(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_type, range, value, display)
 
@@ -6451,19 +6451,19 @@ dissect.msg_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Msg Length
-size_of.msg_length = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_length = 2
 
 -- Display: Msg Length
-display.msg_length = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_length = function(value)
   return "Msg Length: "..value
 end
 
 -- Dissect: Msg Length
-dissect.msg_length = function(buffer, offset, packet, parent)
-  local length = size_of.msg_length
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_length = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.msg_length(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.msg_length(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.msg_length, range, value, display)
 
@@ -6471,96 +6471,96 @@ dissect.msg_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Body Header
-size_of.body_header = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.body_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.msg_length
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_length
 
-  index = index + size_of.msg_type
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.msg_type
 
   return index
 end
 
 -- Display: Body Header
-display.body_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Body Header
-dissect.body_header_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Msg Length: 2 Byte Unsigned Fixed Width Integer
-  index, msg_length = dissect.msg_length(buffer, index, packet, parent)
+  index, msg_length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_length(buffer, index, packet, parent)
 
   -- Msg Type: 1 Byte Ascii String Enum with 21 values
-  index, msg_type = dissect.msg_type(buffer, index, packet, parent)
+  index, msg_type = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.msg_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Body Header
-dissect.body_header = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.body_header then
-    local length = size_of.body_header(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.body_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.body_header(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body_header(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body_header, range, display)
   end
 
-  return dissect.body_header_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Body
-display.body = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Body
-dissect.body_fields = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields = function(buffer, offset, packet, parent, size_of_body)
   local index = offset
 
   -- Body Header: Struct of 2 fields
-  index, body_header = dissect.body_header(buffer, index, packet, parent)
+  index, body_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_header(buffer, index, packet, parent)
 
   -- Dependency element: Msg Type
   local msg_type = buffer(index - 1, 1):string()
 
   -- Body Message: Runtime Type with 21 branches
-  index = dissect.body_message(buffer, index, packet, parent, msg_type)
+  index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_message(buffer, index, packet, parent, msg_type)
 
   return index
 end
 
 -- Dissect: Body
-dissect.body = function(buffer, offset, packet, parent, size_of_body)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body = function(buffer, offset, packet, parent, size_of_body)
   -- Optionally add struct element to protocol tree
   if show.body then
     local range = buffer(offset, size_of_body)
-    local display = display.body(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.body(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.body, range, display)
   end
 
-  dissect.body_fields(buffer, offset, packet, parent, size_of_body)
+  tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body_fields(buffer, offset, packet, parent, size_of_body)
 
   return offset + size_of_body
 end
 
 -- Size: Num Body
-size_of.num_body = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.num_body = 1
 
 -- Display: Num Body
-display.num_body = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.num_body = function(value)
   return "Num Body: "..value
 end
 
 -- Dissect: Num Body
-dissect.num_body = function(buffer, offset, packet, parent)
-  local length = size_of.num_body
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.num_body = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.num_body
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.num_body(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.num_body(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.num_body, range, value, display)
 
@@ -6568,10 +6568,10 @@ dissect.num_body = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ack Required Poss Dup
-size_of.ack_required_poss_dup = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.ack_required_poss_dup = 1
 
 -- Display: Ack Required Poss Dup
-display.ack_required_poss_dup = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.ack_required_poss_dup = function(value)
   if value == "A" then
     return "Ack Required Poss Dup: Receiver Needs To Ack (A)"
   end
@@ -6583,11 +6583,11 @@ display.ack_required_poss_dup = function(value)
 end
 
 -- Dissect: Ack Required Poss Dup
-dissect.ack_required_poss_dup = function(buffer, offset, packet, parent)
-  local length = size_of.ack_required_poss_dup
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.ack_required_poss_dup = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.ack_required_poss_dup
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ack_required_poss_dup(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.ack_required_poss_dup(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.ack_required_poss_dup, range, value, display)
 
@@ -6595,19 +6595,19 @@ dissect.ack_required_poss_dup = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session Id
-size_of.session_id = 4
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.session_id = 4
 
 -- Display: Session Id
-display.session_id = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.session_id = function(value)
   return "Session Id: "..value
 end
 
 -- Dissect: Session Id
-dissect.session_id = function(buffer, offset, packet, parent)
-  local length = size_of.session_id
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.session_id = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.session_id
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.session_id(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.session_id(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.session_id, range, value, display)
 
@@ -6615,19 +6615,19 @@ dissect.session_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Length
-size_of.message_length = 2
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.message_length = 2
 
 -- Display: Message Length
-display.message_length = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.message_length = function(value)
   return "Message Length: "..value
 end
 
 -- Dissect: Message Length
-dissect.message_length = function(buffer, offset, packet, parent)
-  local length = size_of.message_length
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.message_length = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.message_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = display.message_length(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.message_length(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.message_length, range, value, display)
 
@@ -6635,19 +6635,19 @@ dissect.message_length = function(buffer, offset, packet, parent)
 end
 
 -- Size: Protocol Version
-size_of.protocol_version = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_version = 1
 
 -- Display: Protocol Version
-display.protocol_version = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_version = function(value)
   return "Protocol Version: "..value
 end
 
 -- Dissect: Protocol Version
-dissect.protocol_version = function(buffer, offset, packet, parent)
-  local length = size_of.protocol_version
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_version = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_version
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.protocol_version(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_version(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_version, range, value, display)
 
@@ -6655,19 +6655,19 @@ dissect.protocol_version = function(buffer, offset, packet, parent)
 end
 
 -- Size: Protocol Name
-size_of.protocol_name = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_name = 1
 
 -- Display: Protocol Name
-display.protocol_name = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_name = function(value)
   return "Protocol Name: "..value
 end
 
 -- Dissect: Protocol Name
-dissect.protocol_name = function(buffer, offset, packet, parent)
-  local length = size_of.protocol_name
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_name = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_name
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.protocol_name(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.protocol_name(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.protocol_name, range, value, display)
 
@@ -6675,19 +6675,19 @@ dissect.protocol_name = function(buffer, offset, packet, parent)
 end
 
 -- Size: Start Of Frame
-size_of.start_of_frame = 1
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.start_of_frame = 1
 
 -- Display: Start Of Frame
-display.start_of_frame = function(value)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.start_of_frame = function(value)
   return "Start Of Frame: "..value
 end
 
 -- Dissect: Start Of Frame
-dissect.start_of_frame = function(buffer, offset, packet, parent)
-  local length = size_of.start_of_frame
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.start_of_frame = function(buffer, offset, packet, parent)
+  local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.start_of_frame
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.start_of_frame(value, buffer, offset, packet, parent)
+  local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.start_of_frame(value, buffer, offset, packet, parent)
 
   parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.start_of_frame, range, value, display)
 
@@ -6695,74 +6695,74 @@ dissect.start_of_frame = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Frame Header
-size_of.frame_header = function(buffer, offset)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.frame_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.start_of_frame
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.start_of_frame
 
-  index = index + size_of.protocol_name
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_name
 
-  index = index + size_of.protocol_version
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.protocol_version
 
-  index = index + size_of.message_length
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.message_length
 
-  index = index + size_of.session_id
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.session_id
 
-  index = index + size_of.ack_required_poss_dup
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.ack_required_poss_dup
 
-  index = index + size_of.num_body
+  index = index + tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.num_body
 
   return index
 end
 
 -- Display: Frame Header
-display.frame_header = function(buffer, offset, size, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.frame_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Frame Header
-dissect.frame_header_fields = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Start Of Frame: 1 Byte Fixed Width Integer
-  index, start_of_frame = dissect.start_of_frame(buffer, index, packet, parent)
+  index, start_of_frame = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.start_of_frame(buffer, index, packet, parent)
 
   -- Protocol Name: 1 Byte Ascii String
-  index, protocol_name = dissect.protocol_name(buffer, index, packet, parent)
+  index, protocol_name = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_name(buffer, index, packet, parent)
 
   -- Protocol Version: 1 Byte Ascii String
-  index, protocol_version = dissect.protocol_version(buffer, index, packet, parent)
+  index, protocol_version = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.protocol_version(buffer, index, packet, parent)
 
   -- Message Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_length = dissect.message_length(buffer, index, packet, parent)
+  index, message_length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.message_length(buffer, index, packet, parent)
 
   -- Session Id: 4 Byte Unsigned Fixed Width Integer
-  index, session_id = dissect.session_id(buffer, index, packet, parent)
+  index, session_id = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.session_id(buffer, index, packet, parent)
 
   -- Ack Required Poss Dup: 1 Byte Ascii String Enum with 2 values
-  index, ack_required_poss_dup = dissect.ack_required_poss_dup(buffer, index, packet, parent)
+  index, ack_required_poss_dup = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.ack_required_poss_dup(buffer, index, packet, parent)
 
   -- Num Body: 1 Byte Unsigned Fixed Width Integer
-  index, num_body = dissect.num_body(buffer, index, packet, parent)
+  index, num_body = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.num_body(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Frame Header
-dissect.frame_header = function(buffer, offset, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.frame_header then
-    local length = size_of.frame_header(buffer, offset)
+    local length = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_size_of.frame_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.frame_header(buffer, packet, parent)
+    local display = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_display.frame_header(buffer, packet, parent)
     parent = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.fields.frame_header, range, display)
   end
 
-  return dissect.frame_header_fields(buffer, offset, packet, parent)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Packet
@@ -6771,13 +6771,13 @@ dissect.packet = function(buffer, packet, parent)
   while index < end_of_payload do
 
     -- Frame Header: Struct of 7 fields
-    index, frame_header = dissect.frame_header(buffer, index, packet, parent)
+    index, frame_header = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.frame_header(buffer, index, packet, parent)
 
     -- Dependency element: Msg Length
     local msg_length = buffer(index, 2):le_uint()
 
     -- Body: Struct of 2 fields
-    index = dissect.body(buffer, index, packet, parent, msg_length)
+    index = tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.body(buffer, index, packet, parent, msg_length)
   end
 
   return index
@@ -6800,7 +6800,7 @@ function tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.dissector(buffer, packet, parent
 
   -- Dissect protocol
   local protocol = parent:add(tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6, buffer(), tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return tmx_quantumfeed_tsxtsxvlevel2_xmt_v3_6_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

@@ -10,9 +10,9 @@ local otc_markets_multicast_ats_v4_5 = Proto("Otc.Markets.Multicast.Ats.v4.5.Lua
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local otc_markets_multicast_ats_v4_5_display = {}
+local otc_markets_multicast_ats_v4_5_dissect = {}
+local otc_markets_multicast_ats_v4_5_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -319,19 +319,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Trade Time Milli
-size_of.trade_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.trade_time_milli = 8
 
 -- Display: Trade Time Milli
-display.trade_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_time_milli = function(value)
   return "Trade Time Milli: "..value
 end
 
 -- Dissect: Trade Time Milli
-dissect.trade_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.trade_time_milli
+otc_markets_multicast_ats_v4_5_dissect.trade_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.trade_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_time_milli, range, value, display)
 
@@ -339,19 +339,19 @@ dissect.trade_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Size
-size_of.trade_size = 4
+otc_markets_multicast_ats_v4_5_size_of.trade_size = 4
 
 -- Display: Trade Size
-display.trade_size = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_size = function(value)
   return "Trade Size: "..value
 end
 
 -- Dissect: Trade Size
-dissect.trade_size = function(buffer, offset, packet, parent)
-  local length = size_of.trade_size
+otc_markets_multicast_ats_v4_5_dissect.trade_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_size, range, value, display)
 
@@ -359,19 +359,19 @@ dissect.trade_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price
-size_of.trade_price = 8
+otc_markets_multicast_ats_v4_5_size_of.trade_price = 8
 
 -- Display: Trade Price
-display.trade_price = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
 -- Dissect: Trade Price
-dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price
+otc_markets_multicast_ats_v4_5_dissect.trade_price = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_price
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.trade_price(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_price, range, value, display)
 
@@ -379,19 +379,19 @@ dissect.trade_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Deprecated
-size_of.deprecated = 8
+otc_markets_multicast_ats_v4_5_size_of.deprecated = 8
 
 -- Display: Deprecated
-display.deprecated = function(value)
+otc_markets_multicast_ats_v4_5_display.deprecated = function(value)
   return "Deprecated: "..value
 end
 
 -- Dissect: Deprecated
-dissect.deprecated = function(buffer, offset, packet, parent)
-  local length = size_of.deprecated
+otc_markets_multicast_ats_v4_5_dissect.deprecated = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.deprecated
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.deprecated(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.deprecated(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.deprecated, range, value, display)
 
@@ -399,10 +399,10 @@ dissect.deprecated = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Status
-size_of.trade_status = 1
+otc_markets_multicast_ats_v4_5_size_of.trade_status = 1
 
 -- Display: Trade Status
-display.trade_status = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.trade_status = function(buffer, packet, parent)
   local display = ""
 
   -- Is Irregular flag set?
@@ -414,7 +414,7 @@ display.trade_status = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Trade Status
-dissect.trade_status_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.trade_status_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Trade Status Bits: 7 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_trade_status_bits, buffer(offset, 1))
@@ -424,33 +424,33 @@ dissect.trade_status_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Trade Status
-dissect.trade_status = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.trade_status = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.trade_status(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_status(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_status, range, display)
 
   if show.trade_status then
-    dissect.trade_status_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.trade_status_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Security Id
-size_of.security_id = 4
+otc_markets_multicast_ats_v4_5_size_of.security_id = 4
 
 -- Display: Security Id
-display.security_id = function(value)
+otc_markets_multicast_ats_v4_5_display.security_id = function(value)
   return "Security Id: "..value
 end
 
 -- Dissect: Security Id
-dissect.security_id = function(buffer, offset, packet, parent)
-  local length = size_of.security_id
+otc_markets_multicast_ats_v4_5_dissect.security_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_id, range, value, display)
 
@@ -458,19 +458,19 @@ dissect.security_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Flags
-size_of.trade_flags = 1
+otc_markets_multicast_ats_v4_5_size_of.trade_flags = 1
 
 -- Display: Trade Flags
-display.trade_flags = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_flags = function(value)
   return "Trade Flags: "..value
 end
 
 -- Dissect: Trade Flags
-dissect.trade_flags = function(buffer, offset, packet, parent)
-  local length = size_of.trade_flags
+otc_markets_multicast_ats_v4_5_dissect.trade_flags = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_flags
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_flags(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_flags(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_flags, range, value, display)
 
@@ -478,10 +478,10 @@ dissect.trade_flags = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Action
-size_of.trade_action = 1
+otc_markets_multicast_ats_v4_5_size_of.trade_action = 1
 
 -- Display: Trade Action
-display.trade_action = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_action = function(value)
   if value == 2 then
     return "Trade Action: Add (2)"
   end
@@ -490,11 +490,11 @@ display.trade_action = function(value)
 end
 
 -- Dissect: Trade Action
-dissect.trade_action = function(buffer, offset, packet, parent)
-  local length = size_of.trade_action
+otc_markets_multicast_ats_v4_5_dissect.trade_action = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_action
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_action(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_action(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_action, range, value, display)
 
@@ -502,19 +502,19 @@ dissect.trade_action = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Id
-size_of.trade_id = 4
+otc_markets_multicast_ats_v4_5_size_of.trade_id = 4
 
 -- Display: Trade Id
-display.trade_id = function(value)
+otc_markets_multicast_ats_v4_5_display.trade_id = function(value)
   return "Trade Id: "..value
 end
 
 -- Dissect: Trade Id
-dissect.trade_id = function(buffer, offset, packet, parent)
-  local length = size_of.trade_id
+otc_markets_multicast_ats_v4_5_dissect.trade_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.trade_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.trade_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.trade_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.trade_id, range, value, display)
 
@@ -522,19 +522,19 @@ dissect.trade_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Channel Seq Num
-size_of.channel_seq_num = 4
+otc_markets_multicast_ats_v4_5_size_of.channel_seq_num = 4
 
 -- Display: Channel Seq Num
-display.channel_seq_num = function(value)
+otc_markets_multicast_ats_v4_5_display.channel_seq_num = function(value)
   return "Channel Seq Num: "..value
 end
 
 -- Dissect: Channel Seq Num
-dissect.channel_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.channel_seq_num
+otc_markets_multicast_ats_v4_5_dissect.channel_seq_num = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.channel_seq_num(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.channel_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.channel_seq_num, range, value, display)
 
@@ -542,97 +542,97 @@ dissect.channel_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Trade Message
-size_of.trade_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.trade_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.trade_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_id
 
-  index = index + size_of.trade_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_action
 
-  index = index + size_of.trade_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_flags
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.trade_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_status
 
-  index = index + size_of.deprecated
+  index = index + otc_markets_multicast_ats_v4_5_size_of.deprecated
 
-  index = index + size_of.trade_price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_price
 
-  index = index + size_of.trade_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_size
 
-  index = index + size_of.trade_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.trade_time_milli
 
   return index
 end
 
 -- Display: Trade Message
-display.trade_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.trade_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Trade Message
-dissect.trade_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.trade_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Trade Id: 4 Byte Unsigned Fixed Width Integer
-  index, trade_id = dissect.trade_id(buffer, index, packet, parent)
+  index, trade_id = otc_markets_multicast_ats_v4_5_dissect.trade_id(buffer, index, packet, parent)
 
   -- Trade Action: 1 Byte Unsigned Fixed Width Integer Enum with 1 values
-  index, trade_action = dissect.trade_action(buffer, index, packet, parent)
+  index, trade_action = otc_markets_multicast_ats_v4_5_dissect.trade_action(buffer, index, packet, parent)
 
   -- Trade Flags: 1 Byte Unsigned Fixed Width Integer
-  index, trade_flags = dissect.trade_flags(buffer, index, packet, parent)
+  index, trade_flags = otc_markets_multicast_ats_v4_5_dissect.trade_flags(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Trade Status: Struct of 2 fields
-  index, trade_status = dissect.trade_status(buffer, index, packet, parent)
+  index, trade_status = otc_markets_multicast_ats_v4_5_dissect.trade_status(buffer, index, packet, parent)
 
   -- Deprecated: 8 Byte Ascii String
-  index, deprecated = dissect.deprecated(buffer, index, packet, parent)
+  index, deprecated = otc_markets_multicast_ats_v4_5_dissect.deprecated(buffer, index, packet, parent)
 
   -- Trade Price: 8 Byte Unsigned Fixed Width Integer
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = otc_markets_multicast_ats_v4_5_dissect.trade_price(buffer, index, packet, parent)
 
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
-  index, trade_size = dissect.trade_size(buffer, index, packet, parent)
+  index, trade_size = otc_markets_multicast_ats_v4_5_dissect.trade_size(buffer, index, packet, parent)
 
   -- Trade Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, trade_time_milli = dissect.trade_time_milli(buffer, index, packet, parent)
+  index, trade_time_milli = otc_markets_multicast_ats_v4_5_dissect.trade_time_milli(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Trade Message
-dissect.trade_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.trade_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.trade_message then
-    local length = size_of.trade_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.trade_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.trade_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.trade_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.trade_message, range, display)
   end
 
-  return dissect.trade_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.trade_message_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Issuer Name
-display.issuer_name = function(value)
+otc_markets_multicast_ats_v4_5_display.issuer_name = function(value)
   return "Issuer Name: "..value
 end
 
 -- Dissect runtime sized field: Issuer Name
-dissect.issuer_name = function(buffer, offset, packet, parent, size)
+otc_markets_multicast_ats_v4_5_dissect.issuer_name = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.issuer_name(value, buffer, offset, packet, parent, size)
+  local display = otc_markets_multicast_ats_v4_5_display.issuer_name(value, buffer, offset, packet, parent, size)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.issuer_name, range, value, display)
 
@@ -640,19 +640,19 @@ dissect.issuer_name = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Issuer Size
-size_of.issuer_size = 1
+otc_markets_multicast_ats_v4_5_size_of.issuer_size = 1
 
 -- Display: Issuer Size
-display.issuer_size = function(value)
+otc_markets_multicast_ats_v4_5_display.issuer_size = function(value)
   return "Issuer Size: "..value
 end
 
 -- Dissect: Issuer Size
-dissect.issuer_size = function(buffer, offset, packet, parent)
-  local length = size_of.issuer_size
+otc_markets_multicast_ats_v4_5_dissect.issuer_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.issuer_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.issuer_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.issuer_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.issuer_size, range, value, display)
 
@@ -660,15 +660,15 @@ dissect.issuer_size = function(buffer, offset, packet, parent)
 end
 
 -- Display: Security Detail
-display.security_detail = function(value)
+otc_markets_multicast_ats_v4_5_display.security_detail = function(value)
   return "Security Detail: "..value
 end
 
 -- Dissect runtime sized field: Security Detail
-dissect.security_detail = function(buffer, offset, packet, parent, size)
+otc_markets_multicast_ats_v4_5_dissect.security_detail = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:string()
-  local display = display.security_detail(value, buffer, offset, packet, parent, size)
+  local display = otc_markets_multicast_ats_v4_5_display.security_detail(value, buffer, offset, packet, parent, size)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_detail, range, value, display)
 
@@ -676,19 +676,19 @@ dissect.security_detail = function(buffer, offset, packet, parent, size)
 end
 
 -- Size: Security Detail Size
-size_of.security_detail_size = 1
+otc_markets_multicast_ats_v4_5_size_of.security_detail_size = 1
 
 -- Display: Security Detail Size
-display.security_detail_size = function(value)
+otc_markets_multicast_ats_v4_5_display.security_detail_size = function(value)
   return "Security Detail Size: "..value
 end
 
 -- Dissect: Security Detail Size
-dissect.security_detail_size = function(buffer, offset, packet, parent)
-  local length = size_of.security_detail_size
+otc_markets_multicast_ats_v4_5_dissect.security_detail_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_detail_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_detail_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_detail_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_detail_size, range, value, display)
 
@@ -696,19 +696,19 @@ dissect.security_detail_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Adr Level
-size_of.adr_level = 15
+otc_markets_multicast_ats_v4_5_size_of.adr_level = 15
 
 -- Display: Adr Level
-display.adr_level = function(value)
+otc_markets_multicast_ats_v4_5_display.adr_level = function(value)
   return "Adr Level: "..value
 end
 
 -- Dissect: Adr Level
-dissect.adr_level = function(buffer, offset, packet, parent)
-  local length = size_of.adr_level
+otc_markets_multicast_ats_v4_5_dissect.adr_level = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.adr_level
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.adr_level(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.adr_level(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.adr_level, range, value, display)
 
@@ -716,19 +716,19 @@ dissect.adr_level = function(buffer, offset, packet, parent)
 end
 
 -- Size: Adr Ratio
-size_of.adr_ratio = 8
+otc_markets_multicast_ats_v4_5_size_of.adr_ratio = 8
 
 -- Display: Adr Ratio
-display.adr_ratio = function(value)
+otc_markets_multicast_ats_v4_5_display.adr_ratio = function(value)
   return "Adr Ratio: "..value
 end
 
 -- Dissect: Adr Ratio
-dissect.adr_ratio = function(buffer, offset, packet, parent)
-  local length = size_of.adr_ratio
+otc_markets_multicast_ats_v4_5_dissect.adr_ratio = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.adr_ratio
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.adr_ratio(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.adr_ratio(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.adr_ratio, range, value, display)
 
@@ -736,19 +736,19 @@ dissect.adr_ratio = function(buffer, offset, packet, parent)
 end
 
 -- Size: Callable Date Milli
-size_of.callable_date_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.callable_date_milli = 8
 
 -- Display: Callable Date Milli
-display.callable_date_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.callable_date_milli = function(value)
   return "Callable Date Milli: "..value
 end
 
 -- Dissect: Callable Date Milli
-dissect.callable_date_milli = function(buffer, offset, packet, parent)
-  local length = size_of.callable_date_milli
+otc_markets_multicast_ats_v4_5_dissect.callable_date_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.callable_date_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.callable_date_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.callable_date_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.callable_date_milli, range, value, display)
 
@@ -756,19 +756,19 @@ dissect.callable_date_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Maturity Date Milli
-size_of.maturity_date_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.maturity_date_milli = 8
 
 -- Display: Maturity Date Milli
-display.maturity_date_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.maturity_date_milli = function(value)
   return "Maturity Date Milli: "..value
 end
 
 -- Dissect: Maturity Date Milli
-dissect.maturity_date_milli = function(buffer, offset, packet, parent)
-  local length = size_of.maturity_date_milli
+otc_markets_multicast_ats_v4_5_dissect.maturity_date_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.maturity_date_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.maturity_date_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.maturity_date_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.maturity_date_milli, range, value, display)
 
@@ -776,19 +776,19 @@ dissect.maturity_date_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Coupon
-size_of.coupon = 8
+otc_markets_multicast_ats_v4_5_size_of.coupon = 8
 
 -- Display: Coupon
-display.coupon = function(value)
+otc_markets_multicast_ats_v4_5_display.coupon = function(value)
   return "Coupon: "..value
 end
 
 -- Dissect: Coupon
-dissect.coupon = function(buffer, offset, packet, parent)
-  local length = size_of.coupon
+otc_markets_multicast_ats_v4_5_dissect.coupon = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.coupon
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.coupon(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.coupon(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.coupon, range, value, display)
 
@@ -796,19 +796,19 @@ dissect.coupon = function(buffer, offset, packet, parent)
 end
 
 -- Size: Par Value
-size_of.par_value = 8
+otc_markets_multicast_ats_v4_5_size_of.par_value = 8
 
 -- Display: Par Value
-display.par_value = function(value)
+otc_markets_multicast_ats_v4_5_display.par_value = function(value)
   return "Par Value: "..value
 end
 
 -- Dissect: Par Value
-dissect.par_value = function(buffer, offset, packet, parent)
-  local length = size_of.par_value
+otc_markets_multicast_ats_v4_5_dissect.par_value = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.par_value
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.par_value(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.par_value(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.par_value, range, value, display)
 
@@ -816,10 +816,10 @@ dissect.par_value = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Status
-size_of.security_status = 1
+otc_markets_multicast_ats_v4_5_size_of.security_status = 1
 
 -- Display: Security Status
-display.security_status = function(value)
+otc_markets_multicast_ats_v4_5_display.security_status = function(value)
   if value == "A" then
     return "Security Status: Active (A)"
   end
@@ -846,11 +846,11 @@ display.security_status = function(value)
 end
 
 -- Dissect: Security Status
-dissect.security_status = function(buffer, offset, packet, parent)
-  local length = size_of.security_status
+otc_markets_multicast_ats_v4_5_dissect.security_status = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_status(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_status(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_status, range, value, display)
 
@@ -858,10 +858,10 @@ dissect.security_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Disclosure Status
-size_of.disclosure_status = 1
+otc_markets_multicast_ats_v4_5_size_of.disclosure_status = 1
 
 -- Display: Disclosure Status
-display.disclosure_status = function(value)
+otc_markets_multicast_ats_v4_5_display.disclosure_status = function(value)
   if value == 0 then
     return "Disclosure Status: No Disclosure Status (0)"
   end
@@ -879,11 +879,11 @@ display.disclosure_status = function(value)
 end
 
 -- Dissect: Disclosure Status
-dissect.disclosure_status = function(buffer, offset, packet, parent)
-  local length = size_of.disclosure_status
+otc_markets_multicast_ats_v4_5_dissect.disclosure_status = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.disclosure_status
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.disclosure_status(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.disclosure_status(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.disclosure_status, range, value, display)
 
@@ -891,10 +891,10 @@ dissect.disclosure_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reporting Status
-size_of.reporting_status = 1
+otc_markets_multicast_ats_v4_5_size_of.reporting_status = 1
 
 -- Display: Reporting Status
-display.reporting_status = function(value)
+otc_markets_multicast_ats_v4_5_display.reporting_status = function(value)
   if value == "A" then
     return "Reporting Status: Alternative Reporting Standard (A)"
   end
@@ -933,11 +933,11 @@ display.reporting_status = function(value)
 end
 
 -- Dissect: Reporting Status
-dissect.reporting_status = function(buffer, offset, packet, parent)
-  local length = size_of.reporting_status
+otc_markets_multicast_ats_v4_5_dissect.reporting_status = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.reporting_status
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reporting_status(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.reporting_status(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.reporting_status, range, value, display)
 
@@ -945,10 +945,10 @@ dissect.reporting_status = function(buffer, offset, packet, parent)
 end
 
 -- Size: Tier
-size_of.tier = 1
+otc_markets_multicast_ats_v4_5_size_of.tier = 1
 
 -- Display: Tier
-display.tier = function(value)
+otc_markets_multicast_ats_v4_5_display.tier = function(value)
   if value == 0 then
     return "Tier: No Tier (0)"
   end
@@ -993,11 +993,11 @@ display.tier = function(value)
 end
 
 -- Dissect: Tier
-dissect.tier = function(buffer, offset, packet, parent)
-  local length = size_of.tier
+otc_markets_multicast_ats_v4_5_dissect.tier = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.tier
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.tier(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.tier(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.tier, range, value, display)
 
@@ -1005,10 +1005,10 @@ dissect.tier = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Flags
-size_of.security_flags = 1
+otc_markets_multicast_ats_v4_5_size_of.security_flags = 1
 
 -- Display: Security Flags
-display.security_flags = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.security_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Saturation Eligible flag set?
@@ -1048,7 +1048,7 @@ display.security_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Security Flags
-dissect.security_flags_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.security_flags_bits = function(buffer, offset, packet, parent)
 
   -- Saturation Eligible: 1 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.saturation_eligible, buffer(offset, 1))
@@ -1076,33 +1076,33 @@ dissect.security_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Security Flags
-dissect.security_flags = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.security_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.security_flags(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_flags(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.security_flags, range, display)
 
   if show.security_flags then
-    dissect.security_flags_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.security_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Primary Market
-size_of.primary_market = 3
+otc_markets_multicast_ats_v4_5_size_of.primary_market = 3
 
 -- Display: Primary Market
-display.primary_market = function(value)
+otc_markets_multicast_ats_v4_5_display.primary_market = function(value)
   return "Primary Market: "..value
 end
 
 -- Dissect: Primary Market
-dissect.primary_market = function(buffer, offset, packet, parent)
-  local length = size_of.primary_market
+otc_markets_multicast_ats_v4_5_dissect.primary_market = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.primary_market
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.primary_market(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.primary_market(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.primary_market, range, value, display)
 
@@ -1110,19 +1110,19 @@ dissect.primary_market = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Type
-size_of.security_type = 5
+otc_markets_multicast_ats_v4_5_size_of.security_type = 5
 
 -- Display: Security Type
-display.security_type = function(value)
+otc_markets_multicast_ats_v4_5_display.security_type = function(value)
   return "Security Type: "..value
 end
 
 -- Dissect: Security Type
-dissect.security_type = function(buffer, offset, packet, parent)
-  local length = size_of.security_type
+otc_markets_multicast_ats_v4_5_dissect.security_type = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_type(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_type(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_type, range, value, display)
 
@@ -1130,10 +1130,10 @@ dissect.security_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Asset Class
-size_of.asset_class = 1
+otc_markets_multicast_ats_v4_5_size_of.asset_class = 1
 
 -- Display: Asset Class
-display.asset_class = function(value)
+otc_markets_multicast_ats_v4_5_display.asset_class = function(value)
   if value == 1 then
     return "Asset Class: Equity (1)"
   end
@@ -1145,11 +1145,11 @@ display.asset_class = function(value)
 end
 
 -- Dissect: Asset Class
-dissect.asset_class = function(buffer, offset, packet, parent)
-  local length = size_of.asset_class
+otc_markets_multicast_ats_v4_5_dissect.asset_class = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.asset_class
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.asset_class(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.asset_class(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.asset_class, range, value, display)
 
@@ -1157,19 +1157,19 @@ dissect.asset_class = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Name
-size_of.short_name = 25
+otc_markets_multicast_ats_v4_5_size_of.short_name = 25
 
 -- Display: Short Name
-display.short_name = function(value)
+otc_markets_multicast_ats_v4_5_display.short_name = function(value)
   return "Short Name: "..value
 end
 
 -- Dissect: Short Name
-dissect.short_name = function(buffer, offset, packet, parent)
-  local length = size_of.short_name
+otc_markets_multicast_ats_v4_5_dissect.short_name = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.short_name
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.short_name(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.short_name(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.short_name, range, value, display)
 
@@ -1177,19 +1177,19 @@ dissect.short_name = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Desc
-size_of.security_desc = 25
+otc_markets_multicast_ats_v4_5_size_of.security_desc = 25
 
 -- Display: Security Desc
-display.security_desc = function(value)
+otc_markets_multicast_ats_v4_5_display.security_desc = function(value)
   return "Security Desc: "..value
 end
 
 -- Dissect: Security Desc
-dissect.security_desc = function(buffer, offset, packet, parent)
-  local length = size_of.security_desc
+otc_markets_multicast_ats_v4_5_dissect.security_desc = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_desc
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.security_desc(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_desc(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_desc, range, value, display)
 
@@ -1197,19 +1197,19 @@ dissect.security_desc = function(buffer, offset, packet, parent)
 end
 
 -- Size: Otc Issuer Id
-size_of.otc_issuer_id = 4
+otc_markets_multicast_ats_v4_5_size_of.otc_issuer_id = 4
 
 -- Display: Otc Issuer Id
-display.otc_issuer_id = function(value)
+otc_markets_multicast_ats_v4_5_display.otc_issuer_id = function(value)
   return "Otc Issuer Id: "..value
 end
 
 -- Dissect: Otc Issuer Id
-dissect.otc_issuer_id = function(buffer, offset, packet, parent)
-  local length = size_of.otc_issuer_id
+otc_markets_multicast_ats_v4_5_dissect.otc_issuer_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.otc_issuer_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.otc_issuer_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.otc_issuer_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.otc_issuer_id, range, value, display)
 
@@ -1217,10 +1217,10 @@ dissect.otc_issuer_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Security Action
-size_of.security_action = 1
+otc_markets_multicast_ats_v4_5_size_of.security_action = 1
 
 -- Display: Security Action
-display.security_action = function(value)
+otc_markets_multicast_ats_v4_5_display.security_action = function(value)
   if value == 1 then
     return "Security Action: Update (1)"
   end
@@ -1238,11 +1238,11 @@ display.security_action = function(value)
 end
 
 -- Dissect: Security Action
-dissect.security_action = function(buffer, offset, packet, parent)
-  local length = size_of.security_action
+otc_markets_multicast_ats_v4_5_dissect.security_action = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.security_action
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.security_action(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.security_action(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.security_action, range, value, display)
 
@@ -1250,19 +1250,19 @@ dissect.security_action = function(buffer, offset, packet, parent)
 end
 
 -- Size: Last Update Milli
-size_of.last_update_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.last_update_milli = 8
 
 -- Display: Last Update Milli
-display.last_update_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.last_update_milli = function(value)
   return "Last Update Milli: "..value
 end
 
 -- Dissect: Last Update Milli
-dissect.last_update_milli = function(buffer, offset, packet, parent)
-  local length = size_of.last_update_milli
+otc_markets_multicast_ats_v4_5_dissect.last_update_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.last_update_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.last_update_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.last_update_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.last_update_milli, range, value, display)
 
@@ -1270,19 +1270,19 @@ dissect.last_update_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Symbol
-size_of.symbol = 10
+otc_markets_multicast_ats_v4_5_size_of.symbol = 10
 
 -- Display: Symbol
-display.symbol = function(value)
+otc_markets_multicast_ats_v4_5_display.symbol = function(value)
   return "Symbol: "..value
 end
 
 -- Dissect: Symbol
-dissect.symbol = function(buffer, offset, packet, parent)
-  local length = size_of.symbol
+otc_markets_multicast_ats_v4_5_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.symbol
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.symbol(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.symbol, range, value, display)
 
@@ -1290,59 +1290,59 @@ dissect.symbol = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Extended Security No Cusip Message
-size_of.extended_security_no_cusip_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.extended_security_no_cusip_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.symbol
+  index = index + otc_markets_multicast_ats_v4_5_size_of.symbol
 
-  index = index + size_of.last_update_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.last_update_milli
 
-  index = index + size_of.security_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_action
 
-  index = index + size_of.otc_issuer_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.otc_issuer_id
 
-  index = index + size_of.security_desc
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_desc
 
-  index = index + size_of.short_name
+  index = index + otc_markets_multicast_ats_v4_5_size_of.short_name
 
-  index = index + size_of.asset_class
+  index = index + otc_markets_multicast_ats_v4_5_size_of.asset_class
 
-  index = index + size_of.security_type
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_type
 
-  index = index + size_of.primary_market
+  index = index + otc_markets_multicast_ats_v4_5_size_of.primary_market
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.security_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_flags
 
-  index = index + size_of.tier
+  index = index + otc_markets_multicast_ats_v4_5_size_of.tier
 
-  index = index + size_of.reporting_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reporting_status
 
-  index = index + size_of.disclosure_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.disclosure_status
 
-  index = index + size_of.security_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_status
 
-  index = index + size_of.par_value
+  index = index + otc_markets_multicast_ats_v4_5_size_of.par_value
 
-  index = index + size_of.coupon
+  index = index + otc_markets_multicast_ats_v4_5_size_of.coupon
 
-  index = index + size_of.maturity_date_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.maturity_date_milli
 
-  index = index + size_of.callable_date_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.callable_date_milli
 
-  index = index + size_of.adr_ratio
+  index = index + otc_markets_multicast_ats_v4_5_size_of.adr_ratio
 
-  index = index + size_of.adr_level
+  index = index + otc_markets_multicast_ats_v4_5_size_of.adr_level
 
-  index = index + size_of.security_detail_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_detail_size
 
   -- Parse runtime size of: Security Detail
   index = index + buffer(offset + index - 1, 1):uint()
 
-  index = index + size_of.issuer_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.issuer_size
 
   -- Parse runtime size of: Issuer Name
   index = index + buffer(offset + index - 1, 1):uint()
@@ -1351,122 +1351,122 @@ size_of.extended_security_no_cusip_message = function(buffer, offset)
 end
 
 -- Display: Extended Security No Cusip Message
-display.extended_security_no_cusip_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_security_no_cusip_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Extended Security No Cusip Message
-dissect.extended_security_no_cusip_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Symbol: 10 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = otc_markets_multicast_ats_v4_5_dissect.symbol(buffer, index, packet, parent)
 
   -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
-  index, last_update_milli = dissect.last_update_milli(buffer, index, packet, parent)
+  index, last_update_milli = otc_markets_multicast_ats_v4_5_dissect.last_update_milli(buffer, index, packet, parent)
 
   -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, security_action = dissect.security_action(buffer, index, packet, parent)
+  index, security_action = otc_markets_multicast_ats_v4_5_dissect.security_action(buffer, index, packet, parent)
 
   -- Otc Issuer Id: 4 Byte Unsigned Fixed Width Integer
-  index, otc_issuer_id = dissect.otc_issuer_id(buffer, index, packet, parent)
+  index, otc_issuer_id = otc_markets_multicast_ats_v4_5_dissect.otc_issuer_id(buffer, index, packet, parent)
 
   -- Security Desc: 25 Byte Ascii String
-  index, security_desc = dissect.security_desc(buffer, index, packet, parent)
+  index, security_desc = otc_markets_multicast_ats_v4_5_dissect.security_desc(buffer, index, packet, parent)
 
   -- Short Name: 25 Byte Ascii String
-  index, short_name = dissect.short_name(buffer, index, packet, parent)
+  index, short_name = otc_markets_multicast_ats_v4_5_dissect.short_name(buffer, index, packet, parent)
 
   -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, asset_class = dissect.asset_class(buffer, index, packet, parent)
+  index, asset_class = otc_markets_multicast_ats_v4_5_dissect.asset_class(buffer, index, packet, parent)
 
   -- Security Type: 5 Byte Ascii String
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = otc_markets_multicast_ats_v4_5_dissect.security_type(buffer, index, packet, parent)
 
   -- Primary Market: 3 Byte Ascii String
-  index, primary_market = dissect.primary_market(buffer, index, packet, parent)
+  index, primary_market = otc_markets_multicast_ats_v4_5_dissect.primary_market(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Security Flags: Struct of 8 fields
-  index, security_flags = dissect.security_flags(buffer, index, packet, parent)
+  index, security_flags = otc_markets_multicast_ats_v4_5_dissect.security_flags(buffer, index, packet, parent)
 
   -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
-  index, tier = dissect.tier(buffer, index, packet, parent)
+  index, tier = otc_markets_multicast_ats_v4_5_dissect.tier(buffer, index, packet, parent)
 
   -- Reporting Status: 1 Byte Ascii String Enum with 11 values
-  index, reporting_status = dissect.reporting_status(buffer, index, packet, parent)
+  index, reporting_status = otc_markets_multicast_ats_v4_5_dissect.reporting_status(buffer, index, packet, parent)
 
   -- Disclosure Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, disclosure_status = dissect.disclosure_status(buffer, index, packet, parent)
+  index, disclosure_status = otc_markets_multicast_ats_v4_5_dissect.disclosure_status(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 7 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = otc_markets_multicast_ats_v4_5_dissect.security_status(buffer, index, packet, parent)
 
   -- Par Value: 8 Byte Unsigned Fixed Width Integer
-  index, par_value = dissect.par_value(buffer, index, packet, parent)
+  index, par_value = otc_markets_multicast_ats_v4_5_dissect.par_value(buffer, index, packet, parent)
 
   -- Coupon: 8 Byte Unsigned Fixed Width Integer
-  index, coupon = dissect.coupon(buffer, index, packet, parent)
+  index, coupon = otc_markets_multicast_ats_v4_5_dissect.coupon(buffer, index, packet, parent)
 
   -- Maturity Date Milli: 8 Byte Unsigned Fixed Width Integer
-  index, maturity_date_milli = dissect.maturity_date_milli(buffer, index, packet, parent)
+  index, maturity_date_milli = otc_markets_multicast_ats_v4_5_dissect.maturity_date_milli(buffer, index, packet, parent)
 
   -- Callable Date Milli: 8 Byte Unsigned Fixed Width Integer
-  index, callable_date_milli = dissect.callable_date_milli(buffer, index, packet, parent)
+  index, callable_date_milli = otc_markets_multicast_ats_v4_5_dissect.callable_date_milli(buffer, index, packet, parent)
 
   -- Adr Ratio: 8 Byte Unsigned Fixed Width Integer
-  index, adr_ratio = dissect.adr_ratio(buffer, index, packet, parent)
+  index, adr_ratio = otc_markets_multicast_ats_v4_5_dissect.adr_ratio(buffer, index, packet, parent)
 
   -- Adr Level: 15 Byte Ascii String
-  index, adr_level = dissect.adr_level(buffer, index, packet, parent)
+  index, adr_level = otc_markets_multicast_ats_v4_5_dissect.adr_level(buffer, index, packet, parent)
 
   -- Security Detail Size: 1 Byte Unsigned Fixed Width Integer
-  index, security_detail_size = dissect.security_detail_size(buffer, index, packet, parent)
+  index, security_detail_size = otc_markets_multicast_ats_v4_5_dissect.security_detail_size(buffer, index, packet, parent)
 
   -- Security Detail: 0 Byte Ascii String
-  index = dissect.security_detail(buffer, index, packet, parent, security_detail_size)
+  index = otc_markets_multicast_ats_v4_5_dissect.security_detail(buffer, index, packet, parent, security_detail_size)
 
   -- Issuer Size: 1 Byte Unsigned Fixed Width Integer
-  index, issuer_size = dissect.issuer_size(buffer, index, packet, parent)
+  index, issuer_size = otc_markets_multicast_ats_v4_5_dissect.issuer_size(buffer, index, packet, parent)
 
   -- Issuer Name: 0 Byte Ascii String
-  index = dissect.issuer_name(buffer, index, packet, parent, issuer_size)
+  index = otc_markets_multicast_ats_v4_5_dissect.issuer_name(buffer, index, packet, parent, issuer_size)
 
   return index
 end
 
 -- Dissect: Extended Security No Cusip Message
-dissect.extended_security_no_cusip_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.extended_security_no_cusip_message then
-    local length = size_of.extended_security_no_cusip_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.extended_security_no_cusip_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.extended_security_no_cusip_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.extended_security_no_cusip_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_no_cusip_message, range, display)
   end
 
-  return dissect.extended_security_no_cusip_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cusip
-size_of.cusip = 9
+otc_markets_multicast_ats_v4_5_size_of.cusip = 9
 
 -- Display: Cusip
-display.cusip = function(value)
+otc_markets_multicast_ats_v4_5_display.cusip = function(value)
   return "Cusip: "..value
 end
 
 -- Dissect: Cusip
-dissect.cusip = function(buffer, offset, packet, parent)
-  local length = size_of.cusip
+otc_markets_multicast_ats_v4_5_dissect.cusip = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.cusip
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.cusip(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.cusip(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.cusip, range, value, display)
 
@@ -1474,10 +1474,10 @@ dissect.cusip = function(buffer, offset, packet, parent)
 end
 
 -- Size: Extended Security Flags
-size_of.extended_security_flags = 2
+otc_markets_multicast_ats_v4_5_size_of.extended_security_flags = 2
 
 -- Display: Extended Security Flags
-display.extended_security_flags = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_security_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Callable flag set?
@@ -1529,7 +1529,7 @@ display.extended_security_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Extended Security Flags
-dissect.extended_security_flags_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Extended Security Flag Bits: 5 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_extended_security_flag_bits, buffer(offset, 2))
@@ -1569,202 +1569,202 @@ dissect.extended_security_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Extended Security Flags
-dissect.extended_security_flags = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_flags = function(buffer, offset, packet, parent)
   local size = 2
   local range = buffer(offset, size)
-  local display = display.extended_security_flags(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.extended_security_flags(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_flags, range, display)
 
   if show.extended_security_flags then
-    dissect.extended_security_flags_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.extended_security_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 2, range
 end
 
 -- Calculate size of: Extended Security Message
-size_of.extended_security_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.extended_security_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.symbol
+  index = index + otc_markets_multicast_ats_v4_5_size_of.symbol
 
-  index = index + size_of.last_update_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.last_update_milli
 
-  index = index + size_of.security_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_action
 
-  index = index + size_of.otc_issuer_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.otc_issuer_id
 
-  index = index + size_of.security_desc
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_desc
 
-  index = index + size_of.short_name
+  index = index + otc_markets_multicast_ats_v4_5_size_of.short_name
 
-  index = index + size_of.asset_class
+  index = index + otc_markets_multicast_ats_v4_5_size_of.asset_class
 
-  index = index + size_of.security_type
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_type
 
-  index = index + size_of.primary_market
+  index = index + otc_markets_multicast_ats_v4_5_size_of.primary_market
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.extended_security_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.extended_security_flags
 
-  index = index + size_of.tier
+  index = index + otc_markets_multicast_ats_v4_5_size_of.tier
 
-  index = index + size_of.reporting_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reporting_status
 
-  index = index + size_of.disclosure_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.disclosure_status
 
-  index = index + size_of.security_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_status
 
-  index = index + size_of.par_value
+  index = index + otc_markets_multicast_ats_v4_5_size_of.par_value
 
-  index = index + size_of.coupon
+  index = index + otc_markets_multicast_ats_v4_5_size_of.coupon
 
-  index = index + size_of.maturity_date_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.maturity_date_milli
 
-  index = index + size_of.callable_date_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.callable_date_milli
 
-  index = index + size_of.adr_ratio
+  index = index + otc_markets_multicast_ats_v4_5_size_of.adr_ratio
 
-  index = index + size_of.adr_level
+  index = index + otc_markets_multicast_ats_v4_5_size_of.adr_level
 
-  index = index + size_of.security_detail_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_detail_size
 
   -- Parse runtime size of: Security Detail
   index = index + buffer(offset + index - 1, 1):uint()
 
-  index = index + size_of.issuer_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.issuer_size
 
   -- Parse runtime size of: Issuer Name
   index = index + buffer(offset + index - 1, 1):uint()
 
-  index = index + size_of.cusip
+  index = index + otc_markets_multicast_ats_v4_5_size_of.cusip
 
   return index
 end
 
 -- Display: Extended Security Message
-display.extended_security_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_security_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Extended Security Message
-dissect.extended_security_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Symbol: 10 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = otc_markets_multicast_ats_v4_5_dissect.symbol(buffer, index, packet, parent)
 
   -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
-  index, last_update_milli = dissect.last_update_milli(buffer, index, packet, parent)
+  index, last_update_milli = otc_markets_multicast_ats_v4_5_dissect.last_update_milli(buffer, index, packet, parent)
 
   -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, security_action = dissect.security_action(buffer, index, packet, parent)
+  index, security_action = otc_markets_multicast_ats_v4_5_dissect.security_action(buffer, index, packet, parent)
 
   -- Otc Issuer Id: 4 Byte Unsigned Fixed Width Integer
-  index, otc_issuer_id = dissect.otc_issuer_id(buffer, index, packet, parent)
+  index, otc_issuer_id = otc_markets_multicast_ats_v4_5_dissect.otc_issuer_id(buffer, index, packet, parent)
 
   -- Security Desc: 25 Byte Ascii String
-  index, security_desc = dissect.security_desc(buffer, index, packet, parent)
+  index, security_desc = otc_markets_multicast_ats_v4_5_dissect.security_desc(buffer, index, packet, parent)
 
   -- Short Name: 25 Byte Ascii String
-  index, short_name = dissect.short_name(buffer, index, packet, parent)
+  index, short_name = otc_markets_multicast_ats_v4_5_dissect.short_name(buffer, index, packet, parent)
 
   -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, asset_class = dissect.asset_class(buffer, index, packet, parent)
+  index, asset_class = otc_markets_multicast_ats_v4_5_dissect.asset_class(buffer, index, packet, parent)
 
   -- Security Type: 5 Byte Ascii String
-  index, security_type = dissect.security_type(buffer, index, packet, parent)
+  index, security_type = otc_markets_multicast_ats_v4_5_dissect.security_type(buffer, index, packet, parent)
 
   -- Primary Market: 3 Byte Ascii String
-  index, primary_market = dissect.primary_market(buffer, index, packet, parent)
+  index, primary_market = otc_markets_multicast_ats_v4_5_dissect.primary_market(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Extended Security Flags: Struct of 12 fields
-  index, extended_security_flags = dissect.extended_security_flags(buffer, index, packet, parent)
+  index, extended_security_flags = otc_markets_multicast_ats_v4_5_dissect.extended_security_flags(buffer, index, packet, parent)
 
   -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
-  index, tier = dissect.tier(buffer, index, packet, parent)
+  index, tier = otc_markets_multicast_ats_v4_5_dissect.tier(buffer, index, packet, parent)
 
   -- Reporting Status: 1 Byte Ascii String Enum with 11 values
-  index, reporting_status = dissect.reporting_status(buffer, index, packet, parent)
+  index, reporting_status = otc_markets_multicast_ats_v4_5_dissect.reporting_status(buffer, index, packet, parent)
 
   -- Disclosure Status: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, disclosure_status = dissect.disclosure_status(buffer, index, packet, parent)
+  index, disclosure_status = otc_markets_multicast_ats_v4_5_dissect.disclosure_status(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 7 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = otc_markets_multicast_ats_v4_5_dissect.security_status(buffer, index, packet, parent)
 
   -- Par Value: 8 Byte Unsigned Fixed Width Integer
-  index, par_value = dissect.par_value(buffer, index, packet, parent)
+  index, par_value = otc_markets_multicast_ats_v4_5_dissect.par_value(buffer, index, packet, parent)
 
   -- Coupon: 8 Byte Unsigned Fixed Width Integer
-  index, coupon = dissect.coupon(buffer, index, packet, parent)
+  index, coupon = otc_markets_multicast_ats_v4_5_dissect.coupon(buffer, index, packet, parent)
 
   -- Maturity Date Milli: 8 Byte Unsigned Fixed Width Integer
-  index, maturity_date_milli = dissect.maturity_date_milli(buffer, index, packet, parent)
+  index, maturity_date_milli = otc_markets_multicast_ats_v4_5_dissect.maturity_date_milli(buffer, index, packet, parent)
 
   -- Callable Date Milli: 8 Byte Unsigned Fixed Width Integer
-  index, callable_date_milli = dissect.callable_date_milli(buffer, index, packet, parent)
+  index, callable_date_milli = otc_markets_multicast_ats_v4_5_dissect.callable_date_milli(buffer, index, packet, parent)
 
   -- Adr Ratio: 8 Byte Unsigned Fixed Width Integer
-  index, adr_ratio = dissect.adr_ratio(buffer, index, packet, parent)
+  index, adr_ratio = otc_markets_multicast_ats_v4_5_dissect.adr_ratio(buffer, index, packet, parent)
 
   -- Adr Level: 15 Byte Ascii String
-  index, adr_level = dissect.adr_level(buffer, index, packet, parent)
+  index, adr_level = otc_markets_multicast_ats_v4_5_dissect.adr_level(buffer, index, packet, parent)
 
   -- Security Detail Size: 1 Byte Unsigned Fixed Width Integer
-  index, security_detail_size = dissect.security_detail_size(buffer, index, packet, parent)
+  index, security_detail_size = otc_markets_multicast_ats_v4_5_dissect.security_detail_size(buffer, index, packet, parent)
 
   -- Security Detail: 0 Byte Ascii String
-  index = dissect.security_detail(buffer, index, packet, parent, security_detail_size)
+  index = otc_markets_multicast_ats_v4_5_dissect.security_detail(buffer, index, packet, parent, security_detail_size)
 
   -- Issuer Size: 1 Byte Unsigned Fixed Width Integer
-  index, issuer_size = dissect.issuer_size(buffer, index, packet, parent)
+  index, issuer_size = otc_markets_multicast_ats_v4_5_dissect.issuer_size(buffer, index, packet, parent)
 
   -- Issuer Name: 0 Byte Ascii String
-  index = dissect.issuer_name(buffer, index, packet, parent, issuer_size)
+  index = otc_markets_multicast_ats_v4_5_dissect.issuer_name(buffer, index, packet, parent, issuer_size)
 
   -- Cusip: 9 Byte Ascii String
-  index, cusip = dissect.cusip(buffer, index, packet, parent)
+  index, cusip = otc_markets_multicast_ats_v4_5_dissect.cusip(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Extended Security Message
-dissect.extended_security_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_security_message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.extended_security_message then
-    local length = size_of.extended_security_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.extended_security_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.extended_security_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.extended_security_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_security_message, range, display)
   end
 
-  return dissect.extended_security_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.extended_security_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Time Milli
-size_of.time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.time_milli = 8
 
 -- Display: Time Milli
-display.time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.time_milli = function(value)
   return "Time Milli: "..value
 end
 
 -- Dissect: Time Milli
-dissect.time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.time_milli
+otc_markets_multicast_ats_v4_5_dissect.time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.time_milli, range, value, display)
 
@@ -1772,19 +1772,19 @@ dissect.time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Size
-size_of.size = 4
+otc_markets_multicast_ats_v4_5_size_of.size = 4
 
 -- Display: Size
-display.size = function(value)
+otc_markets_multicast_ats_v4_5_display.size = function(value)
   return "Size: "..value
 end
 
 -- Dissect: Size
-dissect.size = function(buffer, offset, packet, parent)
-  local length = size_of.size
+otc_markets_multicast_ats_v4_5_dissect.size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.size, range, value, display)
 
@@ -1792,19 +1792,19 @@ dissect.size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 8
+otc_markets_multicast_ats_v4_5_size_of.price = 8
 
 -- Display: Price
-display.price = function(value)
+otc_markets_multicast_ats_v4_5_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+otc_markets_multicast_ats_v4_5_dissect.price = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.price
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.price(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.price, range, value, display)
 
@@ -1812,10 +1812,10 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Flags
-size_of.quote_flags = 1
+otc_markets_multicast_ats_v4_5_size_of.quote_flags = 1
 
 -- Display: Quote Flags
-display.quote_flags = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.quote_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Bid Ask Wanted flag set?
@@ -1855,7 +1855,7 @@ display.quote_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Quote Flags
-dissect.quote_flags_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_flags_bits = function(buffer, offset, packet, parent)
 
   -- Bid Ask Wanted: 1 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.bid_ask_wanted, buffer(offset, 1))
@@ -1883,33 +1883,33 @@ dissect.quote_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Quote Flags
-dissect.quote_flags = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.quote_flags(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.quote_flags(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_flags, range, display)
 
   if show.quote_flags then
-    dissect.quote_flags_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.quote_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Reference Price Id
-size_of.reference_price_id = 4
+otc_markets_multicast_ats_v4_5_size_of.reference_price_id = 4
 
 -- Display: Reference Price Id
-display.reference_price_id = function(value)
+otc_markets_multicast_ats_v4_5_display.reference_price_id = function(value)
   return "Reference Price Id: "..value
 end
 
 -- Dissect: Reference Price Id
-dissect.reference_price_id = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price_id
+otc_markets_multicast_ats_v4_5_dissect.reference_price_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reference_price_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.reference_price_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_id, range, value, display)
 
@@ -1917,81 +1917,81 @@ dissect.reference_price_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reference Price Update Message
-size_of.reference_price_update_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.reference_price_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.reference_price_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reference_price_id
 
-  index = index + size_of.quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_flags
 
-  index = index + size_of.price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.price
 
-  index = index + size_of.size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.size
 
-  index = index + size_of.time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.time_milli
 
   return index
 end
 
 -- Display: Reference Price Update Message
-display.reference_price_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.reference_price_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reference Price Update Message
-dissect.reference_price_update_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Reference Price Id: 4 Byte Unsigned Fixed Width Integer
-  index, reference_price_id = dissect.reference_price_id(buffer, index, packet, parent)
+  index, reference_price_id = otc_markets_multicast_ats_v4_5_dissect.reference_price_id(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
-  index, quote_flags = dissect.quote_flags(buffer, index, packet, parent)
+  index, quote_flags = otc_markets_multicast_ats_v4_5_dissect.quote_flags(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = otc_markets_multicast_ats_v4_5_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = otc_markets_multicast_ats_v4_5_dissect.size(buffer, index, packet, parent)
 
   -- Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, time_milli = dissect.time_milli(buffer, index, packet, parent)
+  index, time_milli = otc_markets_multicast_ats_v4_5_dissect.time_milli(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reference Price Update Message
-dissect.reference_price_update_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reference_price_update_message then
-    local length = size_of.reference_price_update_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reference_price_update_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.reference_price_update_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_update_message, range, display)
   end
 
-  return dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Time Milli
-size_of.bid_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.bid_time_milli = 8
 
 -- Display: Bid Time Milli
-display.bid_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.bid_time_milli = function(value)
   return "Bid Time Milli: "..value
 end
 
 -- Dissect: Bid Time Milli
-dissect.bid_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.bid_time_milli
+otc_markets_multicast_ats_v4_5_dissect.bid_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.bid_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.bid_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.bid_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.bid_time_milli, range, value, display)
 
@@ -1999,19 +1999,19 @@ dissect.bid_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Size
-size_of.bid_size = 4
+otc_markets_multicast_ats_v4_5_size_of.bid_size = 4
 
 -- Display: Bid Size
-display.bid_size = function(value)
+otc_markets_multicast_ats_v4_5_display.bid_size = function(value)
   return "Bid Size: "..value
 end
 
 -- Dissect: Bid Size
-dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = size_of.bid_size
+otc_markets_multicast_ats_v4_5_dissect.bid_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.bid_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.bid_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.bid_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.bid_size, range, value, display)
 
@@ -2019,19 +2019,19 @@ dissect.bid_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Price
-size_of.bid_price = 8
+otc_markets_multicast_ats_v4_5_size_of.bid_price = 8
 
 -- Display: Bid Price
-display.bid_price = function(value)
+otc_markets_multicast_ats_v4_5_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
 -- Dissect: Bid Price
-dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = size_of.bid_price
+otc_markets_multicast_ats_v4_5_dissect.bid_price = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.bid_price
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.bid_price(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.bid_price, range, value, display)
 
@@ -2039,19 +2039,19 @@ dissect.bid_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Time Milli
-size_of.ask_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.ask_time_milli = 8
 
 -- Display: Ask Time Milli
-display.ask_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.ask_time_milli = function(value)
   return "Ask Time Milli: "..value
 end
 
 -- Dissect: Ask Time Milli
-dissect.ask_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.ask_time_milli
+otc_markets_multicast_ats_v4_5_dissect.ask_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.ask_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.ask_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.ask_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.ask_time_milli, range, value, display)
 
@@ -2059,19 +2059,19 @@ dissect.ask_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Size
-size_of.ask_size = 4
+otc_markets_multicast_ats_v4_5_size_of.ask_size = 4
 
 -- Display: Ask Size
-display.ask_size = function(value)
+otc_markets_multicast_ats_v4_5_display.ask_size = function(value)
   return "Ask Size: "..value
 end
 
 -- Dissect: Ask Size
-dissect.ask_size = function(buffer, offset, packet, parent)
-  local length = size_of.ask_size
+otc_markets_multicast_ats_v4_5_dissect.ask_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.ask_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.ask_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.ask_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.ask_size, range, value, display)
 
@@ -2079,19 +2079,19 @@ dissect.ask_size = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Price
-size_of.ask_price = 8
+otc_markets_multicast_ats_v4_5_size_of.ask_price = 8
 
 -- Display: Ask Price
-display.ask_price = function(value)
+otc_markets_multicast_ats_v4_5_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
 -- Dissect: Ask Price
-dissect.ask_price = function(buffer, offset, packet, parent)
-  local length = size_of.ask_price
+otc_markets_multicast_ats_v4_5_dissect.ask_price = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.ask_price
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.ask_price(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.ask_price, range, value, display)
 
@@ -2099,10 +2099,10 @@ dissect.ask_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Reference Price Action
-size_of.reference_price_action = 1
+otc_markets_multicast_ats_v4_5_size_of.reference_price_action = 1
 
 -- Display: Reference Price Action
-display.reference_price_action = function(value)
+otc_markets_multicast_ats_v4_5_display.reference_price_action = function(value)
   if value == 2 then
     return "Reference Price Action: Add (2)"
   end
@@ -2117,11 +2117,11 @@ display.reference_price_action = function(value)
 end
 
 -- Dissect: Reference Price Action
-dissect.reference_price_action = function(buffer, offset, packet, parent)
-  local length = size_of.reference_price_action
+otc_markets_multicast_ats_v4_5_dissect.reference_price_action = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_action
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reference_price_action(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.reference_price_action(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_action, range, value, display)
 
@@ -2129,106 +2129,106 @@ dissect.reference_price_action = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Reference Price Message
-size_of.reference_price_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.reference_price_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.reference_price_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reference_price_id
 
-  index = index + size_of.reference_price_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reference_price_action
 
-  index = index + size_of.quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_flags
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.ask_price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_price
 
-  index = index + size_of.ask_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_size
 
-  index = index + size_of.ask_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_time_milli
 
-  index = index + size_of.bid_price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_price
 
-  index = index + size_of.bid_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_size
 
-  index = index + size_of.bid_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_time_milli
 
   return index
 end
 
 -- Display: Reference Price Message
-display.reference_price_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.reference_price_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Reference Price Message
-dissect.reference_price_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Reference Price Id: 4 Byte Unsigned Fixed Width Integer
-  index, reference_price_id = dissect.reference_price_id(buffer, index, packet, parent)
+  index, reference_price_id = otc_markets_multicast_ats_v4_5_dissect.reference_price_id(buffer, index, packet, parent)
 
   -- Reference Price Action: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, reference_price_action = dissect.reference_price_action(buffer, index, packet, parent)
+  index, reference_price_action = otc_markets_multicast_ats_v4_5_dissect.reference_price_action(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
-  index, quote_flags = dissect.quote_flags(buffer, index, packet, parent)
+  index, quote_flags = otc_markets_multicast_ats_v4_5_dissect.quote_flags(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Ask Price: 8 Byte Unsigned Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = otc_markets_multicast_ats_v4_5_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size = dissect.ask_size(buffer, index, packet, parent)
+  index, ask_size = otc_markets_multicast_ats_v4_5_dissect.ask_size(buffer, index, packet, parent)
 
   -- Ask Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, ask_time_milli = dissect.ask_time_milli(buffer, index, packet, parent)
+  index, ask_time_milli = otc_markets_multicast_ats_v4_5_dissect.ask_time_milli(buffer, index, packet, parent)
 
   -- Bid Price: 8 Byte Unsigned Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = otc_markets_multicast_ats_v4_5_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = otc_markets_multicast_ats_v4_5_dissect.bid_size(buffer, index, packet, parent)
 
   -- Bid Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, bid_time_milli = dissect.bid_time_milli(buffer, index, packet, parent)
+  index, bid_time_milli = otc_markets_multicast_ats_v4_5_dissect.bid_time_milli(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Reference Price Message
-dissect.reference_price_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.reference_price_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.reference_price_message then
-    local length = size_of.reference_price_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.reference_price_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.reference_price_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.reference_price_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.reference_price_message, range, display)
   end
 
-  return dissect.reference_price_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.reference_price_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Num Priced Mp
-size_of.num_priced_mp = 1
+otc_markets_multicast_ats_v4_5_size_of.num_priced_mp = 1
 
 -- Display: Num Priced Mp
-display.num_priced_mp = function(value)
+otc_markets_multicast_ats_v4_5_display.num_priced_mp = function(value)
   return "Num Priced Mp: "..value
 end
 
 -- Dissect: Num Priced Mp
-dissect.num_priced_mp = function(buffer, offset, packet, parent)
-  local length = size_of.num_priced_mp
+otc_markets_multicast_ats_v4_5_dissect.num_priced_mp = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.num_priced_mp
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.num_priced_mp(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.num_priced_mp(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.num_priced_mp, range, value, display)
 
@@ -2236,19 +2236,19 @@ dissect.num_priced_mp = function(buffer, offset, packet, parent)
 end
 
 -- Size: Inside Time Milli
-size_of.inside_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.inside_time_milli = 8
 
 -- Display: Inside Time Milli
-display.inside_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.inside_time_milli = function(value)
   return "Inside Time Milli: "..value
 end
 
 -- Dissect: Inside Time Milli
-dissect.inside_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.inside_time_milli
+otc_markets_multicast_ats_v4_5_dissect.inside_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.inside_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.inside_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.inside_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.inside_time_milli, range, value, display)
 
@@ -2256,19 +2256,19 @@ dissect.inside_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Inside Id
-size_of.inside_id = 4
+otc_markets_multicast_ats_v4_5_size_of.inside_id = 4
 
 -- Display: Inside Id
-display.inside_id = function(value)
+otc_markets_multicast_ats_v4_5_display.inside_id = function(value)
   return "Inside Id: "..value
 end
 
 -- Dissect: Inside Id
-dissect.inside_id = function(buffer, offset, packet, parent)
-  local length = size_of.inside_id
+otc_markets_multicast_ats_v4_5_dissect.inside_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.inside_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.inside_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.inside_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.inside_id, range, value, display)
 
@@ -2276,86 +2276,86 @@ dissect.inside_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Inside Update Message
-size_of.inside_update_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.inside_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.inside_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.inside_id
 
-  index = index + size_of.quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_flags
 
-  index = index + size_of.price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.price
 
-  index = index + size_of.size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.size
 
-  index = index + size_of.inside_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.inside_time_milli
 
-  index = index + size_of.num_priced_mp
+  index = index + otc_markets_multicast_ats_v4_5_size_of.num_priced_mp
 
   return index
 end
 
 -- Display: Inside Update Message
-display.inside_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.inside_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Inside Update Message
-dissect.inside_update_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Inside Id: 4 Byte Unsigned Fixed Width Integer
-  index, inside_id = dissect.inside_id(buffer, index, packet, parent)
+  index, inside_id = otc_markets_multicast_ats_v4_5_dissect.inside_id(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
-  index, quote_flags = dissect.quote_flags(buffer, index, packet, parent)
+  index, quote_flags = otc_markets_multicast_ats_v4_5_dissect.quote_flags(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = otc_markets_multicast_ats_v4_5_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = otc_markets_multicast_ats_v4_5_dissect.size(buffer, index, packet, parent)
 
   -- Inside Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, inside_time_milli = dissect.inside_time_milli(buffer, index, packet, parent)
+  index, inside_time_milli = otc_markets_multicast_ats_v4_5_dissect.inside_time_milli(buffer, index, packet, parent)
 
   -- Num Priced Mp: 1 Byte Unsigned Fixed Width Integer
-  index, num_priced_mp = dissect.num_priced_mp(buffer, index, packet, parent)
+  index, num_priced_mp = otc_markets_multicast_ats_v4_5_dissect.num_priced_mp(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Inside Update Message
-dissect.inside_update_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.inside_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.inside_update_message then
-    local length = size_of.inside_update_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.inside_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.inside_update_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.inside_update_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.inside_update_message, range, display)
   end
 
-  return dissect.inside_update_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.inside_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Market Close
-size_of.market_close = 8
+otc_markets_multicast_ats_v4_5_size_of.market_close = 8
 
 -- Display: Market Close
-display.market_close = function(value)
+otc_markets_multicast_ats_v4_5_display.market_close = function(value)
   return "Market Close: "..value
 end
 
 -- Dissect: Market Close
-dissect.market_close = function(buffer, offset, packet, parent)
-  local length = size_of.market_close
+otc_markets_multicast_ats_v4_5_dissect.market_close = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.market_close
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.market_close(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.market_close(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.market_close, range, value, display)
 
@@ -2363,19 +2363,19 @@ dissect.market_close = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Open
-size_of.market_open = 8
+otc_markets_multicast_ats_v4_5_size_of.market_open = 8
 
 -- Display: Market Open
-display.market_open = function(value)
+otc_markets_multicast_ats_v4_5_display.market_open = function(value)
   return "Market Open: "..value
 end
 
 -- Dissect: Market Open
-dissect.market_open = function(buffer, offset, packet, parent)
-  local length = size_of.market_open
+otc_markets_multicast_ats_v4_5_dissect.market_open = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.market_open
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.market_open(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.market_open(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.market_open, range, value, display)
 
@@ -2383,57 +2383,57 @@ dissect.market_open = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Open Message
-size_of.market_open_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.market_open_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.market_open
+  index = index + otc_markets_multicast_ats_v4_5_size_of.market_open
 
-  index = index + size_of.market_close
+  index = index + otc_markets_multicast_ats_v4_5_size_of.market_close
 
   return index
 end
 
 -- Display: Market Open Message
-display.market_open_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.market_open_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Open Message
-dissect.market_open_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Market Open: 8 Byte Unsigned Fixed Width Integer
-  index, market_open = dissect.market_open(buffer, index, packet, parent)
+  index, market_open = otc_markets_multicast_ats_v4_5_dissect.market_open(buffer, index, packet, parent)
 
   -- Market Close: 8 Byte Unsigned Fixed Width Integer
-  index, market_close = dissect.market_close(buffer, index, packet, parent)
+  index, market_close = otc_markets_multicast_ats_v4_5_dissect.market_close(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Open Message
-dissect.market_open_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.market_open_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_open_message then
-    local length = size_of.market_open_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.market_open_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_open_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.market_open_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_open_message, range, display)
   end
 
-  return dissect.market_open_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.market_open_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Extended Quote Flags
-size_of.extended_quote_flags = 1
+otc_markets_multicast_ats_v4_5_size_of.extended_quote_flags = 1
 
 -- Display: Extended Quote Flags
-display.extended_quote_flags = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.extended_quote_flags = function(buffer, packet, parent)
   local display = ""
 
   -- Is Nms Conditional Quote flag set?
@@ -2457,7 +2457,7 @@ display.extended_quote_flags = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Extended Quote Flags
-dissect.extended_quote_flags_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags_bits = function(buffer, offset, packet, parent)
 
   -- Reserved Extended Quote Flag Bits: 4 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.reserved_extended_quote_flag_bits, buffer(offset, 1))
@@ -2476,33 +2476,33 @@ dissect.extended_quote_flags_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Extended Quote Flags
-dissect.extended_quote_flags = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.extended_quote_flags(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.extended_quote_flags(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.extended_quote_flags, range, display)
 
   if show.extended_quote_flags then
-    dissect.extended_quote_flags_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Quote Reference Id
-size_of.quote_reference_id = 2
+otc_markets_multicast_ats_v4_5_size_of.quote_reference_id = 2
 
 -- Display: Quote Reference Id
-display.quote_reference_id = function(value)
+otc_markets_multicast_ats_v4_5_display.quote_reference_id = function(value)
   return "Quote Reference Id: "..value
 end
 
 -- Dissect: Quote Reference Id
-dissect.quote_reference_id = function(buffer, offset, packet, parent)
-  local length = size_of.quote_reference_id
+otc_markets_multicast_ats_v4_5_dissect.quote_reference_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.quote_reference_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.quote_reference_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.quote_reference_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.quote_reference_id, range, value, display)
 
@@ -2510,19 +2510,19 @@ dissect.quote_reference_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Time Milli
-size_of.quote_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.quote_time_milli = 8
 
 -- Display: Quote Time Milli
-display.quote_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.quote_time_milli = function(value)
   return "Quote Time Milli: "..value
 end
 
 -- Dissect: Quote Time Milli
-dissect.quote_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.quote_time_milli
+otc_markets_multicast_ats_v4_5_dissect.quote_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.quote_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.quote_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.quote_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.quote_time_milli, range, value, display)
 
@@ -2530,19 +2530,19 @@ dissect.quote_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Qap
-size_of.qap = 1
+otc_markets_multicast_ats_v4_5_size_of.qap = 1
 
 -- Display: Qap
-display.qap = function(value)
+otc_markets_multicast_ats_v4_5_display.qap = function(value)
   return "Qap: "..value
 end
 
 -- Dissect: Qap
-dissect.qap = function(buffer, offset, packet, parent)
-  local length = size_of.qap
+otc_markets_multicast_ats_v4_5_dissect.qap = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.qap
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.qap(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.qap(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.qap, range, value, display)
 
@@ -2550,19 +2550,19 @@ dissect.qap = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Id
-size_of.quote_id = 4
+otc_markets_multicast_ats_v4_5_size_of.quote_id = 4
 
 -- Display: Quote Id
-display.quote_id = function(value)
+otc_markets_multicast_ats_v4_5_display.quote_id = function(value)
   return "Quote Id: "..value
 end
 
 -- Dissect: Quote Id
-dissect.quote_id = function(buffer, offset, packet, parent)
-  local length = size_of.quote_id
+otc_markets_multicast_ats_v4_5_dissect.quote_id = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.quote_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.quote_id(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.quote_id(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.quote_id, range, value, display)
 
@@ -2570,96 +2570,96 @@ dissect.quote_id = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Update Message
-size_of.quote_update_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.quote_update_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.quote_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_id
 
-  index = index + size_of.quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_flags
 
-  index = index + size_of.price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.price
 
-  index = index + size_of.size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.size
 
-  index = index + size_of.qap
+  index = index + otc_markets_multicast_ats_v4_5_size_of.qap
 
-  index = index + size_of.quote_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_time_milli
 
-  index = index + size_of.quote_reference_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_reference_id
 
-  index = index + size_of.extended_quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.extended_quote_flags
 
   return index
 end
 
 -- Display: Quote Update Message
-display.quote_update_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.quote_update_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Update Message
-dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = otc_markets_multicast_ats_v4_5_dissect.quote_id(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
-  index, quote_flags = dissect.quote_flags(buffer, index, packet, parent)
+  index, quote_flags = otc_markets_multicast_ats_v4_5_dissect.quote_flags(buffer, index, packet, parent)
 
   -- Price: 8 Byte Unsigned Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = otc_markets_multicast_ats_v4_5_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
-  index, size = dissect.size(buffer, index, packet, parent)
+  index, size = otc_markets_multicast_ats_v4_5_dissect.size(buffer, index, packet, parent)
 
   -- Qap: 1 Byte Signed Fixed Width Integer
-  index, qap = dissect.qap(buffer, index, packet, parent)
+  index, qap = otc_markets_multicast_ats_v4_5_dissect.qap(buffer, index, packet, parent)
 
   -- Quote Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, quote_time_milli = dissect.quote_time_milli(buffer, index, packet, parent)
+  index, quote_time_milli = otc_markets_multicast_ats_v4_5_dissect.quote_time_milli(buffer, index, packet, parent)
 
   -- Quote Reference Id: 2 Byte Unsigned Fixed Width Integer
-  index, quote_reference_id = dissect.quote_reference_id(buffer, index, packet, parent)
+  index, quote_reference_id = otc_markets_multicast_ats_v4_5_dissect.quote_reference_id(buffer, index, packet, parent)
 
   -- Extended Quote Flags: Struct of 5 fields
-  index, extended_quote_flags = dissect.extended_quote_flags(buffer, index, packet, parent)
+  index, extended_quote_flags = otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Update Message
-dissect.quote_update_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_update_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_update_message then
-    local length = size_of.quote_update_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.quote_update_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_update_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.quote_update_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_update_message, range, display)
   end
 
-  return dissect.quote_update_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.quote_update_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Bid Qap
-size_of.bid_qap = 1
+otc_markets_multicast_ats_v4_5_size_of.bid_qap = 1
 
 -- Display: Bid Qap
-display.bid_qap = function(value)
+otc_markets_multicast_ats_v4_5_display.bid_qap = function(value)
   return "Bid Qap: "..value
 end
 
 -- Dissect: Bid Qap
-dissect.bid_qap = function(buffer, offset, packet, parent)
-  local length = size_of.bid_qap
+otc_markets_multicast_ats_v4_5_dissect.bid_qap = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.bid_qap
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.bid_qap(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.bid_qap(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.bid_qap, range, value, display)
 
@@ -2667,19 +2667,19 @@ dissect.bid_qap = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ask Qap
-size_of.ask_qap = 1
+otc_markets_multicast_ats_v4_5_size_of.ask_qap = 1
 
 -- Display: Ask Qap
-display.ask_qap = function(value)
+otc_markets_multicast_ats_v4_5_display.ask_qap = function(value)
   return "Ask Qap: "..value
 end
 
 -- Dissect: Ask Qap
-dissect.ask_qap = function(buffer, offset, packet, parent)
-  local length = size_of.ask_qap
+otc_markets_multicast_ats_v4_5_dissect.ask_qap = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.ask_qap
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.ask_qap(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.ask_qap(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.ask_qap, range, value, display)
 
@@ -2687,19 +2687,19 @@ dissect.ask_qap = function(buffer, offset, packet, parent)
 end
 
 -- Size: Mpid
-size_of.mpid = 4
+otc_markets_multicast_ats_v4_5_size_of.mpid = 4
 
 -- Display: Mpid
-display.mpid = function(value)
+otc_markets_multicast_ats_v4_5_display.mpid = function(value)
   return "Mpid: "..value
 end
 
 -- Dissect: Mpid
-dissect.mpid = function(buffer, offset, packet, parent)
-  local length = size_of.mpid
+otc_markets_multicast_ats_v4_5_dissect.mpid = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.mpid
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.mpid(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.mpid, range, value, display)
 
@@ -2707,19 +2707,19 @@ dissect.mpid = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quote Action
-size_of.quote_action = 1
+otc_markets_multicast_ats_v4_5_size_of.quote_action = 1
 
 -- Display: Quote Action
-display.quote_action = function(value)
+otc_markets_multicast_ats_v4_5_display.quote_action = function(value)
   return "Quote Action: "..value
 end
 
 -- Dissect: Quote Action
-dissect.quote_action = function(buffer, offset, packet, parent)
-  local length = size_of.quote_action
+otc_markets_multicast_ats_v4_5_dissect.quote_action = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.quote_action
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.quote_action(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.quote_action(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.quote_action, range, value, display)
 
@@ -2727,213 +2727,213 @@ dissect.quote_action = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Quote Message
-size_of.quote_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.quote_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.quote_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_id
 
-  index = index + size_of.quote_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_action
 
-  index = index + size_of.quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_flags
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.mpid
+  index = index + otc_markets_multicast_ats_v4_5_size_of.mpid
 
-  index = index + size_of.ask_price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_price
 
-  index = index + size_of.ask_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_size
 
-  index = index + size_of.ask_qap
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_qap
 
-  index = index + size_of.ask_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.ask_time_milli
 
-  index = index + size_of.bid_price
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_price
 
-  index = index + size_of.bid_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_size
 
-  index = index + size_of.bid_qap
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_qap
 
-  index = index + size_of.bid_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.bid_time_milli
 
-  index = index + size_of.quote_reference_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.quote_reference_id
 
-  index = index + size_of.extended_quote_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.extended_quote_flags
 
   return index
 end
 
 -- Display: Quote Message
-display.quote_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.quote_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Quote Message
-dissect.quote_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Quote Id: 4 Byte Unsigned Fixed Width Integer
-  index, quote_id = dissect.quote_id(buffer, index, packet, parent)
+  index, quote_id = otc_markets_multicast_ats_v4_5_dissect.quote_id(buffer, index, packet, parent)
 
   -- Quote Action: 1 Byte Unsigned Fixed Width Integer
-  index, quote_action = dissect.quote_action(buffer, index, packet, parent)
+  index, quote_action = otc_markets_multicast_ats_v4_5_dissect.quote_action(buffer, index, packet, parent)
 
   -- Quote Flags: Struct of 8 fields
-  index, quote_flags = dissect.quote_flags(buffer, index, packet, parent)
+  index, quote_flags = otc_markets_multicast_ats_v4_5_dissect.quote_flags(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Mpid: 4 Byte Ascii String
-  index, mpid = dissect.mpid(buffer, index, packet, parent)
+  index, mpid = otc_markets_multicast_ats_v4_5_dissect.mpid(buffer, index, packet, parent)
 
   -- Ask Price: 8 Byte Unsigned Fixed Width Integer
-  index, ask_price = dissect.ask_price(buffer, index, packet, parent)
+  index, ask_price = otc_markets_multicast_ats_v4_5_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
-  index, ask_size = dissect.ask_size(buffer, index, packet, parent)
+  index, ask_size = otc_markets_multicast_ats_v4_5_dissect.ask_size(buffer, index, packet, parent)
 
   -- Ask Qap: 1 Byte Signed Fixed Width Integer
-  index, ask_qap = dissect.ask_qap(buffer, index, packet, parent)
+  index, ask_qap = otc_markets_multicast_ats_v4_5_dissect.ask_qap(buffer, index, packet, parent)
 
   -- Ask Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, ask_time_milli = dissect.ask_time_milli(buffer, index, packet, parent)
+  index, ask_time_milli = otc_markets_multicast_ats_v4_5_dissect.ask_time_milli(buffer, index, packet, parent)
 
   -- Bid Price: 8 Byte Unsigned Fixed Width Integer
-  index, bid_price = dissect.bid_price(buffer, index, packet, parent)
+  index, bid_price = otc_markets_multicast_ats_v4_5_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = dissect.bid_size(buffer, index, packet, parent)
+  index, bid_size = otc_markets_multicast_ats_v4_5_dissect.bid_size(buffer, index, packet, parent)
 
   -- Bid Qap: 1 Byte Signed Fixed Width Integer
-  index, bid_qap = dissect.bid_qap(buffer, index, packet, parent)
+  index, bid_qap = otc_markets_multicast_ats_v4_5_dissect.bid_qap(buffer, index, packet, parent)
 
   -- Bid Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, bid_time_milli = dissect.bid_time_milli(buffer, index, packet, parent)
+  index, bid_time_milli = otc_markets_multicast_ats_v4_5_dissect.bid_time_milli(buffer, index, packet, parent)
 
   -- Quote Reference Id: 2 Byte Unsigned Fixed Width Integer
-  index, quote_reference_id = dissect.quote_reference_id(buffer, index, packet, parent)
+  index, quote_reference_id = otc_markets_multicast_ats_v4_5_dissect.quote_reference_id(buffer, index, packet, parent)
 
   -- Extended Quote Flags: Struct of 5 fields
-  index, extended_quote_flags = dissect.extended_quote_flags(buffer, index, packet, parent)
+  index, extended_quote_flags = otc_markets_multicast_ats_v4_5_dissect.extended_quote_flags(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Quote Message
-dissect.quote_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.quote_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.quote_message then
-    local length = size_of.quote_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.quote_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.quote_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.quote_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.quote_message, range, display)
   end
 
-  return dissect.quote_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.quote_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Security Message
-size_of.security_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.security_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.symbol
+  index = index + otc_markets_multicast_ats_v4_5_size_of.symbol
 
-  index = index + size_of.last_update_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.last_update_milli
 
-  index = index + size_of.security_action
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_action
 
-  index = index + size_of.asset_class
+  index = index + otc_markets_multicast_ats_v4_5_size_of.asset_class
 
-  index = index + size_of.security_id
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_id
 
-  index = index + size_of.security_flags
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_flags
 
-  index = index + size_of.tier
+  index = index + otc_markets_multicast_ats_v4_5_size_of.tier
 
-  index = index + size_of.reporting_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.reporting_status
 
-  index = index + size_of.security_status
+  index = index + otc_markets_multicast_ats_v4_5_size_of.security_status
 
   return index
 end
 
 -- Display: Security Message
-display.security_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.security_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Security Message
-dissect.security_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.security_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Symbol: 10 Byte Ascii String
-  index, symbol = dissect.symbol(buffer, index, packet, parent)
+  index, symbol = otc_markets_multicast_ats_v4_5_dissect.symbol(buffer, index, packet, parent)
 
   -- Last Update Milli: 8 Byte Unsigned Fixed Width Integer
-  index, last_update_milli = dissect.last_update_milli(buffer, index, packet, parent)
+  index, last_update_milli = otc_markets_multicast_ats_v4_5_dissect.last_update_milli(buffer, index, packet, parent)
 
   -- Security Action: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
-  index, security_action = dissect.security_action(buffer, index, packet, parent)
+  index, security_action = otc_markets_multicast_ats_v4_5_dissect.security_action(buffer, index, packet, parent)
 
   -- Asset Class: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
-  index, asset_class = dissect.asset_class(buffer, index, packet, parent)
+  index, asset_class = otc_markets_multicast_ats_v4_5_dissect.asset_class(buffer, index, packet, parent)
 
   -- Security Id: 4 Byte Unsigned Fixed Width Integer
-  index, security_id = dissect.security_id(buffer, index, packet, parent)
+  index, security_id = otc_markets_multicast_ats_v4_5_dissect.security_id(buffer, index, packet, parent)
 
   -- Security Flags: Struct of 8 fields
-  index, security_flags = dissect.security_flags(buffer, index, packet, parent)
+  index, security_flags = otc_markets_multicast_ats_v4_5_dissect.security_flags(buffer, index, packet, parent)
 
   -- Tier: 1 Byte Unsigned Fixed Width Integer Enum with 13 values
-  index, tier = dissect.tier(buffer, index, packet, parent)
+  index, tier = otc_markets_multicast_ats_v4_5_dissect.tier(buffer, index, packet, parent)
 
   -- Reporting Status: 1 Byte Ascii String Enum with 11 values
-  index, reporting_status = dissect.reporting_status(buffer, index, packet, parent)
+  index, reporting_status = otc_markets_multicast_ats_v4_5_dissect.reporting_status(buffer, index, packet, parent)
 
   -- Security Status: 1 Byte Ascii String Enum with 7 values
-  index, security_status = dissect.security_status(buffer, index, packet, parent)
+  index, security_status = otc_markets_multicast_ats_v4_5_dissect.security_status(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Security Message
-dissect.security_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.security_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.security_message then
-    local length = size_of.security_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.security_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.security_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.security_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.security_message, range, display)
   end
 
-  return dissect.security_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.security_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Market Msg Ct
-size_of.market_msg_ct = 4
+otc_markets_multicast_ats_v4_5_size_of.market_msg_ct = 4
 
 -- Display: Market Msg Ct
-display.market_msg_ct = function(value)
+otc_markets_multicast_ats_v4_5_display.market_msg_ct = function(value)
   return "Market Msg Ct: "..value
 end
 
 -- Dissect: Market Msg Ct
-dissect.market_msg_ct = function(buffer, offset, packet, parent)
-  local length = size_of.market_msg_ct
+otc_markets_multicast_ats_v4_5_dissect.market_msg_ct = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.market_msg_ct
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.market_msg_ct(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.market_msg_ct(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.market_msg_ct, range, value, display)
 
@@ -2941,19 +2941,19 @@ dissect.market_msg_ct = function(buffer, offset, packet, parent)
 end
 
 -- Size: Market Close Time Milli
-size_of.market_close_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.market_close_time_milli = 8
 
 -- Display: Market Close Time Milli
-display.market_close_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.market_close_time_milli = function(value)
   return "Market Close Time Milli: "..value
 end
 
 -- Dissect: Market Close Time Milli
-dissect.market_close_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.market_close_time_milli
+otc_markets_multicast_ats_v4_5_dissect.market_close_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.market_close_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.market_close_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.market_close_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_time_milli, range, value, display)
 
@@ -2961,66 +2961,66 @@ dissect.market_close_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Market Close Message
-size_of.market_close_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.market_close_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.market_close_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.market_close_time_milli
 
-  index = index + size_of.market_msg_ct
+  index = index + otc_markets_multicast_ats_v4_5_size_of.market_msg_ct
 
   return index
 end
 
 -- Display: Market Close Message
-display.market_close_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.market_close_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Market Close Message
-dissect.market_close_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Market Close Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, market_close_time_milli = dissect.market_close_time_milli(buffer, index, packet, parent)
+  index, market_close_time_milli = otc_markets_multicast_ats_v4_5_dissect.market_close_time_milli(buffer, index, packet, parent)
 
   -- Market Msg Ct: 4 Byte Unsigned Fixed Width Integer
-  index, market_msg_ct = dissect.market_msg_ct(buffer, index, packet, parent)
+  index, market_msg_ct = otc_markets_multicast_ats_v4_5_dissect.market_msg_ct(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Market Close Message
-dissect.market_close_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.market_close_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.market_close_message then
-    local length = size_of.market_close_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.market_close_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.market_close_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.market_close_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.market_close_message, range, display)
   end
 
-  return dissect.market_close_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.market_close_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Spin Last Seq Num
-size_of.spin_last_seq_num = 4
+otc_markets_multicast_ats_v4_5_size_of.spin_last_seq_num = 4
 
 -- Display: Spin Last Seq Num
-display.spin_last_seq_num = function(value)
+otc_markets_multicast_ats_v4_5_display.spin_last_seq_num = function(value)
   return "Spin Last Seq Num: "..value
 end
 
 -- Dissect: Spin Last Seq Num
-dissect.spin_last_seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.spin_last_seq_num
+otc_markets_multicast_ats_v4_5_dissect.spin_last_seq_num = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.spin_last_seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.spin_last_seq_num(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.spin_last_seq_num(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.spin_last_seq_num, range, value, display)
 
@@ -3028,19 +3028,19 @@ dissect.spin_last_seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Size: Spin End Time Milli
-size_of.spin_end_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.spin_end_time_milli = 8
 
 -- Display: Spin End Time Milli
-display.spin_end_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.spin_end_time_milli = function(value)
   return "Spin End Time Milli: "..value
 end
 
 -- Dissect: Spin End Time Milli
-dissect.spin_end_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.spin_end_time_milli
+otc_markets_multicast_ats_v4_5_dissect.spin_end_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.spin_end_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.spin_end_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.spin_end_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.spin_end_time_milli, range, value, display)
 
@@ -3048,19 +3048,19 @@ dissect.spin_end_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Spin Msg Ct
-size_of.spin_msg_ct = 4
+otc_markets_multicast_ats_v4_5_size_of.spin_msg_ct = 4
 
 -- Display: Spin Msg Ct
-display.spin_msg_ct = function(value)
+otc_markets_multicast_ats_v4_5_display.spin_msg_ct = function(value)
   return "Spin Msg Ct: "..value
 end
 
 -- Dissect: Spin Msg Ct
-dissect.spin_msg_ct = function(buffer, offset, packet, parent)
-  local length = size_of.spin_msg_ct
+otc_markets_multicast_ats_v4_5_dissect.spin_msg_ct = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.spin_msg_ct
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.spin_msg_ct(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.spin_msg_ct(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.spin_msg_ct, range, value, display)
 
@@ -3068,10 +3068,10 @@ dissect.spin_msg_ct = function(buffer, offset, packet, parent)
 end
 
 -- Size: Spin Type
-size_of.spin_type = 1
+otc_markets_multicast_ats_v4_5_size_of.spin_type = 1
 
 -- Display: Spin Type
-display.spin_type = function(value)
+otc_markets_multicast_ats_v4_5_display.spin_type = function(value)
   if value == 1 then
     return "Spin Type: Reference (1)"
   end
@@ -3086,11 +3086,11 @@ display.spin_type = function(value)
 end
 
 -- Dissect: Spin Type
-dissect.spin_type = function(buffer, offset, packet, parent)
-  local length = size_of.spin_type
+otc_markets_multicast_ats_v4_5_dissect.spin_type = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.spin_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.spin_type(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.spin_type(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.spin_type, range, value, display)
 
@@ -3098,76 +3098,76 @@ dissect.spin_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: End Of Spin Message
-size_of.end_of_spin_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.end_of_spin_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.spin_type
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_type
 
-  index = index + size_of.spin_msg_ct
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_msg_ct
 
-  index = index + size_of.spin_end_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_end_time_milli
 
-  index = index + size_of.spin_last_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_last_seq_num
 
   return index
 end
 
 -- Display: End Of Spin Message
-display.end_of_spin_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.end_of_spin_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: End Of Spin Message
-dissect.end_of_spin_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Spin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, spin_type = dissect.spin_type(buffer, index, packet, parent)
+  index, spin_type = otc_markets_multicast_ats_v4_5_dissect.spin_type(buffer, index, packet, parent)
 
   -- Spin Msg Ct: 4 Byte Unsigned Fixed Width Integer
-  index, spin_msg_ct = dissect.spin_msg_ct(buffer, index, packet, parent)
+  index, spin_msg_ct = otc_markets_multicast_ats_v4_5_dissect.spin_msg_ct(buffer, index, packet, parent)
 
   -- Spin End Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, spin_end_time_milli = dissect.spin_end_time_milli(buffer, index, packet, parent)
+  index, spin_end_time_milli = otc_markets_multicast_ats_v4_5_dissect.spin_end_time_milli(buffer, index, packet, parent)
 
   -- Spin Last Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, spin_last_seq_num = dissect.spin_last_seq_num(buffer, index, packet, parent)
+  index, spin_last_seq_num = otc_markets_multicast_ats_v4_5_dissect.spin_last_seq_num(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: End Of Spin Message
-dissect.end_of_spin_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.end_of_spin_message then
-    local length = size_of.end_of_spin_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.end_of_spin_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.end_of_spin_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.end_of_spin_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.end_of_spin_message, range, display)
   end
 
-  return dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Spin Start Time Milli
-size_of.spin_start_time_milli = 8
+otc_markets_multicast_ats_v4_5_size_of.spin_start_time_milli = 8
 
 -- Display: Spin Start Time Milli
-display.spin_start_time_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.spin_start_time_milli = function(value)
   return "Spin Start Time Milli: "..value
 end
 
 -- Dissect: Spin Start Time Milli
-dissect.spin_start_time_milli = function(buffer, offset, packet, parent)
-  local length = size_of.spin_start_time_milli
+otc_markets_multicast_ats_v4_5_dissect.spin_start_time_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.spin_start_time_milli
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.spin_start_time_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.spin_start_time_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.spin_start_time_milli, range, value, display)
 
@@ -3175,220 +3175,220 @@ dissect.spin_start_time_milli = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Start Of Spin Message
-size_of.start_of_spin_message = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.start_of_spin_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.channel_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.channel_seq_num
 
-  index = index + size_of.spin_type
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_type
 
-  index = index + size_of.spin_start_time_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_start_time_milli
 
-  index = index + size_of.spin_last_seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.spin_last_seq_num
 
   return index
 end
 
 -- Display: Start Of Spin Message
-display.start_of_spin_message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.start_of_spin_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Start Of Spin Message
-dissect.start_of_spin_message_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Channel Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, channel_seq_num = dissect.channel_seq_num(buffer, index, packet, parent)
+  index, channel_seq_num = otc_markets_multicast_ats_v4_5_dissect.channel_seq_num(buffer, index, packet, parent)
 
   -- Spin Type: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, spin_type = dissect.spin_type(buffer, index, packet, parent)
+  index, spin_type = otc_markets_multicast_ats_v4_5_dissect.spin_type(buffer, index, packet, parent)
 
   -- Spin Start Time Milli: 8 Byte Unsigned Fixed Width Integer
-  index, spin_start_time_milli = dissect.spin_start_time_milli(buffer, index, packet, parent)
+  index, spin_start_time_milli = otc_markets_multicast_ats_v4_5_dissect.spin_start_time_milli(buffer, index, packet, parent)
 
   -- Spin Last Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, spin_last_seq_num = dissect.spin_last_seq_num(buffer, index, packet, parent)
+  index, spin_last_seq_num = otc_markets_multicast_ats_v4_5_dissect.spin_last_seq_num(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Start Of Spin Message
-dissect.start_of_spin_message = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.start_of_spin_message then
-    local length = size_of.start_of_spin_message(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.start_of_spin_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.start_of_spin_message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.start_of_spin_message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.start_of_spin_message, range, display)
   end
 
-  return dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, message_type)
+otc_markets_multicast_ats_v4_5_size_of.payload = function(buffer, offset, message_type)
   -- Size of Start Of Spin Message
   if message_type == 11 then
-    return size_of.start_of_spin_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.start_of_spin_message(buffer, offset)
   end
   -- Size of End Of Spin Message
   if message_type == 12 then
-    return size_of.end_of_spin_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.end_of_spin_message(buffer, offset)
   end
   -- Size of Market Open Message
   if message_type == 13 then
-    return size_of.market_open_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.market_open_message(buffer, offset)
   end
   -- Size of Market Close Message
   if message_type == 14 then
-    return size_of.market_close_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.market_close_message(buffer, offset)
   end
   -- Size of Security Message
   if message_type == 9 then
-    return size_of.security_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.security_message(buffer, offset)
   end
   -- Size of Quote Message
   if message_type == 1 then
-    return size_of.quote_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.quote_message(buffer, offset)
   end
   -- Size of Quote Update Message
   if message_type == 2 then
-    return size_of.quote_update_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.quote_update_message(buffer, offset)
   end
   -- Size of Market Open Message
   if message_type == 3 then
-    return size_of.market_open_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.market_open_message(buffer, offset)
   end
   -- Size of Inside Update Message
   if message_type == 4 then
-    return size_of.inside_update_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.inside_update_message(buffer, offset)
   end
   -- Size of Reference Price Message
   if message_type == 7 then
-    return size_of.reference_price_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.reference_price_message(buffer, offset)
   end
   -- Size of Reference Price Update Message
   if message_type == 8 then
-    return size_of.reference_price_update_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.reference_price_update_message(buffer, offset)
   end
   -- Size of Extended Security Message
   if message_type == 15 then
-    return size_of.extended_security_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.extended_security_message(buffer, offset)
   end
   -- Size of Extended Security No Cusip Message
   if message_type == 16 then
-    return size_of.extended_security_no_cusip_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.extended_security_no_cusip_message(buffer, offset)
   end
   -- Size of Trade Message
   if message_type == 17 then
-    return size_of.trade_message(buffer, offset)
+    return otc_markets_multicast_ats_v4_5_size_of.trade_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
+otc_markets_multicast_ats_v4_5_dissect.payload_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Start Of Spin Message
   if message_type == 11 then
-    return dissect.start_of_spin_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.start_of_spin_message(buffer, offset, packet, parent)
   end
   -- Dissect End Of Spin Message
   if message_type == 12 then
-    return dissect.end_of_spin_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.end_of_spin_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Open Message
   if message_type == 13 then
-    return dissect.market_open_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.market_open_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Close Message
   if message_type == 14 then
-    return dissect.market_close_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.market_close_message(buffer, offset, packet, parent)
   end
   -- Dissect Security Message
   if message_type == 9 then
-    return dissect.security_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.security_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Message
   if message_type == 1 then
-    return dissect.quote_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.quote_message(buffer, offset, packet, parent)
   end
   -- Dissect Quote Update Message
   if message_type == 2 then
-    return dissect.quote_update_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.quote_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Market Open Message
   if message_type == 3 then
-    return dissect.market_open_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.market_open_message(buffer, offset, packet, parent)
   end
   -- Dissect Inside Update Message
   if message_type == 4 then
-    return dissect.inside_update_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.inside_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Reference Price Message
   if message_type == 7 then
-    return dissect.reference_price_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_message(buffer, offset, packet, parent)
   end
   -- Dissect Reference Price Update Message
   if message_type == 8 then
-    return dissect.reference_price_update_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.reference_price_update_message(buffer, offset, packet, parent)
   end
   -- Dissect Extended Security Message
   if message_type == 15 then
-    return dissect.extended_security_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.extended_security_message(buffer, offset, packet, parent)
   end
   -- Dissect Extended Security No Cusip Message
   if message_type == 16 then
-    return dissect.extended_security_no_cusip_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.extended_security_no_cusip_message(buffer, offset, packet, parent)
   end
   -- Dissect Trade Message
   if message_type == 17 then
-    return dissect.trade_message(buffer, offset, packet, parent)
+    return otc_markets_multicast_ats_v4_5_dissect.trade_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, message_type)
+otc_markets_multicast_ats_v4_5_dissect.payload = function(buffer, offset, packet, parent, message_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+    return otc_markets_multicast_ats_v4_5_dissect.payload_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, message_type)
+  local size = otc_markets_multicast_ats_v4_5_size_of.payload(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.payload(buffer, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, message_type)
+  return otc_markets_multicast_ats_v4_5_dissect.payload_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+otc_markets_multicast_ats_v4_5_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+otc_markets_multicast_ats_v4_5_display.message_type = function(value)
   return "Message Type: "..value
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+otc_markets_multicast_ats_v4_5_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.message_type
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.message_type, range, value, display)
 
@@ -3396,19 +3396,19 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Message Size
-size_of.message_size = 2
+otc_markets_multicast_ats_v4_5_size_of.message_size = 2
 
 -- Display: Message Size
-display.message_size = function(value)
+otc_markets_multicast_ats_v4_5_display.message_size = function(value)
   return "Message Size: "..value
 end
 
 -- Dissect: Message Size
-dissect.message_size = function(buffer, offset, packet, parent)
-  local length = size_of.message_size
+otc_markets_multicast_ats_v4_5_dissect.message_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.message_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.message_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.message_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.message_size, range, value, display)
 
@@ -3416,96 +3416,96 @@ dissect.message_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message Header
-size_of.message_header = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.message_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.message_size
 
-  index = index + size_of.message_type
+  index = index + otc_markets_multicast_ats_v4_5_size_of.message_type
 
   return index
 end
 
 -- Display: Message Header
-display.message_header = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.message_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message Header
-dissect.message_header_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.message_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Size: 2 Byte Unsigned Fixed Width Integer
-  index, message_size = dissect.message_size(buffer, index, packet, parent)
+  index, message_size = otc_markets_multicast_ats_v4_5_dissect.message_size(buffer, index, packet, parent)
 
   -- Message Type: 1 Byte Unsigned Fixed Width Integer
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = otc_markets_multicast_ats_v4_5_dissect.message_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Message Header
-dissect.message_header = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.message_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.message_header then
-    local length = size_of.message_header(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.message_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message_header(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.message_header(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message_header, range, display)
   end
 
-  return dissect.message_header_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.message_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+otc_markets_multicast_ats_v4_5_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Header: Struct of 2 fields
-  index, message_header = dissect.message_header(buffer, index, packet, parent)
+  index, message_header = otc_markets_multicast_ats_v4_5_dissect.message_header(buffer, index, packet, parent)
 
   -- Dependency element: Message Type
   local message_type = buffer(index - 1, 1):uint()
 
   -- Payload: Runtime Type with 14 branches
-  index = dissect.payload(buffer, index, packet, parent, message_type)
+  index = otc_markets_multicast_ats_v4_5_dissect.payload(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent, size_of_message)
+otc_markets_multicast_ats_v4_5_dissect.message = function(buffer, offset, packet, parent, size_of_message)
   -- Optionally add struct element to protocol tree
   if show.message then
     local range = buffer(offset, size_of_message)
-    local display = display.message(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.message(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.message, range, display)
   end
 
-  dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+  otc_markets_multicast_ats_v4_5_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
   return offset + size_of_message
 end
 
 -- Size: Packet Milli
-size_of.packet_milli = 4
+otc_markets_multicast_ats_v4_5_size_of.packet_milli = 4
 
 -- Display: Packet Milli
-display.packet_milli = function(value)
+otc_markets_multicast_ats_v4_5_display.packet_milli = function(value)
   return "Packet Milli: "..value
 end
 
 -- Dissect: Packet Milli
-dissect.packet_milli = function(buffer, offset, packet, parent)
-  local length = size_of.packet_milli
+otc_markets_multicast_ats_v4_5_dissect.packet_milli = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.packet_milli
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.packet_milli(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.packet_milli(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.packet_milli, range, value, display)
 
@@ -3513,19 +3513,19 @@ dissect.packet_milli = function(buffer, offset, packet, parent)
 end
 
 -- Size: Messages
-size_of.messages = 1
+otc_markets_multicast_ats_v4_5_size_of.messages = 1
 
 -- Display: Messages
-display.messages = function(value)
+otc_markets_multicast_ats_v4_5_display.messages = function(value)
   return "Messages: "..value
 end
 
 -- Dissect: Messages
-dissect.messages = function(buffer, offset, packet, parent)
-  local length = size_of.messages
+otc_markets_multicast_ats_v4_5_dissect.messages = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.messages
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.messages(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.messages(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.messages, range, value, display)
 
@@ -3533,10 +3533,10 @@ dissect.messages = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Flag
-size_of.packet_flag = 1
+otc_markets_multicast_ats_v4_5_size_of.packet_flag = 1
 
 -- Display: Packet Flag
-display.packet_flag = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_display.packet_flag = function(buffer, packet, parent)
   local display = ""
 
   -- Is Test flag set?
@@ -3560,7 +3560,7 @@ display.packet_flag = function(buffer, packet, parent)
 end
 
 -- Dissect Bit Fields: Packet Flag
-dissect.packet_flag_bits = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.packet_flag_bits = function(buffer, offset, packet, parent)
 
   -- Test: 1 Bit
   parent:add(otc_markets_multicast_ats_v4_5.fields.test, buffer(offset, 1))
@@ -3579,33 +3579,33 @@ dissect.packet_flag_bits = function(buffer, offset, packet, parent)
 end
 
 -- Dissect: Packet Flag
-dissect.packet_flag = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.packet_flag = function(buffer, offset, packet, parent)
   local size = 1
   local range = buffer(offset, size)
-  local display = display.packet_flag(range, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.packet_flag(range, packet, parent)
   local element = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_flag, range, display)
 
   if show.packet_flag then
-    dissect.packet_flag_bits(buffer, offset, packet, element)
+    otc_markets_multicast_ats_v4_5_dissect.packet_flag_bits(buffer, offset, packet, element)
   end
 
   return offset + 1, range
 end
 
 -- Size: Seq Num
-size_of.seq_num = 4
+otc_markets_multicast_ats_v4_5_size_of.seq_num = 4
 
 -- Display: Seq Num
-display.seq_num = function(value)
+otc_markets_multicast_ats_v4_5_display.seq_num = function(value)
   return "Seq Num: "..value
 end
 
 -- Dissect: Seq Num
-dissect.seq_num = function(buffer, offset, packet, parent)
-  local length = size_of.seq_num
+otc_markets_multicast_ats_v4_5_dissect.seq_num = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.seq_num
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.seq_num(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.seq_num(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.seq_num, range, value, display)
 
@@ -3613,19 +3613,19 @@ dissect.seq_num = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Size
-size_of.packet_size = 2
+otc_markets_multicast_ats_v4_5_size_of.packet_size = 2
 
 -- Display: Packet Size
-display.packet_size = function(value)
+otc_markets_multicast_ats_v4_5_display.packet_size = function(value)
   return "Packet Size: "..value
 end
 
 -- Dissect: Packet Size
-dissect.packet_size = function(buffer, offset, packet, parent)
-  local length = size_of.packet_size
+otc_markets_multicast_ats_v4_5_dissect.packet_size = function(buffer, offset, packet, parent)
+  local length = otc_markets_multicast_ats_v4_5_size_of.packet_size
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.packet_size(value, buffer, offset, packet, parent)
+  local display = otc_markets_multicast_ats_v4_5_display.packet_size(value, buffer, offset, packet, parent)
 
   parent:add(otc_markets_multicast_ats_v4_5.fields.packet_size, range, value, display)
 
@@ -3633,68 +3633,68 @@ dissect.packet_size = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+otc_markets_multicast_ats_v4_5_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.packet_size
+  index = index + otc_markets_multicast_ats_v4_5_size_of.packet_size
 
-  index = index + size_of.seq_num
+  index = index + otc_markets_multicast_ats_v4_5_size_of.seq_num
 
-  index = index + size_of.packet_flag
+  index = index + otc_markets_multicast_ats_v4_5_size_of.packet_flag
 
-  index = index + size_of.messages
+  index = index + otc_markets_multicast_ats_v4_5_size_of.messages
 
-  index = index + size_of.packet_milli
+  index = index + otc_markets_multicast_ats_v4_5_size_of.packet_milli
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+otc_markets_multicast_ats_v4_5_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Size: 2 Byte Unsigned Fixed Width Integer
-  index, packet_size = dissect.packet_size(buffer, index, packet, parent)
+  index, packet_size = otc_markets_multicast_ats_v4_5_dissect.packet_size(buffer, index, packet, parent)
 
   -- Seq Num: 4 Byte Unsigned Fixed Width Integer
-  index, seq_num = dissect.seq_num(buffer, index, packet, parent)
+  index, seq_num = otc_markets_multicast_ats_v4_5_dissect.seq_num(buffer, index, packet, parent)
 
   -- Packet Flag: Struct of 5 fields
-  index, packet_flag = dissect.packet_flag(buffer, index, packet, parent)
+  index, packet_flag = otc_markets_multicast_ats_v4_5_dissect.packet_flag(buffer, index, packet, parent)
 
   -- Messages: 1 Byte Unsigned Fixed Width Integer
-  index, messages = dissect.messages(buffer, index, packet, parent)
+  index, messages = otc_markets_multicast_ats_v4_5_dissect.messages(buffer, index, packet, parent)
 
   -- Packet Milli: 4 Byte Unsigned Fixed Width Integer
-  index, packet_milli = dissect.packet_milli(buffer, index, packet, parent)
+  index, packet_milli = otc_markets_multicast_ats_v4_5_dissect.packet_milli(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = otc_markets_multicast_ats_v4_5_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = otc_markets_multicast_ats_v4_5_display.packet_header(buffer, packet, parent)
     parent = parent:add(otc_markets_multicast_ats_v4_5.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return otc_markets_multicast_ats_v4_5_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+otc_markets_multicast_ats_v4_5_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Packet Header: Struct of 5 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = otc_markets_multicast_ats_v4_5_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency for Message
   local end_of_payload = buffer:len()
@@ -3706,7 +3706,7 @@ dissect.packet = function(buffer, packet, parent)
     local message_size = buffer(index, 2):uint()
 
     -- Message: Struct of 2 fields
-    index = dissect.message(buffer, index, packet, parent, message_size)
+    index = otc_markets_multicast_ats_v4_5_dissect.message(buffer, index, packet, parent, message_size)
   end
 
   return index
@@ -3729,7 +3729,7 @@ function otc_markets_multicast_ats_v4_5.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(otc_markets_multicast_ats_v4_5, buffer(), otc_markets_multicast_ats_v4_5.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return otc_markets_multicast_ats_v4_5_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Udp Table

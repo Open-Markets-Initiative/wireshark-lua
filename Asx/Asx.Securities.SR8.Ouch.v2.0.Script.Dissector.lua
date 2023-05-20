@@ -10,9 +10,9 @@ local asx_securities_sr8_ouch_v2_0 = Proto("Asx.Securities.SR8.Ouch.v2.0.Lua", "
 -- Component Tables
 local show = {}
 local format = {}
-local display = {}
-local dissect = {}
-local size_of = {}
+local asx_securities_sr8_ouch_v2_0_display = {}
+local asx_securities_sr8_ouch_v2_0_dissect = {}
+local asx_securities_sr8_ouch_v2_0_size_of = {}
 local verify = {}
 
 -----------------------------------------------------------------------
@@ -239,19 +239,19 @@ end
 -----------------------------------------------------------------------
 
 -- Size: Match Attributes
-size_of.match_attributes = 1
+asx_securities_sr8_ouch_v2_0_size_of.match_attributes = 1
 
 -- Display: Match Attributes
-display.match_attributes = function(value)
+asx_securities_sr8_ouch_v2_0_display.match_attributes = function(value)
   return "Match Attributes: "..value
 end
 
 -- Dissect: Match Attributes
-dissect.match_attributes = function(buffer, offset, packet, parent)
-  local length = size_of.match_attributes
+asx_securities_sr8_ouch_v2_0_dissect.match_attributes = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.match_attributes
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.match_attributes(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.match_attributes(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.match_attributes, range, value, display)
 
@@ -259,19 +259,19 @@ dissect.match_attributes = function(buffer, offset, packet, parent)
 end
 
 -- Size: Deal Source
-size_of.deal_source = 2
+asx_securities_sr8_ouch_v2_0_size_of.deal_source = 2
 
 -- Display: Deal Source
-display.deal_source = function(value)
+asx_securities_sr8_ouch_v2_0_display.deal_source = function(value)
   return "Deal Source: "..value
 end
 
 -- Dissect: Deal Source
-dissect.deal_source = function(buffer, offset, packet, parent)
-  local length = size_of.deal_source
+asx_securities_sr8_ouch_v2_0_dissect.deal_source = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.deal_source
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.deal_source(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.deal_source(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.deal_source, range, value, display)
 
@@ -279,19 +279,19 @@ dissect.deal_source = function(buffer, offset, packet, parent)
 end
 
 -- Size: Match Id
-size_of.match_id = 12
+asx_securities_sr8_ouch_v2_0_size_of.match_id = 12
 
 -- Display: Match Id
-display.match_id = function(value)
+asx_securities_sr8_ouch_v2_0_display.match_id = function(value)
   return "Match Id: "..value
 end
 
 -- Dissect: Match Id
-dissect.match_id = function(buffer, offset, packet, parent)
-  local length = size_of.match_id
+asx_securities_sr8_ouch_v2_0_dissect.match_id = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.match_id
   local range = buffer(offset, length)
   local value = range:bytes():tohex(false, " ")
-  local display = display.match_id(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.match_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.match_id, range, value, display)
 
@@ -299,19 +299,19 @@ dissect.match_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Trade Price
-size_of.trade_price = 4
+asx_securities_sr8_ouch_v2_0_size_of.trade_price = 4
 
 -- Display: Trade Price
-display.trade_price = function(value)
+asx_securities_sr8_ouch_v2_0_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
 -- Dissect: Trade Price
-dissect.trade_price = function(buffer, offset, packet, parent)
-  local length = size_of.trade_price
+asx_securities_sr8_ouch_v2_0_dissect.trade_price = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.trade_price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.trade_price(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.trade_price, range, value, display)
 
@@ -319,19 +319,19 @@ dissect.trade_price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Traded Quantity
-size_of.traded_quantity = 8
+asx_securities_sr8_ouch_v2_0_size_of.traded_quantity = 8
 
 -- Display: Traded Quantity
-display.traded_quantity = function(value)
+asx_securities_sr8_ouch_v2_0_display.traded_quantity = function(value)
   return "Traded Quantity: "..value
 end
 
 -- Dissect: Traded Quantity
-dissect.traded_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.traded_quantity
+asx_securities_sr8_ouch_v2_0_dissect.traded_quantity = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.traded_quantity
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.traded_quantity(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.traded_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.traded_quantity, range, value, display)
 
@@ -339,19 +339,19 @@ dissect.traded_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Book Id
-size_of.order_book_id = 4
+asx_securities_sr8_ouch_v2_0_size_of.order_book_id = 4
 
 -- Display: Order Book Id
-display.order_book_id = function(value)
+asx_securities_sr8_ouch_v2_0_display.order_book_id = function(value)
   return "Order Book Id: "..value
 end
 
 -- Dissect: Order Book Id
-dissect.order_book_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_book_id
+asx_securities_sr8_ouch_v2_0_dissect.order_book_id = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.order_book_id
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.order_book_id(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.order_book_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_book_id, range, value, display)
 
@@ -359,19 +359,19 @@ dissect.order_book_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Token
-size_of.order_token = 14
+asx_securities_sr8_ouch_v2_0_size_of.order_token = 14
 
 -- Display: Order Token
-display.order_token = function(value)
+asx_securities_sr8_ouch_v2_0_display.order_token = function(value)
   return "Order Token: "..value
 end
 
 -- Dissect: Order Token
-dissect.order_token = function(buffer, offset, packet, parent)
-  local length = size_of.order_token
+asx_securities_sr8_ouch_v2_0_dissect.order_token = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.order_token
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_token(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_token, range, value, display)
 
@@ -379,19 +379,19 @@ dissect.order_token = function(buffer, offset, packet, parent)
 end
 
 -- Size: Timestamp Nanoseconds
-size_of.timestamp_nanoseconds = 8
+asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds = 8
 
 -- Display: Timestamp Nanoseconds
-display.timestamp_nanoseconds = function(value)
+asx_securities_sr8_ouch_v2_0_display.timestamp_nanoseconds = function(value)
   return "Timestamp Nanoseconds: "..value
 end
 
 -- Dissect: Timestamp Nanoseconds
-dissect.timestamp_nanoseconds = function(buffer, offset, packet, parent)
-  local length = size_of.timestamp_nanoseconds
+asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.timestamp_nanoseconds(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.timestamp_nanoseconds, range, value, display)
 
@@ -399,82 +399,82 @@ dissect.timestamp_nanoseconds = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Executed Message
-size_of.order_executed_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.order_executed_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp_nanoseconds
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.traded_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.traded_quantity
 
-  index = index + size_of.trade_price
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.trade_price
 
-  index = index + size_of.match_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.match_id
 
-  index = index + size_of.deal_source
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.deal_source
 
-  index = index + size_of.match_attributes
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.match_attributes
 
   return index
 end
 
 -- Display: Order Executed Message
-display.order_executed_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.order_executed_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Executed Message
-dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_executed_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Traded Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, traded_quantity = dissect.traded_quantity(buffer, index, packet, parent)
+  index, traded_quantity = asx_securities_sr8_ouch_v2_0_dissect.traded_quantity(buffer, index, packet, parent)
 
   -- Trade Price: 4 Byte Signed Fixed Width Integer
-  index, trade_price = dissect.trade_price(buffer, index, packet, parent)
+  index, trade_price = asx_securities_sr8_ouch_v2_0_dissect.trade_price(buffer, index, packet, parent)
 
   -- Match Id: 12 Byte Unsigned Fixed Width Integer
-  index, match_id = dissect.match_id(buffer, index, packet, parent)
+  index, match_id = asx_securities_sr8_ouch_v2_0_dissect.match_id(buffer, index, packet, parent)
 
   -- Deal Source: 2 Byte Unsigned Fixed Width Integer
-  index, deal_source = dissect.deal_source(buffer, index, packet, parent)
+  index, deal_source = asx_securities_sr8_ouch_v2_0_dissect.deal_source(buffer, index, packet, parent)
 
   -- Match Attributes: 1 Byte Unsigned Fixed Width Integer
-  index, match_attributes = dissect.match_attributes(buffer, index, packet, parent)
+  index, match_attributes = asx_securities_sr8_ouch_v2_0_dissect.match_attributes(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Executed Message
-dissect.order_executed_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_executed_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_executed_message then
-    local length = size_of.order_executed_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.order_executed_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_executed_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.order_executed_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.order_executed_message, range, display)
   end
 
-  return dissect.order_executed_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reason
-size_of.reason = 1
+asx_securities_sr8_ouch_v2_0_size_of.reason = 1
 
 -- Display: Reason
-display.reason = function(value)
+asx_securities_sr8_ouch_v2_0_display.reason = function(value)
   if value == 1 then
     return "Reason: Cancelled By User (1)"
   end
@@ -501,11 +501,11 @@ display.reason = function(value)
 end
 
 -- Dissect: Reason
-dissect.reason = function(buffer, offset, packet, parent)
-  local length = size_of.reason
+asx_securities_sr8_ouch_v2_0_dissect.reason = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.reason
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reason(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.reason, range, value, display)
 
@@ -513,19 +513,19 @@ dissect.reason = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Id
-size_of.order_id = 8
+asx_securities_sr8_ouch_v2_0_size_of.order_id = 8
 
 -- Display: Order Id
-display.order_id = function(value)
+asx_securities_sr8_ouch_v2_0_display.order_id = function(value)
   return "Order Id: "..value
 end
 
 -- Dissect: Order Id
-dissect.order_id = function(buffer, offset, packet, parent)
-  local length = size_of.order_id
+asx_securities_sr8_ouch_v2_0_dissect.order_id = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.order_id
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.order_id(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.order_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_id, range, value, display)
 
@@ -533,10 +533,10 @@ dissect.order_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Side
-size_of.side = 1
+asx_securities_sr8_ouch_v2_0_size_of.side = 1
 
 -- Display: Side
-display.side = function(value)
+asx_securities_sr8_ouch_v2_0_display.side = function(value)
   if value == "B" then
     return "Side: Buy Order (B)"
   end
@@ -554,11 +554,11 @@ display.side = function(value)
 end
 
 -- Dissect: Side
-dissect.side = function(buffer, offset, packet, parent)
-  local length = size_of.side
+asx_securities_sr8_ouch_v2_0_dissect.side = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.side
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.side(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.side(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.side, range, value, display)
 
@@ -566,81 +566,81 @@ dissect.side = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Cancelled Message
-size_of.order_cancelled_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.order_cancelled_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp_nanoseconds
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.side
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.side
 
-  index = index + size_of.order_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_id
 
-  index = index + size_of.reason
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.reason
 
   return index
 end
 
 -- Display: Order Cancelled Message
-display.order_cancelled_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Cancelled Message
-dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_cancelled_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = asx_securities_sr8_ouch_v2_0_dissect.side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = asx_securities_sr8_ouch_v2_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Reason: 1 Byte Unsigned Fixed Width Integer Enum with 7 values
-  index, reason = dissect.reason(buffer, index, packet, parent)
+  index, reason = asx_securities_sr8_ouch_v2_0_dissect.reason(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Cancelled Message
-dissect.order_cancelled_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
-    local length = size_of.order_cancelled_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.order_cancelled_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_cancelled_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.order_cancelled_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.order_cancelled_message, range, display)
   end
 
-  return dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.order_cancelled_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Minimum Acceptable Quantity
-size_of.minimum_acceptable_quantity = 8
+asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity = 8
 
 -- Display: Minimum Acceptable Quantity
-display.minimum_acceptable_quantity = function(value)
+asx_securities_sr8_ouch_v2_0_display.minimum_acceptable_quantity = function(value)
   return "Minimum Acceptable Quantity: "..value
 end
 
 -- Dissect: Minimum Acceptable Quantity
-dissect.minimum_acceptable_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.minimum_acceptable_quantity
+asx_securities_sr8_ouch_v2_0_dissect.minimum_acceptable_quantity = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.minimum_acceptable_quantity(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.minimum_acceptable_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.minimum_acceptable_quantity, range, value, display)
 
@@ -648,19 +648,19 @@ dissect.minimum_acceptable_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Short Sell Quantity
-size_of.short_sell_quantity = 8
+asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity = 8
 
 -- Display: Short Sell Quantity
-display.short_sell_quantity = function(value)
+asx_securities_sr8_ouch_v2_0_display.short_sell_quantity = function(value)
   return "Short Sell Quantity: "..value
 end
 
 -- Dissect: Short Sell Quantity
-dissect.short_sell_quantity = function(buffer, offset, packet, parent)
-  local length = size_of.short_sell_quantity
+asx_securities_sr8_ouch_v2_0_dissect.short_sell_quantity = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.short_sell_quantity(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.short_sell_quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.short_sell_quantity, range, value, display)
 
@@ -668,10 +668,10 @@ dissect.short_sell_quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Ouch Order Type
-size_of.ouch_order_type = 1
+asx_securities_sr8_ouch_v2_0_size_of.ouch_order_type = 1
 
 -- Display: Ouch Order Type
-display.ouch_order_type = function(value)
+asx_securities_sr8_ouch_v2_0_display.ouch_order_type = function(value)
   if value == "Y" then
     return "Ouch Order Type: Limit Order (Y)"
   end
@@ -707,11 +707,11 @@ display.ouch_order_type = function(value)
 end
 
 -- Dissect: Ouch Order Type
-dissect.ouch_order_type = function(buffer, offset, packet, parent)
-  local length = size_of.ouch_order_type
+asx_securities_sr8_ouch_v2_0_dissect.ouch_order_type = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.ouch_order_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.ouch_order_type(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.ouch_order_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.ouch_order_type, range, value, display)
 
@@ -719,19 +719,19 @@ dissect.ouch_order_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Filler
-size_of.filler = 8
+asx_securities_sr8_ouch_v2_0_size_of.filler = 8
 
 -- Display: Filler
-display.filler = function(value)
+asx_securities_sr8_ouch_v2_0_display.filler = function(value)
   return "Filler: "..value
 end
 
 -- Dissect: Filler
-dissect.filler = function(buffer, offset, packet, parent)
-  local length = size_of.filler
+asx_securities_sr8_ouch_v2_0_dissect.filler = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.filler
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.filler(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.filler(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.filler, range, value, display)
 
@@ -739,19 +739,19 @@ dissect.filler = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order Origin
-size_of.order_origin = 20
+asx_securities_sr8_ouch_v2_0_size_of.order_origin = 20
 
 -- Display: Order Origin
-display.order_origin = function(value)
+asx_securities_sr8_ouch_v2_0_display.order_origin = function(value)
   return "Order Origin: "..value
 end
 
 -- Dissect: Order Origin
-dissect.order_origin = function(buffer, offset, packet, parent)
-  local length = size_of.order_origin
+asx_securities_sr8_ouch_v2_0_dissect.order_origin = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.order_origin
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.order_origin(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.order_origin(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_origin, range, value, display)
 
@@ -759,19 +759,19 @@ dissect.order_origin = function(buffer, offset, packet, parent)
 end
 
 -- Size: Intermediary Id
-size_of.intermediary_id = 10
+asx_securities_sr8_ouch_v2_0_size_of.intermediary_id = 10
 
 -- Display: Intermediary Id
-display.intermediary_id = function(value)
+asx_securities_sr8_ouch_v2_0_display.intermediary_id = function(value)
   return "Intermediary Id: "..value
 end
 
 -- Dissect: Intermediary Id
-dissect.intermediary_id = function(buffer, offset, packet, parent)
-  local length = size_of.intermediary_id
+asx_securities_sr8_ouch_v2_0_dissect.intermediary_id = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.intermediary_id(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.intermediary_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.intermediary_id, range, value, display)
 
@@ -779,19 +779,19 @@ dissect.intermediary_id = function(buffer, offset, packet, parent)
 end
 
 -- Size: Execution Venue
-size_of.execution_venue = 4
+asx_securities_sr8_ouch_v2_0_size_of.execution_venue = 4
 
 -- Display: Execution Venue
-display.execution_venue = function(value)
+asx_securities_sr8_ouch_v2_0_display.execution_venue = function(value)
   return "Execution Venue: "..value
 end
 
 -- Dissect: Execution Venue
-dissect.execution_venue = function(buffer, offset, packet, parent)
-  local length = size_of.execution_venue
+asx_securities_sr8_ouch_v2_0_dissect.execution_venue = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.execution_venue
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.execution_venue(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.execution_venue(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.execution_venue, range, value, display)
 
@@ -799,10 +799,10 @@ dissect.execution_venue = function(buffer, offset, packet, parent)
 end
 
 -- Size: Directed Wholesale
-size_of.directed_wholesale = 1
+asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale = 1
 
 -- Display: Directed Wholesale
-display.directed_wholesale = function(value)
+asx_securities_sr8_ouch_v2_0_display.directed_wholesale = function(value)
   if value == "Y" then
     return "Directed Wholesale: True (Y)"
   end
@@ -814,11 +814,11 @@ display.directed_wholesale = function(value)
 end
 
 -- Dissect: Directed Wholesale
-dissect.directed_wholesale = function(buffer, offset, packet, parent)
-  local length = size_of.directed_wholesale
+asx_securities_sr8_ouch_v2_0_dissect.directed_wholesale = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.directed_wholesale(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.directed_wholesale(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.directed_wholesale, range, value, display)
 
@@ -826,10 +826,10 @@ dissect.directed_wholesale = function(buffer, offset, packet, parent)
 end
 
 -- Size: Capacity Of Participant
-size_of.capacity_of_participant = 1
+asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant = 1
 
 -- Display: Capacity Of Participant
-display.capacity_of_participant = function(value)
+asx_securities_sr8_ouch_v2_0_display.capacity_of_participant = function(value)
   if value == "A" then
     return "Capacity Of Participant: Agency (A)"
   end
@@ -844,11 +844,11 @@ display.capacity_of_participant = function(value)
 end
 
 -- Dissect: Capacity Of Participant
-dissect.capacity_of_participant = function(buffer, offset, packet, parent)
-  local length = size_of.capacity_of_participant
+asx_securities_sr8_ouch_v2_0_dissect.capacity_of_participant = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.capacity_of_participant(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.capacity_of_participant(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.capacity_of_participant, range, value, display)
 
@@ -856,19 +856,19 @@ dissect.capacity_of_participant = function(buffer, offset, packet, parent)
 end
 
 -- Size: Crossing Key
-size_of.crossing_key = 4
+asx_securities_sr8_ouch_v2_0_size_of.crossing_key = 4
 
 -- Display: Crossing Key
-display.crossing_key = function(value)
+asx_securities_sr8_ouch_v2_0_display.crossing_key = function(value)
   return "Crossing Key: "..value
 end
 
 -- Dissect: Crossing Key
-dissect.crossing_key = function(buffer, offset, packet, parent)
-  local length = size_of.crossing_key
+asx_securities_sr8_ouch_v2_0_dissect.crossing_key = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.crossing_key
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.crossing_key(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.crossing_key(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.crossing_key, range, value, display)
 
@@ -876,19 +876,19 @@ dissect.crossing_key = function(buffer, offset, packet, parent)
 end
 
 -- Size: Clearing Participant
-size_of.clearing_participant = 1
+asx_securities_sr8_ouch_v2_0_size_of.clearing_participant = 1
 
 -- Display: Clearing Participant
-display.clearing_participant = function(value)
+asx_securities_sr8_ouch_v2_0_display.clearing_participant = function(value)
   return "Clearing Participant: "..value
 end
 
 -- Dissect: Clearing Participant
-dissect.clearing_participant = function(buffer, offset, packet, parent)
-  local length = size_of.clearing_participant
+asx_securities_sr8_ouch_v2_0_dissect.clearing_participant = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.clearing_participant
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.clearing_participant(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.clearing_participant(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.clearing_participant, range, value, display)
 
@@ -896,19 +896,19 @@ dissect.clearing_participant = function(buffer, offset, packet, parent)
 end
 
 -- Size: Exchange Info
-size_of.exchange_info = 32
+asx_securities_sr8_ouch_v2_0_size_of.exchange_info = 32
 
 -- Display: Exchange Info
-display.exchange_info = function(value)
+asx_securities_sr8_ouch_v2_0_display.exchange_info = function(value)
   return "Exchange Info: "..value
 end
 
 -- Dissect: Exchange Info
-dissect.exchange_info = function(buffer, offset, packet, parent)
-  local length = size_of.exchange_info
+asx_securities_sr8_ouch_v2_0_dissect.exchange_info = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.exchange_info
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.exchange_info(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.exchange_info(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.exchange_info, range, value, display)
 
@@ -916,19 +916,19 @@ dissect.exchange_info = function(buffer, offset, packet, parent)
 end
 
 -- Size: Customer Info
-size_of.customer_info = 15
+asx_securities_sr8_ouch_v2_0_size_of.customer_info = 15
 
 -- Display: Customer Info
-display.customer_info = function(value)
+asx_securities_sr8_ouch_v2_0_display.customer_info = function(value)
   return "Customer Info: "..value
 end
 
 -- Dissect: Customer Info
-dissect.customer_info = function(buffer, offset, packet, parent)
-  local length = size_of.customer_info
+asx_securities_sr8_ouch_v2_0_dissect.customer_info = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.customer_info
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.customer_info(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.customer_info(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.customer_info, range, value, display)
 
@@ -936,10 +936,10 @@ dissect.customer_info = function(buffer, offset, packet, parent)
 end
 
 -- Size: Order State
-size_of.order_state = 1
+asx_securities_sr8_ouch_v2_0_size_of.order_state = 1
 
 -- Display: Order State
-display.order_state = function(value)
+asx_securities_sr8_ouch_v2_0_display.order_state = function(value)
   if value == 1 then
     return "Order State: On Book (1)"
   end
@@ -954,11 +954,11 @@ display.order_state = function(value)
 end
 
 -- Dissect: Order State
-dissect.order_state = function(buffer, offset, packet, parent)
-  local length = size_of.order_state
+asx_securities_sr8_ouch_v2_0_dissect.order_state = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.order_state
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.order_state(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.order_state(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_state, range, value, display)
 
@@ -966,19 +966,19 @@ dissect.order_state = function(buffer, offset, packet, parent)
 end
 
 -- Size: Client Account
-size_of.client_account = 10
+asx_securities_sr8_ouch_v2_0_size_of.client_account = 10
 
 -- Display: Client Account
-display.client_account = function(value)
+asx_securities_sr8_ouch_v2_0_display.client_account = function(value)
   return "Client Account: "..value
 end
 
 -- Dissect: Client Account
-dissect.client_account = function(buffer, offset, packet, parent)
-  local length = size_of.client_account
+asx_securities_sr8_ouch_v2_0_dissect.client_account = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.client_account
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.client_account(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.client_account(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.client_account, range, value, display)
 
@@ -986,19 +986,19 @@ dissect.client_account = function(buffer, offset, packet, parent)
 end
 
 -- Size: Open Close
-size_of.open_close = 1
+asx_securities_sr8_ouch_v2_0_size_of.open_close = 1
 
 -- Display: Open Close
-display.open_close = function(value)
+asx_securities_sr8_ouch_v2_0_display.open_close = function(value)
   return "Open Close: "..value
 end
 
 -- Dissect: Open Close
-dissect.open_close = function(buffer, offset, packet, parent)
-  local length = size_of.open_close
+asx_securities_sr8_ouch_v2_0_dissect.open_close = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.open_close
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.open_close(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.open_close(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.open_close, range, value, display)
 
@@ -1006,10 +1006,10 @@ dissect.open_close = function(buffer, offset, packet, parent)
 end
 
 -- Size: Time In Force
-size_of.time_in_force = 1
+asx_securities_sr8_ouch_v2_0_size_of.time_in_force = 1
 
 -- Display: Time In Force
-display.time_in_force = function(value)
+asx_securities_sr8_ouch_v2_0_display.time_in_force = function(value)
   if value == 0 then
     return "Time In Force: Day (0)"
   end
@@ -1024,11 +1024,11 @@ display.time_in_force = function(value)
 end
 
 -- Dissect: Time In Force
-dissect.time_in_force = function(buffer, offset, packet, parent)
-  local length = size_of.time_in_force
+asx_securities_sr8_ouch_v2_0_dissect.time_in_force = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.time_in_force
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.time_in_force(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.time_in_force(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.time_in_force, range, value, display)
 
@@ -1036,19 +1036,19 @@ dissect.time_in_force = function(buffer, offset, packet, parent)
 end
 
 -- Size: Price
-size_of.price = 4
+asx_securities_sr8_ouch_v2_0_size_of.price = 4
 
 -- Display: Price
-display.price = function(value)
+asx_securities_sr8_ouch_v2_0_display.price = function(value)
   return "Price: "..value
 end
 
 -- Dissect: Price
-dissect.price = function(buffer, offset, packet, parent)
-  local length = size_of.price
+asx_securities_sr8_ouch_v2_0_dissect.price = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.price
   local range = buffer(offset, length)
   local value = range:int()
-  local display = display.price(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.price, range, value, display)
 
@@ -1056,19 +1056,19 @@ dissect.price = function(buffer, offset, packet, parent)
 end
 
 -- Size: Quantity
-size_of.quantity = 8
+asx_securities_sr8_ouch_v2_0_size_of.quantity = 8
 
 -- Display: Quantity
-display.quantity = function(value)
+asx_securities_sr8_ouch_v2_0_display.quantity = function(value)
   return "Quantity: "..value
 end
 
 -- Dissect: Quantity
-dissect.quantity = function(buffer, offset, packet, parent)
-  local length = size_of.quantity
+asx_securities_sr8_ouch_v2_0_dissect.quantity = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.quantity
   local range = buffer(offset, length)
   local value = range:uint64()
-  local display = display.quantity(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.quantity(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.quantity, range, value, display)
 
@@ -1076,19 +1076,19 @@ dissect.quantity = function(buffer, offset, packet, parent)
 end
 
 -- Size: Previous Order Token
-size_of.previous_order_token = 14
+asx_securities_sr8_ouch_v2_0_size_of.previous_order_token = 14
 
 -- Display: Previous Order Token
-display.previous_order_token = function(value)
+asx_securities_sr8_ouch_v2_0_display.previous_order_token = function(value)
   return "Previous Order Token: "..value
 end
 
 -- Dissect: Previous Order Token
-dissect.previous_order_token = function(buffer, offset, packet, parent)
-  local length = size_of.previous_order_token
+asx_securities_sr8_ouch_v2_0_dissect.previous_order_token = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.previous_order_token
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.previous_order_token(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.previous_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.previous_order_token, range, value, display)
 
@@ -1096,19 +1096,19 @@ dissect.previous_order_token = function(buffer, offset, packet, parent)
 end
 
 -- Size: Replacement Order Token
-size_of.replacement_order_token = 14
+asx_securities_sr8_ouch_v2_0_size_of.replacement_order_token = 14
 
 -- Display: Replacement Order Token
-display.replacement_order_token = function(value)
+asx_securities_sr8_ouch_v2_0_display.replacement_order_token = function(value)
   return "Replacement Order Token: "..value
 end
 
 -- Dissect: Replacement Order Token
-dissect.replacement_order_token = function(buffer, offset, packet, parent)
-  local length = size_of.replacement_order_token
+asx_securities_sr8_ouch_v2_0_dissect.replacement_order_token = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.replacement_order_token
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.replacement_order_token(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.replacement_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.replacement_order_token, range, value, display)
 
@@ -1116,176 +1116,176 @@ dissect.replacement_order_token = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Replaced Message
-size_of.order_replaced_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.order_replaced_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp_nanoseconds
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
 
-  index = index + size_of.replacement_order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.replacement_order_token
 
-  index = index + size_of.previous_order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.previous_order_token
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.side
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.side
 
-  index = index + size_of.order_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_id
 
-  index = index + size_of.quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.quantity
 
-  index = index + size_of.price
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.price
 
-  index = index + size_of.time_in_force
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.time_in_force
 
-  index = index + size_of.open_close
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.open_close
 
-  index = index + size_of.client_account
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.client_account
 
-  index = index + size_of.order_state
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_state
 
-  index = index + size_of.customer_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.customer_info
 
-  index = index + size_of.exchange_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.exchange_info
 
-  index = index + size_of.clearing_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.clearing_participant
 
-  index = index + size_of.crossing_key
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.crossing_key
 
-  index = index + size_of.capacity_of_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant
 
-  index = index + size_of.directed_wholesale
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale
 
-  index = index + size_of.execution_venue
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.execution_venue
 
-  index = index + size_of.intermediary_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
 
-  index = index + size_of.order_origin
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_origin
 
-  index = index + size_of.filler
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.filler
 
-  index = index + size_of.ouch_order_type
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.ouch_order_type
 
-  index = index + size_of.short_sell_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity
 
-  index = index + size_of.minimum_acceptable_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity
 
   return index
 end
 
 -- Display: Order Replaced Message
-display.order_replaced_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.order_replaced_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Replaced Message
-dissect.order_replaced_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_replaced_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Replacement Order Token: 14 Byte Ascii String
-  index, replacement_order_token = dissect.replacement_order_token(buffer, index, packet, parent)
+  index, replacement_order_token = asx_securities_sr8_ouch_v2_0_dissect.replacement_order_token(buffer, index, packet, parent)
 
   -- Previous Order Token: 14 Byte Ascii String
-  index, previous_order_token = dissect.previous_order_token(buffer, index, packet, parent)
+  index, previous_order_token = asx_securities_sr8_ouch_v2_0_dissect.previous_order_token(buffer, index, packet, parent)
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = asx_securities_sr8_ouch_v2_0_dissect.side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = asx_securities_sr8_ouch_v2_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = asx_securities_sr8_ouch_v2_0_dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = asx_securities_sr8_ouch_v2_0_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = asx_securities_sr8_ouch_v2_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = asx_securities_sr8_ouch_v2_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Client Account: 10 Byte Ascii String
-  index, client_account = dissect.client_account(buffer, index, packet, parent)
+  index, client_account = asx_securities_sr8_ouch_v2_0_dissect.client_account(buffer, index, packet, parent)
 
   -- Order State: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_state = dissect.order_state(buffer, index, packet, parent)
+  index, order_state = asx_securities_sr8_ouch_v2_0_dissect.order_state(buffer, index, packet, parent)
 
   -- Customer Info: 15 Byte Ascii String
-  index, customer_info = dissect.customer_info(buffer, index, packet, parent)
+  index, customer_info = asx_securities_sr8_ouch_v2_0_dissect.customer_info(buffer, index, packet, parent)
 
   -- Exchange Info: 32 Byte Ascii String
-  index, exchange_info = dissect.exchange_info(buffer, index, packet, parent)
+  index, exchange_info = asx_securities_sr8_ouch_v2_0_dissect.exchange_info(buffer, index, packet, parent)
 
   -- Clearing Participant: 1 Byte Ascii String
-  index, clearing_participant = dissect.clearing_participant(buffer, index, packet, parent)
+  index, clearing_participant = asx_securities_sr8_ouch_v2_0_dissect.clearing_participant(buffer, index, packet, parent)
 
   -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
-  index, crossing_key = dissect.crossing_key(buffer, index, packet, parent)
+  index, crossing_key = asx_securities_sr8_ouch_v2_0_dissect.crossing_key(buffer, index, packet, parent)
 
   -- Capacity Of Participant: 1 Byte Ascii String Enum with 3 values
-  index, capacity_of_participant = dissect.capacity_of_participant(buffer, index, packet, parent)
+  index, capacity_of_participant = asx_securities_sr8_ouch_v2_0_dissect.capacity_of_participant(buffer, index, packet, parent)
 
   -- Directed Wholesale: 1 Byte Ascii String Enum with 2 values
-  index, directed_wholesale = dissect.directed_wholesale(buffer, index, packet, parent)
+  index, directed_wholesale = asx_securities_sr8_ouch_v2_0_dissect.directed_wholesale(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = asx_securities_sr8_ouch_v2_0_dissect.execution_venue(buffer, index, packet, parent)
 
   -- Intermediary Id: 10 Byte Ascii String
-  index, intermediary_id = dissect.intermediary_id(buffer, index, packet, parent)
+  index, intermediary_id = asx_securities_sr8_ouch_v2_0_dissect.intermediary_id(buffer, index, packet, parent)
 
   -- Order Origin: 20 Byte Ascii String
-  index, order_origin = dissect.order_origin(buffer, index, packet, parent)
+  index, order_origin = asx_securities_sr8_ouch_v2_0_dissect.order_origin(buffer, index, packet, parent)
 
   -- Filler: 8 Byte Ascii String
-  index, filler = dissect.filler(buffer, index, packet, parent)
+  index, filler = asx_securities_sr8_ouch_v2_0_dissect.filler(buffer, index, packet, parent)
 
   -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
-  index, ouch_order_type = dissect.ouch_order_type(buffer, index, packet, parent)
+  index, ouch_order_type = asx_securities_sr8_ouch_v2_0_dissect.ouch_order_type(buffer, index, packet, parent)
 
   -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, short_sell_quantity = dissect.short_sell_quantity(buffer, index, packet, parent)
+  index, short_sell_quantity = asx_securities_sr8_ouch_v2_0_dissect.short_sell_quantity(buffer, index, packet, parent)
 
   -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, minimum_acceptable_quantity = dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
+  index, minimum_acceptable_quantity = asx_securities_sr8_ouch_v2_0_dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Replaced Message
-dissect.order_replaced_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_replaced_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_replaced_message then
-    local length = size_of.order_replaced_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.order_replaced_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_replaced_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.order_replaced_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.order_replaced_message, range, display)
   end
 
-  return dissect.order_replaced_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.order_replaced_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reject Code
-size_of.reject_code = 4
+asx_securities_sr8_ouch_v2_0_size_of.reject_code = 4
 
 -- Display: Reject Code
-display.reject_code = function(value)
+asx_securities_sr8_ouch_v2_0_display.reject_code = function(value)
   return "Reject Code: "..value
 end
 
 -- Dissect: Reject Code
-dissect.reject_code = function(buffer, offset, packet, parent)
-  local length = size_of.reject_code
+asx_securities_sr8_ouch_v2_0_dissect.reject_code = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.reject_code
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.reject_code(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.reject_code(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.reject_code, range, value, display)
 
@@ -1293,302 +1293,302 @@ dissect.reject_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Rejected Message
-size_of.order_rejected_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.order_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp_nanoseconds
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
-  index = index + size_of.reject_code
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.reject_code
 
   return index
 end
 
 -- Display: Order Rejected Message
-display.order_rejected_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.order_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Rejected Message
-dissect.order_rejected_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   -- Reject Code: 4 Byte Unsigned Fixed Width Integer
-  index, reject_code = dissect.reject_code(buffer, index, packet, parent)
+  index, reject_code = asx_securities_sr8_ouch_v2_0_dissect.reject_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Rejected Message
-dissect.order_rejected_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_rejected_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
-    local length = size_of.order_rejected_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.order_rejected_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_rejected_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.order_rejected_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.order_rejected_message, range, display)
   end
 
-  return dissect.order_rejected_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.order_rejected_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Order Accepted Message
-size_of.order_accepted_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.order_accepted_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.timestamp_nanoseconds
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.timestamp_nanoseconds
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.side
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.side
 
-  index = index + size_of.order_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_id
 
-  index = index + size_of.quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.quantity
 
-  index = index + size_of.price
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.price
 
-  index = index + size_of.time_in_force
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.time_in_force
 
-  index = index + size_of.open_close
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.open_close
 
-  index = index + size_of.client_account
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.client_account
 
-  index = index + size_of.order_state
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_state
 
-  index = index + size_of.customer_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.customer_info
 
-  index = index + size_of.exchange_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.exchange_info
 
-  index = index + size_of.clearing_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.clearing_participant
 
-  index = index + size_of.crossing_key
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.crossing_key
 
-  index = index + size_of.capacity_of_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant
 
-  index = index + size_of.directed_wholesale
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale
 
-  index = index + size_of.execution_venue
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.execution_venue
 
-  index = index + size_of.intermediary_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
 
-  index = index + size_of.order_origin
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_origin
 
-  index = index + size_of.filler
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.filler
 
-  index = index + size_of.ouch_order_type
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.ouch_order_type
 
-  index = index + size_of.short_sell_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity
 
-  index = index + size_of.minimum_acceptable_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity
 
   return index
 end
 
 -- Display: Order Accepted Message
-display.order_accepted_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.order_accepted_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Order Accepted Message
-dissect.order_accepted_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_accepted_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp Nanoseconds: 8 Byte Unsigned Fixed Width Integer
-  index, timestamp_nanoseconds = dissect.timestamp_nanoseconds(buffer, index, packet, parent)
+  index, timestamp_nanoseconds = asx_securities_sr8_ouch_v2_0_dissect.timestamp_nanoseconds(buffer, index, packet, parent)
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = asx_securities_sr8_ouch_v2_0_dissect.side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = asx_securities_sr8_ouch_v2_0_dissect.order_id(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = asx_securities_sr8_ouch_v2_0_dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = asx_securities_sr8_ouch_v2_0_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = asx_securities_sr8_ouch_v2_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = asx_securities_sr8_ouch_v2_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Client Account: 10 Byte Ascii String
-  index, client_account = dissect.client_account(buffer, index, packet, parent)
+  index, client_account = asx_securities_sr8_ouch_v2_0_dissect.client_account(buffer, index, packet, parent)
 
   -- Order State: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, order_state = dissect.order_state(buffer, index, packet, parent)
+  index, order_state = asx_securities_sr8_ouch_v2_0_dissect.order_state(buffer, index, packet, parent)
 
   -- Customer Info: 15 Byte Ascii String
-  index, customer_info = dissect.customer_info(buffer, index, packet, parent)
+  index, customer_info = asx_securities_sr8_ouch_v2_0_dissect.customer_info(buffer, index, packet, parent)
 
   -- Exchange Info: 32 Byte Ascii String
-  index, exchange_info = dissect.exchange_info(buffer, index, packet, parent)
+  index, exchange_info = asx_securities_sr8_ouch_v2_0_dissect.exchange_info(buffer, index, packet, parent)
 
   -- Clearing Participant: 1 Byte Ascii String
-  index, clearing_participant = dissect.clearing_participant(buffer, index, packet, parent)
+  index, clearing_participant = asx_securities_sr8_ouch_v2_0_dissect.clearing_participant(buffer, index, packet, parent)
 
   -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
-  index, crossing_key = dissect.crossing_key(buffer, index, packet, parent)
+  index, crossing_key = asx_securities_sr8_ouch_v2_0_dissect.crossing_key(buffer, index, packet, parent)
 
   -- Capacity Of Participant: 1 Byte Ascii String Enum with 3 values
-  index, capacity_of_participant = dissect.capacity_of_participant(buffer, index, packet, parent)
+  index, capacity_of_participant = asx_securities_sr8_ouch_v2_0_dissect.capacity_of_participant(buffer, index, packet, parent)
 
   -- Directed Wholesale: 1 Byte Ascii String Enum with 2 values
-  index, directed_wholesale = dissect.directed_wholesale(buffer, index, packet, parent)
+  index, directed_wholesale = asx_securities_sr8_ouch_v2_0_dissect.directed_wholesale(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = asx_securities_sr8_ouch_v2_0_dissect.execution_venue(buffer, index, packet, parent)
 
   -- Intermediary Id: 10 Byte Ascii String
-  index, intermediary_id = dissect.intermediary_id(buffer, index, packet, parent)
+  index, intermediary_id = asx_securities_sr8_ouch_v2_0_dissect.intermediary_id(buffer, index, packet, parent)
 
   -- Order Origin: 20 Byte Ascii String
-  index, order_origin = dissect.order_origin(buffer, index, packet, parent)
+  index, order_origin = asx_securities_sr8_ouch_v2_0_dissect.order_origin(buffer, index, packet, parent)
 
   -- Filler: 8 Byte Ascii String
-  index, filler = dissect.filler(buffer, index, packet, parent)
+  index, filler = asx_securities_sr8_ouch_v2_0_dissect.filler(buffer, index, packet, parent)
 
   -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
-  index, ouch_order_type = dissect.ouch_order_type(buffer, index, packet, parent)
+  index, ouch_order_type = asx_securities_sr8_ouch_v2_0_dissect.ouch_order_type(buffer, index, packet, parent)
 
   -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, short_sell_quantity = dissect.short_sell_quantity(buffer, index, packet, parent)
+  index, short_sell_quantity = asx_securities_sr8_ouch_v2_0_dissect.short_sell_quantity(buffer, index, packet, parent)
 
   -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, minimum_acceptable_quantity = dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
+  index, minimum_acceptable_quantity = asx_securities_sr8_ouch_v2_0_dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Order Accepted Message
-dissect.order_accepted_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.order_accepted_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.order_accepted_message then
-    local length = size_of.order_accepted_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.order_accepted_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.order_accepted_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.order_accepted_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.order_accepted_message, range, display)
   end
 
-  return dissect.order_accepted_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.order_accepted_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cancel By Order Id Message
-size_of.cancel_by_order_id_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.cancel_by_order_id_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.side
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.side
 
-  index = index + size_of.order_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_id
 
   return index
 end
 
 -- Display: Cancel By Order Id Message
-display.cancel_by_order_id_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.cancel_by_order_id_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel By Order Id Message
-dissect.cancel_by_order_id_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.cancel_by_order_id_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = asx_securities_sr8_ouch_v2_0_dissect.side(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
-  index, order_id = dissect.order_id(buffer, index, packet, parent)
+  index, order_id = asx_securities_sr8_ouch_v2_0_dissect.order_id(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cancel By Order Id Message
-dissect.cancel_by_order_id_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.cancel_by_order_id_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_by_order_id_message then
-    local length = size_of.cancel_by_order_id_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.cancel_by_order_id_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cancel_by_order_id_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.cancel_by_order_id_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.cancel_by_order_id_message, range, display)
   end
 
-  return dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.cancel_by_order_id_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Cancel Order Message
-size_of.cancel_order_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.cancel_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
   return index
 end
 
 -- Display: Cancel Order Message
-display.cancel_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.cancel_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Cancel Order Message
-dissect.cancel_order_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.cancel_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Cancel Order Message
-dissect.cancel_order_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.cancel_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
-    local length = size_of.cancel_order_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.cancel_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.cancel_order_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.cancel_order_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.cancel_order_message, range, display)
   end
 
-  return dissect.cancel_order_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.cancel_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Existing Order Token
-size_of.existing_order_token = 14
+asx_securities_sr8_ouch_v2_0_size_of.existing_order_token = 14
 
 -- Display: Existing Order Token
-display.existing_order_token = function(value)
+asx_securities_sr8_ouch_v2_0_display.existing_order_token = function(value)
   return "Existing Order Token: "..value
 end
 
 -- Dissect: Existing Order Token
-dissect.existing_order_token = function(buffer, offset, packet, parent)
-  local length = size_of.existing_order_token
+asx_securities_sr8_ouch_v2_0_dissect.existing_order_token = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.existing_order_token
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.existing_order_token(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.existing_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.existing_order_token, range, value, display)
 
@@ -1596,368 +1596,368 @@ dissect.existing_order_token = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Replace Order Message
-size_of.replace_order_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.replace_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.existing_order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.existing_order_token
 
-  index = index + size_of.replacement_order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.replacement_order_token
 
-  index = index + size_of.quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.quantity
 
-  index = index + size_of.price
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.price
 
-  index = index + size_of.open_close
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.open_close
 
-  index = index + size_of.client_account
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.client_account
 
-  index = index + size_of.customer_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.customer_info
 
-  index = index + size_of.exchange_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.exchange_info
 
-  index = index + size_of.capacity_of_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant
 
-  index = index + size_of.directed_wholesale
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale
 
-  index = index + size_of.execution_venue
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.execution_venue
 
-  index = index + size_of.intermediary_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
 
-  index = index + size_of.order_origin
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_origin
 
-  index = index + size_of.filler
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.filler
 
-  index = index + size_of.short_sell_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity
 
-  index = index + size_of.minimum_acceptable_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity
 
   return index
 end
 
 -- Display: Replace Order Message
-display.replace_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.replace_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Replace Order Message
-dissect.replace_order_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.replace_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Existing Order Token: 14 Byte Ascii String
-  index, existing_order_token = dissect.existing_order_token(buffer, index, packet, parent)
+  index, existing_order_token = asx_securities_sr8_ouch_v2_0_dissect.existing_order_token(buffer, index, packet, parent)
 
   -- Replacement Order Token: 14 Byte Ascii String
-  index, replacement_order_token = dissect.replacement_order_token(buffer, index, packet, parent)
+  index, replacement_order_token = asx_securities_sr8_ouch_v2_0_dissect.replacement_order_token(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = asx_securities_sr8_ouch_v2_0_dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = asx_securities_sr8_ouch_v2_0_dissect.price(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = asx_securities_sr8_ouch_v2_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Client Account: 10 Byte Ascii String
-  index, client_account = dissect.client_account(buffer, index, packet, parent)
+  index, client_account = asx_securities_sr8_ouch_v2_0_dissect.client_account(buffer, index, packet, parent)
 
   -- Customer Info: 15 Byte Ascii String
-  index, customer_info = dissect.customer_info(buffer, index, packet, parent)
+  index, customer_info = asx_securities_sr8_ouch_v2_0_dissect.customer_info(buffer, index, packet, parent)
 
   -- Exchange Info: 32 Byte Ascii String
-  index, exchange_info = dissect.exchange_info(buffer, index, packet, parent)
+  index, exchange_info = asx_securities_sr8_ouch_v2_0_dissect.exchange_info(buffer, index, packet, parent)
 
   -- Capacity Of Participant: 1 Byte Ascii String Enum with 3 values
-  index, capacity_of_participant = dissect.capacity_of_participant(buffer, index, packet, parent)
+  index, capacity_of_participant = asx_securities_sr8_ouch_v2_0_dissect.capacity_of_participant(buffer, index, packet, parent)
 
   -- Directed Wholesale: 1 Byte Ascii String Enum with 2 values
-  index, directed_wholesale = dissect.directed_wholesale(buffer, index, packet, parent)
+  index, directed_wholesale = asx_securities_sr8_ouch_v2_0_dissect.directed_wholesale(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = asx_securities_sr8_ouch_v2_0_dissect.execution_venue(buffer, index, packet, parent)
 
   -- Intermediary Id: 10 Byte Ascii String
-  index, intermediary_id = dissect.intermediary_id(buffer, index, packet, parent)
+  index, intermediary_id = asx_securities_sr8_ouch_v2_0_dissect.intermediary_id(buffer, index, packet, parent)
 
   -- Order Origin: 20 Byte Ascii String
-  index, order_origin = dissect.order_origin(buffer, index, packet, parent)
+  index, order_origin = asx_securities_sr8_ouch_v2_0_dissect.order_origin(buffer, index, packet, parent)
 
   -- Filler: 8 Byte Ascii String
-  index, filler = dissect.filler(buffer, index, packet, parent)
+  index, filler = asx_securities_sr8_ouch_v2_0_dissect.filler(buffer, index, packet, parent)
 
   -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, short_sell_quantity = dissect.short_sell_quantity(buffer, index, packet, parent)
+  index, short_sell_quantity = asx_securities_sr8_ouch_v2_0_dissect.short_sell_quantity(buffer, index, packet, parent)
 
   -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, minimum_acceptable_quantity = dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
+  index, minimum_acceptable_quantity = asx_securities_sr8_ouch_v2_0_dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Replace Order Message
-dissect.replace_order_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.replace_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.replace_order_message then
-    local length = size_of.replace_order_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.replace_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.replace_order_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.replace_order_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.replace_order_message, range, display)
   end
 
-  return dissect.replace_order_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.replace_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Enter Order Message
-size_of.enter_order_message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.enter_order_message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.order_token
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_token
 
-  index = index + size_of.order_book_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_book_id
 
-  index = index + size_of.side
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.side
 
-  index = index + size_of.quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.quantity
 
-  index = index + size_of.price
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.price
 
-  index = index + size_of.time_in_force
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.time_in_force
 
-  index = index + size_of.open_close
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.open_close
 
-  index = index + size_of.client_account
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.client_account
 
-  index = index + size_of.customer_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.customer_info
 
-  index = index + size_of.exchange_info
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.exchange_info
 
-  index = index + size_of.clearing_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.clearing_participant
 
-  index = index + size_of.crossing_key
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.crossing_key
 
-  index = index + size_of.capacity_of_participant
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.capacity_of_participant
 
-  index = index + size_of.directed_wholesale
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.directed_wholesale
 
-  index = index + size_of.execution_venue
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.execution_venue
 
-  index = index + size_of.intermediary_id
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
 
-  index = index + size_of.order_origin
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.order_origin
 
-  index = index + size_of.filler
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.filler
 
-  index = index + size_of.ouch_order_type
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.ouch_order_type
 
-  index = index + size_of.short_sell_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.short_sell_quantity
 
-  index = index + size_of.minimum_acceptable_quantity
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.minimum_acceptable_quantity
 
   return index
 end
 
 -- Display: Enter Order Message
-display.enter_order_message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.enter_order_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Enter Order Message
-dissect.enter_order_message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.enter_order_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Order Token: 14 Byte Ascii String
-  index, order_token = dissect.order_token(buffer, index, packet, parent)
+  index, order_token = asx_securities_sr8_ouch_v2_0_dissect.order_token(buffer, index, packet, parent)
 
   -- Order Book Id: 4 Byte Unsigned Fixed Width Integer
-  index, order_book_id = dissect.order_book_id(buffer, index, packet, parent)
+  index, order_book_id = asx_securities_sr8_ouch_v2_0_dissect.order_book_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
-  index, side = dissect.side(buffer, index, packet, parent)
+  index, side = asx_securities_sr8_ouch_v2_0_dissect.side(buffer, index, packet, parent)
 
   -- Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, quantity = dissect.quantity(buffer, index, packet, parent)
+  index, quantity = asx_securities_sr8_ouch_v2_0_dissect.quantity(buffer, index, packet, parent)
 
   -- Price: 4 Byte Signed Fixed Width Integer
-  index, price = dissect.price(buffer, index, packet, parent)
+  index, price = asx_securities_sr8_ouch_v2_0_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
-  index, time_in_force = dissect.time_in_force(buffer, index, packet, parent)
+  index, time_in_force = asx_securities_sr8_ouch_v2_0_dissect.time_in_force(buffer, index, packet, parent)
 
   -- Open Close: 1 Byte Unsigned Fixed Width Integer
-  index, open_close = dissect.open_close(buffer, index, packet, parent)
+  index, open_close = asx_securities_sr8_ouch_v2_0_dissect.open_close(buffer, index, packet, parent)
 
   -- Client Account: 10 Byte Ascii String
-  index, client_account = dissect.client_account(buffer, index, packet, parent)
+  index, client_account = asx_securities_sr8_ouch_v2_0_dissect.client_account(buffer, index, packet, parent)
 
   -- Customer Info: 15 Byte Ascii String
-  index, customer_info = dissect.customer_info(buffer, index, packet, parent)
+  index, customer_info = asx_securities_sr8_ouch_v2_0_dissect.customer_info(buffer, index, packet, parent)
 
   -- Exchange Info: 32 Byte Ascii String
-  index, exchange_info = dissect.exchange_info(buffer, index, packet, parent)
+  index, exchange_info = asx_securities_sr8_ouch_v2_0_dissect.exchange_info(buffer, index, packet, parent)
 
   -- Clearing Participant: 1 Byte Ascii String
-  index, clearing_participant = dissect.clearing_participant(buffer, index, packet, parent)
+  index, clearing_participant = asx_securities_sr8_ouch_v2_0_dissect.clearing_participant(buffer, index, packet, parent)
 
   -- Crossing Key: 4 Byte Unsigned Fixed Width Integer
-  index, crossing_key = dissect.crossing_key(buffer, index, packet, parent)
+  index, crossing_key = asx_securities_sr8_ouch_v2_0_dissect.crossing_key(buffer, index, packet, parent)
 
   -- Capacity Of Participant: 1 Byte Ascii String Enum with 3 values
-  index, capacity_of_participant = dissect.capacity_of_participant(buffer, index, packet, parent)
+  index, capacity_of_participant = asx_securities_sr8_ouch_v2_0_dissect.capacity_of_participant(buffer, index, packet, parent)
 
   -- Directed Wholesale: 1 Byte Ascii String Enum with 2 values
-  index, directed_wholesale = dissect.directed_wholesale(buffer, index, packet, parent)
+  index, directed_wholesale = asx_securities_sr8_ouch_v2_0_dissect.directed_wholesale(buffer, index, packet, parent)
 
   -- Execution Venue: 4 Byte Ascii String
-  index, execution_venue = dissect.execution_venue(buffer, index, packet, parent)
+  index, execution_venue = asx_securities_sr8_ouch_v2_0_dissect.execution_venue(buffer, index, packet, parent)
 
   -- Intermediary Id: 10 Byte Ascii String
-  index, intermediary_id = dissect.intermediary_id(buffer, index, packet, parent)
+  index, intermediary_id = asx_securities_sr8_ouch_v2_0_dissect.intermediary_id(buffer, index, packet, parent)
 
   -- Order Origin: 20 Byte Ascii String
-  index, order_origin = dissect.order_origin(buffer, index, packet, parent)
+  index, order_origin = asx_securities_sr8_ouch_v2_0_dissect.order_origin(buffer, index, packet, parent)
 
   -- Filler: 8 Byte Ascii String
-  index, filler = dissect.filler(buffer, index, packet, parent)
+  index, filler = asx_securities_sr8_ouch_v2_0_dissect.filler(buffer, index, packet, parent)
 
   -- Ouch Order Type: 1 Byte Ascii String Enum with 10 values
-  index, ouch_order_type = dissect.ouch_order_type(buffer, index, packet, parent)
+  index, ouch_order_type = asx_securities_sr8_ouch_v2_0_dissect.ouch_order_type(buffer, index, packet, parent)
 
   -- Short Sell Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, short_sell_quantity = dissect.short_sell_quantity(buffer, index, packet, parent)
+  index, short_sell_quantity = asx_securities_sr8_ouch_v2_0_dissect.short_sell_quantity(buffer, index, packet, parent)
 
   -- Minimum Acceptable Quantity: 8 Byte Unsigned Fixed Width Integer
-  index, minimum_acceptable_quantity = dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
+  index, minimum_acceptable_quantity = asx_securities_sr8_ouch_v2_0_dissect.minimum_acceptable_quantity(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Enter Order Message
-dissect.enter_order_message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.enter_order_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.enter_order_message then
-    local length = size_of.enter_order_message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.enter_order_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.enter_order_message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.enter_order_message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.enter_order_message, range, display)
   end
 
-  return dissect.enter_order_message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.enter_order_message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Data
-size_of.data = function(buffer, offset, message_type)
+asx_securities_sr8_ouch_v2_0_size_of.data = function(buffer, offset, message_type)
   -- Size of Enter Order Message
   if message_type == "O" then
-    return size_of.enter_order_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.enter_order_message(buffer, offset)
   end
   -- Size of Replace Order Message
   if message_type == "U" then
-    return size_of.replace_order_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.replace_order_message(buffer, offset)
   end
   -- Size of Cancel Order Message
   if message_type == "X" then
-    return size_of.cancel_order_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.cancel_order_message(buffer, offset)
   end
   -- Size of Cancel By Order Id Message
   if message_type == "Y" then
-    return size_of.cancel_by_order_id_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.cancel_by_order_id_message(buffer, offset)
   end
   -- Size of Order Accepted Message
   if message_type == "A" then
-    return size_of.order_accepted_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.order_accepted_message(buffer, offset)
   end
   -- Size of Order Rejected Message
   if message_type == "J" then
-    return size_of.order_rejected_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.order_rejected_message(buffer, offset)
   end
   -- Size of Order Replaced Message
   if message_type == "U" then
-    return size_of.order_replaced_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.order_replaced_message(buffer, offset)
   end
   -- Size of Order Cancelled Message
   if message_type == "C" then
-    return size_of.order_cancelled_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.order_cancelled_message(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == "E" then
-    return size_of.order_executed_message(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.order_executed_message(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Data
-display.data = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.data = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Data
-dissect.data_branches = function(buffer, offset, packet, parent, message_type)
+asx_securities_sr8_ouch_v2_0_dissect.data_branches = function(buffer, offset, packet, parent, message_type)
   -- Dissect Enter Order Message
   if message_type == "O" then
-    return dissect.enter_order_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.enter_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Replace Order Message
   if message_type == "U" then
-    return dissect.replace_order_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.replace_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel Order Message
   if message_type == "X" then
-    return dissect.cancel_order_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.cancel_order_message(buffer, offset, packet, parent)
   end
   -- Dissect Cancel By Order Id Message
   if message_type == "Y" then
-    return dissect.cancel_by_order_id_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.cancel_by_order_id_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Accepted Message
   if message_type == "A" then
-    return dissect.order_accepted_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.order_accepted_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Rejected Message
   if message_type == "J" then
-    return dissect.order_rejected_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.order_rejected_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Replaced Message
   if message_type == "U" then
-    return dissect.order_replaced_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.order_replaced_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Cancelled Message
   if message_type == "C" then
-    return dissect.order_cancelled_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.order_cancelled_message(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == "E" then
-    return dissect.order_executed_message(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.order_executed_message(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Data
-dissect.data = function(buffer, offset, packet, parent, message_type)
+asx_securities_sr8_ouch_v2_0_dissect.data = function(buffer, offset, packet, parent, message_type)
   if not show.data then
-    return dissect.data_branches(buffer, offset, packet, parent, message_type)
+    return asx_securities_sr8_ouch_v2_0_dissect.data_branches(buffer, offset, packet, parent, message_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.data(buffer, offset, message_type)
+  local size = asx_securities_sr8_ouch_v2_0_size_of.data(buffer, offset, message_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.data(buffer, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.data(buffer, packet, parent)
   local element = parent:add(asx_securities_sr8_ouch_v2_0.fields.data, range, display)
 
-  return dissect.data_branches(buffer, offset, packet, parent, message_type)
+  return asx_securities_sr8_ouch_v2_0_dissect.data_branches(buffer, offset, packet, parent, message_type)
 end
 
 -- Size: Message Type
-size_of.message_type = 1
+asx_securities_sr8_ouch_v2_0_size_of.message_type = 1
 
 -- Display: Message Type
-display.message_type = function(value)
+asx_securities_sr8_ouch_v2_0_display.message_type = function(value)
   if value == "O" then
     return "Message Type: Enter Order Message (O)"
   end
@@ -1990,11 +1990,11 @@ display.message_type = function(value)
 end
 
 -- Dissect: Message Type
-dissect.message_type = function(buffer, offset, packet, parent)
-  local length = size_of.message_type
+asx_securities_sr8_ouch_v2_0_dissect.message_type = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.message_type(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.message_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.message_type, range, value, display)
 
@@ -2002,101 +2002,101 @@ dissect.message_type = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Message
-size_of.message = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.message = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message_type
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.message_type
 
   -- Calculate runtime size of Data field
   local data_offset = offset + index
   local data_type = buffer(data_offset - 1, 1):string()
-  index = index + size_of.data(buffer, data_offset, data_type)
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.data(buffer, data_offset, data_type)
 
   return index
 end
 
 -- Display: Message
-display.message = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-dissect.message_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 9 values
-  index, message_type = dissect.message_type(buffer, index, packet, parent)
+  index, message_type = asx_securities_sr8_ouch_v2_0_dissect.message_type(buffer, index, packet, parent)
 
   -- Data: Runtime Type with 9 branches
-  index = dissect.data(buffer, index, packet, parent, message_type)
+  index = asx_securities_sr8_ouch_v2_0_dissect.data(buffer, index, packet, parent, message_type)
 
   return index
 end
 
 -- Dissect: Message
-dissect.message = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.message = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.message then
-    local length = size_of.message(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.message(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.message(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.message(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.message, range, display)
   end
 
-  return dissect.message_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.message_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Unsequenced Data Packet
-size_of.unsequenced_data_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.unsequenced_data_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message(buffer, offset + index)
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.message(buffer, offset + index)
 
   return index
 end
 
 -- Display: Unsequenced Data Packet
-display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Unsequenced Data Packet
-dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message: Struct of 2 fields
-  index, message = dissect.message(buffer, index, packet, parent)
+  index, message = asx_securities_sr8_ouch_v2_0_dissect.message(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Unsequenced Data Packet
-dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.unsequenced_data_packet then
-    local length = size_of.unsequenced_data_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.unsequenced_data_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.unsequenced_data_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.unsequenced_data_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.unsequenced_data_packet, range, display)
   end
 
-  return dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Requested Sequence Number
-size_of.requested_sequence_number = 20
+asx_securities_sr8_ouch_v2_0_size_of.requested_sequence_number = 20
 
 -- Display: Requested Sequence Number
-display.requested_sequence_number = function(value)
+asx_securities_sr8_ouch_v2_0_display.requested_sequence_number = function(value)
   return "Requested Sequence Number: "..value
 end
 
 -- Dissect: Requested Sequence Number
-dissect.requested_sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.requested_sequence_number
+asx_securities_sr8_ouch_v2_0_dissect.requested_sequence_number = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.requested_sequence_number
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.requested_sequence_number(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.requested_sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.requested_sequence_number, range, value, display)
 
@@ -2104,19 +2104,19 @@ dissect.requested_sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Requested Session
-size_of.requested_session = 10
+asx_securities_sr8_ouch_v2_0_size_of.requested_session = 10
 
 -- Display: Requested Session
-display.requested_session = function(value)
+asx_securities_sr8_ouch_v2_0_display.requested_session = function(value)
   return "Requested Session: "..value
 end
 
 -- Dissect: Requested Session
-dissect.requested_session = function(buffer, offset, packet, parent)
-  local length = size_of.requested_session
+asx_securities_sr8_ouch_v2_0_dissect.requested_session = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.requested_session
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.requested_session(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.requested_session(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.requested_session, range, value, display)
 
@@ -2124,19 +2124,19 @@ dissect.requested_session = function(buffer, offset, packet, parent)
 end
 
 -- Size: Password
-size_of.password = 10
+asx_securities_sr8_ouch_v2_0_size_of.password = 10
 
 -- Display: Password
-display.password = function(value)
+asx_securities_sr8_ouch_v2_0_display.password = function(value)
   return "Password: "..value
 end
 
 -- Dissect: Password
-dissect.password = function(buffer, offset, packet, parent)
-  local length = size_of.password
+asx_securities_sr8_ouch_v2_0_dissect.password = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.password
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.password(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.password(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.password, range, value, display)
 
@@ -2144,19 +2144,19 @@ dissect.password = function(buffer, offset, packet, parent)
 end
 
 -- Size: Username
-size_of.username = 6
+asx_securities_sr8_ouch_v2_0_size_of.username = 6
 
 -- Display: Username
-display.username = function(value)
+asx_securities_sr8_ouch_v2_0_display.username = function(value)
   return "Username: "..value
 end
 
 -- Dissect: Username
-dissect.username = function(buffer, offset, packet, parent)
-  local length = size_of.username
+asx_securities_sr8_ouch_v2_0_dissect.username = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.username
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.username(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.username(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.username, range, value, display)
 
@@ -2164,108 +2164,108 @@ dissect.username = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Login Request Packet
-size_of.login_request_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.login_request_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.username
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.username
 
-  index = index + size_of.password
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.password
 
-  index = index + size_of.requested_session
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.requested_session
 
-  index = index + size_of.requested_sequence_number
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.requested_sequence_number
 
   return index
 end
 
 -- Display: Login Request Packet
-display.login_request_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.login_request_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Request Packet
-dissect.login_request_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_request_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Username: 6 Byte Ascii String
-  index, username = dissect.username(buffer, index, packet, parent)
+  index, username = asx_securities_sr8_ouch_v2_0_dissect.username(buffer, index, packet, parent)
 
   -- Password: 10 Byte Ascii String
-  index, password = dissect.password(buffer, index, packet, parent)
+  index, password = asx_securities_sr8_ouch_v2_0_dissect.password(buffer, index, packet, parent)
 
   -- Requested Session: 10 Byte Ascii String
-  index, requested_session = dissect.requested_session(buffer, index, packet, parent)
+  index, requested_session = asx_securities_sr8_ouch_v2_0_dissect.requested_session(buffer, index, packet, parent)
 
   -- Requested Sequence Number: 20 Byte Ascii String
-  index, requested_sequence_number = dissect.requested_sequence_number(buffer, index, packet, parent)
+  index, requested_sequence_number = asx_securities_sr8_ouch_v2_0_dissect.requested_sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Request Packet
-dissect.login_request_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_request_packet = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.login_request_packet then
-    local length = size_of.login_request_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.login_request_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.login_request_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.login_request_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.login_request_packet, range, display)
   end
 
-  return dissect.login_request_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Sequenced Data Packet
-size_of.sequenced_data_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.sequenced_data_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.message(buffer, offset + index)
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.message(buffer, offset + index)
 
   return index
 end
 
 -- Display: Sequenced Data Packet
-display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequenced Data Packet
-dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Message: Struct of 2 fields
-  index, message = dissect.message(buffer, index, packet, parent)
+  index, message = asx_securities_sr8_ouch_v2_0_dissect.message(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Sequenced Data Packet
-dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
   -- Optionally add dynamic struct element to protocol tree
   if show.sequenced_data_packet then
-    local length = size_of.sequenced_data_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.sequenced_data_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.sequenced_data_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.sequenced_data_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.sequenced_data_packet, range, display)
   end
 
-  return dissect.sequenced_data_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reject Reason Code
-size_of.reject_reason_code = 1
+asx_securities_sr8_ouch_v2_0_size_of.reject_reason_code = 1
 
 -- Display: Reject Reason Code
-display.reject_reason_code = function(value)
+asx_securities_sr8_ouch_v2_0_display.reject_reason_code = function(value)
   return "Reject Reason Code: "..value
 end
 
 -- Dissect: Reject Reason Code
-dissect.reject_reason_code = function(buffer, offset, packet, parent)
-  local length = size_of.reject_reason_code
+asx_securities_sr8_ouch_v2_0_dissect.reject_reason_code = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.reject_reason_code
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.reject_reason_code(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.reject_reason_code(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.reject_reason_code, range, value, display)
 
@@ -2273,56 +2273,56 @@ dissect.reject_reason_code = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Login Rejected Packet
-size_of.login_rejected_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.login_rejected_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.reject_reason_code
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.reject_reason_code
 
   return index
 end
 
 -- Display: Login Rejected Packet
-display.login_rejected_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.login_rejected_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Rejected Packet
-dissect.login_rejected_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_rejected_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Reject Reason Code: 1 Byte Ascii String
-  index, reject_reason_code = dissect.reject_reason_code(buffer, index, packet, parent)
+  index, reject_reason_code = asx_securities_sr8_ouch_v2_0_dissect.reject_reason_code(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Rejected Packet
-dissect.login_rejected_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_rejected_packet = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.login_rejected_packet then
-    local length = size_of.login_rejected_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.login_rejected_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.login_rejected_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.login_rejected_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.login_rejected_packet, range, display)
   end
 
-  return dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.login_rejected_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Sequence Number
-size_of.sequence_number = 20
+asx_securities_sr8_ouch_v2_0_size_of.sequence_number = 20
 
 -- Display: Sequence Number
-display.sequence_number = function(value)
+asx_securities_sr8_ouch_v2_0_display.sequence_number = function(value)
   return "Sequence Number: "..value
 end
 
 -- Dissect: Sequence Number
-dissect.sequence_number = function(buffer, offset, packet, parent)
-  local length = size_of.sequence_number
+asx_securities_sr8_ouch_v2_0_dissect.sequence_number = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.sequence_number
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.sequence_number(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.sequence_number(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.sequence_number, range, value, display)
 
@@ -2330,19 +2330,19 @@ dissect.sequence_number = function(buffer, offset, packet, parent)
 end
 
 -- Size: Session
-size_of.session = 10
+asx_securities_sr8_ouch_v2_0_size_of.session = 10
 
 -- Display: Session
-display.session = function(value)
+asx_securities_sr8_ouch_v2_0_display.session = function(value)
   return "Session: "..value
 end
 
 -- Dissect: Session
-dissect.session = function(buffer, offset, packet, parent)
-  local length = size_of.session
+asx_securities_sr8_ouch_v2_0_dissect.session = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.session
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.session(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.session(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.session, range, value, display)
 
@@ -2350,61 +2350,61 @@ dissect.session = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Login Accepted Packet
-size_of.login_accepted_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.login_accepted_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.session
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.session
 
-  index = index + size_of.sequence_number
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.sequence_number
 
   return index
 end
 
 -- Display: Login Accepted Packet
-display.login_accepted_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.login_accepted_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Login Accepted Packet
-dissect.login_accepted_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_accepted_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Session: 10 Byte Ascii String
-  index, session = dissect.session(buffer, index, packet, parent)
+  index, session = asx_securities_sr8_ouch_v2_0_dissect.session(buffer, index, packet, parent)
 
   -- Sequence Number: 20 Byte Ascii String
-  index, sequence_number = dissect.sequence_number(buffer, index, packet, parent)
+  index, sequence_number = asx_securities_sr8_ouch_v2_0_dissect.sequence_number(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Login Accepted Packet
-dissect.login_accepted_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.login_accepted_packet = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.login_accepted_packet then
-    local length = size_of.login_accepted_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.login_accepted_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.login_accepted_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.login_accepted_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.login_accepted_packet, range, display)
   end
 
-  return dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.login_accepted_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Text
-size_of.text = 1
+asx_securities_sr8_ouch_v2_0_size_of.text = 1
 
 -- Display: Text
-display.text = function(value)
+asx_securities_sr8_ouch_v2_0_display.text = function(value)
   return "Text: "..value
 end
 
 -- Dissect: Text
-dissect.text = function(buffer, offset, packet, parent)
-  local length = size_of.text
+asx_securities_sr8_ouch_v2_0_dissect.text = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.text
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.text(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.text(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.text, range, value, display)
 
@@ -2412,132 +2412,132 @@ dissect.text = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Debug Packet
-size_of.debug_packet = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.debug_packet = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.text
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.text
 
   return index
 end
 
 -- Display: Debug Packet
-display.debug_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.debug_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Debug Packet
-dissect.debug_packet_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.debug_packet_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Text: 1 Byte Ascii String
-  index, text = dissect.text(buffer, index, packet, parent)
+  index, text = asx_securities_sr8_ouch_v2_0_dissect.text(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Debug Packet
-dissect.debug_packet = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.debug_packet = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.debug_packet then
-    local length = size_of.debug_packet(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.debug_packet(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.debug_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.debug_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.debug_packet, range, display)
   end
 
-  return dissect.debug_packet_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.debug_packet_fields(buffer, offset, packet, parent)
 end
 
 -- Calculate runtime size of: Payload
-size_of.payload = function(buffer, offset, packet_type)
+asx_securities_sr8_ouch_v2_0_size_of.payload = function(buffer, offset, packet_type)
   -- Size of Debug Packet
   if packet_type == "+" then
-    return size_of.debug_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.debug_packet(buffer, offset)
   end
   -- Size of Login Accepted Packet
   if packet_type == "A" then
-    return size_of.login_accepted_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.login_accepted_packet(buffer, offset)
   end
   -- Size of Login Rejected Packet
   if packet_type == "J" then
-    return size_of.login_rejected_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.login_rejected_packet(buffer, offset)
   end
   -- Size of Sequenced Data Packet
   if packet_type == "S" then
-    return size_of.sequenced_data_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.sequenced_data_packet(buffer, offset)
   end
   -- Size of Login Request Packet
   if packet_type == "L" then
-    return size_of.login_request_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.login_request_packet(buffer, offset)
   end
   -- Size of Unsequenced Data Packet
   if packet_type == "U" then
-    return size_of.unsequenced_data_packet(buffer, offset)
+    return asx_securities_sr8_ouch_v2_0_size_of.unsequenced_data_packet(buffer, offset)
   end
 
   return 0
 end
 
 -- Display: Payload
-display.payload = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.payload = function(buffer, offset, packet, parent)
   return ""
 end
 
 -- Dissect Branches: Payload
-dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
+asx_securities_sr8_ouch_v2_0_dissect.payload_branches = function(buffer, offset, packet, parent, packet_type)
   -- Dissect Debug Packet
   if packet_type == "+" then
-    return dissect.debug_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.debug_packet(buffer, offset, packet, parent)
   end
   -- Dissect Login Accepted Packet
   if packet_type == "A" then
-    return dissect.login_accepted_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.login_accepted_packet(buffer, offset, packet, parent)
   end
   -- Dissect Login Rejected Packet
   if packet_type == "J" then
-    return dissect.login_rejected_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.login_rejected_packet(buffer, offset, packet, parent)
   end
   -- Dissect Sequenced Data Packet
   if packet_type == "S" then
-    return dissect.sequenced_data_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.sequenced_data_packet(buffer, offset, packet, parent)
   end
   -- Dissect Login Request Packet
   if packet_type == "L" then
-    return dissect.login_request_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.login_request_packet(buffer, offset, packet, parent)
   end
   -- Dissect Unsequenced Data Packet
   if packet_type == "U" then
-    return dissect.unsequenced_data_packet(buffer, offset, packet, parent)
+    return asx_securities_sr8_ouch_v2_0_dissect.unsequenced_data_packet(buffer, offset, packet, parent)
   end
 
   return offset
 end
 
 -- Dissect: Payload
-dissect.payload = function(buffer, offset, packet, parent, packet_type)
+asx_securities_sr8_ouch_v2_0_dissect.payload = function(buffer, offset, packet, parent, packet_type)
   if not show.payload then
-    return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+    return asx_securities_sr8_ouch_v2_0_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
   end
 
   -- Calculate size and check that branch is not empty
-  local size = size_of.payload(buffer, offset, packet_type)
+  local size = asx_securities_sr8_ouch_v2_0_size_of.payload(buffer, offset, packet_type)
   if size == 0 then
     return offset
   end
 
   -- Dissect Element
   local range = buffer(offset, size)
-  local display = display.payload(buffer, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.payload(buffer, packet, parent)
   local element = parent:add(asx_securities_sr8_ouch_v2_0.fields.payload, range, display)
 
-  return dissect.payload_branches(buffer, offset, packet, parent, packet_type)
+  return asx_securities_sr8_ouch_v2_0_dissect.payload_branches(buffer, offset, packet, parent, packet_type)
 end
 
 -- Size: Packet Type
-size_of.packet_type = 1
+asx_securities_sr8_ouch_v2_0_size_of.packet_type = 1
 
 -- Display: Packet Type
-display.packet_type = function(value)
+asx_securities_sr8_ouch_v2_0_display.packet_type = function(value)
   if value == "+" then
     return "Packet Type: Debug Packet (+)"
   end
@@ -2573,11 +2573,11 @@ display.packet_type = function(value)
 end
 
 -- Dissect: Packet Type
-dissect.packet_type = function(buffer, offset, packet, parent)
-  local length = size_of.packet_type
+asx_securities_sr8_ouch_v2_0_dissect.packet_type = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.packet_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = display.packet_type(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.packet_type(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.packet_type, range, value, display)
 
@@ -2585,19 +2585,19 @@ dissect.packet_type = function(buffer, offset, packet, parent)
 end
 
 -- Size: Packet Length
-size_of.packet_length = 2
+asx_securities_sr8_ouch_v2_0_size_of.packet_length = 2
 
 -- Display: Packet Length
-display.packet_length = function(value)
+asx_securities_sr8_ouch_v2_0_display.packet_length = function(value)
   return "Packet Length: "..value
 end
 
 -- Dissect: Packet Length
-dissect.packet_length = function(buffer, offset, packet, parent)
-  local length = size_of.packet_length
+asx_securities_sr8_ouch_v2_0_dissect.packet_length = function(buffer, offset, packet, parent)
+  local length = asx_securities_sr8_ouch_v2_0_size_of.packet_length
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = display.packet_length(value, buffer, offset, packet, parent)
+  local display = asx_securities_sr8_ouch_v2_0_display.packet_length(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.packet_length, range, value, display)
 
@@ -2605,78 +2605,78 @@ dissect.packet_length = function(buffer, offset, packet, parent)
 end
 
 -- Calculate size of: Packet Header
-size_of.packet_header = function(buffer, offset)
+asx_securities_sr8_ouch_v2_0_size_of.packet_header = function(buffer, offset)
   local index = 0
 
-  index = index + size_of.packet_length
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.packet_length
 
-  index = index + size_of.packet_type
+  index = index + asx_securities_sr8_ouch_v2_0_size_of.packet_type
 
   return index
 end
 
 -- Display: Packet Header
-display.packet_header = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.packet_header = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Packet Header
-dissect.packet_header_fields = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.packet_header_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Packet Length: 2 Byte Unsigned Fixed Width Integer
-  index, packet_length = dissect.packet_length(buffer, index, packet, parent)
+  index, packet_length = asx_securities_sr8_ouch_v2_0_dissect.packet_length(buffer, index, packet, parent)
 
   -- Packet Type: 1 Byte Ascii String Enum with 10 values
-  index, packet_type = dissect.packet_type(buffer, index, packet, parent)
+  index, packet_type = asx_securities_sr8_ouch_v2_0_dissect.packet_type(buffer, index, packet, parent)
 
   return index
 end
 
 -- Dissect: Packet Header
-dissect.packet_header = function(buffer, offset, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.packet_header = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
   if show.packet_header then
-    local length = size_of.packet_header(buffer, offset)
+    local length = asx_securities_sr8_ouch_v2_0_size_of.packet_header(buffer, offset)
     local range = buffer(offset, length)
-    local display = display.packet_header(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.packet_header(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.packet_header, range, display)
   end
 
-  return dissect.packet_header_fields(buffer, offset, packet, parent)
+  return asx_securities_sr8_ouch_v2_0_dissect.packet_header_fields(buffer, offset, packet, parent)
 end
 
 -- Display: Soup Bin Tcp Packet
-display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
+asx_securities_sr8_ouch_v2_0_display.soup_bin_tcp_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Soup Bin Tcp Packet
-dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+asx_securities_sr8_ouch_v2_0_dissect.soup_bin_tcp_packet_fields = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
   local index = offset
 
   -- Packet Header: Struct of 2 fields
-  index, packet_header = dissect.packet_header(buffer, index, packet, parent)
+  index, packet_header = asx_securities_sr8_ouch_v2_0_dissect.packet_header(buffer, index, packet, parent)
 
   -- Dependency element: Packet Type
   local packet_type = buffer(index - 1, 1):string()
 
   -- Payload: Runtime Type with 6 branches
-  index = dissect.payload(buffer, index, packet, parent, packet_type)
+  index = asx_securities_sr8_ouch_v2_0_dissect.payload(buffer, index, packet, parent, packet_type)
 
   return index
 end
 
 -- Dissect: Soup Bin Tcp Packet
-dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+asx_securities_sr8_ouch_v2_0_dissect.soup_bin_tcp_packet = function(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
   -- Optionally add struct element to protocol tree
   if show.soup_bin_tcp_packet then
     local range = buffer(offset, size_of_soup_bin_tcp_packet)
-    local display = display.soup_bin_tcp_packet(buffer, packet, parent)
+    local display = asx_securities_sr8_ouch_v2_0_display.soup_bin_tcp_packet(buffer, packet, parent)
     parent = parent:add(asx_securities_sr8_ouch_v2_0.fields.soup_bin_tcp_packet, range, display)
   end
 
-  dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
+  asx_securities_sr8_ouch_v2_0_dissect.soup_bin_tcp_packet_fields(buffer, offset, packet, parent, size_of_soup_bin_tcp_packet)
 
   return offset + size_of_soup_bin_tcp_packet
 end
@@ -2687,7 +2687,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   local remaining = available - index
 
   -- Check if packet size can be read
-  if remaining < size_of.packet_header(buffer, index) then
+  if remaining < asx_securities_sr8_ouch_v2_0_size_of.packet_header(buffer, index) then
     return -DESEGMENT_ONE_MORE_SEGMENT
   end
 
@@ -2703,7 +2703,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
 end
 
 -- Dissect Packet
-dissect.packet = function(buffer, packet, parent)
+asx_securities_sr8_ouch_v2_0_dissect.packet = function(buffer, packet, parent)
   local index = 0
 
   -- Dependency for Soup Bin Tcp Packet
@@ -2716,7 +2716,7 @@ dissect.packet = function(buffer, packet, parent)
     local available, size_of_soup_bin_tcp_packet = soup_bin_tcp_packet_bytes_remaining(buffer, index, end_of_payload)
 
     if available > 0 then
-      index = dissect.soup_bin_tcp_packet(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
+      index = asx_securities_sr8_ouch_v2_0_dissect.soup_bin_tcp_packet(buffer, index, packet, parent, size_of_soup_bin_tcp_packet)
     else
       -- More bytes needed, so set packet information
       packet.desegment_offset = index
@@ -2746,7 +2746,7 @@ function asx_securities_sr8_ouch_v2_0.dissector(buffer, packet, parent)
 
   -- Dissect protocol
   local protocol = parent:add(asx_securities_sr8_ouch_v2_0, buffer(), asx_securities_sr8_ouch_v2_0.description, "("..buffer:len().." Bytes)")
-  return dissect.packet(buffer, packet, protocol)
+  return asx_securities_sr8_ouch_v2_0_dissect.packet(buffer, packet, protocol)
 end
 
 -- Register With Tcp Table
