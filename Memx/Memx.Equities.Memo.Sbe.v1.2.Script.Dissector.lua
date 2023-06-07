@@ -6198,7 +6198,7 @@ end
 -- Verify Schema Id Field
 verify.schema_id = function(buffer)
   -- Attempt to read field
-  local value = buffer(1469, 1):uint()
+  local value = buffer(1475, 1):uint()
 
   if value == 1 then
     return true
@@ -6210,7 +6210,7 @@ end
 -- Verify Version Field
 verify.version = function(buffer)
   -- Attempt to read field
-  local value = buffer(1470, 2):uint()
+  local value = buffer(1476, 2):uint()
 
   if value == 1 then
     return true
