@@ -4,8 +4,8 @@
 -- Please see end of file for rules and regulations
 -----------------------------------------------------------------------
 
--- Jnx Equities PTS Itch 1.6 Protocol
-local jnx_equities_pts_itch_v1_6 = Proto("Jnx.Equities.PTS.Itch.v1.6.Lua", "Jnx Equities PTS Itch 1.6")
+-- Jnx Equities Pts Itch 1.6 Protocol
+local jnx_equities_pts_itch_v1_6 = Proto("Jnx.Equities.Pts.Itch.v1.6.Lua", "Jnx Equities Pts Itch 1.6")
 
 -- Component Tables
 local show = {}
@@ -19,7 +19,7 @@ local verify = {}
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
--- Jnx Equities PTS Itch 1.6 Fields
+-- Jnx Equities Pts Itch 1.6 Fields
 jnx_equities_pts_itch_v1_6.fields.attribution = ProtoField.new("Attribution", "jnx.equities.pts.itch.v1.6.attribution", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "jnx.equities.pts.itch.v1.6.buysellindicator", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.count = ProtoField.new("Count", "jnx.equities.pts.itch.v1.6.count", ftypes.UINT16)
@@ -71,7 +71,7 @@ jnx_equities_pts_itch_v1_6.fields.upper_price_limit = ProtoField.new("Upper Pric
 -- Declare Dissection Options
 -----------------------------------------------------------------------
 
--- Jnx Equities PTS Itch 1.6 Element Dissection Options
+-- Jnx Equities Pts Itch 1.6 Element Dissection Options
 show.message = true
 show.message_header = true
 show.order_added_with_attributes_message = true
@@ -89,7 +89,7 @@ show.timestamp_seconds_message = true
 show.trading_state_message = true
 show.payload = false
 
--- Register Jnx Equities PTS Itch 1.6 Show Options
+-- Register Jnx Equities Pts Itch 1.6 Show Options
 jnx_equities_pts_itch_v1_6.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 jnx_equities_pts_itch_v1_6.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 jnx_equities_pts_itch_v1_6.prefs.show_order_added_with_attributes_message = Pref.bool("Show Order Added With Attributes Message", show.order_added_with_attributes_message, "Parse and add Order Added With Attributes Message to protocol tree")
@@ -185,7 +185,7 @@ end
 
 
 -----------------------------------------------------------------------
--- Dissect Jnx Equities PTS Itch 1.6
+-- Dissect Jnx Equities Pts Itch 1.6
 -----------------------------------------------------------------------
 
 -- Size: Price
@@ -1761,7 +1761,7 @@ end
 function jnx_equities_pts_itch_v1_6.init()
 end
 
--- Dissector for Jnx Equities PTS Itch 1.6
+-- Dissector for Jnx Equities Pts Itch 1.6
 function jnx_equities_pts_itch_v1_6.dissector(buffer, packet, parent)
 
   -- Set protocol name
@@ -1787,7 +1787,7 @@ verify.jnx_equities_pts_itch_v1_6_packet_size = function(buffer)
   return true
 end
 
--- Dissector Heuristic for Jnx Equities PTS Itch 1.6
+-- Dissector Heuristic for Jnx Equities Pts Itch 1.6
 local function jnx_equities_pts_itch_v1_6_heuristic(buffer, packet, parent)
   -- Verify packet length
   if not verify.jnx_equities_pts_itch_v1_6_packet_size(buffer) then return false end
@@ -1799,7 +1799,7 @@ local function jnx_equities_pts_itch_v1_6_heuristic(buffer, packet, parent)
   return true
 end
 
--- Register Heuristic for Jnx Equities PTS Itch 1.6
+-- Register Heuristic for Jnx Equities Pts Itch 1.6
 jnx_equities_pts_itch_v1_6:register_heuristic("udp", jnx_equities_pts_itch_v1_6_heuristic)
 
 -----------------------------------------------------------------------
