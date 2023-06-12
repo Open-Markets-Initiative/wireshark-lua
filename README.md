@@ -129,6 +129,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Nyse][Nyse.Directory] | Equities | [Bqt][Nyse.Equities.Bqt.Xdp.v2.1.a.Dissector] | Xdp | [2.1.a][Nyse.Equities.Bqt.Xdp.v2.1.a.Dissector] | 4/4/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nyse][Nyse.Directory] | Equities | [Bqt][Nyse.Equities.Bqt.Xdp.v1.7.a.Dissector] | Xdp | [1.7.a][Nyse.Equities.Bqt.Xdp.v1.7.a.Dissector] | 7/24/2017 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nyse][Nyse.Directory] | Equities | [ImbalancesFeed][Nyse.Equities.ImbalancesFeed.Xdp.v2.2.a.Dissector] | Xdp | [2.2.a][Nyse.Equities.ImbalancesFeed.Xdp.v2.2.a.Dissector] | 3/8/2019 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Nyse][Nyse.Directory] | Options | [BinaryGateway][Nyse.Options.BinaryGateway.Pillar.v3.15.Dissector] | Pillar | [3.15][Nyse.Options.BinaryGateway.Pillar.v3.15.Dissector] | 5/8/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Nyse][Nyse.Directory] | Options | [ComplexFeed][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | Xdp | [1.3.a][Nyse.Options.ComplexFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Nyse][Nyse.Directory] | Options | [DeepFeed][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | Xdp | [1.3.a][Nyse.Options.DeepFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Nyse][Nyse.Directory] | Options | [TopFeed][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | Xdp | [1.3.a][Nyse.Options.TopFeed.Xdp.v1.3.a.Dissector] | 2/28/2018 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -149,7 +150,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 202 | 1,729,905 |
+| 203 | 1,738,144 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -303,6 +304,7 @@ Enjoy.
 [Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.TopFeed.Pillar.v1.2.c.Script.Dissector.lua "Nyse Arca Options TopFeed Pillar v1.2.c Lua Wireshark Dissector"
 [Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.ComplexFeed.Pillar.v1.0.d.Script.Dissector.lua "Nyse Arca Options ComplexFeed Pillar v1.0.d Lua Wireshark Dissector"
 [Nyse.Arca.Options.Feed.Pillar.v1.2.f.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Arca.Options.Feed.Pillar.v1.2.f.Script.Dissector.lua "Nyse Arca Options Feed Pillar v1.2.f Lua Wireshark Dissector"
+[Nyse.Options.BinaryGateway.Pillar.v3.15.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Nyse/Nyse.Options.BinaryGateway.Pillar.v3.15.Script.Dissector.lua "Nyse Options BinaryGateway Pillar v3.15 Lua Wireshark Dissector"
 [Otc.Markets.Multicast.Ats.v4.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Multicast.Ats.v4.5.Script.Dissector.lua "Otc Markets Multicast Ats v4.5 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v4.0.Script.Dissector.lua "Siac Opra Recipient Obi v4.0 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v6.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v6.1.Script.Dissector.lua "Siac Opra Recipient Obi v6.1 Lua Wireshark Dissector"
