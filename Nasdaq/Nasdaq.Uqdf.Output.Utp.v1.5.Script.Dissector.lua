@@ -619,6 +619,7 @@ end
 
 -- Dissect: Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_wipe_out_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -655,6 +656,7 @@ end
 
 -- Dissect: End Of Transmissions Message
 nasdaq_uqdf_output_utp_v1_5_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -691,6 +693,7 @@ end
 
 -- Dissect: Market Session Close Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_session_close_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -727,6 +730,7 @@ end
 
 -- Dissect: Market Session Open Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_session_open_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -763,6 +767,7 @@ end
 
 -- Dissect: End Of Day Message
 nasdaq_uqdf_output_utp_v1_5_dissect.end_of_day_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -799,6 +804,7 @@ end
 
 -- Dissect: Start Of Day Message
 nasdaq_uqdf_output_utp_v1_5_dissect.start_of_day_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -962,6 +968,7 @@ end
 
 -- Dissect: Control
 nasdaq_uqdf_output_utp_v1_5_dissect.control = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -1404,6 +1411,7 @@ end
 
 -- Dissect: Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5_dissect.session_close_recap_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1576,6 +1584,7 @@ end
 
 -- Dissect: Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5_dissect.auction_collar_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1681,6 +1690,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_wide_circuit_breaker_decline_level_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1846,6 +1856,7 @@ end
 
 -- Dissect: Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5_dissect.limit_up_limit_down_price_band_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -1918,6 +1929,7 @@ end
 
 -- Dissect: Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5_dissect.regulation_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2274,6 +2286,7 @@ end
 
 -- Dissect: Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5_dissect.issue_symbol_directory_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2375,6 +2388,7 @@ end
 
 -- Dissect: Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_center_trading_action_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2446,6 +2460,7 @@ end
 
 -- Dissect: Cross Sro Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_dissect.cross_sro_trading_action_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2524,6 +2539,7 @@ end
 
 -- Dissect: General Administrative Message
 nasdaq_uqdf_output_utp_v1_5_dissect.general_administrative_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -2731,6 +2747,7 @@ end
 
 -- Dissect: Administrative
 nasdaq_uqdf_output_utp_v1_5_dissect.administrative = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2986,6 +3003,7 @@ end
 
 -- Dissect: Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_market_participant_quotation_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -3801,6 +3819,7 @@ end
 
 -- Dissect: Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_long_form_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -3998,6 +4017,7 @@ end
 
 -- Dissect: Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_short_form_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 5, 2):uint()
@@ -4128,6 +4148,7 @@ end
 
 -- Dissect: Quote
 nasdaq_uqdf_output_utp_v1_5_dissect.quote = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()

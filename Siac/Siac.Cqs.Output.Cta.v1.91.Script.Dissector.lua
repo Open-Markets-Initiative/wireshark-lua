@@ -2315,6 +2315,7 @@ end
 
 -- Dissect: Special Long Quote Message
 siac_cqs_output_cta_v1_91_dissect.special_long_quote_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2508,6 +2509,7 @@ end
 
 -- Dissect: Short Quote Message
 siac_cqs_output_cta_v1_91_dissect.short_quote_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2753,6 +2755,7 @@ end
 
 -- Dissect: Long Quote Message
 siac_cqs_output_cta_v1_91_dissect.long_quote_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -2871,6 +2874,7 @@ end
 
 -- Dissect: Auction Status Message
 siac_cqs_output_cta_v1_91_dissect.auction_status_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3012,6 +3016,7 @@ end
 
 -- Dissect: Quote
 siac_cqs_output_cta_v1_91_dissect.quote = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3086,6 +3091,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3186,6 +3192,7 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3305,6 +3312,7 @@ end
 
 -- Dissect: Market Status
 siac_cqs_output_cta_v1_91_dissect.market_status = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3353,6 +3361,7 @@ end
 
 -- Dissect: End Of Day Message
 siac_cqs_output_cta_v1_91_dissect.end_of_day_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3401,6 +3410,7 @@ end
 
 -- Dissect: Line Integrity Message
 siac_cqs_output_cta_v1_91_dissect.line_integrity_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3449,6 +3459,7 @@ end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
 siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3497,6 +3508,7 @@ end
 
 -- Dissect: Finra Open Message
 siac_cqs_output_cta_v1_91_dissect.finra_open_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3545,6 +3557,7 @@ end
 
 -- Dissect: End Of Test Cycle Message
 siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3593,6 +3606,7 @@ end
 
 -- Dissect: Start Of Test Cycle Message
 siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3641,6 +3655,7 @@ end
 
 -- Dissect: Reset Block Sequence Number Message
 siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3689,6 +3704,7 @@ end
 
 -- Dissect: Finra Close Message
 siac_cqs_output_cta_v1_91_dissect.finra_close_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3737,6 +3753,7 @@ end
 
 -- Dissect: Start Of Day Message
 siac_cqs_output_cta_v1_91_dissect.start_of_day_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -3933,6 +3950,7 @@ end
 
 -- Dissect: Control
 siac_cqs_output_cta_v1_91_dissect.control = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()
@@ -3984,6 +4002,7 @@ end
 
 -- Dissect: Administrative Unformatted Message
 siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 4, 2):uint()
@@ -4092,6 +4111,7 @@ end
 
 -- Dissect: Administrative
 siac_cqs_output_cta_v1_91_dissect.administrative = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 3, 2):uint()

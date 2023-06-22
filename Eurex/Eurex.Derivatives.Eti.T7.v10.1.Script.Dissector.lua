@@ -2122,6 +2122,7 @@ end
 
 -- Dissect: User Logout Response
 eurex_derivatives_eti_t7_v10_1_dissect.user_logout_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -2321,6 +2322,7 @@ end
 
 -- Dissect: User Logout Request
 eurex_derivatives_eti_t7_v10_1_dissect.user_logout_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -2360,6 +2362,7 @@ end
 
 -- Dissect: User Login Response
 eurex_derivatives_eti_t7_v10_1_dissect.user_login_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -2428,6 +2431,7 @@ end
 
 -- Dissect: User Login Request
 eurex_derivatives_eti_t7_v10_1_dissect.user_login_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -4850,6 +4854,7 @@ end
 
 -- Dissect: Upload Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.upload_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -4889,6 +4894,7 @@ end
 
 -- Dissect: Unsubscribe Response
 eurex_derivatives_eti_t7_v10_1_dissect.unsubscribe_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -4954,6 +4960,7 @@ end
 
 -- Dissect: Unsubscribe Request
 eurex_derivatives_eti_t7_v10_1_dissect.unsubscribe_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -5371,6 +5378,7 @@ end
 
 -- Dissect: Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.trading_session_status_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -6826,6 +6834,7 @@ end
 
 -- Dissect: Trade Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.trade_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -6971,6 +6980,7 @@ end
 
 -- Dissect: Throttle Update Notification
 eurex_derivatives_eti_t7_v10_1_dissect.throttle_update_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -7016,6 +7026,7 @@ end
 
 -- Dissect: Tm Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tm_trading_session_status_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -7270,6 +7281,7 @@ end
 
 -- Dissect: Tes Upload Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_upload_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -7318,6 +7330,7 @@ end
 
 -- Dissect: Tes Trading Session Status Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_trading_session_status_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -7756,6 +7769,7 @@ end
 
 -- Dissect: Tes Trade Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_trade_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8006,6 +8020,7 @@ end
 
 -- Dissect: Tes Reversal Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_reversal_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8051,6 +8066,7 @@ end
 
 -- Dissect: Tes Response
 eurex_derivatives_eti_t7_v10_1_dissect.tes_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8146,6 +8162,7 @@ end
 
 -- Dissect: Tes Execution Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_execution_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8278,6 +8295,7 @@ end
 
 -- Dissect: Tes Delete Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_delete_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8398,6 +8416,7 @@ end
 
 -- Dissect: Tes Compression Run Status Response
 eurex_derivatives_eti_t7_v10_1_dissect.tes_compression_run_status_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8452,6 +8471,7 @@ end
 
 -- Dissect: Tes Compression Run Status Request
 eurex_derivatives_eti_t7_v10_1_dissect.tes_compression_run_status_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8509,6 +8529,7 @@ end
 
 -- Dissect: Tes Compression Run Status Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_compression_run_status_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -8755,6 +8776,7 @@ end
 
 -- Dissect: Tes Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -9047,6 +9069,7 @@ end
 
 -- Dissect: Tes Approve Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.tes_approve_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -9092,6 +9115,7 @@ end
 
 -- Dissect: Subscribe Response
 eurex_derivatives_eti_t7_v10_1_dissect.subscribe_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -9211,6 +9235,7 @@ end
 
 -- Dissect: Subscribe Request
 eurex_derivatives_eti_t7_v10_1_dissect.subscribe_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -9393,6 +9418,7 @@ end
 
 -- Dissect: Service Availability Market Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.service_availability_market_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -9723,6 +9749,7 @@ end
 
 -- Dissect: Service Availability Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.service_availability_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -10638,6 +10665,7 @@ end
 
 -- Dissect: Srqs Update Negotiation Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_update_negotiation_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -10739,6 +10767,7 @@ end
 
 -- Dissect: Srqs Update Deal Status Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_update_deal_status_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -10787,6 +10816,7 @@ end
 
 -- Dissect: Srqs Status Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_status_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -10874,6 +10904,7 @@ end
 
 -- Dissect: Srqs Quoting Status Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_quoting_status_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -10962,6 +10993,7 @@ end
 
 -- Dissect: Srqs Quote Response
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_quote_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -11236,6 +11268,7 @@ end
 
 -- Dissect: Srqs Quote Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_quote_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -11726,6 +11759,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Requester Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_open_negotiation_requester_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -11885,6 +11919,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_open_negotiation_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12100,6 +12135,7 @@ end
 
 -- Dissect: Srqs Open Negotiation Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_open_negotiation_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12177,6 +12213,7 @@ end
 
 -- Dissect: Srqs Negotiation Status Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_negotiation_status_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12351,6 +12388,7 @@ end
 
 -- Dissect: Srqs Negotiation Requester Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_negotiation_requester_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12474,6 +12512,7 @@ end
 
 -- Dissect: Srqs Negotiation Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_negotiation_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12634,6 +12673,7 @@ end
 
 -- Dissect: Srqs Inquire Smart Respondent Response
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_inquire_smart_respondent_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -12808,6 +12848,7 @@ end
 
 -- Dissect: Srqs Inquire Smart Respondent Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_inquire_smart_respondent_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -13067,6 +13108,7 @@ end
 
 -- Dissect: Srqs Hit Quote Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_hit_quote_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -13202,6 +13244,7 @@ end
 
 -- Dissect: Srqs Enter Quote Request
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_enter_quote_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -13327,6 +13370,7 @@ end
 
 -- Dissect: Srqs Deal Response
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_deal_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -13657,6 +13701,7 @@ end
 
 -- Dissect: Srqs Deal Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_deal_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14105,6 +14150,7 @@ end
 
 -- Dissect: Srqs Create Deal Notification
 eurex_derivatives_eti_t7_v10_1_dissect.srqs_create_deal_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14348,6 +14394,7 @@ end
 
 -- Dissect: Risk Notification Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.risk_notification_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14411,6 +14458,7 @@ end
 
 -- Dissect: Reverse Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.reverse_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14522,6 +14570,7 @@ end
 
 -- Dissect: Retransmit Response
 eurex_derivatives_eti_t7_v10_1_dissect.retransmit_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14596,6 +14645,7 @@ end
 
 -- Dissect: Retransmit Request
 eurex_derivatives_eti_t7_v10_1_dissect.retransmit_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14667,6 +14717,7 @@ end
 
 -- Dissect: Retransmit Me Message Response
 eurex_derivatives_eti_t7_v10_1_dissect.retransmit_me_message_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -14744,6 +14795,7 @@ end
 
 -- Dissect: Retransmit Me Message Request
 eurex_derivatives_eti_t7_v10_1_dissect.retransmit_me_message_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -15051,6 +15103,7 @@ end
 
 -- Dissect: Reject
 eurex_derivatives_eti_t7_v10_1_dissect.reject = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -15113,6 +15166,7 @@ end
 
 -- Dissect: Rfq Response
 eurex_derivatives_eti_t7_v10_1_dissect.rfq_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -15170,6 +15224,7 @@ end
 
 -- Dissect: Rfq Request
 eurex_derivatives_eti_t7_v10_1_dissect.rfq_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -15761,6 +15816,7 @@ end
 
 -- Dissect: Quote Execution Report
 eurex_derivatives_eti_t7_v10_1_dissect.quote_execution_report = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -15911,6 +15967,7 @@ end
 
 -- Dissect: Quote Activation Response
 eurex_derivatives_eti_t7_v10_1_dissect.quote_activation_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16048,6 +16105,7 @@ end
 
 -- Dissect: Quote Activation Request
 eurex_derivatives_eti_t7_v10_1_dissect.quote_activation_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16205,6 +16263,7 @@ end
 
 -- Dissect: Quote Activation Notification
 eurex_derivatives_eti_t7_v10_1_dissect.quote_activation_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16466,6 +16525,7 @@ end
 
 -- Dissect: Pre Trade Risk Limits Definition Request
 eurex_derivatives_eti_t7_v10_1_dissect.pre_trade_risk_limits_definition_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16757,6 +16817,7 @@ end
 
 -- Dissect: Pre Trade Risk Limit Response
 eurex_derivatives_eti_t7_v10_1_dissect.pre_trade_risk_limit_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16799,6 +16860,7 @@ end
 
 -- Dissect: Ping Response
 eurex_derivatives_eti_t7_v10_1_dissect.ping_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16844,6 +16906,7 @@ end
 
 -- Dissect: Ping Request
 eurex_derivatives_eti_t7_v10_1_dissect.ping_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -16913,6 +16976,7 @@ end
 
 -- Dissect: Party Entitlements Update Report
 eurex_derivatives_eti_t7_v10_1_dissect.party_entitlements_update_report = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -17073,6 +17137,7 @@ end
 
 -- Dissect: Party Action Report
 eurex_derivatives_eti_t7_v10_1_dissect.party_action_report = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -18092,6 +18157,7 @@ end
 
 -- Dissect: Order Exec Response
 eurex_derivatives_eti_t7_v10_1_dissect.order_exec_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -18627,6 +18693,7 @@ end
 
 -- Dissect: Order Exec Report Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.order_exec_report_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -18744,6 +18811,7 @@ end
 
 -- Dissect: Order Exec Notification
 eurex_derivatives_eti_t7_v10_1_dissect.order_exec_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -18838,6 +18906,7 @@ end
 
 -- Dissect: News Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.news_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19040,6 +19109,7 @@ end
 
 -- Dissect: New Order Single Short Request
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_single_short_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19196,6 +19266,7 @@ end
 
 -- Dissect: New Order Single Request
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_single_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19291,6 +19362,7 @@ end
 
 -- Dissect: New Order Response
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19380,6 +19452,7 @@ end
 
 -- Dissect: New Order Nr Response
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_nr_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19491,6 +19564,7 @@ end
 
 -- Dissect: New Order Complex Short Request
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_complex_short_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19646,6 +19720,7 @@ end
 
 -- Dissect: New Order Complex Request
 eurex_derivatives_eti_t7_v10_1_dissect.new_order_complex_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19813,6 +19888,7 @@ end
 
 -- Dissect: Modify Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -19921,6 +19997,7 @@ end
 
 -- Dissect: Modify Order Single Short Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_single_short_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -20113,6 +20190,7 @@ end
 
 -- Dissect: Modify Order Single Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_single_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -20211,6 +20289,7 @@ end
 
 -- Dissect: Modify Order Response
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -20306,6 +20385,7 @@ end
 
 -- Dissect: Modify Order Nr Response
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_nr_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -20420,6 +20500,7 @@ end
 
 -- Dissect: Modify Order Complex Short Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_complex_short_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -20584,6 +20665,7 @@ end
 
 -- Dissect: Modify Order Complex Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_order_complex_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21219,6 +21301,7 @@ end
 
 -- Dissect: Modify Basket Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.modify_basket_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21556,6 +21639,7 @@ end
 
 -- Dissect: Mass Quote Response
 eurex_derivatives_eti_t7_v10_1_dissect.mass_quote_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21749,6 +21833,7 @@ end
 
 -- Dissect: Mass Quote Request
 eurex_derivatives_eti_t7_v10_1_dissect.mass_quote_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21791,6 +21876,7 @@ end
 
 -- Dissect: Mm Parameter Definition Response
 eurex_derivatives_eti_t7_v10_1_dissect.mm_parameter_definition_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21946,6 +22032,7 @@ end
 
 -- Dissect: Mm Parameter Definition Request
 eurex_derivatives_eti_t7_v10_1_dissect.mm_parameter_definition_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -21985,6 +22072,7 @@ end
 
 -- Dissect: Logout Response
 eurex_derivatives_eti_t7_v10_1_dissect.logout_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22024,6 +22112,7 @@ end
 
 -- Dissect: Logout Request
 eurex_derivatives_eti_t7_v10_1_dissect.logout_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22213,6 +22302,7 @@ end
 
 -- Dissect: Logon Response
 eurex_derivatives_eti_t7_v10_1_dissect.logon_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22507,6 +22597,7 @@ end
 
 -- Dissect: Logon Request
 eurex_derivatives_eti_t7_v10_1_dissect.logon_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22591,6 +22682,7 @@ end
 
 -- Dissect: Legal Notification Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.legal_notification_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22796,6 +22888,7 @@ end
 
 -- Dissect: Inquire User Response
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_user_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -22838,6 +22931,7 @@ end
 
 -- Dissect: Inquire User Request
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_user_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23020,6 +23114,7 @@ end
 
 -- Dissect: Inquire Session List Response
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_session_list_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23059,6 +23154,7 @@ end
 
 -- Dissect: Inquire Session List Request
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_session_list_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23133,6 +23229,7 @@ end
 
 -- Dissect: Inquire Pre Trade Risk Limits Request
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_pre_trade_risk_limits_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23291,6 +23388,7 @@ end
 
 -- Dissect: Inquire Mm Parameter Response
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_mm_parameter_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23336,6 +23434,7 @@ end
 
 -- Dissect: Inquire Mm Parameter Request
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_mm_parameter_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23520,6 +23619,7 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Response
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_enrichment_rule_id_list_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23562,6 +23662,7 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Request
 eurex_derivatives_eti_t7_v10_1_dissect.inquire_enrichment_rule_id_list_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23601,6 +23702,7 @@ end
 
 -- Dissect: Heartbeat Notification
 eurex_derivatives_eti_t7_v10_1_dissect.heartbeat_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23637,6 +23739,7 @@ end
 
 -- Dissect: Heartbeat
 eurex_derivatives_eti_t7_v10_1_dissect.heartbeat = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23691,6 +23794,7 @@ end
 
 -- Dissect: Forced User Logout Notification
 eurex_derivatives_eti_t7_v10_1_dissect.forced_user_logout_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23739,6 +23843,7 @@ end
 
 -- Dissect: Forced Logout Notification
 eurex_derivatives_eti_t7_v10_1_dissect.forced_logout_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -23899,6 +24004,7 @@ end
 
 -- Dissect: Enter Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.enter_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24396,6 +24502,7 @@ end
 
 -- Dissect: Enter Clip Request
 eurex_derivatives_eti_t7_v10_1_dissect.enter_clip_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24516,6 +24623,7 @@ end
 
 -- Dissect: Enter Basket Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.enter_basket_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24582,6 +24690,7 @@ end
 
 -- Dissect: Delete Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24663,6 +24772,7 @@ end
 
 -- Dissect: Delete Order Single Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_order_single_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24741,6 +24851,7 @@ end
 
 -- Dissect: Delete Order Response
 eurex_derivatives_eti_t7_v10_1_dissect.delete_order_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24819,6 +24930,7 @@ end
 
 -- Dissect: Delete Order Nr Response
 eurex_derivatives_eti_t7_v10_1_dissect.delete_order_nr_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24900,6 +25012,7 @@ end
 
 -- Dissect: Delete Order Complex Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_order_complex_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -24993,6 +25106,7 @@ end
 
 -- Dissect: Delete Order Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.delete_order_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25059,6 +25173,7 @@ end
 
 -- Dissect: Delete Clip Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_clip_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25119,6 +25234,7 @@ end
 
 -- Dissect: Delete Basket Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_basket_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25172,6 +25288,7 @@ end
 
 -- Dissect: Delete All Quote Response
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_quote_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25232,6 +25349,7 @@ end
 
 -- Dissect: Delete All Quote Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_quote_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25329,6 +25447,7 @@ end
 
 -- Dissect: Delete All Quote Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_quote_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25574,6 +25693,7 @@ end
 
 -- Dissect: Delete All Order Response
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_order_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25646,6 +25766,7 @@ end
 
 -- Dissect: Delete All Order Request
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_order_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25703,6 +25824,7 @@ end
 
 -- Dissect: Delete All Order Quote Event Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_order_quote_event_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25745,6 +25867,7 @@ end
 
 -- Dissect: Delete All Order Nr Response
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_order_nr_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25833,6 +25956,7 @@ end
 
 -- Dissect: Delete All Order Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.delete_all_order_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25875,6 +25999,7 @@ end
 
 -- Dissect: Cross Request Response
 eurex_derivatives_eti_t7_v10_1_dissect.cross_request_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -25926,6 +26051,7 @@ end
 
 -- Dissect: Cross Request
 eurex_derivatives_eti_t7_v10_1_dissect.cross_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26040,6 +26166,7 @@ end
 
 -- Dissect: Clip Response
 eurex_derivatives_eti_t7_v10_1_dissect.clip_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26137,6 +26264,7 @@ end
 
 -- Dissect: Clip Execution Notification
 eurex_derivatives_eti_t7_v10_1_dissect.clip_execution_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26209,6 +26337,7 @@ end
 
 -- Dissect: Clip Deletion Notification
 eurex_derivatives_eti_t7_v10_1_dissect.clip_deletion_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26293,6 +26422,7 @@ end
 
 -- Dissect: Broadcast Error Notification
 eurex_derivatives_eti_t7_v10_1_dissect.broadcast_error_notification = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26338,6 +26468,7 @@ end
 
 -- Dissect: Basket Response
 eurex_derivatives_eti_t7_v10_1_dissect.basket_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26472,6 +26603,7 @@ end
 
 -- Dissect: Basket Execution Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.basket_execution_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26541,6 +26673,7 @@ end
 
 -- Dissect: Basket Delete Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.basket_delete_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26663,6 +26796,7 @@ end
 
 -- Dissect: Basket Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.basket_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -26947,6 +27081,7 @@ end
 
 -- Dissect: Basket Approve Broadcast
 eurex_derivatives_eti_t7_v10_1_dissect.basket_approve_broadcast = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27088,6 +27223,7 @@ end
 
 -- Dissect: Approve Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.approve_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27151,6 +27287,7 @@ end
 
 -- Dissect: Approve Reverse Tes Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.approve_reverse_tes_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27405,6 +27542,7 @@ end
 
 -- Dissect: Approve Basket Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.approve_basket_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27498,6 +27636,7 @@ end
 
 -- Dissect: Amend Basket Trade Request
 eurex_derivatives_eti_t7_v10_1_dissect.amend_basket_trade_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27760,6 +27899,7 @@ end
 
 -- Dissect: Add Flexible Instrument Response
 eurex_derivatives_eti_t7_v10_1_dissect.add_flexible_instrument_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -27829,6 +27969,7 @@ end
 
 -- Dissect: Add Flexible Instrument Request
 eurex_derivatives_eti_t7_v10_1_dissect.add_flexible_instrument_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -28102,6 +28243,7 @@ end
 
 -- Dissect: Add Complex Instrument Response
 eurex_derivatives_eti_t7_v10_1_dissect.add_complex_instrument_response = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()
@@ -28164,6 +28306,7 @@ end
 
 -- Dissect: Add Complex Instrument Request
 eurex_derivatives_eti_t7_v10_1_dissect.add_complex_instrument_request = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Body Len
   local body_len = buffer(index, 4):le_uint()

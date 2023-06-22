@@ -3803,6 +3803,7 @@ end
 
 -- Dissect: Delete Floor Trade Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.delete_floor_trade_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -3959,6 +3960,7 @@ end
 
 -- Dissect: Floor Trade Confirmation Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.floor_trade_confirmation_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4322,6 +4324,7 @@ end
 
 -- Dissect: Add Floor Trade Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.add_floor_trade_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -4436,6 +4439,7 @@ end
 
 -- Dissect: Floor Trade Notification Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.floor_trade_notification_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -6331,6 +6335,7 @@ end
 
 -- Dissect: Complex Instrument Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.complex_instrument_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8176,6 +8181,7 @@ end
 
 -- Dissect: Complex Instrument Accepted Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.complex_instrument_accepted_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8261,6 +8267,7 @@ end
 
 -- Dissect: Mass Cancel Acknowledgment Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -8374,6 +8381,7 @@ end
 
 -- Dissect: Reset Risk Acknowledgment Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.reset_risk_acknowledgment_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -10214,6 +10222,7 @@ end
 
 -- Dissect: Purge Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -12527,6 +12536,7 @@ end
 
 -- Dissect: Trade Cancel Or Correct Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -12688,6 +12698,7 @@ end
 
 -- Dissect: Quote Execution Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_execution_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -14942,6 +14953,7 @@ end
 
 -- Dissect: Cancel Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -17133,6 +17145,7 @@ end
 
 -- Dissect: Cross Order Cancelled Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_cancelled_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -17184,6 +17197,7 @@ end
 
 -- Dissect: Quote Cancelled Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_cancelled_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -19797,6 +19811,7 @@ end
 
 -- Dissect: Order Cancelled Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -21672,6 +21687,7 @@ end
 
 -- Dissect: User Modify Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.user_modify_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -21749,6 +21765,7 @@ end
 
 -- Dissect: Quote Restated Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_restated_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -23997,6 +24014,7 @@ end
 
 -- Dissect: Order Restated Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_restated_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -26253,6 +26271,7 @@ end
 
 -- Dissect: Order Modified Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_modified_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -26408,6 +26427,7 @@ end
 
 -- Dissect: Quote Update Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_update_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -28265,6 +28285,7 @@ end
 
 -- Dissect: Cross Order Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -30394,6 +30415,7 @@ end
 
 -- Dissect: Order Rejected Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_rejected_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -30653,6 +30675,7 @@ end
 
 -- Dissect: Quote Update Acknowledgment Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_update_acknowledgment_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -32595,6 +32618,7 @@ end
 
 -- Dissect: Cross Order Acknowledgment Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_acknowledgment_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -34801,6 +34825,7 @@ end
 
 -- Dissect: Order Acknowledgment Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_acknowledgment_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -34858,6 +34883,7 @@ end
 
 -- Dissect: Delete Floor Trade Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.delete_floor_trade_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -34918,6 +34944,7 @@ end
 
 -- Dissect: Floor Trade Confirmation Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.floor_trade_confirmation_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -35011,6 +35038,7 @@ end
 
 -- Dissect: Add Floor Trade Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.add_floor_trade_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -35232,6 +35260,7 @@ end
 
 -- Dissect: New Complex Instrument Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.new_complex_instrument_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -35363,6 +35392,7 @@ end
 
 -- Dissect: Risk Reset Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.risk_reset_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -35774,6 +35804,7 @@ end
 
 -- Dissect: Purge Order Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.purge_order_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -36017,6 +36048,7 @@ end
 
 -- Dissect: Short Quote Update Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.short_quote_update_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -36193,6 +36225,7 @@ end
 
 -- Dissect: Quote Update Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.quote_update_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -36241,6 +36274,7 @@ end
 
 -- Dissect: Modify Order Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.modify_order_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -36628,6 +36662,7 @@ end
 
 -- Dissect: Cancel Order Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.cancel_order_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -37750,6 +37785,7 @@ end
 
 -- Dissect: New Order Cross Multileg Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.new_order_cross_multileg_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -37801,6 +37837,7 @@ end
 
 -- Dissect: New Order Complex Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.new_order_complex_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -38503,6 +38540,7 @@ end
 
 -- Dissect: New Order Cross Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.new_order_cross_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -39814,6 +39852,7 @@ end
 
 -- Dissect: New Order Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.new_order_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -40039,6 +40078,7 @@ end
 
 -- Dissect: Logout Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.logout_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -40245,6 +40285,7 @@ end
 
 -- Dissect: Complex Instrument Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.complex_instrument_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Complex Instrument Rejected Bitfield Count
   local complex_instrument_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -40451,6 +40492,7 @@ end
 
 -- Dissect: Complex Instrument Accepted Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.complex_instrument_accepted_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Complex Instrument Accepted Bitfield Count
   local complex_instrument_accepted_bitfield_count = buffer(offset, 1):le_uint()
@@ -40657,6 +40699,7 @@ end
 
 -- Dissect: Purge Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.purge_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Purge Rejected Bitfield Count
   local purge_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -40863,6 +40906,7 @@ end
 
 -- Dissect: Trade Cancel Or Correct Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Trade Cancel Or Correct Bitfield Count
   local trade_cancel_or_correct_bitfield_count = buffer(offset, 1):le_uint()
@@ -42534,6 +42578,7 @@ end
 
 -- Dissect: Order Execution Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_execution_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Execution Bitfield Count
   local order_execution_bitfield_count = buffer(offset, 1):le_uint()
@@ -42740,6 +42785,7 @@ end
 
 -- Dissect: Cancel Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.cancel_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Cancel Rejected Bitfield Count
   local cancel_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -42946,6 +42992,7 @@ end
 
 -- Dissect: Cross Order Cancelled Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_cancelled_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Cross Order Cancelled Bitfield Count
   local cross_order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
@@ -43152,6 +43199,7 @@ end
 
 -- Dissect: Order Cancelled Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_cancelled_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Cancelled Bitfield Count
   local order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
@@ -43358,6 +43406,7 @@ end
 
 -- Dissect: User Modify Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.user_modify_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: User Modify Rejected Bitfield Count
   local user_modify_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -43564,6 +43613,7 @@ end
 
 -- Dissect: Order Restated Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_restated_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Restated Bitfield Count
   local order_restated_bitfield_count = buffer(offset, 1):le_uint()
@@ -43770,6 +43820,7 @@ end
 
 -- Dissect: Order Modified Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_modified_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Modified Bitfield Count
   local order_modified_bitfield_count = buffer(offset, 1):le_uint()
@@ -43976,6 +44027,7 @@ end
 
 -- Dissect: Cross Order Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Cross Order Rejected Bitfield Count
   local cross_order_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -44182,6 +44234,7 @@ end
 
 -- Dissect: Order Rejected Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_rejected_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Rejected Bitfield Count
   local order_rejected_bitfield_count = buffer(offset, 1):le_uint()
@@ -44388,6 +44441,7 @@ end
 
 -- Dissect: Cross Order Acknowledgment Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.cross_order_acknowledgment_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Cross Order Acknowledgment Bitfield Count
   local cross_order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
@@ -44594,6 +44648,7 @@ end
 
 -- Dissect: Order Acknowledgment Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.order_acknowledgment_return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Order Acknowledgment Bitfield Count
   local order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
@@ -44856,6 +44911,7 @@ end
 
 -- Dissect: Return Bitfields
 cboe_c1_options_orderentry_boe_v2_10_dissect.return_bitfields = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Param Group Length
   local param_group_length = buffer(offset - 3, 2):le_uint()
@@ -45268,6 +45324,7 @@ end
 
 -- Dissect: Login Response Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.login_response_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
@@ -45383,6 +45440,7 @@ end
 
 -- Dissect: Login Request Message
 cboe_c1_options_orderentry_boe_v2_10_dissect.login_request_message = function(buffer, offset, packet, parent)
+  local index = offset
 
   -- Dependency element: Message Length
   local message_length = buffer(offset - 8, 2):le_uint()
