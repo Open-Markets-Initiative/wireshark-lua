@@ -48,6 +48,7 @@
 | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v11.0.Dissector] | T7 | [11.0][Eurex.Derivatives.Eti.T7.v11.0.Dissector] | 10/31/2022 | 30616 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Derivatives.Eti.T7.v11.0.Url] - [pdf][Eurex.Derivatives.Eti.T7.v11.0.Pdf] - [xml][Eurex.Derivatives.Eti.T7.v11.0.Xml] |
 | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v10.1.Dissector] | T7 | [10.1][Eurex.Derivatives.Eti.T7.v10.1.Dissector] | 6/22/2022 | 29881 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Derivatives.Eti.T7.v10.1.Url] - [pdf][Eurex.Derivatives.Eti.T7.v10.1.Pdf] - [xml][Eurex.Derivatives.Eti.T7.v10.1.Xml] |
 | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v10.0.Dissector] | T7 | [10.0][Eurex.Derivatives.Eti.T7.v10.0.Dissector] | 9/20/2021 | 29962 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Eurex.Derivatives.Eti.T7.v10.0.Url] - [pdf][Eurex.Derivatives.Eti.T7.v10.0.Pdf] - [xml][Eurex.Derivatives.Eti.T7.v10.0.Xml] |
+| Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v1.0.Dissector] | T7 | [1.0][Eurex.Derivatives.Eti.T7.v1.0.Dissector] | 1/1/2015 | 327 | [Header][Omi.Glossary.Status.Header] | [Tested][Omi.Glossary.Testing.Tested] | [url][Eurex.Derivatives.Eti.T7.v1.0.Url] |
 
 
 Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
@@ -237,3 +238,5 @@ Eurex: [website](https://www.eurex.com "Go to Eurex Exchange")
 [Eurex.Derivatives.Eobi.T7.v11.1.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 11.1 Url"
 [Eurex.Derivatives.Eobi.T7.v11.1.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v11.1.pdf "Eurex Exchange 11.1 Pdf"
 [Eurex.Derivatives.Eobi.T7.v11.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Eurex/Eurex.Derivatives.Eobi.T7.v11.1.xml "Eurex Exchange 11.1 Xml"
+[Eurex.Derivatives.Eti.T7.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eti.T7.v1.0.Script.Dissector.lua "Eurex Derivatives Eti T7 v1.0 Wireshark Dissector"
+[Eurex.Derivatives.Eti.T7.v1.0.Url]: https://www.eurex.com/ex-en/technology/t7 "Eurex Exchange 1.0 Url"

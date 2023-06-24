@@ -5358,8 +5358,8 @@ eurex_derivatives_eobi_t7_v10_0:register_heuristic("udp", eurex_derivatives_eobi
 -- Protocol:
 --   Organization: Eurex Exchange
 --   Version: 10.0
---   Date: Wednesday, June 22, 2022
---   Specification: T7_EOBI_Manual_v.10.1.1.pdf
+--   Date: Monday, September 20, 2021
+--   Specification: T7_EOBI_Manual_v.10.0.0-1-.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
