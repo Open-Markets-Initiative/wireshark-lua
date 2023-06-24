@@ -23,6 +23,7 @@ local verify = {}
 nyse_options_streamprotocol_pillar_v1_6.fields.access = ProtoField.new("Access", "nyse.options.streamprotocol.pillar.v1.6.access", ftypes.UINT8)
 nyse_options_streamprotocol_pillar_v1_6.fields.close = ProtoField.new("Close", "nyse.options.streamprotocol.pillar.v1.6.close", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.close_response = ProtoField.new("Close Response", "nyse.options.streamprotocol.pillar.v1.6.closeresponse", ftypes.STRING)
+nyse_options_streamprotocol_pillar_v1_6.fields.data = ProtoField.new("Data", "nyse.options.streamprotocol.pillar.v1.6.data", ftypes.BYTES)
 nyse_options_streamprotocol_pillar_v1_6.fields.end_seq = ProtoField.new("End Seq", "nyse.options.streamprotocol.pillar.v1.6.endseq", ftypes.UINT64)
 nyse_options_streamprotocol_pillar_v1_6.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.options.streamprotocol.pillar.v1.6.heartbeat", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.login_message = ProtoField.new("Login Message", "nyse.options.streamprotocol.pillar.v1.6.loginmessage", ftypes.STRING)
@@ -45,7 +46,6 @@ nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_length = ProtoField.new("
 nyse_options_streamprotocol_pillar_v1_6.fields.seq_msg_type = ProtoField.new("Seq Msg Type", "nyse.options.streamprotocol.pillar.v1.6.seqmsgtype", ftypes.UINT16)
 nyse_options_streamprotocol_pillar_v1_6.fields.seqmsgid = ProtoField.new("Seqmsgid", "nyse.options.streamprotocol.pillar.v1.6.seqmsgid", ftypes.STRING)
 nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message = ProtoField.new("Sequenced Message", "nyse.options.streamprotocol.pillar.v1.6.sequencedmessage", ftypes.STRING)
-nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message_data = ProtoField.new("Sequenced Message Data", "nyse.options.streamprotocol.pillar.v1.6.sequencedmessagedata", ftypes.BYTES)
 nyse_options_streamprotocol_pillar_v1_6.fields.sess = ProtoField.new("Sess", "nyse.options.streamprotocol.pillar.v1.6.sess", ftypes.UINT32)
 nyse_options_streamprotocol_pillar_v1_6.fields.start_seq = ProtoField.new("Start Seq", "nyse.options.streamprotocol.pillar.v1.6.startseq", ftypes.UINT64)
 nyse_options_streamprotocol_pillar_v1_6.fields.status = ProtoField.new("Status", "nyse.options.streamprotocol.pillar.v1.6.status", ftypes.UINT8)
@@ -171,24 +171,20 @@ end
 -- Dissect Nyse Options StreamProtocol Pillar 1.6
 -----------------------------------------------------------------------
 
--- Size: Sequenced Message Data
-nyse_options_streamprotocol_pillar_v1_6_size_of.sequenced_message_data = 0
-
--- Display: Sequenced Message Data
-nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message_data = function(value)
-  return "Sequenced Message Data: "..value
+-- Display: Data
+nyse_options_streamprotocol_pillar_v1_6_display.data = function(value)
+  return "Data: "..value
 end
 
--- Dissect: Sequenced Message Data
-nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_data = function(buffer, offset, packet, parent)
-  local length = nyse_options_streamprotocol_pillar_v1_6_size_of.sequenced_message_data
-  local range = buffer(offset, length)
+-- Dissect runtime sized field: Data
+nyse_options_streamprotocol_pillar_v1_6_dissect.data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nyse_options_streamprotocol_pillar_v1_6_display.sequenced_message_data(value, buffer, offset, packet, parent)
+  local display = nyse_options_streamprotocol_pillar_v1_6_display.data(value, buffer, offset, packet, parent, size)
 
-  parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.sequenced_message_data, range, value, display)
+  parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.data, range, value, display)
 
-  return offset + length, value
+  return offset + size
 end
 
 -- Size: Seq Msg Length
@@ -285,8 +281,14 @@ nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_fields = funct
   -- Seq Msg Header: Struct of 2 fields
   index, seq_msg_header = nyse_options_streamprotocol_pillar_v1_6_dissect.seq_msg_header(buffer, index, packet, parent)
 
-  -- Sequenced Message Data: 0 Byte
-  index, sequenced_message_data = nyse_options_streamprotocol_pillar_v1_6_dissect.sequenced_message_data(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 2, 2):le_uint()
+
+  -- Runtime Size Of: Data
+  local size_of_data = seq_msg_length - 4
+
+  -- Data: 0 Byte
+  index = nyse_options_streamprotocol_pillar_v1_6_dissect.data(buffer, index, packet, parent, size_of_data)
 
   return index
 end

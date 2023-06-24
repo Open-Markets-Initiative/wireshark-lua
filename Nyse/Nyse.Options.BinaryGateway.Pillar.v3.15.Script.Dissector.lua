@@ -3235,7 +3235,10 @@ nyse_options_binarygateway_pillar_v3_15_size_of.execution_report = function(buff
 
   index = index + nyse_options_binarygateway_pillar_v3_15_size_of.open_close
 
-  index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+  if seq_msg_length ~= 100 then
+    index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+
+  end
 
   return index
 end
@@ -3345,15 +3348,23 @@ nyse_options_binarygateway_pillar_v3_15_dissect.execution_report_fields = functi
   -- Open Close: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, open_close = nyse_options_binarygateway_pillar_v3_15_dissect.open_close(buffer, index, packet, parent)
 
-  -- Optional Order Add On: Struct of 7 fields
-  index, optional_order_add_on = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 134, 2):le_uint()
+
+  -- Runtime optional field exists: Optional Order Add On
+  local optional_order_add_on_exists = seq_msg_length ~= 100
+
+  -- Runtime optional field: Optional Order Add On
+  if optional_order_add_on_exists then
+    index = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Execution Report
 nyse_options_binarygateway_pillar_v3_15_dissect.execution_report = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.execution_report then
     local length = nyse_options_binarygateway_pillar_v3_15_size_of.execution_report(buffer, offset)
     local range = buffer(offset, length)
@@ -4269,7 +4280,10 @@ nyse_options_binarygateway_pillar_v3_15_size_of.order_acknowledgement = function
 
   index = index + nyse_options_binarygateway_pillar_v3_15_size_of.auction_id
 
-  index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+  if seq_msg_length ~= 100 then
+    index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+
+  end
 
   return index
 end
@@ -4352,15 +4366,23 @@ nyse_options_binarygateway_pillar_v3_15_dissect.order_acknowledgement_fields = f
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = nyse_options_binarygateway_pillar_v3_15_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Optional Order Add On: Struct of 7 fields
-  index, optional_order_add_on = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 134, 2):le_uint()
+
+  -- Runtime optional field exists: Optional Order Add On
+  local optional_order_add_on_exists = seq_msg_length ~= 100
+
+  -- Runtime optional field: Optional Order Add On
+  if optional_order_add_on_exists then
+    index = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Order Acknowledgement
 nyse_options_binarygateway_pillar_v3_15_dissect.order_acknowledgement = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.order_acknowledgement then
     local length = nyse_options_binarygateway_pillar_v3_15_size_of.order_acknowledgement(buffer, offset)
     local range = buffer(offset, length)
@@ -6202,7 +6224,10 @@ nyse_options_binarygateway_pillar_v3_15_size_of.covered = function(buffer, offse
 
   index = index + nyse_options_binarygateway_pillar_v3_15_size_of.auction_id
 
-  index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+  if seq_msg_length ~= 100 then
+    index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+
+  end
 
   return index
 end
@@ -6258,15 +6283,23 @@ nyse_options_binarygateway_pillar_v3_15_dissect.covered_fields = function(buffer
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = nyse_options_binarygateway_pillar_v3_15_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Optional Order Add On: Struct of 7 fields
-  index, optional_order_add_on = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 98, 2):le_uint()
+
+  -- Runtime optional field exists: Optional Order Add On
+  local optional_order_add_on_exists = seq_msg_length ~= 100
+
+  -- Runtime optional field: Optional Order Add On
+  if optional_order_add_on_exists then
+    index = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Covered
 nyse_options_binarygateway_pillar_v3_15_dissect.covered = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.covered then
     local length = nyse_options_binarygateway_pillar_v3_15_size_of.covered(buffer, offset)
     local range = buffer(offset, length)
@@ -6634,7 +6667,7 @@ end
 
 -- Dissect: New Order Cross
 nyse_options_binarygateway_pillar_v3_15_dissect.new_order_cross = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.new_order_cross then
     local length = nyse_options_binarygateway_pillar_v3_15_size_of.new_order_cross(buffer, offset)
     local range = buffer(offset, length)
@@ -6945,7 +6978,10 @@ nyse_options_binarygateway_pillar_v3_15_size_of.order_request = function(buffer,
 
   index = index + nyse_options_binarygateway_pillar_v3_15_size_of.auction_id
 
-  index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+  if seq_msg_length ~= 100 then
+    index = index + nyse_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
+
+  end
 
   return index
 end
@@ -7001,15 +7037,23 @@ nyse_options_binarygateway_pillar_v3_15_dissect.order_request_fields = function(
   -- Auction Id: 8 Byte Unsigned Fixed Width Integer
   index, auction_id = nyse_options_binarygateway_pillar_v3_15_dissect.auction_id(buffer, index, packet, parent)
 
-  -- Optional Order Add On: Struct of 7 fields
-  index, optional_order_add_on = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  -- Dependency element: Seq Msg Length
+  local seq_msg_length = buffer(index - 98, 2):le_uint()
+
+  -- Runtime optional field exists: Optional Order Add On
+  local optional_order_add_on_exists = seq_msg_length ~= 100
+
+  -- Runtime optional field: Optional Order Add On
+  if optional_order_add_on_exists then
+    index = nyse_options_binarygateway_pillar_v3_15_dissect.optional_order_add_on(buffer, index, packet, parent)
+  end
 
   return index
 end
 
 -- Dissect: Order Request
 nyse_options_binarygateway_pillar_v3_15_dissect.order_request = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.order_request then
     local length = nyse_options_binarygateway_pillar_v3_15_size_of.order_request(buffer, offset)
     local range = buffer(offset, length)

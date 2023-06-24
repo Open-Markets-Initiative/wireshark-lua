@@ -143,8 +143,8 @@ eurex_cash_eti_t7_v6_0.fields.match_sub_type = ProtoField.new("Match Sub Type", 
 eurex_cash_eti_t7_v6_0.fields.match_type = ProtoField.new("Match Type", "eurex.cash.eti.t7.v6.0.matchtype", ftypes.UINT8)
 eurex_cash_eti_t7_v6_0.fields.matching_engine_status = ProtoField.new("Matching Engine Status", "eurex.cash.eti.t7.v6.0.matchingenginestatus", ftypes.UINT8)
 eurex_cash_eti_t7_v6_0.fields.matching_engine_trade_date = ProtoField.new("Matching Engine Trade Date", "eurex.cash.eti.t7.v6.0.matchingenginetradedate", ftypes.UINT32)
-eurex_cash_eti_t7_v6_0.fields.message_header_in_comp = ProtoField.new("Message Header In Comp", "eurex.cash.eti.t7.v6.0.messageheaderincomp", ftypes.STRING)
-eurex_cash_eti_t7_v6_0.fields.message_header_out_comp = ProtoField.new("Message Header Out Comp", "eurex.cash.eti.t7.v6.0.messageheaderoutcomp", ftypes.STRING)
+eurex_cash_eti_t7_v6_0.fields.message = ProtoField.new("Message", "eurex.cash.eti.t7.v6.0.message", ftypes.STRING)
+eurex_cash_eti_t7_v6_0.fields.message_header = ProtoField.new("Message Header", "eurex.cash.eti.t7.v6.0.messageheader", ftypes.STRING)
 eurex_cash_eti_t7_v6_0.fields.modify_order_nr_response = ProtoField.new("Modify Order Nr Response", "eurex.cash.eti.t7.v6.0.modifyordernrresponse", ftypes.STRING)
 eurex_cash_eti_t7_v6_0.fields.modify_order_response = ProtoField.new("Modify Order Response", "eurex.cash.eti.t7.v6.0.modifyorderresponse", ftypes.STRING)
 eurex_cash_eti_t7_v6_0.fields.modify_order_single_request = ProtoField.new("Modify Order Single Request", "eurex.cash.eti.t7.v6.0.modifyordersinglerequest", ftypes.STRING)
@@ -221,6 +221,7 @@ eurex_cash_eti_t7_v6_0.fields.party_id_investment_decision_maker = ProtoField.ne
 eurex_cash_eti_t7_v6_0.fields.party_id_investment_decision_maker_qualifier = ProtoField.new("Party Id Investment Decision Maker Qualifier", "eurex.cash.eti.t7.v6.0.partyidinvestmentdecisionmakerqualifier", ftypes.UINT8)
 eurex_cash_eti_t7_v6_0.fields.party_id_session_id = ProtoField.new("Party Id Session Id", "eurex.cash.eti.t7.v6.0.partyidsessionid", ftypes.UINT32)
 eurex_cash_eti_t7_v6_0.fields.password = ProtoField.new("Password", "eurex.cash.eti.t7.v6.0.password", ftypes.STRING)
+eurex_cash_eti_t7_v6_0.fields.payload = ProtoField.new("Payload", "eurex.cash.eti.t7.v6.0.payload", ftypes.STRING)
 eurex_cash_eti_t7_v6_0.fields.peg_offset_value_abs = ProtoField.new("Peg Offset Value Abs", "eurex.cash.eti.t7.v6.0.pegoffsetvalueabs", ftypes.DOUBLE)
 eurex_cash_eti_t7_v6_0.fields.peg_offset_value_bid_px = ProtoField.new("Peg Offset Value Bid Px", "eurex.cash.eti.t7.v6.0.pegoffsetvaluebidpx", ftypes.DOUBLE)
 eurex_cash_eti_t7_v6_0.fields.peg_offset_value_offer_px = ProtoField.new("Peg Offset Value Offer Px", "eurex.cash.eti.t7.v6.0.pegoffsetvalueofferpx", ftypes.DOUBLE)
@@ -414,8 +415,8 @@ show.logout_request = true
 show.logout_response = true
 show.mass_quote_request = true
 show.mass_quote_response = true
-show.message_header_in_comp = true
-show.message_header_out_comp = true
+show.message = true
+show.message_header = true
 show.modify_order_nr_response = true
 show.modify_order_response = true
 show.modify_order_single_request = true
@@ -433,6 +434,7 @@ show.nrbc_header_comp = true
 show.order_exec_notification = true
 show.order_exec_report_broadcast = true
 show.order_exec_response = true
+show.packet = true
 show.party_action_report = true
 show.party_details_grp_comp = true
 show.party_entitlements_update_report = true
@@ -471,7 +473,7 @@ show.user_login_request = true
 show.user_login_response = true
 show.user_logout_request = true
 show.user_logout_response = true
-show.packet = false
+show.payload = false
 
 -- Register Eurex Cash Eti T7 6.0 Show Options
 eurex_cash_eti_t7_v6_0.prefs.show_affected_ord_grp_comp = Pref.bool("Show Affected Ord Grp Comp", show.affected_ord_grp_comp, "Parse and add Affected Ord Grp Comp to protocol tree")
@@ -515,8 +517,8 @@ eurex_cash_eti_t7_v6_0.prefs.show_logout_request = Pref.bool("Show Logout Reques
 eurex_cash_eti_t7_v6_0.prefs.show_logout_response = Pref.bool("Show Logout Response", show.logout_response, "Parse and add Logout Response to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_mass_quote_request = Pref.bool("Show Mass Quote Request", show.mass_quote_request, "Parse and add Mass Quote Request to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_mass_quote_response = Pref.bool("Show Mass Quote Response", show.mass_quote_response, "Parse and add Mass Quote Response to protocol tree")
-eurex_cash_eti_t7_v6_0.prefs.show_message_header_in_comp = Pref.bool("Show Message Header In Comp", show.message_header_in_comp, "Parse and add Message Header In Comp to protocol tree")
-eurex_cash_eti_t7_v6_0.prefs.show_message_header_out_comp = Pref.bool("Show Message Header Out Comp", show.message_header_out_comp, "Parse and add Message Header Out Comp to protocol tree")
+eurex_cash_eti_t7_v6_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+eurex_cash_eti_t7_v6_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_modify_order_nr_response = Pref.bool("Show Modify Order Nr Response", show.modify_order_nr_response, "Parse and add Modify Order Nr Response to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_modify_order_response = Pref.bool("Show Modify Order Response", show.modify_order_response, "Parse and add Modify Order Response to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_modify_order_single_request = Pref.bool("Show Modify Order Single Request", show.modify_order_single_request, "Parse and add Modify Order Single Request to protocol tree")
@@ -534,6 +536,7 @@ eurex_cash_eti_t7_v6_0.prefs.show_nrbc_header_comp = Pref.bool("Show Nrbc Header
 eurex_cash_eti_t7_v6_0.prefs.show_order_exec_notification = Pref.bool("Show Order Exec Notification", show.order_exec_notification, "Parse and add Order Exec Notification to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_order_exec_report_broadcast = Pref.bool("Show Order Exec Report Broadcast", show.order_exec_report_broadcast, "Parse and add Order Exec Report Broadcast to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_order_exec_response = Pref.bool("Show Order Exec Response", show.order_exec_response, "Parse and add Order Exec Response to protocol tree")
+eurex_cash_eti_t7_v6_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_party_action_report = Pref.bool("Show Party Action Report", show.party_action_report, "Parse and add Party Action Report to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_party_details_grp_comp = Pref.bool("Show Party Details Grp Comp", show.party_details_grp_comp, "Parse and add Party Details Grp Comp to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_party_entitlements_update_report = Pref.bool("Show Party Entitlements Update Report", show.party_entitlements_update_report, "Parse and add Party Entitlements Update Report to protocol tree")
@@ -572,7 +575,7 @@ eurex_cash_eti_t7_v6_0.prefs.show_user_login_request = Pref.bool("Show User Logi
 eurex_cash_eti_t7_v6_0.prefs.show_user_login_response = Pref.bool("Show User Login Response", show.user_login_response, "Parse and add User Login Response to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_user_logout_request = Pref.bool("Show User Logout Request", show.user_logout_request, "Parse and add User Logout Request to protocol tree")
 eurex_cash_eti_t7_v6_0.prefs.show_user_logout_response = Pref.bool("Show User Logout Response", show.user_logout_response, "Parse and add User Logout Response to protocol tree")
-eurex_cash_eti_t7_v6_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+eurex_cash_eti_t7_v6_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function eurex_cash_eti_t7_v6_0.prefs_changed()
@@ -743,12 +746,12 @@ function eurex_cash_eti_t7_v6_0.prefs_changed()
     show.mass_quote_response = eurex_cash_eti_t7_v6_0.prefs.show_mass_quote_response
     changed = true
   end
-  if show.message_header_in_comp ~= eurex_cash_eti_t7_v6_0.prefs.show_message_header_in_comp then
-    show.message_header_in_comp = eurex_cash_eti_t7_v6_0.prefs.show_message_header_in_comp
+  if show.message ~= eurex_cash_eti_t7_v6_0.prefs.show_message then
+    show.message = eurex_cash_eti_t7_v6_0.prefs.show_message
     changed = true
   end
-  if show.message_header_out_comp ~= eurex_cash_eti_t7_v6_0.prefs.show_message_header_out_comp then
-    show.message_header_out_comp = eurex_cash_eti_t7_v6_0.prefs.show_message_header_out_comp
+  if show.message_header ~= eurex_cash_eti_t7_v6_0.prefs.show_message_header then
+    show.message_header = eurex_cash_eti_t7_v6_0.prefs.show_message_header
     changed = true
   end
   if show.modify_order_nr_response ~= eurex_cash_eti_t7_v6_0.prefs.show_modify_order_nr_response then
@@ -817,6 +820,10 @@ function eurex_cash_eti_t7_v6_0.prefs_changed()
   end
   if show.order_exec_response ~= eurex_cash_eti_t7_v6_0.prefs.show_order_exec_response then
     show.order_exec_response = eurex_cash_eti_t7_v6_0.prefs.show_order_exec_response
+    changed = true
+  end
+  if show.packet ~= eurex_cash_eti_t7_v6_0.prefs.show_packet then
+    show.packet = eurex_cash_eti_t7_v6_0.prefs.show_packet
     changed = true
   end
   if show.party_action_report ~= eurex_cash_eti_t7_v6_0.prefs.show_party_action_report then
@@ -971,8 +978,8 @@ function eurex_cash_eti_t7_v6_0.prefs_changed()
     show.user_logout_response = eurex_cash_eti_t7_v6_0.prefs.show_user_logout_response
     changed = true
   end
-  if show.packet ~= eurex_cash_eti_t7_v6_0.prefs.show_packet then
-    show.packet = eurex_cash_eti_t7_v6_0.prefs.show_packet
+  if show.payload ~= eurex_cash_eti_t7_v6_0.prefs.show_payload then
+    show.payload = eurex_cash_eti_t7_v6_0.prefs.show_payload
     changed = true
   end
 
@@ -1032,7 +1039,11 @@ eurex_cash_eti_t7_v6_0_size_of.sending_time = 8
 
 -- Display: Sending Time
 eurex_cash_eti_t7_v6_0_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -1052,7 +1063,11 @@ eurex_cash_eti_t7_v6_0_size_of.request_time = 8
 
 -- Display: Request Time
 eurex_cash_eti_t7_v6_0_display.request_time = function(value)
-  return "Request Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Time
@@ -1139,93 +1154,6 @@ eurex_cash_eti_t7_v6_0_dissect.pad_2 = function(buffer, offset, packet, parent)
   return offset + length, value
 end
 
--- Size: Template Id
-eurex_cash_eti_t7_v6_0_size_of.template_id = 2
-
--- Display: Template Id
-eurex_cash_eti_t7_v6_0_display.template_id = function(value)
-  return "Template Id: "..value
-end
-
--- Dissect: Template Id
-eurex_cash_eti_t7_v6_0_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v6_0_size_of.template_id
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v6_0_display.template_id(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_cash_eti_t7_v6_0.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Body Len
-eurex_cash_eti_t7_v6_0_size_of.body_len = 4
-
--- Display: Body Len
-eurex_cash_eti_t7_v6_0_display.body_len = function(value)
-  return "Body Len: "..value
-end
-
--- Dissect: Body Len
-eurex_cash_eti_t7_v6_0_dissect.body_len = function(buffer, offset, packet, parent)
-  local length = eurex_cash_eti_t7_v6_0_size_of.body_len
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_cash_eti_t7_v6_0_display.body_len(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_cash_eti_t7_v6_0.fields.body_len, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Message Header Out Comp
-eurex_cash_eti_t7_v6_0_size_of.message_header_out_comp = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.body_len
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.template_id
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.pad_2
-
-  return index
-end
-
--- Display: Message Header Out Comp
-eurex_cash_eti_t7_v6_0_display.message_header_out_comp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message Header Out Comp
-eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer
-  index, body_len = eurex_cash_eti_t7_v6_0_dissect.body_len(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index, template_id = eurex_cash_eti_t7_v6_0_dissect.template_id(buffer, index, packet, parent)
-
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header Out Comp
-eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_header_out_comp then
-    local length = eurex_cash_eti_t7_v6_0_size_of.message_header_out_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v6_0_display.message_header_out_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v6_0.fields.message_header_out_comp, range, display)
-  end
-
-  return eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp_fields(buffer, offset, packet, parent)
-end
-
 -- Display: User Logout Response
 eurex_cash_eti_t7_v6_0_display.user_logout_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -1235,8 +1163,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.user_logout_response_fields = function(buffer, offset, packet, parent, size_of_user_logout_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -1249,10 +1177,10 @@ eurex_cash_eti_t7_v6_0_dissect.user_logout_response = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_logout_response = body_len
+  local size_of_user_logout_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_response then
@@ -1368,58 +1296,6 @@ eurex_cash_eti_t7_v6_0_dissect.network_msg_id = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Calculate size of: Message Header In Comp
-eurex_cash_eti_t7_v6_0_size_of.message_header_in_comp = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.body_len
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.template_id
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.network_msg_id
-
-  index = index + eurex_cash_eti_t7_v6_0_size_of.pad_2
-
-  return index
-end
-
--- Display: Message Header In Comp
-eurex_cash_eti_t7_v6_0_display.message_header_in_comp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message Header In Comp
-eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer
-  index, body_len = eurex_cash_eti_t7_v6_0_dissect.body_len(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index, template_id = eurex_cash_eti_t7_v6_0_dissect.template_id(buffer, index, packet, parent)
-
-  -- Network Msg Id: 8 Byte Ascii String
-  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
-
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header In Comp
-eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_header_in_comp then
-    local length = eurex_cash_eti_t7_v6_0_size_of.message_header_in_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_cash_eti_t7_v6_0_display.message_header_in_comp(buffer, packet, parent)
-    parent = parent:add(eurex_cash_eti_t7_v6_0.fields.message_header_in_comp, range, display)
-  end
-
-  return eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp_fields(buffer, offset, packet, parent)
-end
-
 -- Display: User Logout Request
 eurex_cash_eti_t7_v6_0_display.user_logout_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -1429,8 +1305,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.user_logout_request_fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -1449,10 +1328,10 @@ eurex_cash_eti_t7_v6_0_dissect.user_logout_request = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_logout_request = body_len
+  local size_of_user_logout_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_request then
@@ -1475,8 +1354,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.user_login_response_fields = function(buffer, offset, packet, parent, size_of_user_login_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -1489,10 +1368,10 @@ eurex_cash_eti_t7_v6_0_dissect.user_login_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_login_response = body_len
+  local size_of_user_login_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_login_response then
@@ -1535,8 +1414,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.user_login_request_fields = function(buffer, offset, packet, parent, size_of_user_login_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -1558,10 +1440,10 @@ eurex_cash_eti_t7_v6_0_dissect.user_login_request = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_login_request = body_len
+  local size_of_user_login_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_login_request then
@@ -1584,8 +1466,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.unsubscribe_response_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -1598,10 +1480,10 @@ eurex_cash_eti_t7_v6_0_dissect.unsubscribe_response = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_unsubscribe_response = body_len
+  local size_of_unsubscribe_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_response then
@@ -1644,8 +1526,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -1664,10 +1549,10 @@ eurex_cash_eti_t7_v6_0_dissect.unsubscribe_request = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_unsubscribe_request = body_len
+  local size_of_unsubscribe_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_request then
@@ -2064,7 +1949,11 @@ eurex_cash_eti_t7_v6_0_size_of.exec_id = 8
 
 -- Display: Exec Id
 eurex_cash_eti_t7_v6_0_display.exec_id = function(value)
-  return "Exec Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Exec Id
@@ -2337,7 +2226,11 @@ eurex_cash_eti_t7_v6_0_size_of.notification_in = 8
 
 -- Display: Notification In
 eurex_cash_eti_t7_v6_0_display.notification_in = function(value)
-  return "Notification In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Notification In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Notification In
@@ -2357,7 +2250,11 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_out = 8
 
 -- Display: Trd Reg Ts Time Out
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_out = function(value)
-  return "Trd Reg Ts Time Out: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time Out: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time Out
@@ -2463,8 +2360,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.trailing_stop_update_notification_fields = function(buffer, offset, packet, parent, size_of_trailing_stop_update_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -2522,10 +2419,10 @@ eurex_cash_eti_t7_v6_0_dissect.trailing_stop_update_notification = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_trailing_stop_update_notification = body_len
+  local size_of_trailing_stop_update_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.trailing_stop_update_notification then
@@ -2624,8 +2521,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -2653,10 +2550,10 @@ eurex_cash_eti_t7_v6_0_dissect.trading_session_status_broadcast = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_trading_session_status_broadcast = body_len
+  local size_of_trading_session_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.trading_session_status_broadcast then
@@ -3843,7 +3740,11 @@ eurex_cash_eti_t7_v6_0_size_of.transact_time = 8
 
 -- Display: Transact Time
 eurex_cash_eti_t7_v6_0_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -4063,8 +3964,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.trade_broadcast_fields = function(buffer, offset, packet, parent, size_of_trade_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -4251,10 +4152,10 @@ eurex_cash_eti_t7_v6_0_dissect.trade_broadcast = function(buffer, offset, packet
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_trade_broadcast = body_len
+  local size_of_trade_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.trade_broadcast then
@@ -4374,8 +4275,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.throttle_update_notification_fields = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v6_0_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -4397,10 +4298,10 @@ eurex_cash_eti_t7_v6_0_dissect.throttle_update_notification = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_throttle_update_notification = body_len
+  local size_of_throttle_update_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.throttle_update_notification then
@@ -4423,8 +4324,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.tm_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -4443,10 +4344,10 @@ eurex_cash_eti_t7_v6_0_dissect.tm_trading_session_status_broadcast = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tm_trading_session_status_broadcast = body_len
+  local size_of_tm_trading_session_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tm_trading_session_status_broadcast then
@@ -4469,8 +4370,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.subscribe_response_fields = function(buffer, offset, packet, parent, size_of_subscribe_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -4489,10 +4390,10 @@ eurex_cash_eti_t7_v6_0_dissect.subscribe_response = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_subscribe_response = body_len
+  local size_of_subscribe_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_response then
@@ -4574,8 +4475,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.subscribe_request_fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -4597,10 +4501,10 @@ eurex_cash_eti_t7_v6_0_dissect.subscribe_request = function(buffer, offset, pack
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_subscribe_request = body_len
+  local size_of_subscribe_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_request then
@@ -4821,8 +4725,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.service_availability_broadcast_fields = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.nrbc_header_comp(buffer, index, packet, parent)
@@ -4859,10 +4763,10 @@ eurex_cash_eti_t7_v6_0_dissect.service_availability_broadcast = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_service_availability_broadcast = body_len
+  local size_of_service_availability_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.service_availability_broadcast then
@@ -4965,8 +4869,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.retransmit_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -4991,10 +4895,10 @@ eurex_cash_eti_t7_v6_0_dissect.retransmit_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_response = body_len
+  local size_of_retransmit_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_response then
@@ -5057,8 +4961,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.retransmit_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -5086,10 +4993,10 @@ eurex_cash_eti_t7_v6_0_dissect.retransmit_request = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_request = body_len
+  local size_of_retransmit_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_request then
@@ -5132,8 +5039,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.retransmit_me_message_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -5158,10 +5065,10 @@ eurex_cash_eti_t7_v6_0_dissect.retransmit_me_message_response = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_me_message_response = body_len
+  local size_of_retransmit_me_message_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_response then
@@ -5204,8 +5111,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -5236,10 +5146,10 @@ eurex_cash_eti_t7_v6_0_dissect.retransmit_me_message_request = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_me_message_request = body_len
+  local size_of_retransmit_me_message_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_request then
@@ -5447,7 +5357,11 @@ eurex_cash_eti_t7_v6_0_size_of.response_in = 8
 
 -- Display: Response In
 eurex_cash_eti_t7_v6_0_display.response_in = function(value)
-  return "Response In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Response In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Response In
@@ -5467,7 +5381,11 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_in = 8
 
 -- Display: Trd Reg Ts Time In
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_in = function(value)
-  return "Trd Reg Ts Time In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time In
@@ -5487,7 +5405,11 @@ eurex_cash_eti_t7_v6_0_size_of.request_out = 8
 
 -- Display: Request Out
 eurex_cash_eti_t7_v6_0_display.request_out = function(value)
-  return "Request Out: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Request Out: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Out
@@ -5588,8 +5510,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.reject_fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -5617,10 +5539,10 @@ eurex_cash_eti_t7_v6_0_dissect.reject = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_reject = body_len
+  local size_of_reject = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.reject then
@@ -5643,8 +5565,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.rfq_response_fields = function(buffer, offset, packet, parent, size_of_rfq_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -5660,10 +5582,10 @@ eurex_cash_eti_t7_v6_0_dissect.rfq_response = function(buffer, offset, packet, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_rfq_response = body_len
+  local size_of_rfq_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.rfq_response then
@@ -5749,8 +5671,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.rfq_request_fields = function(buffer, offset, packet, parent, size_of_rfq_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -5784,10 +5709,10 @@ eurex_cash_eti_t7_v6_0_dissect.rfq_request = function(buffer, offset, packet, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_rfq_request = body_len
+  local size_of_rfq_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.rfq_request then
@@ -5830,8 +5755,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.rfq_broadcast_fields = function(buffer, offset, packet, parent, size_of_rfq_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -5865,10 +5790,10 @@ eurex_cash_eti_t7_v6_0_dissect.rfq_broadcast = function(buffer, offset, packet, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_rfq_broadcast = body_len
+  local size_of_rfq_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.rfq_broadcast then
@@ -6216,8 +6141,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.quote_execution_report_fields = function(buffer, offset, packet, parent, size_of_quote_execution_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -6247,10 +6172,10 @@ eurex_cash_eti_t7_v6_0_dissect.quote_execution_report = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_execution_report = body_len
+  local size_of_quote_execution_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_execution_report then
@@ -6346,7 +6271,11 @@ eurex_cash_eti_t7_v6_0_size_of.mass_action_report_id = 8
 
 -- Display: Mass Action Report Id
 eurex_cash_eti_t7_v6_0_display.mass_action_report_id = function(value)
-  return "Mass Action Report Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Mass Action Report Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Mass Action Report Id
@@ -6370,8 +6299,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.quote_activation_response_fields = function(buffer, offset, packet, parent, size_of_quote_activation_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -6398,10 +6327,10 @@ eurex_cash_eti_t7_v6_0_dissect.quote_activation_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_response = body_len
+  local size_of_quote_activation_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_response then
@@ -6565,8 +6494,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.quote_activation_request_fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -6603,10 +6535,10 @@ eurex_cash_eti_t7_v6_0_dissect.quote_activation_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_request = body_len
+  local size_of_quote_activation_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_request then
@@ -6733,8 +6665,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.quote_activation_notification_fields = function(buffer, offset, packet, parent, size_of_quote_activation_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -6776,10 +6708,10 @@ eurex_cash_eti_t7_v6_0_dissect.quote_activation_notification = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_notification = body_len
+  local size_of_quote_activation_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_notification then
@@ -6970,8 +6902,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.party_entitlements_update_report_fields = function(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7014,10 +6946,10 @@ eurex_cash_eti_t7_v6_0_dissect.party_entitlements_update_report = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_party_entitlements_update_report = body_len
+  local size_of_party_entitlements_update_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.party_entitlements_update_report then
@@ -7154,8 +7086,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.party_action_report_fields = function(buffer, offset, packet, parent, size_of_party_action_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7195,10 +7127,10 @@ eurex_cash_eti_t7_v6_0_dissect.party_action_report = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_party_action_report = body_len
+  local size_of_party_action_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.party_action_report then
@@ -7518,7 +7450,11 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_time_priority = 8
 
 -- Display: Trd Reg Ts Time Priority
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_time_priority = function(value)
-  return "Trd Reg Ts Time Priority: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time Priority
@@ -7538,7 +7474,11 @@ eurex_cash_eti_t7_v6_0_size_of.trd_reg_ts_entry_time = 8
 
 -- Display: Trd Reg Ts Entry Time
 eurex_cash_eti_t7_v6_0_display.trd_reg_ts_entry_time = function(value)
-  return "Trd Reg Ts Entry Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Entry Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Entry Time
@@ -7649,8 +7589,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.order_exec_response_fields = function(buffer, offset, packet, parent, size_of_order_exec_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -7734,10 +7674,10 @@ eurex_cash_eti_t7_v6_0_dissect.order_exec_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_response = body_len
+  local size_of_order_exec_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_response then
@@ -8094,8 +8034,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -8257,10 +8197,10 @@ eurex_cash_eti_t7_v6_0_dissect.order_exec_report_broadcast = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_report_broadcast = body_len
+  local size_of_order_exec_report_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_report_broadcast then
@@ -8283,8 +8223,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.order_exec_notification_fields = function(buffer, offset, packet, parent, size_of_order_exec_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -8365,10 +8305,10 @@ eurex_cash_eti_t7_v6_0_dissect.order_exec_notification = function(buffer, offset
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_notification = body_len
+  local size_of_order_exec_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_notification then
@@ -8407,7 +8347,11 @@ eurex_cash_eti_t7_v6_0_size_of.orig_time = 8
 
 -- Display: Orig Time
 eurex_cash_eti_t7_v6_0_display.orig_time = function(value)
-  return "Orig Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -8431,8 +8375,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.news_broadcast_fields = function(buffer, offset, packet, parent, size_of_news_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -8460,10 +8404,10 @@ eurex_cash_eti_t7_v6_0_dissect.news_broadcast = function(buffer, offset, packet,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_news_broadcast = body_len
+  local size_of_news_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.news_broadcast then
@@ -8634,8 +8578,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -8711,10 +8658,10 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_single_short_request = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_single_short_request = body_len
+  local size_of_new_order_single_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_short_request then
@@ -8737,8 +8684,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.new_order_single_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -8859,10 +8809,10 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_single_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_single_request = body_len
+  local size_of_new_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_request then
@@ -8885,8 +8835,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.new_order_response_fields = function(buffer, offset, packet, parent, size_of_new_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -8938,10 +8888,10 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_response = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_response = body_len
+  local size_of_new_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_response then
@@ -8964,8 +8914,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.new_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -9011,10 +8961,10 @@ eurex_cash_eti_t7_v6_0_dissect.new_order_nr_response = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_nr_response = body_len
+  local size_of_new_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_nr_response then
@@ -9037,8 +8987,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -9117,10 +9070,10 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_single_short_request = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_single_short_request = body_len
+  local size_of_modify_order_single_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_short_request then
@@ -9197,8 +9150,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -9334,10 +9290,10 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_single_request = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_single_request = body_len
+  local size_of_modify_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_request then
@@ -9360,8 +9316,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.modify_order_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -9428,10 +9384,10 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_response = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_response = body_len
+  local size_of_modify_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_response then
@@ -9454,8 +9410,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.modify_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -9519,10 +9475,10 @@ eurex_cash_eti_t7_v6_0_dissect.modify_order_nr_response = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_nr_response = body_len
+  local size_of_modify_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_nr_response then
@@ -9783,7 +9739,11 @@ eurex_cash_eti_t7_v6_0_size_of.quote_response_id = 8
 
 -- Display: Quote Response Id
 eurex_cash_eti_t7_v6_0_display.quote_response_id = function(value)
-  return "Quote Response Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Quote Response Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Quote Response Id
@@ -9827,8 +9787,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.mass_quote_response_fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -9861,10 +9821,10 @@ eurex_cash_eti_t7_v6_0_dissect.mass_quote_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mass_quote_response = body_len
+  local size_of_mass_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_response then
@@ -10063,8 +10023,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.mass_quote_request_fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -10127,10 +10090,10 @@ eurex_cash_eti_t7_v6_0_dissect.mass_quote_request = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mass_quote_request = body_len
+  local size_of_mass_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_request then
@@ -10153,8 +10116,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.logout_response_fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -10167,10 +10130,10 @@ eurex_cash_eti_t7_v6_0_dissect.logout_response = function(buffer, offset, packet
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logout_response = body_len
+  local size_of_logout_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logout_response then
@@ -10193,8 +10156,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.logout_request_fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -10207,10 +10173,10 @@ eurex_cash_eti_t7_v6_0_dissect.logout_request = function(buffer, offset, packet,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logout_request = body_len
+  local size_of_logout_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logout_request then
@@ -10350,8 +10316,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.logon_response_fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -10394,10 +10360,10 @@ eurex_cash_eti_t7_v6_0_dissect.logon_response = function(buffer, offset, packet,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logon_response = body_len
+  local size_of_logon_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logon_response then
@@ -10633,8 +10599,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.logon_request_fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -10689,10 +10658,10 @@ eurex_cash_eti_t7_v6_0_dissect.logon_request = function(buffer, offset, packet, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logon_request = body_len
+  local size_of_logon_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logon_request then
@@ -10745,8 +10714,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.legal_notification_broadcast_fields = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -10774,10 +10743,10 @@ eurex_cash_eti_t7_v6_0_dissect.legal_notification_broadcast = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_legal_notification_broadcast = body_len
+  local size_of_legal_notification_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.legal_notification_broadcast then
@@ -10992,8 +10961,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_user_response_fields = function(buffer, offset, packet, parent, size_of_inquire_user_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -11020,10 +10989,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_user_response = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_user_response = body_len
+  local size_of_inquire_user_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_response then
@@ -11046,8 +11015,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_user_request_fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11063,10 +11035,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_user_request = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_user_request = body_len
+  local size_of_inquire_user_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_request then
@@ -11221,8 +11193,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_session_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -11246,10 +11218,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_session_list_response = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_session_list_response = body_len
+  local size_of_inquire_session_list_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_response then
@@ -11272,8 +11244,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11286,10 +11261,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_session_list_request = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_session_list_request = body_len
+  local size_of_inquire_session_list_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_request then
@@ -11389,8 +11364,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -11417,10 +11392,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_enrichment_rule_id_list_response = functi
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_response = body_len
+  local size_of_inquire_enrichment_rule_id_list_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_response then
@@ -11443,8 +11418,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11460,10 +11438,10 @@ eurex_cash_eti_t7_v6_0_dissect.inquire_enrichment_rule_id_list_request = functio
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_request = body_len
+  local size_of_inquire_enrichment_rule_id_list_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_request then
@@ -11486,8 +11464,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v6_0_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -11500,10 +11478,10 @@ eurex_cash_eti_t7_v6_0_dissect.heartbeat_notification = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_heartbeat_notification = body_len
+  local size_of_heartbeat_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat_notification then
@@ -11526,8 +11504,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.heartbeat_fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   return index
 end
@@ -11537,10 +11518,10 @@ eurex_cash_eti_t7_v6_0_dissect.heartbeat = function(buffer, offset, packet, pare
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_heartbeat = body_len
+  local size_of_heartbeat = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
@@ -11697,8 +11678,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.gateway_response_fields = function(buffer, offset, packet, parent, size_of_gateway_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_comp(buffer, index, packet, parent)
@@ -11738,10 +11719,10 @@ eurex_cash_eti_t7_v6_0_dissect.gateway_response = function(buffer, offset, packe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_gateway_response = body_len
+  local size_of_gateway_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.gateway_response then
@@ -11764,8 +11745,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.gateway_request_fields = function(buffer, offset, packet, parent, size_of_gateway_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11793,10 +11777,10 @@ eurex_cash_eti_t7_v6_0_dissect.gateway_request = function(buffer, offset, packet
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_gateway_request = body_len
+  local size_of_gateway_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.gateway_request then
@@ -11819,8 +11803,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.forced_user_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v6_0_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -11851,10 +11835,10 @@ eurex_cash_eti_t7_v6_0_dissect.forced_user_logout_notification = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_forced_user_logout_notification = body_len
+  local size_of_forced_user_logout_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.forced_user_logout_notification then
@@ -11877,8 +11861,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v6_0_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -11900,10 +11884,10 @@ eurex_cash_eti_t7_v6_0_dissect.forced_logout_notification = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_forced_logout_notification = body_len
+  local size_of_forced_logout_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.forced_logout_notification then
@@ -11926,8 +11910,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.extended_deletion_report_fields = function(buffer, offset, packet, parent, size_of_extended_deletion_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -12069,10 +12053,10 @@ eurex_cash_eti_t7_v6_0_dissect.extended_deletion_report = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_extended_deletion_report = body_len
+  local size_of_extended_deletion_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.extended_deletion_report then
@@ -12187,8 +12171,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.enter_best_quote_request_fields = function(buffer, offset, packet, parent, size_of_enter_best_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -12258,10 +12245,10 @@ eurex_cash_eti_t7_v6_0_dissect.enter_best_quote_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_enter_best_quote_request = body_len
+  local size_of_enter_best_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.enter_best_quote_request then
@@ -12284,8 +12271,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -12334,10 +12324,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_order_single_request = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_single_request = body_len
+  local size_of_delete_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_single_request then
@@ -12360,8 +12350,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -12407,10 +12397,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_order_response = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_response = body_len
+  local size_of_delete_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_response then
@@ -12433,8 +12423,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -12480,10 +12470,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_order_nr_response = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_nr_response = body_len
+  local size_of_delete_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_nr_response then
@@ -12506,8 +12496,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -12571,10 +12561,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_order_broadcast = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_broadcast = body_len
+  local size_of_delete_order_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_broadcast then
@@ -12597,8 +12587,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -12625,10 +12615,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_response = body_len
+  local size_of_delete_all_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_response then
@@ -12651,8 +12641,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -12686,10 +12679,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_request = body_len
+  local size_of_delete_all_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_request then
@@ -12752,8 +12745,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -12804,10 +12797,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_quote_broadcast = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_broadcast = body_len
+  local size_of_delete_all_quote_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_broadcast then
@@ -13034,8 +13027,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 11 fields
   index, response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -13070,10 +13063,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_response = body_len
+  local size_of_delete_all_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_response then
@@ -13096,8 +13089,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -13143,10 +13139,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_request = body_len
+  local size_of_delete_all_order_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_request then
@@ -13169,8 +13165,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_order_quote_event_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -13201,10 +13197,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_quote_event_broadcast = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_quote_event_broadcast = body_len
+  local size_of_delete_all_order_quote_event_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_quote_event_broadcast then
@@ -13227,8 +13223,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -13244,10 +13240,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_nr_response = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_nr_response = body_len
+  local size_of_delete_all_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_nr_response then
@@ -13270,8 +13266,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -13333,10 +13329,10 @@ eurex_cash_eti_t7_v6_0_dissect.delete_all_order_broadcast = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_broadcast = body_len
+  local size_of_delete_all_order_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_broadcast then
@@ -13359,8 +13355,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.cross_request_response_fields = function(buffer, offset, packet, parent, size_of_cross_request_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -13376,10 +13372,10 @@ eurex_cash_eti_t7_v6_0_dissect.cross_request_response = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_cross_request_response = body_len
+  local size_of_cross_request_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.cross_request_response then
@@ -13402,8 +13398,11 @@ end
 eurex_cash_eti_t7_v6_0_dissect.cross_request_fields = function(buffer, offset, packet, parent, size_of_cross_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_cash_eti_t7_v6_0_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_cash_eti_t7_v6_0_dissect.request_header_comp(buffer, index, packet, parent)
@@ -13425,10 +13424,10 @@ eurex_cash_eti_t7_v6_0_dissect.cross_request = function(buffer, offset, packet, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_cross_request = body_len
+  local size_of_cross_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.cross_request then
@@ -13475,8 +13474,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.broadcast_error_notification_fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_cash_eti_t7_v6_0_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -13510,10 +13509,10 @@ eurex_cash_eti_t7_v6_0_dissect.broadcast_error_notification = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_broadcast_error_notification = body_len
+  local size_of_broadcast_error_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.broadcast_error_notification then
@@ -13536,8 +13535,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.best_quote_response_fields = function(buffer, offset, packet, parent, size_of_best_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 9 fields
   index, nr_response_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -13571,10 +13570,10 @@ eurex_cash_eti_t7_v6_0_dissect.best_quote_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_best_quote_response = body_len
+  local size_of_best_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.best_quote_response then
@@ -13617,8 +13616,8 @@ end
 eurex_cash_eti_t7_v6_0_dissect.best_quote_execution_report_fields = function(buffer, offset, packet, parent, size_of_best_quote_execution_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_cash_eti_t7_v6_0_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_cash_eti_t7_v6_0_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_cash_eti_t7_v6_0_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -13667,10 +13666,10 @@ eurex_cash_eti_t7_v6_0_dissect.best_quote_execution_report = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_best_quote_execution_report = body_len
+  local size_of_best_quote_execution_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.best_quote_execution_report then
@@ -13684,13 +13683,331 @@ eurex_cash_eti_t7_v6_0_dissect.best_quote_execution_report = function(buffer, of
   return offset + size_of_best_quote_execution_report
 end
 
--- Dissect Packet
-eurex_cash_eti_t7_v6_0_dissect.packet = function(buffer, packet, parent)
-  local offset = 0
+-- Calculate runtime size of: Payload
+eurex_cash_eti_t7_v6_0_size_of.payload = function(buffer, offset, template_id)
+  -- Size of Best Quote Execution Report
+  if template_id == 10414 then
+    return eurex_cash_eti_t7_v6_0_size_of.best_quote_execution_report(buffer, offset)
+  end
+  -- Size of Best Quote Response
+  if template_id == 10413 then
+    return eurex_cash_eti_t7_v6_0_size_of.best_quote_response(buffer, offset)
+  end
+  -- Size of Broadcast Error Notification
+  if template_id == 10032 then
+    return eurex_cash_eti_t7_v6_0_size_of.broadcast_error_notification(buffer, offset)
+  end
+  -- Size of Cross Request
+  if template_id == 10118 then
+    return eurex_cash_eti_t7_v6_0_size_of.cross_request(buffer, offset)
+  end
+  -- Size of Cross Request Response
+  if template_id == 10119 then
+    return eurex_cash_eti_t7_v6_0_size_of.cross_request_response(buffer, offset)
+  end
+  -- Size of Delete All Order Broadcast
+  if template_id == 10122 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_order_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Order Nr Response
+  if template_id == 10124 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_order_nr_response(buffer, offset)
+  end
+  -- Size of Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_order_quote_event_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Order Request
+  if template_id == 10120 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_order_request(buffer, offset)
+  end
+  -- Size of Delete All Order Response
+  if template_id == 10121 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_order_response(buffer, offset)
+  end
+  -- Size of Delete All Quote Broadcast
+  if template_id == 10410 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_quote_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Quote Request
+  if template_id == 10408 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_quote_request(buffer, offset)
+  end
+  -- Size of Delete All Quote Response
+  if template_id == 10409 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_all_quote_response(buffer, offset)
+  end
+  -- Size of Delete Order Broadcast
+  if template_id == 10112 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_order_broadcast(buffer, offset)
+  end
+  -- Size of Delete Order Nr Response
+  if template_id == 10111 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_order_nr_response(buffer, offset)
+  end
+  -- Size of Delete Order Response
+  if template_id == 10110 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_order_response(buffer, offset)
+  end
+  -- Size of Delete Order Single Request
+  if template_id == 10109 then
+    return eurex_cash_eti_t7_v6_0_size_of.delete_order_single_request(buffer, offset)
+  end
+  -- Size of Enter Best Quote Request
+  if template_id == 10412 then
+    return eurex_cash_eti_t7_v6_0_size_of.enter_best_quote_request(buffer, offset)
+  end
+  -- Size of Extended Deletion Report
+  if template_id == 10128 then
+    return eurex_cash_eti_t7_v6_0_size_of.extended_deletion_report(buffer, offset)
+  end
+  -- Size of Forced Logout Notification
+  if template_id == 10012 then
+    return eurex_cash_eti_t7_v6_0_size_of.forced_logout_notification(buffer, offset)
+  end
+  -- Size of Forced User Logout Notification
+  if template_id == 10043 then
+    return eurex_cash_eti_t7_v6_0_size_of.forced_user_logout_notification(buffer, offset)
+  end
+  -- Size of Gateway Request
+  if template_id == 10020 then
+    return eurex_cash_eti_t7_v6_0_size_of.gateway_request(buffer, offset)
+  end
+  -- Size of Gateway Response
+  if template_id == 10021 then
+    return eurex_cash_eti_t7_v6_0_size_of.gateway_response(buffer, offset)
+  end
+  -- Size of Heartbeat
+  if template_id == 10011 then
+    return eurex_cash_eti_t7_v6_0_size_of.heartbeat(buffer, offset)
+  end
+  -- Size of Heartbeat Notification
+  if template_id == 10023 then
+    return eurex_cash_eti_t7_v6_0_size_of.heartbeat_notification(buffer, offset)
+  end
+  -- Size of Inquire Enrichment Rule Id List Request
+  if template_id == 10040 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_enrichment_rule_id_list_request(buffer, offset)
+  end
+  -- Size of Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_enrichment_rule_id_list_response(buffer, offset)
+  end
+  -- Size of Inquire Session List Request
+  if template_id == 10035 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_session_list_request(buffer, offset)
+  end
+  -- Size of Inquire Session List Response
+  if template_id == 10036 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_session_list_response(buffer, offset)
+  end
+  -- Size of Inquire User Request
+  if template_id == 10038 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_user_request(buffer, offset)
+  end
+  -- Size of Inquire User Response
+  if template_id == 10039 then
+    return eurex_cash_eti_t7_v6_0_size_of.inquire_user_response(buffer, offset)
+  end
+  -- Size of Legal Notification Broadcast
+  if template_id == 10037 then
+    return eurex_cash_eti_t7_v6_0_size_of.legal_notification_broadcast(buffer, offset)
+  end
+  -- Size of Logon Request
+  if template_id == 10000 then
+    return eurex_cash_eti_t7_v6_0_size_of.logon_request(buffer, offset)
+  end
+  -- Size of Logon Response
+  if template_id == 10001 then
+    return eurex_cash_eti_t7_v6_0_size_of.logon_response(buffer, offset)
+  end
+  -- Size of Logout Request
+  if template_id == 10002 then
+    return eurex_cash_eti_t7_v6_0_size_of.logout_request(buffer, offset)
+  end
+  -- Size of Logout Response
+  if template_id == 10003 then
+    return eurex_cash_eti_t7_v6_0_size_of.logout_response(buffer, offset)
+  end
+  -- Size of Mass Quote Request
+  if template_id == 10405 then
+    return eurex_cash_eti_t7_v6_0_size_of.mass_quote_request(buffer, offset)
+  end
+  -- Size of Mass Quote Response
+  if template_id == 10406 then
+    return eurex_cash_eti_t7_v6_0_size_of.mass_quote_response(buffer, offset)
+  end
+  -- Size of Modify Order Nr Response
+  if template_id == 10108 then
+    return eurex_cash_eti_t7_v6_0_size_of.modify_order_nr_response(buffer, offset)
+  end
+  -- Size of Modify Order Response
+  if template_id == 10107 then
+    return eurex_cash_eti_t7_v6_0_size_of.modify_order_response(buffer, offset)
+  end
+  -- Size of Modify Order Single Request
+  if template_id == 10106 then
+    return eurex_cash_eti_t7_v6_0_size_of.modify_order_single_request(buffer, offset)
+  end
+  -- Size of Modify Order Single Short Request
+  if template_id == 10126 then
+    return eurex_cash_eti_t7_v6_0_size_of.modify_order_single_short_request(buffer, offset)
+  end
+  -- Size of New Order Nr Response
+  if template_id == 10102 then
+    return eurex_cash_eti_t7_v6_0_size_of.new_order_nr_response(buffer, offset)
+  end
+  -- Size of New Order Response
+  if template_id == 10101 then
+    return eurex_cash_eti_t7_v6_0_size_of.new_order_response(buffer, offset)
+  end
+  -- Size of New Order Single Request
+  if template_id == 10100 then
+    return eurex_cash_eti_t7_v6_0_size_of.new_order_single_request(buffer, offset)
+  end
+  -- Size of New Order Single Short Request
+  if template_id == 10125 then
+    return eurex_cash_eti_t7_v6_0_size_of.new_order_single_short_request(buffer, offset)
+  end
+  -- Size of News Broadcast
+  if template_id == 10031 then
+    return eurex_cash_eti_t7_v6_0_size_of.news_broadcast(buffer, offset)
+  end
+  -- Size of Order Exec Notification
+  if template_id == 10104 then
+    return eurex_cash_eti_t7_v6_0_size_of.order_exec_notification(buffer, offset)
+  end
+  -- Size of Order Exec Report Broadcast
+  if template_id == 10117 then
+    return eurex_cash_eti_t7_v6_0_size_of.order_exec_report_broadcast(buffer, offset)
+  end
+  -- Size of Order Exec Response
+  if template_id == 10103 then
+    return eurex_cash_eti_t7_v6_0_size_of.order_exec_response(buffer, offset)
+  end
+  -- Size of Party Action Report
+  if template_id == 10042 then
+    return eurex_cash_eti_t7_v6_0_size_of.party_action_report(buffer, offset)
+  end
+  -- Size of Party Entitlements Update Report
+  if template_id == 10034 then
+    return eurex_cash_eti_t7_v6_0_size_of.party_entitlements_update_report(buffer, offset)
+  end
+  -- Size of Quote Activation Notification
+  if template_id == 10411 then
+    return eurex_cash_eti_t7_v6_0_size_of.quote_activation_notification(buffer, offset)
+  end
+  -- Size of Quote Activation Request
+  if template_id == 10403 then
+    return eurex_cash_eti_t7_v6_0_size_of.quote_activation_request(buffer, offset)
+  end
+  -- Size of Quote Activation Response
+  if template_id == 10404 then
+    return eurex_cash_eti_t7_v6_0_size_of.quote_activation_response(buffer, offset)
+  end
+  -- Size of Quote Execution Report
+  if template_id == 10407 then
+    return eurex_cash_eti_t7_v6_0_size_of.quote_execution_report(buffer, offset)
+  end
+  -- Size of Rfq Broadcast
+  if template_id == 10415 then
+    return eurex_cash_eti_t7_v6_0_size_of.rfq_broadcast(buffer, offset)
+  end
+  -- Size of Rfq Request
+  if template_id == 10401 then
+    return eurex_cash_eti_t7_v6_0_size_of.rfq_request(buffer, offset)
+  end
+  -- Size of Rfq Response
+  if template_id == 10402 then
+    return eurex_cash_eti_t7_v6_0_size_of.rfq_response(buffer, offset)
+  end
+  -- Size of Reject
+  if template_id == 10010 then
+    return eurex_cash_eti_t7_v6_0_size_of.reject(buffer, offset)
+  end
+  -- Size of Retransmit Me Message Request
+  if template_id == 10026 then
+    return eurex_cash_eti_t7_v6_0_size_of.retransmit_me_message_request(buffer, offset)
+  end
+  -- Size of Retransmit Me Message Response
+  if template_id == 10027 then
+    return eurex_cash_eti_t7_v6_0_size_of.retransmit_me_message_response(buffer, offset)
+  end
+  -- Size of Retransmit Request
+  if template_id == 10008 then
+    return eurex_cash_eti_t7_v6_0_size_of.retransmit_request(buffer, offset)
+  end
+  -- Size of Retransmit Response
+  if template_id == 10009 then
+    return eurex_cash_eti_t7_v6_0_size_of.retransmit_response(buffer, offset)
+  end
+  -- Size of Service Availability Broadcast
+  if template_id == 10030 then
+    return eurex_cash_eti_t7_v6_0_size_of.service_availability_broadcast(buffer, offset)
+  end
+  -- Size of Subscribe Request
+  if template_id == 10025 then
+    return eurex_cash_eti_t7_v6_0_size_of.subscribe_request(buffer, offset)
+  end
+  -- Size of Subscribe Response
+  if template_id == 10005 then
+    return eurex_cash_eti_t7_v6_0_size_of.subscribe_response(buffer, offset)
+  end
+  -- Size of Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return eurex_cash_eti_t7_v6_0_size_of.tm_trading_session_status_broadcast(buffer, offset)
+  end
+  -- Size of Throttle Update Notification
+  if template_id == 10028 then
+    return eurex_cash_eti_t7_v6_0_size_of.throttle_update_notification(buffer, offset)
+  end
+  -- Size of Trade Broadcast
+  if template_id == 10500 then
+    return eurex_cash_eti_t7_v6_0_size_of.trade_broadcast(buffer, offset)
+  end
+  -- Size of Trading Session Status Broadcast
+  if template_id == 10307 then
+    return eurex_cash_eti_t7_v6_0_size_of.trading_session_status_broadcast(buffer, offset)
+  end
+  -- Size of Trailing Stop Update Notification
+  if template_id == 10127 then
+    return eurex_cash_eti_t7_v6_0_size_of.trailing_stop_update_notification(buffer, offset)
+  end
+  -- Size of Unsubscribe Request
+  if template_id == 10006 then
+    return eurex_cash_eti_t7_v6_0_size_of.unsubscribe_request(buffer, offset)
+  end
+  -- Size of Unsubscribe Response
+  if template_id == 10007 then
+    return eurex_cash_eti_t7_v6_0_size_of.unsubscribe_response(buffer, offset)
+  end
+  -- Size of User Login Request
+  if template_id == 10018 then
+    return eurex_cash_eti_t7_v6_0_size_of.user_login_request(buffer, offset)
+  end
+  -- Size of User Login Response
+  if template_id == 10019 then
+    return eurex_cash_eti_t7_v6_0_size_of.user_login_response(buffer, offset)
+  end
+  -- Size of User Logout Request
+  if template_id == 10029 then
+    return eurex_cash_eti_t7_v6_0_size_of.user_logout_request(buffer, offset)
+  end
+  -- Size of User Logout Response
+  if template_id == 10024 then
+    return eurex_cash_eti_t7_v6_0_size_of.user_logout_response(buffer, offset)
+  end
 
-  -- Dependency element: Template Id
-  local template_id = buffer(4, 2):le_uint()
+  return 0
+end
 
+-- Display: Payload
+eurex_cash_eti_t7_v6_0_display.payload = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Payload
+eurex_cash_eti_t7_v6_0_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Best Quote Execution Report
   if template_id == 10414 then
     return eurex_cash_eti_t7_v6_0_dissect.best_quote_execution_report(buffer, offset, packet, parent)
@@ -14005,6 +14322,191 @@ eurex_cash_eti_t7_v6_0_dissect.packet = function(buffer, packet, parent)
   end
 
   return offset
+end
+
+-- Dissect: Payload
+eurex_cash_eti_t7_v6_0_dissect.payload = function(buffer, offset, packet, parent, template_id)
+  if not show.payload then
+    return eurex_cash_eti_t7_v6_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = eurex_cash_eti_t7_v6_0_size_of.payload(buffer, offset, template_id)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = eurex_cash_eti_t7_v6_0_display.payload(buffer, packet, parent)
+  local element = parent:add(eurex_cash_eti_t7_v6_0.fields.payload, range, display)
+
+  return eurex_cash_eti_t7_v6_0_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+end
+
+-- Size: Template Id
+eurex_cash_eti_t7_v6_0_size_of.template_id = 2
+
+-- Display: Template Id
+eurex_cash_eti_t7_v6_0_display.template_id = function(value)
+  return "Template Id: "..value
+end
+
+-- Dissect: Template Id
+eurex_cash_eti_t7_v6_0_dissect.template_id = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v6_0_size_of.template_id
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v6_0_display.template_id(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_cash_eti_t7_v6_0.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Body Len
+eurex_cash_eti_t7_v6_0_size_of.body_len = 4
+
+-- Display: Body Len
+eurex_cash_eti_t7_v6_0_display.body_len = function(value)
+  return "Body Len: "..value
+end
+
+-- Dissect: Body Len
+eurex_cash_eti_t7_v6_0_dissect.body_len = function(buffer, offset, packet, parent)
+  local length = eurex_cash_eti_t7_v6_0_size_of.body_len
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_cash_eti_t7_v6_0_display.body_len(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_cash_eti_t7_v6_0.fields.body_len, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Message Header
+eurex_cash_eti_t7_v6_0_size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_cash_eti_t7_v6_0_size_of.body_len
+
+  index = index + eurex_cash_eti_t7_v6_0_size_of.template_id
+
+  return index
+end
+
+-- Display: Message Header
+eurex_cash_eti_t7_v6_0_display.message_header = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+eurex_cash_eti_t7_v6_0_dissect.message_header_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer
+  index, body_len = eurex_cash_eti_t7_v6_0_dissect.body_len(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  index, template_id = eurex_cash_eti_t7_v6_0_dissect.template_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+eurex_cash_eti_t7_v6_0_dissect.message_header = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.message_header then
+    local length = eurex_cash_eti_t7_v6_0_size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
+    local display = eurex_cash_eti_t7_v6_0_display.message_header(buffer, packet, parent)
+    parent = parent:add(eurex_cash_eti_t7_v6_0.fields.message_header, range, display)
+  end
+
+  return eurex_cash_eti_t7_v6_0_dissect.message_header_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Message
+eurex_cash_eti_t7_v6_0_display.message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Message
+eurex_cash_eti_t7_v6_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_cash_eti_t7_v6_0_dissect.message_header(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 78 branches
+  index = eurex_cash_eti_t7_v6_0_dissect.payload(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Message
+eurex_cash_eti_t7_v6_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
+  if show.message then
+    local range = buffer(offset, size_of_message)
+    local display = eurex_cash_eti_t7_v6_0_display.message(buffer, packet, parent)
+    parent = parent:add(eurex_cash_eti_t7_v6_0.fields.message, range, display)
+  end
+
+  eurex_cash_eti_t7_v6_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_cash_eti_t7_v6_0_size_of.message_header(buffer, index) then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Dissect Packet
+eurex_cash_eti_t7_v6_0_dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_cash_eti_t7_v6_0_dissect.message(buffer, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
 end
 
 

@@ -233,9 +233,9 @@ eurex_derivatives_eti_t7_v8_1.fields.maturity_month_year = ProtoField.new("Matur
 eurex_derivatives_eti_t7_v8_1.fields.maximum_price = ProtoField.new("Maximum Price", "eurex.derivatives.eti.t7.v8.1.maximumprice", ftypes.DOUBLE)
 eurex_derivatives_eti_t7_v8_1.fields.md_book_type = ProtoField.new("Md Book Type", "eurex.derivatives.eti.t7.v8.1.mdbooktype", ftypes.UINT8)
 eurex_derivatives_eti_t7_v8_1.fields.md_sub_book_type = ProtoField.new("Md Sub Book Type", "eurex.derivatives.eti.t7.v8.1.mdsubbooktype", ftypes.UINT8)
+eurex_derivatives_eti_t7_v8_1.fields.message = ProtoField.new("Message", "eurex.derivatives.eti.t7.v8.1.message", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.message_event_source = ProtoField.new("Message Event Source", "eurex.derivatives.eti.t7.v8.1.messageeventsource", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.message_header_in_comp = ProtoField.new("Message Header In Comp", "eurex.derivatives.eti.t7.v8.1.messageheaderincomp", ftypes.STRING)
-eurex_derivatives_eti_t7_v8_1.fields.message_header_out_comp = ProtoField.new("Message Header Out Comp", "eurex.derivatives.eti.t7.v8.1.messageheaderoutcomp", ftypes.STRING)
+eurex_derivatives_eti_t7_v8_1.fields.message_header = ProtoField.new("Message Header", "eurex.derivatives.eti.t7.v8.1.messageheader", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.mm_parameter_definition_request = ProtoField.new("Mm Parameter Definition Request", "eurex.derivatives.eti.t7.v8.1.mmparameterdefinitionrequest", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.mm_parameter_definition_response = ProtoField.new("Mm Parameter Definition Response", "eurex.derivatives.eti.t7.v8.1.mmparameterdefinitionresponse", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.mm_parameter_grp_comp = ProtoField.new("Mm Parameter Grp Comp", "eurex.derivatives.eti.t7.v8.1.mmparametergrpcomp", ftypes.STRING)
@@ -371,6 +371,7 @@ eurex_derivatives_eti_t7_v8_1.fields.party_id_settlement_location = ProtoField.n
 eurex_derivatives_eti_t7_v8_1.fields.party_id_take_up_trading_firm = ProtoField.new("Party Id Take Up Trading Firm", "eurex.derivatives.eti.t7.v8.1.partyidtakeuptradingfirm", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.party_sub_id_type = ProtoField.new("Party Sub Id Type", "eurex.derivatives.eti.t7.v8.1.partysubidtype", ftypes.UINT16)
 eurex_derivatives_eti_t7_v8_1.fields.password = ProtoField.new("Password", "eurex.derivatives.eti.t7.v8.1.password", ftypes.STRING)
+eurex_derivatives_eti_t7_v8_1.fields.payload = ProtoField.new("Payload", "eurex.derivatives.eti.t7.v8.1.payload", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.pct_count = ProtoField.new("Pct Count", "eurex.derivatives.eti.t7.v8.1.pctcount", ftypes.INT32)
 eurex_derivatives_eti_t7_v8_1.fields.position_effect = ProtoField.new("Position Effect", "eurex.derivatives.eti.t7.v8.1.positioneffect", ftypes.STRING)
 eurex_derivatives_eti_t7_v8_1.fields.pre_trade_risk_limit_response = ProtoField.new("Pre Trade Risk Limit Response", "eurex.derivatives.eti.t7.v8.1.pretraderisklimitresponse", ftypes.STRING)
@@ -711,8 +712,8 @@ show.logout_request = true
 show.logout_response = true
 show.mass_quote_request = true
 show.mass_quote_response = true
-show.message_header_in_comp = true
-show.message_header_out_comp = true
+show.message = true
+show.message_header = true
 show.mm_parameter_definition_request = true
 show.mm_parameter_definition_response = true
 show.mm_parameter_grp_comp = true
@@ -740,6 +741,7 @@ show.order_book_item_grp_comp = true
 show.order_exec_notification = true
 show.order_exec_report_broadcast = true
 show.order_exec_response = true
+show.packet = true
 show.party_action_report = true
 show.party_details_grp_comp = true
 show.party_entitlements_update_report = true
@@ -821,7 +823,7 @@ show.user_login_request = true
 show.user_login_response = true
 show.user_logout_request = true
 show.user_logout_response = true
-show.packet = false
+show.payload = false
 
 -- Register Eurex Derivatives Eti T7 8.1 Show Options
 eurex_derivatives_eti_t7_v8_1.prefs.show_add_complex_instrument_request = Pref.bool("Show Add Complex Instrument Request", show.add_complex_instrument_request, "Parse and add Add Complex Instrument Request to protocol tree")
@@ -897,8 +899,8 @@ eurex_derivatives_eti_t7_v8_1.prefs.show_logout_request = Pref.bool("Show Logout
 eurex_derivatives_eti_t7_v8_1.prefs.show_logout_response = Pref.bool("Show Logout Response", show.logout_response, "Parse and add Logout Response to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_mass_quote_request = Pref.bool("Show Mass Quote Request", show.mass_quote_request, "Parse and add Mass Quote Request to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_mass_quote_response = Pref.bool("Show Mass Quote Response", show.mass_quote_response, "Parse and add Mass Quote Response to protocol tree")
-eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_in_comp = Pref.bool("Show Message Header In Comp", show.message_header_in_comp, "Parse and add Message Header In Comp to protocol tree")
-eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_out_comp = Pref.bool("Show Message Header Out Comp", show.message_header_out_comp, "Parse and add Message Header Out Comp to protocol tree")
+eurex_derivatives_eti_t7_v8_1.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
+eurex_derivatives_eti_t7_v8_1.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_mm_parameter_definition_request = Pref.bool("Show Mm Parameter Definition Request", show.mm_parameter_definition_request, "Parse and add Mm Parameter Definition Request to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_mm_parameter_definition_response = Pref.bool("Show Mm Parameter Definition Response", show.mm_parameter_definition_response, "Parse and add Mm Parameter Definition Response to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_mm_parameter_grp_comp = Pref.bool("Show Mm Parameter Grp Comp", show.mm_parameter_grp_comp, "Parse and add Mm Parameter Grp Comp to protocol tree")
@@ -926,6 +928,7 @@ eurex_derivatives_eti_t7_v8_1.prefs.show_order_book_item_grp_comp = Pref.bool("S
 eurex_derivatives_eti_t7_v8_1.prefs.show_order_exec_notification = Pref.bool("Show Order Exec Notification", show.order_exec_notification, "Parse and add Order Exec Notification to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_order_exec_report_broadcast = Pref.bool("Show Order Exec Report Broadcast", show.order_exec_report_broadcast, "Parse and add Order Exec Report Broadcast to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_order_exec_response = Pref.bool("Show Order Exec Response", show.order_exec_response, "Parse and add Order Exec Response to protocol tree")
+eurex_derivatives_eti_t7_v8_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_party_action_report = Pref.bool("Show Party Action Report", show.party_action_report, "Parse and add Party Action Report to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_party_details_grp_comp = Pref.bool("Show Party Details Grp Comp", show.party_details_grp_comp, "Parse and add Party Details Grp Comp to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_party_entitlements_update_report = Pref.bool("Show Party Entitlements Update Report", show.party_entitlements_update_report, "Parse and add Party Entitlements Update Report to protocol tree")
@@ -1007,7 +1010,7 @@ eurex_derivatives_eti_t7_v8_1.prefs.show_user_login_request = Pref.bool("Show Us
 eurex_derivatives_eti_t7_v8_1.prefs.show_user_login_response = Pref.bool("Show User Login Response", show.user_login_response, "Parse and add User Login Response to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_user_logout_request = Pref.bool("Show User Logout Request", show.user_logout_request, "Parse and add User Logout Request to protocol tree")
 eurex_derivatives_eti_t7_v8_1.prefs.show_user_logout_response = Pref.bool("Show User Logout Response", show.user_logout_response, "Parse and add User Logout Response to protocol tree")
-eurex_derivatives_eti_t7_v8_1.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
+eurex_derivatives_eti_t7_v8_1.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
 -- Handle changed preferences
 function eurex_derivatives_eti_t7_v8_1.prefs_changed()
@@ -1306,12 +1309,12 @@ function eurex_derivatives_eti_t7_v8_1.prefs_changed()
     show.mass_quote_response = eurex_derivatives_eti_t7_v8_1.prefs.show_mass_quote_response
     changed = true
   end
-  if show.message_header_in_comp ~= eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_in_comp then
-    show.message_header_in_comp = eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_in_comp
+  if show.message ~= eurex_derivatives_eti_t7_v8_1.prefs.show_message then
+    show.message = eurex_derivatives_eti_t7_v8_1.prefs.show_message
     changed = true
   end
-  if show.message_header_out_comp ~= eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_out_comp then
-    show.message_header_out_comp = eurex_derivatives_eti_t7_v8_1.prefs.show_message_header_out_comp
+  if show.message_header ~= eurex_derivatives_eti_t7_v8_1.prefs.show_message_header then
+    show.message_header = eurex_derivatives_eti_t7_v8_1.prefs.show_message_header
     changed = true
   end
   if show.mm_parameter_definition_request ~= eurex_derivatives_eti_t7_v8_1.prefs.show_mm_parameter_definition_request then
@@ -1420,6 +1423,10 @@ function eurex_derivatives_eti_t7_v8_1.prefs_changed()
   end
   if show.order_exec_response ~= eurex_derivatives_eti_t7_v8_1.prefs.show_order_exec_response then
     show.order_exec_response = eurex_derivatives_eti_t7_v8_1.prefs.show_order_exec_response
+    changed = true
+  end
+  if show.packet ~= eurex_derivatives_eti_t7_v8_1.prefs.show_packet then
+    show.packet = eurex_derivatives_eti_t7_v8_1.prefs.show_packet
     changed = true
   end
   if show.party_action_report ~= eurex_derivatives_eti_t7_v8_1.prefs.show_party_action_report then
@@ -1746,8 +1753,8 @@ function eurex_derivatives_eti_t7_v8_1.prefs_changed()
     show.user_logout_response = eurex_derivatives_eti_t7_v8_1.prefs.show_user_logout_response
     changed = true
   end
-  if show.packet ~= eurex_derivatives_eti_t7_v8_1.prefs.show_packet then
-    show.packet = eurex_derivatives_eti_t7_v8_1.prefs.show_packet
+  if show.payload ~= eurex_derivatives_eti_t7_v8_1.prefs.show_payload then
+    show.payload = eurex_derivatives_eti_t7_v8_1.prefs.show_payload
     changed = true
   end
 
@@ -1807,7 +1814,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.sending_time = 8
 
 -- Display: Sending Time
 eurex_derivatives_eti_t7_v8_1_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -1827,7 +1838,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.request_time = 8
 
 -- Display: Request Time
 eurex_derivatives_eti_t7_v8_1_display.request_time = function(value)
-  return "Request Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Request Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Request Time
@@ -1914,93 +1929,6 @@ eurex_derivatives_eti_t7_v8_1_dissect.pad_2 = function(buffer, offset, packet, p
   return offset + length, value
 end
 
--- Size: Template Id
-eurex_derivatives_eti_t7_v8_1_size_of.template_id = 2
-
--- Display: Template Id
-eurex_derivatives_eti_t7_v8_1_display.template_id = function(value)
-  return "Template Id: "..value
-end
-
--- Dissect: Template Id
-eurex_derivatives_eti_t7_v8_1_dissect.template_id = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eti_t7_v8_1_size_of.template_id
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eti_t7_v8_1_display.template_id(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eti_t7_v8_1.fields.template_id, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Body Len
-eurex_derivatives_eti_t7_v8_1_size_of.body_len = 4
-
--- Display: Body Len
-eurex_derivatives_eti_t7_v8_1_display.body_len = function(value)
-  return "Body Len: "..value
-end
-
--- Dissect: Body Len
-eurex_derivatives_eti_t7_v8_1_dissect.body_len = function(buffer, offset, packet, parent)
-  local length = eurex_derivatives_eti_t7_v8_1_size_of.body_len
-  local range = buffer(offset, length)
-  local value = range:le_uint()
-  local display = eurex_derivatives_eti_t7_v8_1_display.body_len(value, buffer, offset, packet, parent)
-
-  parent:add(eurex_derivatives_eti_t7_v8_1.fields.body_len, range, value, display)
-
-  return offset + length, value
-end
-
--- Calculate size of: Message Header Out Comp
-eurex_derivatives_eti_t7_v8_1_size_of.message_header_out_comp = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.body_len
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.template_id
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.pad_2
-
-  return index
-end
-
--- Display: Message Header Out Comp
-eurex_derivatives_eti_t7_v8_1_display.message_header_out_comp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message Header Out Comp
-eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer
-  index, body_len = eurex_derivatives_eti_t7_v8_1_dissect.body_len(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index, template_id = eurex_derivatives_eti_t7_v8_1_dissect.template_id(buffer, index, packet, parent)
-
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header Out Comp
-eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_header_out_comp then
-    local length = eurex_derivatives_eti_t7_v8_1_size_of.message_header_out_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eti_t7_v8_1_display.message_header_out_comp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v8_1.fields.message_header_out_comp, range, display)
-  end
-
-  return eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp_fields(buffer, offset, packet, parent)
-end
-
 -- Display: User Logout Response
 eurex_derivatives_eti_t7_v8_1_display.user_logout_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -2010,8 +1938,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.user_logout_response_fields = function(buffer, offset, packet, parent, size_of_user_logout_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -2024,10 +1952,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.user_logout_response = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_logout_response = body_len
+  local size_of_user_logout_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_response then
@@ -2143,58 +2071,6 @@ eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id = function(buffer, offset, 
   return offset + length, value
 end
 
--- Calculate size of: Message Header In Comp
-eurex_derivatives_eti_t7_v8_1_size_of.message_header_in_comp = function(buffer, offset)
-  local index = 0
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.body_len
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.template_id
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.network_msg_id
-
-  index = index + eurex_derivatives_eti_t7_v8_1_size_of.pad_2
-
-  return index
-end
-
--- Display: Message Header In Comp
-eurex_derivatives_eti_t7_v8_1_display.message_header_in_comp = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message Header In Comp
-eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp_fields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Body Len: 4 Byte Unsigned Fixed Width Integer
-  index, body_len = eurex_derivatives_eti_t7_v8_1_dissect.body_len(buffer, index, packet, parent)
-
-  -- Template Id: 2 Byte Unsigned Fixed Width Integer
-  index, template_id = eurex_derivatives_eti_t7_v8_1_dissect.template_id(buffer, index, packet, parent)
-
-  -- Network Msg Id: 8 Byte Ascii String
-  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
-
-  -- Pad 2: 2 Byte
-  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
-
-  return index
-end
-
--- Dissect: Message Header In Comp
-eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
-  if show.message_header_in_comp then
-    local length = eurex_derivatives_eti_t7_v8_1_size_of.message_header_in_comp(buffer, offset)
-    local range = buffer(offset, length)
-    local display = eurex_derivatives_eti_t7_v8_1_display.message_header_in_comp(buffer, packet, parent)
-    parent = parent:add(eurex_derivatives_eti_t7_v8_1.fields.message_header_in_comp, range, display)
-  end
-
-  return eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp_fields(buffer, offset, packet, parent)
-end
-
 -- Display: User Logout Request
 eurex_derivatives_eti_t7_v8_1_display.user_logout_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -2204,8 +2080,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.user_logout_request_fields = function(buffer, offset, packet, parent, size_of_user_logout_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -2224,10 +2103,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.user_logout_request = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_logout_request = body_len
+  local size_of_user_logout_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_request then
@@ -2250,8 +2129,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.user_login_response_fields = function(buffer, offset, packet, parent, size_of_user_login_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -2264,10 +2143,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.user_login_response = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_login_response = body_len
+  local size_of_user_login_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_login_response then
@@ -2310,8 +2189,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.user_login_request_fields = function(buffer, offset, packet, parent, size_of_user_login_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -2333,10 +2215,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.user_login_request = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_user_login_request = body_len
+  local size_of_user_login_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.user_login_request then
@@ -4557,7 +4439,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trans_bkd_time = 8
 
 -- Display: Trans Bkd Time
 eurex_derivatives_eti_t7_v8_1_display.trans_bkd_time = function(value)
-  return "Trans Bkd Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trans Bkd Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trans Bkd Time
@@ -4627,8 +4513,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.upload_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_upload_tes_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -4782,10 +4671,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.upload_tes_trade_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_upload_tes_trade_request = body_len
+  local size_of_upload_tes_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.upload_tes_trade_request then
@@ -4808,8 +4697,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.unsubscribe_response_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -4822,10 +4711,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.unsubscribe_response = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_unsubscribe_response = body_len
+  local size_of_unsubscribe_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_response then
@@ -4868,8 +4757,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.unsubscribe_request_fields = function(buffer, offset, packet, parent, size_of_unsubscribe_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -4888,10 +4780,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.unsubscribe_request = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_unsubscribe_request = body_len
+  local size_of_unsubscribe_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_request then
@@ -5151,7 +5043,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.notification_in = 8
 
 -- Display: Notification In
 eurex_derivatives_eti_t7_v8_1_display.notification_in = function(value)
-  return "Notification In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Notification In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Notification In
@@ -5171,7 +5067,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trd_reg_ts_time_out = 8
 
 -- Display: Trd Reg Ts Time Out
 eurex_derivatives_eti_t7_v8_1_display.trd_reg_ts_time_out = function(value)
-  return "Trd Reg Ts Time Out: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time Out: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time Out
@@ -5277,8 +5177,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_trading_session_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -5306,10 +5206,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.trading_session_status_broadcast = functio
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_trading_session_status_broadcast = body_len
+  local size_of_trading_session_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.trading_session_status_broadcast then
@@ -6218,7 +6118,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.transact_time = 8
 
 -- Display: Transact Time
 eurex_derivatives_eti_t7_v8_1_display.transact_time = function(value)
-  return "Transact Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Transact Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Transact Time
@@ -6510,8 +6414,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.trade_broadcast_fields = function(buffer, offset, packet, parent, size_of_trade_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -6716,10 +6620,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.trade_broadcast = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_trade_broadcast = body_len
+  local size_of_trade_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.trade_broadcast then
@@ -6839,8 +6743,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.throttle_update_notification_fields = function(buffer, offset, packet, parent, size_of_throttle_update_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -6862,10 +6766,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.throttle_update_notification = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_throttle_update_notification = body_len
+  local size_of_throttle_update_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.throttle_update_notification then
@@ -6888,8 +6792,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tm_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -6908,10 +6812,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tm_trading_session_status_broadcast = func
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tm_trading_session_status_broadcast = body_len
+  local size_of_tm_trading_session_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tm_trading_session_status_broadcast then
@@ -7027,8 +6931,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_upload_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_upload_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7188,10 +7092,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_upload_broadcast = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_upload_broadcast = body_len
+  local size_of_tes_upload_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_upload_broadcast then
@@ -7214,8 +7118,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_trading_session_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_trading_session_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7237,10 +7141,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_trading_session_status_broadcast = fun
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_trading_session_status_broadcast = body_len
+  local size_of_tes_trading_session_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_trading_session_status_broadcast then
@@ -7390,8 +7294,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_trade_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_trade_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7601,10 +7505,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_trade_broadcast = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_trade_broadcast = body_len
+  local size_of_tes_trade_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_trade_broadcast then
@@ -7627,8 +7531,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_response_fields = function(buffer, offset, packet, parent, size_of_tes_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -7647,10 +7551,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_response = body_len
+  local size_of_tes_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_response then
@@ -7693,8 +7597,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_execution_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_execution_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7737,10 +7641,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_execution_broadcast = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_execution_broadcast = body_len
+  local size_of_tes_execution_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_execution_broadcast then
@@ -7814,8 +7718,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_delete_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_delete_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -7858,10 +7762,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_delete_broadcast = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_delete_broadcast = body_len
+  local size_of_tes_delete_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_delete_broadcast then
@@ -8012,8 +7916,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -8182,10 +8086,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_broadcast = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_broadcast = body_len
+  local size_of_tes_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_broadcast then
@@ -8255,8 +8159,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.tes_approve_broadcast_fields = function(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -8477,10 +8381,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.tes_approve_broadcast = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_tes_approve_broadcast = body_len
+  local size_of_tes_approve_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.tes_approve_broadcast then
@@ -8503,8 +8407,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.subscribe_response_fields = function(buffer, offset, packet, parent, size_of_subscribe_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -8523,10 +8427,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.subscribe_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_subscribe_response = body_len
+  local size_of_subscribe_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_response then
@@ -8620,8 +8524,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.subscribe_request_fields = function(buffer, offset, packet, parent, size_of_subscribe_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -8643,10 +8550,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.subscribe_request = function(buffer, offse
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_subscribe_request = body_len
+  local size_of_subscribe_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_request then
@@ -8773,8 +8680,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.service_availability_market_broadcast_fields = function(buffer, offset, packet, parent, size_of_service_availability_market_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.nrbc_header_comp(buffer, index, packet, parent)
@@ -8796,10 +8703,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.service_availability_market_broadcast = fu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_service_availability_market_broadcast = body_len
+  local size_of_service_availability_market_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.service_availability_market_broadcast then
@@ -9077,8 +8984,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.service_availability_broadcast_fields = function(buffer, offset, packet, parent, size_of_service_availability_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nrbc Header Comp: Struct of 5 fields
   index, nrbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.nrbc_header_comp(buffer, index, packet, parent)
@@ -9127,10 +9034,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.service_availability_broadcast = function(
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_service_availability_broadcast = body_len
+  local size_of_service_availability_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.service_availability_broadcast then
@@ -9802,8 +9709,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_update_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_srqs_update_negotiation_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -9869,10 +9779,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_update_negotiation_request = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_update_negotiation_request = body_len
+  local size_of_srqs_update_negotiation_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_update_negotiation_request then
@@ -9921,8 +9831,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_update_deal_status_request_fields = function(buffer, offset, packet, parent, size_of_srqs_update_deal_status_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -9971,10 +9884,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_update_deal_status_request = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_update_deal_status_request = body_len
+  local size_of_srqs_update_deal_status_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_update_deal_status_request then
@@ -9997,8 +9910,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_status_broadcast_fields = function(buffer, offset, packet, parent, size_of_srqs_status_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -10020,10 +9933,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_status_broadcast = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_status_broadcast = body_len
+  local size_of_srqs_status_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_status_broadcast then
@@ -10076,8 +9989,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_quoting_status_request_fields = function(buffer, offset, packet, parent, size_of_srqs_quoting_status_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -10108,10 +10024,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_quoting_status_request = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_quoting_status_request = body_len
+  local size_of_srqs_quoting_status_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_quoting_status_request then
@@ -10174,8 +10090,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_quote_response_fields = function(buffer, offset, packet, parent, size_of_srqs_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -10197,10 +10113,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_quote_response = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_quote_response = body_len
+  local size_of_srqs_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_quote_response then
@@ -10315,8 +10231,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_quote_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_quote_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -10422,10 +10338,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_quote_notification = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_quote_notification = body_len
+  local size_of_srqs_quote_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_quote_notification then
@@ -10851,7 +10767,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.expire_time = 8
 
 -- Display: Expire Time
 eurex_derivatives_eti_t7_v8_1_display.expire_time = function(value)
-  return "Expire Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Expire Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Expire Time
@@ -10875,8 +10795,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_requester_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_requester_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -10998,10 +10918,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_requester_notificati
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_open_negotiation_requester_notification = body_len
+  local size_of_srqs_open_negotiation_requester_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_open_negotiation_requester_notification then
@@ -11020,7 +10940,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.valid_until_time = 8
 
 -- Display: Valid Until Time
 eurex_derivatives_eti_t7_v8_1_display.valid_until_time = function(value)
-  return "Valid Until Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Valid Until Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Valid Until Time
@@ -11044,8 +10968,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_request_fields = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11143,10 +11070,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_request = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_open_negotiation_request = body_len
+  local size_of_srqs_open_negotiation_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_open_negotiation_request then
@@ -11165,7 +11092,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.negotiation_start_time = 8
 
 -- Display: Negotiation Start Time
 eurex_derivatives_eti_t7_v8_1_display.negotiation_start_time = function(value)
-  return "Negotiation Start Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Negotiation Start Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Negotiation Start Time
@@ -11189,8 +11120,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_open_negotiation_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -11310,10 +11241,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_open_negotiation_notification = funct
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_open_negotiation_notification = body_len
+  local size_of_srqs_open_negotiation_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_open_negotiation_notification then
@@ -11332,7 +11263,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.effective_time = 8
 
 -- Display: Effective Time
 eurex_derivatives_eti_t7_v8_1_display.effective_time = function(value)
-  return "Effective Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Effective Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Effective Time
@@ -11356,8 +11291,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_status_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_negotiation_status_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -11388,10 +11323,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_status_notification = fun
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_negotiation_status_notification = body_len
+  local size_of_srqs_negotiation_status_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_negotiation_status_notification then
@@ -11410,7 +11345,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trd_reg_ts_execution_time = 8
 
 -- Display: Trd Reg Ts Execution Time
 eurex_derivatives_eti_t7_v8_1_display.trd_reg_ts_execution_time = function(value)
-  return "Trd Reg Ts Execution Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Execution Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Execution Time
@@ -11434,8 +11373,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_requester_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_negotiation_requester_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -11528,10 +11467,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_requester_notification = 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_negotiation_requester_notification = body_len
+  local size_of_srqs_negotiation_requester_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_negotiation_requester_notification then
@@ -11554,8 +11493,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_negotiation_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -11643,10 +11582,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_negotiation_notification = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_negotiation_notification = body_len
+  local size_of_srqs_negotiation_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_negotiation_notification then
@@ -11776,8 +11715,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_inquire_smart_respondent_response_fields = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -11804,10 +11743,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_inquire_smart_respondent_response = f
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_inquire_smart_respondent_response = body_len
+  local size_of_srqs_inquire_smart_respondent_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_inquire_smart_respondent_response then
@@ -11950,8 +11889,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_inquire_smart_respondent_request_fields = function(buffer, offset, packet, parent, size_of_srqs_inquire_smart_respondent_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -11979,10 +11921,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_inquire_smart_respondent_request = fu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_inquire_smart_respondent_request = body_len
+  local size_of_srqs_inquire_smart_respondent_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_inquire_smart_respondent_request then
@@ -12052,8 +11994,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_hit_quote_request_fields = function(buffer, offset, packet, parent, size_of_srqs_hit_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -12171,10 +12116,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_hit_quote_request = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_hit_quote_request = body_len
+  local size_of_srqs_hit_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_hit_quote_request then
@@ -12197,8 +12142,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_enter_quote_request_fields = function(buffer, offset, packet, parent, size_of_srqs_enter_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -12307,10 +12255,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_enter_quote_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_enter_quote_request = body_len
+  local size_of_srqs_enter_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_enter_quote_request then
@@ -12353,8 +12301,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_deal_response_fields = function(buffer, offset, packet, parent, size_of_srqs_deal_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -12391,10 +12339,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_deal_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_deal_response = body_len
+  local size_of_srqs_deal_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_deal_response then
@@ -12520,8 +12468,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_deal_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_deal_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -12639,10 +12587,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_deal_notification = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_deal_notification = body_len
+  local size_of_srqs_deal_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_deal_notification then
@@ -12941,8 +12889,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.srqs_create_deal_notification_fields = function(buffer, offset, packet, parent, size_of_srqs_create_deal_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -13089,10 +13037,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.srqs_create_deal_notification = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_srqs_create_deal_notification = body_len
+  local size_of_srqs_create_deal_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.srqs_create_deal_notification then
@@ -13289,8 +13237,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.risk_notification_broadcast_fields = function(buffer, offset, packet, parent, size_of_risk_notification_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -13333,10 +13281,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.risk_notification_broadcast = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_risk_notification_broadcast = body_len
+  local size_of_risk_notification_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.risk_notification_broadcast then
@@ -13419,8 +13367,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.retransmit_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -13445,10 +13393,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.retransmit_response = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_response = body_len
+  local size_of_retransmit_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_response then
@@ -13491,8 +13439,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.retransmit_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -13520,10 +13471,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.retransmit_request = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_request = body_len
+  local size_of_retransmit_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_request then
@@ -13566,8 +13517,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.retransmit_me_message_response_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -13592,10 +13543,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.retransmit_me_message_response = function(
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_me_message_response = body_len
+  local size_of_retransmit_me_message_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_response then
@@ -13638,8 +13589,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.retransmit_me_message_request_fields = function(buffer, offset, packet, parent, size_of_retransmit_me_message_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -13670,10 +13624,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.retransmit_me_message_request = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_retransmit_me_message_request = body_len
+  local size_of_retransmit_me_message_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_request then
@@ -13839,7 +13793,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.response_in = 8
 
 -- Display: Response In
 eurex_derivatives_eti_t7_v8_1_display.response_in = function(value)
-  return "Response In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Response In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Response In
@@ -13859,7 +13817,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trd_reg_ts_time_in = 8
 
 -- Display: Trd Reg Ts Time In
 eurex_derivatives_eti_t7_v8_1_display.trd_reg_ts_time_in = function(value)
-  return "Trd Reg Ts Time In: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time In: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time In
@@ -13955,8 +13917,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.reject_fields = function(buffer, offset, packet, parent, size_of_reject)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -13984,10 +13946,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.reject = function(buffer, offset, packet, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_reject = body_len
+  local size_of_reject = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.reject then
@@ -14006,7 +13968,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.exec_id = 8
 
 -- Display: Exec Id
 eurex_derivatives_eti_t7_v8_1_display.exec_id = function(value)
-  return "Exec Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Exec Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Exec Id
@@ -14030,8 +13996,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.rfq_response_fields = function(buffer, offset, packet, parent, size_of_rfq_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -14047,10 +14013,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.rfq_response = function(buffer, offset, pa
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_rfq_response = body_len
+  local size_of_rfq_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.rfq_response then
@@ -14073,8 +14039,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.rfq_request_fields = function(buffer, offset, packet, parent, size_of_rfq_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -14105,10 +14074,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.rfq_request = function(buffer, offset, pac
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_rfq_request = body_len
+  local size_of_rfq_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.rfq_request then
@@ -14655,8 +14624,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.quote_execution_report_fields = function(buffer, offset, packet, parent, size_of_quote_execution_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -14694,10 +14663,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.quote_execution_report = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_execution_report = body_len
+  local size_of_quote_execution_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_execution_report then
@@ -14793,7 +14762,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.mass_action_report_id = 8
 
 -- Display: Mass Action Report Id
 eurex_derivatives_eti_t7_v8_1_display.mass_action_report_id = function(value)
-  return "Mass Action Report Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Mass Action Report Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Mass Action Report Id
@@ -14817,8 +14790,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_response_fields = function(buffer, offset, packet, parent, size_of_quote_activation_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -14845,10 +14818,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_response = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_response = body_len
+  local size_of_quote_activation_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_response then
@@ -14942,8 +14915,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_request_fields = function(buffer, offset, packet, parent, size_of_quote_activation_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -14983,10 +14959,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_request = body_len
+  local size_of_quote_activation_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_request then
@@ -15095,8 +15071,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_notification_fields = function(buffer, offset, packet, parent, size_of_quote_activation_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -15141,10 +15117,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.quote_activation_notification = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_quote_activation_notification = body_len
+  local size_of_quote_activation_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_notification then
@@ -15334,8 +15310,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.pre_trade_risk_limits_definition_request_fields = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limits_definition_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -15374,10 +15353,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.pre_trade_risk_limits_definition_request =
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_pre_trade_risk_limits_definition_request = body_len
+  local size_of_pre_trade_risk_limits_definition_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.pre_trade_risk_limits_definition_request then
@@ -15621,8 +15600,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.pre_trade_risk_limit_response_fields = function(buffer, offset, packet, parent, size_of_pre_trade_risk_limit_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -15661,10 +15640,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.pre_trade_risk_limit_response = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_pre_trade_risk_limit_response = body_len
+  local size_of_pre_trade_risk_limit_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.pre_trade_risk_limit_response then
@@ -15687,8 +15666,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.party_entitlements_update_report_fields = function(buffer, offset, packet, parent, size_of_party_entitlements_update_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -15731,10 +15710,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.party_entitlements_update_report = functio
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_party_entitlements_update_report = body_len
+  local size_of_party_entitlements_update_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.party_entitlements_update_report then
@@ -15851,8 +15830,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.party_action_report_fields = function(buffer, offset, packet, parent, size_of_party_action_report)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -15892,10 +15871,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.party_action_report = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_party_action_report = body_len
+  local size_of_party_action_report = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.party_action_report then
@@ -16492,7 +16471,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trd_reg_ts_time_priority = 8
 
 -- Display: Trd Reg Ts Time Priority
 eurex_derivatives_eti_t7_v8_1_display.trd_reg_ts_time_priority = function(value)
-  return "Trd Reg Ts Time Priority: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Time Priority: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Time Priority
@@ -16512,7 +16495,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.trd_reg_ts_entry_time = 8
 
 -- Display: Trd Reg Ts Entry Time
 eurex_derivatives_eti_t7_v8_1_display.trd_reg_ts_entry_time = function(value)
-  return "Trd Reg Ts Entry Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Trd Reg Ts Entry Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Trd Reg Ts Entry Time
@@ -16638,8 +16625,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.order_exec_response_fields = function(buffer, offset, packet, parent, size_of_order_exec_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -16725,10 +16712,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.order_exec_response = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_response = body_len
+  local size_of_order_exec_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_response then
@@ -17071,8 +17058,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.order_exec_report_broadcast_fields = function(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -17253,10 +17240,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.order_exec_report_broadcast = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_report_broadcast = body_len
+  local size_of_order_exec_report_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_report_broadcast then
@@ -17279,8 +17266,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.order_exec_notification_fields = function(buffer, offset, packet, parent, size_of_order_exec_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -17363,10 +17350,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.order_exec_notification = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_order_exec_notification = body_len
+  local size_of_order_exec_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_notification then
@@ -17405,7 +17392,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.orig_time = 8
 
 -- Display: Orig Time
 eurex_derivatives_eti_t7_v8_1_display.orig_time = function(value)
-  return "Orig Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Orig Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Orig Time
@@ -17429,8 +17420,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.news_broadcast_fields = function(buffer, offset, packet, parent, size_of_news_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -17458,10 +17449,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.news_broadcast = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_news_broadcast = body_len
+  local size_of_news_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.news_broadcast then
@@ -17581,8 +17572,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -17658,10 +17652,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_single_short_request = function(
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_single_short_request = body_len
+  local size_of_new_order_single_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_short_request then
@@ -17684,8 +17678,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_single_request_fields = function(buffer, offset, packet, parent, size_of_new_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -17815,10 +17812,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_single_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_single_request = body_len
+  local size_of_new_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_request then
@@ -17841,8 +17838,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_response_fields = function(buffer, offset, packet, parent, size_of_new_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -17894,10 +17891,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_response = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_response = body_len
+  local size_of_new_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_response then
@@ -17920,8 +17917,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_new_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -17967,10 +17964,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_nr_response = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_nr_response = body_len
+  local size_of_new_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_nr_response then
@@ -17993,8 +17990,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_complex_short_request_fields = function(buffer, offset, packet, parent, size_of_new_order_complex_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18076,10 +18076,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_complex_short_request = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_complex_short_request = body_len
+  local size_of_new_order_complex_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_complex_short_request then
@@ -18102,8 +18102,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.new_order_complex_request_fields = function(buffer, offset, packet, parent, size_of_new_order_complex_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18232,10 +18235,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.new_order_complex_request = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_new_order_complex_request = body_len
+  local size_of_new_order_complex_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.new_order_complex_request then
@@ -18325,8 +18328,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18405,10 +18411,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_tes_trade_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_tes_trade_request = body_len
+  local size_of_modify_tes_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_tes_trade_request then
@@ -18431,8 +18437,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_single_short_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18511,10 +18520,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_single_short_request = functi
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_single_short_request = body_len
+  local size_of_modify_order_single_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_short_request then
@@ -18564,8 +18573,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_single_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18704,10 +18716,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_single_request = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_single_request = body_len
+  local size_of_modify_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_request then
@@ -18730,8 +18742,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -18792,10 +18804,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_response = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_response = body_len
+  local size_of_modify_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_response then
@@ -18818,8 +18830,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_modify_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -18877,10 +18889,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_nr_response = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_nr_response = body_len
+  local size_of_modify_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_nr_response then
@@ -18903,8 +18915,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_complex_short_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_complex_short_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -18989,10 +19004,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_complex_short_request = funct
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_complex_short_request = body_len
+  local size_of_modify_order_complex_short_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_complex_short_request then
@@ -19015,8 +19030,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_order_complex_request_fields = function(buffer, offset, packet, parent, size_of_modify_order_complex_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -19154,10 +19172,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_order_complex_request = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_order_complex_request = body_len
+  local size_of_modify_order_complex_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_complex_request then
@@ -19732,8 +19750,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.modify_basket_trade_request_fields = function(buffer, offset, packet, parent, size_of_modify_basket_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -19800,10 +19821,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.modify_basket_trade_request = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_modify_basket_trade_request = body_len
+  local size_of_modify_basket_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.modify_basket_trade_request then
@@ -20080,7 +20101,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.quote_response_id = 8
 
 -- Display: Quote Response Id
 eurex_derivatives_eti_t7_v8_1_display.quote_response_id = function(value)
-  return "Quote Response Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Quote Response Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Quote Response Id
@@ -20104,8 +20129,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.mass_quote_response_fields = function(buffer, offset, packet, parent, size_of_mass_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -20138,10 +20163,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.mass_quote_response = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mass_quote_response = body_len
+  local size_of_mass_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_response then
@@ -20268,8 +20293,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.mass_quote_request_fields = function(buffer, offset, packet, parent, size_of_mass_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -20332,10 +20360,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.mass_quote_request = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mass_quote_request = body_len
+  local size_of_mass_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_request then
@@ -20358,8 +20386,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.mm_parameter_definition_response_fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -20375,10 +20403,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.mm_parameter_definition_response = functio
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mm_parameter_definition_response = body_len
+  local size_of_mm_parameter_definition_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mm_parameter_definition_response then
@@ -20493,8 +20521,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.mm_parameter_definition_request_fields = function(buffer, offset, packet, parent, size_of_mm_parameter_definition_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -20531,10 +20562,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.mm_parameter_definition_request = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_mm_parameter_definition_request = body_len
+  local size_of_mm_parameter_definition_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.mm_parameter_definition_request then
@@ -20557,8 +20588,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.logout_response_fields = function(buffer, offset, packet, parent, size_of_logout_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -20571,10 +20602,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.logout_response = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logout_response = body_len
+  local size_of_logout_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logout_response then
@@ -20597,8 +20628,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.logout_request_fields = function(buffer, offset, packet, parent, size_of_logout_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -20611,10 +20645,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.logout_request = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logout_request = body_len
+  local size_of_logout_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logout_request then
@@ -20757,8 +20791,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.logon_response_fields = function(buffer, offset, packet, parent, size_of_logon_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -20801,10 +20835,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.logon_response = function(buffer, offset, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logon_response = body_len
+  local size_of_logon_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logon_response then
@@ -21040,8 +21074,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.logon_request_fields = function(buffer, offset, packet, parent, size_of_logon_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -21096,10 +21133,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.logon_request = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_logon_request = body_len
+  local size_of_logon_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.logon_request then
@@ -21152,8 +21189,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.legal_notification_broadcast_fields = function(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -21181,10 +21218,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.legal_notification_broadcast = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_legal_notification_broadcast = body_len
+  local size_of_legal_notification_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.legal_notification_broadcast then
@@ -21359,8 +21396,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_user_response_fields = function(buffer, offset, packet, parent, size_of_inquire_user_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -21387,10 +21424,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_user_response = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_user_response = body_len
+  local size_of_inquire_user_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_response then
@@ -21413,8 +21450,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_user_request_fields = function(buffer, offset, packet, parent, size_of_inquire_user_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -21430,10 +21470,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_user_request = function(buffer, of
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_user_request = body_len
+  local size_of_inquire_user_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_request then
@@ -21588,8 +21628,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_session_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -21613,10 +21653,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_session_list_response = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_session_list_response = body_len
+  local size_of_inquire_session_list_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_response then
@@ -21639,8 +21679,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_session_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_session_list_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -21653,10 +21696,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_session_list_request = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_session_list_request = body_len
+  local size_of_inquire_session_list_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_request then
@@ -21699,8 +21742,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_pre_trade_risk_limits_request_fields = function(buffer, offset, packet, parent, size_of_inquire_pre_trade_risk_limits_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -21728,10 +21774,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_pre_trade_risk_limits_request = fu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_pre_trade_risk_limits_request = body_len
+  local size_of_inquire_pre_trade_risk_limits_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_pre_trade_risk_limits_request then
@@ -21832,7 +21878,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.mm_parameter_report_id = 8
 
 -- Display: Mm Parameter Report Id
 eurex_derivatives_eti_t7_v8_1_display.mm_parameter_report_id = function(value)
-  return "Mm Parameter Report Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Mm Parameter Report Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Mm Parameter Report Id
@@ -21856,8 +21906,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_mm_parameter_response_fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -21887,10 +21937,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_mm_parameter_response = function(b
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_mm_parameter_response = body_len
+  local size_of_inquire_mm_parameter_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_mm_parameter_response then
@@ -21913,8 +21963,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_mm_parameter_request_fields = function(buffer, offset, packet, parent, size_of_inquire_mm_parameter_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -21933,10 +21986,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_mm_parameter_request = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_mm_parameter_request = body_len
+  local size_of_inquire_mm_parameter_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_mm_parameter_request then
@@ -22090,8 +22143,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_enrichment_rule_id_list_response_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -22118,10 +22171,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_enrichment_rule_id_list_response =
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_response = body_len
+  local size_of_inquire_enrichment_rule_id_list_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_response then
@@ -22144,8 +22197,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.inquire_enrichment_rule_id_list_request_fields = function(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -22161,10 +22217,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.inquire_enrichment_rule_id_list_request = 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_request = body_len
+  local size_of_inquire_enrichment_rule_id_list_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_request then
@@ -22187,8 +22243,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.heartbeat_notification_fields = function(buffer, offset, packet, parent, size_of_heartbeat_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -22201,10 +22257,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.heartbeat_notification = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_heartbeat_notification = body_len
+  local size_of_heartbeat_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat_notification then
@@ -22227,8 +22283,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.heartbeat_fields = function(buffer, offset, packet, parent, size_of_heartbeat)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   return index
 end
@@ -22238,10 +22297,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.heartbeat = function(buffer, offset, packe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_heartbeat = body_len
+  local size_of_heartbeat = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
@@ -22264,8 +22323,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.forced_user_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -22296,10 +22355,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.forced_user_logout_notification = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_forced_user_logout_notification = body_len
+  local size_of_forced_user_logout_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.forced_user_logout_notification then
@@ -22322,8 +22381,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.forced_logout_notification_fields = function(buffer, offset, packet, parent, size_of_forced_logout_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -22345,10 +22404,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.forced_logout_notification = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_forced_logout_notification = body_len
+  local size_of_forced_logout_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.forced_logout_notification then
@@ -22371,8 +22430,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.enter_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -22514,10 +22576,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.enter_tes_trade_request = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_enter_tes_trade_request = body_len
+  local size_of_enter_tes_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.enter_tes_trade_request then
@@ -22946,8 +23008,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.enter_clip_request_fields = function(buffer, offset, packet, parent, size_of_enter_clip_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23012,10 +23077,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.enter_clip_request = function(buffer, offs
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_enter_clip_request = body_len
+  local size_of_enter_clip_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.enter_clip_request then
@@ -23068,8 +23133,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.enter_basket_trade_request_fields = function(buffer, offset, packet, parent, size_of_enter_basket_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23133,10 +23201,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.enter_basket_trade_request = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_enter_basket_trade_request = body_len
+  local size_of_enter_basket_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.enter_basket_trade_request then
@@ -23159,8 +23227,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23197,10 +23268,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_tes_trade_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_tes_trade_request = body_len
+  local size_of_delete_tes_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_tes_trade_request then
@@ -23223,8 +23294,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_order_single_request_fields = function(buffer, offset, packet, parent, size_of_delete_order_single_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23276,10 +23350,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_order_single_request = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_single_request = body_len
+  local size_of_delete_order_single_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_single_request then
@@ -23302,8 +23376,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -23355,10 +23429,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_order_response = function(buffer, o
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_response = body_len
+  local size_of_delete_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_response then
@@ -23381,8 +23455,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -23434,10 +23508,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_order_nr_response = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_nr_response = body_len
+  local size_of_delete_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_nr_response then
@@ -23460,8 +23534,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_order_complex_request_fields = function(buffer, offset, packet, parent, size_of_delete_order_complex_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23513,10 +23590,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_order_complex_request = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_complex_request = body_len
+  local size_of_delete_order_complex_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_complex_request then
@@ -23539,8 +23616,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_order_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -23607,10 +23684,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_order_broadcast = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_order_broadcast = body_len
+  local size_of_delete_order_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_broadcast then
@@ -23633,8 +23710,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_clip_request_fields = function(buffer, offset, packet, parent, size_of_delete_clip_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23677,10 +23757,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_clip_request = function(buffer, off
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_clip_request = body_len
+  local size_of_delete_clip_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_clip_request then
@@ -23703,8 +23783,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_basket_trade_request_fields = function(buffer, offset, packet, parent, size_of_delete_basket_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23741,10 +23824,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_basket_trade_request = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_basket_trade_request = body_len
+  local size_of_delete_basket_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_basket_trade_request then
@@ -23767,8 +23850,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -23795,10 +23878,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_response = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_response = body_len
+  local size_of_delete_all_quote_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_response then
@@ -23821,8 +23904,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -23856,10 +23942,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_request = body_len
+  local size_of_delete_all_quote_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_request then
@@ -23902,8 +23988,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_quote_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -23954,10 +24040,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_quote_broadcast = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_quote_broadcast = body_len
+  local size_of_delete_all_quote_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_broadcast then
@@ -24164,8 +24250,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Me Comp: Struct of 10 fields
   index, response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_me_comp(buffer, index, packet, parent)
@@ -24200,10 +24286,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_response = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_response = body_len
+  local size_of_delete_all_order_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_response then
@@ -24226,8 +24312,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_request_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -24273,10 +24362,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_request = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_request = body_len
+  local size_of_delete_all_order_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_request then
@@ -24299,8 +24388,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_quote_event_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -24331,10 +24420,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_quote_event_broadcast = f
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_quote_event_broadcast = body_len
+  local size_of_delete_all_order_quote_event_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_quote_event_broadcast then
@@ -24357,8 +24446,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_nr_response_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -24374,10 +24463,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_nr_response = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_nr_response = body_len
+  local size_of_delete_all_order_nr_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_nr_response then
@@ -24400,8 +24489,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_broadcast_fields = function(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -24463,10 +24552,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.delete_all_order_broadcast = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_delete_all_order_broadcast = body_len
+  local size_of_delete_all_order_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_broadcast then
@@ -24489,8 +24578,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.cross_request_response_fields = function(buffer, offset, packet, parent, size_of_cross_request_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -24506,10 +24595,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.cross_request_response = function(buffer, 
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_cross_request_response = body_len
+  local size_of_cross_request_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.cross_request_response then
@@ -24532,8 +24621,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.cross_request_fields = function(buffer, offset, packet, parent, size_of_cross_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -24558,10 +24650,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.cross_request = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_cross_request = body_len
+  local size_of_cross_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.cross_request then
@@ -24636,8 +24728,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.clip_response_fields = function(buffer, offset, packet, parent, size_of_clip_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -24676,10 +24768,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.clip_response = function(buffer, offset, p
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_clip_response = body_len
+  local size_of_clip_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.clip_response then
@@ -24702,8 +24794,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.clip_execution_notification_fields = function(buffer, offset, packet, parent, size_of_clip_execution_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -24774,10 +24866,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.clip_execution_notification = function(buf
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_clip_execution_notification = body_len
+  local size_of_clip_execution_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.clip_execution_notification then
@@ -24800,8 +24892,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.clip_deletion_notification_fields = function(buffer, offset, packet, parent, size_of_clip_deletion_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Me Comp: Struct of 10 fields
   index, rbc_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_me_comp(buffer, index, packet, parent)
@@ -24847,10 +24939,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.clip_deletion_notification = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_clip_deletion_notification = body_len
+  local size_of_clip_deletion_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.clip_deletion_notification then
@@ -24897,8 +24989,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.broadcast_error_notification_fields = function(buffer, offset, packet, parent, size_of_broadcast_error_notification)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Notif Header Comp: Struct of 1 fields
   index, notif_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.notif_header_comp(buffer, index, packet, parent)
@@ -24932,10 +25024,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.broadcast_error_notification = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_broadcast_error_notification = body_len
+  local size_of_broadcast_error_notification = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.broadcast_error_notification then
@@ -24958,8 +25050,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.basket_response_fields = function(buffer, offset, packet, parent, size_of_basket_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Response Header Comp: Struct of 4 fields
   index, response_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.response_header_comp(buffer, index, packet, parent)
@@ -24978,10 +25070,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.basket_response = function(buffer, offset,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_basket_response = body_len
+  local size_of_basket_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.basket_response then
@@ -25061,8 +25153,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.basket_execution_broadcast_fields = function(buffer, offset, packet, parent, size_of_basket_execution_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -25113,10 +25205,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.basket_execution_broadcast = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_basket_execution_broadcast = body_len
+  local size_of_basket_execution_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.basket_execution_broadcast then
@@ -25139,8 +25231,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.basket_delete_broadcast_fields = function(buffer, offset, packet, parent, size_of_basket_delete_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -25183,10 +25275,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.basket_delete_broadcast = function(buffer,
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_basket_delete_broadcast = body_len
+  local size_of_basket_delete_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.basket_delete_broadcast then
@@ -25229,8 +25321,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.basket_broadcast_fields = function(buffer, offset, packet, parent, size_of_basket_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -25303,10 +25395,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.basket_broadcast = function(buffer, offset
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_basket_broadcast = body_len
+  local size_of_basket_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.basket_broadcast then
@@ -25526,8 +25618,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.basket_approve_broadcast_fields = function(buffer, offset, packet, parent, size_of_basket_approve_broadcast)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Rbc Header Comp: Struct of 8 fields
   index, rbc_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.rbc_header_comp(buffer, index, packet, parent)
@@ -25598,10 +25690,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.basket_approve_broadcast = function(buffer
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_basket_approve_broadcast = body_len
+  local size_of_basket_approve_broadcast = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.basket_approve_broadcast then
@@ -25624,8 +25716,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.approve_tes_trade_request_fields = function(buffer, offset, packet, parent, size_of_approve_tes_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -25737,10 +25832,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.approve_tes_trade_request = function(buffe
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_approve_tes_trade_request = body_len
+  local size_of_approve_tes_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.approve_tes_trade_request then
@@ -25930,8 +26025,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.approve_basket_trade_request_fields = function(buffer, offset, packet, parent, size_of_approve_basket_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -25985,10 +26083,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.approve_basket_trade_request = function(bu
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_approve_basket_trade_request = body_len
+  local size_of_approve_basket_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.approve_basket_trade_request then
@@ -26011,8 +26109,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.amend_basket_trade_request_fields = function(buffer, offset, packet, parent, size_of_amend_basket_trade_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -26082,10 +26183,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.amend_basket_trade_request = function(buff
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_amend_basket_trade_request = body_len
+  local size_of_amend_basket_trade_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.amend_basket_trade_request then
@@ -26251,7 +26352,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.security_response_id = 8
 
 -- Display: Security Response Id
 eurex_derivatives_eti_t7_v8_1_display.security_response_id = function(value)
-  return "Security Response Id: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Security Response Id: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Security Response Id
@@ -26275,8 +26380,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.add_flexible_instrument_response_fields = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -26322,10 +26427,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.add_flexible_instrument_response = functio
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_add_flexible_instrument_response = body_len
+  local size_of_add_flexible_instrument_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.add_flexible_instrument_response then
@@ -26348,8 +26453,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.add_flexible_instrument_request_fields = function(buffer, offset, packet, parent, size_of_add_flexible_instrument_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -26386,10 +26494,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.add_flexible_instrument_request = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_add_flexible_instrument_request = body_len
+  local size_of_add_flexible_instrument_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.add_flexible_instrument_request then
@@ -26549,7 +26657,11 @@ eurex_derivatives_eti_t7_v8_1_size_of.last_update_time = 8
 
 -- Display: Last Update Time
 eurex_derivatives_eti_t7_v8_1_display.last_update_time = function(value)
-  return "Last Update Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Last Update Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Last Update Time
@@ -26625,8 +26737,8 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_response_fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_response)
   local index = offset
 
-  -- Message Header Out Comp: Struct of 3 fields
-  index, message_header_out_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_out_comp(buffer, index, packet, parent)
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Nr Response Header Me Comp: Struct of 8 fields
   index, nr_response_header_me_comp = eurex_derivatives_eti_t7_v8_1_dissect.nr_response_header_me_comp(buffer, index, packet, parent)
@@ -26680,10 +26792,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_response = function
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_add_complex_instrument_response = body_len
+  local size_of_add_complex_instrument_response = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.add_complex_instrument_response then
@@ -26706,8 +26818,11 @@ end
 eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_request_fields = function(buffer, offset, packet, parent, size_of_add_complex_instrument_request)
   local index = offset
 
-  -- Message Header In Comp: Struct of 4 fields
-  index, message_header_in_comp = eurex_derivatives_eti_t7_v8_1_dissect.message_header_in_comp(buffer, index, packet, parent)
+  -- Network Msg Id: 8 Byte Ascii String
+  index, network_msg_id = eurex_derivatives_eti_t7_v8_1_dissect.network_msg_id(buffer, index, packet, parent)
+
+  -- Pad 2: 2 Byte
+  index, pad_2 = eurex_derivatives_eti_t7_v8_1_dissect.pad_2(buffer, index, packet, parent)
 
   -- Request Header Comp: Struct of 2 fields
   index, request_header_comp = eurex_derivatives_eti_t7_v8_1_dissect.request_header_comp(buffer, index, packet, parent)
@@ -26743,10 +26858,10 @@ eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_request = function(
   local index = offset
 
   -- Dependency element: Body Len
-  local body_len = buffer(index, 4):le_uint()
+  local body_len = buffer(offset - 6, 4):le_uint()
 
   -- Parse runtime struct size
-  local size_of_add_complex_instrument_request = body_len
+  local size_of_add_complex_instrument_request = body_len - 6
 
   -- Optionally add struct element to protocol tree
   if show.add_complex_instrument_request then
@@ -26760,13 +26875,559 @@ eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_request = function(
   return offset + size_of_add_complex_instrument_request
 end
 
--- Dissect Packet
-eurex_derivatives_eti_t7_v8_1_dissect.packet = function(buffer, packet, parent)
-  local offset = 0
+-- Calculate runtime size of: Payload
+eurex_derivatives_eti_t7_v8_1_size_of.payload = function(buffer, offset, template_id)
+  -- Size of Add Complex Instrument Request
+  if template_id == 10301 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.add_complex_instrument_request(buffer, offset)
+  end
+  -- Size of Add Complex Instrument Response
+  if template_id == 10302 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.add_complex_instrument_response(buffer, offset)
+  end
+  -- Size of Add Flexible Instrument Request
+  if template_id == 10309 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.add_flexible_instrument_request(buffer, offset)
+  end
+  -- Size of Add Flexible Instrument Response
+  if template_id == 10310 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.add_flexible_instrument_response(buffer, offset)
+  end
+  -- Size of Amend Basket Trade Request
+  if template_id == 10629 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.amend_basket_trade_request(buffer, offset)
+  end
+  -- Size of Approve Basket Trade Request
+  if template_id == 10623 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.approve_basket_trade_request(buffer, offset)
+  end
+  -- Size of Approve Tes Trade Request
+  if template_id == 10603 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.approve_tes_trade_request(buffer, offset)
+  end
+  -- Size of Basket Approve Broadcast
+  if template_id == 10627 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.basket_approve_broadcast(buffer, offset)
+  end
+  -- Size of Basket Broadcast
+  if template_id == 10625 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.basket_broadcast(buffer, offset)
+  end
+  -- Size of Basket Delete Broadcast
+  if template_id == 10626 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.basket_delete_broadcast(buffer, offset)
+  end
+  -- Size of Basket Execution Broadcast
+  if template_id == 10628 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.basket_execution_broadcast(buffer, offset)
+  end
+  -- Size of Basket Response
+  if template_id == 10624 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.basket_response(buffer, offset)
+  end
+  -- Size of Broadcast Error Notification
+  if template_id == 10032 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.broadcast_error_notification(buffer, offset)
+  end
+  -- Size of Clip Deletion Notification
+  if template_id == 10134 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.clip_deletion_notification(buffer, offset)
+  end
+  -- Size of Clip Execution Notification
+  if template_id == 10135 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.clip_execution_notification(buffer, offset)
+  end
+  -- Size of Clip Response
+  if template_id == 10133 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.clip_response(buffer, offset)
+  end
+  -- Size of Cross Request
+  if template_id == 10118 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.cross_request(buffer, offset)
+  end
+  -- Size of Cross Request Response
+  if template_id == 10119 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.cross_request_response(buffer, offset)
+  end
+  -- Size of Delete All Order Broadcast
+  if template_id == 10122 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_order_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Order Nr Response
+  if template_id == 10124 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_order_nr_response(buffer, offset)
+  end
+  -- Size of Delete All Order Quote Event Broadcast
+  if template_id == 10308 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_order_quote_event_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Order Request
+  if template_id == 10120 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_order_request(buffer, offset)
+  end
+  -- Size of Delete All Order Response
+  if template_id == 10121 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_order_response(buffer, offset)
+  end
+  -- Size of Delete All Quote Broadcast
+  if template_id == 10410 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_quote_broadcast(buffer, offset)
+  end
+  -- Size of Delete All Quote Request
+  if template_id == 10408 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_quote_request(buffer, offset)
+  end
+  -- Size of Delete All Quote Response
+  if template_id == 10409 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_all_quote_response(buffer, offset)
+  end
+  -- Size of Delete Basket Trade Request
+  if template_id == 10622 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_basket_trade_request(buffer, offset)
+  end
+  -- Size of Delete Clip Request
+  if template_id == 10132 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_clip_request(buffer, offset)
+  end
+  -- Size of Delete Order Broadcast
+  if template_id == 10112 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_order_broadcast(buffer, offset)
+  end
+  -- Size of Delete Order Complex Request
+  if template_id == 10123 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_order_complex_request(buffer, offset)
+  end
+  -- Size of Delete Order Nr Response
+  if template_id == 10111 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_order_nr_response(buffer, offset)
+  end
+  -- Size of Delete Order Response
+  if template_id == 10110 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_order_response(buffer, offset)
+  end
+  -- Size of Delete Order Single Request
+  if template_id == 10109 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_order_single_request(buffer, offset)
+  end
+  -- Size of Delete Tes Trade Request
+  if template_id == 10602 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.delete_tes_trade_request(buffer, offset)
+  end
+  -- Size of Enter Basket Trade Request
+  if template_id == 10620 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.enter_basket_trade_request(buffer, offset)
+  end
+  -- Size of Enter Clip Request
+  if template_id == 10131 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.enter_clip_request(buffer, offset)
+  end
+  -- Size of Enter Tes Trade Request
+  if template_id == 10600 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.enter_tes_trade_request(buffer, offset)
+  end
+  -- Size of Forced Logout Notification
+  if template_id == 10012 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.forced_logout_notification(buffer, offset)
+  end
+  -- Size of Forced User Logout Notification
+  if template_id == 10043 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.forced_user_logout_notification(buffer, offset)
+  end
+  -- Size of Heartbeat
+  if template_id == 10011 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.heartbeat(buffer, offset)
+  end
+  -- Size of Heartbeat Notification
+  if template_id == 10023 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.heartbeat_notification(buffer, offset)
+  end
+  -- Size of Inquire Enrichment Rule Id List Request
+  if template_id == 10040 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_enrichment_rule_id_list_request(buffer, offset)
+  end
+  -- Size of Inquire Enrichment Rule Id List Response
+  if template_id == 10041 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_enrichment_rule_id_list_response(buffer, offset)
+  end
+  -- Size of Inquire Mm Parameter Request
+  if template_id == 10305 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_mm_parameter_request(buffer, offset)
+  end
+  -- Size of Inquire Mm Parameter Response
+  if template_id == 10306 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_mm_parameter_response(buffer, offset)
+  end
+  -- Size of Inquire Pre Trade Risk Limits Request
+  if template_id == 10311 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_pre_trade_risk_limits_request(buffer, offset)
+  end
+  -- Size of Inquire Session List Request
+  if template_id == 10035 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_session_list_request(buffer, offset)
+  end
+  -- Size of Inquire Session List Response
+  if template_id == 10036 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_session_list_response(buffer, offset)
+  end
+  -- Size of Inquire User Request
+  if template_id == 10038 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_user_request(buffer, offset)
+  end
+  -- Size of Inquire User Response
+  if template_id == 10039 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.inquire_user_response(buffer, offset)
+  end
+  -- Size of Legal Notification Broadcast
+  if template_id == 10037 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.legal_notification_broadcast(buffer, offset)
+  end
+  -- Size of Logon Request
+  if template_id == 10000 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.logon_request(buffer, offset)
+  end
+  -- Size of Logon Response
+  if template_id == 10001 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.logon_response(buffer, offset)
+  end
+  -- Size of Logout Request
+  if template_id == 10002 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.logout_request(buffer, offset)
+  end
+  -- Size of Logout Response
+  if template_id == 10003 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.logout_response(buffer, offset)
+  end
+  -- Size of Mm Parameter Definition Request
+  if template_id == 10303 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.mm_parameter_definition_request(buffer, offset)
+  end
+  -- Size of Mm Parameter Definition Response
+  if template_id == 10304 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.mm_parameter_definition_response(buffer, offset)
+  end
+  -- Size of Mass Quote Request
+  if template_id == 10405 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.mass_quote_request(buffer, offset)
+  end
+  -- Size of Mass Quote Response
+  if template_id == 10406 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.mass_quote_response(buffer, offset)
+  end
+  -- Size of Modify Basket Trade Request
+  if template_id == 10621 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_basket_trade_request(buffer, offset)
+  end
+  -- Size of Modify Order Complex Request
+  if template_id == 10114 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_complex_request(buffer, offset)
+  end
+  -- Size of Modify Order Complex Short Request
+  if template_id == 10130 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_complex_short_request(buffer, offset)
+  end
+  -- Size of Modify Order Nr Response
+  if template_id == 10108 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_nr_response(buffer, offset)
+  end
+  -- Size of Modify Order Response
+  if template_id == 10107 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_response(buffer, offset)
+  end
+  -- Size of Modify Order Single Request
+  if template_id == 10106 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_single_request(buffer, offset)
+  end
+  -- Size of Modify Order Single Short Request
+  if template_id == 10126 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_order_single_short_request(buffer, offset)
+  end
+  -- Size of Modify Tes Trade Request
+  if template_id == 10601 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.modify_tes_trade_request(buffer, offset)
+  end
+  -- Size of New Order Complex Request
+  if template_id == 10113 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_complex_request(buffer, offset)
+  end
+  -- Size of New Order Complex Short Request
+  if template_id == 10129 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_complex_short_request(buffer, offset)
+  end
+  -- Size of New Order Nr Response
+  if template_id == 10102 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_nr_response(buffer, offset)
+  end
+  -- Size of New Order Response
+  if template_id == 10101 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_response(buffer, offset)
+  end
+  -- Size of New Order Single Request
+  if template_id == 10100 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_single_request(buffer, offset)
+  end
+  -- Size of New Order Single Short Request
+  if template_id == 10125 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.new_order_single_short_request(buffer, offset)
+  end
+  -- Size of News Broadcast
+  if template_id == 10031 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.news_broadcast(buffer, offset)
+  end
+  -- Size of Order Exec Notification
+  if template_id == 10104 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.order_exec_notification(buffer, offset)
+  end
+  -- Size of Order Exec Report Broadcast
+  if template_id == 10117 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.order_exec_report_broadcast(buffer, offset)
+  end
+  -- Size of Order Exec Response
+  if template_id == 10103 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.order_exec_response(buffer, offset)
+  end
+  -- Size of Party Action Report
+  if template_id == 10042 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.party_action_report(buffer, offset)
+  end
+  -- Size of Party Entitlements Update Report
+  if template_id == 10034 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.party_entitlements_update_report(buffer, offset)
+  end
+  -- Size of Pre Trade Risk Limit Response
+  if template_id == 10313 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.pre_trade_risk_limit_response(buffer, offset)
+  end
+  -- Size of Pre Trade Risk Limits Definition Request
+  if template_id == 10312 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.pre_trade_risk_limits_definition_request(buffer, offset)
+  end
+  -- Size of Quote Activation Notification
+  if template_id == 10411 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.quote_activation_notification(buffer, offset)
+  end
+  -- Size of Quote Activation Request
+  if template_id == 10403 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.quote_activation_request(buffer, offset)
+  end
+  -- Size of Quote Activation Response
+  if template_id == 10404 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.quote_activation_response(buffer, offset)
+  end
+  -- Size of Quote Execution Report
+  if template_id == 10407 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.quote_execution_report(buffer, offset)
+  end
+  -- Size of Rfq Request
+  if template_id == 10401 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.rfq_request(buffer, offset)
+  end
+  -- Size of Rfq Response
+  if template_id == 10402 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.rfq_response(buffer, offset)
+  end
+  -- Size of Reject
+  if template_id == 10010 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.reject(buffer, offset)
+  end
+  -- Size of Retransmit Me Message Request
+  if template_id == 10026 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.retransmit_me_message_request(buffer, offset)
+  end
+  -- Size of Retransmit Me Message Response
+  if template_id == 10027 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.retransmit_me_message_response(buffer, offset)
+  end
+  -- Size of Retransmit Request
+  if template_id == 10008 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.retransmit_request(buffer, offset)
+  end
+  -- Size of Retransmit Response
+  if template_id == 10009 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.retransmit_response(buffer, offset)
+  end
+  -- Size of Risk Notification Broadcast
+  if template_id == 10033 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.risk_notification_broadcast(buffer, offset)
+  end
+  -- Size of Srqs Create Deal Notification
+  if template_id == 10708 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_create_deal_notification(buffer, offset)
+  end
+  -- Size of Srqs Deal Notification
+  if template_id == 10709 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_deal_notification(buffer, offset)
+  end
+  -- Size of Srqs Deal Response
+  if template_id == 10705 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_deal_response(buffer, offset)
+  end
+  -- Size of Srqs Enter Quote Request
+  if template_id == 10702 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_enter_quote_request(buffer, offset)
+  end
+  -- Size of Srqs Hit Quote Request
+  if template_id == 10704 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_hit_quote_request(buffer, offset)
+  end
+  -- Size of Srqs Inquire Smart Respondent Request
+  if template_id == 10718 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_inquire_smart_respondent_request(buffer, offset)
+  end
+  -- Size of Srqs Inquire Smart Respondent Response
+  if template_id == 10719 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_inquire_smart_respondent_response(buffer, offset)
+  end
+  -- Size of Srqs Negotiation Notification
+  if template_id == 10713 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_negotiation_notification(buffer, offset)
+  end
+  -- Size of Srqs Negotiation Requester Notification
+  if template_id == 10712 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_negotiation_requester_notification(buffer, offset)
+  end
+  -- Size of Srqs Negotiation Status Notification
+  if template_id == 10715 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_negotiation_status_notification(buffer, offset)
+  end
+  -- Size of Srqs Open Negotiation Notification
+  if template_id == 10711 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_open_negotiation_notification(buffer, offset)
+  end
+  -- Size of Srqs Open Negotiation Request
+  if template_id == 10700 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_open_negotiation_request(buffer, offset)
+  end
+  -- Size of Srqs Open Negotiation Requester Notification
+  if template_id == 10710 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_open_negotiation_requester_notification(buffer, offset)
+  end
+  -- Size of Srqs Quote Notification
+  if template_id == 10707 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_quote_notification(buffer, offset)
+  end
+  -- Size of Srqs Quote Response
+  if template_id == 10703 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_quote_response(buffer, offset)
+  end
+  -- Size of Srqs Quoting Status Request
+  if template_id == 10717 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_quoting_status_request(buffer, offset)
+  end
+  -- Size of Srqs Status Broadcast
+  if template_id == 10714 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_status_broadcast(buffer, offset)
+  end
+  -- Size of Srqs Update Deal Status Request
+  if template_id == 10706 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_update_deal_status_request(buffer, offset)
+  end
+  -- Size of Srqs Update Negotiation Request
+  if template_id == 10701 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.srqs_update_negotiation_request(buffer, offset)
+  end
+  -- Size of Service Availability Broadcast
+  if template_id == 10030 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.service_availability_broadcast(buffer, offset)
+  end
+  -- Size of Service Availability Market Broadcast
+  if template_id == 10044 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.service_availability_market_broadcast(buffer, offset)
+  end
+  -- Size of Subscribe Request
+  if template_id == 10025 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.subscribe_request(buffer, offset)
+  end
+  -- Size of Subscribe Response
+  if template_id == 10005 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.subscribe_response(buffer, offset)
+  end
+  -- Size of Tes Approve Broadcast
+  if template_id == 10607 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_approve_broadcast(buffer, offset)
+  end
+  -- Size of Tes Broadcast
+  if template_id == 10604 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_broadcast(buffer, offset)
+  end
+  -- Size of Tes Delete Broadcast
+  if template_id == 10606 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_delete_broadcast(buffer, offset)
+  end
+  -- Size of Tes Execution Broadcast
+  if template_id == 10610 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_execution_broadcast(buffer, offset)
+  end
+  -- Size of Tes Response
+  if template_id == 10611 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_response(buffer, offset)
+  end
+  -- Size of Tes Trade Broadcast
+  if template_id == 10614 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_trade_broadcast(buffer, offset)
+  end
+  -- Size of Tes Trading Session Status Broadcast
+  if template_id == 10615 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_trading_session_status_broadcast(buffer, offset)
+  end
+  -- Size of Tes Upload Broadcast
+  if template_id == 10613 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tes_upload_broadcast(buffer, offset)
+  end
+  -- Size of Tm Trading Session Status Broadcast
+  if template_id == 10501 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.tm_trading_session_status_broadcast(buffer, offset)
+  end
+  -- Size of Throttle Update Notification
+  if template_id == 10028 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.throttle_update_notification(buffer, offset)
+  end
+  -- Size of Trade Broadcast
+  if template_id == 10500 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.trade_broadcast(buffer, offset)
+  end
+  -- Size of Trading Session Status Broadcast
+  if template_id == 10307 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.trading_session_status_broadcast(buffer, offset)
+  end
+  -- Size of Unsubscribe Request
+  if template_id == 10006 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.unsubscribe_request(buffer, offset)
+  end
+  -- Size of Unsubscribe Response
+  if template_id == 10007 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.unsubscribe_response(buffer, offset)
+  end
+  -- Size of Upload Tes Trade Request
+  if template_id == 10612 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.upload_tes_trade_request(buffer, offset)
+  end
+  -- Size of User Login Request
+  if template_id == 10018 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.user_login_request(buffer, offset)
+  end
+  -- Size of User Login Response
+  if template_id == 10019 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.user_login_response(buffer, offset)
+  end
+  -- Size of User Logout Request
+  if template_id == 10029 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.user_logout_request(buffer, offset)
+  end
+  -- Size of User Logout Response
+  if template_id == 10024 then
+    return eurex_derivatives_eti_t7_v8_1_size_of.user_logout_response(buffer, offset)
+  end
 
-  -- Dependency element: Template Id
-  local template_id = buffer(4, 2):le_uint()
+  return 0
+end
 
+-- Display: Payload
+eurex_derivatives_eti_t7_v8_1_display.payload = function(buffer, offset, packet, parent)
+  return ""
+end
+
+-- Dissect Branches: Payload
+eurex_derivatives_eti_t7_v8_1_dissect.payload_branches = function(buffer, offset, packet, parent, template_id)
   -- Dissect Add Complex Instrument Request
   if template_id == 10301 then
     return eurex_derivatives_eti_t7_v8_1_dissect.add_complex_instrument_request(buffer, offset, packet, parent)
@@ -27309,6 +27970,191 @@ eurex_derivatives_eti_t7_v8_1_dissect.packet = function(buffer, packet, parent)
   end
 
   return offset
+end
+
+-- Dissect: Payload
+eurex_derivatives_eti_t7_v8_1_dissect.payload = function(buffer, offset, packet, parent, template_id)
+  if not show.payload then
+    return eurex_derivatives_eti_t7_v8_1_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+  end
+
+  -- Calculate size and check that branch is not empty
+  local size = eurex_derivatives_eti_t7_v8_1_size_of.payload(buffer, offset, template_id)
+  if size == 0 then
+    return offset
+  end
+
+  -- Dissect Element
+  local range = buffer(offset, size)
+  local display = eurex_derivatives_eti_t7_v8_1_display.payload(buffer, packet, parent)
+  local element = parent:add(eurex_derivatives_eti_t7_v8_1.fields.payload, range, display)
+
+  return eurex_derivatives_eti_t7_v8_1_dissect.payload_branches(buffer, offset, packet, parent, template_id)
+end
+
+-- Size: Template Id
+eurex_derivatives_eti_t7_v8_1_size_of.template_id = 2
+
+-- Display: Template Id
+eurex_derivatives_eti_t7_v8_1_display.template_id = function(value)
+  return "Template Id: "..value
+end
+
+-- Dissect: Template Id
+eurex_derivatives_eti_t7_v8_1_dissect.template_id = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eti_t7_v8_1_size_of.template_id
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eti_t7_v8_1_display.template_id(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eti_t7_v8_1.fields.template_id, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Body Len
+eurex_derivatives_eti_t7_v8_1_size_of.body_len = 4
+
+-- Display: Body Len
+eurex_derivatives_eti_t7_v8_1_display.body_len = function(value)
+  return "Body Len: "..value
+end
+
+-- Dissect: Body Len
+eurex_derivatives_eti_t7_v8_1_dissect.body_len = function(buffer, offset, packet, parent)
+  local length = eurex_derivatives_eti_t7_v8_1_size_of.body_len
+  local range = buffer(offset, length)
+  local value = range:le_uint()
+  local display = eurex_derivatives_eti_t7_v8_1_display.body_len(value, buffer, offset, packet, parent)
+
+  parent:add(eurex_derivatives_eti_t7_v8_1.fields.body_len, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Message Header
+eurex_derivatives_eti_t7_v8_1_size_of.message_header = function(buffer, offset)
+  local index = 0
+
+  index = index + eurex_derivatives_eti_t7_v8_1_size_of.body_len
+
+  index = index + eurex_derivatives_eti_t7_v8_1_size_of.template_id
+
+  return index
+end
+
+-- Display: Message Header
+eurex_derivatives_eti_t7_v8_1_display.message_header = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Message Header
+eurex_derivatives_eti_t7_v8_1_dissect.message_header_fields = function(buffer, offset, packet, parent)
+  local index = offset
+
+  -- Body Len: 4 Byte Unsigned Fixed Width Integer
+  index, body_len = eurex_derivatives_eti_t7_v8_1_dissect.body_len(buffer, index, packet, parent)
+
+  -- Template Id: 2 Byte Unsigned Fixed Width Integer
+  index, template_id = eurex_derivatives_eti_t7_v8_1_dissect.template_id(buffer, index, packet, parent)
+
+  return index
+end
+
+-- Dissect: Message Header
+eurex_derivatives_eti_t7_v8_1_dissect.message_header = function(buffer, offset, packet, parent)
+  -- Optionally add struct element to protocol tree
+  if show.message_header then
+    local length = eurex_derivatives_eti_t7_v8_1_size_of.message_header(buffer, offset)
+    local range = buffer(offset, length)
+    local display = eurex_derivatives_eti_t7_v8_1_display.message_header(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v8_1.fields.message_header, range, display)
+  end
+
+  return eurex_derivatives_eti_t7_v8_1_dissect.message_header_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Message
+eurex_derivatives_eti_t7_v8_1_display.message = function(buffer, offset, size, packet, parent)
+  return ""
+end
+
+-- Dissect Fields: Message
+eurex_derivatives_eti_t7_v8_1_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
+  local index = offset
+
+  -- Message Header: Struct of 2 fields
+  index, message_header = eurex_derivatives_eti_t7_v8_1_dissect.message_header(buffer, index, packet, parent)
+
+  -- Dependency element: Template Id
+  local template_id = buffer(index - 2, 2):le_uint()
+
+  -- Payload: Runtime Type with 135 branches
+  index = eurex_derivatives_eti_t7_v8_1_dissect.payload(buffer, index, packet, parent, template_id)
+
+  return index
+end
+
+-- Dissect: Message
+eurex_derivatives_eti_t7_v8_1_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
+  if show.message then
+    local range = buffer(offset, size_of_message)
+    local display = eurex_derivatives_eti_t7_v8_1_display.message(buffer, packet, parent)
+    parent = parent:add(eurex_derivatives_eti_t7_v8_1.fields.message, range, display)
+  end
+
+  eurex_derivatives_eti_t7_v8_1_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
+
+  return offset + size_of_message
+end
+
+-- Remaining Bytes For: Message
+local message_bytes_remaining = function(buffer, index, available)
+  -- Calculate the number of bytes remaining
+  local remaining = available - index
+
+  -- Check if packet size can be read
+  if remaining < eurex_derivatives_eti_t7_v8_1_size_of.message_header(buffer, index) then
+    return -DESEGMENT_ONE_MORE_SEGMENT
+  end
+
+  -- Parse runtime size
+  local current = buffer(index, 4):le_uint()
+
+  -- Check if enough bytes remain
+  if remaining < current then
+    return -(current - remaining)
+  end
+
+  return remaining, current
+end
+
+-- Dissect Packet
+eurex_derivatives_eti_t7_v8_1_dissect.packet = function(buffer, packet, parent)
+  local index = 0
+
+  -- Dependency for Message
+  local end_of_payload = buffer:len()
+
+  -- Message: Struct of 2 fields
+  while index < end_of_payload do
+
+    -- Are minimum number of bytes are available?
+    local available, size_of_message = message_bytes_remaining(buffer, index, end_of_payload)
+
+    if available > 0 then
+      index = eurex_derivatives_eti_t7_v8_1_dissect.message(buffer, index, packet, parent, size_of_message)
+    else
+      -- More bytes needed, so set packet information
+      packet.desegment_offset = index
+      packet.desegment_len = -(available)
+
+      break
+    end
+  end
+
+  return index
 end
 
 
