@@ -1875,27 +1875,13 @@ jnx_equities_pts_ouch_v1_11_dissect.message_type = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Calculate size of: Message
-jnx_equities_pts_ouch_v1_11_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_equities_pts_ouch_v1_11_size_of.message_type
-
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + jnx_equities_pts_ouch_v1_11_size_of.data(buffer, data_offset, data_type)
-
-  return index
-end
-
 -- Display: Message
 jnx_equities_pts_ouch_v1_11_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-jnx_equities_pts_ouch_v1_11_dissect.message_fields = function(buffer, offset, packet, parent)
+jnx_equities_pts_ouch_v1_11_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 10 values
@@ -1908,25 +1894,17 @@ jnx_equities_pts_ouch_v1_11_dissect.message_fields = function(buffer, offset, pa
 end
 
 -- Dissect: Message
-jnx_equities_pts_ouch_v1_11_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+jnx_equities_pts_ouch_v1_11_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = jnx_equities_pts_ouch_v1_11_display.message(buffer, packet, parent)
     parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.message, range, display)
   end
 
-  return jnx_equities_pts_ouch_v1_11_dissect.message_fields(buffer, offset, packet, parent)
-end
+  jnx_equities_pts_ouch_v1_11_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
--- Calculate size of: Unsequenced Data Packet
-jnx_equities_pts_ouch_v1_11_size_of.unsequenced_data_packet = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_equities_pts_ouch_v1_11_size_of.message(buffer, offset + index)
-
-  return index
+  return offset + size_of_message
 end
 
 -- Display: Unsequenced Data Packet
@@ -1935,26 +1913,41 @@ jnx_equities_pts_ouch_v1_11_display.unsequenced_data_packet = function(buffer, o
 end
 
 -- Dissect Fields: Unsequenced Data Packet
-jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent)
+jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Message
+  local size_of_message = packet_length - 1
+
   -- Message: Struct of 2 fields
-  index, message = jnx_equities_pts_ouch_v1_11_dissect.message(buffer, index, packet, parent)
+  index = jnx_equities_pts_ouch_v1_11_dissect.message(buffer, index, packet, parent, size_of_message)
 
   return index
 end
 
 -- Dissect: Unsequenced Data Packet
 jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_unsequenced_data_packet = packet_length - 1
+
+  -- Optionally add struct element to protocol tree
   if show.unsequenced_data_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.unsequenced_data_packet(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11_display.unsequenced_data_packet(buffer, packet, parent)
     parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.unsequenced_data_packet, range, display)
   end
 
-  return jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+  jnx_equities_pts_ouch_v1_11_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+  return offset + size_of_unsequenced_data_packet
 end
 
 -- Size: Requested Sequence Number
@@ -2089,41 +2082,47 @@ jnx_equities_pts_ouch_v1_11_dissect.login_request_packet = function(buffer, offs
   return jnx_equities_pts_ouch_v1_11_dissect.login_request_packet_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Sequenced Data Packet
-jnx_equities_pts_ouch_v1_11_size_of.sequenced_data_packet = function(buffer, offset)
-  local index = 0
-
-  index = index + jnx_equities_pts_ouch_v1_11_size_of.message(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Sequenced Data Packet
 jnx_equities_pts_ouch_v1_11_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequenced Data Packet
-jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent)
+jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Message
+  local size_of_message = packet_length - 1
+
   -- Message: Struct of 2 fields
-  index, message = jnx_equities_pts_ouch_v1_11_dissect.message(buffer, index, packet, parent)
+  index = jnx_equities_pts_ouch_v1_11_dissect.message(buffer, index, packet, parent, size_of_message)
 
   return index
 end
 
 -- Dissect: Sequenced Data Packet
 jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_sequenced_data_packet = packet_length - 1
+
+  -- Optionally add struct element to protocol tree
   if show.sequenced_data_packet then
-    local length = jnx_equities_pts_ouch_v1_11_size_of.sequenced_data_packet(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sequenced_data_packet)
     local display = jnx_equities_pts_ouch_v1_11_display.sequenced_data_packet(buffer, packet, parent)
     parent = parent:add(jnx_equities_pts_ouch_v1_11.fields.sequenced_data_packet, range, display)
   end
 
-  return jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent)
+  jnx_equities_pts_ouch_v1_11_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+  return offset + size_of_sequenced_data_packet
 end
 
 -- Size: Reject Reason Code

@@ -2442,27 +2442,13 @@ nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_type = function(buffer, offs
   return offset + length, value
 end
 
--- Calculate size of: Message
-nasdaq_bx_equities_orders_ouch_v4_2_size_of.message = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bx_equities_orders_ouch_v4_2_size_of.message_type
-
-  -- Calculate runtime size of Data field
-  local data_offset = offset + index
-  local data_type = buffer(data_offset - 1, 1):string()
-  index = index + nasdaq_bx_equities_orders_ouch_v4_2_size_of.data(buffer, data_offset, data_type)
-
-  return index
-end
-
 -- Display: Message
 nasdaq_bx_equities_orders_ouch_v4_2_display.message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Message
-nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_fields = function(buffer, offset, packet, parent)
+nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String Enum with 17 values
@@ -2475,25 +2461,17 @@ nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_fields = function(buffer, of
 end
 
 -- Dissect: Message
-nasdaq_bx_equities_orders_ouch_v4_2_dissect.message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+nasdaq_bx_equities_orders_ouch_v4_2_dissect.message = function(buffer, offset, packet, parent, size_of_message)
+  -- Optionally add struct element to protocol tree
   if show.message then
-    local length = nasdaq_bx_equities_orders_ouch_v4_2_size_of.message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_message)
     local display = nasdaq_bx_equities_orders_ouch_v4_2_display.message(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_orders_ouch_v4_2.fields.message, range, display)
   end
 
-  return nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_fields(buffer, offset, packet, parent)
-end
+  nasdaq_bx_equities_orders_ouch_v4_2_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
 
--- Calculate size of: Unsequenced Data Packet
-nasdaq_bx_equities_orders_ouch_v4_2_size_of.unsequenced_data_packet = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bx_equities_orders_ouch_v4_2_size_of.message(buffer, offset + index)
-
-  return index
+  return offset + size_of_message
 end
 
 -- Display: Unsequenced Data Packet
@@ -2502,26 +2480,41 @@ nasdaq_bx_equities_orders_ouch_v4_2_display.unsequenced_data_packet = function(b
 end
 
 -- Dissect Fields: Unsequenced Data Packet
-nasdaq_bx_equities_orders_ouch_v4_2_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent)
+nasdaq_bx_equities_orders_ouch_v4_2_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Message
+  local size_of_message = packet_length - 1
+
   -- Message: Struct of 2 fields
-  index, message = nasdaq_bx_equities_orders_ouch_v4_2_dissect.message(buffer, index, packet, parent)
+  index = nasdaq_bx_equities_orders_ouch_v4_2_dissect.message(buffer, index, packet, parent, size_of_message)
 
   return index
 end
 
 -- Dissect: Unsequenced Data Packet
 nasdaq_bx_equities_orders_ouch_v4_2_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_unsequenced_data_packet = packet_length - 1
+
+  -- Optionally add struct element to protocol tree
   if show.unsequenced_data_packet then
-    local length = nasdaq_bx_equities_orders_ouch_v4_2_size_of.unsequenced_data_packet(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_unsequenced_data_packet)
     local display = nasdaq_bx_equities_orders_ouch_v4_2_display.unsequenced_data_packet(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_orders_ouch_v4_2.fields.unsequenced_data_packet, range, display)
   end
 
-  return nasdaq_bx_equities_orders_ouch_v4_2_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent)
+  nasdaq_bx_equities_orders_ouch_v4_2_dissect.unsequenced_data_packet_fields(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
+
+  return offset + size_of_unsequenced_data_packet
 end
 
 -- Size: Requested Sequence Number
@@ -2656,41 +2649,47 @@ nasdaq_bx_equities_orders_ouch_v4_2_dissect.login_request_packet = function(buff
   return nasdaq_bx_equities_orders_ouch_v4_2_dissect.login_request_packet_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Sequenced Data Packet
-nasdaq_bx_equities_orders_ouch_v4_2_size_of.sequenced_data_packet = function(buffer, offset)
-  local index = 0
-
-  index = index + nasdaq_bx_equities_orders_ouch_v4_2_size_of.message(buffer, offset + index)
-
-  return index
-end
-
 -- Display: Sequenced Data Packet
 nasdaq_bx_equities_orders_ouch_v4_2_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Sequenced Data Packet
-nasdaq_bx_equities_orders_ouch_v4_2_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent)
+nasdaq_bx_equities_orders_ouch_v4_2_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Runtime Size Of: Message
+  local size_of_message = packet_length - 1
+
   -- Message: Struct of 2 fields
-  index, message = nasdaq_bx_equities_orders_ouch_v4_2_dissect.message(buffer, index, packet, parent)
+  index = nasdaq_bx_equities_orders_ouch_v4_2_dissect.message(buffer, index, packet, parent, size_of_message)
 
   return index
 end
 
 -- Dissect: Sequenced Data Packet
 nasdaq_bx_equities_orders_ouch_v4_2_dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  local index = offset
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  -- Parse runtime struct size
+  local size_of_sequenced_data_packet = packet_length - 1
+
+  -- Optionally add struct element to protocol tree
   if show.sequenced_data_packet then
-    local length = nasdaq_bx_equities_orders_ouch_v4_2_size_of.sequenced_data_packet(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_sequenced_data_packet)
     local display = nasdaq_bx_equities_orders_ouch_v4_2_display.sequenced_data_packet(buffer, packet, parent)
     parent = parent:add(nasdaq_bx_equities_orders_ouch_v4_2.fields.sequenced_data_packet, range, display)
   end
 
-  return nasdaq_bx_equities_orders_ouch_v4_2_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent)
+  nasdaq_bx_equities_orders_ouch_v4_2_dissect.sequenced_data_packet_fields(buffer, offset, packet, parent, size_of_sequenced_data_packet)
+
+  return offset + size_of_sequenced_data_packet
 end
 
 -- Size: Reject Reason Code
