@@ -867,7 +867,7 @@ local soup_bin_tcp_packet_bytes_remaining = function(buffer, index, available)
   end
 
   -- Parse runtime size
-  local current = buffer(index, 2):uint()
+  local current = buffer(index, 2):uint() + 2
 
   -- Check if enough bytes remain
   if remaining < current then
