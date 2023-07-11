@@ -641,7 +641,1007 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.reason_code = 2
 
 -- Display: Reason Code
 nyse_amex_options_binarygateway_pillar_v3_15_display.reason_code = function(value)
-  return "Reason Code: "..value
+  if value == 0 then
+    return "Reason Code: Ok (0)"
+  end
+  if value == 27 then
+    return "Reason Code: Invalid Stop Px (27)"
+  end
+  if value == 1 then
+    return "Reason Code: Invalid Sender Comp Id (1)"
+  end
+  if value == 28 then
+    return "Reason Code: Invalid Client Id (28)"
+  end
+  if value == 2 then
+    return "Reason Code: Invalid Sender Sub Id (2)"
+  end
+  if value == 29 then
+    return "Reason Code: Invalid Min Qty (29)"
+  end
+  if value == 3 then
+    return "Reason Code: Invalid Sending Time (3)"
+  end
+  if value == 30 then
+    return "Reason Code: Invalid Max Floor (30)"
+  end
+  if value == 4 then
+    return "Reason Code: Invalid Target Comp Id (4)"
+  end
+  if value == 31 then
+    return "Reason Code: Invalid Locate Reqd (31)"
+  end
+  if value == 5 then
+    return "Reason Code: Invalid Target Sub Id (5)"
+  end
+  if value == 32 then
+    return "Reason Code: Invalid Expire Time (32)"
+  end
+  if value == 6 then
+    return "Reason Code: Invalid On Behalf Of Comp Id (6)"
+  end
+  if value == 33 then
+    return "Reason Code: Invalid Security Type (33)"
+  end
+  if value == 7 then
+    return "Reason Code: Invalid On Behalf Of Sub Id (7)"
+  end
+  if value == 34 then
+    return "Reason Code: Invalid Maturity Month Year (34)"
+  end
+  if value == 8 then
+    return "Reason Code: Invalid Deliver To Comp Id (8)"
+  end
+  if value == 35 then
+    return "Reason Code: Invalid Put Or Call (35)"
+  end
+  if value == 9 then
+    return "Reason Code: Invalid Deliver To Sub Id (9)"
+  end
+  if value == 36 then
+    return "Reason Code: Invalid Strike Price (36)"
+  end
+  if value == 10 then
+    return "Reason Code: Invalid Account (10)"
+  end
+  if value == 37 then
+    return "Reason Code: Invalid Covered Or Uncovered (37)"
+  end
+  if value == 11 then
+    return "Reason Code: Invalid Cl Ord Id (11)"
+  end
+  if value == 38 then
+    return "Reason Code: Invalid Customer Or Firm (38)"
+  end
+  if value == 12 then
+    return "Reason Code: Invalid Exec Inst (12)"
+  end
+  if value == 39 then
+    return "Reason Code: Invalid Maturity Day (39)"
+  end
+  if value == 13 then
+    return "Reason Code: Invalid Id Source (13)"
+  end
+  if value == 40 then
+    return "Reason Code: Invalid Peg Difference (40)"
+  end
+  if value == 14 then
+    return "Reason Code: Invalid Order Qty (14)"
+  end
+  if value == 41 then
+    return "Reason Code: Invalid Sellers Days (41)"
+  end
+  if value == 15 then
+    return "Reason Code: Invalid Ord Type (15)"
+  end
+  if value == 42 then
+    return "Reason Code: Invalid Trading Session Id (42)"
+  end
+  if value == 16 then
+    return "Reason Code: Invalid Price (16)"
+  end
+  if value == 43 then
+    return "Reason Code: Invalid No Trading Sessions (43)"
+  end
+  if value == 17 then
+    return "Reason Code: Invalid Order Capacity (17)"
+  end
+  if value == 44 then
+    return "Reason Code: Invalid Discretion Inst (44)"
+  end
+  if value == 18 then
+    return "Reason Code: Invalid Security Id (18)"
+  end
+  if value == 45 then
+    return "Reason Code: Invalid Discretion Offset (45)"
+  end
+  if value == 19 then
+    return "Reason Code: Invalid Side (19)"
+  end
+  if value == 46 then
+    return "Reason Code: Invalid Price Type (46)"
+  end
+  if value == 20 then
+    return "Reason Code: Invalid Symbol Series (20)"
+  end
+  if value == 47 then
+    return "Reason Code: Invalid Clearing Firm (47)"
+  end
+  if value == 21 then
+    return "Reason Code: Invalid Text (21)"
+  end
+  if value == 48 then
+    return "Reason Code: Invalid Clearing Account (48)"
+  end
+  if value == 22 then
+    return "Reason Code: Invalid Time In Force (22)"
+  end
+  if value == 49 then
+    return "Reason Code: Invalid Party Id (49)"
+  end
+  if value == 23 then
+    return "Reason Code: Invalid Settlement Type (23)"
+  end
+  if value == 50 then
+    return "Reason Code: Invalid Optional Data (50)"
+  end
+  if value == 24 then
+    return "Reason Code: Invalid Fut Sett Date (24)"
+  end
+  if value == 51 then
+    return "Reason Code: Invalid Cross Id (51)"
+  end
+  if value == 25 then
+    return "Reason Code: Invalid Symbol Sfx (25)"
+  end
+  if value == 52 then
+    return "Reason Code: Invalid Strategy Indicator (52)"
+  end
+  if value == 26 then
+    return "Reason Code: Invalid Open Close (26)"
+  end
+  if value == 53 then
+    return "Reason Code: Invalid Trade Id (53)"
+  end
+  if value == 54 then
+    return "Reason Code: Invalid No Self Trade (54)"
+  end
+  if value == 87 then
+    return "Reason Code: Invalid Stock Leg Give Up (87)"
+  end
+  if value == 55 then
+    return "Reason Code: Invalid Cap Strategy (55)"
+  end
+  if value == 88 then
+    return "Reason Code: Invalid No Legs (88)"
+  end
+  if value == 56 then
+    return "Reason Code: Invalid Special Ord Type (56)"
+  end
+  if value == 89 then
+    return "Reason Code: Invalid Leg Position Effect (89)"
+  end
+  if value == 57 then
+    return "Reason Code: Invalid Routing Inst (57)"
+  end
+  if value == 90 then
+    return "Reason Code: Invalid Leg Symbol (90)"
+  end
+  if value == 58 then
+    return "Reason Code: Invalid Offset Price (58)"
+  end
+  if value == 91 then
+    return "Reason Code: Invalid Leg Cfi Code (91)"
+  end
+  if value == 59 then
+    return "Reason Code: Invalid Extended Exec Inst (59)"
+  end
+  if value == 92 then
+    return "Reason Code: Invalid Leg Maturity Date (92)"
+  end
+  if value == 60 then
+    return "Reason Code: Invalid Introducing Badge Id (60)"
+  end
+  if value == 93 then
+    return "Reason Code: Invalid Leg Strike Price (93)"
+  end
+  if value == 61 then
+    return "Reason Code: Invalid Bill To (61)"
+  end
+  if value == 94 then
+    return "Reason Code: Invalid Leg Contract Multiplier (94)"
+  end
+  if value == 62 then
+    return "Reason Code: Invalid Parent Firm Cl Ord Id (62)"
+  end
+  if value == 95 then
+    return "Reason Code: Invalid Leg Ratio Qty (95)"
+  end
+  if value == 63 then
+    return "Reason Code: Invalid Parent Firm Exchange Ord Id (63)"
+  end
+  if value == 96 then
+    return "Reason Code: Invalid Leg Side (96)"
+  end
+  if value == 64 then
+    return "Reason Code: Invalid Parent Firm (64)"
+  end
+  if value == 97 then
+    return "Reason Code: Invalid Leg Ref Id (97)"
+  end
+  if value == 65 then
+    return "Reason Code: Invalid Interest Type (65)"
+  end
+  if value == 98 then
+    return "Reason Code: Unsupported Order Type (98)"
+  end
+  if value == 66 then
+    return "Reason Code: Invalid Display Ind (66)"
+  end
+  if value == 99 then
+    return "Reason Code: Urout (99)"
+  end
+  if value == 67 then
+    return "Reason Code: Invalid Peg Ind (67)"
+  end
+  if value == 100 then
+    return "Reason Code: Primary Market Not Available (100)"
+  end
+  if value == 68 then
+    return "Reason Code: Invalid Ceiling Floor Price (68)"
+  end
+  if value == 101 then
+    return "Reason Code: No Nbbopbbo For Peg (101)"
+  end
+  if value == 69 then
+    return "Reason Code: Invalid Min Peg Qty (69)"
+  end
+  if value == 102 then
+    return "Reason Code: No Market For Market Order (102)"
+  end
+  if value == 70 then
+    return "Reason Code: Invalid D Order Auction Price (70)"
+  end
+  if value == 103 then
+    return "Reason Code: Marketable Price (103)"
+  end
+  if value == 71 then
+    return "Reason Code: Invalid Disc Max Vol (71)"
+  end
+  if value == 104 then
+    return "Reason Code: Done For Day (104)"
+  end
+  if value == 72 then
+    return "Reason Code: Invalid Dics Route Ind (72)"
+  end
+  if value == 105 then
+    return "Reason Code: Credit Limit Violation (105)"
+  end
+  if value == 73 then
+    return "Reason Code: Invalid Minimum Trigger Vol Mtv (73)"
+  end
+  if value == 106 then
+    return "Reason Code: Cancel Remaining Ioc (106)"
+  end
+  if value == 74 then
+    return "Reason Code: Invalid Attributed Quote (74)"
+  end
+  if value == 107 then
+    return "Reason Code: Too Late To Cancel (107)"
+  end
+  if value == 75 then
+    return "Reason Code: Invalid Proactive If Locked (75)"
+  end
+  if value == 108 then
+    return "Reason Code: Invalid Poss Resend (108)"
+  end
+  if value == 76 then
+    return "Reason Code: System Not Available (76)"
+  end
+  if value == 109 then
+    return "Reason Code: Cancel Pending (109)"
+  end
+  if value == 77 then
+    return "Reason Code: System Full Mengrateexceeded (77)"
+  end
+  if value == 110 then
+    return "Reason Code: Symbol Series Already Opened (110)"
+  end
+  if value == 78 then
+    return "Reason Code: Throttle Reject (78)"
+  end
+  if value == 111 then
+    return "Reason Code: Firm Bulk Cancel (111)"
+  end
+  if value == 79 then
+    return "Reason Code: Symbol Series Halted (79)"
+  end
+  if value == 112 then
+    return "Reason Code: On Behalf Of Comp Id Blocked (112)"
+  end
+  if value == 80 then
+    return "Reason Code: No Symbolseries Permission (80)"
+  end
+  if value == 113 then
+    return "Reason Code: Clearing Firm Blocked (113)"
+  end
+  if value == 81 then
+    return "Reason Code: Price Too Far Outside (81)"
+  end
+  if value == 114 then
+    return "Reason Code: Cancel Replace Pending (114)"
+  end
+  if value == 82 then
+    return "Reason Code: Mwcb Halt (82)"
+  end
+  if value == 115 then
+    return "Reason Code: Modify Pending (115)"
+  end
+  if value == 83 then
+    return "Reason Code: Market Closed (83)"
+  end
+  if value == 116 then
+    return "Reason Code: Cannot Flip Imbalance (116)"
+  end
+  if value == 84 then
+    return "Reason Code: Symbol Series Closed (84)"
+  end
+  if value == 117 then
+    return "Reason Code: Cannot Increase Imbalance (117)"
+  end
+  if value == 85 then
+    return "Reason Code: Luld Cancel Instruction (85)"
+  end
+  if value == 118 then
+    return "Reason Code: Pending Cancel Imbalance Freeze (118)"
+  end
+  if value == 86 then
+    return "Reason Code: No Price Slide Inst During Ssr (86)"
+  end
+  if value == 119 then
+    return "Reason Code: Pending Replace Imbalance Freeze (119)"
+  end
+  if value == 120 then
+    return "Reason Code: Pending Modify Imbalance Freeze (120)"
+  end
+  if value == 152 then
+    return "Reason Code: Ssh Price Below Nbb On Iso (152)"
+  end
+  if value == 121 then
+    return "Reason Code: Pending Cancel Routed Interest (121)"
+  end
+  if value == 153 then
+    return "Reason Code: Ioc Received While Auction Running (153)"
+  end
+  if value == 122 then
+    return "Reason Code: Pending Replace Routed Interest (122)"
+  end
+  if value == 154 then
+    return "Reason Code: Pending Session Transition (154)"
+  end
+  if value == 123 then
+    return "Reason Code: Pending Modify Routed Interest (123)"
+  end
+  if value == 155 then
+    return "Reason Code: Pend Cancel Session Transition (155)"
+  end
+  if value == 124 then
+    return "Reason Code: Pending Auction Running (124)"
+  end
+  if value == 156 then
+    return "Reason Code: Pend Modify Session Transition (156)"
+  end
+  if value == 125 then
+    return "Reason Code: Duplicative Order Check (125)"
+  end
+  if value == 157 then
+    return "Reason Code: Pend Replace Session Transition (157)"
+  end
+  if value == 126 then
+    return "Reason Code: Cancelled By Exchange (126)"
+  end
+  if value == 158 then
+    return "Reason Code: Invalid For Tick Pilot (158)"
+  end
+  if value == 127 then
+    return "Reason Code: New Order (127)"
+  end
+  if value == 159 then
+    return "Reason Code: Invalid Mmid (159)"
+  end
+  if value == 128 then
+    return "Reason Code: Fill (128)"
+  end
+  if value == 160 then
+    return "Reason Code: Invalid Mpid (160)"
+  end
+  if value == 129 then
+    return "Reason Code: Partial Fill (129)"
+  end
+  if value == 161 then
+    return "Reason Code: Invalid Cancel Instead Of Reprice (161)"
+  end
+  if value == 130 then
+    return "Reason Code: Reduced (130)"
+  end
+  if value == 162 then
+    return "Reason Code: Invalid Retail Indicator (162)"
+  end
+  if value == 131 then
+    return "Reason Code: Replaced (131)"
+  end
+  if value == 163 then
+    return "Reason Code: Sender Comp Id Not Active (163)"
+  end
+  if value == 132 then
+    return "Reason Code: No Market For Cross (132)"
+  end
+  if value == 164 then
+    return "Reason Code: Mpid Blocked (164)"
+  end
+  if value == 133 then
+    return "Reason Code: Stp Cancel (133)"
+  end
+  if value == 165 then
+    return "Reason Code: Invalid Timestamp (165)"
+  end
+  if value == 134 then
+    return "Reason Code: Invalid Poss Dupe (134)"
+  end
+  if value == 166 then
+    return "Reason Code: Invalid Permission For Sender Comp Id (166)"
+  end
+  if value == 135 then
+    return "Reason Code: Tpid Blocked (135)"
+  end
+  if value == 167 then
+    return "Reason Code: Invalid User Data (167)"
+  end
+  if value == 136 then
+    return "Reason Code: Invalid Bulk Cancel (136)"
+  end
+  if value == 168 then
+    return "Reason Code: Pillar Risk Mitigation (168)"
+  end
+  if value == 137 then
+    return "Reason Code: Pending Bulk Cancel (137)"
+  end
+  if value == 169 then
+    return "Reason Code: No Last Sale For Peg (169)"
+  end
+  if value == 138 then
+    return "Reason Code: Symbol Series Not Open (138)"
+  end
+  if value == 170 then
+    return "Reason Code: Symbol Pending Closing Auction (170)"
+  end
+  if value == 139 then
+    return "Reason Code: Symbol Series Suspended (139)"
+  end
+  if value == 171 then
+    return "Reason Code: Extreme Closing Order Imbalance (171)"
+  end
+  if value == 140 then
+    return "Reason Code: Symbol Ipo Halt (140)"
+  end
+  if value == 172 then
+    return "Reason Code: Invalid Multi Message (172)"
+  end
+  if value == 141 then
+    return "Reason Code: Invld Inst During Imbalance Freeze (141)"
+  end
+  if value == 173 then
+    return "Reason Code: Invalid Request Targeting Manual Sender Comp Id (173)"
+  end
+  if value == 142 then
+    return "Reason Code: Invld Inst After Cutoff Time (142)"
+  end
+  if value == 174 then
+    return "Reason Code: Invalid Dmm Reject Reason (174)"
+  end
+  if value == 143 then
+    return "Reason Code: Cancelled By Primary Market (143)"
+  end
+  if value == 175 then
+    return "Reason Code: Pending Pending Auction State (175)"
+  end
+  if value == 144 then
+    return "Reason Code: Pending Imbalance Freeze (144)"
+  end
+  if value == 176 then
+    return "Reason Code: Pending Cancel Pending Auction State (176)"
+  end
+  if value == 145 then
+    return "Reason Code: No Rlp Permission (145)"
+  end
+  if value == 177 then
+    return "Reason Code: Pending Modify Pending Auction State (177)"
+  end
+  if value == 146 then
+    return "Reason Code: Invalid Instruction For Io Cs (146)"
+  end
+  if value == 178 then
+    return "Reason Code: Pending Replace Pending Auction State (178)"
+  end
+  if value == 147 then
+    return "Reason Code: System Full Cgrateexceeded (147)"
+  end
+  if value == 179 then
+    return "Reason Code: Cancelled Dmm Manual Order Reprice (179)"
+  end
+  if value == 148 then
+    return "Reason Code: Pending Cancel Auction Running (148)"
+  end
+  if value == 180 then
+    return "Reason Code: Too Early To Open (180)"
+  end
+  if value == 149 then
+    return "Reason Code: Pending Modify Auction Running (149)"
+  end
+  if value == 181 then
+    return "Reason Code: Too Early To Close (181)"
+  end
+  if value == 150 then
+    return "Reason Code: Pending Replace Auction Running (150)"
+  end
+  if value == 182 then
+    return "Reason Code: Symbol Not Frozen By Auction Request (182)"
+  end
+  if value == 151 then
+    return "Reason Code: Invld Inst For Pending Order (151)"
+  end
+  if value == 183 then
+    return "Reason Code: Symbol Is Frozen By Dbk Gui (183)"
+  end
+  if value == 184 then
+    return "Reason Code: Too Late Auction Running (184)"
+  end
+  if value == 218 then
+    return "Reason Code: Dmm Gui Reduction In Manual Order Qty (218)"
+  end
+  if value == 185 then
+    return "Reason Code: Too Late Symbol Transition (185)"
+  end
+  if value == 219 then
+    return "Reason Code: Cross Eligible (219)"
+  end
+  if value == 186 then
+    return "Reason Code: No Eligible Crossing Interest (186)"
+  end
+  if value == 220 then
+    return "Reason Code: Dry Run (220)"
+  end
+  if value == 187 then
+    return "Reason Code: Book Is Lockedcrossed (187)"
+  end
+  if value == 221 then
+    return "Reason Code: Unsupported By Broker Plex (221)"
+  end
+  if value == 188 then
+    return "Reason Code: No Interest Exists (188)"
+  end
+  if value == 222 then
+    return "Reason Code: Cross Blocked By Bbopbbo (222)"
+  end
+  if value == 189 then
+    return "Reason Code: Imbalance Too Large (189)"
+  end
+  if value == 223 then
+    return "Reason Code: Risk Single Ord Max Qty (223)"
+  end
+  if value == 190 then
+    return "Reason Code: Ssh Price Below Ssr Filing Price (190)"
+  end
+  if value == 224 then
+    return "Reason Code: Risk Single Ord Max Notional (224)"
+  end
+  if value == 191 then
+    return "Reason Code: Symbol Already Closed (191)"
+  end
+  if value == 225 then
+    return "Reason Code: Risk Gross Credit Breach (225)"
+  end
+  if value == 192 then
+    return "Reason Code: Opening Template Opened (192)"
+  end
+  if value == 226 then
+    return "Reason Code: Risk Kill Switch (226)"
+  end
+  if value == 193 then
+    return "Reason Code: Closing Template Opened (193)"
+  end
+  if value == 227 then
+    return "Reason Code: Invalid Route To Broker (227)"
+  end
+  if value == 194 then
+    return "Reason Code: Prin Entered On Auction Template (194)"
+  end
+  if value == 228 then
+    return "Reason Code: Spread Too Wide (228)"
+  end
+  if value == 195 then
+    return "Reason Code: Mandatory Indication Submitted (195)"
+  end
+  if value == 229 then
+    return "Reason Code: Expire Fok (229)"
+  end
+  if value == 196 then
+    return "Reason Code: Pending Crowd Exists (196)"
+  end
+  if value == 230 then
+    return "Reason Code: Locks Displayed Interest (230)"
+  end
+  if value == 197 then
+    return "Reason Code: No Consolidated Last Sale (197)"
+  end
+  if value == 231 then
+    return "Reason Code: Mm Quote Price Lockcross Contra Side Nbbo (231)"
+  end
+  if value == 198 then
+    return "Reason Code: Paired Qty Exceeds Max Trade Parameter (198)"
+  end
+  if value == 232 then
+    return "Reason Code: Invalid Leg Symbol (232)"
+  end
+  if value == 199 then
+    return "Reason Code: Luld Or Mwcb Timer Running (199)"
+  end
+  if value == 233 then
+    return "Reason Code: Duplicate Leg Symbol (233)"
+  end
+  if value == 200 then
+    return "Reason Code: Locking Crossing Away Quote (200)"
+  end
+  if value == 234 then
+    return "Reason Code: Symbol Not In Underlying (234)"
+  end
+  if value == 201 then
+    return "Reason Code: Cross Not Eligible (201)"
+  end
+  if value == 235 then
+    return "Reason Code: Leg Ratios Not In The Most Reduced Form (235)"
+  end
+  if value == 202 then
+    return "Reason Code: Reserved For Future Use (202)"
+  end
+  if value == 236 then
+    return "Reason Code: Option Leg Ratio Too High (236)"
+  end
+  if value == 203 then
+    return "Reason Code: Pending Acceptance For Ack On Order Arrival (203)"
+  end
+  if value == 237 then
+    return "Reason Code: Stock Leg Ratio Too Low (237)"
+  end
+  if value == 204 then
+    return "Reason Code: Rejected Cancel By Dmm (204)"
+  end
+  if value == 238 then
+    return "Reason Code: Complex Series Already Exists (238)"
+  end
+  if value == 205 then
+    return "Reason Code: Cancelled By Dmm (205)"
+  end
+  if value == 239 then
+    return "Reason Code: Number Of Legs Incorrect (239)"
+  end
+  if value == 206 then
+    return "Reason Code: Price Is Outside Allowable Range (206)"
+  end
+  if value == 240 then
+    return "Reason Code: Cancel Does Not Set Nbbo Inst (240)"
+  end
+  if value == 207 then
+    return "Reason Code: Auction Validation In Progress (207)"
+  end
+  if value == 241 then
+    return "Reason Code: Cancel Avoid Reprice Inst (241)"
+  end
+  if value == 208 then
+    return "Reason Code: Invalid Manual Action Id (208)"
+  end
+  if value == 242 then
+    return "Reason Code: Allow Reprice Once Then Cancel Inst (242)"
+  end
+  if value == 209 then
+    return "Reason Code: Invalid Auction Sell Indicator (209)"
+  end
+  if value == 243 then
+    return "Reason Code: Invalid Allocation Pct (243)"
+  end
+  if value == 210 then
+    return "Reason Code: Invalid Intraday Sell Short Qty (210)"
+  end
+  if value == 244 then
+    return "Reason Code: Invalid Mm Quote Type (244)"
+  end
+  if value == 211 then
+    return "Reason Code: Indication Template Is Open (211)"
+  end
+  if value == 245 then
+    return "Reason Code: Invalid Mm Sent Time (245)"
+  end
+  if value == 212 then
+    return "Reason Code: No Prev Closing Price (212)"
+  end
+  if value == 246 then
+    return "Reason Code: Series Expired (246)"
+  end
+  if value == 213 then
+    return "Reason Code: Cancelled Due To Trading Collars (213)"
+  end
+  if value == 247 then
+    return "Reason Code: Invalid Give Up Mmid (247)"
+  end
+  if value == 214 then
+    return "Reason Code: Underlying Is In Luld State (214)"
+  end
+  if value == 248 then
+    return "Reason Code: Invalid No Sides (248)"
+  end
+  if value == 215 then
+    return "Reason Code: Invalid Manual Response Type (215)"
+  end
+  if value == 249 then
+    return "Reason Code: Pending To Acceptance (249)"
+  end
+  if value == 216 then
+    return "Reason Code: No Nyse Last Sale (216)"
+  end
+  if value == 250 then
+    return "Reason Code: Dmm Api Request Rejected (250)"
+  end
+  if value == 217 then
+    return "Reason Code: Symbol Direct Listing State (217)"
+  end
+  if value == 251 then
+    return "Reason Code: Invalid Bulk Action (251)"
+  end
+  if value == 252 then
+    return "Reason Code: Invalid Cancel Scope (252)"
+  end
+  if value == 284 then
+    return "Reason Code: Risk Roll Transact Breach (284)"
+  end
+  if value == 253 then
+    return "Reason Code: No Legal Width Spread (253)"
+  end
+  if value == 285 then
+    return "Reason Code: Risk Roll Vol Breach (285)"
+  end
+  if value == 254 then
+    return "Reason Code: Invalid Target Cancel Mpid (254)"
+  end
+  if value == 286 then
+    return "Reason Code: Risk Roll Pct Breach (286)"
+  end
+  if value == 255 then
+    return "Reason Code: Invalid Target Cancel Sender Comp Id (255)"
+  end
+  if value == 287 then
+    return "Reason Code: Risk Roll Grmp Breach (287)"
+  end
+  if value == 256 then
+    return "Reason Code: Clear The Book Prev Entered (256)"
+  end
+  if value == 288 then
+    return "Reason Code: Risk Mm Arbitrage Breach (288)"
+  end
+  if value == 257 then
+    return "Reason Code: Timer Expired Api Allocation (257)"
+  end
+  if value == 289 then
+    return "Reason Code: Risk Mm Intrinsic Breach (289)"
+  end
+  if value == 258 then
+    return "Reason Code: Invalid Number Of Quotes (258)"
+  end
+  if value == 290 then
+    return "Reason Code: Ido Must Exist (290)"
+  end
+  if value == 259 then
+    return "Reason Code: Invalid Order Id (259)"
+  end
+  if value == 291 then
+    return "Reason Code: Invalid Allocation Tag Insert Invalid Tag Number (291)"
+  end
+  if value == 260 then
+    return "Reason Code: Risk Control Event (260)"
+  end
+  if value == 292 then
+    return "Reason Code: Invalid Trade Tag Insert Invalid Tag Number (292)"
+  end
+  if value == 261 then
+    return "Reason Code: To Rejected (261)"
+  end
+  if value == 293 then
+    return "Reason Code: Arbitrage Check (293)"
+  end
+  if value == 262 then
+    return "Reason Code: Cancelled Corporate Action (262)"
+  end
+  if value == 294 then
+    return "Reason Code: Intrinsic Value Check (294)"
+  end
+  if value == 263 then
+    return "Reason Code: Too Late To Replace (263)"
+  end
+  if value == 295 then
+    return "Reason Code: Credit Debit Check (295)"
+  end
+  if value == 264 then
+    return "Reason Code: Invalid Ref Delta (264)"
+  end
+  if value == 296 then
+    return "Reason Code: Invalid Risk User (296)"
+  end
+  if value == 265 then
+    return "Reason Code: Invalid Stock Price (265)"
+  end
+  if value == 297 then
+    return "Reason Code: Invalid Risk Entity (297)"
+  end
+  if value == 266 then
+    return "Reason Code: Reserved For Future Use (266)"
+  end
+  if value == 298 then
+    return "Reason Code: Invalid Flex Series Already Exists (298)"
+  end
+  if value == 267 then
+    return "Reason Code: Invalid Tied To Stock (267)"
+  end
+  if value == 299 then
+    return "Reason Code: Invalid Flex Series Key (299)"
+  end
+  if value == 268 then
+    return "Reason Code: Too Late To Allocate (268)"
+  end
+  if value == 300 then
+    return "Reason Code: Invalid Clear The Book (300)"
+  end
+  if value == 269 then
+    return "Reason Code: Customer Interest On Bbo (269)"
+  end
+  if value == 301 then
+    return "Reason Code: Invalid Stock Qty (301)"
+  end
+  if value == 270 then
+    return "Reason Code: Ido Cannot Be Modified (270)"
+  end
+  if value == 302 then
+    return "Reason Code: Invalid Package Link Id (302)"
+  end
+  if value == 271 then
+    return "Reason Code: Cross Outside Bbo (271)"
+  end
+  if value == 303 then
+    return "Reason Code: Complex Max Series Breach (303)"
+  end
+  if value == 272 then
+    return "Reason Code: Pending To Approval (272)"
+  end
+  if value == 304 then
+    return "Reason Code: Invalid Flex Eod Tag Insert Invalid Tag Number (304)"
+  end
+  if value == 273 then
+    return "Reason Code: Invalid Leg Open Close (273)"
+  end
+  if value == 305 then
+    return "Reason Code: Invalid Percentage Price (305)"
+  end
+  if value == 274 then
+    return "Reason Code: Invalid Risk Control Type (274)"
+  end
+  if value == 306 then
+    return "Reason Code: Invalid Percentage Strike (306)"
+  end
+  if value == 275 then
+    return "Reason Code: Invalid Risk Control Activation (275)"
+  end
+  if value == 307 then
+    return "Reason Code: Cancel Remaining Gtx (307)"
+  end
+  if value == 276 then
+    return "Reason Code: Invalid Breach Action Request (276)"
+  end
+  if value == 308 then
+    return "Reason Code: Auction Not Running (308)"
+  end
+  if value == 277 then
+    return "Reason Code: Invalid Ioc Attribution (277)"
+  end
+  if value == 309 then
+    return "Reason Code: Invalid Ord Status (309)"
+  end
+  if value == 278 then
+    return "Reason Code: Invalid Risk Action Type (278)"
+  end
+  if value == 310 then
+    return "Reason Code: Mmid Blocked (310)"
+  end
+  if value == 279 then
+    return "Reason Code: Invalid Usd Limit (279)"
+  end
+  if value == 311 then
+    return "Reason Code: Invalid Catimid (311)"
+  end
+  if value == 280 then
+    return "Reason Code: Ido Already Exists (280)"
+  end
+  if value == 312 then
+    return "Reason Code: Risk Rej Iso (312)"
+  end
+  if value == 281 then
+    return "Reason Code: Invalid Time Limit (281)"
+  end
+  if value == 313 then
+    return "Reason Code: Risk Rej Mkt Orders (313)"
+  end
+  if value == 282 then
+    return "Reason Code: Invalid Percentage Limit (282)"
+  end
+  if value == 314 then
+    return "Reason Code: Risk Rej Early Trading (314)"
+  end
+  if value == 283 then
+    return "Reason Code: Invalid Count Limit (283)"
+  end
+  if value == 315 then
+    return "Reason Code: Risk Rej Early Trading (315)"
+  end
+  if value == 316 then
+    return "Reason Code: Risk Rej Late Trading (316)"
+  end
+  if value == 317 then
+    return "Reason Code: Risk Rej Restricted Symbol (317)"
+  end
+  if value == 318 then
+    return "Reason Code: Risk Rej Sell Short For Symbol (318)"
+  end
+  if value == 319 then
+    return "Reason Code: Risk Rej Sell Short Exempt For Symbol (319)"
+  end
+  if value == 320 then
+    return "Reason Code: Risk Rej Ord Max Qty Symbol Adv (320)"
+  end
+  if value == 321 then
+    return "Reason Code: Risk Max Duplicative Ord (321)"
+  end
+  if value == 322 then
+    return "Reason Code: Risk Require Locate Broker (322)"
+  end
+  if value == 323 then
+    return "Reason Code: Invalid Risk Range Id (323)"
+  end
+  if value == 324 then
+    return "Reason Code: Invalid Risk Minimum Value (324)"
+  end
+  if value == 325 then
+    return "Reason Code: Invalid Price Scale (325)"
+  end
+  if value == 326 then
+    return "Reason Code: Invalid Max Risk Symbols Exceeded (326)"
+  end
+  if value == 327 then
+    return "Reason Code: Invalid Risk Settings Incomplete (327)"
+  end
+  if value == 328 then
+    return "Reason Code: Invalid Auction Id (328)"
+  end
+  if value == 400 then
+    return "Reason Code: Repriced (400)"
+  end
+  if value == 800 then
+    return "Reason Code: Broker Reject (800)"
+  end
+  if value == 906 then
+    return "Reason Code: System Full Cgarateexceeded (906)"
+  end
+  if value == 999 then
+    return "Reason Code: Unknown Issue Encountered (999)"
+  end
+
+  return "Reason Code: Unknown("..value..")"
 end
 
 -- Dissect: Reason Code
@@ -904,7 +1904,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.complex_series_request_ackn
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_15_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- Symbol Id: 4 Byte Unsigned Fixed Width Integer
@@ -2225,7 +3225,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.application_layer_reject_fi
   -- Cl Ord Id: 8 Byte Unsigned Fixed Width Integer
   index, cl_ord_id = nyse_amex_options_binarygateway_pillar_v3_15_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- Reject Type: 1 Byte Unsigned Fixed Width Integer Enum with 11 values
@@ -2582,7 +3582,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.trade_bust_or_correct_field
   -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = nyse_amex_options_binarygateway_pillar_v3_15_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- User Data: 10 Byte Ascii String
@@ -3619,7 +4619,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.execution_report_fields = f
   -- Participant Type: 1 Byte Unsigned Fixed Width Integer Enum with 6 values
   index, participant_type = nyse_amex_options_binarygateway_pillar_v3_15_dissect.participant_type(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- User Data: 10 Byte Ascii String
@@ -4264,7 +5264,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.order_request_acknowledgmen
   -- Locate Reqd: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, locate_reqd = nyse_amex_options_binarygateway_pillar_v3_15_dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
@@ -4395,7 +5395,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.quote_ack_fields = function
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = nyse_amex_options_binarygateway_pillar_v3_15_dissect.quantity(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- Working Away From Display: 1 Byte Unsigned Fixed Width Integer
@@ -4792,7 +5792,7 @@ nyse_amex_options_binarygateway_pillar_v3_15_dissect.order_acknowledgement_field
   -- Pre Liquidity Indicator: 4 Byte Ascii String Enum with 4 values
   index, pre_liquidity_indicator = nyse_amex_options_binarygateway_pillar_v3_15_dissect.pre_liquidity_indicator(buffer, index, packet, parent)
 
-  -- Reason Code: 2 Byte Unsigned Fixed Width Integer
+  -- Reason Code: 2 Byte Unsigned Fixed Width Integer Enum with 333 values
   index, reason_code = nyse_amex_options_binarygateway_pillar_v3_15_dissect.reason_code(buffer, index, packet, parent)
 
   -- Ack Type: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
