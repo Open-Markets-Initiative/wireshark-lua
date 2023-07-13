@@ -6,7 +6,7 @@
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1826 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v1.6.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.6.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2676 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2697 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
 
 
 Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
@@ -25,8 +25,8 @@ Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Itch.v1.6.Script.Dissector.lua "Jnx Equities Pts Itch v1.6 Wireshark Dissector"
-[Jnx.Equities.Pts.Itch.v1.6.Url]: https://roadmap.japannext.co.jp/en "Japannext 1.6 Url"
+[Jnx.Equities.Pts.Itch.v1.6.Url]: https://www.japannext.co.jp/library "Japannext 1.6 Url"
 [Jnx.Equities.Pts.Itch.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Jnx/Jnx.Equties.Pts.Itch.v1.6.pdf "Japannext 1.6 Pdf"
 [Jnx.Equities.Pts.Ouch.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Ouch.v1.11.Script.Dissector.lua "Jnx Equities Pts Ouch v1.11 Wireshark Dissector"
-[Jnx.Equities.Pts.Ouch.v1.11.Url]: https://roadmap.japannext.co.jp/en "Japannext 1.11 Url"
+[Jnx.Equities.Pts.Ouch.v1.11.Url]: https://www.japannext.co.jp/library "Japannext 1.11 Url"
 [Jnx.Equities.Pts.Ouch.v1.11.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Jnx/Jnx.Equties.Pts.Ouch.v1.11.pdf "Japannext 1.11 Pdf"
