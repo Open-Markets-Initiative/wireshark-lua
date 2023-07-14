@@ -20,13 +20,10 @@ local verify = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Common SoupBinTcp Ouch 3.0 Fields
-nasdaq_common_soupbintcp_ouch_v3_0.fields.data = ProtoField.new("Data", "nasdaq.common.soupbintcp.ouch.v3.0.data", ftypes.BYTES)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.debug_packet = ProtoField.new("Debug Packet", "nasdaq.common.soupbintcp.ouch.v3.0.debugpacket", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.login_accepted_packet = ProtoField.new("Login Accepted Packet", "nasdaq.common.soupbintcp.ouch.v3.0.loginacceptedpacket", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.login_rejected_packet = ProtoField.new("Login Rejected Packet", "nasdaq.common.soupbintcp.ouch.v3.0.loginrejectedpacket", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.login_request_packet = ProtoField.new("Login Request Packet", "nasdaq.common.soupbintcp.ouch.v3.0.loginrequestpacket", ftypes.STRING)
-nasdaq_common_soupbintcp_ouch_v3_0.fields.message = ProtoField.new("Message", "nasdaq.common.soupbintcp.ouch.v3.0.message", ftypes.STRING)
-nasdaq_common_soupbintcp_ouch_v3_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.common.soupbintcp.ouch.v3.0.messagetype", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.common.soupbintcp.ouch.v3.0.packet", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.common.soupbintcp.ouch.v3.0.packetheader", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.packet_length = ProtoField.new("Packet Length", "nasdaq.common.soupbintcp.ouch.v3.0.packetlength", ftypes.UINT16)
@@ -38,10 +35,13 @@ nasdaq_common_soupbintcp_ouch_v3_0.fields.requested_sequence_number = ProtoField
 nasdaq_common_soupbintcp_ouch_v3_0.fields.requested_session = ProtoField.new("Requested Session", "nasdaq.common.soupbintcp.ouch.v3.0.requestedsession", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.sequence_number = ProtoField.new("Sequence Number", "nasdaq.common.soupbintcp.ouch.v3.0.sequencenumber", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_data_packet = ProtoField.new("Sequenced Data Packet", "nasdaq.common.soupbintcp.ouch.v3.0.sequenceddatapacket", ftypes.STRING)
+nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_message_type = ProtoField.new("Sequenced Message Type", "nasdaq.common.soupbintcp.ouch.v3.0.sequencedmessagetype", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.session = ProtoField.new("Session", "nasdaq.common.soupbintcp.ouch.v3.0.session", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup Bin Tcp Packet", "nasdaq.common.soupbintcp.ouch.v3.0.soupbintcppacket", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.text = ProtoField.new("Text", "nasdaq.common.soupbintcp.ouch.v3.0.text", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "nasdaq.common.soupbintcp.ouch.v3.0.unsequenceddatapacket", ftypes.STRING)
+nasdaq_common_soupbintcp_ouch_v3_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "nasdaq.common.soupbintcp.ouch.v3.0.unsequencedmessage", ftypes.BYTES)
+nasdaq_common_soupbintcp_ouch_v3_0.fields.unsequenced_message_type = ProtoField.new("Unsequenced Message Type", "nasdaq.common.soupbintcp.ouch.v3.0.unsequencedmessagetype", ftypes.STRING)
 nasdaq_common_soupbintcp_ouch_v3_0.fields.username = ProtoField.new("Username", "nasdaq.common.soupbintcp.ouch.v3.0.username", ftypes.STRING)
 
 -----------------------------------------------------------------------
@@ -53,7 +53,6 @@ show.debug_packet = true
 show.login_accepted_packet = true
 show.login_rejected_packet = true
 show.login_request_packet = true
-show.message = true
 show.packet = true
 show.packet_header = true
 show.sequenced_data_packet = true
@@ -66,7 +65,6 @@ nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_debug_packet = Pref.bool("Show Deb
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_login_accepted_packet = Pref.bool("Show Login Accepted Packet", show.login_accepted_packet, "Parse and add Login Accepted Packet to protocol tree")
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_login_rejected_packet = Pref.bool("Show Login Rejected Packet", show.login_rejected_packet, "Parse and add Login Rejected Packet to protocol tree")
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_login_request_packet = Pref.bool("Show Login Request Packet", show.login_request_packet, "Parse and add Login Request Packet to protocol tree")
-nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
 nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_sequenced_data_packet = Pref.bool("Show Sequenced Data Packet", show.sequenced_data_packet, "Parse and add Sequenced Data Packet to protocol tree")
@@ -93,10 +91,6 @@ function nasdaq_common_soupbintcp_ouch_v3_0.prefs_changed()
   end
   if show.login_request_packet ~= nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_login_request_packet then
     show.login_request_packet = nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_login_request_packet
-    changed = true
-  end
-  if show.message ~= nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_message then
-    show.message = nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_message
     changed = true
   end
   if show.packet ~= nasdaq_common_soupbintcp_ouch_v3_0.prefs.show_packet then
@@ -135,78 +129,40 @@ end
 -- Dissect Nasdaq Common SoupBinTcp Ouch 3.0
 -----------------------------------------------------------------------
 
--- Display: Data
-nasdaq_common_soupbintcp_ouch_v3_0_display.data = function(value)
-  return "Data: "..value
+-- Display: Unsequenced Message
+nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_message = function(value)
+  return "Unsequenced Message: "..value
 end
 
--- Dissect runtime sized field: Data
-nasdaq_common_soupbintcp_ouch_v3_0_dissect.data = function(buffer, offset, packet, parent, size)
+-- Dissect runtime sized field: Unsequenced Message
+nasdaq_common_soupbintcp_ouch_v3_0_dissect.unsequenced_message = function(buffer, offset, packet, parent, size)
   local range = buffer(offset, size)
   local value = range:bytes():tohex(false, " ")
-  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.data(value, buffer, offset, packet, parent, size)
+  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_message(value, buffer, offset, packet, parent, size)
 
-  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.data, range, value, display)
+  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.unsequenced_message, range, value, display)
 
   return offset + size
 end
 
--- Size: Message Type
-nasdaq_common_soupbintcp_ouch_v3_0_size_of.message_type = 1
+-- Size: Unsequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_size_of.unsequenced_message_type = 1
 
--- Display: Message Type
-nasdaq_common_soupbintcp_ouch_v3_0_display.message_type = function(value)
-  return "Message Type: "..value
+-- Display: Unsequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_message_type = function(value)
+  return "Unsequenced Message Type: "..value
 end
 
--- Dissect: Message Type
-nasdaq_common_soupbintcp_ouch_v3_0_dissect.message_type = function(buffer, offset, packet, parent)
-  local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.message_type
+-- Dissect: Unsequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_dissect.unsequenced_message_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.unsequenced_message_type
   local range = buffer(offset, length)
   local value = range:string()
-  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.message_type(value, buffer, offset, packet, parent)
+  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.unsequenced_message_type(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.message_type, range, value, display)
+  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.unsequenced_message_type, range, value, display)
 
   return offset + length, value
-end
-
--- Display: Message
-nasdaq_common_soupbintcp_ouch_v3_0_display.message = function(buffer, offset, size, packet, parent)
-  return ""
-end
-
--- Dissect Fields: Message
-nasdaq_common_soupbintcp_ouch_v3_0_dissect.message_fields = function(buffer, offset, packet, parent, size_of_message)
-  local index = offset
-
-  -- Message Type: 1 Byte Ascii String
-  index, message_type = nasdaq_common_soupbintcp_ouch_v3_0_dissect.message_type(buffer, index, packet, parent)
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Runtime Size Of: Data
-  local size_of_data = packet_length - 2
-
-  -- Data: 0 Byte
-  index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.data(buffer, index, packet, parent, size_of_data)
-
-  return index
-end
-
--- Dissect: Message
-nasdaq_common_soupbintcp_ouch_v3_0_dissect.message = function(buffer, offset, packet, parent, size_of_message)
-  -- Optionally add struct element to protocol tree
-  if show.message then
-    local range = buffer(offset, size_of_message)
-    local display = nasdaq_common_soupbintcp_ouch_v3_0_display.message(buffer, packet, parent)
-    parent = parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.message, range, display)
-  end
-
-  nasdaq_common_soupbintcp_ouch_v3_0_dissect.message_fields(buffer, offset, packet, parent, size_of_message)
-
-  return offset + size_of_message
 end
 
 -- Display: Unsequenced Data Packet
@@ -218,14 +174,17 @@ end
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.unsequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_unsequenced_data_packet)
   local index = offset
 
+  -- Unsequenced Message Type: 1 Byte Ascii String
+  index, unsequenced_message_type = nasdaq_common_soupbintcp_ouch_v3_0_dissect.unsequenced_message_type(buffer, index, packet, parent)
+
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()
 
-  -- Runtime Size Of: Message
-  local size_of_message = packet_length - 1
+  -- Runtime Size Of: Unsequenced Message
+  local size_of_unsequenced_message = packet_length - 2
 
-  -- Message: Struct of 2 fields
-  index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.message(buffer, index, packet, parent, size_of_message)
+  -- Unsequenced Message: 0 Byte
+  index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.unsequenced_message(buffer, index, packet, parent, size_of_unsequenced_message)
 
   return index
 end
@@ -384,6 +343,26 @@ nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet = function(buffe
   return nasdaq_common_soupbintcp_ouch_v3_0_dissect.login_request_packet_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Sequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_size_of.sequenced_message_type = 1
+
+-- Display: Sequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_message_type = function(value)
+  return "Sequenced Message Type: "..value
+end
+
+-- Dissect: Sequenced Message Type
+nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_message_type = function(buffer, offset, packet, parent)
+  local length = nasdaq_common_soupbintcp_ouch_v3_0_size_of.sequenced_message_type
+  local range = buffer(offset, length)
+  local value = range:string()
+  local display = nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_message_type(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_common_soupbintcp_ouch_v3_0.fields.sequenced_message_type, range, value, display)
+
+  return offset + length, value
+end
+
 -- Display: Sequenced Data Packet
 nasdaq_common_soupbintcp_ouch_v3_0_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
@@ -393,14 +372,17 @@ end
 nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_data_packet_fields = function(buffer, offset, packet, parent, size_of_sequenced_data_packet)
   local index = offset
 
+  -- Sequenced Message Type: 1 Byte Ascii String
+  index, sequenced_message_type = nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_message_type(buffer, index, packet, parent)
+
   -- Dependency element: Packet Length
   local packet_length = buffer(offset - 3, 2):uint()
 
-  -- Runtime Size Of: Message
-  local size_of_message = packet_length - 1
+  -- Runtime Size Of: Sequenced Message
+  local size_of_sequenced_message = packet_length - 2
 
-  -- Message: Struct of 2 fields
-  index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.message(buffer, index, packet, parent, size_of_message)
+  -- Sequenced Message
+  index = nasdaq_common_soupbintcp_ouch_v3_0_dissect.sequenced_message(buffer, index, packet, parent, size_of_sequenced_message)
 
   return index
 end
