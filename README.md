@@ -78,8 +78,10 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Ice][Ice.Directory] | Futures | [Mdf][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | iMpact | [1.1.43][Ice.Futures.Mdf.iMpact.v1.1.43.Dissector] | 11/18/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Iex][Iex.Directory] | Equities | [Deep][Iex.Equities.Deep.IexTp.v1.0.Dissector] | IexTp | [1.0][Iex.Equities.Deep.IexTp.v1.0.Dissector] | 2/27/2018 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Iex][Iex.Directory] | Equities | [Tops][Iex.Equities.Tops.IexTp.v1.6.Dissector] | IexTp | [1.6][Iex.Equities.Tops.IexTp.v1.6.Dissector] | 2/27/2018 | [Verified][Omi.Glossary.Testing.Verified] |
-| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | [Untested][Omi.Glossary.Testing.Untested] |
+| [Jnx][Jnx.Directory] | Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Lse][Lse.Directory] | Millennium | [Level2][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | Mitch | [11.9][Lse.Millennium.Level2.Mitch.v11.9.Dissector] | 8/28/2018 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.9.Dissector] | Sbe | [1.9][Memx.Equities.Memo.Sbe.v1.9.Dissector] | 5/25/2022 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Memx][Memx.Directory] | Equities | [Memo][Memx.Equities.Memo.Sbe.v1.10.Dissector] | Sbe | [1.10][Memx.Equities.Memo.Sbe.v1.10.Dissector] | 5/31/2022 | [Beta][Omi.Glossary.Testing.Beta] |
@@ -151,7 +153,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 206 | 1,776,179 |
+| 208 | 1,780,723 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -252,7 +254,9 @@ Enjoy.
 [Iex.Equities.Deep.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex.Equities.Deep.IexTp.v1.0.Script.Dissector.lua "Iex Equities Deep IexTp v1.0 Lua Wireshark Dissector"
 [Iex.Equities.Tops.IexTp.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex.Equities.Tops.IexTp.v1.6.Script.Dissector.lua "Iex Equities Tops IexTp v1.6 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Itch.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Itch.v1.6.Script.Dissector.lua "Jnx Equities Pts Itch v1.6 Lua Wireshark Dissector"
+[Jnx.Equities.Pts.Itch.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Itch.v1.7.Script.Dissector.lua "Jnx Equities Pts Itch v1.7 Lua Wireshark Dissector"
 [Jnx.Equities.Pts.Ouch.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Ouch.v1.11.Script.Dissector.lua "Jnx Equities Pts Ouch v1.11 Lua Wireshark Dissector"
+[Jnx.Equities.Pts.Ouch.v1.12.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Jnx/Jnx.Equities.Pts.Ouch.v1.12.Script.Dissector.lua "Jnx Equities Pts Ouch v1.12 Lua Wireshark Dissector"
 [Lse.Millennium.Level2.Mitch.v11.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Lse/Lse.Millennium.Level2.Mitch.v11.9.Script.Dissector.lua "Lse Millennium Level2 Mitch v11.9 Lua Wireshark Dissector"
 [Miax.Options.ComplexTopOfMarket.Mach.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax.Options.ComplexTopOfMarket.Mach.v1.3.Script.Dissector.lua "Miax Options ComplexTopOfMarket Mach v1.3 Lua Wireshark Dissector"
 [Miax.Options.TopOfMarket.Mach.v2.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Miax/Miax.Options.TopOfMarket.Mach.v2.2.Script.Dissector.lua "Miax Options TopOfMarket Mach v2.2 Lua Wireshark Dissector"
