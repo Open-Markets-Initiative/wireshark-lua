@@ -281,6 +281,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Psx Orders Ouch 4.2
 -----------------------------------------------------------------------
 
@@ -768,7 +786,7 @@ end
 nasdaq_psx_orders_ouch_v4_2_dissect.firm = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_orders_ouch_v4_2_size_of.firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_orders_ouch_v4_2_display.firm(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_orders_ouch_v4_2.fields.firm, range, value, display)
@@ -788,7 +806,7 @@ end
 nasdaq_psx_orders_ouch_v4_2_dissect.stock = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_orders_ouch_v4_2_size_of.stock
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_orders_ouch_v4_2_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_orders_ouch_v4_2.fields.stock, range, value, display)

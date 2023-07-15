@@ -236,6 +236,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Asx Securities SR8 Ouch 2.0
 -----------------------------------------------------------------------
 
@@ -371,7 +389,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.order_token = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.order_token
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_token, range, value, display)
@@ -468,7 +486,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.filler = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.filler
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.filler(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.filler, range, value, display)
@@ -488,7 +506,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.order_origin = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.order_origin
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.order_origin(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.order_origin, range, value, display)
@@ -508,7 +526,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.intermediary_id = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.intermediary_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.intermediary_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.intermediary_id, range, value, display)
@@ -528,7 +546,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.execution_venue = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.execution_venue
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.execution_venue(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.execution_venue, range, value, display)
@@ -605,7 +623,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.exchange_info = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.exchange_info
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.exchange_info(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.exchange_info, range, value, display)
@@ -625,7 +643,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.customer_info = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.customer_info
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.customer_info(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.customer_info, range, value, display)
@@ -645,7 +663,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.client_account = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.client_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.client_account(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.client_account, range, value, display)
@@ -725,7 +743,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.replacement_order_token = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.replacement_order_token
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.replacement_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.replacement_order_token, range, value, display)
@@ -745,7 +763,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.existing_order_token = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.existing_order_token
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.existing_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.existing_order_token, range, value, display)
@@ -1735,7 +1753,7 @@ end
 asx_securities_sr8_ouch_v2_0_dissect.previous_order_token = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.previous_order_token
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_sr8_ouch_v2_0_display.previous_order_token(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.previous_order_token, range, value, display)

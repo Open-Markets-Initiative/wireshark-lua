@@ -238,6 +238,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Jnx Equities Pts Ouch 1.11
 -----------------------------------------------------------------------
 
@@ -348,6 +366,9 @@ jnx_equities_pts_ouch_v1_11_size_of.display = 1
 
 -- Display: Display
 jnx_equities_pts_ouch_v1_11_display.display = function(value)
+  if value == " " then
+    return "Display: Unused (<whitespace>)"
+  end
   if value == "P" then
     return "Display: Postonly (P)"
   end
@@ -499,7 +520,7 @@ jnx_equities_pts_ouch_v1_11_dissect.replace_order_message_fields = function(buff
   -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, time_in_force = jnx_equities_pts_ouch_v1_11_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: 1 Byte Ascii String Enum with 2 values
   index, display = jnx_equities_pts_ouch_v1_11_dissect.display(buffer, index, packet, parent)
 
   -- Minimum Quantity: 4 Byte Unsigned Fixed Width Integer
@@ -665,7 +686,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.group = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_ouch_v1_11_size_of.group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_ouch_v1_11_display.group(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_ouch_v1_11.fields.group, range, value, display)
@@ -738,7 +759,7 @@ end
 jnx_equities_pts_ouch_v1_11_dissect.client_reference = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_ouch_v1_11_size_of.client_reference
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_ouch_v1_11_display.client_reference(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_ouch_v1_11.fields.client_reference, range, value, display)
@@ -817,7 +838,7 @@ jnx_equities_pts_ouch_v1_11_dissect.enter_order_message_fields = function(buffer
   -- Firm Id: 4 Byte Unsigned Fixed Width Integer
   index, firm_id = jnx_equities_pts_ouch_v1_11_dissect.firm_id(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: 1 Byte Ascii String Enum with 2 values
   index, display = jnx_equities_pts_ouch_v1_11_dissect.display(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values
@@ -1754,7 +1775,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_replaced_message_fields = function(buf
   -- Time In Force: 4 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, time_in_force = jnx_equities_pts_ouch_v1_11_dissect.time_in_force(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: 1 Byte Ascii String Enum with 2 values
   index, display = jnx_equities_pts_ouch_v1_11_dissect.display(buffer, index, packet, parent)
 
   -- Order Number: 8 Byte Unsigned Fixed Width Integer
@@ -1865,7 +1886,7 @@ jnx_equities_pts_ouch_v1_11_dissect.order_accepted_message_fields = function(buf
   -- Firm Id: 4 Byte Unsigned Fixed Width Integer
   index, firm_id = jnx_equities_pts_ouch_v1_11_dissect.firm_id(buffer, index, packet, parent)
 
-  -- Display: 1 Byte Ascii String Enum with 1 values
+  -- Display: 1 Byte Ascii String Enum with 2 values
   index, display = jnx_equities_pts_ouch_v1_11_dissect.display(buffer, index, packet, parent)
 
   -- Capacity: 1 Byte Ascii String Enum with 2 values

@@ -403,6 +403,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Equities Orders Ouch 5.0
 -----------------------------------------------------------------------
 
@@ -930,7 +948,7 @@ end
 nasdaq_equities_orders_ouch_v5_0_dissect.cl_ord_id = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v5_0_size_of.cl_ord_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_orders_ouch_v5_0_display.cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v5_0.fields.cl_ord_id, range, value, display)
@@ -1211,7 +1229,7 @@ end
 nasdaq_equities_orders_ouch_v5_0_dissect.firm = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v5_0_size_of.firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_orders_ouch_v5_0_display.firm(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v5_0.fields.firm, range, value, display)
@@ -1466,7 +1484,7 @@ end
 nasdaq_equities_orders_ouch_v5_0_dissect.symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v5_0_size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_orders_ouch_v5_0_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v5_0.fields.symbol, range, value, display)
@@ -3514,7 +3532,7 @@ end
 nasdaq_equities_orders_ouch_v5_0_dissect.route = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v5_0_size_of.route
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_orders_ouch_v5_0_display.route(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v5_0.fields.route, range, value, display)
