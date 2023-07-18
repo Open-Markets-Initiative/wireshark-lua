@@ -14,6 +14,7 @@ local jnx_equities_pts_ouch_v1_12_display = {}
 local jnx_equities_pts_ouch_v1_12_dissect = {}
 local jnx_equities_pts_ouch_v1_12_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -30,7 +31,7 @@ jnx_equities_pts_ouch_v1_12.fields.decrement_quantity = ProtoField.new("Decremen
 jnx_equities_pts_ouch_v1_12.fields.display = ProtoField.new("Display", "jnx.equities.pts.ouch.v1.12.display", ftypes.STRING)
 jnx_equities_pts_ouch_v1_12.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.equities.pts.ouch.v1.12.enterordermessage", ftypes.STRING)
 jnx_equities_pts_ouch_v1_12.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.equities.pts.ouch.v1.12.executedquantity", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_12.fields.execution_price = ProtoField.new("Execution Price", "jnx.equities.pts.ouch.v1.12.executionprice", ftypes.UINT32)
+jnx_equities_pts_ouch_v1_12.fields.execution_price = ProtoField.new("Execution Price", "jnx.equities.pts.ouch.v1.12.executionprice", ftypes.DOUBLE)
 jnx_equities_pts_ouch_v1_12.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.equities.pts.ouch.v1.12.existingordertoken", ftypes.UINT32)
 jnx_equities_pts_ouch_v1_12.fields.firm_id = ProtoField.new("Firm Id", "jnx.equities.pts.ouch.v1.12.firmid", ftypes.UINT32)
 jnx_equities_pts_ouch_v1_12.fields.group = ProtoField.new("Group", "jnx.equities.pts.ouch.v1.12.group", ftypes.STRING)
@@ -60,7 +61,7 @@ jnx_equities_pts_ouch_v1_12.fields.packet_type = ProtoField.new("Packet Type", "
 jnx_equities_pts_ouch_v1_12.fields.password = ProtoField.new("Password", "jnx.equities.pts.ouch.v1.12.password", ftypes.STRING)
 jnx_equities_pts_ouch_v1_12.fields.payload = ProtoField.new("Payload", "jnx.equities.pts.ouch.v1.12.payload", ftypes.STRING)
 jnx_equities_pts_ouch_v1_12.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.equities.pts.ouch.v1.12.previousordertoken", ftypes.UINT32)
-jnx_equities_pts_ouch_v1_12.fields.price = ProtoField.new("Price", "jnx.equities.pts.ouch.v1.12.price", ftypes.UINT32)
+jnx_equities_pts_ouch_v1_12.fields.price = ProtoField.new("Price", "jnx.equities.pts.ouch.v1.12.price", ftypes.DOUBLE)
 jnx_equities_pts_ouch_v1_12.fields.quantity = ProtoField.new("Quantity", "jnx.equities.pts.ouch.v1.12.quantity", ftypes.UINT32)
 jnx_equities_pts_ouch_v1_12.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.equities.pts.ouch.v1.12.quantitypreventedfromtrading", ftypes.UINT32)
 jnx_equities_pts_ouch_v1_12.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.equities.pts.ouch.v1.12.rejectreasoncode", ftypes.STRING)
@@ -423,11 +424,17 @@ jnx_equities_pts_ouch_v1_12_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price
 jnx_equities_pts_ouch_v1_12_dissect.price = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_ouch_v1_12_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = jnx_equities_pts_ouch_v1_12_display.price(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_ouch_v1_12.fields.price, range, value, display)
@@ -1320,11 +1327,17 @@ jnx_equities_pts_ouch_v1_12_display.execution_price = function(value)
   return "Execution Price: "..value
 end
 
+-- Translate: Execution Price
+translate.execution_price = function(raw)
+  return raw/10
+end
+
 -- Dissect: Execution Price
 jnx_equities_pts_ouch_v1_12_dissect.execution_price = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_ouch_v1_12_size_of.execution_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.execution_price(raw)
   local display = jnx_equities_pts_ouch_v1_12_display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_ouch_v1_12.fields.execution_price, range, value, display)

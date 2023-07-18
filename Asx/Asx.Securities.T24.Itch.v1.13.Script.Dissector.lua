@@ -427,6 +427,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Asx Securities T24 Itch 1.13
 -----------------------------------------------------------------------
 
@@ -918,7 +936,7 @@ end
 asx_securities_t24_itch_v1_13_dissect.text_message = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13_size_of.text_message
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_t24_itch_v1_13_display.text_message(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.text_message, range, value, display)
@@ -938,7 +956,7 @@ end
 asx_securities_t24_itch_v1_13_dissect.source_id = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13_size_of.source_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_t24_itch_v1_13_display.source_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.source_id, range, value, display)
@@ -4240,7 +4258,7 @@ end
 asx_securities_t24_itch_v1_13_dissect.currency = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13_size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_t24_itch_v1_13_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.currency, range, value, display)
@@ -4605,7 +4623,7 @@ end
 asx_securities_t24_itch_v1_13_dissect.instrument = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13_size_of.instrument
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_t24_itch_v1_13_display.instrument(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.instrument, range, value, display)
@@ -4625,7 +4643,7 @@ end
 asx_securities_t24_itch_v1_13_dissect.exchange = function(buffer, offset, packet, parent)
   local length = asx_securities_t24_itch_v1_13_size_of.exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_t24_itch_v1_13_display.exchange(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_t24_itch_v1_13.fields.exchange, range, value, display)

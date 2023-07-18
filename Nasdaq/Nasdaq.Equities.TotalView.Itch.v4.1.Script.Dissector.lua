@@ -237,6 +237,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Equities TotalView Itch 4.1
 -----------------------------------------------------------------------
 
@@ -285,7 +303,7 @@ end
 nasdaq_equities_totalview_itch_v4_1_dissect.stock = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.stock
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_totalview_itch_v4_1_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.stock, range, value, display)
@@ -1408,7 +1426,7 @@ end
 nasdaq_equities_totalview_itch_v4_1_dissect.attribution = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.attribution
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_totalview_itch_v4_1_display.attribution(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.attribution, range, value, display)

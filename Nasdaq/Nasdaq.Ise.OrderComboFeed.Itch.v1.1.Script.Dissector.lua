@@ -179,6 +179,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Ise OrderComboFeed Itch 1.1
 -----------------------------------------------------------------------
 
@@ -359,7 +377,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.cmta = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.cmta
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.cmta(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.cmta, range, value, display)
@@ -379,7 +397,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.giveup = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.giveup
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.giveup(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.giveup, range, value, display)
@@ -399,7 +417,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.owner_id = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.owner_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.owner_id(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.owner_id, range, value, display)

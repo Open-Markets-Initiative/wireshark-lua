@@ -224,6 +224,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Phlx Orders Itch 1.9
 -----------------------------------------------------------------------
 
@@ -1000,7 +1018,7 @@ end
 nasdaq_phlx_orders_itch_v1_9_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_phlx_orders_itch_v1_9_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.underlying_symbol, range, value, display)

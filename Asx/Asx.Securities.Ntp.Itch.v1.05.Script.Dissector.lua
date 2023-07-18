@@ -368,6 +368,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Asx Securities Ntp Itch 1.05
 -----------------------------------------------------------------------
 
@@ -872,7 +890,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.text = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.text(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.text, range, value, display)
@@ -892,7 +910,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.source_id = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.source_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.source_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.source_id, range, value, display)
@@ -1457,7 +1475,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.seller_participant_id = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.seller_participant_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.seller_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.seller_participant_id, range, value, display)
@@ -1564,7 +1582,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.buyer_participant_id = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.buyer_participant_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.buyer_participant_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.buyer_participant_id, range, value, display)
@@ -1885,7 +1903,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.participant_id_seller = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.participant_id_seller
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.participant_id_seller(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.participant_id_seller, range, value, display)
@@ -1905,7 +1923,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.participant_id_buyer = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.participant_id_buyer
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.participant_id_buyer(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.participant_id_buyer, range, value, display)
@@ -2591,7 +2609,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.counter_party_id = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.counter_party_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.counter_party_id(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.counter_party_id, range, value, display)
@@ -3240,7 +3258,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.cfi_code = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.cfi_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.cfi_code(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.cfi_code, range, value, display)
@@ -3260,7 +3278,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.long_name = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.long_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.long_name(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.long_name, range, value, display)
@@ -3280,7 +3298,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.symbol_name = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.symbol_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.symbol_name(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.symbol_name, range, value, display)
@@ -3540,7 +3558,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.basis_of_quotation = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.basis_of_quotation
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.basis_of_quotation(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.basis_of_quotation, range, value, display)
@@ -3680,7 +3698,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.currency = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.currency, range, value, display)
@@ -3964,7 +3982,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.instrument = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.instrument
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.instrument(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.instrument, range, value, display)
@@ -3984,7 +4002,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.exchange = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.exchange
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.exchange(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.exchange, range, value, display)
@@ -4004,7 +4022,7 @@ end
 asx_securities_ntp_itch_v1_05_dissect.isin = function(buffer, offset, packet, parent)
   local length = asx_securities_ntp_itch_v1_05_size_of.isin
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = asx_securities_ntp_itch_v1_05_display.isin(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_ntp_itch_v1_05.fields.isin, range, value, display)

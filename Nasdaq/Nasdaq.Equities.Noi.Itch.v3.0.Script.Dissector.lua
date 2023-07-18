@@ -166,6 +166,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Equities Noi Itch 3.0
 -----------------------------------------------------------------------
 
@@ -248,7 +266,7 @@ end
 nasdaq_equities_noi_itch_v3_0_dissect.stock = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.stock
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_noi_itch_v3_0_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.stock, range, value, display)

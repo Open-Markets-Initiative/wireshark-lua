@@ -212,6 +212,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Bx Options TopOfMarket Itch 1.2
 -----------------------------------------------------------------------
 
@@ -1369,7 +1387,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.underlying_symbol, range, value, display)

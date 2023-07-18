@@ -14,6 +14,7 @@ local nasdaq_equities_orders_ouch_v4_2_display = {}
 local nasdaq_equities_orders_ouch_v4_2_dissect = {}
 local nasdaq_equities_orders_ouch_v4_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -65,10 +66,10 @@ nasdaq_equities_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Typ
 nasdaq_equities_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.equities.orders.ouch.v4.2.password", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.payload = ProtoField.new("Payload", "nasdaq.equities.orders.ouch.v4.2.payload", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.equities.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
-nasdaq_equities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.equities.orders.ouch.v4.2.price", ftypes.UINT32)
+nasdaq_equities_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.equities.orders.ouch.v4.2.price", ftypes.DOUBLE)
 nasdaq_equities_orders_ouch_v4_2.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.equities.orders.ouch.v4.2.quantitypreventedfromtrading", ftypes.UINT32)
 nasdaq_equities_orders_ouch_v4_2.fields.reason = ProtoField.new("Reason", "nasdaq.equities.orders.ouch.v4.2.reason", ftypes.STRING)
-nasdaq_equities_orders_ouch_v4_2.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.equities.orders.ouch.v4.2.referenceprice", ftypes.UINT32)
+nasdaq_equities_orders_ouch_v4_2.fields.reference_price = ProtoField.new("Reference Price", "nasdaq.equities.orders.ouch.v4.2.referenceprice", ftypes.DOUBLE)
 nasdaq_equities_orders_ouch_v4_2.fields.reference_price_type = ProtoField.new("Reference Price Type", "nasdaq.equities.orders.ouch.v4.2.referencepricetype", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.equities.orders.ouch.v4.2.rejectreasoncode", ftypes.STRING)
 nasdaq_equities_orders_ouch_v4_2.fields.rejected_order_message = ProtoField.new("Rejected Order Message", "nasdaq.equities.orders.ouch.v4.2.rejectedordermessage", ftypes.STRING)
@@ -663,11 +664,17 @@ nasdaq_equities_orders_ouch_v4_2_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_equities_orders_ouch_v4_2_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v4_2_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_equities_orders_ouch_v4_2_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v4_2.fields.price, range, value, display)
@@ -1888,11 +1895,17 @@ nasdaq_equities_orders_ouch_v4_2_display.reference_price = function(value)
   return "Reference Price: "..value
 end
 
+-- Translate: Reference Price
+translate.reference_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Reference Price
 nasdaq_equities_orders_ouch_v4_2_dissect.reference_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_orders_ouch_v4_2_size_of.reference_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.reference_price(raw)
   local display = nasdaq_equities_orders_ouch_v4_2_display.reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_orders_ouch_v4_2.fields.reference_price, range, value, display)

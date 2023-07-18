@@ -179,6 +179,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Psx Bbo Itch 2.1
 -----------------------------------------------------------------------
 
@@ -256,7 +274,7 @@ end
 nasdaq_psx_bbo_itch_v2_1_dissect.next_shares_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.next_shares_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_bbo_itch_v2_1_display.next_shares_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol, range, value, display)
@@ -453,7 +471,7 @@ end
 nasdaq_psx_bbo_itch_v2_1_dissect.stock = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.stock
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_bbo_itch_v2_1_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.stock, range, value, display)
@@ -935,7 +953,7 @@ end
 nasdaq_psx_bbo_itch_v2_1_dissect.reason = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_bbo_itch_v2_1_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.reason, range, value, display)
@@ -1244,7 +1262,7 @@ end
 nasdaq_psx_bbo_itch_v2_1_dissect.issue_sub_type = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.issue_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_bbo_itch_v2_1_display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.issue_sub_type, range, value, display)

@@ -288,6 +288,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Bx Equities TotalView Itch 5.0
 -----------------------------------------------------------------------
 
@@ -529,7 +547,7 @@ end
 nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock, range, value, display)
@@ -2277,7 +2295,7 @@ end
 nasdaq_bx_equities_totalview_itch_v5_0_dissect.mpid = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.mpid
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_equities_totalview_itch_v5_0_display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.mpid, range, value, display)
@@ -2446,7 +2464,7 @@ end
 nasdaq_bx_equities_totalview_itch_v5_0_dissect.reason = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_equities_totalview_itch_v5_0_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.reason, range, value, display)
@@ -2780,7 +2798,7 @@ end
 nasdaq_bx_equities_totalview_itch_v5_0_dissect.issue_sub_type = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.issue_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_equities_totalview_itch_v5_0_display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.issue_sub_type, range, value, display)

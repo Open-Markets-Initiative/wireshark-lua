@@ -185,6 +185,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Jnx Equities Pts Itch 1.7
 -----------------------------------------------------------------------
 
@@ -535,7 +553,7 @@ end
 jnx_equities_pts_itch_v1_7_dissect.attribution = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_7_size_of.attribution
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_itch_v1_7_display.attribution(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_7.fields.attribution, range, value, display)
@@ -568,7 +586,7 @@ end
 jnx_equities_pts_itch_v1_7_dissect.group = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_7_size_of.group
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_itch_v1_7_display.group(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_7.fields.group, range, value, display)
@@ -588,7 +606,7 @@ end
 jnx_equities_pts_itch_v1_7_dissect.orderbook_id = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_7_size_of.orderbook_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_itch_v1_7_display.orderbook_id(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_7.fields.orderbook_id, range, value, display)
@@ -1037,7 +1055,7 @@ end
 jnx_equities_pts_itch_v1_7_dissect.orderbook_code = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_7_size_of.orderbook_code
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = jnx_equities_pts_itch_v1_7_display.orderbook_code(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_7.fields.orderbook_code, range, value, display)
