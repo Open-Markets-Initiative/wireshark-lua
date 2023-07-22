@@ -6457,7 +6457,7 @@ euronext_optiq_marketdatagateway_sbe_v4_3_size_of.peg_offset = 1
 -- Display: Peg Offset
 euronext_optiq_marketdatagateway_sbe_v4_3_display.peg_offset = function(value)
   -- Check if field has value
-  if value == 128 then
+  if value == -128 then
     return "Peg Offset: No Value"
   end
 
