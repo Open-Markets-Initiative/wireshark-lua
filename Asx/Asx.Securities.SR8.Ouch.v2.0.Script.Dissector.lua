@@ -14,6 +14,7 @@ local asx_securities_sr8_ouch_v2_0_display = {}
 local asx_securities_sr8_ouch_v2_0_dissect = {}
 local asx_securities_sr8_ouch_v2_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -61,7 +62,7 @@ asx_securities_sr8_ouch_v2_0.fields.packet_type = ProtoField.new("Packet Type", 
 asx_securities_sr8_ouch_v2_0.fields.password = ProtoField.new("Password", "asx.securities.sr8.ouch.v2.0.password", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.payload = ProtoField.new("Payload", "asx.securities.sr8.ouch.v2.0.payload", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.previous_order_token = ProtoField.new("Previous Order Token", "asx.securities.sr8.ouch.v2.0.previousordertoken", ftypes.STRING)
-asx_securities_sr8_ouch_v2_0.fields.price = ProtoField.new("Price", "asx.securities.sr8.ouch.v2.0.price", ftypes.INT32)
+asx_securities_sr8_ouch_v2_0.fields.price = ProtoField.new("Price", "asx.securities.sr8.ouch.v2.0.price", ftypes.DOUBLE)
 asx_securities_sr8_ouch_v2_0.fields.quantity = ProtoField.new("Quantity", "asx.securities.sr8.ouch.v2.0.quantity", ftypes.UINT64)
 asx_securities_sr8_ouch_v2_0.fields.reason = ProtoField.new("Reason", "asx.securities.sr8.ouch.v2.0.reason", ftypes.UINT8)
 asx_securities_sr8_ouch_v2_0.fields.reject_code = ProtoField.new("Reject Code", "asx.securities.sr8.ouch.v2.0.rejectcode", ftypes.UINT32)
@@ -81,7 +82,7 @@ asx_securities_sr8_ouch_v2_0.fields.soup_bin_tcp_packet = ProtoField.new("Soup B
 asx_securities_sr8_ouch_v2_0.fields.text = ProtoField.new("Text", "asx.securities.sr8.ouch.v2.0.text", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.time_in_force = ProtoField.new("Time In Force", "asx.securities.sr8.ouch.v2.0.timeinforce", ftypes.UINT8)
 asx_securities_sr8_ouch_v2_0.fields.timestamp_nanoseconds = ProtoField.new("Timestamp Nanoseconds", "asx.securities.sr8.ouch.v2.0.timestampnanoseconds", ftypes.UINT64)
-asx_securities_sr8_ouch_v2_0.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.sr8.ouch.v2.0.tradeprice", ftypes.INT32)
+asx_securities_sr8_ouch_v2_0.fields.trade_price = ProtoField.new("Trade Price", "asx.securities.sr8.ouch.v2.0.tradeprice", ftypes.DOUBLE)
 asx_securities_sr8_ouch_v2_0.fields.traded_quantity = ProtoField.new("Traded Quantity", "asx.securities.sr8.ouch.v2.0.tradedquantity", ftypes.UINT64)
 asx_securities_sr8_ouch_v2_0.fields.unsequenced_data_packet = ProtoField.new("Unsequenced Data Packet", "asx.securities.sr8.ouch.v2.0.unsequenceddatapacket", ftypes.STRING)
 asx_securities_sr8_ouch_v2_0.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "asx.securities.sr8.ouch.v2.0.unsequencedmessage", ftypes.STRING)
@@ -699,11 +700,17 @@ asx_securities_sr8_ouch_v2_0_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 asx_securities_sr8_ouch_v2_0_dissect.price = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.price(raw)
   local display = asx_securities_sr8_ouch_v2_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.price, range, value, display)
@@ -1483,11 +1490,17 @@ asx_securities_sr8_ouch_v2_0_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Trade Price
 asx_securities_sr8_ouch_v2_0_dissect.trade_price = function(buffer, offset, packet, parent)
   local length = asx_securities_sr8_ouch_v2_0_size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.trade_price(raw)
   local display = asx_securities_sr8_ouch_v2_0_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(asx_securities_sr8_ouch_v2_0.fields.trade_price, range, value, display)
