@@ -14,14 +14,15 @@ local nasdaq_bx_options_topofmarket_itch_v1_2_display = {}
 local nasdaq_bx_options_topofmarket_itch_v1_2_dissect = {}
 local nasdaq_bx_options_topofmarket_itch_v1_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
 -- Nasdaq Bx Options TopOfMarket Itch 1.2 Fields
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bx.options.topofmarket.itch.v1.2.askprice", ftypes.UINT16)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.askpricelong", ftypes.UINT32)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bx.options.topofmarket.itch.v1.2.askprice", ftypes.DOUBLE)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.askpricelong", ftypes.DOUBLE)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bx.options.topofmarket.itch.v1.2.asksize", ftypes.UINT16)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.bx.options.topofmarket.itch.v1.2.asksizelong", ftypes.UINT32)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.best_ask_update_long_form_message = ProtoField.new("Best Ask Update Long Form Message", "nasdaq.bx.options.topofmarket.itch.v1.2.bestaskupdatelongformmessage", ftypes.STRING)
@@ -30,8 +31,8 @@ nasdaq_bx_options_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_long_form
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.best_bid_and_ask_update_short_form_message = ProtoField.new("Best Bid And Ask Update Short Form Message", "nasdaq.bx.options.topofmarket.itch.v1.2.bestbidandaskupdateshortformmessage", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.best_bid_update_long_form_message = ProtoField.new("Best Bid Update Long Form Message", "nasdaq.bx.options.topofmarket.itch.v1.2.bestbidupdatelongformmessage", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.best_bid_update_short_form_message = ProtoField.new("Best Bid Update Short Form Message", "nasdaq.bx.options.topofmarket.itch.v1.2.bestbidupdateshortformmessage", ftypes.STRING)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bx.options.topofmarket.itch.v1.2.bidprice", ftypes.UINT16)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.bidpricelong", ftypes.UINT32)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bx.options.topofmarket.itch.v1.2.bidprice", ftypes.DOUBLE)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.bidpricelong", ftypes.DOUBLE)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bx.options.topofmarket.itch.v1.2.bidsize", ftypes.UINT16)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bx.options.topofmarket.itch.v1.2.bidsizelong", ftypes.UINT32)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.bx.options.topofmarket.itch.v1.2.brokentradereportmessage", ftypes.STRING)
@@ -54,13 +55,13 @@ nasdaq_bx_options_topofmarket_itch_v1_2.fields.option_id = ProtoField.new("Optio
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.option_type = ProtoField.new("Option Type", "nasdaq.bx.options.topofmarket.itch.v1.2.optiontype", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.bx.options.topofmarket.itch.v1.2.optionsdirectorymessage", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.bx.options.topofmarket.itch.v1.2.originalcrossid", ftypes.UINT32)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.original_price = ProtoField.new("Original Price", "nasdaq.bx.options.topofmarket.itch.v1.2.originalprice", ftypes.UINT32)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.original_price = ProtoField.new("Original Price", "nasdaq.bx.options.topofmarket.itch.v1.2.originalprice", ftypes.DOUBLE)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.bx.options.topofmarket.itch.v1.2.originalvolume", ftypes.UINT32)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.packet = ProtoField.new("Packet", "nasdaq.bx.options.topofmarket.itch.v1.2.packet", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bx.options.topofmarket.itch.v1.2.packetheader", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.payload = ProtoField.new("Payload", "nasdaq.bx.options.topofmarket.itch.v1.2.payload", ftypes.STRING)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.price = ProtoField.new("Price", "nasdaq.bx.options.topofmarket.itch.v1.2.price", ftypes.UINT16)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.pricelong", ftypes.UINT32)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.price = ProtoField.new("Price", "nasdaq.bx.options.topofmarket.itch.v1.2.price", ftypes.DOUBLE)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.price_long = ProtoField.new("Price Long", "nasdaq.bx.options.topofmarket.itch.v1.2.pricelong", ftypes.DOUBLE)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.bx.options.topofmarket.itch.v1.2.quotecondition", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.seconds = ProtoField.new("Seconds", "nasdaq.bx.options.topofmarket.itch.v1.2.seconds", ftypes.UINT32)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.security_open_message = ProtoField.new("Security Open Message", "nasdaq.bx.options.topofmarket.itch.v1.2.securityopenmessage", ftypes.STRING)
@@ -70,7 +71,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2.fields.session = ProtoField.new("Session
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.size = ProtoField.new("Size", "nasdaq.bx.options.topofmarket.itch.v1.2.size", ftypes.UINT16)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.size_long = ProtoField.new("Size Long", "nasdaq.bx.options.topofmarket.itch.v1.2.sizelong", ftypes.UINT32)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.source = ProtoField.new("Source", "nasdaq.bx.options.topofmarket.itch.v1.2.source", ftypes.UINT8)
-nasdaq_bx_options_topofmarket_itch_v1_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.bx.options.topofmarket.itch.v1.2.strikeprice", ftypes.UINT32)
+nasdaq_bx_options_topofmarket_itch_v1_2.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.bx.options.topofmarket.itch.v1.2.strikeprice", ftypes.DOUBLE)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.subversion = ProtoField.new("Subversion", "nasdaq.bx.options.topofmarket.itch.v1.2.subversion", ftypes.UINT8)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bx.options.topofmarket.itch.v1.2.systemeventmessage", ftypes.STRING)
 nasdaq_bx_options_topofmarket_itch_v1_2.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.bx.options.topofmarket.itch.v1.2.timestampmessage", ftypes.STRING)
@@ -261,11 +262,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.original_price = function(value)
   return "Original Price: "..value
 end
 
+-- Translate: Original Price
+translate.original_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Original Price
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.original_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.original_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.original_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.original_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.original_price, range, value, display)
@@ -418,11 +425,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.price_long = function(value)
   return "Price Long: "..value
 end
 
+-- Translate: Price Long
+translate.price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price Long
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.price_long, range, value, display)
@@ -730,11 +743,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.price, range, value, display)
@@ -884,11 +903,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price_long = function(value)
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+translate.ask_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price Long
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.ask_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price_long, range, value, display)
@@ -924,11 +949,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price_long = function(value)
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+translate.bid_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price Long
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.bid_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price_long, range, value, display)
@@ -1031,11 +1062,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.ask_price, range, value, display)
@@ -1071,11 +1108,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.bid_price, range, value, display)
@@ -1450,11 +1493,17 @@ nasdaq_bx_options_topofmarket_itch_v1_2_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Strike Price
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.strike_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.strike_price, range, value, display)

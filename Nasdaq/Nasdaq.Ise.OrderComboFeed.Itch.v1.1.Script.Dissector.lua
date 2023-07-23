@@ -14,6 +14,7 @@ local nasdaq_ise_ordercombofeed_itch_v1_1_display = {}
 local nasdaq_ise_ordercombofeed_itch_v1_1_dissect = {}
 local nasdaq_ise_ordercombofeed_itch_v1_1_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -38,7 +39,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1.fields.exec_flag = ProtoField.new("Exec Flag
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.ise.ordercombofeed.itch.v1.1.expirationday", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ise.ordercombofeed.itch.v1.1.expirationmonth", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ise.ordercombofeed.itch.v1.1.expirationyear", ftypes.UINT8)
-nasdaq_ise_ordercombofeed_itch_v1_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ise.ordercombofeed.itch.v1.1.explicitstrikeprice", ftypes.UINT64)
+nasdaq_ise_ordercombofeed_itch_v1_1.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ise.ordercombofeed.itch.v1.1.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.giveup = ProtoField.new("Giveup", "nasdaq.ise.ordercombofeed.itch.v1.1.giveup", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.ise.ordercombofeed.itch.v1.1.legid", ftypes.UINT8)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.ise.ordercombofeed.itch.v1.1.leginformation", ftypes.STRING)
@@ -59,8 +60,8 @@ nasdaq_ise_ordercombofeed_itch_v1_1.fields.owner_id = ProtoField.new("Owner Id",
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.packet = ProtoField.new("Packet", "nasdaq.ise.ordercombofeed.itch.v1.1.packet", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ise.ordercombofeed.itch.v1.1.packetheader", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.payload = ProtoField.new("Payload", "nasdaq.ise.ordercombofeed.itch.v1.1.payload", ftypes.STRING)
-nasdaq_ise_ordercombofeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.ise.ordercombofeed.itch.v1.1.price", ftypes.UINT32)
-nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.ise.ordercombofeed.itch.v1.1.responseprice", ftypes.UINT32)
+nasdaq_ise_ordercombofeed_itch_v1_1.fields.price = ProtoField.new("Price", "nasdaq.ise.ordercombofeed.itch.v1.1.price", ftypes.DOUBLE)
+nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_price = ProtoField.new("Response Price", "nasdaq.ise.ordercombofeed.itch.v1.1.responseprice", ftypes.DOUBLE)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_size = ProtoField.new("Response Size", "nasdaq.ise.ordercombofeed.itch.v1.1.responsesize", ftypes.UINT32)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.scope = ProtoField.new("Scope", "nasdaq.ise.ordercombofeed.itch.v1.1.scope", ftypes.STRING)
 nasdaq_ise_ordercombofeed_itch_v1_1.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ise.ordercombofeed.itch.v1.1.securitysymbol", ftypes.STRING)
@@ -228,11 +229,17 @@ nasdaq_ise_ordercombofeed_itch_v1_1_display.response_price = function(value)
   return "Response Price: "..value
 end
 
+-- Translate: Response Price
+translate.response_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Response Price
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.response_price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.response_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.response_price, range, value, display)
@@ -552,11 +559,17 @@ nasdaq_ise_ordercombofeed_itch_v1_1_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.price, range, value, display)
@@ -1127,11 +1140,17 @@ nasdaq_ise_ordercombofeed_itch_v1_1_display.explicit_strike_price = function(val
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.explicit_strike_price, range, value, display)

@@ -14,6 +14,7 @@ local nasdaq_ise_topcomboquotefeed_itch_v1_0_display = {}
 local nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect = {}
 local nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -24,14 +25,14 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_cust_size = ProtoField.new("As
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_market_size = ProtoField.new("Ask Market Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.askmarketsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_ntt_market_size = ProtoField.new("Ask Ntt Market Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.asknttmarketsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_ntt_size = ProtoField.new("Ask Ntt Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.asknttsize", ftypes.UINT32)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.askprice", ftypes.UINT32)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.askprice", ftypes.DOUBLE)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_pro_cust_size = ProtoField.new("Ask Pro Cust Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.askprocustsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.asksize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_cust_size = ProtoField.new("Bid Cust Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidcustsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_market_size = ProtoField.new("Bid Market Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidmarketsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_ntt_market_size = ProtoField.new("Bid Ntt Market Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidnttmarketsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_ntt_size = ProtoField.new("Bid Ntt Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidnttsize", ftypes.UINT32)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidprice", ftypes.UINT32)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidprice", ftypes.DOUBLE)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_pro_cust_size = ProtoField.new("Bid Pro Cust Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidprocustsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.bidsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.complex_strategy_directory_message = ProtoField.new("Complex Strategy Directory Message", "nasdaq.ise.topcomboquotefeed.itch.v1.0.complexstrategydirectorymessage", ftypes.STRING)
@@ -46,10 +47,10 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.event_code = ProtoField.new("Event
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.expiration_day = ProtoField.new("Expiration Day", "nasdaq.ise.topcomboquotefeed.itch.v1.0.expirationday", ftypes.UINT8)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.ise.topcomboquotefeed.itch.v1.0.expirationmonth", ftypes.UINT8)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.ise.topcomboquotefeed.itch.v1.0.expirationyear", ftypes.UINT8)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.explicitstrikeprice", ftypes.UINT64)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.first = ProtoField.new("First", "nasdaq.ise.topcomboquotefeed.itch.v1.0.first", ftypes.UINT64)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.high = ProtoField.new("High", "nasdaq.ise.topcomboquotefeed.itch.v1.0.high", ftypes.UINT64)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.last_price = ProtoField.new("Last Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.lastprice", ftypes.UINT64)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.last_price = ProtoField.new("Last Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.lastprice", ftypes.DOUBLE)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.leg_id = ProtoField.new("Leg Id", "nasdaq.ise.topcomboquotefeed.itch.v1.0.legid", ftypes.UINT8)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.leg_information = ProtoField.new("Leg Information", "nasdaq.ise.topcomboquotefeed.itch.v1.0.leginformation", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.ise.topcomboquotefeed.itch.v1.0.legratio", ftypes.UINT32)
@@ -68,7 +69,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.option_type = ProtoField.new("Opti
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.packet = ProtoField.new("Packet", "nasdaq.ise.topcomboquotefeed.itch.v1.0.packet", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.ise.topcomboquotefeed.itch.v1.0.packetheader", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.payload = ProtoField.new("Payload", "nasdaq.ise.topcomboquotefeed.itch.v1.0.payload", ftypes.STRING)
-nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.price", ftypes.UINT32)
+nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.price = ProtoField.new("Price", "nasdaq.ise.topcomboquotefeed.itch.v1.0.price", ftypes.DOUBLE)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.pro_cust_size = ProtoField.new("Pro Cust Size", "nasdaq.ise.topcomboquotefeed.itch.v1.0.procustsize", ftypes.UINT32)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.ise.topcomboquotefeed.itch.v1.0.quotecondition", ftypes.STRING)
 nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.security_symbol = ProtoField.new("Security Symbol", "nasdaq.ise.topcomboquotefeed.itch.v1.0.securitysymbol", ftypes.STRING)
@@ -329,11 +330,17 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_display.last_price = function(value)
   return "Last Price: "..value
 end
 
+-- Translate: Last Price
+translate.last_price = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Last Price
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.last_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.last_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.last_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.last_price, range, value, display)
@@ -566,11 +573,17 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.price, range, value, display)
@@ -897,11 +910,17 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.ask_price, range, value, display)
@@ -1037,11 +1056,17 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.bid_price, range, value, display)
@@ -1402,11 +1427,17 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_display.explicit_strike_price = function(
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint64()
+  local raw = range:uint64()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.explicit_strike_price, range, value, display)

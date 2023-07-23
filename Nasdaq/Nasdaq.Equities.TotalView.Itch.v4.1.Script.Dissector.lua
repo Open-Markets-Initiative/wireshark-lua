@@ -14,6 +14,7 @@ local nasdaq_equities_totalview_itch_v4_1_display = {}
 local nasdaq_equities_totalview_itch_v4_1_dissect = {}
 local nasdaq_equities_totalview_itch_v4_1_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -26,15 +27,15 @@ nasdaq_equities_totalview_itch_v4_1.fields.attribution = ProtoField.new("Attribu
 nasdaq_equities_totalview_itch_v4_1.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.equities.totalview.itch.v4.1.brokentrademessage", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.canceled_shares = ProtoField.new("Canceled Shares", "nasdaq.equities.totalview.itch.v4.1.canceledshares", ftypes.UINT32)
 nasdaq_equities_totalview_itch_v4_1.fields.count = ProtoField.new("Count", "nasdaq.equities.totalview.itch.v4.1.count", ftypes.UINT16)
-nasdaq_equities_totalview_itch_v4_1.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.equities.totalview.itch.v4.1.crossprice", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v4_1.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.equities.totalview.itch.v4.1.crossprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v4_1.fields.cross_shares = ProtoField.new("Cross Shares", "nasdaq.equities.totalview.itch.v4.1.crossshares", ftypes.UINT64)
 nasdaq_equities_totalview_itch_v4_1.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.equities.totalview.itch.v4.1.crosstrademessage", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.equities.totalview.itch.v4.1.crosstype", ftypes.STRING)
-nasdaq_equities_totalview_itch_v4_1.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.equities.totalview.itch.v4.1.currentreferenceprice", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v4_1.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.equities.totalview.itch.v4.1.currentreferenceprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v4_1.fields.event_code = ProtoField.new("Event Code", "nasdaq.equities.totalview.itch.v4.1.eventcode", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.equities.totalview.itch.v4.1.executedshares", ftypes.UINT32)
-nasdaq_equities_totalview_itch_v4_1.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.equities.totalview.itch.v4.1.executionprice", ftypes.UINT32)
-nasdaq_equities_totalview_itch_v4_1.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.totalview.itch.v4.1.farprice", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v4_1.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.equities.totalview.itch.v4.1.executionprice", ftypes.DOUBLE)
+nasdaq_equities_totalview_itch_v4_1.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.totalview.itch.v4.1.farprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v4_1.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.equities.totalview.itch.v4.1.financialstatusindicator", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.equities.totalview.itch.v4.1.imbalancedirection", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.equities.totalview.itch.v4.1.imbalanceshares", ftypes.UINT64)
@@ -49,7 +50,7 @@ nasdaq_equities_totalview_itch_v4_1.fields.message = ProtoField.new("Message", "
 nasdaq_equities_totalview_itch_v4_1.fields.message_header = ProtoField.new("Message Header", "nasdaq.equities.totalview.itch.v4.1.messageheader", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.equities.totalview.itch.v4.1.messagetype", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.mpid = ProtoField.new("Mpid", "nasdaq.equities.totalview.itch.v4.1.mpid", ftypes.STRING)
-nasdaq_equities_totalview_itch_v4_1.fields.near_price = ProtoField.new("Near Price", "nasdaq.equities.totalview.itch.v4.1.nearprice", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v4_1.fields.near_price = ProtoField.new("Near Price", "nasdaq.equities.totalview.itch.v4.1.nearprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v4_1.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.equities.totalview.itch.v4.1.netorderimbalanceindicatormessage", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.equities.totalview.itch.v4.1.neworderreferencenumber", ftypes.UINT64)
 nasdaq_equities_totalview_itch_v4_1.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.equities.totalview.itch.v4.1.ordercancelmessage", ftypes.STRING)
@@ -63,7 +64,7 @@ nasdaq_equities_totalview_itch_v4_1.fields.packet = ProtoField.new("Packet", "na
 nasdaq_equities_totalview_itch_v4_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.equities.totalview.itch.v4.1.packetheader", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.equities.totalview.itch.v4.1.pairedshares", ftypes.UINT64)
 nasdaq_equities_totalview_itch_v4_1.fields.payload = ProtoField.new("Payload", "nasdaq.equities.totalview.itch.v4.1.payload", ftypes.STRING)
-nasdaq_equities_totalview_itch_v4_1.fields.price = ProtoField.new("Price", "nasdaq.equities.totalview.itch.v4.1.price", ftypes.UINT32)
+nasdaq_equities_totalview_itch_v4_1.fields.price = ProtoField.new("Price", "nasdaq.equities.totalview.itch.v4.1.price", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v4_1.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.equities.totalview.itch.v4.1.pricevariationindicator", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.equities.totalview.itch.v4.1.primarymarketmaker", ftypes.STRING)
 nasdaq_equities_totalview_itch_v4_1.fields.printable = ProtoField.new("Printable", "nasdaq.equities.totalview.itch.v4.1.printable", ftypes.STRING)
@@ -482,11 +483,17 @@ nasdaq_equities_totalview_itch_v4_1_display.current_reference_price = function(v
   return "Current Reference Price: "..value
 end
 
+-- Translate: Current Reference Price
+translate.current_reference_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Current Reference Price
 nasdaq_equities_totalview_itch_v4_1_dissect.current_reference_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.current_reference_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.current_reference_price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.current_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.current_reference_price, range, value, display)
@@ -502,11 +509,17 @@ nasdaq_equities_totalview_itch_v4_1_display.near_price = function(value)
   return "Near Price: "..value
 end
 
+-- Translate: Near Price
+translate.near_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Near Price
 nasdaq_equities_totalview_itch_v4_1_dissect.near_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.near_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.near_price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.near_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.near_price, range, value, display)
@@ -522,11 +535,17 @@ nasdaq_equities_totalview_itch_v4_1_display.far_price = function(value)
   return "Far Price: "..value
 end
 
+-- Translate: Far Price
+translate.far_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Far Price
 nasdaq_equities_totalview_itch_v4_1_dissect.far_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.far_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.far_price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.far_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.far_price, range, value, display)
@@ -759,11 +778,17 @@ nasdaq_equities_totalview_itch_v4_1_display.cross_price = function(value)
   return "Cross Price: "..value
 end
 
+-- Translate: Cross Price
+translate.cross_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Cross Price
 nasdaq_equities_totalview_itch_v4_1_dissect.cross_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.cross_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.cross_price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.cross_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.cross_price, range, value, display)
@@ -861,11 +886,17 @@ nasdaq_equities_totalview_itch_v4_1_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_equities_totalview_itch_v4_1_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.price, range, value, display)
@@ -1241,11 +1272,17 @@ nasdaq_equities_totalview_itch_v4_1_display.execution_price = function(value)
   return "Execution Price: "..value
 end
 
+-- Translate: Execution Price
+translate.execution_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Execution Price
 nasdaq_equities_totalview_itch_v4_1_dissect.execution_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.execution_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.execution_price(raw)
   local display = nasdaq_equities_totalview_itch_v4_1_display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.execution_price, range, value, display)

@@ -14,6 +14,7 @@ local nasdaq_nom_itto_itch_v4_0_display = {}
 local nasdaq_nom_itto_itch_v4_0_dissect = {}
 local nasdaq_nom_itto_itch_v4_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -25,16 +26,16 @@ nasdaq_nom_itto_itch_v4_0.fields.add_order_message_short_message_form = ProtoFie
 nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_long_form_message = ProtoField.new("Add Quote Message Long Form Message", "nasdaq.nom.itto.itch.v4.0.addquotemessagelongformmessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.add_quote_message_short_form_message = ProtoField.new("Add Quote Message Short Form Message", "nasdaq.nom.itto.itch.v4.0.addquotemessageshortformmessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.ask = ProtoField.new("Ask", "nasdaq.nom.itto.itch.v4.0.ask", ftypes.UINT32)
-nasdaq_nom_itto_itch_v4_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.nom.itto.itch.v4.0.askprice", ftypes.UINT16)
-nasdaq_nom_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nom.itto.itch.v4.0.askpricelong", ftypes.UINT32)
+nasdaq_nom_itto_itch_v4_0.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.nom.itto.itch.v4.0.askprice", ftypes.DOUBLE)
+nasdaq_nom_itto_itch_v4_0.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.nom.itto.itch.v4.0.askpricelong", ftypes.DOUBLE)
 nasdaq_nom_itto_itch_v4_0.fields.ask_reference_number = ProtoField.new("Ask Reference Number", "nasdaq.nom.itto.itch.v4.0.askreferencenumber", ftypes.UINT64)
 nasdaq_nom_itto_itch_v4_0.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.nom.itto.itch.v4.0.asksize", ftypes.UINT16)
 nasdaq_nom_itto_itch_v4_0.fields.ask_size_long = ProtoField.new("Ask Size Long", "nasdaq.nom.itto.itch.v4.0.asksizelong", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.nom.itto.itch.v4.0.auctionid", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.auction_type = ProtoField.new("Auction Type", "nasdaq.nom.itto.itch.v4.0.auctiontype", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.bid = ProtoField.new("Bid", "nasdaq.nom.itto.itch.v4.0.bid", ftypes.UINT32)
-nasdaq_nom_itto_itch_v4_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.nom.itto.itch.v4.0.bidprice", ftypes.UINT16)
-nasdaq_nom_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nom.itto.itch.v4.0.bidpricelong", ftypes.UINT32)
+nasdaq_nom_itto_itch_v4_0.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.nom.itto.itch.v4.0.bidprice", ftypes.DOUBLE)
+nasdaq_nom_itto_itch_v4_0.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.nom.itto.itch.v4.0.bidpricelong", ftypes.DOUBLE)
 nasdaq_nom_itto_itch_v4_0.fields.bid_reference_number = ProtoField.new("Bid Reference Number", "nasdaq.nom.itto.itch.v4.0.bidreferencenumber", ftypes.UINT64)
 nasdaq_nom_itto_itch_v4_0.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.nom.itto.itch.v4.0.bidsize", ftypes.UINT16)
 nasdaq_nom_itto_itch_v4_0.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.nom.itto.itch.v4.0.bidsizelong", ftypes.UINT32)
@@ -52,9 +53,9 @@ nasdaq_nom_itto_itch_v4_0.fields.executed_contracts = ProtoField.new("Executed C
 nasdaq_nom_itto_itch_v4_0.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.nom.itto.itch.v4.0.expirationdate", ftypes.UINT8)
 nasdaq_nom_itto_itch_v4_0.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.nom.itto.itch.v4.0.expirationmonth", ftypes.UINT8)
 nasdaq_nom_itto_itch_v4_0.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.nom.itto.itch.v4.0.expirationyear", ftypes.UINT8)
-nasdaq_nom_itto_itch_v4_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.nom.itto.itch.v4.0.explicitstrikeprice", ftypes.UINT32)
+nasdaq_nom_itto_itch_v4_0.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.nom.itto.itch.v4.0.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_nom_itto_itch_v4_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.nom.itto.itch.v4.0.imbalancedirection", ftypes.STRING)
-nasdaq_nom_itto_itch_v4_0.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.nom.itto.itch.v4.0.imbalanceprice", ftypes.UINT32)
+nasdaq_nom_itto_itch_v4_0.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.nom.itto.itch.v4.0.imbalanceprice", ftypes.DOUBLE)
 nasdaq_nom_itto_itch_v4_0.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.nom.itto.itch.v4.0.imbalancevolume", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.length = ProtoField.new("Length", "nasdaq.nom.itto.itch.v4.0.length", ftypes.UINT16)
 nasdaq_nom_itto_itch_v4_0.fields.market_side = ProtoField.new("Market Side", "nasdaq.nom.itto.itch.v4.0.marketside", ftypes.STRING)
@@ -81,8 +82,8 @@ nasdaq_nom_itto_itch_v4_0.fields.packet = ProtoField.new("Packet", "nasdaq.nom.i
 nasdaq_nom_itto_itch_v4_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.nom.itto.itch.v4.0.packetheader", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.nom.itto.itch.v4.0.pairedcontracts", ftypes.UINT32)
 nasdaq_nom_itto_itch_v4_0.fields.payload = ProtoField.new("Payload", "nasdaq.nom.itto.itch.v4.0.payload", ftypes.STRING)
-nasdaq_nom_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nasdaq.nom.itto.itch.v4.0.price", ftypes.UINT16)
-nasdaq_nom_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nom.itto.itch.v4.0.pricelong", ftypes.UINT32)
+nasdaq_nom_itto_itch_v4_0.fields.price = ProtoField.new("Price", "nasdaq.nom.itto.itch.v4.0.price", ftypes.DOUBLE)
+nasdaq_nom_itto_itch_v4_0.fields.price_long = ProtoField.new("Price Long", "nasdaq.nom.itto.itch.v4.0.pricelong", ftypes.DOUBLE)
 nasdaq_nom_itto_itch_v4_0.fields.printable = ProtoField.new("Printable", "nasdaq.nom.itto.itch.v4.0.printable", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.nom.itto.itch.v4.0.quotedeletemessage", ftypes.STRING)
 nasdaq_nom_itto_itch_v4_0.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.nom.itto.itch.v4.0.quotereplacemessagelongform", ftypes.STRING)
@@ -380,11 +381,17 @@ nasdaq_nom_itto_itch_v4_0_display.imbalance_price = function(value)
   return "Imbalance Price: "..value
 end
 
+-- Translate: Imbalance Price
+translate.imbalance_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Imbalance Price
 nasdaq_nom_itto_itch_v4_0_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.imbalance_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.imbalance_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.imbalance_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.imbalance_price, range, value, display)
@@ -759,11 +766,17 @@ nasdaq_nom_itto_itch_v4_0_display.price_long = function(value)
   return "Price Long: "..value
 end
 
+-- Translate: Price Long
+translate.price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price Long
 nasdaq_nom_itto_itch_v4_0_dissect.price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.price_long, range, value, display)
@@ -1089,11 +1102,17 @@ nasdaq_nom_itto_itch_v4_0_display.ask_price_long = function(value)
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+translate.ask_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price Long
 nasdaq_nom_itto_itch_v4_0_dissect.ask_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.ask_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.ask_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.ask_price_long, range, value, display)
@@ -1129,11 +1148,17 @@ nasdaq_nom_itto_itch_v4_0_display.bid_price_long = function(value)
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+translate.bid_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price Long
 nasdaq_nom_itto_itch_v4_0_dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.bid_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.bid_price_long, range, value, display)
@@ -1291,11 +1316,17 @@ nasdaq_nom_itto_itch_v4_0_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price
 nasdaq_nom_itto_itch_v4_0_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.ask_price, range, value, display)
@@ -1331,11 +1362,17 @@ nasdaq_nom_itto_itch_v4_0_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price
 nasdaq_nom_itto_itch_v4_0_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.bid_price, range, value, display)
@@ -1714,11 +1751,17 @@ nasdaq_nom_itto_itch_v4_0_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 nasdaq_nom_itto_itch_v4_0_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.price, range, value, display)
@@ -2739,11 +2782,17 @@ nasdaq_nom_itto_itch_v4_0_display.explicit_strike_price = function(value)
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_nom_itto_itch_v4_0_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.explicit_strike_price, range, value, display)

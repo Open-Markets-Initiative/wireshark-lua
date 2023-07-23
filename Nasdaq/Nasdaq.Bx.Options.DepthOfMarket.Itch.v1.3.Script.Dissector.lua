@@ -14,6 +14,7 @@ local nasdaq_bx_options_depthofmarket_itch_v1_3_display = {}
 local nasdaq_bx_options_depthofmarket_itch_v1_3_dissect = {}
 local nasdaq_bx_options_depthofmarket_itch_v1_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -25,8 +26,8 @@ nasdaq_bx_options_depthofmarket_itch_v1_3.fields.add_order_message_short_form = 
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "nasdaq.bx.options.depthofmarket.itch.v1.3.addquotemessagelongform", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "nasdaq.bx.options.depthofmarket.itch.v1.3.addquotemessageshortform", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask = ProtoField.new("Ask", "nasdaq.bx.options.depthofmarket.itch.v1.3.ask", ftypes.UINT32)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.askprice", ftypes.UINT16)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.askpricelong", ftypes.UINT32)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.askprice", ftypes.DOUBLE)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price_long = ProtoField.new("Ask Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.askpricelong", ftypes.DOUBLE)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_reference_delta_number = ProtoField.new("Ask Reference Delta Number", "nasdaq.bx.options.depthofmarket.itch.v1.3.askreferencedeltanumber", ftypes.UINT32)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.bx.options.depthofmarket.itch.v1.3.askreferencenumberdelta", ftypes.UINT32)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.bx.options.depthofmarket.itch.v1.3.asksize", ftypes.UINT16)
@@ -36,8 +37,8 @@ nasdaq_bx_options_depthofmarket_itch_v1_3.fields.auction_type = ProtoField.new("
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.base_reference_message = ProtoField.new("Base Reference Message", "nasdaq.bx.options.depthofmarket.itch.v1.3.basereferencemessage", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.base_reference_number = ProtoField.new("Base Reference Number", "nasdaq.bx.options.depthofmarket.itch.v1.3.basereferencenumber", ftypes.UINT64)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid = ProtoField.new("Bid", "nasdaq.bx.options.depthofmarket.itch.v1.3.bid", ftypes.UINT32)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidprice", ftypes.UINT16)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidpricelong", ftypes.UINT32)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidprice", ftypes.DOUBLE)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price_long = ProtoField.new("Bid Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidpricelong", ftypes.DOUBLE)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidreferencenumberdelta", ftypes.UINT32)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidsize", ftypes.UINT16)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_size_long = ProtoField.new("Bid Size Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.bidsizelong", ftypes.UINT32)
@@ -56,9 +57,9 @@ nasdaq_bx_options_depthofmarket_itch_v1_3.fields.executed_contracts = ProtoField
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.bx.options.depthofmarket.itch.v1.3.expirationdate", ftypes.UINT8)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.bx.options.depthofmarket.itch.v1.3.expirationmonth", ftypes.UINT8)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.bx.options.depthofmarket.itch.v1.3.expirationyear", ftypes.UINT8)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.explicitstrikeprice", ftypes.UINT32)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.bx.options.depthofmarket.itch.v1.3.imbalancedirection", ftypes.STRING)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.imbalanceprice", ftypes.UINT32)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.imbalanceprice", ftypes.DOUBLE)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.bx.options.depthofmarket.itch.v1.3.imbalancevolume", ftypes.UINT32)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.length = ProtoField.new("Length", "nasdaq.bx.options.depthofmarket.itch.v1.3.length", ftypes.UINT16)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.market_side = ProtoField.new("Market Side", "nasdaq.bx.options.depthofmarket.itch.v1.3.marketside", ftypes.STRING)
@@ -86,8 +87,8 @@ nasdaq_bx_options_depthofmarket_itch_v1_3.fields.packet = ProtoField.new("Packet
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.bx.options.depthofmarket.itch.v1.3.packetheader", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.bx.options.depthofmarket.itch.v1.3.pairedcontracts", ftypes.UINT32)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.payload = ProtoField.new("Payload", "nasdaq.bx.options.depthofmarket.itch.v1.3.payload", ftypes.STRING)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price = ProtoField.new("Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.price", ftypes.UINT16)
-nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new("Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.pricelong", ftypes.UINT32)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price = ProtoField.new("Price", "nasdaq.bx.options.depthofmarket.itch.v1.3.price", ftypes.DOUBLE)
+nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price_long = ProtoField.new("Price Long", "nasdaq.bx.options.depthofmarket.itch.v1.3.pricelong", ftypes.DOUBLE)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.printable = ProtoField.new("Printable", "nasdaq.bx.options.depthofmarket.itch.v1.3.printable", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.bx.options.depthofmarket.itch.v1.3.quotedeletemessage", ftypes.STRING)
 nasdaq_bx_options_depthofmarket_itch_v1_3.fields.quote_replace_message_long_form = ProtoField.new("Quote Replace Message Long Form", "nasdaq.bx.options.depthofmarket.itch.v1.3.quotereplacemessagelongform", ftypes.STRING)
@@ -405,11 +406,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.imbalance_price = function(val
   return "Imbalance Price: "..value
 end
 
+-- Translate: Imbalance Price
+translate.imbalance_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Imbalance Price
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.imbalance_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.imbalance_price(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.imbalance_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.imbalance_price, range, value, display)
@@ -754,11 +761,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.price_long = function(value)
   return "Price Long: "..value
 end
 
+-- Translate: Price Long
+translate.price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price Long
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_long(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price_long, range, value, display)
@@ -1156,11 +1169,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.ask_price_long = function(valu
   return "Ask Price Long: "..value
 end
 
+-- Translate: Ask Price Long
+translate.ask_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price Long
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.ask_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.ask_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_long(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.ask_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price_long, range, value, display)
@@ -1196,11 +1215,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.bid_price_long = function(valu
   return "Bid Price Long: "..value
 end
 
+-- Translate: Bid Price Long
+translate.bid_price_long = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price Long
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.bid_price_long
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_long(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.bid_price_long(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price_long, range, value, display)
@@ -1373,11 +1398,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.ask_price, range, value, display)
@@ -1413,11 +1444,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.bid_price, range, value, display)
@@ -1776,11 +1813,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.price, range, value, display)
@@ -2750,11 +2793,17 @@ nasdaq_bx_options_depthofmarket_itch_v1_3_display.explicit_strike_price = functi
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_bx_options_depthofmarket_itch_v1_3_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_depthofmarket_itch_v1_3_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_bx_options_depthofmarket_itch_v1_3_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_depthofmarket_itch_v1_3.fields.explicit_strike_price, range, value, display)

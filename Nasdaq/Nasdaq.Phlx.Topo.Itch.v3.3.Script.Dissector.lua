@@ -14,18 +14,19 @@ local nasdaq_phlx_topo_itch_v3_3_display = {}
 local nasdaq_phlx_topo_itch_v3_3_dissect = {}
 local nasdaq_phlx_topo_itch_v3_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
 -----------------------------------------------------------------------
 
 -- Nasdaq Phlx Topo Itch 3.3 Fields
-nasdaq_phlx_topo_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlx.topo.itch.v3.3.askprice2", ftypes.UINT16)
-nasdaq_phlx_topo_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlx.topo.itch.v3.3.askprice4", ftypes.UINT32)
+nasdaq_phlx_topo_itch_v3_3.fields.ask_price_2 = ProtoField.new("Ask Price 2", "nasdaq.phlx.topo.itch.v3.3.askprice2", ftypes.DOUBLE)
+nasdaq_phlx_topo_itch_v3_3.fields.ask_price_4 = ProtoField.new("Ask Price 4", "nasdaq.phlx.topo.itch.v3.3.askprice4", ftypes.DOUBLE)
 nasdaq_phlx_topo_itch_v3_3.fields.ask_size_2 = ProtoField.new("Ask Size 2", "nasdaq.phlx.topo.itch.v3.3.asksize2", ftypes.UINT16)
 nasdaq_phlx_topo_itch_v3_3.fields.ask_size_4 = ProtoField.new("Ask Size 4", "nasdaq.phlx.topo.itch.v3.3.asksize4", ftypes.UINT32)
-nasdaq_phlx_topo_itch_v3_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "nasdaq.phlx.topo.itch.v3.3.bidprice2", ftypes.UINT16)
-nasdaq_phlx_topo_itch_v3_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.phlx.topo.itch.v3.3.bidprice4", ftypes.UINT32)
+nasdaq_phlx_topo_itch_v3_3.fields.bid_price_2 = ProtoField.new("Bid Price 2", "nasdaq.phlx.topo.itch.v3.3.bidprice2", ftypes.DOUBLE)
+nasdaq_phlx_topo_itch_v3_3.fields.bid_price_4 = ProtoField.new("Bid Price 4", "nasdaq.phlx.topo.itch.v3.3.bidprice4", ftypes.DOUBLE)
 nasdaq_phlx_topo_itch_v3_3.fields.bid_size_2 = ProtoField.new("Bid Size 2", "nasdaq.phlx.topo.itch.v3.3.bidsize2", ftypes.UINT16)
 nasdaq_phlx_topo_itch_v3_3.fields.bid_size_4 = ProtoField.new("Bid Size 4", "nasdaq.phlx.topo.itch.v3.3.bidsize4", ftypes.UINT32)
 nasdaq_phlx_topo_itch_v3_3.fields.broken_trade_report_message = ProtoField.new("Broken Trade Report Message", "nasdaq.phlx.topo.itch.v3.3.brokentradereportmessage", ftypes.STRING)
@@ -51,13 +52,13 @@ nasdaq_phlx_topo_itch_v3_3.fields.option_id = ProtoField.new("Option Id", "nasda
 nasdaq_phlx_topo_itch_v3_3.fields.option_type = ProtoField.new("Option Type", "nasdaq.phlx.topo.itch.v3.3.optiontype", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.options_directory_message = ProtoField.new("Options Directory Message", "nasdaq.phlx.topo.itch.v3.3.optionsdirectorymessage", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.original_cross_id = ProtoField.new("Original Cross Id", "nasdaq.phlx.topo.itch.v3.3.originalcrossid", ftypes.UINT32)
-nasdaq_phlx_topo_itch_v3_3.fields.original_price = ProtoField.new("Original Price", "nasdaq.phlx.topo.itch.v3.3.originalprice", ftypes.UINT32)
+nasdaq_phlx_topo_itch_v3_3.fields.original_price = ProtoField.new("Original Price", "nasdaq.phlx.topo.itch.v3.3.originalprice", ftypes.DOUBLE)
 nasdaq_phlx_topo_itch_v3_3.fields.original_volume = ProtoField.new("Original Volume", "nasdaq.phlx.topo.itch.v3.3.originalvolume", ftypes.UINT32)
 nasdaq_phlx_topo_itch_v3_3.fields.packet = ProtoField.new("Packet", "nasdaq.phlx.topo.itch.v3.3.packet", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.topo.itch.v3.3.packetheader", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.topo.itch.v3.3.payload", ftypes.STRING)
-nasdaq_phlx_topo_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", "nasdaq.phlx.topo.itch.v3.3.price2", ftypes.UINT16)
-nasdaq_phlx_topo_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.phlx.topo.itch.v3.3.price4", ftypes.UINT32)
+nasdaq_phlx_topo_itch_v3_3.fields.price_2 = ProtoField.new("Price 2", "nasdaq.phlx.topo.itch.v3.3.price2", ftypes.DOUBLE)
+nasdaq_phlx_topo_itch_v3_3.fields.price_4 = ProtoField.new("Price 4", "nasdaq.phlx.topo.itch.v3.3.price4", ftypes.DOUBLE)
 nasdaq_phlx_topo_itch_v3_3.fields.quote_condition = ProtoField.new("Quote Condition", "nasdaq.phlx.topo.itch.v3.3.quotecondition", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.second = ProtoField.new("Second", "nasdaq.phlx.topo.itch.v3.3.second", ftypes.UINT32)
 nasdaq_phlx_topo_itch_v3_3.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlx.topo.itch.v3.3.securityopenclosedmessage", ftypes.STRING)
@@ -70,7 +71,7 @@ nasdaq_phlx_topo_itch_v3_3.fields.short_best_bid_update_message = ProtoField.new
 nasdaq_phlx_topo_itch_v3_3.fields.size_2 = ProtoField.new("Size 2", "nasdaq.phlx.topo.itch.v3.3.size2", ftypes.UINT16)
 nasdaq_phlx_topo_itch_v3_3.fields.size_4 = ProtoField.new("Size 4", "nasdaq.phlx.topo.itch.v3.3.size4", ftypes.UINT32)
 nasdaq_phlx_topo_itch_v3_3.fields.source = ProtoField.new("Source", "nasdaq.phlx.topo.itch.v3.3.source", ftypes.UINT8)
-nasdaq_phlx_topo_itch_v3_3.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.phlx.topo.itch.v3.3.strikeprice", ftypes.UINT32)
+nasdaq_phlx_topo_itch_v3_3.fields.strike_price = ProtoField.new("Strike Price", "nasdaq.phlx.topo.itch.v3.3.strikeprice", ftypes.DOUBLE)
 nasdaq_phlx_topo_itch_v3_3.fields.subversion = ProtoField.new("Subversion", "nasdaq.phlx.topo.itch.v3.3.subversion", ftypes.UINT8)
 nasdaq_phlx_topo_itch_v3_3.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.phlx.topo.itch.v3.3.systemeventmessage", ftypes.STRING)
 nasdaq_phlx_topo_itch_v3_3.fields.timestamp_message = ProtoField.new("Timestamp Message", "nasdaq.phlx.topo.itch.v3.3.timestampmessage", ftypes.STRING)
@@ -261,11 +262,17 @@ nasdaq_phlx_topo_itch_v3_3_display.original_price = function(value)
   return "Original Price: "..value
 end
 
+-- Translate: Original Price
+translate.original_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Original Price
 nasdaq_phlx_topo_itch_v3_3_dissect.original_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.original_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.original_price(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.original_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.original_price, range, value, display)
@@ -418,11 +425,17 @@ nasdaq_phlx_topo_itch_v3_3_display.price_4 = function(value)
   return "Price 4: "..value
 end
 
+-- Translate: Price 4
+translate.price_4 = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price 4
 nasdaq_phlx_topo_itch_v3_3_dissect.price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.price_4
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_4(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.price_4, range, value, display)
@@ -730,11 +743,17 @@ nasdaq_phlx_topo_itch_v3_3_display.price_2 = function(value)
   return "Price 2: "..value
 end
 
+-- Translate: Price 2
+translate.price_2 = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price 2
 nasdaq_phlx_topo_itch_v3_3_dissect.price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.price_2
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_2(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.price_2, range, value, display)
@@ -884,11 +903,17 @@ nasdaq_phlx_topo_itch_v3_3_display.ask_price_4 = function(value)
   return "Ask Price 4: "..value
 end
 
+-- Translate: Ask Price 4
+translate.ask_price_4 = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ask Price 4
 nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_4
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_4(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.ask_price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_price_4, range, value, display)
@@ -924,11 +949,17 @@ nasdaq_phlx_topo_itch_v3_3_display.bid_price_4 = function(value)
   return "Bid Price 4: "..value
 end
 
+-- Translate: Bid Price 4
+translate.bid_price_4 = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Bid Price 4
 nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_4
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_4(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.bid_price_4(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_price_4, range, value, display)
@@ -1031,11 +1062,17 @@ nasdaq_phlx_topo_itch_v3_3_display.ask_price_2 = function(value)
   return "Ask Price 2: "..value
 end
 
+-- Translate: Ask Price 2
+translate.ask_price_2 = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price 2
 nasdaq_phlx_topo_itch_v3_3_dissect.ask_price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.ask_price_2
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price_2(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.ask_price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.ask_price_2, range, value, display)
@@ -1071,11 +1108,17 @@ nasdaq_phlx_topo_itch_v3_3_display.bid_price_2 = function(value)
   return "Bid Price 2: "..value
 end
 
+-- Translate: Bid Price 2
+translate.bid_price_2 = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price 2
 nasdaq_phlx_topo_itch_v3_3_dissect.bid_price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.bid_price_2
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price_2(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.bid_price_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.bid_price_2, range, value, display)
@@ -1460,11 +1503,17 @@ nasdaq_phlx_topo_itch_v3_3_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Strike Price
 nasdaq_phlx_topo_itch_v3_3_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_topo_itch_v3_3_size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.strike_price(raw)
   local display = nasdaq_phlx_topo_itch_v3_3_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_topo_itch_v3_3.fields.strike_price, range, value, display)

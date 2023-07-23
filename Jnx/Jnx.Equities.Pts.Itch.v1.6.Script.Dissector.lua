@@ -14,6 +14,7 @@ local jnx_equities_pts_itch_v1_6_display = {}
 local jnx_equities_pts_itch_v1_6_dissect = {}
 local jnx_equities_pts_itch_v1_6_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -26,7 +27,7 @@ jnx_equities_pts_itch_v1_6.fields.count = ProtoField.new("Count", "jnx.equities.
 jnx_equities_pts_itch_v1_6.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.equities.pts.itch.v1.6.executedquantity", ftypes.UINT32)
 jnx_equities_pts_itch_v1_6.fields.group = ProtoField.new("Group", "jnx.equities.pts.itch.v1.6.group", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.length = ProtoField.new("Length", "jnx.equities.pts.itch.v1.6.length", ftypes.UINT16)
-jnx_equities_pts_itch_v1_6.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.equities.pts.itch.v1.6.lowerpricelimit", ftypes.UINT32)
+jnx_equities_pts_itch_v1_6.fields.lower_price_limit = ProtoField.new("Lower Price Limit", "jnx.equities.pts.itch.v1.6.lowerpricelimit", ftypes.DOUBLE)
 jnx_equities_pts_itch_v1_6.fields.match_number = ProtoField.new("Match Number", "jnx.equities.pts.itch.v1.6.matchnumber", ftypes.UINT64)
 jnx_equities_pts_itch_v1_6.fields.message = ProtoField.new("Message", "jnx.equities.pts.itch.v1.6.message", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.message_header = ProtoField.new("Message Header", "jnx.equities.pts.itch.v1.6.messageheader", ftypes.STRING)
@@ -46,12 +47,12 @@ jnx_equities_pts_itch_v1_6.fields.original_order_number = ProtoField.new("Origin
 jnx_equities_pts_itch_v1_6.fields.packet = ProtoField.new("Packet", "jnx.equities.pts.itch.v1.6.packet", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.packet_header = ProtoField.new("Packet Header", "jnx.equities.pts.itch.v1.6.packetheader", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.payload = ProtoField.new("Payload", "jnx.equities.pts.itch.v1.6.payload", ftypes.STRING)
-jnx_equities_pts_itch_v1_6.fields.price = ProtoField.new("Price", "jnx.equities.pts.itch.v1.6.price", ftypes.UINT32)
-jnx_equities_pts_itch_v1_6.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.equities.pts.itch.v1.6.pricedecimals", ftypes.UINT32)
-jnx_equities_pts_itch_v1_6.fields.price_start = ProtoField.new("Price Start", "jnx.equities.pts.itch.v1.6.pricestart", ftypes.UINT32)
-jnx_equities_pts_itch_v1_6.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.equities.pts.itch.v1.6.priceticksize", ftypes.UINT32)
+jnx_equities_pts_itch_v1_6.fields.price = ProtoField.new("Price", "jnx.equities.pts.itch.v1.6.price", ftypes.DOUBLE)
+jnx_equities_pts_itch_v1_6.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.equities.pts.itch.v1.6.pricedecimals", ftypes.DOUBLE)
+jnx_equities_pts_itch_v1_6.fields.price_start = ProtoField.new("Price Start", "jnx.equities.pts.itch.v1.6.pricestart", ftypes.DOUBLE)
+jnx_equities_pts_itch_v1_6.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.equities.pts.itch.v1.6.priceticksize", ftypes.DOUBLE)
 jnx_equities_pts_itch_v1_6.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.equities.pts.itch.v1.6.priceticksizemessage", ftypes.STRING)
-jnx_equities_pts_itch_v1_6.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.equities.pts.itch.v1.6.priceticksizetableid", ftypes.UINT32)
+jnx_equities_pts_itch_v1_6.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.equities.pts.itch.v1.6.priceticksizetableid", ftypes.DOUBLE)
 jnx_equities_pts_itch_v1_6.fields.quantity = ProtoField.new("Quantity", "jnx.equities.pts.itch.v1.6.quantity", ftypes.UINT32)
 jnx_equities_pts_itch_v1_6.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.equities.pts.itch.v1.6.roundlotsize", ftypes.UINT32)
 jnx_equities_pts_itch_v1_6.fields.sequence = ProtoField.new("Sequence", "jnx.equities.pts.itch.v1.6.sequence", ftypes.UINT64)
@@ -65,7 +66,7 @@ jnx_equities_pts_itch_v1_6.fields.timestamp_seconds = ProtoField.new("Timestamp 
 jnx_equities_pts_itch_v1_6.fields.timestamp_seconds_message = ProtoField.new("Timestamp Seconds Message", "jnx.equities.pts.itch.v1.6.timestampsecondsmessage", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.trading_state = ProtoField.new("Trading State", "jnx.equities.pts.itch.v1.6.tradingstate", ftypes.STRING)
 jnx_equities_pts_itch_v1_6.fields.trading_state_message = ProtoField.new("Trading State Message", "jnx.equities.pts.itch.v1.6.tradingstatemessage", ftypes.STRING)
-jnx_equities_pts_itch_v1_6.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.equities.pts.itch.v1.6.upperpricelimit", ftypes.UINT32)
+jnx_equities_pts_itch_v1_6.fields.upper_price_limit = ProtoField.new("Upper Price Limit", "jnx.equities.pts.itch.v1.6.upperpricelimit", ftypes.DOUBLE)
 
 -----------------------------------------------------------------------
 -- Declare Dissection Options
@@ -214,11 +215,17 @@ jnx_equities_pts_itch_v1_6_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price
 jnx_equities_pts_itch_v1_6_dissect.price = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = jnx_equities_pts_itch_v1_6_display.price(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.price, range, value, display)
@@ -951,11 +958,17 @@ jnx_equities_pts_itch_v1_6_display.lower_price_limit = function(value)
   return "Lower Price Limit: "..value
 end
 
+-- Translate: Lower Price Limit
+translate.lower_price_limit = function(raw)
+  return raw/10
+end
+
 -- Dissect: Lower Price Limit
 jnx_equities_pts_itch_v1_6_dissect.lower_price_limit = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.lower_price_limit
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.lower_price_limit(raw)
   local display = jnx_equities_pts_itch_v1_6_display.lower_price_limit(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.lower_price_limit, range, value, display)
@@ -971,11 +984,17 @@ jnx_equities_pts_itch_v1_6_display.upper_price_limit = function(value)
   return "Upper Price Limit: "..value
 end
 
+-- Translate: Upper Price Limit
+translate.upper_price_limit = function(raw)
+  return raw/10
+end
+
 -- Dissect: Upper Price Limit
 jnx_equities_pts_itch_v1_6_dissect.upper_price_limit = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.upper_price_limit
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.upper_price_limit(raw)
   local display = jnx_equities_pts_itch_v1_6_display.upper_price_limit(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.upper_price_limit, range, value, display)
@@ -991,11 +1010,17 @@ jnx_equities_pts_itch_v1_6_display.price_decimals = function(value)
   return "Price Decimals: "..value
 end
 
+-- Translate: Price Decimals
+translate.price_decimals = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price Decimals
 jnx_equities_pts_itch_v1_6_dissect.price_decimals = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.price_decimals
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_decimals(raw)
   local display = jnx_equities_pts_itch_v1_6_display.price_decimals(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.price_decimals, range, value, display)
@@ -1011,11 +1036,17 @@ jnx_equities_pts_itch_v1_6_display.price_tick_size_table_id = function(value)
   return "Price Tick Size Table Id: "..value
 end
 
+-- Translate: Price Tick Size Table Id
+translate.price_tick_size_table_id = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price Tick Size Table Id
 jnx_equities_pts_itch_v1_6_dissect.price_tick_size_table_id = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.price_tick_size_table_id
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_tick_size_table_id(raw)
   local display = jnx_equities_pts_itch_v1_6_display.price_tick_size_table_id(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.price_tick_size_table_id, range, value, display)
@@ -1148,11 +1179,17 @@ jnx_equities_pts_itch_v1_6_display.price_start = function(value)
   return "Price Start: "..value
 end
 
+-- Translate: Price Start
+translate.price_start = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price Start
 jnx_equities_pts_itch_v1_6_dissect.price_start = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.price_start
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_start(raw)
   local display = jnx_equities_pts_itch_v1_6_display.price_start(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.price_start, range, value, display)
@@ -1168,11 +1205,17 @@ jnx_equities_pts_itch_v1_6_display.price_tick_size = function(value)
   return "Price Tick Size: "..value
 end
 
+-- Translate: Price Tick Size
+translate.price_tick_size = function(raw)
+  return raw/10
+end
+
 -- Dissect: Price Tick Size
 jnx_equities_pts_itch_v1_6_dissect.price_tick_size = function(buffer, offset, packet, parent)
   local length = jnx_equities_pts_itch_v1_6_size_of.price_tick_size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_tick_size(raw)
   local display = jnx_equities_pts_itch_v1_6_display.price_tick_size(value, buffer, offset, packet, parent)
 
   parent:add(jnx_equities_pts_itch_v1_6.fields.price_tick_size, range, value, display)

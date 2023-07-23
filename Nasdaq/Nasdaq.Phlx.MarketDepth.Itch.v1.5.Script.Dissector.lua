@@ -14,6 +14,7 @@ local nasdaq_phlx_marketdepth_itch_v1_5_display = {}
 local nasdaq_phlx_marketdepth_itch_v1_5_dissect = {}
 local nasdaq_phlx_marketdepth_itch_v1_5_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -25,7 +26,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.add_order_message_short_form = ProtoFie
 nasdaq_phlx_marketdepth_itch_v1_5.fields.add_quote_message_long_form = ProtoField.new("Add Quote Message Long Form", "nasdaq.phlx.marketdepth.itch.v1.5.addquotemessagelongform", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.add_quote_message_short_form = ProtoField.new("Add Quote Message Short Form", "nasdaq.phlx.marketdepth.itch.v1.5.addquotemessageshortform", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask = ProtoField.new("Ask", "nasdaq.phlx.marketdepth.itch.v1.5.ask", ftypes.UINT32)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlx.marketdepth.itch.v1.5.askprice", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price = ProtoField.new("Ask Price", "nasdaq.phlx.marketdepth.itch.v1.5.askprice", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_reference_number_delta = ProtoField.new("Ask Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.askreferencenumberdelta", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_size = ProtoField.new("Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.asksize", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_id = ProtoField.new("Auction Id", "nasdaq.phlx.marketdepth.itch.v1.5.auctionid", ftypes.UINT32)
@@ -34,7 +35,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.auction_type = ProtoField.new("Auction 
 nasdaq_phlx_marketdepth_itch_v1_5.fields.base_reference_message = ProtoField.new("Base Reference Message", "nasdaq.phlx.marketdepth.itch.v1.5.basereferencemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.base_reference_number = ProtoField.new("Base Reference Number", "nasdaq.phlx.marketdepth.itch.v1.5.basereferencenumber", ftypes.UINT64)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid = ProtoField.new("Bid", "nasdaq.phlx.marketdepth.itch.v1.5.bid", ftypes.UINT32)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.phlx.marketdepth.itch.v1.5.bidprice", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_price = ProtoField.new("Bid Price", "nasdaq.phlx.marketdepth.itch.v1.5.bidprice", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_reference_number_delta = ProtoField.new("Bid Reference Number Delta", "nasdaq.phlx.marketdepth.itch.v1.5.bidreferencenumberdelta", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_size = ProtoField.new("Bid Size", "nasdaq.phlx.marketdepth.itch.v1.5.bidsize", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.block_delete_message = ProtoField.new("Block Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.blockdeletemessage", ftypes.STRING)
@@ -52,9 +53,9 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.executed_contracts = ProtoField.new("Ex
 nasdaq_phlx_marketdepth_itch_v1_5.fields.expiration_date = ProtoField.new("Expiration Date", "nasdaq.phlx.marketdepth.itch.v1.5.expirationdate", ftypes.UINT8)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.expiration_month = ProtoField.new("Expiration Month", "nasdaq.phlx.marketdepth.itch.v1.5.expirationmonth", ftypes.UINT8)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.expiration_year = ProtoField.new("Expiration Year", "nasdaq.phlx.marketdepth.itch.v1.5.expirationyear", ftypes.UINT8)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.marketdepth.itch.v1.5.explicitstrikeprice", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.marketdepth.itch.v1.5.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.phlx.marketdepth.itch.v1.5.imbalancedirection", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.phlx.marketdepth.itch.v1.5.imbalanceprice", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.imbalance_price = ProtoField.new("Imbalance Price", "nasdaq.phlx.marketdepth.itch.v1.5.imbalanceprice", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlx.marketdepth.itch.v1.5.imbalancevolume", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.length = ProtoField.new("Length", "nasdaq.phlx.marketdepth.itch.v1.5.length", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.market_side = ProtoField.new("Market Side", "nasdaq.phlx.marketdepth.itch.v1.5.marketside", ftypes.STRING)
@@ -82,7 +83,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.packet = ProtoField.new("Packet", "nasd
 nasdaq_phlx_marketdepth_itch_v1_5.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.marketdepth.itch.v1.5.packetheader", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.paired_contracts = ProtoField.new("Paired Contracts", "nasdaq.phlx.marketdepth.itch.v1.5.pairedcontracts", ftypes.UINT32)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.marketdepth.itch.v1.5.payload", ftypes.STRING)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlx.marketdepth.itch.v1.5.price", ftypes.UINT32)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.price = ProtoField.new("Price", "nasdaq.phlx.marketdepth.itch.v1.5.price", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.printable = ProtoField.new("Printable", "nasdaq.phlx.marketdepth.itch.v1.5.printable", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_delete_message = ProtoField.new("Quote Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotedeletemessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.quote_replace_long_form_message = ProtoField.new("Quote Replace Long Form Message", "nasdaq.phlx.marketdepth.itch.v1.5.quotereplacelongformmessage", ftypes.STRING)
@@ -97,7 +98,7 @@ nasdaq_phlx_marketdepth_itch_v1_5.fields.sequence = ProtoField.new("Sequence", "
 nasdaq_phlx_marketdepth_itch_v1_5.fields.session = ProtoField.new("Session", "nasdaq.phlx.marketdepth.itch.v1.5.session", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.short_ask_size = ProtoField.new("Short Ask Size", "nasdaq.phlx.marketdepth.itch.v1.5.shortasksize", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.short_bid_size = ProtoField.new("Short Bid Size", "nasdaq.phlx.marketdepth.itch.v1.5.shortbidsize", ftypes.UINT16)
-nasdaq_phlx_marketdepth_itch_v1_5.fields.short_price = ProtoField.new("Short Price", "nasdaq.phlx.marketdepth.itch.v1.5.shortprice", ftypes.UINT16)
+nasdaq_phlx_marketdepth_itch_v1_5.fields.short_price = ProtoField.new("Short Price", "nasdaq.phlx.marketdepth.itch.v1.5.shortprice", ftypes.DOUBLE)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.short_volume = ProtoField.new("Short Volume", "nasdaq.phlx.marketdepth.itch.v1.5.shortvolume", ftypes.UINT16)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_cancel_message = ProtoField.new("Single Side Cancel Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidecancelmessage", ftypes.STRING)
 nasdaq_phlx_marketdepth_itch_v1_5.fields.single_side_delete_message = ProtoField.new("Single Side Delete Message", "nasdaq.phlx.marketdepth.itch.v1.5.singlesidedeletemessage", ftypes.STRING)
@@ -417,11 +418,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.imbalance_price = function(value)
   return "Imbalance Price: "..value
 end
 
+-- Translate: Imbalance Price
+translate.imbalance_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Imbalance Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.imbalance_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.imbalance_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.imbalance_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.imbalance_price, range, value, display)
@@ -763,11 +770,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.price, range, value, display)
@@ -1366,11 +1379,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.ask_price = function(value)
   return "Ask Price: "..value
 end
 
+-- Translate: Ask Price
+translate.ask_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Ask Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.ask_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.ask_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.ask_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.ask_price, range, value, display)
@@ -1406,11 +1425,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.bid_price = function(value)
   return "Bid Price: "..value
 end
 
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.bid_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.bid_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.bid_price, range, value, display)
@@ -1797,11 +1822,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.short_price = function(value)
   return "Short Price: "..value
 end
 
+-- Translate: Short Price
+translate.short_price = function(raw)
+  return raw/100
+end
+
 -- Dissect: Short Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.short_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.short_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.short_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.short_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.short_price, range, value, display)
@@ -2876,11 +2907,17 @@ nasdaq_phlx_marketdepth_itch_v1_5_display.explicit_strike_price = function(value
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_phlx_marketdepth_itch_v1_5_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_5_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_5_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_5.fields.explicit_strike_price, range, value, display)

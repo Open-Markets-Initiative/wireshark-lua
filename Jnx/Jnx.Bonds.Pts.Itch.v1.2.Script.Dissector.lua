@@ -14,6 +14,7 @@ local jnx_bonds_pts_itch_v1_2_display = {}
 local jnx_bonds_pts_itch_v1_2_dissect = {}
 local jnx_bonds_pts_itch_v1_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -44,11 +45,11 @@ jnx_bonds_pts_itch_v1_2.fields.packet = ProtoField.new("Packet", "jnx.bonds.pts.
 jnx_bonds_pts_itch_v1_2.fields.packet_header = ProtoField.new("Packet Header", "jnx.bonds.pts.itch.v1.2.packetheader", ftypes.STRING)
 jnx_bonds_pts_itch_v1_2.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.itch.v1.2.payload", ftypes.STRING)
 jnx_bonds_pts_itch_v1_2.fields.price = ProtoField.new("Price", "jnx.bonds.pts.itch.v1.2.price", ftypes.INT32)
-jnx_bonds_pts_itch_v1_2.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.bonds.pts.itch.v1.2.pricedecimals", ftypes.UINT32)
+jnx_bonds_pts_itch_v1_2.fields.price_decimals = ProtoField.new("Price Decimals", "jnx.bonds.pts.itch.v1.2.pricedecimals", ftypes.DOUBLE)
 jnx_bonds_pts_itch_v1_2.fields.price_start = ProtoField.new("Price Start", "jnx.bonds.pts.itch.v1.2.pricestart", ftypes.INT32)
-jnx_bonds_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.bonds.pts.itch.v1.2.priceticksize", ftypes.UINT32)
+jnx_bonds_pts_itch_v1_2.fields.price_tick_size = ProtoField.new("Price Tick Size", "jnx.bonds.pts.itch.v1.2.priceticksize", ftypes.DOUBLE)
 jnx_bonds_pts_itch_v1_2.fields.price_tick_size_message = ProtoField.new("Price Tick Size Message", "jnx.bonds.pts.itch.v1.2.priceticksizemessage", ftypes.STRING)
-jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.bonds.pts.itch.v1.2.priceticksizetableid", ftypes.UINT32)
+jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id = ProtoField.new("Price Tick Size Table Id", "jnx.bonds.pts.itch.v1.2.priceticksizetableid", ftypes.DOUBLE)
 jnx_bonds_pts_itch_v1_2.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.itch.v1.2.quantity", ftypes.UINT32)
 jnx_bonds_pts_itch_v1_2.fields.round_lot_size = ProtoField.new("Round Lot Size", "jnx.bonds.pts.itch.v1.2.roundlotsize", ftypes.UINT32)
 jnx_bonds_pts_itch_v1_2.fields.sequence = ProtoField.new("Sequence", "jnx.bonds.pts.itch.v1.2.sequence", ftypes.UINT64)
@@ -765,11 +766,17 @@ jnx_bonds_pts_itch_v1_2_display.price_decimals = function(value)
   return "Price Decimals: "..value
 end
 
+-- Translate: Price Decimals
+translate.price_decimals = function(raw)
+  return raw/1000
+end
+
 -- Dissect: Price Decimals
 jnx_bonds_pts_itch_v1_2_dissect.price_decimals = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_itch_v1_2_size_of.price_decimals
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_decimals(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.price_decimals(value, buffer, offset, packet, parent)
 
   parent:add(jnx_bonds_pts_itch_v1_2.fields.price_decimals, range, value, display)
@@ -785,11 +792,17 @@ jnx_bonds_pts_itch_v1_2_display.price_tick_size_table_id = function(value)
   return "Price Tick Size Table Id: "..value
 end
 
+-- Translate: Price Tick Size Table Id
+translate.price_tick_size_table_id = function(raw)
+  return raw/1000
+end
+
 -- Dissect: Price Tick Size Table Id
 jnx_bonds_pts_itch_v1_2_dissect.price_tick_size_table_id = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_itch_v1_2_size_of.price_tick_size_table_id
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_tick_size_table_id(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.price_tick_size_table_id(value, buffer, offset, packet, parent)
 
   parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size_table_id, range, value, display)
@@ -942,11 +955,17 @@ jnx_bonds_pts_itch_v1_2_display.price_tick_size = function(value)
   return "Price Tick Size: "..value
 end
 
+-- Translate: Price Tick Size
+translate.price_tick_size = function(raw)
+  return raw/1000
+end
+
 -- Dissect: Price Tick Size
 jnx_bonds_pts_itch_v1_2_dissect.price_tick_size = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_itch_v1_2_size_of.price_tick_size
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price_tick_size(raw)
   local display = jnx_bonds_pts_itch_v1_2_display.price_tick_size(value, buffer, offset, packet, parent)
 
   parent:add(jnx_bonds_pts_itch_v1_2.fields.price_tick_size, range, value, display)

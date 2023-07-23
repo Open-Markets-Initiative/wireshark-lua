@@ -14,6 +14,7 @@ local nasdaq_phlx_orders_itch_v1_9_display = {}
 local nasdaq_phlx_orders_itch_v1_9_dissect = {}
 local nasdaq_phlx_orders_itch_v1_9_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -40,12 +41,12 @@ nasdaq_phlx_orders_itch_v1_9.fields.debit_or_credit = ProtoField.new("Debit Or C
 nasdaq_phlx_orders_itch_v1_9.fields.event_code = ProtoField.new("Event Code", "nasdaq.phlx.orders.itch.v1.9.eventcode", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.executable_order_volume = ProtoField.new("Executable Order Volume", "nasdaq.phlx.orders.itch.v1.9.executableordervolume", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.expiration = ProtoField.new("Expiration", "nasdaq.phlx.orders.itch.v1.9.expiration", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.orders.itch.v1.9.explicitstrikeprice", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price = ProtoField.new("Explicit Strike Price", "nasdaq.phlx.orders.itch.v1.9.explicitstrikeprice", ftypes.DOUBLE)
 nasdaq_phlx_orders_itch_v1_9.fields.imbalance_volume = ProtoField.new("Imbalance Volume", "nasdaq.phlx.orders.itch.v1.9.imbalancevolume", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.leg_open_close_indicator = ProtoField.new("Leg Open Close Indicator", "nasdaq.phlx.orders.itch.v1.9.legopencloseindicator", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.leg_ratio = ProtoField.new("Leg Ratio", "nasdaq.phlx.orders.itch.v1.9.legratio", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.length = ProtoField.new("Length", "nasdaq.phlx.orders.itch.v1.9.length", ftypes.UINT16)
-nasdaq_phlx_orders_itch_v1_9.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlx.orders.itch.v1.9.limitprice", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.limit_price = ProtoField.new("Limit Price", "nasdaq.phlx.orders.itch.v1.9.limitprice", ftypes.DOUBLE)
 nasdaq_phlx_orders_itch_v1_9.fields.market_qualifier = ProtoField.new("Market Qualifier", "nasdaq.phlx.orders.itch.v1.9.marketqualifier", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.matched_volume = ProtoField.new("Matched Volume", "nasdaq.phlx.orders.itch.v1.9.matchedvolume", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.message = ProtoField.new("Message", "nasdaq.phlx.orders.itch.v1.9.message", ftypes.STRING)
@@ -68,7 +69,7 @@ nasdaq_phlx_orders_itch_v1_9.fields.packet = ProtoField.new("Packet", "nasdaq.ph
 nasdaq_phlx_orders_itch_v1_9.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.phlx.orders.itch.v1.9.packetheader", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.payload = ProtoField.new("Payload", "nasdaq.phlx.orders.itch.v1.9.payload", ftypes.STRING)
 nasdaq_phlx_orders_itch_v1_9.fields.phlx_tradable = ProtoField.new("Phlx Tradable", "nasdaq.phlx.orders.itch.v1.9.phlxtradable", ftypes.STRING)
-nasdaq_phlx_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlx.orders.itch.v1.9.price", ftypes.UINT32)
+nasdaq_phlx_orders_itch_v1_9.fields.price = ProtoField.new("Price", "nasdaq.phlx.orders.itch.v1.9.price", ftypes.DOUBLE)
 nasdaq_phlx_orders_itch_v1_9.fields.reserved = ProtoField.new("Reserved", "nasdaq.phlx.orders.itch.v1.9.reserved", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.seconds = ProtoField.new("Seconds", "nasdaq.phlx.orders.itch.v1.9.seconds", ftypes.UINT32)
 nasdaq_phlx_orders_itch_v1_9.fields.security_open_closed_message = ProtoField.new("Security Open Closed Message", "nasdaq.phlx.orders.itch.v1.9.securityopenclosedmessage", ftypes.STRING)
@@ -336,11 +337,17 @@ nasdaq_phlx_orders_itch_v1_9_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_phlx_orders_itch_v1_9_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.price, range, value, display)
@@ -642,11 +649,17 @@ nasdaq_phlx_orders_itch_v1_9_display.explicit_strike_price = function(value)
   return "Explicit Strike Price: "..value
 end
 
+-- Translate: Explicit Strike Price
+translate.explicit_strike_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Explicit Strike Price
 nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.explicit_strike_price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.explicit_strike_price, range, value, display)
@@ -1130,11 +1143,17 @@ nasdaq_phlx_orders_itch_v1_9_display.limit_price = function(value)
   return "Limit Price: "..value
 end
 
+-- Translate: Limit Price
+translate.limit_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Limit Price
 nasdaq_phlx_orders_itch_v1_9_dissect.limit_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.limit_price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.limit_price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.limit_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.limit_price, range, value, display)
