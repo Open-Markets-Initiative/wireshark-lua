@@ -32,6 +32,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Asx][Asx.Directory] | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | [Verified][Omi.Glossary.Testing.Verified] |
+| [B3][B3.Directory] | Equities | [BinaryUmdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | Sbe | [1.6][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | 6/13/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Box][Box.Directory] | Options Sola | [Unicast][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Byx Equities | [DepthOfBook][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | Pitch | [2.41.29][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | 4/20/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Byx Equities | [SummaryDepth][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Dissector] | Pitch | [1.0.4][Cboe.Byx.Equities.SummaryDepth.Pitch.v1.0.4.Dissector] | 7/26/2021 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -147,7 +148,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Tmx][Tmx.Directory] | QuantumFeed | [AlphaLevel1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | Xmt | [2.1][Tmx.QuantumFeed.AlphaLevel1.Xmt.v2.1.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Tmx][Tmx.Directory] | QuantumFeed | [TsxTsxvLevel2][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | Xmt | [3.6][Tmx.QuantumFeed.TsxTsxvLevel2.Xmt.v3.6.Dissector] | 10/20/2020 | [Beta][Omi.Glossary.Testing.Beta] |
 
-Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
+Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
 
 ## Development
 
@@ -155,7 +156,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 210 | 1,781,521 |
+| 211 | 1,789,813 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -189,6 +190,7 @@ Enjoy.
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [Asx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Asx "Australian Securities Exchange"
+[B3.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/B3 "B3"
 [Box.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Box "Boston Options Exchange"
 [Cboe.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Cboe "Chicago Board Options Exchange"
 [Cme.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Cme "Chicago Mercantile Exchange"
@@ -209,6 +211,7 @@ Enjoy.
 [Tmx.Directory]: https://github.com/Open-Markets-Initiative/wireshark-lua/tree/main/Tmx "Tmx Group"
 
 [Asx.Securities.Ntp.Itch.v1.05.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Asx/Asx.Securities.Ntp.Itch.v1.05.Script.Dissector.lua "Asx Securities Ntp Itch v1.05 Lua Wireshark Dissector"
+[B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3.Equities.BinaryUmdf.Sbe.v1.6.Script.Dissector.lua "B3 Equities BinaryUmdf Sbe v1.6 Lua Wireshark Dissector"
 [Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Box/Box.Options.Sola.Unicast.Hsvf.v4.5.1.Script.Dissector.lua "Box Options Sola Unicast Hsvf v4.5.1 Lua Wireshark Dissector"
 [Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Script.Dissector.lua "Cboe Byx Equities DepthOfBook Pitch v2.41.29 Lua Wireshark Dissector"
 [Cboe.Byx.Equities.TopOfBook.Pitch.v1.3.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cboe/Cboe.Byx.Equities.TopOfBook.Pitch.v1.3.2.Script.Dissector.lua "Cboe Byx Equities TopOfBook Pitch v1.3.2 Lua Wireshark Dissector"
