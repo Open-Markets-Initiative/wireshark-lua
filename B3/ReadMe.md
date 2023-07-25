@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | Sbe | [7.0][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | 7/5/2023 | 10479 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Pdf] - [xml][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Xml] |
 | Equities | [BinaryUmdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | Sbe | [1.6][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | 6/13/2023 | 8292 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Pdf] - [xml][B3.Equities.BinaryUmdf.Sbe.v1.6.Xml] |
 
 
@@ -24,5 +25,8 @@ B3: [website](https://www.b3.com.br/en_us "Go to B3")
 [Omi.Glossary.Testing.Untested]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Glossary/Testing.md "Testing Status: Protocol has not been tested on live data"
 
 [B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3.Equities.BinaryUmdf.Sbe.v1.6.Script.Dissector.lua "B3 Equities BinaryUmdf Sbe v1.6 Wireshark Dissector"
-[B3.Equities.BinaryUmdf.Sbe.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/B3/B3.Equities.BinaryUmdf.Sbev1.6.pdf "B3 1.6 Pdf"
+[B3.Equities.BinaryUmdf.Sbe.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/B3/B3.Equities.BinaryUmdf.Sbe.v1.6.pdf "B3 1.6 Pdf"
 [B3.Equities.BinaryUmdf.Sbe.v1.6.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/B3/B3.Equities.BinaryUmdf.Sbe.v1.6.xml "B3 1.6 Xml"
+[B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/B3/B3.Equities.BinaryEntryPoint.Sbe.v7.0.Script.Dissector.lua "B3 Equities BinaryEntryPoint Sbe v7.0 Wireshark Dissector"
+[B3.Equities.BinaryEntryPoint.Sbe.v7.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/B3/B3.Equities.BinaryEntryPoint.Sbe.v7.0.pdf "B3 7.0 Pdf"
+[B3.Equities.BinaryEntryPoint.Sbe.v7.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/B3/B3.Equities.BinaryEntryPoint.Sbe.v7.0.xml "B3 7.0 Xml"
