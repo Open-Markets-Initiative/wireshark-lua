@@ -14,6 +14,7 @@ local nasdaq_psx_orders_ouch_v4_2_display = {}
 local nasdaq_psx_orders_ouch_v4_2_dissect = {}
 local nasdaq_psx_orders_ouch_v4_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -64,7 +65,7 @@ nasdaq_psx_orders_ouch_v4_2.fields.packet_type = ProtoField.new("Packet Type", "
 nasdaq_psx_orders_ouch_v4_2.fields.password = ProtoField.new("Password", "nasdaq.psx.orders.ouch.v4.2.password", ftypes.STRING)
 nasdaq_psx_orders_ouch_v4_2.fields.payload = ProtoField.new("Payload", "nasdaq.psx.orders.ouch.v4.2.payload", ftypes.STRING)
 nasdaq_psx_orders_ouch_v4_2.fields.previous_order_token = ProtoField.new("Previous Order Token", "nasdaq.psx.orders.ouch.v4.2.previousordertoken", ftypes.STRING)
-nasdaq_psx_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.psx.orders.ouch.v4.2.price", ftypes.UINT32)
+nasdaq_psx_orders_ouch_v4_2.fields.price = ProtoField.new("Price", "nasdaq.psx.orders.ouch.v4.2.price", ftypes.DOUBLE)
 nasdaq_psx_orders_ouch_v4_2.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "nasdaq.psx.orders.ouch.v4.2.quantitypreventedfromtrading", ftypes.UINT32)
 nasdaq_psx_orders_ouch_v4_2.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "nasdaq.psx.orders.ouch.v4.2.rejectreasoncode", ftypes.STRING)
 nasdaq_psx_orders_ouch_v4_2.fields.rejected_message = ProtoField.new("Rejected Message", "nasdaq.psx.orders.ouch.v4.2.rejectedmessage", ftypes.STRING)
@@ -587,11 +588,17 @@ nasdaq_psx_orders_ouch_v4_2_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_psx_orders_ouch_v4_2_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_orders_ouch_v4_2_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_psx_orders_ouch_v4_2_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_orders_ouch_v4_2.fields.price, range, value, display)

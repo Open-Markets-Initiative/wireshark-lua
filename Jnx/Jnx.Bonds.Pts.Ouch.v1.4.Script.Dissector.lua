@@ -14,6 +14,7 @@ local jnx_bonds_pts_ouch_v1_4_display = {}
 local jnx_bonds_pts_ouch_v1_4_dissect = {}
 local jnx_bonds_pts_ouch_v1_4_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -31,7 +32,7 @@ jnx_bonds_pts_ouch_v1_4.fields.decrement_quantity = ProtoField.new("Decrement Qu
 jnx_bonds_pts_ouch_v1_4.fields.display = ProtoField.new("Display", "jnx.bonds.pts.ouch.v1.4.display", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.enter_order_message = ProtoField.new("Enter Order Message", "jnx.bonds.pts.ouch.v1.4.enterordermessage", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.executed_quantity = ProtoField.new("Executed Quantity", "jnx.bonds.pts.ouch.v1.4.executedquantity", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.execution_price = ProtoField.new("Execution Price", "jnx.bonds.pts.ouch.v1.4.executionprice", ftypes.INT32)
+jnx_bonds_pts_ouch_v1_4.fields.execution_price = ProtoField.new("Execution Price", "jnx.bonds.pts.ouch.v1.4.executionprice", ftypes.DOUBLE)
 jnx_bonds_pts_ouch_v1_4.fields.existing_order_token = ProtoField.new("Existing Order Token", "jnx.bonds.pts.ouch.v1.4.existingordertoken", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.firm_id = ProtoField.new("Firm Id", "jnx.bonds.pts.ouch.v1.4.firmid", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.group = ProtoField.new("Group", "jnx.bonds.pts.ouch.v1.4.group", ftypes.STRING)
@@ -61,7 +62,7 @@ jnx_bonds_pts_ouch_v1_4.fields.packet_type = ProtoField.new("Packet Type", "jnx.
 jnx_bonds_pts_ouch_v1_4.fields.password = ProtoField.new("Password", "jnx.bonds.pts.ouch.v1.4.password", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.payload = ProtoField.new("Payload", "jnx.bonds.pts.ouch.v1.4.payload", ftypes.STRING)
 jnx_bonds_pts_ouch_v1_4.fields.previous_order_token = ProtoField.new("Previous Order Token", "jnx.bonds.pts.ouch.v1.4.previousordertoken", ftypes.UINT32)
-jnx_bonds_pts_ouch_v1_4.fields.price = ProtoField.new("Price", "jnx.bonds.pts.ouch.v1.4.price", ftypes.INT32)
+jnx_bonds_pts_ouch_v1_4.fields.price = ProtoField.new("Price", "jnx.bonds.pts.ouch.v1.4.price", ftypes.DOUBLE)
 jnx_bonds_pts_ouch_v1_4.fields.quantity = ProtoField.new("Quantity", "jnx.bonds.pts.ouch.v1.4.quantity", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.quantity_prevented_from_trading = ProtoField.new("Quantity Prevented From Trading", "jnx.bonds.pts.ouch.v1.4.quantitypreventedfromtrading", ftypes.UINT32)
 jnx_bonds_pts_ouch_v1_4.fields.reject_reason_code = ProtoField.new("Reject Reason Code", "jnx.bonds.pts.ouch.v1.4.rejectreasoncode", ftypes.STRING)
@@ -421,11 +422,17 @@ jnx_bonds_pts_ouch_v1_4_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/1000
+end
+
 -- Dissect: Price
 jnx_bonds_pts_ouch_v1_4_dissect.price = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_ouch_v1_4_size_of.price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.price(raw)
   local display = jnx_bonds_pts_ouch_v1_4_display.price(value, buffer, offset, packet, parent)
 
   parent:add(jnx_bonds_pts_ouch_v1_4.fields.price, range, value, display)
@@ -1311,11 +1318,17 @@ jnx_bonds_pts_ouch_v1_4_display.execution_price = function(value)
   return "Execution Price: "..value
 end
 
+-- Translate: Execution Price
+translate.execution_price = function(raw)
+  return raw/1000
+end
+
 -- Dissect: Execution Price
 jnx_bonds_pts_ouch_v1_4_dissect.execution_price = function(buffer, offset, packet, parent)
   local length = jnx_bonds_pts_ouch_v1_4_size_of.execution_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.execution_price(raw)
   local display = jnx_bonds_pts_ouch_v1_4_display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(jnx_bonds_pts_ouch_v1_4.fields.execution_price, range, value, display)

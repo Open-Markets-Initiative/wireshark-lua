@@ -32,7 +32,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Asx][Asx.Directory] | Securities | [Ntp][Asx.Securities.Ntp.Itch.v1.05.Dissector] | Itch | [1.05][Asx.Securities.Ntp.Itch.v1.05.Dissector] | 12/1/2017 | [Verified][Omi.Glossary.Testing.Verified] |
-| [B3][B3.Directory] | Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | Sbe | [7.0][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | 7/5/2023 | [Verified][Omi.Glossary.Testing.Verified] |
+| [B3][B3.Directory] | Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | Sbe | [7.0][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | 7/5/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [B3][B3.Directory] | Equities | [BinaryUmdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | Sbe | [1.6][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | 6/13/2023 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Box][Box.Directory] | Options Sola | [Unicast][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | Hsvf | [4.5.1][Box.Options.Sola.Unicast.Hsvf.v4.5.1.Dissector] | 3/15/2021 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Cboe][Cboe.Directory] | Byx Equities | [DepthOfBook][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | Pitch | [2.41.29][Cboe.Byx.Equities.DepthOfBook.Pitch.v2.41.29.Dissector] | 4/20/2022 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -157,7 +157,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 212 | 1,800,859 |
+| 212 | 1,800,879 |
 
 Note: Our dissector model is still under rapid development.
 

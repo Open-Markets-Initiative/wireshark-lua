@@ -5,7 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
-| Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | Sbe | [7.0][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | 7/5/2023 | 10479 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Pdf] - [xml][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Xml] |
+| Equities | [BinaryEntryPoint][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | Sbe | [7.0][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Dissector] | 7/5/2023 | 10479 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [pdf][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Pdf] - [xml][B3.Equities.BinaryEntryPoint.Sbe.v7.0.Xml] |
 | Equities | [BinaryUmdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | Sbe | [1.6][B3.Equities.BinaryUmdf.Sbe.v1.6.Dissector] | 6/13/2023 | 8292 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [pdf][B3.Equities.BinaryUmdf.Sbe.v1.6.Pdf] - [xml][B3.Equities.BinaryUmdf.Sbe.v1.6.Xml] |
 
 
