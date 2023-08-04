@@ -14,6 +14,7 @@ local nasdaq_psx_lastsale_itch_v2_1_display = {}
 local nasdaq_psx_lastsale_itch_v2_1_dissect = {}
 local nasdaq_psx_lastsale_itch_v2_1_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -22,10 +23,10 @@ local verify = {}
 -- Nasdaq Psx LastSale Itch 2.1 Fields
 nasdaq_psx_lastsale_itch_v2_1.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.psx.lastsale.itch.v2.1.authenticity", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.psx.lastsale.itch.v2.1.breachedlevel", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.corrected_nav_premium_discount_amount = ProtoField.new("Corrected Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.correctednavpremiumdiscountamount", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.corrected_nav_premium_discount_amount = ProtoField.new("Corrected Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.correctednavpremiumdiscountamount", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.corrected_sale_condition_modifier = ProtoField.new("Corrected Sale Condition Modifier", "nasdaq.psx.lastsale.itch.v2.1.correctedsaleconditionmodifier", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_control_number = ProtoField.new("Corrected Trade Control Number", "nasdaq.psx.lastsale.itch.v2.1.correctedtradecontrolnumber", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.psx.lastsale.itch.v2.1.correctedtradeprice", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "nasdaq.psx.lastsale.itch.v2.1.correctedtradeprice", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_size = ProtoField.new("Corrected Trade Size", "nasdaq.psx.lastsale.itch.v2.1.correctedtradesize", ftypes.UINT32)
 nasdaq_psx_lastsale_itch_v2_1.fields.count = ProtoField.new("Count", "nasdaq.psx.lastsale.itch.v2.1.count", ftypes.UINT16)
 nasdaq_psx_lastsale_itch_v2_1.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.psx.lastsale.itch.v2.1.currenttradingstate", ftypes.STRING)
@@ -39,9 +40,9 @@ nasdaq_psx_lastsale_itch_v2_1.fields.issue_classification = ProtoField.new("Issu
 nasdaq_psx_lastsale_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psx.lastsale.itch.v2.1.issuesubtype", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.issue_symbol = ProtoField.new("Issue Symbol", "nasdaq.psx.lastsale.itch.v2.1.issuesymbol", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.length = ProtoField.new("Length", "nasdaq.psx.lastsale.itch.v2.1.length", ftypes.UINT16)
-nasdaq_psx_lastsale_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.lastsale.itch.v2.1.level1", ftypes.INT64)
-nasdaq_psx_lastsale_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.lastsale.itch.v2.1.level2", ftypes.INT64)
-nasdaq_psx_lastsale_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.lastsale.itch.v2.1.level3", ftypes.INT64)
+nasdaq_psx_lastsale_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.lastsale.itch.v2.1.level1", ftypes.DOUBLE)
+nasdaq_psx_lastsale_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.lastsale.itch.v2.1.level2", ftypes.DOUBLE)
+nasdaq_psx_lastsale_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.lastsale.itch.v2.1.level3", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.lastsale.itch.v2.1.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.lastsale.itch.v2.1.marketcategory", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.market_center_identifier = ProtoField.new("Market Center Identifier", "nasdaq.psx.lastsale.itch.v2.1.marketcenteridentifier", ftypes.STRING)
@@ -51,20 +52,20 @@ nasdaq_psx_lastsale_itch_v2_1.fields.message_header = ProtoField.new("Message He
 nasdaq_psx_lastsale_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psx.lastsale.itch.v2.1.messagetype", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.mwcb_breach_message = ProtoField.new("Mwcb Breach Message", "nasdaq.psx.lastsale.itch.v2.1.mwcbbreachmessage", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psx.lastsale.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.nav_premium_discount_amount = ProtoField.new("Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.navpremiumdiscountamount", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.nav_premium_discount_amount = ProtoField.new("Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.navpremiumdiscountamount", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psx.lastsale.itch.v2.1.nextsharessymbol", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.next_shares_trade_report_message = ProtoField.new("Next Shares Trade Report Message", "nasdaq.psx.lastsale.itch.v2.1.nextsharestradereportmessage", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.lastsale.itch.v2.1.operationalhaltaction", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.psx.lastsale.itch.v2.1.operationalhaltmessage", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.original_nav_premium_discount_amount = ProtoField.new("Original Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.originalnavpremiumdiscountamount", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.original_nav_premium_discount_amount = ProtoField.new("Original Nav Premium Discount Amount", "nasdaq.psx.lastsale.itch.v2.1.originalnavpremiumdiscountamount", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.original_sale_condition_modifier = ProtoField.new("Original Sale Condition Modifier", "nasdaq.psx.lastsale.itch.v2.1.originalsaleconditionmodifier", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_control_number = ProtoField.new("Original Trade Control Number", "nasdaq.psx.lastsale.itch.v2.1.originaltradecontrolnumber", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.psx.lastsale.itch.v2.1.originaltradeprice", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_price = ProtoField.new("Original Trade Price", "nasdaq.psx.lastsale.itch.v2.1.originaltradeprice", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_size = ProtoField.new("Original Trade Size", "nasdaq.psx.lastsale.itch.v2.1.originaltradesize", ftypes.UINT32)
 nasdaq_psx_lastsale_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psx.lastsale.itch.v2.1.packet", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psx.lastsale.itch.v2.1.packetheader", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psx.lastsale.itch.v2.1.payload", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.proxy_price = ProtoField.new("Proxy Price", "nasdaq.psx.lastsale.itch.v2.1.proxyprice", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.proxy_price = ProtoField.new("Proxy Price", "nasdaq.psx.lastsale.itch.v2.1.proxyprice", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.psx.lastsale.itch.v2.1.regshoaction", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.reg_sho_short_sale_price_test_restricted_indicator_message = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator Message", "nasdaq.psx.lastsale.itch.v2.1.regshoshortsalepricetestrestrictedindicatormessage", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.psx.lastsale.itch.v2.1.roundlotsize", ftypes.UINT32)
@@ -87,7 +88,7 @@ nasdaq_psx_lastsale_itch_v2_1.fields.trade_cancel_error_message = ProtoField.new
 nasdaq_psx_lastsale_itch_v2_1.fields.trade_control_number = ProtoField.new("Trade Control Number", "nasdaq.psx.lastsale.itch.v2.1.tradecontrolnumber", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.trade_correction_for_next_shares_message = ProtoField.new("Trade Correction For Next Shares Message", "nasdaq.psx.lastsale.itch.v2.1.tradecorrectionfornextsharesmessage", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.trade_correction_message = ProtoField.new("Trade Correction Message", "nasdaq.psx.lastsale.itch.v2.1.tradecorrectionmessage", ftypes.STRING)
-nasdaq_psx_lastsale_itch_v2_1.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.psx.lastsale.itch.v2.1.tradeprice", ftypes.INT32)
+nasdaq_psx_lastsale_itch_v2_1.fields.trade_price = ProtoField.new("Trade Price", "nasdaq.psx.lastsale.itch.v2.1.tradeprice", ftypes.DOUBLE)
 nasdaq_psx_lastsale_itch_v2_1.fields.trade_report_message = ProtoField.new("Trade Report Message", "nasdaq.psx.lastsale.itch.v2.1.tradereportmessage", ftypes.STRING)
 nasdaq_psx_lastsale_itch_v2_1.fields.trade_size = ProtoField.new("Trade Size", "nasdaq.psx.lastsale.itch.v2.1.tradesize", ftypes.UINT32)
 nasdaq_psx_lastsale_itch_v2_1.fields.trading_action_message = ProtoField.new("Trading Action Message", "nasdaq.psx.lastsale.itch.v2.1.tradingactionmessage", ftypes.STRING)
@@ -443,11 +444,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.level_3 = function(value)
   return "Level 3: "..value
 end
 
+-- Translate: Level 3
+translate.level_3 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 3
 nasdaq_psx_lastsale_itch_v2_1_dissect.level_3 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.level_3
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_3(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.level_3(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.level_3, range, value, display)
@@ -463,11 +470,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.level_2 = function(value)
   return "Level 2: "..value
 end
 
+-- Translate: Level 2
+translate.level_2 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 2
 nasdaq_psx_lastsale_itch_v2_1_dissect.level_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.level_2
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_2(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.level_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.level_2, range, value, display)
@@ -483,11 +496,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.level_1 = function(value)
   return "Level 1: "..value
 end
 
+-- Translate: Level 1
+translate.level_1 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 1
 nasdaq_psx_lastsale_itch_v2_1_dissect.level_1 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.level_1
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_1(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.level_1(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.level_1, range, value, display)
@@ -517,13 +536,13 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.mwcb_decline_level_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Level 1: 8 Byte Signed Fixed Width Integer
+  -- Level 1: 8 Byte Unsigned Fixed Width Integer
   index, level_1 = nasdaq_psx_lastsale_itch_v2_1_dissect.level_1(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Signed Fixed Width Integer
+  -- Level 2: 8 Byte Unsigned Fixed Width Integer
   index, level_2 = nasdaq_psx_lastsale_itch_v2_1_dissect.level_2(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Signed Fixed Width Integer
+  -- Level 3: 8 Byte Unsigned Fixed Width Integer
   index, level_3 = nasdaq_psx_lastsale_itch_v2_1_dissect.level_3(buffer, index, packet, parent)
 
   return index
@@ -923,7 +942,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.issue_sub_type = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.issue_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.issue_sub_type, range, value, display)
@@ -1438,7 +1457,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.trading_action_reason = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.trading_action_reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.trading_action_reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trading_action_reason, range, value, display)
@@ -1527,7 +1546,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.issue_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.issue_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.issue_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.issue_symbol, range, value, display)
@@ -1599,7 +1618,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_sale_condition_modifier = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.corrected_sale_condition_modifier
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.corrected_sale_condition_modifier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.corrected_sale_condition_modifier, range, value, display)
@@ -1635,11 +1654,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.corrected_nav_premium_discount_amount = fu
   return "Corrected Nav Premium Discount Amount: "..value
 end
 
+-- Translate: Corrected Nav Premium Discount Amount
+translate.corrected_nav_premium_discount_amount = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Corrected Nav Premium Discount Amount
 nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_nav_premium_discount_amount = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.corrected_nav_premium_discount_amount
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.corrected_nav_premium_discount_amount(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.corrected_nav_premium_discount_amount(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.corrected_nav_premium_discount_amount, range, value, display)
@@ -1655,11 +1680,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.corrected_trade_price = function(value)
   return "Corrected Trade Price: "..value
 end
 
+-- Translate: Corrected Trade Price
+translate.corrected_trade_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Corrected Trade Price
 nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.corrected_trade_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.corrected_trade_price(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.corrected_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_price, range, value, display)
@@ -1679,7 +1710,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_control_number = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.corrected_trade_control_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.corrected_trade_control_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.corrected_trade_control_number, range, value, display)
@@ -1699,7 +1730,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.original_sale_condition_modifier = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.original_sale_condition_modifier
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.original_sale_condition_modifier(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.original_sale_condition_modifier, range, value, display)
@@ -1735,11 +1766,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.original_nav_premium_discount_amount = fun
   return "Original Nav Premium Discount Amount: "..value
 end
 
+-- Translate: Original Nav Premium Discount Amount
+translate.original_nav_premium_discount_amount = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Original Nav Premium Discount Amount
 nasdaq_psx_lastsale_itch_v2_1_dissect.original_nav_premium_discount_amount = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.original_nav_premium_discount_amount
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.original_nav_premium_discount_amount(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.original_nav_premium_discount_amount(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.original_nav_premium_discount_amount, range, value, display)
@@ -1755,11 +1792,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.original_trade_price = function(value)
   return "Original Trade Price: "..value
 end
 
+-- Translate: Original Trade Price
+translate.original_trade_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Original Trade Price
 nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.original_trade_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.original_trade_price(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.original_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_price, range, value, display)
@@ -1779,7 +1822,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_control_number = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.original_trade_control_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.original_trade_control_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.original_trade_control_number, range, value, display)
@@ -1868,10 +1911,10 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_f
   -- Original Trade Control Number: 10 Byte Ascii String
   index, original_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_control_number(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, original_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_price(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: 4 Byte Signed Fixed Width Integer
+  -- Original Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
   index, original_nav_premium_discount_amount = nasdaq_psx_lastsale_itch_v2_1_dissect.original_nav_premium_discount_amount(buffer, index, packet, parent)
 
   -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -1883,10 +1926,10 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_correction_for_next_shares_message_f
   -- Corrected Trade Control Number: 10 Byte Ascii String
   index, corrected_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_control_number(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Corrected Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, corrected_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_price(buffer, index, packet, parent)
 
-  -- Corrected Nav Premium Discount Amount: 4 Byte Signed Fixed Width Integer
+  -- Corrected Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
   index, corrected_nav_premium_discount_amount = nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_nav_premium_discount_amount(buffer, index, packet, parent)
 
   -- Corrected Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -1961,7 +2004,7 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_correction_message_fields = function
   -- Original Trade Control Number: 10 Byte Ascii String
   index, original_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_control_number(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, original_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_price(buffer, index, packet, parent)
 
   -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -1973,7 +2016,7 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_correction_message_fields = function
   -- Corrected Trade Control Number: 10 Byte Ascii String
   index, corrected_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_control_number(buffer, index, packet, parent)
 
-  -- Corrected Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Corrected Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, corrected_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.corrected_trade_price(buffer, index, packet, parent)
 
   -- Corrected Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -2042,10 +2085,10 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_cancel_error_for_next_shares_message
   -- Original Trade Control Number: 10 Byte Ascii String
   index, original_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_control_number(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, original_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_price(buffer, index, packet, parent)
 
-  -- Original Nav Premium Discount Amount: 4 Byte Signed Fixed Width Integer
+  -- Original Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
   index, original_nav_premium_discount_amount = nasdaq_psx_lastsale_itch_v2_1_dissect.original_nav_premium_discount_amount(buffer, index, packet, parent)
 
   -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -2112,7 +2155,7 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_cancel_error_message_fields = functi
   -- Original Trade Control Number: 10 Byte Ascii String
   index, original_trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_control_number(buffer, index, packet, parent)
 
-  -- Original Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Original Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, original_trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.original_trade_price(buffer, index, packet, parent)
 
   -- Original Trade Size: 4 Byte Unsigned Fixed Width Integer
@@ -2316,11 +2359,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.nav_premium_discount_amount = function(val
   return "Nav Premium Discount Amount: "..value
 end
 
+-- Translate: Nav Premium Discount Amount
+translate.nav_premium_discount_amount = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Nav Premium Discount Amount
 nasdaq_psx_lastsale_itch_v2_1_dissect.nav_premium_discount_amount = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.nav_premium_discount_amount
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.nav_premium_discount_amount(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.nav_premium_discount_amount(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.nav_premium_discount_amount, range, value, display)
@@ -2356,11 +2405,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.proxy_price = function(value)
   return "Proxy Price: "..value
 end
 
+-- Translate: Proxy Price
+translate.proxy_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Proxy Price
 nasdaq_psx_lastsale_itch_v2_1_dissect.proxy_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.proxy_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.proxy_price(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.proxy_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.proxy_price, range, value, display)
@@ -2380,7 +2435,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.trade_control_number = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.trade_control_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.trade_control_number(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_control_number, range, value, display)
@@ -2400,7 +2455,7 @@ end
 nasdaq_psx_lastsale_itch_v2_1_dissect.next_shares_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.next_shares_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_psx_lastsale_itch_v2_1_display.next_shares_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.next_shares_symbol, range, value, display)
@@ -2458,13 +2513,13 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.next_shares_trade_report_message_fields = 
   -- Trade Control Number: 10 Byte Ascii String
   index, trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.trade_control_number(buffer, index, packet, parent)
 
-  -- Proxy Price: 4 Byte Signed Fixed Width Integer
+  -- Proxy Price: 4 Byte Unsigned Fixed Width Integer
   index, proxy_price = nasdaq_psx_lastsale_itch_v2_1_dissect.proxy_price(buffer, index, packet, parent)
 
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer
   index, trade_size = nasdaq_psx_lastsale_itch_v2_1_dissect.trade_size(buffer, index, packet, parent)
 
-  -- Nav Premium Discount Amount: 4 Byte Signed Fixed Width Integer
+  -- Nav Premium Discount Amount: 4 Byte Unsigned Fixed Width Integer
   index, nav_premium_discount_amount = nasdaq_psx_lastsale_itch_v2_1_dissect.nav_premium_discount_amount(buffer, index, packet, parent)
 
   -- Sale Condition Modifier Level 1: 1 Byte Ascii String Enum with 5 values
@@ -2503,11 +2558,17 @@ nasdaq_psx_lastsale_itch_v2_1_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Trade Price
 nasdaq_psx_lastsale_itch_v2_1_dissect.trade_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_lastsale_itch_v2_1_size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.trade_price(raw)
   local display = nasdaq_psx_lastsale_itch_v2_1_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_lastsale_itch_v2_1.fields.trade_price, range, value, display)
@@ -2563,7 +2624,7 @@ nasdaq_psx_lastsale_itch_v2_1_dissect.trade_report_message_fields = function(buf
   -- Trade Control Number: 10 Byte Ascii String
   index, trade_control_number = nasdaq_psx_lastsale_itch_v2_1_dissect.trade_control_number(buffer, index, packet, parent)
 
-  -- Trade Price: 4 Byte Signed Fixed Width Integer
+  -- Trade Price: 4 Byte Unsigned Fixed Width Integer
   index, trade_price = nasdaq_psx_lastsale_itch_v2_1_dissect.trade_price(buffer, index, packet, parent)
 
   -- Trade Size: 4 Byte Unsigned Fixed Width Integer

@@ -346,7 +346,7 @@ end
 nasdaq_phlx_orders_itch_v1_9_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.price(value, buffer, offset, packet, parent)
 
@@ -523,7 +523,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.complex_auction_notification_message_fields
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
   index, auction_type = nasdaq_phlx_orders_itch_v1_9_dissect.auction_type(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_orders_itch_v1_9_dissect.price(buffer, index, packet, parent)
 
   -- Auction Side: 1 Byte Ascii String Enum with 3 values
@@ -658,7 +658,7 @@ end
 nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
@@ -717,7 +717,7 @@ end
 nasdaq_phlx_orders_itch_v1_9_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_phlx_orders_itch_v1_9_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_orders_itch_v1_9.fields.security_symbol, range, value, display)
@@ -804,7 +804,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.auction_notification_message_fields = funct
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -816,7 +816,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.auction_notification_message_fields = funct
   -- Auction Type: 1 Byte Ascii String Enum with 6 values
   index, auction_type = nasdaq_phlx_orders_itch_v1_9_dissect.auction_type(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_orders_itch_v1_9_dissect.price(buffer, index, packet, parent)
 
   -- Auction Side: 1 Byte Ascii String Enum with 3 values
@@ -971,7 +971,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.complex_order_leg_fields = function(buffer,
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1152,7 +1152,7 @@ end
 nasdaq_phlx_orders_itch_v1_9_dissect.limit_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_orders_itch_v1_9_size_of.limit_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.limit_price(raw)
   local display = nasdaq_phlx_orders_itch_v1_9_display.limit_price(value, buffer, offset, packet, parent)
 
@@ -1363,7 +1363,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.complex_order_message_fields = function(buf
   -- Order Type: 1 Byte Ascii String Enum with 3 values
   index, order_type = nasdaq_phlx_orders_itch_v1_9_dissect.order_type(buffer, index, packet, parent)
 
-  -- Limit Price: 4 Byte Unsigned Fixed Width Integer
+  -- Limit Price: 4 Byte Signed Fixed Width Integer
   index, limit_price = nasdaq_phlx_orders_itch_v1_9_dissect.limit_price(buffer, index, packet, parent)
 
   -- Debit Or Credit: 1 Byte Ascii String Enum with 4 values
@@ -1534,7 +1534,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.simple_order_message_fields = function(buff
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1561,7 +1561,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.simple_order_message_fields = function(buff
   -- Market Qualifier: 1 Byte Ascii String Enum with 3 values
   index, market_qualifier = nasdaq_phlx_orders_itch_v1_9_dissect.market_qualifier(buffer, index, packet, parent)
 
-  -- Limit Price: 4 Byte Unsigned Fixed Width Integer
+  -- Limit Price: 4 Byte Signed Fixed Width Integer
   index, limit_price = nasdaq_phlx_orders_itch_v1_9_dissect.limit_price(buffer, index, packet, parent)
 
   -- All Or None: 1 Byte Ascii String Enum with 2 values
@@ -1718,7 +1718,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.security_open_closed_message_fields = funct
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1869,7 +1869,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.security_trading_action_message_fields = fu
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1933,7 +1933,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.complex_order_strategy_leg_fields = functio
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -2194,7 +2194,7 @@ nasdaq_phlx_orders_itch_v1_9_dissect.options_directory_message_fields = function
   -- Expiration: Struct of 3 fields
   index, expiration = nasdaq_phlx_orders_itch_v1_9_dissect.expiration(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_orders_itch_v1_9_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values

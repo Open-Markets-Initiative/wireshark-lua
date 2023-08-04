@@ -238,7 +238,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.response_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.response_price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.response_price(value, buffer, offset, packet, parent)
 
@@ -267,7 +267,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Response Price: 4 Byte Unsigned Fixed Width Integer
+  -- Response Price: 4 Byte Signed Fixed Width Integer
   index, response_price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.response_price(buffer, index, packet, parent)
 
   -- Response Size: 4 Byte Unsigned Fixed Width Integer
@@ -568,7 +568,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.price(value, buffer, offset, packet, parent)
 
@@ -761,7 +761,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_auction_message_fie
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -867,7 +867,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1_dissect.complex_strategy_order_on_book_messa
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -1149,7 +1149,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
@@ -1250,7 +1250,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.security_symbol, range, value, display)
@@ -1332,7 +1332,7 @@ nasdaq_ise_ordercombofeed_itch_v1_1_dissect.leg_information_fields = function(bu
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
   index, expiration_day = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 8 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_ise_ordercombofeed_itch_v1_1_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1392,7 +1392,7 @@ end
 nasdaq_ise_ordercombofeed_itch_v1_1_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_ordercombofeed_itch_v1_1_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_ordercombofeed_itch_v1_1_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_ordercombofeed_itch_v1_1.fields.underlying_symbol, range, value, display)

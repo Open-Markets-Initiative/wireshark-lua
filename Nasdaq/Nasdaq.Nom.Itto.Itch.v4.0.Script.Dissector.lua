@@ -294,6 +294,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Nom Itto Itch 4.0
 -----------------------------------------------------------------------
 
@@ -390,7 +408,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.imbalance_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.imbalance_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.imbalance_price(value, buffer, offset, packet, parent)
 
@@ -618,7 +636,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.noii_message_fields = function(buffer, offset,
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_nom_itto_itch_v4_0_dissect.option_id(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
   index, imbalance_price = nasdaq_nom_itto_itch_v4_0_dissect.imbalance_price(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
@@ -775,7 +793,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.price_long(value, buffer, offset, packet, parent)
 
@@ -861,7 +879,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.options_cross_trade_message_fields = function(
   -- Cross Type: 1 Byte Ascii String Enum with 2 values
   index, cross_type = nasdaq_nom_itto_itch_v4_0_dissect.cross_type(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -960,7 +978,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.options_trade_messages_non_auction_fields = fu
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
   index, match_number = nasdaq_nom_itto_itch_v4_0_dissect.match_number(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -1111,7 +1129,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.ask_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.ask_price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.ask_price_long(value, buffer, offset, packet, parent)
 
@@ -1157,7 +1175,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.bid_price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price_long(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.bid_price_long(value, buffer, offset, packet, parent)
 
@@ -1260,13 +1278,13 @@ nasdaq_nom_itto_itch_v4_0_dissect.quote_replace_message_long_form_fields = funct
   -- Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
   index, ask_reference_number = nasdaq_nom_itto_itch_v4_0_dissect.ask_reference_number(buffer, index, packet, parent)
 
-  -- Bid Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price Long: 4 Byte Signed Fixed Width Integer
   index, bid_price_long = nasdaq_nom_itto_itch_v4_0_dissect.bid_price_long(buffer, index, packet, parent)
 
   -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
   index, bid_size_long = nasdaq_nom_itto_itch_v4_0_dissect.bid_size_long(buffer, index, packet, parent)
 
-  -- Ask Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price Long: 4 Byte Signed Fixed Width Integer
   index, ask_price_long = nasdaq_nom_itto_itch_v4_0_dissect.ask_price_long(buffer, index, packet, parent)
 
   -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
@@ -1325,7 +1343,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.ask_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.ask_price(value, buffer, offset, packet, parent)
 
@@ -1371,7 +1389,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.bid_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.bid_price(value, buffer, offset, packet, parent)
 
@@ -1434,13 +1452,13 @@ nasdaq_nom_itto_itch_v4_0_dissect.quote_replace_message_short_form_fields = func
   -- Ask Reference Number: 8 Byte Unsigned Fixed Width Integer
   index, ask_reference_number = nasdaq_nom_itto_itch_v4_0_dissect.ask_reference_number(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 2 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_nom_itto_itch_v4_0_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, bid_size = nasdaq_nom_itto_itch_v4_0_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 2 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_nom_itto_itch_v4_0_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 2 Byte Unsigned Fixed Width Integer
@@ -1552,7 +1570,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.single_side_change_message_fields = function(b
   -- Change Reason: 1 Byte Ascii String Enum with 3 values
   index, change_reason = nasdaq_nom_itto_itch_v4_0_dissect.change_reason(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -1701,7 +1719,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.single_side_replace_message_long_form_fields =
   -- New Reference Number: 8 Byte Unsigned Fixed Width Integer
   index, new_reference_number = nasdaq_nom_itto_itch_v4_0_dissect.new_reference_number(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -1760,7 +1778,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.price(value, buffer, offset, packet, parent)
 
@@ -1809,7 +1827,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.single_side_replace_message_short_form_fields 
   -- New Reference Number: 8 Byte Unsigned Fixed Width Integer
   index, new_reference_number = nasdaq_nom_itto_itch_v4_0_dissect.new_reference_number(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 2 Byte Signed Fixed Width Integer
   index, price = nasdaq_nom_itto_itch_v4_0_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 2 Byte Unsigned Fixed Width Integer
@@ -2000,7 +2018,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.single_side_executed_with_price_message_fields
   -- Printable: 1 Byte Ascii String Enum with 2 values
   index, printable = nasdaq_nom_itto_itch_v4_0_dissect.printable(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -2270,13 +2288,13 @@ nasdaq_nom_itto_itch_v4_0_dissect.add_quote_message_short_form_message_fields = 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_nom_itto_itch_v4_0_dissect.option_id(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 2 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_nom_itto_itch_v4_0_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, bid_size = nasdaq_nom_itto_itch_v4_0_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 2 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_nom_itto_itch_v4_0_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 2 Byte Unsigned Fixed Width Integer
@@ -2370,7 +2388,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.add_order_message_long_form_message_fields = f
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_nom_itto_itch_v4_0_dissect.option_id(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_nom_itto_itch_v4_0_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume Long: 4 Byte Unsigned Fixed Width Integer
@@ -2437,7 +2455,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.add_order_message_short_message_form_fields = 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_nom_itto_itch_v4_0_dissect.option_id(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 2 Byte Signed Fixed Width Integer
   index, price = nasdaq_nom_itto_itch_v4_0_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 2 Byte Unsigned Fixed Width Integer
@@ -2719,7 +2737,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nom_itto_itch_v4_0_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.underlying_symbol, range, value, display)
@@ -2791,7 +2809,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_nom_itto_itch_v4_0_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
@@ -2872,7 +2890,7 @@ end
 nasdaq_nom_itto_itch_v4_0_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_itto_itch_v4_0_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nom_itto_itch_v4_0_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_itto_itch_v4_0.fields.security_symbol, range, value, display)
@@ -2945,7 +2963,7 @@ nasdaq_nom_itto_itch_v4_0_dissect.options_directory_message_fields = function(bu
   -- Expiration Date: 1 Byte Unsigned Fixed Width Integer
   index, expiration_date = nasdaq_nom_itto_itch_v4_0_dissect.expiration_date(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_nom_itto_itch_v4_0_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values

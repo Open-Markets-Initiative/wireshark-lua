@@ -199,6 +199,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Ise TopComboQuoteFeed Itch 1.0
 -----------------------------------------------------------------------
 
@@ -339,7 +357,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.last_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.last_price
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = translate.last_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.last_price(value, buffer, offset, packet, parent)
 
@@ -428,7 +446,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.complex_strategy_ticker_message_f
   -- Strategy Id: 4 Byte Unsigned Fixed Width Integer
   index, strategy_id = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.strategy_id(buffer, index, packet, parent)
 
-  -- Last Price: 8 Byte Unsigned Fixed Width Integer
+  -- Last Price: 8 Byte Signed Fixed Width Integer
   index, last_price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.last_price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -582,7 +600,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.price(value, buffer, offset, packet, parent)
 
@@ -663,7 +681,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.strategy_best_ask_update_fields =
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
   index, quote_condition = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -745,7 +763,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.strategy_best_bid_update_fields =
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
   index, quote_condition = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -919,7 +937,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.ask_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.ask_price(value, buffer, offset, packet, parent)
 
@@ -1065,7 +1083,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.bid_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.bid_price(value, buffer, offset, packet, parent)
 
@@ -1133,7 +1151,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.strategy_best_bid_and_ask_update_
   -- Quote Condition: 1 Byte Ascii String Enum with 2 values
   index, quote_condition = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 4 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
@@ -1154,7 +1172,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.strategy_best_bid_and_ask_update_
   -- Bid Ntt Market Size: 4 Byte Unsigned Fixed Width Integer
   index, bid_ntt_market_size = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.bid_ntt_market_size(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 4 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
@@ -1436,7 +1454,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
@@ -1537,7 +1555,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.security_symbol, range, value, display)
@@ -1619,7 +1637,7 @@ nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.leg_information_fields = function
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
   index, expiration_day = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 8 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 3 values
@@ -1679,7 +1697,7 @@ end
 nasdaq_ise_topcomboquotefeed_itch_v1_0_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_topcomboquotefeed_itch_v1_0_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_topcomboquotefeed_itch_v1_0_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_topcomboquotefeed_itch_v1_0.fields.underlying_symbol, range, value, display)

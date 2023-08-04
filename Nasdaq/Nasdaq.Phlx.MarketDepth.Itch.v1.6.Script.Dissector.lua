@@ -330,6 +330,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Nasdaq Phlx MarketDepth Itch 1.6
 -----------------------------------------------------------------------
 
@@ -426,7 +444,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.imbalance_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.imbalance_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.imbalance_price(value, buffer, offset, packet, parent)
 
@@ -626,7 +644,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.auction_notification_message_fields = 
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_id(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
   index, imbalance_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.imbalance_price(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
@@ -778,7 +796,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.price(value, buffer, offset, packet, parent)
 
@@ -856,7 +874,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.options_cross_trade_message_fields = f
   -- Cross Type: 1 Byte Ascii String Enum with 1 values
   index, cross_type = nasdaq_phlx_marketdepth_itch_v1_6_dissect.cross_type(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -953,7 +971,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.non_auction_options_trade_message_fiel
   -- Match Number: 4 Byte Unsigned Fixed Width Integer
   index, match_number = nasdaq_phlx_marketdepth_itch_v1_6_dissect.match_number(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1186,7 +1204,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.ask_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.ask_price(value, buffer, offset, packet, parent)
 
@@ -1232,7 +1250,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.bid_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.bid_price(value, buffer, offset, packet, parent)
 
@@ -1330,13 +1348,13 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.quote_replace_long_message_fields = fu
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, ask_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.ask_reference_number_delta(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 4 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
   index, bid_size = nasdaq_phlx_marketdepth_itch_v1_6_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 4 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
@@ -1395,7 +1413,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.short_ask_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.short_ask_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.short_ask_price(value, buffer, offset, packet, parent)
 
@@ -1441,7 +1459,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.short_bid_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.short_bid_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.short_bid_price(value, buffer, offset, packet, parent)
 
@@ -1499,13 +1517,13 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.quote_replace_short_message_fields = f
   -- Ask Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, ask_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.ask_reference_number_delta(buffer, index, packet, parent)
 
-  -- Short Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Bid Price: 2 Byte Signed Fixed Width Integer
   index, short_bid_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_bid_price(buffer, index, packet, parent)
 
   -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, short_bid_size = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_bid_size(buffer, index, packet, parent)
 
-  -- Short Ask Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Ask Price: 2 Byte Signed Fixed Width Integer
   index, short_ask_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_ask_price(buffer, index, packet, parent)
 
   -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
@@ -1595,7 +1613,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.single_side_update_message_fields = fu
   -- Change Reason: 1 Byte Ascii String Enum with 4 values
   index, change_reason = nasdaq_phlx_marketdepth_itch_v1_6_dissect.change_reason(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1756,7 +1774,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.order_replace_long_message_fields = fu
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, new_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1818,7 +1836,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.short_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.short_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.short_price(value, buffer, offset, packet, parent)
 
@@ -1864,7 +1882,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.order_replace_short_message_fields = f
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, new_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Price: 2 Byte Signed Fixed Width Integer
   index, short_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_price(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
@@ -1924,7 +1942,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.single_side_replace_long_message_field
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, new_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1981,7 +1999,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.single_side_replace_short_message_fiel
   -- New Reference Number Delta: 4 Byte Unsigned Fixed Width Integer
   index, new_reference_number_delta = nasdaq_phlx_marketdepth_itch_v1_6_dissect.new_reference_number_delta(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Price: 2 Byte Signed Fixed Width Integer
   index, short_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_price(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
@@ -2142,7 +2160,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.single_side_executed_with_price_messag
   -- Printable: 1 Byte Ascii String Enum with 2 values
   index, printable = nasdaq_phlx_marketdepth_itch_v1_6_dissect.printable(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -2285,13 +2303,13 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.add_quote_long_message_fields = functi
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_id(buffer, index, packet, parent)
 
-  -- Bid Price: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 4 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 4 Byte Unsigned Fixed Width Integer
   index, bid_size = nasdaq_phlx_marketdepth_itch_v1_6_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 4 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 4 Byte Unsigned Fixed Width Integer
@@ -2357,13 +2375,13 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.add_quote_short_message_fields = funct
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_id(buffer, index, packet, parent)
 
-  -- Short Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Bid Price: 2 Byte Signed Fixed Width Integer
   index, short_bid_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_bid_price(buffer, index, packet, parent)
 
   -- Short Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, short_bid_size = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_bid_size(buffer, index, packet, parent)
 
-  -- Short Ask Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Ask Price: 2 Byte Signed Fixed Width Integer
   index, short_ask_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_ask_price(buffer, index, packet, parent)
 
   -- Short Ask Size: 2 Byte Unsigned Fixed Width Integer
@@ -2486,7 +2504,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.add_order_long_message_fields = functi
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_id(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.price(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -2553,7 +2571,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.add_order_short_message_fields = funct
   -- Option Id: 4 Byte Unsigned Fixed Width Integer
   index, option_id = nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_id(buffer, index, packet, parent)
 
-  -- Short Price: 2 Byte Unsigned Fixed Width Integer
+  -- Short Price: 2 Byte Signed Fixed Width Integer
   index, short_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.short_price(buffer, index, packet, parent)
 
   -- Short Volume: 2 Byte Unsigned Fixed Width Integer
@@ -2831,7 +2849,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.underlying_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.underlying_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.underlying_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_6.fields.underlying_symbol, range, value, display)
@@ -2903,7 +2921,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.explicit_strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.explicit_strike_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.explicit_strike_price(raw)
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.explicit_strike_price(value, buffer, offset, packet, parent)
 
@@ -2984,7 +3002,7 @@ end
 nasdaq_phlx_marketdepth_itch_v1_6_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_phlx_marketdepth_itch_v1_6_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_phlx_marketdepth_itch_v1_6_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_phlx_marketdepth_itch_v1_6.fields.security_symbol, range, value, display)
@@ -3052,7 +3070,7 @@ nasdaq_phlx_marketdepth_itch_v1_6_dissect.option_directory_message_fields = func
   -- Expiration Date: 1 Byte Unsigned Fixed Width Integer
   index, expiration_date = nasdaq_phlx_marketdepth_itch_v1_6_dissect.expiration_date(buffer, index, packet, parent)
 
-  -- Explicit Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Explicit Strike Price: 4 Byte Signed Fixed Width Integer
   index, explicit_strike_price = nasdaq_phlx_marketdepth_itch_v1_6_dissect.explicit_strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values

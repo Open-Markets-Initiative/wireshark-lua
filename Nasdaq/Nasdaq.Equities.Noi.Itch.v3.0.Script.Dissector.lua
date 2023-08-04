@@ -14,6 +14,7 @@ local nasdaq_equities_noi_itch_v3_0_display = {}
 local nasdaq_equities_noi_itch_v3_0_dissect = {}
 local nasdaq_equities_noi_itch_v3_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -22,21 +23,21 @@ local verify = {}
 -- Nasdaq Equities Noi Itch 3.0 Fields
 nasdaq_equities_noi_itch_v3_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.equities.noi.itch.v3.0.authenticity", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.count = ProtoField.new("Count", "nasdaq.equities.noi.itch.v3.0.count", ftypes.UINT16)
-nasdaq_equities_noi_itch_v3_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.equities.noi.itch.v3.0.crossprice", ftypes.INT32)
+nasdaq_equities_noi_itch_v3_0.fields.cross_price = ProtoField.new("Cross Price", "nasdaq.equities.noi.itch.v3.0.crossprice", ftypes.DOUBLE)
 nasdaq_equities_noi_itch_v3_0.fields.cross_trade_message = ProtoField.new("Cross Trade Message", "nasdaq.equities.noi.itch.v3.0.crosstrademessage", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.cross_type = ProtoField.new("Cross Type", "nasdaq.equities.noi.itch.v3.0.crosstype", ftypes.STRING)
-nasdaq_equities_noi_itch_v3_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.equities.noi.itch.v3.0.currentreferenceprice", ftypes.INT32)
+nasdaq_equities_noi_itch_v3_0.fields.current_reference_price = ProtoField.new("Current Reference Price", "nasdaq.equities.noi.itch.v3.0.currentreferenceprice", ftypes.DOUBLE)
 nasdaq_equities_noi_itch_v3_0.fields.current_trading_state = ProtoField.new("Current Trading State", "nasdaq.equities.noi.itch.v3.0.currenttradingstate", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.etp_flag = ProtoField.new("Etp Flag", "nasdaq.equities.noi.itch.v3.0.etpflag", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.equities.noi.itch.v3.0.etpleveragefactor", ftypes.UINT32)
 nasdaq_equities_noi_itch_v3_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.equities.noi.itch.v3.0.eventcode", ftypes.STRING)
-nasdaq_equities_noi_itch_v3_0.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.noi.itch.v3.0.farprice", ftypes.INT32)
+nasdaq_equities_noi_itch_v3_0.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.noi.itch.v3.0.farprice", ftypes.DOUBLE)
 nasdaq_equities_noi_itch_v3_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.equities.noi.itch.v3.0.financialstatusindicator", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.equities.noi.itch.v3.0.imbalancedirection", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.imbalance_shares = ProtoField.new("Imbalance Shares", "nasdaq.equities.noi.itch.v3.0.imbalanceshares", ftypes.UINT64)
 nasdaq_equities_noi_itch_v3_0.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.equities.noi.itch.v3.0.inverseindicator", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.equities.noi.itch.v3.0.ipoflag", ftypes.STRING)
-nasdaq_equities_noi_itch_v3_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.equities.noi.itch.v3.0.ipoprice", ftypes.INT32)
+nasdaq_equities_noi_itch_v3_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.equities.noi.itch.v3.0.ipoprice", ftypes.DOUBLE)
 nasdaq_equities_noi_itch_v3_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.equities.noi.itch.v3.0.ipoquotationreleasequalifier", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.equities.noi.itch.v3.0.ipoquotationreleasetime", ftypes.UINT32)
 nasdaq_equities_noi_itch_v3_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.equities.noi.itch.v3.0.ipoquotingperiodupdatemessage", ftypes.STRING)
@@ -49,7 +50,7 @@ nasdaq_equities_noi_itch_v3_0.fields.match_number = ProtoField.new("Match Number
 nasdaq_equities_noi_itch_v3_0.fields.message = ProtoField.new("Message", "nasdaq.equities.noi.itch.v3.0.message", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.message_header = ProtoField.new("Message Header", "nasdaq.equities.noi.itch.v3.0.messageheader", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.message_type = ProtoField.new("Message Type", "nasdaq.equities.noi.itch.v3.0.messagetype", ftypes.STRING)
-nasdaq_equities_noi_itch_v3_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.equities.noi.itch.v3.0.nearprice", ftypes.INT32)
+nasdaq_equities_noi_itch_v3_0.fields.near_price = ProtoField.new("Near Price", "nasdaq.equities.noi.itch.v3.0.nearprice", ftypes.DOUBLE)
 nasdaq_equities_noi_itch_v3_0.fields.noii_message = ProtoField.new("Noii Message", "nasdaq.equities.noi.itch.v3.0.noiimessage", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.packet = ProtoField.new("Packet", "nasdaq.equities.noi.itch.v3.0.packet", ftypes.STRING)
 nasdaq_equities_noi_itch_v3_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.equities.noi.itch.v3.0.packetheader", ftypes.STRING)
@@ -195,11 +196,17 @@ nasdaq_equities_noi_itch_v3_0_display.ipo_price = function(value)
   return "Ipo Price: "..value
 end
 
+-- Translate: Ipo Price
+translate.ipo_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ipo Price
 nasdaq_equities_noi_itch_v3_0_dissect.ipo_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.ipo_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.ipo_price(raw)
   local display = nasdaq_equities_noi_itch_v3_0_display.ipo_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.ipo_price, range, value, display)
@@ -357,7 +364,7 @@ nasdaq_equities_noi_itch_v3_0_dissect.ipo_quoting_period_update_message_fields =
   -- Ipo Quotation Release Qualifier: 1 Byte Ascii String Enum with 2 values
   index, ipo_quotation_release_qualifier = nasdaq_equities_noi_itch_v3_0_dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
 
-  -- Ipo Price: 4 Byte Signed Fixed Width Integer
+  -- Ipo Price: 4 Byte Unsigned Fixed Width Integer
   index, ipo_price = nasdaq_equities_noi_itch_v3_0_dissect.ipo_price(buffer, index, packet, parent)
 
   return index
@@ -434,11 +441,17 @@ nasdaq_equities_noi_itch_v3_0_display.cross_price = function(value)
   return "Cross Price: "..value
 end
 
+-- Translate: Cross Price
+translate.cross_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Cross Price
 nasdaq_equities_noi_itch_v3_0_dissect.cross_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.cross_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.cross_price(raw)
   local display = nasdaq_equities_noi_itch_v3_0_display.cross_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.cross_price, range, value, display)
@@ -508,7 +521,7 @@ nasdaq_equities_noi_itch_v3_0_dissect.cross_trade_message_fields = function(buff
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Cross Price: 4 Byte Signed Fixed Width Integer
+  -- Cross Price: 4 Byte Unsigned Fixed Width Integer
   index, cross_price = nasdaq_equities_noi_itch_v3_0_dissect.cross_price(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
@@ -601,11 +614,17 @@ nasdaq_equities_noi_itch_v3_0_display.current_reference_price = function(value)
   return "Current Reference Price: "..value
 end
 
+-- Translate: Current Reference Price
+translate.current_reference_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Current Reference Price
 nasdaq_equities_noi_itch_v3_0_dissect.current_reference_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.current_reference_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.current_reference_price(raw)
   local display = nasdaq_equities_noi_itch_v3_0_display.current_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.current_reference_price, range, value, display)
@@ -621,11 +640,17 @@ nasdaq_equities_noi_itch_v3_0_display.near_price = function(value)
   return "Near Price: "..value
 end
 
+-- Translate: Near Price
+translate.near_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Near Price
 nasdaq_equities_noi_itch_v3_0_dissect.near_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.near_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.near_price(raw)
   local display = nasdaq_equities_noi_itch_v3_0_display.near_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.near_price, range, value, display)
@@ -641,11 +666,17 @@ nasdaq_equities_noi_itch_v3_0_display.far_price = function(value)
   return "Far Price: "..value
 end
 
+-- Translate: Far Price
+translate.far_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Far Price
 nasdaq_equities_noi_itch_v3_0_dissect.far_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.far_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.far_price(raw)
   local display = nasdaq_equities_noi_itch_v3_0_display.far_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.far_price, range, value, display)
@@ -782,13 +813,13 @@ nasdaq_equities_noi_itch_v3_0_dissect.noii_message_fields = function(buffer, off
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_noi_itch_v3_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Far Price: 4 Byte Signed Fixed Width Integer
+  -- Far Price: 4 Byte Unsigned Fixed Width Integer
   index, far_price = nasdaq_equities_noi_itch_v3_0_dissect.far_price(buffer, index, packet, parent)
 
-  -- Near Price: 4 Byte Signed Fixed Width Integer
+  -- Near Price: 4 Byte Unsigned Fixed Width Integer
   index, near_price = nasdaq_equities_noi_itch_v3_0_dissect.near_price(buffer, index, packet, parent)
 
-  -- Current Reference Price: 4 Byte Signed Fixed Width Integer
+  -- Current Reference Price: 4 Byte Unsigned Fixed Width Integer
   index, current_reference_price = nasdaq_equities_noi_itch_v3_0_dissect.current_reference_price(buffer, index, packet, parent)
 
   -- Cross Type: 1 Byte Ascii String Enum with 3 values
@@ -907,7 +938,7 @@ end
 nasdaq_equities_noi_itch_v3_0_dissect.reason = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_noi_itch_v3_0_display.reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.reason, range, value, display)
@@ -1208,7 +1239,7 @@ end
 nasdaq_equities_noi_itch_v3_0_dissect.issue_sub_type = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_noi_itch_v3_0_size_of.issue_sub_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_noi_itch_v3_0_display.issue_sub_type(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_noi_itch_v3_0.fields.issue_sub_type, range, value, display)

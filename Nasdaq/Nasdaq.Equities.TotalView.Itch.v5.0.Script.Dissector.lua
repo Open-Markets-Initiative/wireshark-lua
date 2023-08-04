@@ -25,7 +25,7 @@ nasdaq_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message
 nasdaq_equities_totalview_itch_v5_0.fields.add_order_with_mpid_attribution_message = ProtoField.new("Add Order With Mpid Attribution Message", "nasdaq.equities.totalview.itch.v5.0.addorderwithmpidattributionmessage", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.attribution = ProtoField.new("Attribution", "nasdaq.equities.totalview.itch.v5.0.attribution", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.equities.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
-nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.equities.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.equities.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.equities.totalview.itch.v5.0.authenticity", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.equities.totalview.itch.v5.0.breachedlevel", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.equities.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)
@@ -41,7 +41,7 @@ nasdaq_equities_totalview_itch_v5_0.fields.etp_flag = ProtoField.new("Etp Flag",
 nasdaq_equities_totalview_itch_v5_0.fields.etp_leverage_factor = ProtoField.new("Etp Leverage Factor", "nasdaq.equities.totalview.itch.v5.0.etpleveragefactor", ftypes.UINT32)
 nasdaq_equities_totalview_itch_v5_0.fields.event_code = ProtoField.new("Event Code", "nasdaq.equities.totalview.itch.v5.0.eventcode", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.executed_shares = ProtoField.new("Executed Shares", "nasdaq.equities.totalview.itch.v5.0.executedshares", ftypes.UINT32)
-nasdaq_equities_totalview_itch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.equities.totalview.itch.v5.0.executionprice", ftypes.INT32)
+nasdaq_equities_totalview_itch_v5_0.fields.execution_price = ProtoField.new("Execution Price", "nasdaq.equities.totalview.itch.v5.0.executionprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v5_0.fields.far_price = ProtoField.new("Far Price", "nasdaq.equities.totalview.itch.v5.0.farprice", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v5_0.fields.financial_status_indicator = ProtoField.new("Financial Status Indicator", "nasdaq.equities.totalview.itch.v5.0.financialstatusindicator", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.imbalance_direction = ProtoField.new("Imbalance Direction", "nasdaq.equities.totalview.itch.v5.0.imbalancedirection", ftypes.STRING)
@@ -89,8 +89,7 @@ nasdaq_equities_totalview_itch_v5_0.fields.packet = ProtoField.new("Packet", "na
 nasdaq_equities_totalview_itch_v5_0.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.equities.totalview.itch.v5.0.packetheader", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.paired_shares = ProtoField.new("Paired Shares", "nasdaq.equities.totalview.itch.v5.0.pairedshares", ftypes.UINT64)
 nasdaq_equities_totalview_itch_v5_0.fields.payload = ProtoField.new("Payload", "nasdaq.equities.totalview.itch.v5.0.payload", ftypes.STRING)
-nasdaq_equities_totalview_itch_v5_0.fields.price_price_4 = ProtoField.new("Price Price 4", "nasdaq.equities.totalview.itch.v5.0.priceprice4", ftypes.INT32)
-nasdaq_equities_totalview_itch_v5_0.fields.price_price_44 = ProtoField.new("Price Price 44", "nasdaq.equities.totalview.itch.v5.0.priceprice44", ftypes.DOUBLE)
+nasdaq_equities_totalview_itch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.equities.totalview.itch.v5.0.price", ftypes.DOUBLE)
 nasdaq_equities_totalview_itch_v5_0.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.equities.totalview.itch.v5.0.pricevariationindicator", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.equities.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
 nasdaq_equities_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.equities.totalview.itch.v5.0.printable", ftypes.STRING)
@@ -1013,28 +1012,28 @@ nasdaq_equities_totalview_itch_v5_0_dissect.cross_trade_message = function(buffe
   return nasdaq_equities_totalview_itch_v5_0_dissect.cross_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Price 44
-nasdaq_equities_totalview_itch_v5_0_size_of.price_price_44 = 4
+-- Size: Price
+nasdaq_equities_totalview_itch_v5_0_size_of.price = 4
 
--- Display: Price Price 44
-nasdaq_equities_totalview_itch_v5_0_display.price_price_44 = function(value)
-  return "Price Price 44: "..value
+-- Display: Price
+nasdaq_equities_totalview_itch_v5_0_display.price = function(value)
+  return "Price: "..value
 end
 
--- Translate: Price Price 44
-translate.price_price_44 = function(raw)
+-- Translate: Price
+translate.price = function(raw)
   return raw/10000
 end
 
--- Dissect: Price Price 44
-nasdaq_equities_totalview_itch_v5_0_dissect.price_price_44 = function(buffer, offset, packet, parent)
-  local length = nasdaq_equities_totalview_itch_v5_0_size_of.price_price_44
+-- Dissect: Price
+nasdaq_equities_totalview_itch_v5_0_dissect.price = function(buffer, offset, packet, parent)
+  local length = nasdaq_equities_totalview_itch_v5_0_size_of.price
   local range = buffer(offset, length)
   local raw = range:uint()
-  local value = translate.price_price_44(raw)
-  local display = nasdaq_equities_totalview_itch_v5_0_display.price_price_44(value, buffer, offset, packet, parent)
+  local value = translate.price(raw)
+  local display = nasdaq_equities_totalview_itch_v5_0_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price_price_44, range, value, display)
+  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -1124,7 +1123,7 @@ nasdaq_equities_totalview_itch_v5_0_size_of.non_cross_trade_message = function(b
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.stock
 
-  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price_price_44
+  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.match_number
 
@@ -1161,8 +1160,8 @@ nasdaq_equities_totalview_itch_v5_0_dissect.non_cross_trade_message_fields = fun
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_totalview_itch_v5_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Price Price 44: 4 Byte Unsigned Fixed Width Integer
-  index, price_price_44 = nasdaq_equities_totalview_itch_v5_0_dissect.price_price_44(buffer, index, packet, parent)
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_equities_totalview_itch_v5_0_dissect.price(buffer, index, packet, parent)
 
   -- Match Number: 8 Byte Unsigned Fixed Width Integer
   index, match_number = nasdaq_equities_totalview_itch_v5_0_dissect.match_number(buffer, index, packet, parent)
@@ -1239,7 +1238,7 @@ nasdaq_equities_totalview_itch_v5_0_size_of.order_replace_message = function(buf
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.shares
 
-  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price_price_44
+  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price
 
   return index
 end
@@ -1271,8 +1270,8 @@ nasdaq_equities_totalview_itch_v5_0_dissect.order_replace_message_fields = funct
   -- Shares: 4 Byte Unsigned Fixed Width Integer
   index, shares = nasdaq_equities_totalview_itch_v5_0_dissect.shares(buffer, index, packet, parent)
 
-  -- Price Price 44: 4 Byte Unsigned Fixed Width Integer
-  index, price_price_44 = nasdaq_equities_totalview_itch_v5_0_dissect.price_price_44(buffer, index, packet, parent)
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_equities_totalview_itch_v5_0_dissect.price(buffer, index, packet, parent)
 
   return index
 end
@@ -1427,11 +1426,17 @@ nasdaq_equities_totalview_itch_v5_0_display.execution_price = function(value)
   return "Execution Price: "..value
 end
 
+-- Translate: Execution Price
+translate.execution_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Execution Price
 nasdaq_equities_totalview_itch_v5_0_dissect.execution_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v5_0_size_of.execution_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.execution_price(raw)
   local display = nasdaq_equities_totalview_itch_v5_0_display.execution_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.execution_price, range, value, display)
@@ -1539,7 +1544,7 @@ nasdaq_equities_totalview_itch_v5_0_dissect.order_executed_with_price_message_fi
   -- Printable: 1 Byte Ascii String Enum with 2 values
   index, printable = nasdaq_equities_totalview_itch_v5_0_dissect.printable(buffer, index, packet, parent)
 
-  -- Execution Price: 4 Byte Signed Fixed Width Integer
+  -- Execution Price: 4 Byte Unsigned Fixed Width Integer
   index, execution_price = nasdaq_equities_totalview_itch_v5_0_dissect.execution_price(buffer, index, packet, parent)
 
   return index
@@ -1658,7 +1663,7 @@ nasdaq_equities_totalview_itch_v5_0_size_of.add_order_with_mpid_attribution_mess
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.stock
 
-  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price_price_44
+  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.attribution
 
@@ -1695,8 +1700,8 @@ nasdaq_equities_totalview_itch_v5_0_dissect.add_order_with_mpid_attribution_mess
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_totalview_itch_v5_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Price Price 44: 4 Byte Unsigned Fixed Width Integer
-  index, price_price_44 = nasdaq_equities_totalview_itch_v5_0_dissect.price_price_44(buffer, index, packet, parent)
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_equities_totalview_itch_v5_0_dissect.price(buffer, index, packet, parent)
 
   -- Attribution: 4 Byte Ascii String
   index, attribution = nasdaq_equities_totalview_itch_v5_0_dissect.attribution(buffer, index, packet, parent)
@@ -1797,11 +1802,17 @@ nasdaq_equities_totalview_itch_v5_0_display.auction_collar_reference_price = fun
   return "Auction Collar Reference Price: "..value
 end
 
+-- Translate: Auction Collar Reference Price
+translate.auction_collar_reference_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Auction Collar Reference Price
 nasdaq_equities_totalview_itch_v5_0_dissect.auction_collar_reference_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v5_0_size_of.auction_collar_reference_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.auction_collar_reference_price(raw)
   local display = nasdaq_equities_totalview_itch_v5_0_display.auction_collar_reference_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v5_0.fields.auction_collar_reference_price, range, value, display)
@@ -1853,7 +1864,7 @@ nasdaq_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields =
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_totalview_itch_v5_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Auction Collar Reference Price: 4 Byte Signed Fixed Width Integer
+  -- Auction Collar Reference Price: 4 Byte Unsigned Fixed Width Integer
   index, auction_collar_reference_price = nasdaq_equities_totalview_itch_v5_0_dissect.auction_collar_reference_price(buffer, index, packet, parent)
 
   -- Upper Auction Collar Price: 4 Byte Unsigned Fixed Width Integer
@@ -1881,26 +1892,6 @@ nasdaq_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message = functi
   return nasdaq_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Price 4
-nasdaq_equities_totalview_itch_v5_0_size_of.price_price_4 = 4
-
--- Display: Price Price 4
-nasdaq_equities_totalview_itch_v5_0_display.price_price_4 = function(value)
-  return "Price Price 4: "..value
-end
-
--- Dissect: Price Price 4
-nasdaq_equities_totalview_itch_v5_0_dissect.price_price_4 = function(buffer, offset, packet, parent)
-  local length = nasdaq_equities_totalview_itch_v5_0_size_of.price_price_4
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = nasdaq_equities_totalview_itch_v5_0_display.price_price_4(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_equities_totalview_itch_v5_0.fields.price_price_4, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Add Order No Mpid Attribution Message
 nasdaq_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_message = function(buffer, offset)
   local index = 0
@@ -1919,7 +1910,7 @@ nasdaq_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_messag
 
   index = index + nasdaq_equities_totalview_itch_v5_0_size_of.stock
 
-  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price_price_4
+  index = index + nasdaq_equities_totalview_itch_v5_0_size_of.price
 
   return index
 end
@@ -1954,8 +1945,8 @@ nasdaq_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_messag
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_totalview_itch_v5_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Price Price 4: 4 Byte Signed Fixed Width Integer
-  index, price_price_4 = nasdaq_equities_totalview_itch_v5_0_dissect.price_price_4(buffer, index, packet, parent)
+  -- Price: 4 Byte Unsigned Fixed Width Integer
+  index, price = nasdaq_equities_totalview_itch_v5_0_dissect.price(buffer, index, packet, parent)
 
   return index
 end

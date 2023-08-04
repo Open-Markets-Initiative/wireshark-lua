@@ -1708,7 +1708,7 @@ end
 nasdaq_equities_totalview_itch_v4_1_dissect.mpid = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.mpid
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_totalview_itch_v4_1_display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.mpid, range, value, display)

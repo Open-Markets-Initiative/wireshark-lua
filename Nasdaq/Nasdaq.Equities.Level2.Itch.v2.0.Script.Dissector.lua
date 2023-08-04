@@ -14,6 +14,7 @@ local nasdaq_equities_level2_itch_v2_0_display = {}
 local nasdaq_equities_level2_itch_v2_0_dissect = {}
 local nasdaq_equities_level2_itch_v2_0_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -31,16 +32,16 @@ nasdaq_equities_level2_itch_v2_0.fields.financial_status_indicator = ProtoField.
 nasdaq_equities_level2_itch_v2_0.fields.interest_flag = ProtoField.new("Interest Flag", "nasdaq.equities.level2.itch.v2.0.interestflag", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.inverse_indicator = ProtoField.new("Inverse Indicator", "nasdaq.equities.level2.itch.v2.0.inverseindicator", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.equities.level2.itch.v2.0.ipoflag", ftypes.STRING)
-nasdaq_equities_level2_itch_v2_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.equities.level2.itch.v2.0.ipoprice", ftypes.BYTES)
+nasdaq_equities_level2_itch_v2_0.fields.ipo_price = ProtoField.new("Ipo Price", "nasdaq.equities.level2.itch.v2.0.ipoprice", ftypes.DOUBLE)
 nasdaq_equities_level2_itch_v2_0.fields.ipo_quotation_release_qualifier = ProtoField.new("Ipo Quotation Release Qualifier", "nasdaq.equities.level2.itch.v2.0.ipoquotationreleasequalifier", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.ipo_quotation_release_time = ProtoField.new("Ipo Quotation Release Time", "nasdaq.equities.level2.itch.v2.0.ipoquotationreleasetime", ftypes.UINT32)
 nasdaq_equities_level2_itch_v2_0.fields.ipo_quoting_period_update_message = ProtoField.new("Ipo Quoting Period Update Message", "nasdaq.equities.level2.itch.v2.0.ipoquotingperiodupdatemessage", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.equities.level2.itch.v2.0.issueclassification", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.issue_subtype = ProtoField.new("Issue Subtype", "nasdaq.equities.level2.itch.v2.0.issuesubtype", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.length = ProtoField.new("Length", "nasdaq.equities.level2.itch.v2.0.length", ftypes.UINT16)
-nasdaq_equities_level2_itch_v2_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.equities.level2.itch.v2.0.level1", ftypes.INT64)
-nasdaq_equities_level2_itch_v2_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.equities.level2.itch.v2.0.level2", ftypes.INT64)
-nasdaq_equities_level2_itch_v2_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.equities.level2.itch.v2.0.level3", ftypes.INT64)
+nasdaq_equities_level2_itch_v2_0.fields.level_1 = ProtoField.new("Level 1", "nasdaq.equities.level2.itch.v2.0.level1", ftypes.DOUBLE)
+nasdaq_equities_level2_itch_v2_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.equities.level2.itch.v2.0.level2", ftypes.DOUBLE)
+nasdaq_equities_level2_itch_v2_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.equities.level2.itch.v2.0.level3", ftypes.DOUBLE)
 nasdaq_equities_level2_itch_v2_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.equities.level2.itch.v2.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.equities.level2.itch.v2.0.marketcategory", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.equities.level2.itch.v2.0.marketcode", ftypes.STRING)
@@ -61,7 +62,7 @@ nasdaq_equities_level2_itch_v2_0.fields.packet_header = ProtoField.new("Packet H
 nasdaq_equities_level2_itch_v2_0.fields.participant_position_summary_message = ProtoField.new("Participant Position Summary Message", "nasdaq.equities.level2.itch.v2.0.participantpositionsummarymessage", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.participant_shares = ProtoField.new("Participant Shares", "nasdaq.equities.level2.itch.v2.0.participantshares", ftypes.UINT32)
 nasdaq_equities_level2_itch_v2_0.fields.payload = ProtoField.new("Payload", "nasdaq.equities.level2.itch.v2.0.payload", ftypes.STRING)
-nasdaq_equities_level2_itch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.equities.level2.itch.v2.0.price", ftypes.INT32)
+nasdaq_equities_level2_itch_v2_0.fields.price = ProtoField.new("Price", "nasdaq.equities.level2.itch.v2.0.price", ftypes.DOUBLE)
 nasdaq_equities_level2_itch_v2_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.equities.level2.itch.v2.0.primarymarketmaker", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.equities.level2.itch.v2.0.regshoaction", ftypes.STRING)
 nasdaq_equities_level2_itch_v2_0.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.equities.level2.itch.v2.0.regshorestrictionmessage", ftypes.STRING)
@@ -226,11 +227,17 @@ nasdaq_equities_level2_itch_v2_0_display.ipo_price = function(value)
   return "Ipo Price: "..value
 end
 
+-- Translate: Ipo Price
+translate.ipo_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Ipo Price
 nasdaq_equities_level2_itch_v2_0_dissect.ipo_price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.ipo_price
   local range = buffer(offset, length)
-  local value = range:bytes():tohex(false, " ")
+  local raw = range:bytes():tohex(false, " ")
+  local value = translate.ipo_price(raw)
   local display = nasdaq_equities_level2_itch_v2_0_display.ipo_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.ipo_price, range, value, display)
@@ -388,7 +395,7 @@ nasdaq_equities_level2_itch_v2_0_dissect.ipo_quoting_period_update_message_field
   -- Ipo Quotation Release Qualifier: 1 Byte Ascii String Enum with 2 values
   index, ipo_quotation_release_qualifier = nasdaq_equities_level2_itch_v2_0_dissect.ipo_quotation_release_qualifier(buffer, index, packet, parent)
 
-  -- Ipo Price: 10 Byte Signed Fixed Width Integer
+  -- Ipo Price: 10 Byte Unsigned Fixed Width Integer
   index, ipo_price = nasdaq_equities_level2_itch_v2_0_dissect.ipo_price(buffer, index, packet, parent)
 
   return index
@@ -492,11 +499,17 @@ nasdaq_equities_level2_itch_v2_0_display.level_3 = function(value)
   return "Level 3: "..value
 end
 
+-- Translate: Level 3
+translate.level_3 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 3
 nasdaq_equities_level2_itch_v2_0_dissect.level_3 = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.level_3
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_3(raw)
   local display = nasdaq_equities_level2_itch_v2_0_display.level_3(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.level_3, range, value, display)
@@ -512,11 +525,17 @@ nasdaq_equities_level2_itch_v2_0_display.level_2 = function(value)
   return "Level 2: "..value
 end
 
+-- Translate: Level 2
+translate.level_2 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 2
 nasdaq_equities_level2_itch_v2_0_dissect.level_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.level_2
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_2(raw)
   local display = nasdaq_equities_level2_itch_v2_0_display.level_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.level_2, range, value, display)
@@ -532,11 +551,17 @@ nasdaq_equities_level2_itch_v2_0_display.level_1 = function(value)
   return "Level 1: "..value
 end
 
+-- Translate: Level 1
+translate.level_1 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 1
 nasdaq_equities_level2_itch_v2_0_dissect.level_1 = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.level_1
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_1(raw)
   local display = nasdaq_equities_level2_itch_v2_0_display.level_1(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.level_1, range, value, display)
@@ -576,13 +601,13 @@ nasdaq_equities_level2_itch_v2_0_dissect.mwcb_decline_level_message_fields = fun
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index, timestamp = nasdaq_equities_level2_itch_v2_0_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Level 1: 8 Byte Signed Fixed Width Integer
+  -- Level 1: 8 Byte Unsigned Fixed Width Integer
   index, level_1 = nasdaq_equities_level2_itch_v2_0_dissect.level_1(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Signed Fixed Width Integer
+  -- Level 2: 8 Byte Unsigned Fixed Width Integer
   index, level_2 = nasdaq_equities_level2_itch_v2_0_dissect.level_2(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Signed Fixed Width Integer
+  -- Level 3: 8 Byte Unsigned Fixed Width Integer
   index, level_3 = nasdaq_equities_level2_itch_v2_0_dissect.level_3(buffer, index, packet, parent)
 
   return index
@@ -698,7 +723,7 @@ end
 nasdaq_equities_level2_itch_v2_0_dissect.mpid = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.mpid
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_level2_itch_v2_0_display.mpid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.mpid, range, value, display)
@@ -714,11 +739,17 @@ nasdaq_equities_level2_itch_v2_0_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Price
 nasdaq_equities_level2_itch_v2_0_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.price(raw)
   local display = nasdaq_equities_level2_itch_v2_0_display.price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.price, range, value, display)
@@ -818,7 +849,7 @@ nasdaq_equities_level2_itch_v2_0_dissect.market_participant_bidask_update_messag
   -- Stock: 8 Byte Ascii String
   index, stock = nasdaq_equities_level2_itch_v2_0_dissect.stock(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Signed Fixed Width Integer
+  -- Price: 4 Byte Unsigned Fixed Width Integer
   index, price = nasdaq_equities_level2_itch_v2_0_dissect.price(buffer, index, packet, parent)
 
   -- Mpid: 4 Byte Ascii String
@@ -1317,7 +1348,7 @@ end
 nasdaq_equities_level2_itch_v2_0_dissect.trading_action_reason = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_level2_itch_v2_0_size_of.trading_action_reason
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_equities_level2_itch_v2_0_display.trading_action_reason(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_level2_itch_v2_0.fields.trading_action_reason, range, value, display)

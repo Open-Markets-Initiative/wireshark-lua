@@ -271,7 +271,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.original_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.original_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.original_price(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.original_price(value, buffer, offset, packet, parent)
 
@@ -375,7 +375,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.broken_trade_report_message_fields = function(
   -- Original Cross Id: 4 Byte Unsigned Fixed Width Integer
   index, original_cross_id = nasdaq_nom_bono_itch_v3_2_dissect.original_cross_id(buffer, index, packet, parent)
 
-  -- Original Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Price: 4 Byte Signed Fixed Width Integer
   index, original_price = nasdaq_nom_bono_itch_v3_2_dissect.original_price(buffer, index, packet, parent)
 
   -- Original Volume: 4 Byte Unsigned Fixed Width Integer
@@ -434,7 +434,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.price_4
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price_4(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.price_4(value, buffer, offset, packet, parent)
 
@@ -523,7 +523,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.trade_report_message_fields = function(buffer,
   -- Trade Condition: 1 Byte Ascii String
   index, trade_condition = nasdaq_nom_bono_itch_v3_2_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Price 4: 4 Byte Unsigned Fixed Width Integer
+  -- Price 4: 4 Byte Signed Fixed Width Integer
   index, price_4 = nasdaq_nom_bono_itch_v3_2_dissect.price_4(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -633,7 +633,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.long_best_bid_update_message_fields = function
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price 4: 4 Byte Unsigned Fixed Width Integer
+  -- Price 4: 4 Byte Signed Fixed Width Integer
   index, price_4 = nasdaq_nom_bono_itch_v3_2_dissect.price_4(buffer, index, packet, parent)
 
   -- Size 4: 4 Byte Unsigned Fixed Width Integer
@@ -690,7 +690,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.long_best_ask_update_message_fields = function
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price 4: 4 Byte Unsigned Fixed Width Integer
+  -- Price 4: 4 Byte Signed Fixed Width Integer
   index, price_4 = nasdaq_nom_bono_itch_v3_2_dissect.price_4(buffer, index, packet, parent)
 
   -- Size 4: 4 Byte Unsigned Fixed Width Integer
@@ -749,7 +749,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.price_2
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price_2(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.price_2(value, buffer, offset, packet, parent)
 
@@ -793,7 +793,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.short_best_bid_update_message_fields = functio
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price 2: 2 Byte Unsigned Fixed Width Integer
+  -- Price 2: 2 Byte Signed Fixed Width Integer
   index, price_2 = nasdaq_nom_bono_itch_v3_2_dissect.price_2(buffer, index, packet, parent)
 
   -- Size 2: 2 Byte Unsigned Fixed Width Integer
@@ -850,7 +850,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.short_best_ask_update_message_fields = functio
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price 2: 2 Byte Unsigned Fixed Width Integer
+  -- Price 2: 2 Byte Signed Fixed Width Integer
   index, price_2 = nasdaq_nom_bono_itch_v3_2_dissect.price_2(buffer, index, packet, parent)
 
   -- Size 2: 2 Byte Unsigned Fixed Width Integer
@@ -909,7 +909,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.ask_price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.ask_price_4
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price_4(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.ask_price_4(value, buffer, offset, packet, parent)
 
@@ -955,7 +955,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.bid_price_4 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.bid_price_4
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price_4(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.bid_price_4(value, buffer, offset, packet, parent)
 
@@ -1003,13 +1003,13 @@ nasdaq_nom_bono_itch_v3_2_dissect.long_best_bid_and_ask_update_message_fields = 
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Bid Price 4: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price 4: 4 Byte Signed Fixed Width Integer
   index, bid_price_4 = nasdaq_nom_bono_itch_v3_2_dissect.bid_price_4(buffer, index, packet, parent)
 
   -- Bid Size 4: 4 Byte Unsigned Fixed Width Integer
   index, bid_size_4 = nasdaq_nom_bono_itch_v3_2_dissect.bid_size_4(buffer, index, packet, parent)
 
-  -- Ask Price 4: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price 4: 4 Byte Signed Fixed Width Integer
   index, ask_price_4 = nasdaq_nom_bono_itch_v3_2_dissect.ask_price_4(buffer, index, packet, parent)
 
   -- Ask Size 4: 4 Byte Unsigned Fixed Width Integer
@@ -1068,7 +1068,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.ask_price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.ask_price_2
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price_2(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.ask_price_2(value, buffer, offset, packet, parent)
 
@@ -1114,7 +1114,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.bid_price_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.bid_price_2
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price_2(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.bid_price_2(value, buffer, offset, packet, parent)
 
@@ -1162,13 +1162,13 @@ nasdaq_nom_bono_itch_v3_2_dissect.short_best_bid_and_ask_update_message_fields =
   -- Quote Condition: 1 Byte Ascii String Enum with 4 values
   index, quote_condition = nasdaq_nom_bono_itch_v3_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Bid Price 2: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price 2: 2 Byte Signed Fixed Width Integer
   index, bid_price_2 = nasdaq_nom_bono_itch_v3_2_dissect.bid_price_2(buffer, index, packet, parent)
 
   -- Bid Size 2: 2 Byte Unsigned Fixed Width Integer
   index, bid_size_2 = nasdaq_nom_bono_itch_v3_2_dissect.bid_size_2(buffer, index, packet, parent)
 
-  -- Ask Price 2: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Price 2: 2 Byte Signed Fixed Width Integer
   index, ask_price_2 = nasdaq_nom_bono_itch_v3_2_dissect.ask_price_2(buffer, index, packet, parent)
 
   -- Ask Size 2: 2 Byte Unsigned Fixed Width Integer
@@ -1506,7 +1506,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.strike_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.strike_price(raw)
   local display = nasdaq_nom_bono_itch_v3_2_display.strike_price(value, buffer, offset, packet, parent)
 
@@ -1587,7 +1587,7 @@ end
 nasdaq_nom_bono_itch_v3_2_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_nom_bono_itch_v3_2_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_nom_bono_itch_v3_2_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_nom_bono_itch_v3_2.fields.security_symbol, range, value, display)
@@ -1655,7 +1655,7 @@ nasdaq_nom_bono_itch_v3_2_dissect.options_directory_message_fields = function(bu
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
   index, expiration_day = nasdaq_nom_bono_itch_v3_2_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: 4 Byte Signed Fixed Width Integer
   index, strike_price = nasdaq_nom_bono_itch_v3_2_dissect.strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values

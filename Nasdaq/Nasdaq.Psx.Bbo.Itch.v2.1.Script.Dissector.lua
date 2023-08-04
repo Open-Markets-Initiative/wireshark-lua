@@ -14,6 +14,7 @@ local nasdaq_psx_bbo_itch_v2_1_display = {}
 local nasdaq_psx_bbo_itch_v2_1_dissect = {}
 local nasdaq_psx_bbo_itch_v2_1_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -33,9 +34,9 @@ nasdaq_psx_bbo_itch_v2_1.fields.ipo_flag = ProtoField.new("Ipo Flag", "nasdaq.ps
 nasdaq_psx_bbo_itch_v2_1.fields.issue_classification = ProtoField.new("Issue Classification", "nasdaq.psx.bbo.itch.v2.1.issueclassification", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.issue_sub_type = ProtoField.new("Issue Sub Type", "nasdaq.psx.bbo.itch.v2.1.issuesubtype", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.length = ProtoField.new("Length", "nasdaq.psx.bbo.itch.v2.1.length", ftypes.UINT16)
-nasdaq_psx_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.bbo.itch.v2.1.level1", ftypes.INT64)
-nasdaq_psx_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.bbo.itch.v2.1.level2", ftypes.INT64)
-nasdaq_psx_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.bbo.itch.v2.1.level3", ftypes.INT64)
+nasdaq_psx_bbo_itch_v2_1.fields.level_1 = ProtoField.new("Level 1", "nasdaq.psx.bbo.itch.v2.1.level1", ftypes.DOUBLE)
+nasdaq_psx_bbo_itch_v2_1.fields.level_2 = ProtoField.new("Level 2", "nasdaq.psx.bbo.itch.v2.1.level2", ftypes.DOUBLE)
+nasdaq_psx_bbo_itch_v2_1.fields.level_3 = ProtoField.new("Level 3", "nasdaq.psx.bbo.itch.v2.1.level3", ftypes.DOUBLE)
 nasdaq_psx_bbo_itch_v2_1.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.psx.bbo.itch.v2.1.luldreferencepricetier", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.market_category = ProtoField.new("Market Category", "nasdaq.psx.bbo.itch.v2.1.marketcategory", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.market_code = ProtoField.new("Market Code", "nasdaq.psx.bbo.itch.v2.1.marketcode", ftypes.STRING)
@@ -44,7 +45,7 @@ nasdaq_psx_bbo_itch_v2_1.fields.message_header = ProtoField.new("Message Header"
 nasdaq_psx_bbo_itch_v2_1.fields.message_type = ProtoField.new("Message Type", "nasdaq.psx.bbo.itch.v2.1.messagetype", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.mwcb_decline_level_message = ProtoField.new("Mwcb Decline Level Message", "nasdaq.psx.bbo.itch.v2.1.mwcbdeclinelevelmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.mwcb_status_message = ProtoField.new("Mwcb Status Message", "nasdaq.psx.bbo.itch.v2.1.mwcbstatusmessage", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psx.bbo.itch.v2.1.nasdaqbestbid", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid = ProtoField.new("Nasdaq Best Bid", "nasdaq.psx.bbo.itch.v2.1.nasdaqbestbid", ftypes.DOUBLE)
 nasdaq_psx_bbo_itch_v2_1.fields.next_shares_quotation_message = ProtoField.new("Next Shares Quotation Message", "nasdaq.psx.bbo.itch.v2.1.nextsharesquotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.next_shares_symbol = ProtoField.new("Next Shares Symbol", "nasdaq.psx.bbo.itch.v2.1.nextsharessymbol", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.psx.bbo.itch.v2.1.operationalhaltaction", ftypes.STRING)
@@ -52,9 +53,9 @@ nasdaq_psx_bbo_itch_v2_1.fields.operational_halt_message = ProtoField.new("Opera
 nasdaq_psx_bbo_itch_v2_1.fields.packet = ProtoField.new("Packet", "nasdaq.psx.bbo.itch.v2.1.packet", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.packet_header = ProtoField.new("Packet Header", "nasdaq.psx.bbo.itch.v2.1.packetheader", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.payload = ProtoField.new("Payload", "nasdaq.psx.bbo.itch.v2.1.payload", ftypes.STRING)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psx.bbo.itch.v2.1.psxbestbidprice", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_price = ProtoField.new("Psx Best Bid Price", "nasdaq.psx.bbo.itch.v2.1.psxbestbidprice", ftypes.DOUBLE)
 nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_size = ProtoField.new("Psx Best Bid Size", "nasdaq.psx.bbo.itch.v2.1.psxbestbidsize", ftypes.UINT32)
-nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psx.bbo.itch.v2.1.psxbestofferprice", ftypes.INT32)
+nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_price = ProtoField.new("Psx Best Offer Price", "nasdaq.psx.bbo.itch.v2.1.psxbestofferprice", ftypes.DOUBLE)
 nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_size = ProtoField.new("Psx Best Offer Size", "nasdaq.psx.bbo.itch.v2.1.psxbestoffersize", ftypes.UINT32)
 nasdaq_psx_bbo_itch_v2_1.fields.quotation_message = ProtoField.new("Quotation Message", "nasdaq.psx.bbo.itch.v2.1.quotationmessage", ftypes.STRING)
 nasdaq_psx_bbo_itch_v2_1.fields.reason = ProtoField.new("Reason", "nasdaq.psx.bbo.itch.v2.1.reason", ftypes.STRING)
@@ -208,11 +209,17 @@ nasdaq_psx_bbo_itch_v2_1_display.nasdaq_best_bid = function(value)
   return "Nasdaq Best Bid: "..value
 end
 
+-- Translate: Nasdaq Best Bid
+translate.nasdaq_best_bid = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Nasdaq Best Bid
 nasdaq_psx_bbo_itch_v2_1_dissect.nasdaq_best_bid = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.nasdaq_best_bid
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.nasdaq_best_bid(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.nasdaq_best_bid(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.nasdaq_best_bid, range, value, display)
@@ -360,7 +367,7 @@ nasdaq_psx_bbo_itch_v2_1_dissect.next_shares_quotation_message_fields = function
   -- Security Class: 1 Byte Ascii String Enum with 7 values
   index, security_class = nasdaq_psx_bbo_itch_v2_1_dissect.security_class(buffer, index, packet, parent)
 
-  -- Nasdaq Best Bid: 4 Byte Signed Fixed Width Integer
+  -- Nasdaq Best Bid: 4 Byte Unsigned Fixed Width Integer
   index, nasdaq_best_bid = nasdaq_psx_bbo_itch_v2_1_dissect.nasdaq_best_bid(buffer, index, packet, parent)
 
   return index
@@ -407,11 +414,17 @@ nasdaq_psx_bbo_itch_v2_1_display.psx_best_offer_price = function(value)
   return "Psx Best Offer Price: "..value
 end
 
+-- Translate: Psx Best Offer Price
+translate.psx_best_offer_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Psx Best Offer Price
 nasdaq_psx_bbo_itch_v2_1_dissect.psx_best_offer_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.psx_best_offer_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.psx_best_offer_price(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.psx_best_offer_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_offer_price, range, value, display)
@@ -447,11 +460,17 @@ nasdaq_psx_bbo_itch_v2_1_display.psx_best_bid_price = function(value)
   return "Psx Best Bid Price: "..value
 end
 
+-- Translate: Psx Best Bid Price
+translate.psx_best_bid_price = function(raw)
+  return raw/10000
+end
+
 -- Dissect: Psx Best Bid Price
 nasdaq_psx_bbo_itch_v2_1_dissect.psx_best_bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.psx_best_bid_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:uint()
+  local value = translate.psx_best_bid_price(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.psx_best_bid_price(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.psx_best_bid_price, range, value, display)
@@ -523,13 +542,13 @@ nasdaq_psx_bbo_itch_v2_1_dissect.quotation_message_fields = function(buffer, off
   -- Security Class: 1 Byte Ascii String Enum with 7 values
   index, security_class = nasdaq_psx_bbo_itch_v2_1_dissect.security_class(buffer, index, packet, parent)
 
-  -- Psx Best Bid Price: 4 Byte Signed Fixed Width Integer
+  -- Psx Best Bid Price: 4 Byte Unsigned Fixed Width Integer
   index, psx_best_bid_price = nasdaq_psx_bbo_itch_v2_1_dissect.psx_best_bid_price(buffer, index, packet, parent)
 
   -- Psx Best Bid Size: 4 Byte Unsigned Fixed Width Integer
   index, psx_best_bid_size = nasdaq_psx_bbo_itch_v2_1_dissect.psx_best_bid_size(buffer, index, packet, parent)
 
-  -- Psx Best Offer Price: 4 Byte Signed Fixed Width Integer
+  -- Psx Best Offer Price: 4 Byte Unsigned Fixed Width Integer
   index, psx_best_offer_price = nasdaq_psx_bbo_itch_v2_1_dissect.psx_best_offer_price(buffer, index, packet, parent)
 
   -- Psx Best Offer Size: 4 Byte Unsigned Fixed Width Integer
@@ -750,11 +769,17 @@ nasdaq_psx_bbo_itch_v2_1_display.level_3 = function(value)
   return "Level 3: "..value
 end
 
+-- Translate: Level 3
+translate.level_3 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 3
 nasdaq_psx_bbo_itch_v2_1_dissect.level_3 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.level_3
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_3(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.level_3(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_3, range, value, display)
@@ -770,11 +795,17 @@ nasdaq_psx_bbo_itch_v2_1_display.level_2 = function(value)
   return "Level 2: "..value
 end
 
+-- Translate: Level 2
+translate.level_2 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 2
 nasdaq_psx_bbo_itch_v2_1_dissect.level_2 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.level_2
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_2(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.level_2(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_2, range, value, display)
@@ -790,11 +821,17 @@ nasdaq_psx_bbo_itch_v2_1_display.level_1 = function(value)
   return "Level 1: "..value
 end
 
+-- Translate: Level 1
+translate.level_1 = function(raw)
+  return raw:tonumber()/100000000
+end
+
 -- Dissect: Level 1
 nasdaq_psx_bbo_itch_v2_1_dissect.level_1 = function(buffer, offset, packet, parent)
   local length = nasdaq_psx_bbo_itch_v2_1_size_of.level_1
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:uint64()
+  local value = translate.level_1(raw)
   local display = nasdaq_psx_bbo_itch_v2_1_display.level_1(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_psx_bbo_itch_v2_1.fields.level_1, range, value, display)
@@ -834,13 +871,13 @@ nasdaq_psx_bbo_itch_v2_1_dissect.mwcb_decline_level_message_fields = function(bu
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
   index, timestamp = nasdaq_psx_bbo_itch_v2_1_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Level 1: 8 Byte Signed Fixed Width Integer
+  -- Level 1: 8 Byte Unsigned Fixed Width Integer
   index, level_1 = nasdaq_psx_bbo_itch_v2_1_dissect.level_1(buffer, index, packet, parent)
 
-  -- Level 2: 8 Byte Signed Fixed Width Integer
+  -- Level 2: 8 Byte Unsigned Fixed Width Integer
   index, level_2 = nasdaq_psx_bbo_itch_v2_1_dissect.level_2(buffer, index, packet, parent)
 
-  -- Level 3: 8 Byte Signed Fixed Width Integer
+  -- Level 3: 8 Byte Unsigned Fixed Width Integer
   index, level_3 = nasdaq_psx_bbo_itch_v2_1_dissect.level_3(buffer, index, packet, parent)
 
   return index

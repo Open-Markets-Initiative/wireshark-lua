@@ -271,7 +271,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.original_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.original_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.original_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.original_price(value, buffer, offset, packet, parent)
 
@@ -375,7 +375,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.broken_trade_report_message_fiel
   -- Original Cross Id: 4 Byte Unsigned Fixed Width Integer
   index, original_cross_id = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.original_cross_id(buffer, index, packet, parent)
 
-  -- Original Price: 4 Byte Unsigned Fixed Width Integer
+  -- Original Price: 4 Byte Signed Fixed Width Integer
   index, original_price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.original_price(buffer, index, packet, parent)
 
   -- Original Volume: 4 Byte Unsigned Fixed Width Integer
@@ -434,7 +434,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.price_long(value, buffer, offset, packet, parent)
 
@@ -523,7 +523,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.trade_report_message_fields = fu
   -- Trade Condition: 1 Byte Ascii String
   index, trade_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.trade_condition(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price_long(buffer, index, packet, parent)
 
   -- Volume: 4 Byte Unsigned Fixed Width Integer
@@ -636,7 +636,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_ask_update_long_form_messag
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price_long(buffer, index, packet, parent)
 
   -- Size Long: 4 Byte Unsigned Fixed Width Integer
@@ -693,7 +693,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_bid_update_long_form_messag
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Price Long: 4 Byte Signed Fixed Width Integer
   index, price_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price_long(buffer, index, packet, parent)
 
   -- Size Long: 4 Byte Unsigned Fixed Width Integer
@@ -752,7 +752,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.price(value, buffer, offset, packet, parent)
 
@@ -796,7 +796,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_ask_update_short_form_messa
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 2 Byte Signed Fixed Width Integer
   index, price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
@@ -853,7 +853,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_bid_update_short_form_messa
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Price: 2 Byte Unsigned Fixed Width Integer
+  -- Price: 2 Byte Signed Fixed Width Integer
   index, price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.price(buffer, index, packet, parent)
 
   -- Size: 2 Byte Unsigned Fixed Width Integer
@@ -912,7 +912,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.ask_price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price_long(value, buffer, offset, packet, parent)
 
@@ -958,7 +958,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price_long = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.bid_price_long
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price_long(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price_long(value, buffer, offset, packet, parent)
 
@@ -1006,13 +1006,13 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_long_for
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Bid Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Bid Price Long: 4 Byte Signed Fixed Width Integer
   index, bid_price_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price_long(buffer, index, packet, parent)
 
   -- Bid Size Long: 4 Byte Unsigned Fixed Width Integer
   index, bid_size_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_size_long(buffer, index, packet, parent)
 
-  -- Ask Price Long: 4 Byte Unsigned Fixed Width Integer
+  -- Ask Price Long: 4 Byte Signed Fixed Width Integer
   index, ask_price_long = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price_long(buffer, index, packet, parent)
 
   -- Ask Size Long: 4 Byte Unsigned Fixed Width Integer
@@ -1071,7 +1071,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.ask_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.ask_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.ask_price(value, buffer, offset, packet, parent)
 
@@ -1117,7 +1117,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.bid_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.bid_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.bid_price(value, buffer, offset, packet, parent)
 
@@ -1165,13 +1165,13 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.best_bid_and_ask_update_short_fo
   -- Quote Condition: 1 Byte Ascii String Enum with 5 values
   index, quote_condition = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.quote_condition(buffer, index, packet, parent)
 
-  -- Bid Price: 2 Byte Unsigned Fixed Width Integer
+  -- Bid Price: 2 Byte Signed Fixed Width Integer
   index, bid_price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_price(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, bid_size = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.bid_size(buffer, index, packet, parent)
 
-  -- Ask Price: 2 Byte Unsigned Fixed Width Integer
+  -- Ask Price: 2 Byte Signed Fixed Width Integer
   index, ask_price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.ask_price(buffer, index, packet, parent)
 
   -- Ask Size: 2 Byte Unsigned Fixed Width Integer
@@ -1502,7 +1502,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.strike_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.strike_price(raw)
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.strike_price(value, buffer, offset, packet, parent)
 
@@ -1583,7 +1583,7 @@ end
 nasdaq_bx_options_topofmarket_itch_v1_2_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_bx_options_topofmarket_itch_v1_2_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_bx_options_topofmarket_itch_v1_2_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_options_topofmarket_itch_v1_2.fields.security_symbol, range, value, display)
@@ -1651,7 +1651,7 @@ nasdaq_bx_options_topofmarket_itch_v1_2_dissect.options_directory_message_fields
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
   index, expiration_day = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Strike Price: 4 Byte Unsigned Fixed Width Integer
+  -- Strike Price: 4 Byte Signed Fixed Width Integer
   index, strike_price = nasdaq_bx_options_topofmarket_itch_v1_2_dissect.strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values

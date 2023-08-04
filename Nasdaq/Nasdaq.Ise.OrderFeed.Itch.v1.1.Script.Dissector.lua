@@ -240,7 +240,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.response_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_orderfeed_itch_v1_1_size_of.response_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.response_price(raw)
   local display = nasdaq_ise_orderfeed_itch_v1_1_display.response_price(value, buffer, offset, packet, parent)
 
@@ -269,7 +269,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.auction_response_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Response Price: 4 Byte Unsigned Fixed Width Integer
+  -- Response Price: 4 Byte Signed Fixed Width Integer
   index, response_price = nasdaq_ise_orderfeed_itch_v1_1_dissect.response_price(buffer, index, packet, parent)
 
   -- Response Size: 4 Byte Unsigned Fixed Width Integer
@@ -513,7 +513,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_orderfeed_itch_v1_1_size_of.price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.price(raw)
   local display = nasdaq_ise_orderfeed_itch_v1_1_display.price(value, buffer, offset, packet, parent)
 
@@ -702,7 +702,7 @@ nasdaq_ise_orderfeed_itch_v1_1_dissect.auction_message_fields = function(buffer,
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = nasdaq_ise_orderfeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_orderfeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -800,7 +800,7 @@ nasdaq_ise_orderfeed_itch_v1_1_dissect.order_on_book_message_fields = function(b
   -- Side: 1 Byte Ascii String Enum with 3 values
   index, side = nasdaq_ise_orderfeed_itch_v1_1_dissect.side(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = nasdaq_ise_orderfeed_itch_v1_1_dissect.price(buffer, index, packet, parent)
 
   -- Size: 4 Byte Unsigned Fixed Width Integer
@@ -874,7 +874,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.imbalance_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_orderfeed_itch_v1_1_size_of.imbalance_price
   local range = buffer(offset, length)
-  local raw = range:uint()
+  local raw = range:int()
   local value = translate.imbalance_price(raw)
   local display = nasdaq_ise_orderfeed_itch_v1_1_display.imbalance_price(value, buffer, offset, packet, parent)
 
@@ -970,7 +970,7 @@ nasdaq_ise_orderfeed_itch_v1_1_dissect.opening_imbalance_message_fields = functi
   -- Imbalance Direction: 1 Byte Ascii String Enum with 2 values
   index, imbalance_direction = nasdaq_ise_orderfeed_itch_v1_1_dissect.imbalance_direction(buffer, index, packet, parent)
 
-  -- Imbalance Price: 4 Byte Unsigned Fixed Width Integer
+  -- Imbalance Price: 4 Byte Signed Fixed Width Integer
   index, imbalance_price = nasdaq_ise_orderfeed_itch_v1_1_dissect.imbalance_price(buffer, index, packet, parent)
 
   -- Imbalance Volume: 4 Byte Unsigned Fixed Width Integer
@@ -1388,7 +1388,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_orderfeed_itch_v1_1_size_of.strike_price
   local range = buffer(offset, length)
-  local raw = range:uint64()
+  local raw = range:int64()
   local value = translate.strike_price(raw)
   local display = nasdaq_ise_orderfeed_itch_v1_1_display.strike_price(value, buffer, offset, packet, parent)
 
@@ -1469,7 +1469,7 @@ end
 nasdaq_ise_orderfeed_itch_v1_1_dissect.security_symbol = function(buffer, offset, packet, parent)
   local length = nasdaq_ise_orderfeed_itch_v1_1_size_of.security_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nasdaq_ise_orderfeed_itch_v1_1_display.security_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_ise_orderfeed_itch_v1_1.fields.security_symbol, range, value, display)
@@ -1543,7 +1543,7 @@ nasdaq_ise_orderfeed_itch_v1_1_dissect.option_directory_message_fields = functio
   -- Expiration Day: 1 Byte Unsigned Fixed Width Integer
   index, expiration_day = nasdaq_ise_orderfeed_itch_v1_1_dissect.expiration_day(buffer, index, packet, parent)
 
-  -- Strike Price: 8 Byte Unsigned Fixed Width Integer
+  -- Strike Price: 8 Byte Signed Fixed Width Integer
   index, strike_price = nasdaq_ise_orderfeed_itch_v1_1_dissect.strike_price(buffer, index, packet, parent)
 
   -- Option Type: 1 Byte Ascii String Enum with 2 values
