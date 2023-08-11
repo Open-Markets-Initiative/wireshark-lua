@@ -143,6 +143,7 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Otc][Otc.Directory] | Markets | [Multicast][Otc.Markets.Multicast.Ats.v4.5.Dissector] | Ats | [4.5][Otc.Markets.Multicast.Ats.v4.5.Dissector] | 7/28/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Siac][Siac.Directory] | Cqs | [Output][Siac.Cqs.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Verified][Omi.Glossary.Testing.Verified] |
 | [Siac][Siac.Directory] | Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | [Beta][Omi.Glossary.Testing.Beta] |
+| [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.2.Dissector] | Obi | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 7/23/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.1.Dissector] | Obi | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Siac][Siac.Directory] | Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Tmx][Tmx.Directory] | Mx Sola | [Multicast][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | Hsvf | [1.11][Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector] | 1/23/2019 | [Untested][Omi.Glossary.Testing.Untested] |
@@ -157,7 +158,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 212 | 1,801,366 |
+| 213 | 1,805,308 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -323,6 +324,7 @@ Enjoy.
 [Otc.Markets.Multicast.Ats.v4.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Otc/Otc.Markets.Multicast.Ats.v4.5.Script.Dissector.lua "Otc Markets Multicast Ats v4.5 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v4.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v4.0.Script.Dissector.lua "Siac Opra Recipient Obi v4.0 Lua Wireshark Dissector"
 [Siac.Opra.Recipient.Obi.v6.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v6.1.Script.Dissector.lua "Siac Opra Recipient Obi v6.1 Lua Wireshark Dissector"
+[Siac.Opra.Recipient.Obi.v6.2.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Opra.Recipient.Obi.v6.2.Script.Dissector.lua "Siac Opra Recipient Obi v6.2 Lua Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cqs.Output.Cta.v1.91.Script.Dissector.lua "Siac Cqs Output Cta v1.91 Lua Wireshark Dissector"
 [Siac.Cts.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cts.Output.Cta.v1.91.Script.Dissector.lua "Siac Cts Output Cta v1.91 Lua Wireshark Dissector"
 [Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Tmx/Tmx.Mx.Sola.Multicast.Hsvf.v1.11.Script.Dissector.lua "Tmx Mx Sola Multicast Hsvf v1.11 Lua Wireshark Dissector"
