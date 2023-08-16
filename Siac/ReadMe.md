@@ -5,11 +5,12 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| Cqs | [Output][Siac.Cqs.Output.Cta.v2.9.Dissector] | Cta | [2.9][Siac.Cqs.Output.Cta.v2.9.Dissector] | 12/16/2022 | 4813 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Cqs.Output.Cta.v2.9.Url] - [pdf][Siac.Cqs.Output.Cta.v2.9.Pdf] |
 | Cqs | [Output][Siac.Cqs.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cqs.Output.Cta.v1.91.Dissector] | 1/2/2020 | 4696 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Siac.Cqs.Output.Cta.v1.91.Url] - [pdf][Siac.Cqs.Output.Cta.v1.91.Pdf] |
 | Cts | [Output][Siac.Cts.Output.Cta.v1.91.Dissector] | Cta | [1.91][Siac.Cts.Output.Cta.v1.91.Dissector] | 1/2/2020 | 6726 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Siac.Cts.Output.Cta.v1.91.Url] - [pdf][Siac.Cts.Output.Cta.v1.91.Pdf] |
 | Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.2.Dissector] | Obi | [6.2][Siac.Opra.Recipient.Obi.v6.2.Dissector] | 7/23/2023 | 3794 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.2.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.2.Pdf] |
-| Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.1.Dissector] | Obi | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | 3791 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.1.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.1.Pdf] |
-| Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 3725 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |
+| Opra | [Recipient][Siac.Opra.Recipient.Obi.v6.1.Dissector] | Obi | [6.1][Siac.Opra.Recipient.Obi.v6.1.Dissector] | 3/25/2022 | 3791 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v6.1.Url] - [pdf][Siac.Opra.Recipient.Obi.v6.1.Pdf] |
+| Opra | [Recipient][Siac.Opra.Recipient.Obi.v4.0.Dissector] | Obi | [4.0][Siac.Opra.Recipient.Obi.v4.0.Dissector] | 1/17/2020 | 3725 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Untested][Omi.Glossary.Testing.Untested] | [url][Siac.Opra.Recipient.Obi.v4.0.Url] - [pdf][Siac.Opra.Recipient.Obi.v4.0.Pdf] |
 
 
 Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Corporation "Go to Securities Industry Automation Corporation")
@@ -39,6 +40,9 @@ Siac: [website](https://en.wikipedia.org/wiki/Securities_Industry_Automation_Cor
 [Siac.Cqs.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cqs.Output.Cta.v1.91.Script.Dissector.lua "Siac Cqs Output Cta v1.91 Wireshark Dissector"
 [Siac.Cqs.Output.Cta.v1.91.Url]: https://www.ctaplan.com/tech-specs "Securities Industry Automation Corporation 1.91 Url"
 [Siac.Cqs.Output.Cta.v1.91.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Siac/Siac.Cqs.Output.Cta.v1.91.pdf "Securities Industry Automation Corporation 1.91 Pdf"
+[Siac.Cqs.Output.Cta.v2.9.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cqs.Output.Cta.v2.9.Script.Dissector.lua "Siac Cqs Output Cta v2.9 Wireshark Dissector"
+[Siac.Cqs.Output.Cta.v2.9.Url]: https://www.ctaplan.com/tech-specs "Securities Industry Automation Corporation 2.9 Url"
+[Siac.Cqs.Output.Cta.v2.9.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Siac/Siac.Cqs.Output.Cta.v2.9.pdf "Securities Industry Automation Corporation 2.9 Pdf"
 [Siac.Cts.Output.Cta.v1.91.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Siac/Siac.Cts.Output.Cta.v1.91.Script.Dissector.lua "Siac Cts Output Cta v1.91 Wireshark Dissector"
 [Siac.Cts.Output.Cta.v1.91.Url]: https://www.ctaplan.com/tech-specs "Securities Industry Automation Corporation 1.91 Url"
 [Siac.Cts.Output.Cta.v1.91.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Siac/Siac.Cts.Output.Cta.v1.91.pdf "Securities Industry Automation Corporation 1.91 Pdf"
