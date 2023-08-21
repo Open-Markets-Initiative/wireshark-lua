@@ -27,6 +27,30 @@ For configuration information: [Wireshark Plugin Configuration](https://www.wire
 Note: Some packets contain enough information to programmatically determine the correct protocol specification and/or version at runtime.  *Many do not.*  If you add multiple dissectors to your plugins folder, wireshark will dissect each "conversation" based on the first matching protocol.  In these cases, please manually select protocol dissector using Analyze | Decode As….
 
 For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html "Wireshark Protocol Selection Documentation")
+## Development
+
+Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
+
+| Protocol Count | Generated Lines |
+| --- | --- |
+| 219 | 1,883,370 |
+
+Note: Our dissector model is still under rapid development.
+
+## Testing
+
+Please report any dissection errors as issues.  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
+
+Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project.
+
+List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
+## Open Markets Initiative
+
+The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
+
+For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects")
+
+For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Active Protocols
 
 | Organization | Division | Data | Protocol | Version | Date | [Testing][Omi.Glossary.Testing] |
@@ -69,13 +93,10 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 | [Coinbase][Coinbase.Directory] | Derivatives | [OrdersApi][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | Sbe | [1.5][Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector] | 4/14/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v12.0.Dissector] | T7 | [12.0][Eurex.Cash.Eti.T7.v12.0.Dissector] | 7/31/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v11.1.Dissector] | T7 | [11.1][Eurex.Cash.Eti.T7.v11.1.Dissector] | 2/23/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Eurex][Eurex.Directory] | Cash | [Eti][Eurex.Cash.Eti.T7.v11.0.Dissector] | T7 | [11.0][Eurex.Cash.Eti.T7.v11.0.Dissector] | 10/31/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eobi][Eurex.Derivatives.Eobi.T7.v12.0.Dissector] | T7 | [12.0][Eurex.Derivatives.Eobi.T7.v12.0.Dissector] | 8/3/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eobi][Eurex.Derivatives.Eobi.T7.v11.1.Dissector] | T7 | [11.1][Eurex.Derivatives.Eobi.T7.v11.1.Dissector] | 2/7/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Eurex][Eurex.Directory] | Derivatives | [Eobi][Eurex.Derivatives.Eobi.T7.v11.0.Dissector] | T7 | [11.0][Eurex.Derivatives.Eobi.T7.v11.0.Dissector] | 11/1/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v12.0.Dissector] | T7 | [12.0][Eurex.Derivatives.Eti.T7.v12.0.Dissector] | 7/31/2023 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Eurex][Eurex.Directory] | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v11.1.Dissector] | T7 | [11.1][Eurex.Derivatives.Eti.T7.v11.1.Dissector] | 2/20/2023 | [Untested][Omi.Glossary.Testing.Untested] |
-| [Eurex][Eurex.Directory] | Derivatives | [Eti][Eurex.Derivatives.Eti.T7.v11.0.Dissector] | T7 | [11.0][Eurex.Derivatives.Eti.T7.v11.0.Dissector] | 10/31/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Euronext][Euronext.Directory] | Optiq | [MarketDataGateway][Euronext.Optiq.MarketDataGateway.Sbe.v4.13.Dissector] | Sbe | [4.13][Euronext.Optiq.MarketDataGateway.Sbe.v4.13.Dissector] | 3/7/2022 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Euronext][Euronext.Directory] | Optiq | [OrderEntryGateway][Euronext.Optiq.OrderEntryGateway.Sbe.v4.13.Dissector] | Sbe | [4.13][Euronext.Optiq.OrderEntryGateway.Sbe.v4.13.Dissector] | 3/7/2022 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Finra][Finra.Directory] | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | Dfi | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | [Verified][Omi.Glossary.Testing.Verified] |
@@ -156,30 +177,6 @@ For decoding information: [Wireshark Protocol Decoding](https://www.wireshark.or
 
 Obsolete and header dissectors are in dissector directories: [Asx][Asx.Directory], [B3][B3.Directory], [Box][Box.Directory], [Cboe][Cboe.Directory], [Cme][Cme.Directory], [Coinbase][Coinbase.Directory], [Eurex][Eurex.Directory], [Euronext][Euronext.Directory], [Finra][Finra.Directory], [Ice][Ice.Directory], [Iex][Iex.Directory], [Jnx][Jnx.Directory], [Lse][Lse.Directory], [Miax][Miax.Directory], [Memx][Memx.Directory], [Nasdaq][Nasdaq.Directory], [Nyse][Nyse.Directory], [Otc][Otc.Directory], [Siac][Siac.Directory], [Tmx][Tmx.Directory]
 
-## Development
-
-Updates are greatly appreciated; however, this entire repository is source generated...including the words you are reading right now. If you wish to suggest script updates, the recommended process is to create an issue with changes and explanation.  Time permitting, we will update the models and regenerate.
-
-| Protocol Count | Generated Lines |
-| --- | --- |
-| 219 | 1,883,370 |
-
-Note: Our dissector model is still under rapid development.
-
-## Testing
-
-Please report any dissection errors as issues.  Include a small note on the protocol and version, and a minimal capture demonstrating the problem. Also consider including a link or pdf specification documenting the correct behavior.
-
-Production packet captures are required for protocol verification.  If your organization has the rights to packet captures, and you wish to make the world a better place, please post captures to this project.
-
-List of data requests: [Untested Protocols](https://github.com/Open-Markets-Initiative/wireshark-lua/wiki/Data "Unverified Protocol Data List")
-## Open Markets Initiative
-
-The Open Markets Initiative (Omi) is a group of technologists dedicated to enhancing the stability of electronic financial markets using modern development methods.
-
-For a list of Omi Hft projects: [Omi Projects](https://github.com/Open-Markets-Initiative/Directory/tree/main/Projects "Open Markets Initiative Projects")
-
-For details of Omi rules and regulations: [Omi Directory](https://github.com/Open-Markets-Initiative/Directory "Open Markets Initiative Directory")
 ## Disclaimer
 
 Any similarities between existing people, places and/or protocols is purely incidental.
@@ -252,9 +249,6 @@ Enjoy.
 [Cme.Ebs.Spectrum.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Ebs.Spectrum.Sbe.v12.0.Script.Dissector.lua "Cme Ebs Spectrum Sbe v12.0 Lua Wireshark Dissector"
 [Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Script.Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.7 Lua Wireshark Dissector"
 [Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.OrdersApi.Sbe.v1.5.Script.Dissector.lua "Coinbase Derivatives OrdersApi Sbe v1.5 Lua Wireshark Dissector"
-[Eurex.Cash.Eti.T7.v11.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Cash.Eti.T7.v11.0.Script.Dissector.lua "Eurex Cash Eti T7 v11.0 Lua Wireshark Dissector"
-[Eurex.Derivatives.Eti.T7.v11.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eti.T7.v11.0.Script.Dissector.lua "Eurex Derivatives Eti T7 v11.0 Lua Wireshark Dissector"
-[Eurex.Derivatives.Eobi.T7.v11.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eobi.T7.v11.0.Script.Dissector.lua "Eurex Derivatives Eobi T7 v11.0 Lua Wireshark Dissector"
 [Eurex.Cash.Eti.T7.v11.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Cash.Eti.T7.v11.1.Script.Dissector.lua "Eurex Cash Eti T7 v11.1 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eti.T7.v11.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eti.T7.v11.1.Script.Dissector.lua "Eurex Derivatives Eti T7 v11.1 Lua Wireshark Dissector"
 [Eurex.Derivatives.Eobi.T7.v11.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Eurex/Eurex.Derivatives.Eobi.T7.v11.1.Script.Dissector.lua "Eurex Derivatives Eobi T7 v11.1 Lua Wireshark Dissector"
