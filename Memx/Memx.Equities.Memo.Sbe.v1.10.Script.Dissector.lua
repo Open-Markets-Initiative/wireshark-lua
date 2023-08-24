@@ -1042,7 +1042,7 @@ memx_equities_memo_sbe_v1_10_dissect.mass_cancel_reject_message_fields = functio
   -- Symbol Mass Cancel Reject Symbol: 6 Byte Ascii String
   index, symbol_mass_cancel_reject_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_mass_cancel_reject_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -1319,7 +1319,7 @@ memx_equities_memo_sbe_v1_10_dissect.order_cancel_reject_message_fields = functi
   -- Cxl Rej Reason: 1 Byte Unsigned Fixed Width Integer Enum with 37 values
   index, cxl_rej_reason = memx_equities_memo_sbe_v1_10_dissect.cxl_rej_reason(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -1351,6 +1351,21 @@ memx_equities_memo_sbe_v1_10_display.extended_restatement_reason = function(valu
   end
   if value == 2 then
     return "Extended Restatement Reason: Joined Nbbo (2)"
+  end
+  if value == 3 then
+    return "Extended Restatement Reason: Self Trade Cancel Newest (3)"
+  end
+  if value == 4 then
+    return "Extended Restatement Reason: Self Trade Cancel Oldest (4)"
+  end
+  if value == 5 then
+    return "Extended Restatement Reason: Self Trade Decrement And Cancel (5)"
+  end
+  if value == 6 then
+    return "Extended Restatement Reason: Self Trade Cancel Both (6)"
+  end
+  if value == 7 then
+    return "Extended Restatement Reason: Self Trade Cancel Smallest (7)"
   end
   if value == 255 then
     return "Extended Restatement Reason: Null Value (255)"
@@ -1695,10 +1710,10 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_restatement_message_fields
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_equities_memo_sbe_v1_10_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Extended Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 5 values
+  -- Extended Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, extended_restatement_reason = memx_equities_memo_sbe_v1_10_dissect.extended_restatement_reason(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -1820,7 +1835,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_trade_break_message_fields
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_10_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -1937,7 +1952,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_trade_correction_message_f
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_10_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -2234,7 +2249,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_replaced_message_fields = 
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
@@ -2243,7 +2258,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_replaced_message_fields = 
   -- Symbol Execution Report Replaced Symbol: 6 Byte Ascii String
   index, symbol_execution_report_replaced_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_replaced_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -2276,7 +2291,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_replaced_message_fields = 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_equities_memo_sbe_v1_10_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -2390,7 +2405,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_replace_message_fi
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
@@ -2399,7 +2414,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_replace_message_fi
   -- Symbol Execution Report Pending Replace Symbol: 6 Byte Ascii String
   index, symbol_execution_report_pending_replace_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_pending_replace_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -2429,7 +2444,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_replace_message_fi
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_10_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -2618,7 +2633,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_canceled_message_fields = 
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -2642,7 +2657,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_canceled_message_fields = 
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_equities_memo_sbe_v1_10_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -2738,7 +2753,7 @@ memx_equities_memo_sbe_v1_10_dissect.pending_mass_cancel_message_fields = functi
   -- Symbol Pending Mass Cancel Symbol: 6 Byte Ascii String
   index, symbol_pending_mass_cancel_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_pending_mass_cancel_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -2852,7 +2867,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_cancel_message_fie
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
@@ -2861,7 +2876,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_cancel_message_fie
   -- Symbol Execution Report Pending Cancel Symbol: 6 Byte Ascii String
   index, symbol_execution_report_pending_cancel_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_pending_cancel_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -2873,7 +2888,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_cancel_message_fie
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_10_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -3020,6 +3035,15 @@ memx_equities_memo_sbe_v1_10_display.last_liquidity_ind = function(value)
   if value == 54 then
     return "Last Liquidity Ind: Add Displayed Nbbo Join (54)"
   end
+  if value == 61 then
+    return "Last Liquidity Ind: Immediate Midpoint Remove On Entry (61)"
+  end
+  if value == 62 then
+    return "Last Liquidity Ind: Add Displayed Price Improvement (62)"
+  end
+  if value == 63 then
+    return "Last Liquidity Ind: Add Hidden Price Improvement (63)"
+  end
   if value == 101 then
     return "Last Liquidity Ind: Retail Add Displayed (101)"
   end
@@ -3046,6 +3070,15 @@ memx_equities_memo_sbe_v1_10_display.last_liquidity_ind = function(value)
   end
   if value == 160 then
     return "Last Liquidity Ind: Retail Removed On Entry (160)"
+  end
+  if value == 161 then
+    return "Last Liquidity Ind: Retail Immediate Midpoint Remove On Entry (161)"
+  end
+  if value == 162 then
+    return "Last Liquidity Ind: Retail Add Displayed Price Improvement (162)"
+  end
+  if value == 163 then
+    return "Last Liquidity Ind: Retail Add Hidden Price Improvement (163)"
   end
   if value == 255 then
     return "Last Liquidity Ind: Null Value (255)"
@@ -3140,7 +3173,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_trade_message_fields = fun
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_equities_memo_sbe_v1_10_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 18 values
+  -- Last Liquidity Ind: 1 Byte Unsigned Fixed Width Integer Enum with 24 values
   index, last_liquidity_ind = memx_equities_memo_sbe_v1_10_dissect.last_liquidity_ind(buffer, index, packet, parent)
 
   -- Last Mkt: 1 Byte Ascii String Enum with 16 values
@@ -3149,7 +3182,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_trade_message_fields = fun
   -- Trd Matching Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_matching_id = memx_equities_memo_sbe_v1_10_dissect.trd_matching_id(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -3255,7 +3288,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_rejected_message_fields = 
   -- Symbol Execution Report Rejected Symbol: 6 Byte Ascii String
   index, symbol_execution_report_rejected_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_rejected_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3267,7 +3300,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_rejected_message_fields = 
   -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 104 values
   index, reject_reason = memx_equities_memo_sbe_v1_10_dissect.reject_reason(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -3995,7 +4028,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_new_message_fields = funct
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_10_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: 4 Byte Ascii String Nullable
   index, mpid = memx_equities_memo_sbe_v1_10_dissect.mpid(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -4004,7 +4037,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_new_message_fields = funct
   -- Symbol Execution Report New Symbol: 6 Byte Ascii String
   index, symbol_execution_report_new_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_new_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -4085,7 +4118,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_new_message_fields = funct
   -- Transact Time: 8 Byte Unsigned Fixed Width Integer
   index, transact_time = memx_equities_memo_sbe_v1_10_dissect.transact_time(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -4236,7 +4269,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_new_message_fields
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_10_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: 4 Byte Ascii String Nullable
   index, mpid = memx_equities_memo_sbe_v1_10_dissect.mpid(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 9 values
@@ -4245,7 +4278,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_new_message_fields
   -- Symbol Execution Report Pending New Symbol: 6 Byte Ascii String
   index, symbol_execution_report_pending_new_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_execution_report_pending_new_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -4323,7 +4356,7 @@ memx_equities_memo_sbe_v1_10_dissect.execution_report_pending_new_message_fields
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_10_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -4414,7 +4447,7 @@ memx_equities_memo_sbe_v1_10_dissect.mass_cancel_request_message_fields = functi
   -- Symbol Mass Cancel Request Symbol: 6 Byte Ascii String
   index, symbol_mass_cancel_request_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_mass_cancel_request_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -4507,7 +4540,7 @@ end
 memx_equities_memo_sbe_v1_10_dissect.order_cancel_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
@@ -4519,7 +4552,7 @@ memx_equities_memo_sbe_v1_10_dissect.order_cancel_request_message_fields = funct
   -- Symbol Order Cancel Request Symbol: 6 Byte Ascii String
   index, symbol_order_cancel_request_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_order_cancel_request_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   return index
@@ -4612,7 +4645,7 @@ end
 memx_equities_memo_sbe_v1_10_dissect.order_cancel_replace_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
+  -- Orig Cl Ord Id: 16 Byte Ascii String Nullable
   index, orig_cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.orig_cl_ord_id(buffer, index, packet, parent)
 
   -- Cl Ord Id: 16 Byte Ascii String
@@ -4621,7 +4654,7 @@ memx_equities_memo_sbe_v1_10_dissect.order_cancel_replace_request_message_fields
   -- Symbol Order Cancel Replace Request Symbol: 6 Byte Ascii String
   index, symbol_order_cancel_replace_request_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_order_cancel_replace_request_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -4642,7 +4675,7 @@ memx_equities_memo_sbe_v1_10_dissect.order_cancel_replace_request_message_fields
   -- Locate Reqd: 1 Byte Ascii String Nullable
   index, locate_reqd = memx_equities_memo_sbe_v1_10_dissect.locate_reqd(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -4772,13 +4805,13 @@ memx_equities_memo_sbe_v1_10_dissect.new_order_single_message_fields = function(
   -- Cl Ord Id: 16 Byte Ascii String
   index, cl_ord_id = memx_equities_memo_sbe_v1_10_dissect.cl_ord_id(buffer, index, packet, parent)
 
-  -- Mpid: 4 Byte Ascii String
+  -- Mpid: 4 Byte Ascii String Nullable
   index, mpid = memx_equities_memo_sbe_v1_10_dissect.mpid(buffer, index, packet, parent)
 
   -- Symbol New Order Single Symbol: 6 Byte Ascii String
   index, symbol_new_order_single_symbol = memx_equities_memo_sbe_v1_10_dissect.symbol_new_order_single_symbol(buffer, index, packet, parent)
 
-  -- Symbol Sfx: 6 Byte Ascii String
+  -- Symbol Sfx: 6 Byte Ascii String Nullable
   index, symbol_sfx = memx_equities_memo_sbe_v1_10_dissect.symbol_sfx(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 5 values
@@ -4850,7 +4883,7 @@ memx_equities_memo_sbe_v1_10_dissect.new_order_single_message_fields = function(
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_equities_memo_sbe_v1_10_dissect.risk_group_id(buffer, index, packet, parent)
 
-  -- Lnk Id: 4 Byte Ascii String
+  -- Lnk Id: 4 Byte Ascii String Nullable
   index, lnk_id = memx_equities_memo_sbe_v1_10_dissect.lnk_id(buffer, index, packet, parent)
 
   return index
@@ -6589,8 +6622,8 @@ memx_equities_memo_sbe_v1_10:register_heuristic("tcp", memx_equities_memo_sbe_v1
 -- Protocol:
 --   Organization: Members Exchange
 --   Version: 1.10
---   Date: Tuesday, May 31, 2022
---   Specification: MEMO SBE-v1_10.pdf
+--   Date: Thursday, November 17, 2022
+--   Specification: MEMO SBE-v1_10-revD.pdf
 -- 
 -- Script:
 --   Generator: 1.5.0.0
