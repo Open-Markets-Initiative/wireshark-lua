@@ -5,6 +5,7 @@
 
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
+| BrokerTec | [Ust][Cme.BrokerTec.Ust.Sbe.v10.1.Dissector] | Sbe | [10.1][Cme.BrokerTec.Ust.Sbe.v10.1.Dissector] | 4/13/2023 | 1434 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Cme.BrokerTec.Ust.Sbe.v10.1.Url] - [xml][Cme.BrokerTec.Ust.Sbe.v10.1.Xml] |
 | Ebs | [Spectrum][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | 4/8/2022 | 1959 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Ebs.Spectrum.Sbe.v12.0.Url] - [xml][Cme.Ebs.Spectrum.Sbe.v12.0.Xml] |
 | Futures | [Derived][Cme.Futures.Derived.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Futures.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | 1949 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Cme.Futures.Derived.Sbe.v12.0.Url] - [xml][Cme.Futures.Derived.Sbe.v12.0.Xml] |
 | Futures | [iLink3][Cme.Futures.iLink3.Sbe.v8.8.Dissector] | Sbe | [8.8][Cme.Futures.iLink3.Sbe.v8.8.Dissector] | 5/31/2022 | 18775 | [Future][Omi.Glossary.Status.Future] | [Verified][Omi.Glossary.Testing.Verified] | [url][Cme.Futures.iLink3.Sbe.v8.8.Url] - [xml][Cme.Futures.iLink3.Sbe.v8.8.Xml] |
@@ -103,6 +104,9 @@ Cme: [website](http://www.cmegroup.com "Go to Chicago Mercantile Exchange")
 [Cme.Futures.iLink3.Sbe.v8.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.iLink3.Sbe.v8.8.Script.Dissector.lua "Cme Futures iLink3 Sbe v8.8 Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.8.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/iLink+3+-+Simple+Binary+Encoding "Chicago Mercantile Exchange 8.8 Url"
 [Cme.Futures.iLink3.Sbe.v8.8.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Cme/Cme.Futures.iLink3.Sbe.v8.8.xml "Chicago Mercantile Exchange 8.8 Xml"
+[Cme.BrokerTec.Ust.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.BrokerTec.Ust.Sbe.v10.1.Script.Dissector.lua "Cme BrokerTec Ust Sbe v10.1 Wireshark Dissector"
+[Cme.BrokerTec.Ust.Sbe.v10.1.Url]: https://www.cmegroup.com/confluence/display/EPICSANDBOX/BrokerTec+U.S.+Treasury+Market+Data "Chicago Mercantile Exchange 10.1 Url"
+[Cme.BrokerTec.Ust.Sbe.v10.1.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Cme/Cme.BrokerTec.Ust.Sbe.v10.1.xml "Chicago Mercantile Exchange 10.1 Xml"
 [Cme.Futures.Derived.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Derived.Sbe.v12.0.Script.Dissector.lua "Cme Futures Derived Sbe v12.0 Wireshark Dissector"
 [Cme.Futures.Derived.Sbe.v12.0.Url]: https://www.cmegroup.com/market-data/derived-data.html "Chicago Mercantile Exchange 12.0 Url"
 [Cme.Futures.Derived.Sbe.v12.0.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Cme/Cme.Futures.Derived.Sbe.v12.0.xml "Chicago Mercantile Exchange 12.0 Xml"

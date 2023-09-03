@@ -33,7 +33,7 @@ Updates are greatly appreciated; however, this entire repository is source gener
 
 | Protocol Count | Generated Lines |
 | --- | --- |
-| 226 | 1,933,371 |
+| 227 | 1,934,805 |
 
 Note: Our dissector model is still under rapid development.
 
@@ -81,6 +81,7 @@ For details of Omi rules and regulations: [Omi Directory](https://github.com/Ope
 | [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | Pitch | [2.1.37][Cboe.Options.Complex.Pitch.v2.1.37.Dissector] | 3/1/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Options | [Complex][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | Pitch | [2.1.18][Cboe.Options.Complex.Pitch.v2.1.18.Dissector] | 1/31/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cboe][Cboe.Directory] | Options | [DepthOfBook][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | Pitch | [2.39.4][Cboe.Options.DepthOfBook.Pitch.v2.39.4.Dissector] | 8/21/2018 | [Verified][Omi.Glossary.Testing.Verified] |
+| [Cme][Cme.Directory] | BrokerTec | [Ust][Cme.BrokerTec.Ust.Sbe.v10.1.Dissector] | Sbe | [10.1][Cme.BrokerTec.Ust.Sbe.v10.1.Dissector] | 4/13/2023 | [Beta][Omi.Glossary.Testing.Beta] |
 | [Cme][Cme.Directory] | Ebs | [Spectrum][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Ebs.Spectrum.Sbe.v12.0.Dissector] | 4/8/2022 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [Derived][Cme.Futures.Derived.Sbe.v12.0.Dissector] | Sbe | [12.0][Cme.Futures.Derived.Sbe.v12.0.Dissector] | 1/4/2020 | [Untested][Omi.Glossary.Testing.Untested] |
 | [Cme][Cme.Directory] | Futures | [iLink3][Cme.Futures.iLink3.Sbe.v8.8.Dissector] | Sbe | [8.8][Cme.Futures.iLink3.Sbe.v8.8.Dissector] | 5/31/2022 | [Verified][Omi.Glossary.Testing.Verified] |
@@ -247,6 +248,7 @@ Enjoy.
 [Cme.Futures.Settlements.Sbe.v7.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Settlements.Sbe.v7.0.Script.Dissector.lua "Cme Futures Settlements Sbe v7.0 Lua Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.iLink3.Sbe.v8.7.Script.Dissector.lua "Cme Futures iLink3 Sbe v8.7 Lua Wireshark Dissector"
 [Cme.Futures.iLink3.Sbe.v8.8.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.iLink3.Sbe.v8.8.Script.Dissector.lua "Cme Futures iLink3 Sbe v8.8 Lua Wireshark Dissector"
+[Cme.BrokerTec.Ust.Sbe.v10.1.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.BrokerTec.Ust.Sbe.v10.1.Script.Dissector.lua "Cme BrokerTec Ust Sbe v10.1 Lua Wireshark Dissector"
 [Cme.Futures.Derived.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Futures.Derived.Sbe.v12.0.Script.Dissector.lua "Cme Futures Derived Sbe v12.0 Lua Wireshark Dissector"
 [Cme.Ebs.Spectrum.Sbe.v12.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Cme/Cme.Ebs.Spectrum.Sbe.v12.0.Script.Dissector.lua "Cme Ebs Spectrum Sbe v12.0 Lua Wireshark Dissector"
 [Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Coinbase/Coinbase.Derivatives.MarketDataApi.Sbe.v1.7.Script.Dissector.lua "Coinbase Derivatives MarketDataApi Sbe v1.7 Lua Wireshark Dissector"
