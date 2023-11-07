@@ -1052,6 +1052,11 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.username = 16
 
 -- Display: Username
 nyse_options_streamprotocol_pillar_v1_6_display.username = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Username: No Value"
+  end
+
   return "Username: "..value
 end
 
@@ -1059,7 +1064,18 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.username = function(buffer, offset, packet, parent)
   local length = nyse_options_streamprotocol_pillar_v1_6_size_of.username
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_options_streamprotocol_pillar_v1_6_display.username(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.username, range, value, display)
@@ -1115,6 +1131,11 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.version = 20
 
 -- Display: Version
 nyse_options_streamprotocol_pillar_v1_6_display.version = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Version: No Value"
+  end
+
   return "Version: "..value
 end
 
@@ -1122,7 +1143,18 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.version = function(buffer, offset, packet, parent)
   local length = nyse_options_streamprotocol_pillar_v1_6_size_of.version
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_options_streamprotocol_pillar_v1_6_display.version(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.version, range, value, display)
@@ -1135,6 +1167,11 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.mic = 4
 
 -- Display: Mic
 nyse_options_streamprotocol_pillar_v1_6_display.mic = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Mic: No Value"
+  end
+
   return "Mic: "..value
 end
 
@@ -1142,7 +1179,18 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.mic = function(buffer, offset, packet, parent)
   local length = nyse_options_streamprotocol_pillar_v1_6_size_of.mic
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_options_streamprotocol_pillar_v1_6_display.mic(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.mic, range, value, display)
@@ -1155,6 +1203,11 @@ nyse_options_streamprotocol_pillar_v1_6_size_of.password = 32
 
 -- Display: Password
 nyse_options_streamprotocol_pillar_v1_6_display.password = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -1162,7 +1215,18 @@ end
 nyse_options_streamprotocol_pillar_v1_6_dissect.password = function(buffer, offset, packet, parent)
   local length = nyse_options_streamprotocol_pillar_v1_6_size_of.password
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_options_streamprotocol_pillar_v1_6_display.password(value, buffer, offset, packet, parent)
 
   parent:add(nyse_options_streamprotocol_pillar_v1_6.fields.password, range, value, display)

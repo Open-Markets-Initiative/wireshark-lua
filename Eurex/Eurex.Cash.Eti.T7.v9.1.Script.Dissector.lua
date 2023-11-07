@@ -1396,6 +1396,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Eurex Cash Eti T7 9.1
 -----------------------------------------------------------------------
 
@@ -1431,7 +1449,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.target_party_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.target_party_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.target_party_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.target_party_executing_trader, range, value, display)
@@ -1451,7 +1469,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.target_party_executing_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.target_party_executing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.target_party_executing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.target_party_executing_firm, range, value, display)
@@ -1543,7 +1561,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.free_text_5 = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.free_text_5
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.free_text_5(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.free_text_5, range, value, display)
@@ -1563,7 +1581,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_executing_trader, range, value, display)
@@ -1583,7 +1601,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_executing_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_executing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_executing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_executing_firm, range, value, display)
@@ -1941,7 +1959,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.network_msg_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.network_msg_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.network_msg_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.network_msg_id, range, value, display)
@@ -2574,7 +2592,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.quote_req_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.quote_req_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.quote_req_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.quote_req_id, range, value, display)
@@ -2739,7 +2757,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_entering_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_entering_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_entering_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_entering_trader, range, value, display)
@@ -3075,7 +3093,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.free_text_4 = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.free_text_4
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.free_text_4(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.free_text_4, range, value, display)
@@ -3095,7 +3113,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.free_text_2 = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.free_text_2
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.free_text_2(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.free_text_2, range, value, display)
@@ -3115,7 +3133,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.free_text_1 = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.free_text_1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.free_text_1(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.free_text_1, range, value, display)
@@ -3310,7 +3328,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.firm_negotiation_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.firm_negotiation_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.firm_negotiation_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.firm_negotiation_id, range, value, display)
@@ -4254,7 +4272,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.firm_trade_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.firm_trade_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.firm_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.firm_trade_id, range, value, display)
@@ -5016,7 +5034,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_entering_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_entering_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_entering_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_entering_trader, range, value, display)
@@ -5036,7 +5054,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_executing_trader, range, value, display)
@@ -5056,7 +5074,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_executing_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_executing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_executing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_executing_firm, range, value, display)
@@ -5455,7 +5473,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.password = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.password
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.password(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.password, range, value, display)
@@ -5636,7 +5654,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.fix_cl_ord_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.fix_cl_ord_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.fix_cl_ord_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fix_cl_ord_id, range, value, display)
@@ -6363,7 +6381,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_id_execution_venue = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_id_execution_venue
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_id_execution_venue(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_id_execution_venue, range, value, display)
@@ -6383,7 +6401,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.regulatory_trade_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.regulatory_trade_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.regulatory_trade_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.regulatory_trade_id, range, value, display)
@@ -6403,7 +6421,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_specialist_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_specialist_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_specialist_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_specialist_trader, range, value, display)
@@ -6423,7 +6441,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_specialist_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_specialist_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_specialist_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_specialist_firm, range, value, display)
@@ -6498,7 +6516,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_contra_settlement_location = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_contra_settlement_location
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_contra_settlement_location(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_contra_settlement_location, range, value, display)
@@ -6518,7 +6536,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_contra_settlement_account = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_contra_settlement_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_contra_settlement_account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_contra_settlement_account, range, value, display)
@@ -6538,7 +6556,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_contra_firm_kv_number = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_contra_firm_kv_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_contra_firm_kv_number(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_contra_firm_kv_number, range, value, display)
@@ -6558,7 +6576,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_contra_settlement_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_contra_settlement_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_contra_settlement_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_contra_settlement_firm, range, value, display)
@@ -6578,7 +6596,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_contra_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_contra_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_contra_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_contra_firm, range, value, display)
@@ -6598,7 +6616,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_settlement_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_settlement_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_settlement_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_settlement_firm, range, value, display)
@@ -6673,7 +6691,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_settlement_location = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_settlement_location
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_settlement_location(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_settlement_location, range, value, display)
@@ -6693,7 +6711,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_settlement_account = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_settlement_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_settlement_account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_settlement_account, range, value, display)
@@ -6713,7 +6731,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_executing_firm_kv_number = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_executing_firm_kv_number
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_executing_firm_kv_number(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_executing_firm_kv_number, range, value, display)
@@ -6733,7 +6751,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.root_party_clearing_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.root_party_clearing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.root_party_clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.root_party_clearing_firm, range, value, display)
@@ -6813,7 +6831,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.currency = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.currency(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.currency, range, value, display)
@@ -6833,7 +6851,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.settl_currency = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.settl_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.settl_currency(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.settl_currency, range, value, display)
@@ -6853,7 +6871,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.account = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.account, range, value, display)
@@ -8597,7 +8615,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.trade_report_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.trade_report_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.trade_report_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.trade_report_id, range, value, display)
@@ -9075,7 +9093,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.trade_report_text = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.trade_report_text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.trade_report_text(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.trade_report_text, range, value, display)
@@ -10418,7 +10436,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_entering_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_entering_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_entering_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_entering_firm, range, value, display)
@@ -13822,7 +13840,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.requesting_party_clearing_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.requesting_party_clearing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.requesting_party_clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.requesting_party_clearing_firm, range, value, display)
@@ -13842,7 +13860,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.requesting_party_entering_firm = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.requesting_party_entering_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.requesting_party_entering_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.requesting_party_entering_firm, range, value, display)
@@ -14943,7 +14961,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.headline = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.headline
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.headline(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.headline, range, value, display)
@@ -16796,7 +16814,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.default_cstm_appl_ver_sub_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.default_cstm_appl_ver_sub_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.default_cstm_appl_ver_sub_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.default_cstm_appl_ver_sub_id, range, value, display)
@@ -16816,7 +16834,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.default_cstm_appl_ver_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.default_cstm_appl_ver_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.default_cstm_appl_ver_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.default_cstm_appl_ver_id, range, value, display)
@@ -16982,7 +17000,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.application_system_vendor = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.application_system_vendor
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.application_system_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.application_system_vendor, range, value, display)
@@ -17002,7 +17020,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.application_system_version = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.application_system_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.application_system_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.application_system_version, range, value, display)
@@ -17022,7 +17040,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.application_system_name = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.application_system_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.application_system_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.application_system_name, range, value, display)
@@ -17042,7 +17060,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.fix_engine_vendor = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.fix_engine_vendor
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.fix_engine_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fix_engine_vendor, range, value, display)
@@ -17062,7 +17080,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.fix_engine_version = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.fix_engine_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.fix_engine_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fix_engine_version, range, value, display)
@@ -17082,7 +17100,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.fix_engine_name = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.fix_engine_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.fix_engine_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.fix_engine_name, range, value, display)
@@ -17801,7 +17819,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_detail_desk_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_detail_desk_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_detail_desk_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_detail_desk_id, range, value, display)
@@ -17851,7 +17869,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.party_detail_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.party_detail_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.party_detail_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.party_detail_executing_trader, range, value, display)
@@ -19479,7 +19497,7 @@ end
 eurex_cash_eti_t7_v9_1_dissect.target_party_id_desk_id = function(buffer, offset, packet, parent)
   local length = eurex_cash_eti_t7_v9_1_size_of.target_party_id_desk_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_cash_eti_t7_v9_1_display.target_party_id_desk_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_cash_eti_t7_v9_1.fields.target_party_id_desk_id, range, value, display)

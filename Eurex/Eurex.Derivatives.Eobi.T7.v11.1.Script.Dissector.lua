@@ -406,6 +406,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Eurex Derivatives Eobi T7 11.1
 -----------------------------------------------------------------------
 
@@ -4911,7 +4929,7 @@ end
 eurex_derivatives_eobi_t7_v11_1_dissect.security_desc = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eobi_t7_v11_1_size_of.security_desc
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eobi_t7_v11_1_display.security_desc(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eobi_t7_v11_1.fields.security_desc, range, value, display)

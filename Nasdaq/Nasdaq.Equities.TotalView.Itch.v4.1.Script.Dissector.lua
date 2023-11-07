@@ -2541,6 +2541,11 @@ nasdaq_equities_totalview_itch_v4_1_size_of.session = 10
 
 -- Display: Session
 nasdaq_equities_totalview_itch_v4_1_display.session = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Session: No Value"
+  end
+
   return "Session: "..value
 end
 
@@ -2548,7 +2553,18 @@ end
 nasdaq_equities_totalview_itch_v4_1_dissect.session = function(buffer, offset, packet, parent)
   local length = nasdaq_equities_totalview_itch_v4_1_size_of.session
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nasdaq_equities_totalview_itch_v4_1_display.session(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_equities_totalview_itch_v4_1.fields.session, range, value, display)

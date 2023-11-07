@@ -1251,6 +1251,24 @@ end
 
 
 -----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
+end
+
+
+-----------------------------------------------------------------------
 -- Dissect Eurex Derivatives Eti T7 5.0
 -----------------------------------------------------------------------
 
@@ -1548,7 +1566,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.network_msg_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.network_msg_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.network_msg_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.network_msg_id, range, value, display)
@@ -1657,7 +1675,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.password = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.password
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.password(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.password, range, value, display)
@@ -1753,7 +1771,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_stip_type = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_stip_type
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_stip_type(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_stip_type, range, value, display)
@@ -1773,7 +1791,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_stip_value = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_stip_value
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_stip_value(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_stip_value, range, value, display)
@@ -1860,7 +1878,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.instr_attrib_value = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.instr_attrib_value
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.instr_attrib_value(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.instr_attrib_value, range, value, display)
@@ -2080,7 +2098,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.compliance_text = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.compliance_text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.compliance_text(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.compliance_text, range, value, display)
@@ -2120,7 +2138,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_id_location_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_id_location_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_id_location_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_id_location_id, range, value, display)
@@ -2140,7 +2158,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_id_beneficiary = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_id_beneficiary
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_id_beneficiary(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_id_beneficiary, range, value, display)
@@ -2160,7 +2178,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_id_order_origination_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_id_order_origination_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_id_order_origination_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_id_order_origination_firm, range, value, display)
@@ -2180,7 +2198,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.free_text_3 = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.free_text_3
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.free_text_3(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.free_text_3, range, value, display)
@@ -2200,7 +2218,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.free_text_2 = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.free_text_2
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.free_text_2(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.free_text_2, range, value, display)
@@ -2220,7 +2238,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.free_text_1 = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.free_text_1
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.free_text_1(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.free_text_1, range, value, display)
@@ -2240,7 +2258,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_id_take_up_trading_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_id_take_up_trading_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_id_take_up_trading_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_id_take_up_trading_firm, range, value, display)
@@ -2260,7 +2278,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_id_position_account = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_id_position_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_id_position_account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_id_position_account, range, value, display)
@@ -2280,7 +2298,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.account = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.account, range, value, display)
@@ -2420,7 +2438,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_executing_trader, range, value, display)
@@ -2440,7 +2458,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_executing_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_executing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_executing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_executing_firm, range, value, display)
@@ -2657,7 +2675,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_issuer = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_issuer
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_issuer(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_issuer, range, value, display)
@@ -2677,7 +2695,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_currency = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_currency
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_currency(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_currency, range, value, display)
@@ -2697,7 +2715,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_security_desc = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_security_desc
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_security_desc(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_security_desc, range, value, display)
@@ -2717,7 +2735,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.underlying_security_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.underlying_security_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.underlying_security_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.underlying_security_id, range, value, display)
@@ -2737,7 +2755,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.trade_report_text = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.trade_report_text
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.trade_report_text(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.trade_report_text, range, value, display)
@@ -2757,7 +2775,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.trade_report_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.trade_report_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.trade_report_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.trade_report_id, range, value, display)
@@ -4062,7 +4080,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_clearing_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_clearing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_clearing_firm, range, value, display)
@@ -4082,7 +4100,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_executing_trader, range, value, display)
@@ -4102,7 +4120,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_executing_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_executing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_executing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_executing_firm, range, value, display)
@@ -4122,7 +4140,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_clearing_organization = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_clearing_organization
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_clearing_organization(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_clearing_organization, range, value, display)
@@ -4274,7 +4292,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_id_position_account = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_id_position_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_id_position_account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_id_position_account, range, value, display)
@@ -4393,7 +4411,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_id_order_origination_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_id_order_origination_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_id_order_origination_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_id_order_origination_firm, range, value, display)
@@ -4413,7 +4431,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_id_take_up_trading_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_id_take_up_trading_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_id_take_up_trading_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_id_take_up_trading_firm, range, value, display)
@@ -4433,7 +4451,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.root_party_id_beneficiary = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.root_party_id_beneficiary
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.root_party_id_beneficiary(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.root_party_id_beneficiary, range, value, display)
@@ -6439,7 +6457,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_entering_trader = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_entering_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_entering_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_entering_trader, range, value, display)
@@ -7254,7 +7272,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.requesting_party_clearing_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.requesting_party_clearing_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.requesting_party_clearing_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.requesting_party_clearing_firm, range, value, display)
@@ -7274,7 +7292,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.requesting_party_entering_firm = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.requesting_party_entering_firm
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.requesting_party_entering_firm(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.requesting_party_entering_firm, range, value, display)
@@ -10483,7 +10501,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.leg_account = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.leg_account
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.leg_account(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.leg_account, range, value, display)
@@ -11088,7 +11106,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.headline = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.headline
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.headline(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.headline, range, value, display)
@@ -13343,7 +13361,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.default_cstm_appl_ver_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.default_cstm_appl_ver_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.default_cstm_appl_ver_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.default_cstm_appl_ver_id, range, value, display)
@@ -13503,7 +13521,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.application_system_vendor = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.application_system_vendor
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.application_system_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.application_system_vendor, range, value, display)
@@ -13523,7 +13541,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.application_system_version = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.application_system_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.application_system_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.application_system_version, range, value, display)
@@ -13543,7 +13561,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.application_system_name = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.application_system_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.application_system_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.application_system_name, range, value, display)
@@ -13563,7 +13581,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.fix_engine_vendor = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.fix_engine_vendor
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.fix_engine_vendor(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.fix_engine_vendor, range, value, display)
@@ -13583,7 +13601,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.fix_engine_version = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.fix_engine_version
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.fix_engine_version(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.fix_engine_version, range, value, display)
@@ -13603,7 +13621,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.fix_engine_name = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.fix_engine_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.fix_engine_name(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.fix_engine_name, range, value, display)
@@ -13886,7 +13904,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_detail_desk_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_detail_desk_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_detail_desk_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_detail_desk_id, range, value, display)
@@ -13936,7 +13954,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.party_detail_executing_trader = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.party_detail_executing_trader
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.party_detail_executing_trader(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.party_detail_executing_trader, range, value, display)
@@ -15932,7 +15950,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.target_party_id_desk_id = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.target_party_id_desk_id
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.target_party_id_desk_id(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.target_party_id_desk_id, range, value, display)
@@ -16771,7 +16789,7 @@ end
 eurex_derivatives_eti_t7_v5_0_dissect.symbol = function(buffer, offset, packet, parent)
   local length = eurex_derivatives_eti_t7_v5_0_size_of.symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = eurex_derivatives_eti_t7_v5_0_display.symbol(value, buffer, offset, packet, parent)
 
   parent:add(eurex_derivatives_eti_t7_v5_0.fields.symbol, range, value, display)
