@@ -27,10 +27,10 @@ Iex: [website](https://iextrading.com "Go to Investors Exchange")
 
 [Iex.Equities.Deep.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex.Equities.Deep.IexTp.v1.0.Script.Dissector.lua "Iex Equities Deep IexTp v1.0 Wireshark Dissector"
 [Iex.Equities.Deep.IexTp.v1.0.Url]: https://iextrading.com/trading/market-data/ "Investors Exchange 1.0 Url"
-[Iex.Equities.Deep.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Iex/Iex.Equities.Deep.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
+[Iex.Equities.Deep.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.Equities.Deep.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
 [Iex.Equities.Tops.IexTp.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex.Equities.Tops.IexTp.v1.6.Script.Dissector.lua "Iex Equities Tops IexTp v1.6 Wireshark Dissector"
 [Iex.Equities.Tops.IexTp.v1.6.Url]: https://iextrading.com/trading/market-data/ "Investors Exchange 1.6 Url"
-[Iex.Equities.Tops.IexTp.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Iex/Iex.Equities.Tops.IexTp.v1.6.pdf "Investors Exchange 1.6 Pdf"
+[Iex.Equities.Tops.IexTp.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.Equities.Tops.IexTp.v1.6.pdf "Investors Exchange 1.6 Pdf"
 [Iex.Equities.UdpHeader.IexTp.v1.0.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Iex/Iex.Equities.UdpHeader.IexTp.v1.0.Script.Dissector.lua "Iex Equities UdpHeader IexTp v1.0 Wireshark Dissector"
 [Iex.Equities.UdpHeader.IexTp.v1.0.Url]: https://iextrading.com/trading/market-data/ "Investors Exchange 1.0 Url"
-[Iex.Equities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Specifications/Iex/Iex.Equities.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
+[Iex.Equities.UdpHeader.IexTp.v1.0.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Iex/Specifications/Iex.Equities.IexTp.v1.0.pdf "Investors Exchange 1.0 Pdf"
