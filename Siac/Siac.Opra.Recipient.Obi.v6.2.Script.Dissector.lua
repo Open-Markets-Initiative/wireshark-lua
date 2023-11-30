@@ -83,7 +83,7 @@ siac_opra_recipient_obi_v6_2.fields.participant_reference_number = ProtoField.ne
 siac_opra_recipient_obi_v6_2.fields.payload = ProtoField.new("Payload", "siac.opra.recipient.obi.v6.2.payload", ftypes.STRING)
 siac_opra_recipient_obi_v6_2.fields.premium_price = ProtoField.new("Premium Price", "siac.opra.recipient.obi.v6.2.premiumprice", ftypes.INT32)
 siac_opra_recipient_obi_v6_2.fields.premium_price_denominator_code = ProtoField.new("Premium Price Denominator Code", "siac.opra.recipient.obi.v6.2.premiumpricedenominatorcode", ftypes.STRING)
-siac_opra_recipient_obi_v6_2.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.2.price", ftypes.UINT32)
+siac_opra_recipient_obi_v6_2.fields.price = ProtoField.new("Price", "siac.opra.recipient.obi.v6.2.price", ftypes.INT32)
 siac_opra_recipient_obi_v6_2.fields.quote_message_type = ProtoField.new("Quote Message Type", "siac.opra.recipient.obi.v6.2.quotemessagetype", ftypes.STRING)
 siac_opra_recipient_obi_v6_2.fields.reserved_1 = ProtoField.new("Reserved 1", "siac.opra.recipient.obi.v6.2.reserved1", ftypes.BYTES)
 siac_opra_recipient_obi_v6_2.fields.reserved_4 = ProtoField.new("Reserved 4", "siac.opra.recipient.obi.v6.2.reserved4", ftypes.BYTES)
@@ -93,6 +93,7 @@ siac_opra_recipient_obi_v6_2.fields.security_symbol = ProtoField.new("Security S
 siac_opra_recipient_obi_v6_2.fields.security_symbol_short = ProtoField.new("Security Symbol Short", "siac.opra.recipient.obi.v6.2.securitysymbolshort", ftypes.STRING)
 siac_opra_recipient_obi_v6_2.fields.session_indicator = ProtoField.new("Session Indicator", "siac.opra.recipient.obi.v6.2.sessionindicator", ftypes.UINT8)
 siac_opra_recipient_obi_v6_2.fields.short_equity_and_index_quote_message = ProtoField.new("Short Equity And Index Quote Message", "siac.opra.recipient.obi.v6.2.shortequityandindexquotemessage", ftypes.STRING)
+siac_opra_recipient_obi_v6_2.fields.size = ProtoField.new("Size", "siac.opra.recipient.obi.v6.2.size", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.strike_price = ProtoField.new("Strike Price", "siac.opra.recipient.obi.v6.2.strikeprice", ftypes.UINT32)
 siac_opra_recipient_obi_v6_2.fields.strike_price_denominator_code = ProtoField.new("Strike Price Denominator Code", "siac.opra.recipient.obi.v6.2.strikepricedenominatorcode", ftypes.STRING)
 siac_opra_recipient_obi_v6_2.fields.strike_price_short = ProtoField.new("Strike Price Short", "siac.opra.recipient.obi.v6.2.strikepriceshort", ftypes.UINT16)
@@ -892,11 +893,6 @@ siac_opra_recipient_obi_v6_2_size_of.control_message = function(buffer, offset)
 
   index = index + siac_opra_recipient_obi_v6_2_size_of.participant_reference_number
 
-  index = index + siac_opra_recipient_obi_v6_2_size_of.message_data_length
-
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):uint()
-
   return index
 end
 
@@ -920,12 +916,6 @@ siac_opra_recipient_obi_v6_2_dissect.control_message_fields = function(buffer, o
 
   -- Participant Reference Number: 4 Byte Unsigned Fixed Width Integer
   index, participant_reference_number = siac_opra_recipient_obi_v6_2_dissect.participant_reference_number(buffer, index, packet, parent)
-
-  -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
-  index, message_data_length = siac_opra_recipient_obi_v6_2_dissect.message_data_length(buffer, index, packet, parent)
-
-  -- Message Data: 1 Byte Ascii String
-  index = siac_opra_recipient_obi_v6_2_dissect.message_data(buffer, index, packet, parent, message_data_length)
 
   return index
 end
@@ -963,33 +953,13 @@ siac_opra_recipient_obi_v6_2_dissect.message_type = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Calculate size of: Administrative Message
-siac_opra_recipient_obi_v6_2_size_of.administrative_message = function(buffer, offset)
-  local index = 0
-
-  index = index + siac_opra_recipient_obi_v6_2_size_of.message_type
-
-  index = index + siac_opra_recipient_obi_v6_2_size_of.message_indicator
-
-  index = index + siac_opra_recipient_obi_v6_2_size_of.transaction_id
-
-  index = index + siac_opra_recipient_obi_v6_2_size_of.participant_reference_number
-
-  index = index + siac_opra_recipient_obi_v6_2_size_of.message_data_length
-
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):uint()
-
-  return index
-end
-
 -- Display: Administrative Message
 siac_opra_recipient_obi_v6_2_display.administrative_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
 -- Dissect Fields: Administrative Message
-siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields = function(buffer, offset, packet, parent)
+siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields = function(buffer, offset, packet, parent, size_of_administrative_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String
@@ -1008,22 +978,61 @@ siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields = function(bu
   index, message_data_length = siac_opra_recipient_obi_v6_2_dissect.message_data_length(buffer, index, packet, parent)
 
   -- Message Data: 1 Byte Ascii String
-  index = siac_opra_recipient_obi_v6_2_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  if message_data_length > 0 then
+    index = siac_opra_recipient_obi_v6_2_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  end
 
   return index
 end
 
+-- Size of: Administrative Message
+siac_opra_recipient_obi_v6_2_size_of.administrative_message = function(buffer, offset, packet, parent)
+
+  -- Dependency element: Message Data Length
+  local message_data_length = buffer(offset + 10, 2):uint()
+
+  -- Parse runtime struct size
+  return message_data_length + 10
+end
+
+
 -- Dissect: Administrative Message
 siac_opra_recipient_obi_v6_2_dissect.administrative_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  local index = offset
+
+  -- Parse runtime struct size
+  local size_of_administrative_message = siac_opra_recipient_obi_v6_2_size_of.administrative_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.administrative_message then
-    local length = siac_opra_recipient_obi_v6_2_size_of.administrative_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_administrative_message)
     local display = siac_opra_recipient_obi_v6_2_display.administrative_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v6_2.fields.administrative_message, range, display)
   end
 
-  return siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields(buffer, offset, packet, parent)
+  siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields(buffer, offset, packet, parent, size_of_administrative_message)
+
+  return offset + size_of_administrative_message
+end
+
+-- Size: Size
+siac_opra_recipient_obi_v6_2_size_of.size = 4
+
+-- Display: Size
+siac_opra_recipient_obi_v6_2_display.size = function(value)
+  return "Size: "..value
+end
+
+-- Dissect: Size
+siac_opra_recipient_obi_v6_2_dissect.size = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2_size_of.size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_recipient_obi_v6_2_display.size(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_2.fields.size, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Price
@@ -1038,7 +1047,7 @@ end
 siac_opra_recipient_obi_v6_2_dissect.price = function(buffer, offset, packet, parent)
   local length = siac_opra_recipient_obi_v6_2_size_of.price
   local range = buffer(offset, length)
-  local value = range:uint()
+  local value = range:int()
   local display = siac_opra_recipient_obi_v6_2_display.price(value, buffer, offset, packet, parent)
 
   parent:add(siac_opra_recipient_obi_v6_2.fields.price, range, value, display)
@@ -1171,10 +1180,10 @@ siac_opra_recipient_obi_v6_2_dissect.best_offer_appendage_fields = function(buff
   -- Denominator Code: 1 Byte Ascii String
   index, denominator_code = siac_opra_recipient_obi_v6_2_dissect.denominator_code(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = siac_opra_recipient_obi_v6_2_dissect.price(buffer, index, packet, parent)
 
-  -- Size
+  -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = siac_opra_recipient_obi_v6_2_dissect.size(buffer, index, packet, parent)
 
   return index
@@ -1223,10 +1232,10 @@ siac_opra_recipient_obi_v6_2_dissect.best_bid_appendage_fields = function(buffer
   -- Denominator Code: 1 Byte Ascii String
   index, denominator_code = siac_opra_recipient_obi_v6_2_dissect.denominator_code(buffer, index, packet, parent)
 
-  -- Price: 4 Byte Unsigned Fixed Width Integer
+  -- Price: 4 Byte Signed Fixed Width Integer
   index, price = siac_opra_recipient_obi_v6_2_dissect.price(buffer, index, packet, parent)
 
-  -- Size
+  -- Size: 4 Byte Unsigned Fixed Width Integer
   index, size = siac_opra_recipient_obi_v6_2_dissect.size(buffer, index, packet, parent)
 
   return index
@@ -1697,6 +1706,7 @@ siac_opra_recipient_obi_v6_2_size_of.short_equity_and_index_quote_message = func
 
   index = index + siac_opra_recipient_obi_v6_2_size_of.offer_size_short
 
+  local bbo_indicator = buffer(offset + 2, 1):string()
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_bid_appendage(buffer, offset + index)
 
@@ -2392,6 +2402,7 @@ siac_opra_recipient_obi_v6_2_size_of.long_equity_and_index_quote_message = funct
 
   index = index + siac_opra_recipient_obi_v6_2_size_of.offer_size
 
+  local bbo_indicator = buffer(offset + 2, 1):string()
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_bid_appendage(buffer, offset + index)
 
