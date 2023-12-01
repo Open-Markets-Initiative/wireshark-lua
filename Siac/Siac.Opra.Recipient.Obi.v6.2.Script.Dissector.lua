@@ -992,7 +992,7 @@ siac_opra_recipient_obi_v6_2_size_of.administrative_message = function(buffer, o
   local message_data_length = buffer(offset + 10, 2):uint()
 
   -- Parse runtime struct size
-  return message_data_length + 10
+  return message_data_length + 12
 end
 
 
