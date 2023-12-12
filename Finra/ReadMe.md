@@ -7,7 +7,7 @@
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | Dfi | [2.1][Finra.Orf.Tdds.Dfi.v2.1.Dissector] | 5/10/2022 | 3896 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.1.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.1.Pdf] |
 | Orf | [Tdds][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | Dfi | [2.0][Finra.Orf.Tdds.Dfi.v2.0.Dissector] | 9/24/2018 | 3865 | [Deprecated][Omi.Glossary.Status.Deprecated] | [Verified][Omi.Glossary.Testing.Verified] | [url][Finra.Orf.Tdds.Dfi.v2.0.Url] - [pdf][Finra.Orf.Tdds.Dfi.v2.0.Pdf] |
-| Otc | [Bbds][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2682 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
+| Otc | [Bbds][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | Dfi | [2018.1A][Finra.Otc.Bbds.Dfi.v2018.1A.Dissector] | 5/14/2018 | 2684 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Finra.Otc.Bbds.Dfi.v2018.1A.Url] - [pdf][Finra.Otc.Bbds.Dfi.v2018.1A.Pdf] |
 
 
 Finra: [website](https://www.finra.org "Go to Financial Industry Regulatory Authority")

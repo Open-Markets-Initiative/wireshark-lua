@@ -2223,6 +2223,8 @@ finra_otc_bbds_dfi_v2018_1a_size_of.market_participant_quote_update_message = fu
 
   index = index + finra_otc_bbds_dfi_v2018_1a_size_of.inside_appendage_indicator
 
+  local inside_appendage_indicator = buffer(offset + index - 1, 1):string()
+
   if inside_appendage_indicator == "3" then
     index = index + finra_otc_bbds_dfi_v2018_1a_size_of.inside_appendage(buffer, offset + index)
 

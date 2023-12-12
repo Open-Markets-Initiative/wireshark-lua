@@ -1694,10 +1694,18 @@ siac_opra_recipient_obi_v6_1_size_of.short_equity_and_index_quote_message = func
 
   index = index + siac_opra_recipient_obi_v6_1_size_of.offer_size_short
 
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
+
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_1_size_of.best_bid_appendage(buffer, offset + index)
 
   end
+
+  local bbo_indicator = buffer(offset + index - 32, 1):string()
+  local bbo_indicator = buffer(offset + index - 32, 1):string()
+  local bbo_indicator = buffer(offset + index - 32, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1_size_of.best_offer_appendage(buffer, offset + index)
@@ -2389,15 +2397,25 @@ siac_opra_recipient_obi_v6_1_size_of.long_equity_and_index_quote_message = funct
 
   index = index + siac_opra_recipient_obi_v6_1_size_of.offer_size
 
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
+
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_1_size_of.best_bid_appendage(buffer, offset + index)
 
   end
 
+  local bbo_indicator = buffer(offset + index - 46, 1):string()
+  local bbo_indicator = buffer(offset + index - 46, 1):string()
+  local bbo_indicator = buffer(offset + index - 46, 1):string()
+
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_1_size_of.best_offer_appendage(buffer, offset + index)
 
   end
+
+  local bbo_indicator = buffer(offset + index - 52, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_recipient_obi_v6_1_size_of.best_bid_and_offer_appendage(buffer, offset + index)
