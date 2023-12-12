@@ -27,7 +27,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.ack_type = ProtoField.new("A
 nyse_amex_options_binarygateway_pillar_v3_15.fields.allocation_pct = ProtoField.new("Allocation Pct", "nyse.amex.options.binarygateway.pillar.v3.15.allocationpct", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.application_layer_reject = ProtoField.new("Application Layer Reject", "nyse.amex.options.binarygateway.pillar.v3.15.applicationlayerreject", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.appointment_status = ProtoField.new("Appointment Status", "nyse.amex.options.binarygateway.pillar.v3.15.appointmentstatus", ftypes.UINT8)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.amex.options.binarygateway.pillar.v3.15.attributedquote", ftypes.UINT8, nil, base.DEC, "0x0000000000000000001F0000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.attributed_quote = ProtoField.new("Attributed Quote", "nyse.amex.options.binarygateway.pillar.v3.15.attributedquote", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.auction_id = ProtoField.new("Auction Id", "nyse.amex.options.binarygateway.pillar.v3.15.auctionid", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.bit_field_quote_inst = ProtoField.new("Bit Field Quote Inst", "nyse.amex.options.binarygateway.pillar.v3.15.bitfieldquoteinst", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.blocked_by_breach_indicator = ProtoField.new("Blocked By Breach Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.blockedbybreachindicator", ftypes.UINT8)
@@ -40,10 +40,10 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.bulk_cancel_request = ProtoF
 nyse_amex_options_binarygateway_pillar_v3_15.fields.bulk_quote = ProtoField.new("Bulk Quote", "nyse.amex.options.binarygateway.pillar.v3.15.bulkquote", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.bulk_quote_acknowledgment = ProtoField.new("Bulk Quote Acknowledgment", "nyse.amex.options.binarygateway.pillar.v3.15.bulkquoteacknowledgment", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.bust_correct_indicator = ProtoField.new("Bust Correct Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.bustcorrectindicator", ftypes.UINT8)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.amex.options.binarygateway.pillar.v3.15.cancelinsteadofreprice", ftypes.UINT8, nil, base.DEC, "0x00000000000000000000000000007C000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.cancel_instead_of_reprice = ProtoField.new("Cancel Instead Of Reprice", "nyse.amex.options.binarygateway.pillar.v3.15.cancelinsteadofreprice", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.cancel_on_disconnect = ProtoField.new("Cancel On Disconnect", "nyse.amex.options.binarygateway.pillar.v3.15.cancelondisconnect", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.cancel_scope = ProtoField.new("Cancel Scope", "nyse.amex.options.binarygateway.pillar.v3.15.cancelscope", ftypes.UINT8)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.capacity = ProtoField.new("Capacity", "nyse.amex.options.binarygateway.pillar.v3.15.capacity", ftypes.UINT8, nil, base.DEC, "0x0000000001F0000000000000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.capacity = ProtoField.new("Capacity", "nyse.amex.options.binarygateway.pillar.v3.15.capacity", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.channel_id = ProtoField.new("Channel Id", "nyse.amex.options.binarygateway.pillar.v3.15.channelid", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "nyse.amex.options.binarygateway.pillar.v3.15.clordid", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.clearing_account = ProtoField.new("Clearing Account", "nyse.amex.options.binarygateway.pillar.v3.15.clearingaccount", ftypes.STRING)
@@ -74,14 +74,14 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.cum_qty = ProtoField.new("Cu
 nyse_amex_options_binarygateway_pillar_v3_15.fields.deal_id = ProtoField.new("Deal Id", "nyse.amex.options.binarygateway.pillar.v3.15.dealid", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.deliver_to_comp_id = ProtoField.new("Deliver To Comp Id", "nyse.amex.options.binarygateway.pillar.v3.15.delivertocompid", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.end_seq = ProtoField.new("End Seq", "nyse.amex.options.binarygateway.pillar.v3.15.endseq", ftypes.UINT64)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.amex.options.binarygateway.pillar.v3.15.execinst", ftypes.UINT8, nil, base.DEC, "0x00000000000000000000000000000000F800")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.exec_inst = ProtoField.new("Exec Inst", "nyse.amex.options.binarygateway.pillar.v3.15.execinst", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.execution_report = ProtoField.new("Execution Report", "nyse.amex.options.binarygateway.pillar.v3.15.executionreport", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.exposed = ProtoField.new("Exposed", "nyse.amex.options.binarygateway.pillar.v3.15.exposed", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amex.options.binarygateway.pillar.v3.15.extendedexecinst", ftypes.UINT8, nil, base.DEC, "0x0000000000000000000000000000001F0000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.extended_exec_inst = ProtoField.new("Extended Exec Inst", "nyse.amex.options.binarygateway.pillar.v3.15.extendedexecinst", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.floor_broker_firm_crd = ProtoField.new("Floor Broker Firm Crd", "nyse.amex.options.binarygateway.pillar.v3.15.floorbrokerfirmcrd", ftypes.UINT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.group_id = ProtoField.new("Group Id", "nyse.amex.options.binarygateway.pillar.v3.15.groupid", ftypes.UINT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.heartbeat = ProtoField.new("Heartbeat", "nyse.amex.options.binarygateway.pillar.v3.15.heartbeat", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.interest_type = ProtoField.new("Interest Type", "nyse.amex.options.binarygateway.pillar.v3.15.interesttype", ftypes.UINT8, nil, base.DEC, "0x0000000000000000000007C0000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.interest_type = ProtoField.new("Interest Type", "nyse.amex.options.binarygateway.pillar.v3.15.interesttype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.ioc_attribution = ProtoField.new("Ioc Attribution", "nyse.amex.options.binarygateway.pillar.v3.15.iocattribution", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.last_px = ProtoField.new("Last Px", "nyse.amex.options.binarygateway.pillar.v3.15.lastpx", ftypes.DOUBLE)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.last_qty = ProtoField.new("Last Qty", "nyse.amex.options.binarygateway.pillar.v3.15.lastqty", ftypes.UINT32)
@@ -131,10 +131,10 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.open_response = ProtoField.n
 nyse_amex_options_binarygateway_pillar_v3_15.fields.optional_data = ProtoField.new("Optional Data", "nyse.amex.options.binarygateway.pillar.v3.15.optionaldata", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.optional_order_add_on = ProtoField.new("Optional Order Add On", "nyse.amex.options.binarygateway.pillar.v3.15.optionalorderaddon", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.options_market_maker_symbol_appointment_reference_data = ProtoField.new("Options Market Maker Symbol Appointment Reference Data", "nyse.amex.options.binarygateway.pillar.v3.15.optionsmarketmakersymbolappointmentreferencedata", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.ord_type = ProtoField.new("Ord Type", "nyse.amex.options.binarygateway.pillar.v3.15.ordtype", ftypes.UINT8, nil, base.DEC, "0x0000000000000000000000000000000007C0")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.ord_type = ProtoField.new("Ord Type", "nyse.amex.options.binarygateway.pillar.v3.15.ordtype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.order_acknowledgement = ProtoField.new("Order Acknowledgement", "nyse.amex.options.binarygateway.pillar.v3.15.orderacknowledgement", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.order_cancel_request = ProtoField.new("Order Cancel Request", "nyse.amex.options.binarygateway.pillar.v3.15.ordercancelrequest", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.amex.options.binarygateway.pillar.v3.15.ordercapacity", ftypes.UINT8, nil, base.DEC, "0x00000000000000000000F800000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.order_capacity = ProtoField.new("Order Capacity", "nyse.amex.options.binarygateway.pillar.v3.15.ordercapacity", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.order_id = ProtoField.new("Order Id", "nyse.amex.options.binarygateway.pillar.v3.15.orderid", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.order_instructions = ProtoField.new("Order Instructions", "nyse.amex.options.binarygateway.pillar.v3.15.orderinstructions", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.order_modify_request = ProtoField.new("Order Modify Request", "nyse.amex.options.binarygateway.pillar.v3.15.ordermodifyrequest", ftypes.STRING)
@@ -151,7 +151,7 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.pillarstreammessage = ProtoF
 nyse_amex_options_binarygateway_pillar_v3_15.fields.pre_liquidity_indicator = ProtoField.new("Pre Liquidity Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.preliquidityindicator", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.price_price_8 = ProtoField.new("Price Price 8", "nyse.amex.options.binarygateway.pillar.v3.15.priceprice8", ftypes.DOUBLE)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.price_u_price_8 = ProtoField.new("Price U Price 8", "nyse.amex.options.binarygateway.pillar.v3.15.priceuprice8", ftypes.DOUBLE)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.amex.options.binarygateway.pillar.v3.15.proactiveiflocked", ftypes.UINT8, nil, base.DEC, "0x0000000000000000000000000F8000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.proactive_if_locked = ProtoField.new("Proactive If Locked", "nyse.amex.options.binarygateway.pillar.v3.15.proactiveiflocked", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.quantity = ProtoField.new("Quantity", "nyse.amex.options.binarygateway.pillar.v3.15.quantity", ftypes.UINT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.quote_ack = ProtoField.new("Quote Ack", "nyse.amex.options.binarygateway.pillar.v3.15.quoteack", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.quoting_mpv = ProtoField.new("Quoting Mpv", "nyse.amex.options.binarygateway.pillar.v3.15.quotingmpv", ftypes.DOUBLE)
@@ -169,8 +169,8 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_200 = ProtoField.ne
 nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_4 = ProtoField.new("Reserved 4", "nyse.amex.options.binarygateway.pillar.v3.15.reserved4", ftypes.BYTES)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_49 = ProtoField.new("Reserved 49", "nyse.amex.options.binarygateway.pillar.v3.15.reserved49", ftypes.BYTES)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_50 = ProtoField.new("Reserved 50", "nyse.amex.options.binarygateway.pillar.v3.15.reserved50", ftypes.BYTES)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_bits_34 = ProtoField.new("Reserved Bits 34", "nyse.amex.options.binarygateway.pillar.v3.15.reservedbits34", ftypes.UINT64, nil, base.DEC, "0xFFFFFFFFC000000000000000000000000000")
-nyse_amex_options_binarygateway_pillar_v3_15.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.retailindicator", ftypes.UINT8, nil, base.DEC, "0x000000000000000003E00000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.reserved_bits_34 = ProtoField.new("Reserved Bits 34", "nyse.amex.options.binarygateway.pillar.v3.15.reservedbits34", ftypes.UINT64)
+nyse_amex_options_binarygateway_pillar_v3_15.fields.retail_indicator = ProtoField.new("Retail Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.retailindicator", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_ack_type = ProtoField.new("Risk Ack Type", "nyse.amex.options.binarygateway.pillar.v3.15.riskacktype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_action_request = ProtoField.new("Risk Action Request", "nyse.amex.options.binarygateway.pillar.v3.15.riskactionrequest", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_action_type = ProtoField.new("Risk Action Type", "nyse.amex.options.binarygateway.pillar.v3.15.riskactiontype", ftypes.UINT8)
@@ -181,9 +181,9 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_control_type = ProtoFie
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_limit_update_request = ProtoField.new("Risk Limit Update Request", "nyse.amex.options.binarygateway.pillar.v3.15.risklimitupdaterequest", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_user_crd = ProtoField.new("Risk User Crd", "nyse.amex.options.binarygateway.pillar.v3.15.riskusercrd", ftypes.UINT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.risk_user_type = ProtoField.new("Risk User Type", "nyse.amex.options.binarygateway.pillar.v3.15.riskusertype", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.amex.options.binarygateway.pillar.v3.15.routinginst", ftypes.UINT8, nil, base.DEC, "0x000000000000000000000000000003E00000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.routing_inst = ProtoField.new("Routing Inst", "nyse.amex.options.binarygateway.pillar.v3.15.routinginst", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.rpimpv = ProtoField.new("Rpimpv", "nyse.amex.options.binarygateway.pillar.v3.15.rpimpv", ftypes.DOUBLE)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.security_type = ProtoField.new("Security Type", "nyse.amex.options.binarygateway.pillar.v3.15.securitytype", ftypes.UINT8, nil, base.DEC, "0x000000003E00000000000000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.security_type = ProtoField.new("Security Type", "nyse.amex.options.binarygateway.pillar.v3.15.securitytype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.self_trade_prevention = ProtoField.new("Self Trade Prevention", "nyse.amex.options.binarygateway.pillar.v3.15.selftradeprevention", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.self_trade_type = ProtoField.new("Self Trade Type", "nyse.amex.options.binarygateway.pillar.v3.15.selftradetype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.seq = ProtoField.new("Seq", "nyse.amex.options.binarygateway.pillar.v3.15.seq", ftypes.UINT64)
@@ -198,16 +198,16 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.series_index = ProtoField.ne
 nyse_amex_options_binarygateway_pillar_v3_15.fields.sess = ProtoField.new("Sess", "nyse.amex.options.binarygateway.pillar.v3.15.sess", ftypes.UINT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.session_configuration_acknowledgement = ProtoField.new("Session Configuration Acknowledgement", "nyse.amex.options.binarygateway.pillar.v3.15.sessionconfigurationacknowledgement", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.session_configuration_request_message = ProtoField.new("Session Configuration Request Message", "nyse.amex.options.binarygateway.pillar.v3.15.sessionconfigurationrequestmessage", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.side_bit_5 = ProtoField.new("Side Bit 5", "nyse.amex.options.binarygateway.pillar.v3.15.sidebit5", ftypes.UINT8, nil, base.DEC, "0x00000000000000000000000000000000003E")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.side_bit_5 = ProtoField.new("Side Bit 5", "nyse.amex.options.binarygateway.pillar.v3.15.sidebit5", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.side_u_81 = ProtoField.new("Side U 81", "nyse.amex.options.binarygateway.pillar.v3.15.sideu81", ftypes.UINT8)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amex.options.binarygateway.pillar.v3.15.specialordtype", ftypes.UINT8, nil, base.DEC, "0x000000000000007C00000000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.special_ord_type = ProtoField.new("Special Ord Type", "nyse.amex.options.binarygateway.pillar.v3.15.specialordtype", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.start_seq = ProtoField.new("Start Seq", "nyse.amex.options.binarygateway.pillar.v3.15.startseq", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.status = ProtoField.new("Status", "nyse.amex.options.binarygateway.pillar.v3.15.status", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.stop_px = ProtoField.new("Stop Px", "nyse.amex.options.binarygateway.pillar.v3.15.stoppx", ftypes.DOUBLE)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.stream_avail = ProtoField.new("Stream Avail", "nyse.amex.options.binarygateway.pillar.v3.15.streamavail", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.stream_id = ProtoField.new("Stream Id", "nyse.amex.options.binarygateway.pillar.v3.15.streamid", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.sub_id = ProtoField.new("Sub Id", "nyse.amex.options.binarygateway.pillar.v3.15.subid", ftypes.STRING)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.subidindicator", ftypes.UINT8, nil, base.DEC, "0x0000000000000F8000000000000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.sub_id_indicator = ProtoField.new("Sub Id Indicator", "nyse.amex.options.binarygateway.pillar.v3.15.subidindicator", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.sub_msg_header = ProtoField.new("Sub Msg Header", "nyse.amex.options.binarygateway.pillar.v3.15.submsgheader", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.symbol_eligibility = ProtoField.new("Symbol Eligibility", "nyse.amex.options.binarygateway.pillar.v3.15.symboleligibility", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.symbol_id = ProtoField.new("Symbol Id", "nyse.amex.options.binarygateway.pillar.v3.15.symbolid", ftypes.UINT32)
@@ -218,12 +218,12 @@ nyse_amex_options_binarygateway_pillar_v3_15.fields.threshold_breach_level = Pro
 nyse_amex_options_binarygateway_pillar_v3_15.fields.throttle_preference = ProtoField.new("Throttle Preference", "nyse.amex.options.binarygateway.pillar.v3.15.throttlepreference", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.throttle_threshold = ProtoField.new("Throttle Threshold", "nyse.amex.options.binarygateway.pillar.v3.15.throttlethreshold", ftypes.UINT16)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.throttle_window = ProtoField.new("Throttle Window", "nyse.amex.options.binarygateway.pillar.v3.15.throttlewindow", ftypes.UINT16)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.time_in_force = ProtoField.new("Time In Force", "nyse.amex.options.binarygateway.pillar.v3.15.timeinforce", ftypes.UINT8, nil, base.DEC, "0x000000000000000000000001F00000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.time_in_force = ProtoField.new("Time In Force", "nyse.amex.options.binarygateway.pillar.v3.15.timeinforce", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.time_limit = ProtoField.new("Time Limit", "nyse.amex.options.binarygateway.pillar.v3.15.timelimit", ftypes.INT32)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.timestamp = ProtoField.new("Timestamp", "nyse.amex.options.binarygateway.pillar.v3.15.timestamp", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.trade_bust_or_correct = ProtoField.new("Trade Bust Or Correct", "nyse.amex.options.binarygateway.pillar.v3.15.tradebustorcorrect", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.trading_mpv = ProtoField.new("Trading Mpv", "nyse.amex.options.binarygateway.pillar.v3.15.tradingmpv", ftypes.DOUBLE)
-nyse_amex_options_binarygateway_pillar_v3_15.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.amex.options.binarygateway.pillar.v3.15.tradingsessionid", ftypes.UINT8, nil, base.DEC, "0x00000000000000000000003E000000000000")
+nyse_amex_options_binarygateway_pillar_v3_15.fields.trading_session_id = ProtoField.new("Trading Session Id", "nyse.amex.options.binarygateway.pillar.v3.15.tradingsessionid", ftypes.UINT8)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.transact_time = ProtoField.new("Transact Time", "nyse.amex.options.binarygateway.pillar.v3.15.transacttime", ftypes.UINT64)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.underlying_symbol_reference_data = ProtoField.new("Underlying Symbol Reference Data", "nyse.amex.options.binarygateway.pillar.v3.15.underlyingsymbolreferencedata", ftypes.STRING)
 nyse_amex_options_binarygateway_pillar_v3_15.fields.underlying_type = ProtoField.new("Underlying Type", "nyse.amex.options.binarygateway.pillar.v3.15.underlyingtype", ftypes.STRING)
@@ -571,6 +571,24 @@ function nyse_amex_options_binarygateway_pillar_v3_15.prefs_changed()
   if changed then
     reload()
   end
+end
+
+
+-----------------------------------------------------------------------
+-- Protocol Functions
+-----------------------------------------------------------------------
+
+-- trim trailing spaces
+trim_right_spaces = function(str)
+  local finish = str:len()
+
+  for i = 1, finish do
+    if str:byte(i) == 0x20 then
+      return str:sub(1, i - 1)
+    end
+  end
+
+  return str
 end
 
 
@@ -4553,6 +4571,8 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.execution_report = function
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.open_close
 
+  local seq_msg_length = buffer(offset + index - 134, 2):le_uint()
+
   if seq_msg_length ~= 100 then
     index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
 
@@ -5076,7 +5096,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.target_cancel_username = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.target_cancel_username
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.target_cancel_username(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.target_cancel_username, range, value, display)
@@ -5795,6 +5815,8 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.order_acknowledgement = fun
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.auction_id
 
+  local seq_msg_length = buffer(offset + index - 138, 2):le_uint()
+
   if seq_msg_length ~= 100 then
     index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
 
@@ -6215,7 +6237,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.mic = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.mic
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.mic(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.mic, range, value, display)
@@ -6235,7 +6257,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.username = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.username
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.username(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.username, range, value, display)
@@ -6533,7 +6555,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.nyse_symbol = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.nyse_symbol
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.nyse_symbol(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.nyse_symbol, range, value, display)
@@ -6820,7 +6842,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.mpv_level_name = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.mpv_level_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.mpv_level_name(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.mpv_level_name, range, value, display)
@@ -6998,7 +7020,7 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.mpv_class_name = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.mpv_class_name
   local range = buffer(offset, length)
-  local value = range:string()
+  local value = trim_right_spaces(range:string())
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.mpv_class_name(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.mpv_class_name, range, value, display)
@@ -7970,6 +7992,8 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.covered = function(buffer, 
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.auction_id
 
+  local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
+
   if seq_msg_length ~= 100 then
     index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
 
@@ -8723,6 +8747,8 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.order_request = function(bu
   index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.leg_open_close
 
   index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.auction_id
+
+  local seq_msg_length = buffer(offset + index - 102, 2):le_uint()
 
   if seq_msg_length ~= 100 then
     index = index + nyse_amex_options_binarygateway_pillar_v3_15_size_of.optional_order_add_on(buffer, offset + index)
@@ -9806,6 +9832,11 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.version = 20
 
 -- Display: Version
 nyse_amex_options_binarygateway_pillar_v3_15_display.version = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Version: No Value"
+  end
+
   return "Version: "..value
 end
 
@@ -9813,7 +9844,18 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.version = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.version
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.version(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.version, range, value, display)
@@ -9826,6 +9868,11 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.password = 32
 
 -- Display: Password
 nyse_amex_options_binarygateway_pillar_v3_15_display.password = function(value)
+  -- Check if field has value
+  if value == nil or value == '' then
+    return "Password: No Value"
+  end
+
   return "Password: "..value
 end
 
@@ -9833,7 +9880,18 @@ end
 nyse_amex_options_binarygateway_pillar_v3_15_dissect.password = function(buffer, offset, packet, parent)
   local length = nyse_amex_options_binarygateway_pillar_v3_15_size_of.password
   local range = buffer(offset, length)
-  local value = range:string()
+
+  -- parse last octet
+  local last = buffer(offset + length - 1, 1):uint()
+
+  -- read full string or up to first zero
+  local value = ''
+  if last == 0 then
+    value = range:stringz()
+  else
+    value = range:string()
+  end
+
   local display = nyse_amex_options_binarygateway_pillar_v3_15_display.password(value, buffer, offset, packet, parent)
 
   parent:add(nyse_amex_options_binarygateway_pillar_v3_15.fields.password, range, value, display)
