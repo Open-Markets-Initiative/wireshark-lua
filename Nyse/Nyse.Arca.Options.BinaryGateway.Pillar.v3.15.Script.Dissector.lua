@@ -3330,7 +3330,7 @@ end
 
 -- Translate: Last Px
 translate.last_px = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Last Px
@@ -3801,7 +3801,7 @@ end
 
 -- Translate: Stop Px
 translate.stop_px = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Stop Px
@@ -4865,7 +4865,7 @@ end
 
 -- Translate: Working Price
 translate.working_price = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Working Price
@@ -5128,7 +5128,7 @@ end
 
 -- Translate: Price Price 8
 translate.price_price_8 = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Price Price 8
@@ -6737,7 +6737,7 @@ end
 
 -- Translate: Trading Mpv
 translate.trading_mpv = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Trading Mpv
@@ -6763,7 +6763,7 @@ end
 
 -- Translate: Quoting Mpv
 translate.quoting_mpv = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Quoting Mpv
@@ -6789,7 +6789,7 @@ end
 
 -- Translate: Price U Price 8
 translate.price_u_price_8 = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Price U Price 8
@@ -6941,7 +6941,7 @@ end
 
 -- Translate: Luldmpv
 translate.luldmpv = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Luldmpv
@@ -6967,7 +6967,7 @@ end
 
 -- Translate: Rpimpv
 translate.rpimpv = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Rpimpv
@@ -7179,7 +7179,7 @@ end
 
 -- Translate: Max Order Price
 translate.max_order_price = function(raw)
-  return raw:tonumber()*100000000
+  return raw:tonumber()/100000000
 end
 
 -- Dissect: Max Order Price
