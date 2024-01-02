@@ -2170,6 +2170,15 @@ siac_cqs_output_cta_v1_91_dissect.participant_id = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Read runtime size of: Special Long Quote Message
+siac_cqs_output_cta_v1_91_size_of.special_long_quote_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Special Long Quote Message
 siac_cqs_output_cta_v1_91_display.special_long_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2315,13 +2324,8 @@ end
 
 -- Dissect: Special Long Quote Message
 siac_cqs_output_cta_v1_91_dissect.special_long_quote_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_special_long_quote_message = message_length - 4
+  -- Parse runtime size
+  local size_of_special_long_quote_message = siac_cqs_output_cta_v1_91_size_of.special_long_quote_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.special_long_quote_message then
@@ -2427,6 +2431,15 @@ siac_cqs_output_cta_v1_91_dissect.bid_price_short = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Read runtime size of: Short Quote Message
+siac_cqs_output_cta_v1_91_size_of.short_quote_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Short Quote Message
 siac_cqs_output_cta_v1_91_display.short_quote_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2509,13 +2522,8 @@ end
 
 -- Dissect: Short Quote Message
 siac_cqs_output_cta_v1_91_dissect.short_quote_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_short_quote_message = message_length - 4
+  -- Parse runtime size
+  local size_of_short_quote_message = siac_cqs_output_cta_v1_91_size_of.short_quote_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.short_quote_message then
@@ -2629,6 +2637,15 @@ siac_cqs_output_cta_v1_91_dissect.bid_price_lower_limit_price_band = function(bu
   parent:add(siac_cqs_output_cta_v1_91.fields.bid_price_lower_limit_price_band, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Long Quote Message
+siac_cqs_output_cta_v1_91_size_of.long_quote_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Long Quote Message
@@ -2755,13 +2772,8 @@ end
 
 -- Dissect: Long Quote Message
 siac_cqs_output_cta_v1_91_dissect.long_quote_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_long_quote_message = message_length - 4
+  -- Parse runtime size
+  local size_of_long_quote_message = siac_cqs_output_cta_v1_91_size_of.long_quote_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.long_quote_message then
@@ -2813,6 +2825,15 @@ siac_cqs_output_cta_v1_91_dissect.number_of_extensions = function(buffer, offset
   parent:add(siac_cqs_output_cta_v1_91.fields.number_of_extensions, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Auction Status Message
+siac_cqs_output_cta_v1_91_size_of.auction_status_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Auction Status Message
@@ -2874,13 +2895,8 @@ end
 
 -- Dissect: Auction Status Message
 siac_cqs_output_cta_v1_91_dissect.auction_status_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_auction_status_message = message_length - 4
+  -- Parse runtime size
+  local size_of_auction_status_message = siac_cqs_output_cta_v1_91_size_of.auction_status_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.auction_status_message then
@@ -2996,6 +3012,15 @@ siac_cqs_output_cta_v1_91_dissect.quote_message_type = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Read runtime size of: Quote
+siac_cqs_output_cta_v1_91_size_of.quote = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Quote
 siac_cqs_output_cta_v1_91_display.quote = function(buffer, offset, size, packet, parent)
   return ""
@@ -3016,13 +3041,8 @@ end
 
 -- Dissect: Quote
 siac_cqs_output_cta_v1_91_dissect.quote = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_quote = message_length - 3
+  -- Parse runtime size
+  local size_of_quote = siac_cqs_output_cta_v1_91_size_of.quote(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote then
@@ -3054,6 +3074,15 @@ siac_cqs_output_cta_v1_91_dissect.reserved = function(buffer, offset, packet, pa
   parent:add(siac_cqs_output_cta_v1_91.fields.reserved, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Market Wide Circuit Breaker Status Message
+siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_status_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Market Wide Circuit Breaker Status Message
@@ -3091,13 +3120,8 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Status Message
 siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_status_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_wide_circuit_breaker_status_message = message_length - 4
+  -- Parse runtime size
+  local size_of_market_wide_circuit_breaker_status_message = siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_status_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_status_message then
@@ -3151,6 +3175,15 @@ siac_cqs_output_cta_v1_91_dissect.mwcb_level_2 = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Message
+siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91_display.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -3192,13 +3225,8 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Message
 siac_cqs_output_cta_v1_91_dissect.market_wide_circuit_breaker_decline_level_status_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_wide_circuit_breaker_decline_level_status_message = message_length - 4
+  -- Parse runtime size
+  local size_of_market_wide_circuit_breaker_decline_level_status_message = siac_cqs_output_cta_v1_91_size_of.market_wide_circuit_breaker_decline_level_status_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_status_message then
@@ -3292,6 +3320,15 @@ siac_cqs_output_cta_v1_91_dissect.market_status_message_type = function(buffer, 
   return offset + length, value
 end
 
+-- Read runtime size of: Market Status
+siac_cqs_output_cta_v1_91_size_of.market_status = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Market Status
 siac_cqs_output_cta_v1_91_display.market_status = function(buffer, offset, size, packet, parent)
   return ""
@@ -3312,13 +3349,8 @@ end
 
 -- Dissect: Market Status
 siac_cqs_output_cta_v1_91_dissect.market_status = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_status = message_length - 3
+  -- Parse runtime size
+  local size_of_market_status = siac_cqs_output_cta_v1_91_size_of.market_status(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_status then
@@ -3330,6 +3362,15 @@ siac_cqs_output_cta_v1_91_dissect.market_status = function(buffer, offset, packe
   siac_cqs_output_cta_v1_91_dissect.market_status_fields(buffer, offset, packet, parent, size_of_market_status)
 
   return offset + size_of_market_status
+end
+
+-- Read runtime size of: End Of Day Message
+siac_cqs_output_cta_v1_91_size_of.end_of_day_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: End Of Day Message
@@ -3361,13 +3402,8 @@ end
 
 -- Dissect: End Of Day Message
 siac_cqs_output_cta_v1_91_dissect.end_of_day_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_end_of_day_message = message_length - 4
+  -- Parse runtime size
+  local size_of_end_of_day_message = siac_cqs_output_cta_v1_91_size_of.end_of_day_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
@@ -3379,6 +3415,15 @@ siac_cqs_output_cta_v1_91_dissect.end_of_day_message = function(buffer, offset, 
   siac_cqs_output_cta_v1_91_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
 
   return offset + size_of_end_of_day_message
+end
+
+-- Read runtime size of: Line Integrity Message
+siac_cqs_output_cta_v1_91_size_of.line_integrity_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Line Integrity Message
@@ -3410,13 +3455,8 @@ end
 
 -- Dissect: Line Integrity Message
 siac_cqs_output_cta_v1_91_dissect.line_integrity_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_line_integrity_message = message_length - 4
+  -- Parse runtime size
+  local size_of_line_integrity_message = siac_cqs_output_cta_v1_91_size_of.line_integrity_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
@@ -3428,6 +3468,15 @@ siac_cqs_output_cta_v1_91_dissect.line_integrity_message = function(buffer, offs
   siac_cqs_output_cta_v1_91_dissect.line_integrity_message_fields(buffer, offset, packet, parent, size_of_line_integrity_message)
 
   return offset + size_of_line_integrity_message
+end
+
+-- Read runtime size of: Disaster Recovery Data Center Activation Message
+siac_cqs_output_cta_v1_91_size_of.disaster_recovery_data_center_activation_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Disaster Recovery Data Center Activation Message
@@ -3459,13 +3508,8 @@ end
 
 -- Dissect: Disaster Recovery Data Center Activation Message
 siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_disaster_recovery_data_center_activation_message = message_length - 4
+  -- Parse runtime size
+  local size_of_disaster_recovery_data_center_activation_message = siac_cqs_output_cta_v1_91_size_of.disaster_recovery_data_center_activation_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.disaster_recovery_data_center_activation_message then
@@ -3477,6 +3521,15 @@ siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_messa
   siac_cqs_output_cta_v1_91_dissect.disaster_recovery_data_center_activation_message_fields(buffer, offset, packet, parent, size_of_disaster_recovery_data_center_activation_message)
 
   return offset + size_of_disaster_recovery_data_center_activation_message
+end
+
+-- Read runtime size of: Finra Open Message
+siac_cqs_output_cta_v1_91_size_of.finra_open_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Finra Open Message
@@ -3508,13 +3561,8 @@ end
 
 -- Dissect: Finra Open Message
 siac_cqs_output_cta_v1_91_dissect.finra_open_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_finra_open_message = message_length - 4
+  -- Parse runtime size
+  local size_of_finra_open_message = siac_cqs_output_cta_v1_91_size_of.finra_open_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.finra_open_message then
@@ -3526,6 +3574,15 @@ siac_cqs_output_cta_v1_91_dissect.finra_open_message = function(buffer, offset, 
   siac_cqs_output_cta_v1_91_dissect.finra_open_message_fields(buffer, offset, packet, parent, size_of_finra_open_message)
 
   return offset + size_of_finra_open_message
+end
+
+-- Read runtime size of: End Of Test Cycle Message
+siac_cqs_output_cta_v1_91_size_of.end_of_test_cycle_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: End Of Test Cycle Message
@@ -3557,13 +3614,8 @@ end
 
 -- Dissect: End Of Test Cycle Message
 siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_end_of_test_cycle_message = message_length - 4
+  -- Parse runtime size
+  local size_of_end_of_test_cycle_message = siac_cqs_output_cta_v1_91_size_of.end_of_test_cycle_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.end_of_test_cycle_message then
@@ -3575,6 +3627,15 @@ siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message = function(buffer, o
   siac_cqs_output_cta_v1_91_dissect.end_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_end_of_test_cycle_message)
 
   return offset + size_of_end_of_test_cycle_message
+end
+
+-- Read runtime size of: Start Of Test Cycle Message
+siac_cqs_output_cta_v1_91_size_of.start_of_test_cycle_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Start Of Test Cycle Message
@@ -3606,13 +3667,8 @@ end
 
 -- Dissect: Start Of Test Cycle Message
 siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_start_of_test_cycle_message = message_length - 4
+  -- Parse runtime size
+  local size_of_start_of_test_cycle_message = siac_cqs_output_cta_v1_91_size_of.start_of_test_cycle_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.start_of_test_cycle_message then
@@ -3624,6 +3680,15 @@ siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message = function(buffer,
   siac_cqs_output_cta_v1_91_dissect.start_of_test_cycle_message_fields(buffer, offset, packet, parent, size_of_start_of_test_cycle_message)
 
   return offset + size_of_start_of_test_cycle_message
+end
+
+-- Read runtime size of: Reset Block Sequence Number Message
+siac_cqs_output_cta_v1_91_size_of.reset_block_sequence_number_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Reset Block Sequence Number Message
@@ -3655,13 +3720,8 @@ end
 
 -- Dissect: Reset Block Sequence Number Message
 siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_reset_block_sequence_number_message = message_length - 4
+  -- Parse runtime size
+  local size_of_reset_block_sequence_number_message = siac_cqs_output_cta_v1_91_size_of.reset_block_sequence_number_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.reset_block_sequence_number_message then
@@ -3673,6 +3733,15 @@ siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message = function
   siac_cqs_output_cta_v1_91_dissect.reset_block_sequence_number_message_fields(buffer, offset, packet, parent, size_of_reset_block_sequence_number_message)
 
   return offset + size_of_reset_block_sequence_number_message
+end
+
+-- Read runtime size of: Finra Close Message
+siac_cqs_output_cta_v1_91_size_of.finra_close_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Finra Close Message
@@ -3704,13 +3773,8 @@ end
 
 -- Dissect: Finra Close Message
 siac_cqs_output_cta_v1_91_dissect.finra_close_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_finra_close_message = message_length - 4
+  -- Parse runtime size
+  local size_of_finra_close_message = siac_cqs_output_cta_v1_91_size_of.finra_close_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.finra_close_message then
@@ -3722,6 +3786,15 @@ siac_cqs_output_cta_v1_91_dissect.finra_close_message = function(buffer, offset,
   siac_cqs_output_cta_v1_91_dissect.finra_close_message_fields(buffer, offset, packet, parent, size_of_finra_close_message)
 
   return offset + size_of_finra_close_message
+end
+
+-- Read runtime size of: Start Of Day Message
+siac_cqs_output_cta_v1_91_size_of.start_of_day_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Start Of Day Message
@@ -3753,13 +3826,8 @@ end
 
 -- Dissect: Start Of Day Message
 siac_cqs_output_cta_v1_91_dissect.start_of_day_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_start_of_day_message = message_length - 4
+  -- Parse runtime size
+  local size_of_start_of_day_message = siac_cqs_output_cta_v1_91_size_of.start_of_day_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
@@ -3930,6 +3998,15 @@ siac_cqs_output_cta_v1_91_dissect.control_message_type = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Control
+siac_cqs_output_cta_v1_91_size_of.control = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Control
 siac_cqs_output_cta_v1_91_display.control = function(buffer, offset, size, packet, parent)
   return ""
@@ -3950,13 +4027,8 @@ end
 
 -- Dissect: Control
 siac_cqs_output_cta_v1_91_dissect.control = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_control = message_length - 3
+  -- Parse runtime size
+  local size_of_control = siac_cqs_output_cta_v1_91_size_of.control(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.control then
@@ -3968,6 +4040,15 @@ siac_cqs_output_cta_v1_91_dissect.control = function(buffer, offset, packet, par
   siac_cqs_output_cta_v1_91_dissect.control_fields(buffer, offset, packet, parent, size_of_control)
 
   return offset + size_of_control
+end
+
+-- Read runtime size of: Administrative Unformatted Message
+siac_cqs_output_cta_v1_91_size_of.administrative_unformatted_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Administrative Unformatted Message
@@ -4002,13 +4083,8 @@ end
 
 -- Dissect: Administrative Unformatted Message
 siac_cqs_output_cta_v1_91_dissect.administrative_unformatted_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_administrative_unformatted_message = message_length - 4
+  -- Parse runtime size
+  local size_of_administrative_unformatted_message = siac_cqs_output_cta_v1_91_size_of.administrative_unformatted_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.administrative_unformatted_message then
@@ -4091,6 +4167,15 @@ siac_cqs_output_cta_v1_91_dissect.administrative_message_type = function(buffer,
   return offset + length, value
 end
 
+-- Read runtime size of: Administrative
+siac_cqs_output_cta_v1_91_size_of.administrative = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Administrative
 siac_cqs_output_cta_v1_91_display.administrative = function(buffer, offset, size, packet, parent)
   return ""
@@ -4111,13 +4196,8 @@ end
 
 -- Dissect: Administrative
 siac_cqs_output_cta_v1_91_dissect.administrative = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_administrative = message_length - 3
+  -- Parse runtime size
+  local size_of_administrative = siac_cqs_output_cta_v1_91_size_of.administrative(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.administrative then

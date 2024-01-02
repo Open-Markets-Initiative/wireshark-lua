@@ -746,6 +746,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.participant_id = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Read runtime size of: Finra Snapshot Message
+siac_cqs_snapshot_cta_v1_0_size_of.finra_snapshot_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Finra Snapshot Message
 siac_cqs_snapshot_cta_v1_0_display.finra_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -802,13 +811,8 @@ end
 
 -- Dissect: Finra Snapshot Message
 siac_cqs_snapshot_cta_v1_0_dissect.finra_snapshot_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_finra_snapshot_message = message_length - 4
+  -- Parse runtime size
+  local size_of_finra_snapshot_message = siac_cqs_snapshot_cta_v1_0_size_of.finra_snapshot_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.finra_snapshot_message then
@@ -1080,6 +1084,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.quote_condition = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Participant Snapshot Message
+siac_cqs_snapshot_cta_v1_0_size_of.participant_snapshot_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Participant Snapshot Message
 siac_cqs_snapshot_cta_v1_0_display.participant_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1136,13 +1149,8 @@ end
 
 -- Dissect: Participant Snapshot Message
 siac_cqs_snapshot_cta_v1_0_dissect.participant_snapshot_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_participant_snapshot_message = message_length - 4
+  -- Parse runtime size
+  local size_of_participant_snapshot_message = siac_cqs_snapshot_cta_v1_0_size_of.participant_snapshot_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.participant_snapshot_message then
@@ -1961,6 +1969,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.instrument_type = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Consolidated Snapshot Message
+siac_cqs_snapshot_cta_v1_0_size_of.consolidated_snapshot_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Consolidated Snapshot Message
 siac_cqs_snapshot_cta_v1_0_display.consolidated_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2050,13 +2067,8 @@ end
 
 -- Dissect: Consolidated Snapshot Message
 siac_cqs_snapshot_cta_v1_0_dissect.consolidated_snapshot_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_consolidated_snapshot_message = message_length - 4
+  -- Parse runtime size
+  local size_of_consolidated_snapshot_message = siac_cqs_snapshot_cta_v1_0_size_of.consolidated_snapshot_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.consolidated_snapshot_message then
@@ -2130,6 +2142,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.mwcb_level_2 = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Read runtime size of: Market Wide Circuit Breaker Decline Level Status Snapshot Message
+siac_cqs_snapshot_cta_v1_0_size_of.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
+end
+
 -- Display: Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v1_0_display.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2159,13 +2180,8 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Status Snapshot Message
 siac_cqs_snapshot_cta_v1_0_dissect.market_wide_circuit_breaker_decline_level_status_snapshot_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message = message_length - 4
+  -- Parse runtime size
+  local size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message = siac_cqs_snapshot_cta_v1_0_size_of.market_wide_circuit_breaker_decline_level_status_snapshot_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_status_snapshot_message then
@@ -2177,6 +2193,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.market_wide_circuit_breaker_decline_level_sta
   siac_cqs_snapshot_cta_v1_0_dissect.market_wide_circuit_breaker_decline_level_status_snapshot_message_fields(buffer, offset, packet, parent, size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message)
 
   return offset + size_of_market_wide_circuit_breaker_decline_level_status_snapshot_message
+end
+
+-- Read runtime size of: Line Integrity Message
+siac_cqs_snapshot_cta_v1_0_size_of.line_integrity_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 4
 end
 
 -- Display: Line Integrity Message
@@ -2196,13 +2221,8 @@ end
 
 -- Dissect: Line Integrity Message
 siac_cqs_snapshot_cta_v1_0_dissect.line_integrity_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_line_integrity_message = message_length - 4
+  -- Parse runtime size
+  local size_of_line_integrity_message = siac_cqs_snapshot_cta_v1_0_size_of.line_integrity_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.line_integrity_message then
@@ -2329,6 +2349,15 @@ siac_cqs_snapshot_cta_v1_0_dissect.snapshot_message_type = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Snapshot
+siac_cqs_snapshot_cta_v1_0_size_of.snapshot = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 3, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Snapshot
 siac_cqs_snapshot_cta_v1_0_display.snapshot = function(buffer, offset, size, packet, parent)
   return ""
@@ -2349,13 +2378,8 @@ end
 
 -- Dissect: Snapshot
 siac_cqs_snapshot_cta_v1_0_dissect.snapshot = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_snapshot = message_length - 3
+  -- Parse runtime size
+  local size_of_snapshot = siac_cqs_snapshot_cta_v1_0_size_of.snapshot(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.snapshot then

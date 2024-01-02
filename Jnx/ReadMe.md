@@ -6,11 +6,11 @@
 | Division | Data | Protocol | Version | Date | Size | [Status][Omi.Glossary.Status] | [Testing][Omi.Glossary.Testing] | Specification |
 | --- | --- | --- | --- | ---: | ---: | --- | --- | --- |
 | Bonds | [Pts][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | Itch | [1.2][Jnx.Bonds.Pts.Itch.v1.2.Dissector] | 4/1/2020 | 1637 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Itch.v1.2.Url] - [pdf][Jnx.Bonds.Pts.Itch.v1.2.Pdf] |
-| Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2721 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
+| Bonds | [Pts][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | Ouch | [1.4][Jnx.Bonds.Pts.Ouch.v1.4.Dissector] | 4/1/2020 | 2729 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Bonds.Pts.Ouch.v1.4.Url] - [pdf][Jnx.Bonds.Pts.Ouch.v1.4.Pdf] |
 | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.7.Dissector] | Itch | [1.7][Jnx.Equities.Pts.Itch.v1.7.Dissector] | 11/1/2023 | 1903 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Itch.v1.7.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.7.Pdf] |
 | Equities | [Pts][Jnx.Equities.Pts.Itch.v1.6.Dissector] | Itch | [1.6][Jnx.Equities.Pts.Itch.v1.6.Dissector] | 3/9/2023 | 1903 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Jnx.Equities.Pts.Itch.v1.6.Url] - [pdf][Jnx.Equities.Pts.Itch.v1.6.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2731 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.12.Pdf] |
-| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2731 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | Ouch | [1.12][Jnx.Equities.Pts.Ouch.v1.12.Dissector] | 11/1/2023 | 2739 | [Future][Omi.Glossary.Status.Future] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.12.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.12.Pdf] |
+| Equities | [Pts][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | Ouch | [1.11][Jnx.Equities.Pts.Ouch.v1.11.Dissector] | 3/9/2023 | 2739 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Jnx.Equities.Pts.Ouch.v1.11.Url] - [pdf][Jnx.Equities.Pts.Ouch.v1.11.Pdf] |
 
 
 Jnx: [website](https://www.japannext.co.jp/en "Go to Japannext")

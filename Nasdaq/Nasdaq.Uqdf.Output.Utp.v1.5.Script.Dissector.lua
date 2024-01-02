@@ -602,6 +602,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.message_info = function(buffer, offset, pack
   return nasdaq_uqdf_output_utp_v1_5_dissect.message_info_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Quote Wipe Out Message
+nasdaq_uqdf_output_utp_v1_5_size_of.quote_wipe_out_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5_display.quote_wipe_out_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -619,13 +628,8 @@ end
 
 -- Dissect: Quote Wipe Out Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_wipe_out_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_wipe_out_message = message_length - 3
+  -- Parse runtime size
+  local size_of_quote_wipe_out_message = nasdaq_uqdf_output_utp_v1_5_size_of.quote_wipe_out_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_wipe_out_message then
@@ -637,6 +641,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_wipe_out_message = function(buffer, of
   nasdaq_uqdf_output_utp_v1_5_dissect.quote_wipe_out_message_fields(buffer, offset, packet, parent, size_of_quote_wipe_out_message)
 
   return offset + size_of_quote_wipe_out_message
+end
+
+-- Read runtime size of: End Of Transmissions Message
+nasdaq_uqdf_output_utp_v1_5_size_of.end_of_transmissions_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: End Of Transmissions Message
@@ -656,13 +669,8 @@ end
 
 -- Dissect: End Of Transmissions Message
 nasdaq_uqdf_output_utp_v1_5_dissect.end_of_transmissions_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_end_of_transmissions_message = message_length - 3
+  -- Parse runtime size
+  local size_of_end_of_transmissions_message = nasdaq_uqdf_output_utp_v1_5_size_of.end_of_transmissions_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.end_of_transmissions_message then
@@ -674,6 +682,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.end_of_transmissions_message = function(buff
   nasdaq_uqdf_output_utp_v1_5_dissect.end_of_transmissions_message_fields(buffer, offset, packet, parent, size_of_end_of_transmissions_message)
 
   return offset + size_of_end_of_transmissions_message
+end
+
+-- Read runtime size of: Market Session Close Message
+nasdaq_uqdf_output_utp_v1_5_size_of.market_session_close_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: Market Session Close Message
@@ -693,13 +710,8 @@ end
 
 -- Dissect: Market Session Close Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_session_close_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_session_close_message = message_length - 3
+  -- Parse runtime size
+  local size_of_market_session_close_message = nasdaq_uqdf_output_utp_v1_5_size_of.market_session_close_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_session_close_message then
@@ -711,6 +723,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.market_session_close_message = function(buff
   nasdaq_uqdf_output_utp_v1_5_dissect.market_session_close_message_fields(buffer, offset, packet, parent, size_of_market_session_close_message)
 
   return offset + size_of_market_session_close_message
+end
+
+-- Read runtime size of: Market Session Open Message
+nasdaq_uqdf_output_utp_v1_5_size_of.market_session_open_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: Market Session Open Message
@@ -730,13 +751,8 @@ end
 
 -- Dissect: Market Session Open Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_session_open_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_session_open_message = message_length - 3
+  -- Parse runtime size
+  local size_of_market_session_open_message = nasdaq_uqdf_output_utp_v1_5_size_of.market_session_open_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_session_open_message then
@@ -748,6 +764,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.market_session_open_message = function(buffe
   nasdaq_uqdf_output_utp_v1_5_dissect.market_session_open_message_fields(buffer, offset, packet, parent, size_of_market_session_open_message)
 
   return offset + size_of_market_session_open_message
+end
+
+-- Read runtime size of: End Of Day Message
+nasdaq_uqdf_output_utp_v1_5_size_of.end_of_day_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: End Of Day Message
@@ -767,13 +792,8 @@ end
 
 -- Dissect: End Of Day Message
 nasdaq_uqdf_output_utp_v1_5_dissect.end_of_day_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_end_of_day_message = message_length - 3
+  -- Parse runtime size
+  local size_of_end_of_day_message = nasdaq_uqdf_output_utp_v1_5_size_of.end_of_day_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.end_of_day_message then
@@ -785,6 +805,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.end_of_day_message = function(buffer, offset
   nasdaq_uqdf_output_utp_v1_5_dissect.end_of_day_message_fields(buffer, offset, packet, parent, size_of_end_of_day_message)
 
   return offset + size_of_end_of_day_message
+end
+
+-- Read runtime size of: Start Of Day Message
+nasdaq_uqdf_output_utp_v1_5_size_of.start_of_day_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: Start Of Day Message
@@ -804,13 +833,8 @@ end
 
 -- Dissect: Start Of Day Message
 nasdaq_uqdf_output_utp_v1_5_dissect.start_of_day_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_start_of_day_message = message_length - 3
+  -- Parse runtime size
+  local size_of_start_of_day_message = nasdaq_uqdf_output_utp_v1_5_size_of.start_of_day_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.start_of_day_message then
@@ -948,6 +972,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.control_message_type = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Control
+nasdaq_uqdf_output_utp_v1_5_size_of.control = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 2
+end
+
 -- Display: Control
 nasdaq_uqdf_output_utp_v1_5_display.control = function(buffer, offset, size, packet, parent)
   return ""
@@ -968,13 +1001,8 @@ end
 
 -- Dissect: Control
 nasdaq_uqdf_output_utp_v1_5_dissect.control = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_control = message_length - 2
+  -- Parse runtime size
+  local size_of_control = nasdaq_uqdf_output_utp_v1_5_size_of.control(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.control then
@@ -1362,6 +1390,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.symbol = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Session Close Recap Message
+nasdaq_uqdf_output_utp_v1_5_size_of.session_close_recap_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5_display.session_close_recap_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1411,13 +1448,8 @@ end
 
 -- Dissect: Session Close Recap Message
 nasdaq_uqdf_output_utp_v1_5_dissect.session_close_recap_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_session_close_recap_message = message_length - 3
+  -- Parse runtime size
+  local size_of_session_close_recap_message = nasdaq_uqdf_output_utp_v1_5_size_of.session_close_recap_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.session_close_recap_message then
@@ -1549,6 +1581,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.trading_action_sequence_number = function(bu
   return offset + length, value
 end
 
+-- Read runtime size of: Auction Collar Message
+nasdaq_uqdf_output_utp_v1_5_size_of.auction_collar_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5_display.auction_collar_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1584,13 +1625,8 @@ end
 
 -- Dissect: Auction Collar Message
 nasdaq_uqdf_output_utp_v1_5_dissect.auction_collar_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_auction_collar_message = message_length - 3
+  -- Parse runtime size
+  local size_of_auction_collar_message = nasdaq_uqdf_output_utp_v1_5_size_of.auction_collar_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.auction_collar_message then
@@ -1664,6 +1700,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.mwcb_level_1 = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Read runtime size of: Market Wide Circuit Breaker Decline Level Message
+nasdaq_uqdf_output_utp_v1_5_size_of.market_wide_circuit_breaker_decline_level_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5_display.market_wide_circuit_breaker_decline_level_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1690,13 +1735,8 @@ end
 
 -- Dissect: Market Wide Circuit Breaker Decline Level Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_wide_circuit_breaker_decline_level_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_wide_circuit_breaker_decline_level_message = message_length - 3
+  -- Parse runtime size
+  local size_of_market_wide_circuit_breaker_decline_level_message = nasdaq_uqdf_output_utp_v1_5_size_of.market_wide_circuit_breaker_decline_level_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_wide_circuit_breaker_decline_level_message then
@@ -1824,6 +1864,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.luld_price_band_indicator = function(buffer,
   return offset + length, value
 end
 
+-- Read runtime size of: Limit Up Limit Down Price Band Message
+nasdaq_uqdf_output_utp_v1_5_size_of.limit_up_limit_down_price_band_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5_display.limit_up_limit_down_price_band_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1856,13 +1905,8 @@ end
 
 -- Dissect: Limit Up Limit Down Price Band Message
 nasdaq_uqdf_output_utp_v1_5_dissect.limit_up_limit_down_price_band_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_limit_up_limit_down_price_band_message = message_length - 3
+  -- Parse runtime size
+  local size_of_limit_up_limit_down_price_band_message = nasdaq_uqdf_output_utp_v1_5_size_of.limit_up_limit_down_price_band_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.limit_up_limit_down_price_band_message then
@@ -1906,6 +1950,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.reg_sho_action = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Regulation Sho Short Sale Price Test Restricted Indicator Message
+nasdaq_uqdf_output_utp_v1_5_size_of.regulation_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5_display.regulation_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -1929,13 +1982,8 @@ end
 
 -- Dissect: Regulation Sho Short Sale Price Test Restricted Indicator Message
 nasdaq_uqdf_output_utp_v1_5_dissect.regulation_sho_short_sale_price_test_restricted_indicator_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_regulation_sho_short_sale_price_test_restricted_indicator_message = message_length - 3
+  -- Parse runtime size
+  local size_of_regulation_sho_short_sale_price_test_restricted_indicator_message = nasdaq_uqdf_output_utp_v1_5_size_of.regulation_sho_short_sale_price_test_restricted_indicator_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.regulation_sho_short_sale_price_test_restricted_indicator_message then
@@ -2239,6 +2287,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.old_symbol = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Issue Symbol Directory Message
+nasdaq_uqdf_output_utp_v1_5_size_of.issue_symbol_directory_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5_display.issue_symbol_directory_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2286,13 +2343,8 @@ end
 
 -- Dissect: Issue Symbol Directory Message
 nasdaq_uqdf_output_utp_v1_5_dissect.issue_symbol_directory_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_issue_symbol_directory_message = message_length - 3
+  -- Parse runtime size
+  local size_of_issue_symbol_directory_message = nasdaq_uqdf_output_utp_v1_5_size_of.issue_symbol_directory_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.issue_symbol_directory_message then
@@ -2359,6 +2411,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.trading_action_code = function(buffer, offse
   return offset + length, value
 end
 
+-- Read runtime size of: Market Center Trading Action Message
+nasdaq_uqdf_output_utp_v1_5_size_of.market_center_trading_action_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_display.market_center_trading_action_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2388,13 +2449,8 @@ end
 
 -- Dissect: Market Center Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_dissect.market_center_trading_action_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_market_center_trading_action_message = message_length - 3
+  -- Parse runtime size
+  local size_of_market_center_trading_action_message = nasdaq_uqdf_output_utp_v1_5_size_of.market_center_trading_action_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.market_center_trading_action_message then
@@ -2426,6 +2482,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.trading_action_reason = function(buffer, off
   parent:add(nasdaq_uqdf_output_utp_v1_5.fields.trading_action_reason, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Cross Sro Trading Action Message
+nasdaq_uqdf_output_utp_v1_5_size_of.cross_sro_trading_action_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
 end
 
 -- Display: Cross Sro Trading Action Message
@@ -2460,13 +2525,8 @@ end
 
 -- Dissect: Cross Sro Trading Action Message
 nasdaq_uqdf_output_utp_v1_5_dissect.cross_sro_trading_action_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_cross_sro_trading_action_message = message_length - 3
+  -- Parse runtime size
+  local size_of_cross_sro_trading_action_message = nasdaq_uqdf_output_utp_v1_5_size_of.cross_sro_trading_action_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cross_sro_trading_action_message then
@@ -2516,6 +2576,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.text_length = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Read runtime size of: General Administrative Message
+nasdaq_uqdf_output_utp_v1_5_size_of.general_administrative_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: General Administrative Message
 nasdaq_uqdf_output_utp_v1_5_display.general_administrative_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -2539,13 +2608,8 @@ end
 
 -- Dissect: General Administrative Message
 nasdaq_uqdf_output_utp_v1_5_dissect.general_administrative_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_general_administrative_message = message_length - 3
+  -- Parse runtime size
+  local size_of_general_administrative_message = nasdaq_uqdf_output_utp_v1_5_size_of.general_administrative_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.general_administrative_message then
@@ -2727,6 +2791,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.administrative_message_type = function(buffe
   return offset + length, value
 end
 
+-- Read runtime size of: Administrative
+nasdaq_uqdf_output_utp_v1_5_size_of.administrative = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 2
+end
+
 -- Display: Administrative
 nasdaq_uqdf_output_utp_v1_5_display.administrative = function(buffer, offset, size, packet, parent)
   return ""
@@ -2747,13 +2820,8 @@ end
 
 -- Dissect: Administrative
 nasdaq_uqdf_output_utp_v1_5_dissect.administrative = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_administrative = message_length - 2
+  -- Parse runtime size
+  local size_of_administrative = nasdaq_uqdf_output_utp_v1_5_size_of.administrative(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.administrative then
@@ -2962,6 +3030,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.finra_timestamp = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Read runtime size of: Finra Adf Market Participant Quotation Message
+nasdaq_uqdf_output_utp_v1_5_size_of.finra_adf_market_participant_quotation_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5_display.finra_adf_market_participant_quotation_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -3003,13 +3080,8 @@ end
 
 -- Dissect: Finra Adf Market Participant Quotation Message
 nasdaq_uqdf_output_utp_v1_5_dissect.finra_adf_market_participant_quotation_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_finra_adf_market_participant_quotation_message = message_length - 3
+  -- Parse runtime size
+  local size_of_finra_adf_market_participant_quotation_message = nasdaq_uqdf_output_utp_v1_5_size_of.finra_adf_market_participant_quotation_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.finra_adf_market_participant_quotation_message then
@@ -3739,6 +3811,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.sip_generated_update = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Quote Long Form Message
+nasdaq_uqdf_output_utp_v1_5_size_of.quote_long_form_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5_display.quote_long_form_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -3819,13 +3900,8 @@ end
 
 -- Dissect: Quote Long Form Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_long_form_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_long_form_message = message_length - 3
+  -- Parse runtime size
+  local size_of_quote_long_form_message = nasdaq_uqdf_output_utp_v1_5_size_of.quote_long_form_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_long_form_message then
@@ -3951,6 +4027,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.symbol_short = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Read runtime size of: Quote Short Form Message
+nasdaq_uqdf_output_utp_v1_5_size_of.quote_short_form_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 5, 2):uint()
+
+  return message_length - 3
+end
+
 -- Display: Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5_display.quote_short_form_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4017,13 +4102,8 @@ end
 
 -- Dissect: Quote Short Form Message
 nasdaq_uqdf_output_utp_v1_5_dissect.quote_short_form_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 5, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_short_form_message = message_length - 3
+  -- Parse runtime size
+  local size_of_quote_short_form_message = nasdaq_uqdf_output_utp_v1_5_size_of.quote_short_form_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_short_form_message then
@@ -4128,6 +4208,15 @@ nasdaq_uqdf_output_utp_v1_5_dissect.quote_message_type = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Quote
+nasdaq_uqdf_output_utp_v1_5_size_of.quote = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 4, 2):uint()
+
+  return message_length - 2
+end
+
 -- Display: Quote
 nasdaq_uqdf_output_utp_v1_5_display.quote = function(buffer, offset, size, packet, parent)
   return ""
@@ -4148,13 +4237,8 @@ end
 
 -- Dissect: Quote
 nasdaq_uqdf_output_utp_v1_5_dissect.quote = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 4, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_quote = message_length - 2
+  -- Parse runtime size
+  local size_of_quote = nasdaq_uqdf_output_utp_v1_5_size_of.quote(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote then

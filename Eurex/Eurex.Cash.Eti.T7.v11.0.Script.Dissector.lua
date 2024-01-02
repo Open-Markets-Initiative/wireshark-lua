@@ -2632,6 +2632,15 @@ eurex_cash_eti_t7_v11_0_dissect.network_msg_id = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Update Negotiation Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_update_negotiation_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Update Negotiation Request
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_update_negotiation_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -2762,13 +2771,8 @@ end
 
 -- Dissect: Xetra En Light Update Negotiation Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_update_negotiation_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_update_negotiation_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_update_negotiation_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_update_negotiation_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_update_negotiation_request then
@@ -3122,6 +3126,15 @@ eurex_cash_eti_t7_v11_0_dissect.rbc_header_comp = function(buffer, offset, packe
   return eurex_cash_eti_t7_v11_0_dissect.rbc_header_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Xetra En Light Status Broadcast
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_status_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Status Broadcast
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_status_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -3151,13 +3164,8 @@ end
 
 -- Dissect: Xetra En Light Status Broadcast
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_status_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_status_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_status_broadcast = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_status_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_status_broadcast then
@@ -3267,6 +3275,15 @@ eurex_cash_eti_t7_v11_0_dissect.response_header_comp = function(buffer, offset, 
   return eurex_cash_eti_t7_v11_0_dissect.response_header_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Xetra En Light Response
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Response
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -3287,13 +3304,8 @@ end
 
 -- Dissect: Xetra En Light Response
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_response = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_response = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_response then
@@ -3343,6 +3355,15 @@ eurex_cash_eti_t7_v11_0_dissect.quoting_status = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Quoting Status Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quoting_status_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Quoting Status Request
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_quoting_status_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -3384,13 +3405,8 @@ end
 
 -- Dissect: Xetra En Light Quoting Status Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quoting_status_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quoting_status_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quoting_status_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quoting_status_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quoting_status_request then
@@ -3402,6 +3418,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quoting_status_request = function
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quoting_status_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_quoting_status_request)
 
   return offset + size_of_xetra_en_light_quoting_status_request
+end
+
+-- Read runtime size of: Xetra En Light Quote Snapshot Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_snapshot_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Quote Snapshot Request
@@ -3427,13 +3452,8 @@ end
 
 -- Dissect: Xetra En Light Quote Snapshot Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quote_snapshot_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quote_snapshot_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quote_snapshot_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_snapshot_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_snapshot_request then
@@ -3864,6 +3884,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_quote_entries = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Quote Snapshot Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_snapshot_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Quote Snapshot Notification
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_quote_snapshot_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -3898,13 +3927,8 @@ end
 
 -- Dissect: Xetra En Light Quote Snapshot Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quote_snapshot_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quote_snapshot_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quote_snapshot_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_snapshot_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_snapshot_notification then
@@ -3938,6 +3962,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_req_id = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Quote Response
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Quote Response
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_quote_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -3967,13 +4000,8 @@ end
 
 -- Dissect: Xetra En Light Quote Response
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quote_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quote_response = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quote_response = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_response then
@@ -4005,6 +4033,15 @@ eurex_cash_eti_t7_v11_0_dissect.trade_id = function(buffer, offset, packet, pare
   parent:add(eurex_cash_eti_t7_v11_0.fields.trade_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Quote Requester Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_requester_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Quote Requester Notification
@@ -4050,13 +4087,8 @@ end
 
 -- Dissect: Xetra En Light Quote Requester Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quote_requester_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quote_requester_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quote_requester_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_requester_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_requester_notification then
@@ -4134,6 +4166,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_event_reason = function(buffer, offset, pa
   parent:add(eurex_cash_eti_t7_v11_0.fields.quote_event_reason, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Quote Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Quote Notification
@@ -4222,13 +4263,8 @@ end
 
 -- Dissect: Xetra En Light Quote Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_quote_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_quote_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_quote_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_quote_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_quote_notification then
@@ -4498,6 +4534,15 @@ eurex_cash_eti_t7_v11_0_dissect.security_id = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Open Negotiation Requester Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Open Negotiation Requester Notification
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -4661,13 +4706,8 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Requester Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_open_negotiation_requester_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_open_negotiation_requester_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_open_negotiation_requester_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_requester_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_requester_notification then
@@ -4703,6 +4743,15 @@ eurex_cash_eti_t7_v11_0_dissect.valid_until_time = function(buffer, offset, pack
   parent:add(eurex_cash_eti_t7_v11_0.fields.valid_until_time, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Open Negotiation Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Open Negotiation Request
@@ -4847,13 +4896,8 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_open_negotiation_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_open_negotiation_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_open_negotiation_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_request then
@@ -4915,6 +4959,15 @@ eurex_cash_eti_t7_v11_0_dissect.negotiation_start_time = function(buffer, offset
   parent:add(eurex_cash_eti_t7_v11_0.fields.negotiation_start_time, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Open Negotiation Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Open Negotiation Notification
@@ -5003,13 +5056,8 @@ end
 
 -- Dissect: Xetra En Light Open Negotiation Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_open_negotiation_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_open_negotiation_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_open_negotiation_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_open_negotiation_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_open_negotiation_notification then
@@ -5021,6 +5069,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_open_negotiation_notification = f
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_open_negotiation_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_open_negotiation_notification)
 
   return offset + size_of_xetra_en_light_open_negotiation_notification
+end
+
+-- Read runtime size of: Xetra En Light Negotiation Status Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_status_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Negotiation Status Notification
@@ -5058,13 +5115,8 @@ end
 
 -- Dissect: Xetra En Light Negotiation Status Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_negotiation_status_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_negotiation_status_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_negotiation_status_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_status_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_status_notification then
@@ -5120,6 +5172,15 @@ eurex_cash_eti_t7_v11_0_dissect.trd_reg_ts_execution_time = function(buffer, off
   parent:add(eurex_cash_eti_t7_v11_0.fields.trd_reg_ts_execution_time, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Negotiation Requester Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_requester_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Negotiation Requester Notification
@@ -5276,13 +5337,8 @@ end
 
 -- Dissect: Xetra En Light Negotiation Requester Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_negotiation_requester_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_negotiation_requester_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_negotiation_requester_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_requester_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_requester_notification then
@@ -5294,6 +5350,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_negotiation_requester_notificatio
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_negotiation_requester_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_negotiation_requester_notification)
 
   return offset + size_of_xetra_en_light_negotiation_requester_notification
+end
+
+-- Read runtime size of: Xetra En Light Negotiation Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Negotiation Notification
@@ -5370,13 +5435,8 @@ end
 
 -- Dissect: Xetra En Light Negotiation Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_negotiation_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_negotiation_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_negotiation_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_negotiation_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_negotiation_notification then
@@ -5461,6 +5521,15 @@ eurex_cash_eti_t7_v11_0_dissect.price = function(buffer, offset, packet, parent)
   parent:add(eurex_cash_eti_t7_v11_0.fields.price, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Hit Quote Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_hit_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Hit Quote Request
@@ -5555,13 +5624,8 @@ end
 
 -- Dissect: Xetra En Light Hit Quote Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_hit_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_hit_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_hit_quote_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_hit_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_hit_quote_request then
@@ -5573,6 +5637,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_hit_quote_request = function(buff
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_hit_quote_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_hit_quote_request)
 
   return offset + size_of_xetra_en_light_hit_quote_request
+end
+
+-- Read runtime size of: Xetra En Light Enter Quote Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_enter_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Enter Quote Request
@@ -5667,13 +5740,8 @@ end
 
 -- Dissect: Xetra En Light Enter Quote Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_enter_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_enter_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_enter_quote_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_enter_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_enter_quote_request then
@@ -5707,6 +5775,15 @@ eurex_cash_eti_t7_v11_0_dissect.target_party_id_session_id = function(buffer, of
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Delete All Quote Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_delete_all_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Delete All Quote Request
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_delete_all_quote_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -5736,13 +5813,8 @@ end
 
 -- Dissect: Xetra En Light Delete All Quote Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_delete_all_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_delete_all_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_delete_all_quote_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_delete_all_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_delete_all_quote_request then
@@ -5754,6 +5826,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_delete_all_quote_request = functi
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_delete_all_quote_request_fields(buffer, offset, packet, parent, size_of_xetra_en_light_delete_all_quote_request)
 
   return offset + size_of_xetra_en_light_delete_all_quote_request
+end
+
+-- Read runtime size of: Xetra En Light Delete All Quote Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_delete_all_quote_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Delete All Quote Notification
@@ -5782,13 +5863,8 @@ end
 
 -- Dissect: Xetra En Light Delete All Quote Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_delete_all_quote_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_delete_all_quote_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_delete_all_quote_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_delete_all_quote_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_delete_all_quote_notification then
@@ -5841,6 +5917,15 @@ eurex_cash_eti_t7_v11_0_dissect.trd_rpt_status = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Deal Status Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_deal_status_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Deal Status Notification
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_deal_status_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -5882,13 +5967,8 @@ end
 
 -- Dissect: Xetra En Light Deal Status Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_deal_status_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_deal_status_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_deal_status_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_deal_status_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_deal_status_notification then
@@ -5920,6 +6000,15 @@ eurex_cash_eti_t7_v11_0_dissect.secondary_trade_id = function(buffer, offset, pa
   parent:add(eurex_cash_eti_t7_v11_0.fields.secondary_trade_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Xetra En Light Deal Response
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_deal_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Xetra En Light Deal Response
@@ -5966,13 +6055,8 @@ end
 
 -- Dissect: Xetra En Light Deal Response
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_deal_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_deal_response = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_deal_response = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_deal_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_deal_response then
@@ -6308,6 +6392,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_order_book_items = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Create Deal Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_create_deal_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Create Deal Notification
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_create_deal_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -6429,13 +6522,8 @@ end
 
 -- Dissect: Xetra En Light Create Deal Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_create_deal_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_create_deal_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_create_deal_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_create_deal_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_create_deal_notification then
@@ -6494,6 +6582,15 @@ eurex_cash_eti_t7_v11_0_dissect.trade_report_type = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Approve Deal Request
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_approve_deal_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Approve Deal Request
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_approve_deal_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -6535,13 +6632,8 @@ end
 
 -- Dissect: Xetra En Light Approve Deal Request
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_approve_deal_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_approve_deal_request = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_approve_deal_request = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_approve_deal_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_approve_deal_request then
@@ -6649,6 +6741,15 @@ eurex_cash_eti_t7_v11_0_dissect.requesting_side = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Read runtime size of: Xetra En Light Approve Deal Notification
+eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_approve_deal_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Xetra En Light Approve Deal Notification
 eurex_cash_eti_t7_v11_0_display.xetra_en_light_approve_deal_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -6723,13 +6824,8 @@ end
 
 -- Dissect: Xetra En Light Approve Deal Notification
 eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_approve_deal_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_xetra_en_light_approve_deal_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_xetra_en_light_approve_deal_notification = eurex_cash_eti_t7_v11_0_size_of.xetra_en_light_approve_deal_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.xetra_en_light_approve_deal_notification then
@@ -6741,6 +6837,15 @@ eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_approve_deal_notification = funct
   eurex_cash_eti_t7_v11_0_dissect.xetra_en_light_approve_deal_notification_fields(buffer, offset, packet, parent, size_of_xetra_en_light_approve_deal_notification)
 
   return offset + size_of_xetra_en_light_approve_deal_notification
+end
+
+-- Read runtime size of: User Logout Response
+eurex_cash_eti_t7_v11_0_size_of.user_logout_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: User Logout Response
@@ -6763,13 +6868,8 @@ end
 
 -- Dissect: User Logout Response
 eurex_cash_eti_t7_v11_0_dissect.user_logout_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_logout_response = body_len - 6
+  -- Parse runtime size
+  local size_of_user_logout_response = eurex_cash_eti_t7_v11_0_size_of.user_logout_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_response then
@@ -6803,6 +6903,15 @@ eurex_cash_eti_t7_v11_0_dissect.username = function(buffer, offset, packet, pare
   return offset + length, value
 end
 
+-- Read runtime size of: User Logout Request
+eurex_cash_eti_t7_v11_0_size_of.user_logout_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: User Logout Request
 eurex_cash_eti_t7_v11_0_display.user_logout_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -6832,13 +6941,8 @@ end
 
 -- Dissect: User Logout Request
 eurex_cash_eti_t7_v11_0_dissect.user_logout_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_logout_request = body_len - 6
+  -- Parse runtime size
+  local size_of_user_logout_request = eurex_cash_eti_t7_v11_0_size_of.user_logout_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_logout_request then
@@ -6850,6 +6954,15 @@ eurex_cash_eti_t7_v11_0_dissect.user_logout_request = function(buffer, offset, p
   eurex_cash_eti_t7_v11_0_dissect.user_logout_request_fields(buffer, offset, packet, parent, size_of_user_logout_request)
 
   return offset + size_of_user_logout_request
+end
+
+-- Read runtime size of: User Login Response
+eurex_cash_eti_t7_v11_0_size_of.user_login_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: User Login Response
@@ -6872,13 +6985,8 @@ end
 
 -- Dissect: User Login Response
 eurex_cash_eti_t7_v11_0_dissect.user_login_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_login_response = body_len - 6
+  -- Parse runtime size
+  local size_of_user_login_response = eurex_cash_eti_t7_v11_0_size_of.user_login_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_login_response then
@@ -6910,6 +7018,15 @@ eurex_cash_eti_t7_v11_0_dissect.password = function(buffer, offset, packet, pare
   parent:add(eurex_cash_eti_t7_v11_0.fields.password, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: User Login Request
+eurex_cash_eti_t7_v11_0_size_of.user_login_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: User Login Request
@@ -6944,13 +7061,8 @@ end
 
 -- Dissect: User Login Request
 eurex_cash_eti_t7_v11_0_dissect.user_login_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_login_request = body_len - 6
+  -- Parse runtime size
+  local size_of_user_login_request = eurex_cash_eti_t7_v11_0_size_of.user_login_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_login_request then
@@ -6962,6 +7074,15 @@ eurex_cash_eti_t7_v11_0_dissect.user_login_request = function(buffer, offset, pa
   eurex_cash_eti_t7_v11_0_dissect.user_login_request_fields(buffer, offset, packet, parent, size_of_user_login_request)
 
   return offset + size_of_user_login_request
+end
+
+-- Read runtime size of: Unsubscribe Response
+eurex_cash_eti_t7_v11_0_size_of.unsubscribe_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Unsubscribe Response
@@ -6984,13 +7105,8 @@ end
 
 -- Dissect: Unsubscribe Response
 eurex_cash_eti_t7_v11_0_dissect.unsubscribe_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_unsubscribe_response = body_len - 6
+  -- Parse runtime size
+  local size_of_unsubscribe_response = eurex_cash_eti_t7_v11_0_size_of.unsubscribe_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_response then
@@ -7024,6 +7140,15 @@ eurex_cash_eti_t7_v11_0_dissect.ref_appl_sub_id = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Read runtime size of: Unsubscribe Request
+eurex_cash_eti_t7_v11_0_size_of.unsubscribe_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Unsubscribe Request
 eurex_cash_eti_t7_v11_0_display.unsubscribe_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -7053,13 +7178,8 @@ end
 
 -- Dissect: Unsubscribe Request
 eurex_cash_eti_t7_v11_0_dissect.unsubscribe_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_unsubscribe_request = body_len - 6
+  -- Parse runtime size
+  local size_of_unsubscribe_request = eurex_cash_eti_t7_v11_0_size_of.unsubscribe_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.unsubscribe_request then
@@ -7640,6 +7760,15 @@ eurex_cash_eti_t7_v11_0_dissect.rbc_header_me_comp = function(buffer, offset, pa
   return eurex_cash_eti_t7_v11_0_dissect.rbc_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Trailing Stop Update Notification
+eurex_cash_eti_t7_v11_0_size_of.trailing_stop_update_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Trailing Stop Update Notification
 eurex_cash_eti_t7_v11_0_display.trailing_stop_update_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -7705,13 +7834,8 @@ end
 
 -- Dissect: Trailing Stop Update Notification
 eurex_cash_eti_t7_v11_0_dissect.trailing_stop_update_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_trailing_stop_update_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_trailing_stop_update_notification = eurex_cash_eti_t7_v11_0_size_of.trailing_stop_update_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.trailing_stop_update_notification then
@@ -7743,6 +7867,15 @@ eurex_cash_eti_t7_v11_0_dissect.ref_appl_last_msg_id = function(buffer, offset, 
   parent:add(eurex_cash_eti_t7_v11_0.fields.ref_appl_last_msg_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Trading Session Status Broadcast
+eurex_cash_eti_t7_v11_0_size_of.trading_session_status_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Trading Session Status Broadcast
@@ -7780,13 +7913,8 @@ end
 
 -- Dissect: Trading Session Status Broadcast
 eurex_cash_eti_t7_v11_0_dissect.trading_session_status_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_trading_session_status_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_trading_session_status_broadcast = eurex_cash_eti_t7_v11_0_size_of.trading_session_status_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.trading_session_status_broadcast then
@@ -9148,6 +9276,15 @@ eurex_cash_eti_t7_v11_0_dissect.settl_curr_amt = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Trade Broadcast
+eurex_cash_eti_t7_v11_0_size_of.trade_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Trade Broadcast
 eurex_cash_eti_t7_v11_0_display.trade_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -9399,13 +9536,8 @@ end
 
 -- Dissect: Trade Broadcast
 eurex_cash_eti_t7_v11_0_dissect.trade_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_trade_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_trade_broadcast = eurex_cash_eti_t7_v11_0_size_of.trade_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.trade_broadcast then
@@ -9516,6 +9648,15 @@ eurex_cash_eti_t7_v11_0_dissect.notif_header_comp = function(buffer, offset, pac
   return eurex_cash_eti_t7_v11_0_dissect.notif_header_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Throttle Update Notification
+eurex_cash_eti_t7_v11_0_size_of.throttle_update_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Throttle Update Notification
 eurex_cash_eti_t7_v11_0_display.throttle_update_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -9545,13 +9686,8 @@ end
 
 -- Dissect: Throttle Update Notification
 eurex_cash_eti_t7_v11_0_dissect.throttle_update_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_throttle_update_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_throttle_update_notification = eurex_cash_eti_t7_v11_0_size_of.throttle_update_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.throttle_update_notification then
@@ -9563,6 +9699,15 @@ eurex_cash_eti_t7_v11_0_dissect.throttle_update_notification = function(buffer, 
   eurex_cash_eti_t7_v11_0_dissect.throttle_update_notification_fields(buffer, offset, packet, parent, size_of_throttle_update_notification)
 
   return offset + size_of_throttle_update_notification
+end
+
+-- Read runtime size of: Tm Trading Session Status Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tm_trading_session_status_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tm Trading Session Status Broadcast
@@ -9591,13 +9736,8 @@ end
 
 -- Dissect: Tm Trading Session Status Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tm_trading_session_status_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tm_trading_session_status_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tm_trading_session_status_broadcast = eurex_cash_eti_t7_v11_0_size_of.tm_trading_session_status_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tm_trading_session_status_broadcast then
@@ -9609,6 +9749,15 @@ eurex_cash_eti_t7_v11_0_dissect.tm_trading_session_status_broadcast = function(b
   eurex_cash_eti_t7_v11_0_dissect.tm_trading_session_status_broadcast_fields(buffer, offset, packet, parent, size_of_tm_trading_session_status_broadcast)
 
   return offset + size_of_tm_trading_session_status_broadcast
+end
+
+-- Read runtime size of: Tes Trading Session Status Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_trading_session_status_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tes Trading Session Status Broadcast
@@ -9640,13 +9789,8 @@ end
 
 -- Dissect: Tes Trading Session Status Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_trading_session_status_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_trading_session_status_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_trading_session_status_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_trading_session_status_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_trading_session_status_broadcast then
@@ -9755,6 +9899,15 @@ eurex_cash_eti_t7_v11_0_dissect.package_id = function(buffer, offset, packet, pa
   parent:add(eurex_cash_eti_t7_v11_0.fields.package_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Tes Trade Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_trade_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tes Trade Broadcast
@@ -9969,13 +10122,8 @@ end
 
 -- Dissect: Tes Trade Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_trade_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_trade_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_trade_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_trade_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_trade_broadcast then
@@ -10029,6 +10177,15 @@ eurex_cash_eti_t7_v11_0_dissect.tes_exec_id = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Read runtime size of: Tes Response
+eurex_cash_eti_t7_v11_0_size_of.tes_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Tes Response
 eurex_cash_eti_t7_v11_0_display.tes_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -10055,13 +10212,8 @@ end
 
 -- Dissect: Tes Response
 eurex_cash_eti_t7_v11_0_dissect.tes_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_response = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_response = eurex_cash_eti_t7_v11_0_size_of.tes_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_response then
@@ -10093,6 +10245,15 @@ eurex_cash_eti_t7_v11_0_dissect.alloc_id = function(buffer, offset, packet, pare
   parent:add(eurex_cash_eti_t7_v11_0.fields.alloc_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Tes Execution Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_execution_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tes Execution Broadcast
@@ -10148,13 +10309,8 @@ end
 
 -- Dissect: Tes Execution Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_execution_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_execution_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_execution_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_execution_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_execution_broadcast then
@@ -10202,6 +10358,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_reason = function(buffer, offset, packet,
   parent:add(eurex_cash_eti_t7_v11_0.fields.delete_reason, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Tes Delete Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_delete_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tes Delete Broadcast
@@ -10257,13 +10422,8 @@ end
 
 -- Dissect: Tes Delete Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_delete_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_delete_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_delete_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_delete_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_delete_broadcast then
@@ -10571,6 +10731,15 @@ eurex_cash_eti_t7_v11_0_dissect.trans_bkd_time = function(buffer, offset, packet
   return offset + length, value
 end
 
+-- Read runtime size of: Tes Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Tes Broadcast
 eurex_cash_eti_t7_v11_0_display.tes_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -10662,13 +10831,8 @@ end
 
 -- Dissect: Tes Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_broadcast then
@@ -10707,6 +10871,15 @@ eurex_cash_eti_t7_v11_0_dissect.party_id_entering_firm = function(buffer, offset
   parent:add(eurex_cash_eti_t7_v11_0.fields.party_id_entering_firm, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Tes Approve Broadcast
+eurex_cash_eti_t7_v11_0_size_of.tes_approve_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Tes Approve Broadcast
@@ -10834,13 +11007,8 @@ end
 
 -- Dissect: Tes Approve Broadcast
 eurex_cash_eti_t7_v11_0_dissect.tes_approve_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_tes_approve_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_tes_approve_broadcast = eurex_cash_eti_t7_v11_0_size_of.tes_approve_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.tes_approve_broadcast then
@@ -10852,6 +11020,15 @@ eurex_cash_eti_t7_v11_0_dissect.tes_approve_broadcast = function(buffer, offset,
   eurex_cash_eti_t7_v11_0_dissect.tes_approve_broadcast_fields(buffer, offset, packet, parent, size_of_tes_approve_broadcast)
 
   return offset + size_of_tes_approve_broadcast
+end
+
+-- Read runtime size of: Subscribe Response
+eurex_cash_eti_t7_v11_0_size_of.subscribe_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Subscribe Response
@@ -10880,13 +11057,8 @@ end
 
 -- Dissect: Subscribe Response
 eurex_cash_eti_t7_v11_0_dissect.subscribe_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_subscribe_response = body_len - 6
+  -- Parse runtime size
+  local size_of_subscribe_response = eurex_cash_eti_t7_v11_0_size_of.subscribe_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_response then
@@ -10974,6 +11146,15 @@ eurex_cash_eti_t7_v11_0_dissect.subscription_scope = function(buffer, offset, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Subscribe Request
+eurex_cash_eti_t7_v11_0_size_of.subscribe_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Subscribe Request
 eurex_cash_eti_t7_v11_0_display.subscribe_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -11006,13 +11187,8 @@ end
 
 -- Dissect: Subscribe Request
 eurex_cash_eti_t7_v11_0_dissect.subscribe_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_subscribe_request = body_len - 6
+  -- Parse runtime size
+  local size_of_subscribe_request = eurex_cash_eti_t7_v11_0_size_of.subscribe_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.subscribe_request then
@@ -11024,6 +11200,15 @@ eurex_cash_eti_t7_v11_0_dissect.subscribe_request = function(buffer, offset, pac
   eurex_cash_eti_t7_v11_0_dissect.subscribe_request_fields(buffer, offset, packet, parent, size_of_subscribe_request)
 
   return offset + size_of_subscribe_request
+end
+
+-- Read runtime size of: Status Broadcast
+eurex_cash_eti_t7_v11_0_size_of.status_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Status Broadcast
@@ -11055,13 +11240,8 @@ end
 
 -- Dissect: Status Broadcast
 eurex_cash_eti_t7_v11_0_dissect.status_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_status_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_status_broadcast = eurex_cash_eti_t7_v11_0_size_of.status_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.status_broadcast then
@@ -11219,6 +11399,15 @@ eurex_cash_eti_t7_v11_0_dissect.nr_response_header_me_comp = function(buffer, of
   return eurex_cash_eti_t7_v11_0_dissect.nr_response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Specialist Security State Change Response
+eurex_cash_eti_t7_v11_0_size_of.specialist_security_state_change_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Specialist Security State Change Response
 eurex_cash_eti_t7_v11_0_display.specialist_security_state_change_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -11242,13 +11431,8 @@ end
 
 -- Dissect: Specialist Security State Change Response
 eurex_cash_eti_t7_v11_0_dissect.specialist_security_state_change_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_security_state_change_response = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_security_state_change_response = eurex_cash_eti_t7_v11_0_size_of.specialist_security_state_change_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_security_state_change_response then
@@ -11322,6 +11506,15 @@ eurex_cash_eti_t7_v11_0_dissect.event_type = function(buffer, offset, packet, pa
   return offset + length, value
 end
 
+-- Read runtime size of: Specialist Security State Change Request
+eurex_cash_eti_t7_v11_0_size_of.specialist_security_state_change_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Specialist Security State Change Request
 eurex_cash_eti_t7_v11_0_display.specialist_security_state_change_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -11357,13 +11550,8 @@ end
 
 -- Dissect: Specialist Security State Change Request
 eurex_cash_eti_t7_v11_0_dissect.specialist_security_state_change_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_security_state_change_request = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_security_state_change_request = eurex_cash_eti_t7_v11_0_size_of.specialist_security_state_change_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_security_state_change_request then
@@ -11375,6 +11563,15 @@ eurex_cash_eti_t7_v11_0_dissect.specialist_security_state_change_request = funct
   eurex_cash_eti_t7_v11_0_dissect.specialist_security_state_change_request_fields(buffer, offset, packet, parent, size_of_specialist_security_state_change_request)
 
   return offset + size_of_specialist_security_state_change_request
+end
+
+-- Read runtime size of: Specialist Rfq Reply Response
+eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Specialist Rfq Reply Response
@@ -11400,13 +11597,8 @@ end
 
 -- Dissect: Specialist Rfq Reply Response
 eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_rfq_reply_response = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_rfq_reply_response = eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_response then
@@ -11418,6 +11610,15 @@ eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_response = function(buffer,
   eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_response_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_response)
 
   return offset + size_of_specialist_rfq_reply_response
+end
+
+-- Read runtime size of: Specialist Rfq Reply Request
+eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Specialist Rfq Reply Request
@@ -11470,13 +11671,8 @@ end
 
 -- Dissect: Specialist Rfq Reply Request
 eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_rfq_reply_request = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_rfq_reply_request = eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_request then
@@ -11488,6 +11684,15 @@ eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_request = function(buffer, 
   eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_request_fields(buffer, offset, packet, parent, size_of_specialist_rfq_reply_request)
 
   return offset + size_of_specialist_rfq_reply_request
+end
+
+-- Read runtime size of: Specialist Rfq Reply Notification
+eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Specialist Rfq Reply Notification
@@ -11540,13 +11745,8 @@ end
 
 -- Dissect: Specialist Rfq Reply Notification
 eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reply_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_rfq_reply_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_rfq_reply_notification = eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reply_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reply_notification then
@@ -11605,6 +11805,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_request_reject_reason = function(buffer, o
   return offset + length, value
 end
 
+-- Read runtime size of: Specialist Rfq Reject Request
+eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reject_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Specialist Rfq Reject Request
 eurex_cash_eti_t7_v11_0_display.specialist_rfq_reject_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -11646,13 +11855,8 @@ end
 
 -- Dissect: Specialist Rfq Reject Request
 eurex_cash_eti_t7_v11_0_dissect.specialist_rfq_reject_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_rfq_reject_request = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_rfq_reject_request = eurex_cash_eti_t7_v11_0_size_of.specialist_rfq_reject_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_rfq_reject_request then
@@ -12245,6 +12449,15 @@ eurex_cash_eti_t7_v11_0_dissect.trd_reg_ts_entry_time = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Specialist Order Book Notification
+eurex_cash_eti_t7_v11_0_size_of.specialist_order_book_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Specialist Order Book Notification
 eurex_cash_eti_t7_v11_0_display.specialist_order_book_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -12399,13 +12612,8 @@ end
 
 -- Dissect: Specialist Order Book Notification
 eurex_cash_eti_t7_v11_0_dissect.specialist_order_book_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_order_book_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_order_book_notification = eurex_cash_eti_t7_v11_0_size_of.specialist_order_book_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_order_book_notification then
@@ -12417,6 +12625,15 @@ eurex_cash_eti_t7_v11_0_dissect.specialist_order_book_notification = function(bu
   eurex_cash_eti_t7_v11_0_dissect.specialist_order_book_notification_fields(buffer, offset, packet, parent, size_of_specialist_order_book_notification)
 
   return offset + size_of_specialist_order_book_notification
+end
+
+-- Read runtime size of: Specialist Instrument Event Notification
+eurex_cash_eti_t7_v11_0_size_of.specialist_instrument_event_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Specialist Instrument Event Notification
@@ -12454,13 +12671,8 @@ end
 
 -- Dissect: Specialist Instrument Event Notification
 eurex_cash_eti_t7_v11_0_dissect.specialist_instrument_event_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_instrument_event_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_instrument_event_notification = eurex_cash_eti_t7_v11_0_size_of.specialist_instrument_event_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_instrument_event_notification then
@@ -12780,6 +12992,15 @@ eurex_cash_eti_t7_v11_0_dissect.mass_action_report_id = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Specialist Delete All Order Broadcast
+eurex_cash_eti_t7_v11_0_size_of.specialist_delete_all_order_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Specialist Delete All Order Broadcast
 eurex_cash_eti_t7_v11_0_display.specialist_delete_all_order_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -12834,13 +13055,8 @@ end
 
 -- Dissect: Specialist Delete All Order Broadcast
 eurex_cash_eti_t7_v11_0_dissect.specialist_delete_all_order_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_specialist_delete_all_order_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_specialist_delete_all_order_broadcast = eurex_cash_eti_t7_v11_0_size_of.specialist_delete_all_order_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.specialist_delete_all_order_broadcast then
@@ -12926,6 +13142,15 @@ eurex_cash_eti_t7_v11_0_dissect.match_inst_cross_id = function(buffer, offset, p
   parent:add(eurex_cash_eti_t7_v11_0.fields.match_inst_cross_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Single Quote Request
+eurex_cash_eti_t7_v11_0_size_of.single_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Single Quote Request
@@ -13023,13 +13248,8 @@ end
 
 -- Dissect: Single Quote Request
 eurex_cash_eti_t7_v11_0_dissect.single_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_single_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_single_quote_request = eurex_cash_eti_t7_v11_0_size_of.single_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.single_quote_request then
@@ -13228,6 +13448,15 @@ eurex_cash_eti_t7_v11_0_dissect.nrbc_header_comp = function(buffer, offset, pack
   return eurex_cash_eti_t7_v11_0_dissect.nrbc_header_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Service Availability Market Broadcast
+eurex_cash_eti_t7_v11_0_size_of.service_availability_market_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Service Availability Market Broadcast
 eurex_cash_eti_t7_v11_0_display.service_availability_market_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -13263,13 +13492,8 @@ end
 
 -- Dissect: Service Availability Market Broadcast
 eurex_cash_eti_t7_v11_0_dissect.service_availability_market_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_service_availability_market_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_service_availability_market_broadcast = eurex_cash_eti_t7_v11_0_size_of.service_availability_market_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.service_availability_market_broadcast then
@@ -13518,6 +13742,15 @@ eurex_cash_eti_t7_v11_0_dissect.matching_engine_trade_date = function(buffer, of
   return offset + length, value
 end
 
+-- Read runtime size of: Service Availability Broadcast
+eurex_cash_eti_t7_v11_0_size_of.service_availability_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Service Availability Broadcast
 eurex_cash_eti_t7_v11_0_display.service_availability_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -13574,13 +13807,8 @@ end
 
 -- Dissect: Service Availability Broadcast
 eurex_cash_eti_t7_v11_0_dissect.service_availability_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_service_availability_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_service_availability_broadcast = eurex_cash_eti_t7_v11_0_size_of.service_availability_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.service_availability_broadcast then
@@ -13654,6 +13882,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_end_seq_num = function(buffer, offset, pack
   return offset + length, value
 end
 
+-- Read runtime size of: Retransmit Response
+eurex_cash_eti_t7_v11_0_size_of.retransmit_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Retransmit Response
 eurex_cash_eti_t7_v11_0_display.retransmit_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -13686,13 +13923,8 @@ end
 
 -- Dissect: Retransmit Response
 eurex_cash_eti_t7_v11_0_dissect.retransmit_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_retransmit_response = body_len - 6
+  -- Parse runtime size
+  local size_of_retransmit_response = eurex_cash_eti_t7_v11_0_size_of.retransmit_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_response then
@@ -13724,6 +13956,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_beg_seq_num = function(buffer, offset, pack
   parent:add(eurex_cash_eti_t7_v11_0.fields.appl_beg_seq_num, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Retransmit Request
+eurex_cash_eti_t7_v11_0_size_of.retransmit_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Retransmit Request
@@ -13764,13 +14005,8 @@ end
 
 -- Dissect: Retransmit Request
 eurex_cash_eti_t7_v11_0_dissect.retransmit_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_retransmit_request = body_len - 6
+  -- Parse runtime size
+  local size_of_retransmit_request = eurex_cash_eti_t7_v11_0_size_of.retransmit_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_request then
@@ -13802,6 +14038,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_end_msg_id = function(buffer, offset, packe
   parent:add(eurex_cash_eti_t7_v11_0.fields.appl_end_msg_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Retransmit Me Message Response
+eurex_cash_eti_t7_v11_0_size_of.retransmit_me_message_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Retransmit Me Message Response
@@ -13836,13 +14081,8 @@ end
 
 -- Dissect: Retransmit Me Message Response
 eurex_cash_eti_t7_v11_0_dissect.retransmit_me_message_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_retransmit_me_message_response = body_len - 6
+  -- Parse runtime size
+  local size_of_retransmit_me_message_response = eurex_cash_eti_t7_v11_0_size_of.retransmit_me_message_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_response then
@@ -13874,6 +14114,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_beg_msg_id = function(buffer, offset, packe
   parent:add(eurex_cash_eti_t7_v11_0.fields.appl_beg_msg_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Retransmit Me Message Request
+eurex_cash_eti_t7_v11_0_size_of.retransmit_me_message_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Retransmit Me Message Request
@@ -13917,13 +14166,8 @@ end
 
 -- Dissect: Retransmit Me Message Request
 eurex_cash_eti_t7_v11_0_dissect.retransmit_me_message_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_retransmit_me_message_request = body_len - 6
+  -- Parse runtime size
+  local size_of_retransmit_me_message_request = eurex_cash_eti_t7_v11_0_size_of.retransmit_me_message_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.retransmit_me_message_request then
@@ -14081,6 +14325,15 @@ eurex_cash_eti_t7_v11_0_dissect.session_reject_reason = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Reject
+eurex_cash_eti_t7_v11_0_size_of.reject = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Reject
 eurex_cash_eti_t7_v11_0_display.reject = function(buffer, offset, size, packet, parent)
   return ""
@@ -14116,13 +14369,8 @@ end
 
 -- Dissect: Reject
 eurex_cash_eti_t7_v11_0_dissect.reject = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_reject = body_len - 6
+  -- Parse runtime size
+  local size_of_reject = eurex_cash_eti_t7_v11_0_size_of.reject(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.reject then
@@ -14134,6 +14382,15 @@ eurex_cash_eti_t7_v11_0_dissect.reject = function(buffer, offset, packet, parent
   eurex_cash_eti_t7_v11_0_dissect.reject_fields(buffer, offset, packet, parent, size_of_reject)
 
   return offset + size_of_reject
+end
+
+-- Read runtime size of: Rfq Specialist Broadcast
+eurex_cash_eti_t7_v11_0_size_of.rfq_specialist_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Rfq Specialist Broadcast
@@ -14180,13 +14437,8 @@ end
 
 -- Dissect: Rfq Specialist Broadcast
 eurex_cash_eti_t7_v11_0_dissect.rfq_specialist_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_rfq_specialist_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_rfq_specialist_broadcast = eurex_cash_eti_t7_v11_0_size_of.rfq_specialist_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.rfq_specialist_broadcast then
@@ -14198,6 +14450,15 @@ eurex_cash_eti_t7_v11_0_dissect.rfq_specialist_broadcast = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.rfq_specialist_broadcast_fields(buffer, offset, packet, parent, size_of_rfq_specialist_broadcast)
 
   return offset + size_of_rfq_specialist_broadcast
+end
+
+-- Read runtime size of: Rfq Response
+eurex_cash_eti_t7_v11_0_size_of.rfq_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Rfq Response
@@ -14223,13 +14484,8 @@ end
 
 -- Dissect: Rfq Response
 eurex_cash_eti_t7_v11_0_dissect.rfq_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_rfq_response = body_len - 6
+  -- Parse runtime size
+  local size_of_rfq_response = eurex_cash_eti_t7_v11_0_size_of.rfq_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.rfq_response then
@@ -14309,6 +14565,15 @@ eurex_cash_eti_t7_v11_0_dissect.rfq_publish_indicator = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Rfq Request
+eurex_cash_eti_t7_v11_0_size_of.rfq_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Rfq Request
 eurex_cash_eti_t7_v11_0_display.rfq_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -14356,13 +14621,8 @@ end
 
 -- Dissect: Rfq Request
 eurex_cash_eti_t7_v11_0_dissect.rfq_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_rfq_request = body_len - 6
+  -- Parse runtime size
+  local size_of_rfq_request = eurex_cash_eti_t7_v11_0_size_of.rfq_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.rfq_request then
@@ -14374,6 +14634,15 @@ eurex_cash_eti_t7_v11_0_dissect.rfq_request = function(buffer, offset, packet, p
   eurex_cash_eti_t7_v11_0_dissect.rfq_request_fields(buffer, offset, packet, parent, size_of_rfq_request)
 
   return offset + size_of_rfq_request
+end
+
+-- Read runtime size of: Rfq Reject Notification
+eurex_cash_eti_t7_v11_0_size_of.rfq_reject_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Rfq Reject Notification
@@ -14417,13 +14686,8 @@ end
 
 -- Dissect: Rfq Reject Notification
 eurex_cash_eti_t7_v11_0_dissect.rfq_reject_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_rfq_reject_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_rfq_reject_notification = eurex_cash_eti_t7_v11_0_size_of.rfq_reject_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.rfq_reject_notification then
@@ -14435,6 +14699,15 @@ eurex_cash_eti_t7_v11_0_dissect.rfq_reject_notification = function(buffer, offse
   eurex_cash_eti_t7_v11_0_dissect.rfq_reject_notification_fields(buffer, offset, packet, parent, size_of_rfq_reject_notification)
 
   return offset + size_of_rfq_reject_notification
+end
+
+-- Read runtime size of: Rfq Broadcast
+eurex_cash_eti_t7_v11_0_size_of.rfq_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Rfq Broadcast
@@ -14478,13 +14751,8 @@ end
 
 -- Dissect: Rfq Broadcast
 eurex_cash_eti_t7_v11_0_dissect.rfq_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_rfq_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_rfq_broadcast = eurex_cash_eti_t7_v11_0_size_of.rfq_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.rfq_broadcast then
@@ -14810,6 +15078,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_quote_events = function(buffer, offset, packe
   return offset + length, value
 end
 
+-- Read runtime size of: Quote Execution Report
+eurex_cash_eti_t7_v11_0_size_of.quote_execution_report = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Quote Execution Report
 eurex_cash_eti_t7_v11_0_display.quote_execution_report = function(buffer, offset, size, packet, parent)
   return ""
@@ -14847,13 +15124,8 @@ end
 
 -- Dissect: Quote Execution Report
 eurex_cash_eti_t7_v11_0_dissect.quote_execution_report = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_execution_report = body_len - 6
+  -- Parse runtime size
+  local size_of_quote_execution_report = eurex_cash_eti_t7_v11_0_size_of.quote_execution_report(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_execution_report then
@@ -14944,6 +15216,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_not_affected_securities = function(buffer, of
   return offset + length, value
 end
 
+-- Read runtime size of: Quote Activation Response
+eurex_cash_eti_t7_v11_0_size_of.quote_activation_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Quote Activation Response
 eurex_cash_eti_t7_v11_0_display.quote_activation_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -14978,13 +15259,8 @@ end
 
 -- Dissect: Quote Activation Response
 eurex_cash_eti_t7_v11_0_dissect.quote_activation_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_activation_response = body_len - 6
+  -- Parse runtime size
+  local size_of_quote_activation_response = eurex_cash_eti_t7_v11_0_size_of.quote_activation_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_response then
@@ -15023,6 +15299,15 @@ eurex_cash_eti_t7_v11_0_dissect.mass_action_type = function(buffer, offset, pack
   parent:add(eurex_cash_eti_t7_v11_0.fields.mass_action_type, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Quote Activation Request
+eurex_cash_eti_t7_v11_0_size_of.quote_activation_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Quote Activation Request
@@ -15072,13 +15357,8 @@ end
 
 -- Dissect: Quote Activation Request
 eurex_cash_eti_t7_v11_0_dissect.quote_activation_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_activation_request = body_len - 6
+  -- Parse runtime size
+  local size_of_quote_activation_request = eurex_cash_eti_t7_v11_0_size_of.quote_activation_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_request then
@@ -15090,6 +15370,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_activation_request = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.quote_activation_request_fields(buffer, offset, packet, parent, size_of_quote_activation_request)
 
   return offset + size_of_quote_activation_request
+end
+
+-- Read runtime size of: Quote Activation Notification
+eurex_cash_eti_t7_v11_0_size_of.quote_activation_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Quote Activation Notification
@@ -15141,13 +15430,8 @@ end
 
 -- Dissect: Quote Activation Notification
 eurex_cash_eti_t7_v11_0_dissect.quote_activation_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_quote_activation_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_quote_activation_notification = eurex_cash_eti_t7_v11_0_size_of.quote_activation_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.quote_activation_notification then
@@ -15348,6 +15632,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_risk_limit_amount = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Read runtime size of: Pre Trade Risk Limits Definition Request
+eurex_cash_eti_t7_v11_0_size_of.pre_trade_risk_limits_definition_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Pre Trade Risk Limits Definition Request
 eurex_cash_eti_t7_v11_0_display.pre_trade_risk_limits_definition_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -15394,13 +15687,8 @@ end
 
 -- Dissect: Pre Trade Risk Limits Definition Request
 eurex_cash_eti_t7_v11_0_dissect.pre_trade_risk_limits_definition_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_pre_trade_risk_limits_definition_request = body_len - 6
+  -- Parse runtime size
+  local size_of_pre_trade_risk_limits_definition_request = eurex_cash_eti_t7_v11_0_size_of.pre_trade_risk_limits_definition_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.pre_trade_risk_limits_definition_request then
@@ -15635,6 +15923,15 @@ eurex_cash_eti_t7_v11_0_dissect.risk_limit_report_id = function(buffer, offset, 
   return offset + length, value
 end
 
+-- Read runtime size of: Pre Trade Risk Limit Response
+eurex_cash_eti_t7_v11_0_size_of.pre_trade_risk_limit_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Pre Trade Risk Limit Response
 eurex_cash_eti_t7_v11_0_display.pre_trade_risk_limit_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -15678,13 +15975,8 @@ end
 
 -- Dissect: Pre Trade Risk Limit Response
 eurex_cash_eti_t7_v11_0_dissect.pre_trade_risk_limit_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_pre_trade_risk_limit_response = body_len - 6
+  -- Parse runtime size
+  local size_of_pre_trade_risk_limit_response = eurex_cash_eti_t7_v11_0_size_of.pre_trade_risk_limit_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.pre_trade_risk_limit_response then
@@ -15696,6 +15988,15 @@ eurex_cash_eti_t7_v11_0_dissect.pre_trade_risk_limit_response = function(buffer,
   eurex_cash_eti_t7_v11_0_dissect.pre_trade_risk_limit_response_fields(buffer, offset, packet, parent, size_of_pre_trade_risk_limit_response)
 
   return offset + size_of_pre_trade_risk_limit_response
+end
+
+-- Read runtime size of: Ping Response
+eurex_cash_eti_t7_v11_0_size_of.ping_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Ping Response
@@ -15721,13 +16022,8 @@ end
 
 -- Dissect: Ping Response
 eurex_cash_eti_t7_v11_0_dissect.ping_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_ping_response = body_len - 6
+  -- Parse runtime size
+  local size_of_ping_response = eurex_cash_eti_t7_v11_0_size_of.ping_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.ping_response then
@@ -15739,6 +16035,15 @@ eurex_cash_eti_t7_v11_0_dissect.ping_response = function(buffer, offset, packet,
   eurex_cash_eti_t7_v11_0_dissect.ping_response_fields(buffer, offset, packet, parent, size_of_ping_response)
 
   return offset + size_of_ping_response
+end
+
+-- Read runtime size of: Ping Request
+eurex_cash_eti_t7_v11_0_size_of.ping_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Ping Request
@@ -15770,13 +16075,8 @@ end
 
 -- Dissect: Ping Request
 eurex_cash_eti_t7_v11_0_dissect.ping_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_ping_request = body_len - 6
+  -- Parse runtime size
+  local size_of_ping_request = eurex_cash_eti_t7_v11_0_size_of.ping_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.ping_request then
@@ -15949,6 +16249,15 @@ eurex_cash_eti_t7_v11_0_dissect.party_detail_id_executing_unit = function(buffer
   return offset + length, value
 end
 
+-- Read runtime size of: Party Entitlements Update Report
+eurex_cash_eti_t7_v11_0_size_of.party_entitlements_update_report = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Party Entitlements Update Report
 eurex_cash_eti_t7_v11_0_display.party_entitlements_update_report = function(buffer, offset, size, packet, parent)
   return ""
@@ -15999,13 +16308,8 @@ end
 
 -- Dissect: Party Entitlements Update Report
 eurex_cash_eti_t7_v11_0_dissect.party_entitlements_update_report = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_party_entitlements_update_report = body_len - 6
+  -- Parse runtime size
+  local size_of_party_entitlements_update_report = eurex_cash_eti_t7_v11_0_size_of.party_entitlements_update_report(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.party_entitlements_update_report then
@@ -16093,6 +16397,15 @@ eurex_cash_eti_t7_v11_0_dissect.requesting_party_id_executing_trader = function(
   return offset + length, value
 end
 
+-- Read runtime size of: Party Action Report
+eurex_cash_eti_t7_v11_0_size_of.party_action_report = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Party Action Report
 eurex_cash_eti_t7_v11_0_display.party_action_report = function(buffer, offset, size, packet, parent)
   return ""
@@ -16140,13 +16453,8 @@ end
 
 -- Dissect: Party Action Report
 eurex_cash_eti_t7_v11_0_dissect.party_action_report = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_party_action_report = body_len - 6
+  -- Parse runtime size
+  local size_of_party_action_report = eurex_cash_eti_t7_v11_0_size_of.party_action_report(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.party_action_report then
@@ -16495,6 +16803,15 @@ eurex_cash_eti_t7_v11_0_dissect.response_header_me_comp = function(buffer, offse
   return eurex_cash_eti_t7_v11_0_dissect.response_header_me_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Order Exec Response
+eurex_cash_eti_t7_v11_0_size_of.order_exec_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Order Exec Response
 eurex_cash_eti_t7_v11_0_display.order_exec_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -16597,13 +16914,8 @@ end
 
 -- Dissect: Order Exec Response
 eurex_cash_eti_t7_v11_0_dissect.order_exec_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_exec_response = body_len - 6
+  -- Parse runtime size
+  local size_of_order_exec_response = eurex_cash_eti_t7_v11_0_size_of.order_exec_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_response then
@@ -16772,6 +17084,15 @@ eurex_cash_eti_t7_v11_0_dissect.display_low_qty = function(buffer, offset, packe
   parent:add(eurex_cash_eti_t7_v11_0.fields.display_low_qty, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Order Exec Report Broadcast
+eurex_cash_eti_t7_v11_0_size_of.order_exec_report_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Order Exec Report Broadcast
@@ -16969,13 +17290,8 @@ end
 
 -- Dissect: Order Exec Report Broadcast
 eurex_cash_eti_t7_v11_0_dissect.order_exec_report_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_exec_report_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_order_exec_report_broadcast = eurex_cash_eti_t7_v11_0_size_of.order_exec_report_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_report_broadcast then
@@ -16987,6 +17303,15 @@ eurex_cash_eti_t7_v11_0_dissect.order_exec_report_broadcast = function(buffer, o
   eurex_cash_eti_t7_v11_0_dissect.order_exec_report_broadcast_fields(buffer, offset, packet, parent, size_of_order_exec_report_broadcast)
 
   return offset + size_of_order_exec_report_broadcast
+end
+
+-- Read runtime size of: Order Exec Notification
+eurex_cash_eti_t7_v11_0_size_of.order_exec_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Order Exec Notification
@@ -17088,13 +17413,8 @@ end
 
 -- Dissect: Order Exec Notification
 eurex_cash_eti_t7_v11_0_dissect.order_exec_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_exec_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_order_exec_notification = eurex_cash_eti_t7_v11_0_size_of.order_exec_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_exec_notification then
@@ -17152,6 +17472,15 @@ eurex_cash_eti_t7_v11_0_dissect.orig_time = function(buffer, offset, packet, par
   return offset + length, value
 end
 
+-- Read runtime size of: News Broadcast
+eurex_cash_eti_t7_v11_0_size_of.news_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: News Broadcast
 eurex_cash_eti_t7_v11_0_display.news_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -17187,13 +17516,8 @@ end
 
 -- Dissect: News Broadcast
 eurex_cash_eti_t7_v11_0_dissect.news_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_news_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_news_broadcast = eurex_cash_eti_t7_v11_0_size_of.news_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.news_broadcast then
@@ -17225,6 +17549,15 @@ eurex_cash_eti_t7_v11_0_dissect.enrichment_rule_id = function(buffer, offset, pa
   parent:add(eurex_cash_eti_t7_v11_0.fields.enrichment_rule_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: New Order Single Short Request
+eurex_cash_eti_t7_v11_0_size_of.new_order_single_short_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: New Order Single Short Request
@@ -17316,13 +17649,8 @@ end
 
 -- Dissect: New Order Single Short Request
 eurex_cash_eti_t7_v11_0_dissect.new_order_single_short_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_single_short_request = body_len - 6
+  -- Parse runtime size
+  local size_of_new_order_single_short_request = eurex_cash_eti_t7_v11_0_size_of.new_order_single_short_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_short_request then
@@ -17334,6 +17662,15 @@ eurex_cash_eti_t7_v11_0_dissect.new_order_single_short_request = function(buffer
   eurex_cash_eti_t7_v11_0_dissect.new_order_single_short_request_fields(buffer, offset, packet, parent, size_of_new_order_single_short_request)
 
   return offset + size_of_new_order_single_short_request
+end
+
+-- Read runtime size of: New Order Single Request
+eurex_cash_eti_t7_v11_0_size_of.new_order_single_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: New Order Single Request
@@ -17482,13 +17819,8 @@ end
 
 -- Dissect: New Order Single Request
 eurex_cash_eti_t7_v11_0_dissect.new_order_single_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_single_request = body_len - 6
+  -- Parse runtime size
+  local size_of_new_order_single_request = eurex_cash_eti_t7_v11_0_size_of.new_order_single_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_single_request then
@@ -17500,6 +17832,15 @@ eurex_cash_eti_t7_v11_0_dissect.new_order_single_request = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.new_order_single_request_fields(buffer, offset, packet, parent, size_of_new_order_single_request)
 
   return offset + size_of_new_order_single_request
+end
+
+-- Read runtime size of: New Order Response
+eurex_cash_eti_t7_v11_0_size_of.new_order_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: New Order Response
@@ -17578,13 +17919,8 @@ end
 
 -- Dissect: New Order Response
 eurex_cash_eti_t7_v11_0_dissect.new_order_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_response = body_len - 6
+  -- Parse runtime size
+  local size_of_new_order_response = eurex_cash_eti_t7_v11_0_size_of.new_order_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_response then
@@ -17596,6 +17932,15 @@ eurex_cash_eti_t7_v11_0_dissect.new_order_response = function(buffer, offset, pa
   eurex_cash_eti_t7_v11_0_dissect.new_order_response_fields(buffer, offset, packet, parent, size_of_new_order_response)
 
   return offset + size_of_new_order_response
+end
+
+-- Read runtime size of: New Order Nr Response
+eurex_cash_eti_t7_v11_0_size_of.new_order_nr_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: New Order Nr Response
@@ -17668,13 +18013,8 @@ end
 
 -- Dissect: New Order Nr Response
 eurex_cash_eti_t7_v11_0_dissect.new_order_nr_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_nr_response = body_len - 6
+  -- Parse runtime size
+  local size_of_new_order_nr_response = eurex_cash_eti_t7_v11_0_size_of.new_order_nr_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_nr_response then
@@ -17755,6 +18095,15 @@ eurex_cash_eti_t7_v11_0_dissect.side_alloc_grp_comp = function(buffer, offset, p
   return eurex_cash_eti_t7_v11_0_dissect.side_alloc_grp_comp_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Modify Tes Trade Request
+eurex_cash_eti_t7_v11_0_size_of.modify_tes_trade_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Modify Tes Trade Request
 eurex_cash_eti_t7_v11_0_display.modify_tes_trade_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -17819,13 +18168,8 @@ end
 
 -- Dissect: Modify Tes Trade Request
 eurex_cash_eti_t7_v11_0_dissect.modify_tes_trade_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_tes_trade_request = body_len - 6
+  -- Parse runtime size
+  local size_of_modify_tes_trade_request = eurex_cash_eti_t7_v11_0_size_of.modify_tes_trade_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_tes_trade_request then
@@ -17837,6 +18181,15 @@ eurex_cash_eti_t7_v11_0_dissect.modify_tes_trade_request = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.modify_tes_trade_request_fields(buffer, offset, packet, parent, size_of_modify_tes_trade_request)
 
   return offset + size_of_modify_tes_trade_request
+end
+
+-- Read runtime size of: Modify Order Single Short Request
+eurex_cash_eti_t7_v11_0_size_of.modify_order_single_short_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Modify Order Single Short Request
@@ -17931,13 +18284,8 @@ end
 
 -- Dissect: Modify Order Single Short Request
 eurex_cash_eti_t7_v11_0_dissect.modify_order_single_short_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_single_short_request = body_len - 6
+  -- Parse runtime size
+  local size_of_modify_order_single_short_request = eurex_cash_eti_t7_v11_0_size_of.modify_order_single_short_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_short_request then
@@ -18003,6 +18351,15 @@ eurex_cash_eti_t7_v11_0_dissect.stop_px_indicator = function(buffer, offset, pac
   parent:add(eurex_cash_eti_t7_v11_0.fields.stop_px_indicator, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Modify Order Single Request
+eurex_cash_eti_t7_v11_0_size_of.modify_order_single_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Modify Order Single Request
@@ -18157,13 +18514,8 @@ end
 
 -- Dissect: Modify Order Single Request
 eurex_cash_eti_t7_v11_0_dissect.modify_order_single_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_single_request = body_len - 6
+  -- Parse runtime size
+  local size_of_modify_order_single_request = eurex_cash_eti_t7_v11_0_size_of.modify_order_single_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_single_request then
@@ -18175,6 +18527,15 @@ eurex_cash_eti_t7_v11_0_dissect.modify_order_single_request = function(buffer, o
   eurex_cash_eti_t7_v11_0_dissect.modify_order_single_request_fields(buffer, offset, packet, parent, size_of_modify_order_single_request)
 
   return offset + size_of_modify_order_single_request
+end
+
+-- Read runtime size of: Modify Order Response
+eurex_cash_eti_t7_v11_0_size_of.modify_order_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Modify Order Response
@@ -18262,13 +18623,8 @@ end
 
 -- Dissect: Modify Order Response
 eurex_cash_eti_t7_v11_0_dissect.modify_order_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_response = body_len - 6
+  -- Parse runtime size
+  local size_of_modify_order_response = eurex_cash_eti_t7_v11_0_size_of.modify_order_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_response then
@@ -18280,6 +18636,15 @@ eurex_cash_eti_t7_v11_0_dissect.modify_order_response = function(buffer, offset,
   eurex_cash_eti_t7_v11_0_dissect.modify_order_response_fields(buffer, offset, packet, parent, size_of_modify_order_response)
 
   return offset + size_of_modify_order_response
+end
+
+-- Read runtime size of: Modify Order Nr Response
+eurex_cash_eti_t7_v11_0_size_of.modify_order_nr_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Modify Order Nr Response
@@ -18364,13 +18729,8 @@ end
 
 -- Dissect: Modify Order Nr Response
 eurex_cash_eti_t7_v11_0_dissect.modify_order_nr_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_nr_response = body_len - 6
+  -- Parse runtime size
+  local size_of_modify_order_nr_response = eurex_cash_eti_t7_v11_0_size_of.modify_order_nr_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_nr_response then
@@ -18702,6 +19062,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_response_id = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Read runtime size of: Mass Quote Response
+eurex_cash_eti_t7_v11_0_size_of.mass_quote_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Mass Quote Response
 eurex_cash_eti_t7_v11_0_display.mass_quote_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -18742,13 +19111,8 @@ end
 
 -- Dissect: Mass Quote Response
 eurex_cash_eti_t7_v11_0_dissect.mass_quote_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_mass_quote_response = body_len - 6
+  -- Parse runtime size
+  local size_of_mass_quote_response = eurex_cash_eti_t7_v11_0_size_of.mass_quote_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_response then
@@ -18817,6 +19181,15 @@ eurex_cash_eti_t7_v11_0_dissect.quote_entry_grp_comp = function(buffer, offset, 
   end
 
   return eurex_cash_eti_t7_v11_0_dissect.quote_entry_grp_comp_fields(buffer, offset, packet, parent)
+end
+
+-- Read runtime size of: Mass Quote Request
+eurex_cash_eti_t7_v11_0_size_of.mass_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Mass Quote Request
@@ -18898,13 +19271,8 @@ end
 
 -- Dissect: Mass Quote Request
 eurex_cash_eti_t7_v11_0_dissect.mass_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_mass_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_mass_quote_request = eurex_cash_eti_t7_v11_0_size_of.mass_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.mass_quote_request then
@@ -18916,6 +19284,15 @@ eurex_cash_eti_t7_v11_0_dissect.mass_quote_request = function(buffer, offset, pa
   eurex_cash_eti_t7_v11_0_dissect.mass_quote_request_fields(buffer, offset, packet, parent, size_of_mass_quote_request)
 
   return offset + size_of_mass_quote_request
+end
+
+-- Read runtime size of: Logout Response
+eurex_cash_eti_t7_v11_0_size_of.logout_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Logout Response
@@ -18938,13 +19315,8 @@ end
 
 -- Dissect: Logout Response
 eurex_cash_eti_t7_v11_0_dissect.logout_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_logout_response = body_len - 6
+  -- Parse runtime size
+  local size_of_logout_response = eurex_cash_eti_t7_v11_0_size_of.logout_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logout_response then
@@ -18956,6 +19328,15 @@ eurex_cash_eti_t7_v11_0_dissect.logout_response = function(buffer, offset, packe
   eurex_cash_eti_t7_v11_0_dissect.logout_response_fields(buffer, offset, packet, parent, size_of_logout_response)
 
   return offset + size_of_logout_response
+end
+
+-- Read runtime size of: Logout Request
+eurex_cash_eti_t7_v11_0_size_of.logout_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Logout Request
@@ -18981,13 +19362,8 @@ end
 
 -- Dissect: Logout Request
 eurex_cash_eti_t7_v11_0_dissect.logout_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_logout_request = body_len - 6
+  -- Parse runtime size
+  local size_of_logout_request = eurex_cash_eti_t7_v11_0_size_of.logout_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logout_request then
@@ -19121,6 +19497,15 @@ eurex_cash_eti_t7_v11_0_dissect.heart_bt_int = function(buffer, offset, packet, 
   return offset + length, value
 end
 
+-- Read runtime size of: Logon Response
+eurex_cash_eti_t7_v11_0_size_of.logon_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Logon Response
 eurex_cash_eti_t7_v11_0_display.logon_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -19171,13 +19556,8 @@ end
 
 -- Dissect: Logon Response
 eurex_cash_eti_t7_v11_0_dissect.logon_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_logon_response = body_len - 6
+  -- Parse runtime size
+  local size_of_logon_response = eurex_cash_eti_t7_v11_0_size_of.logon_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logon_response then
@@ -19404,6 +19784,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_usage_orders = function(buffer, offset, pac
   return offset + length, value
 end
 
+-- Read runtime size of: Logon Request
+eurex_cash_eti_t7_v11_0_size_of.logon_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Logon Request
 eurex_cash_eti_t7_v11_0_display.logon_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -19469,13 +19858,8 @@ end
 
 -- Dissect: Logon Request
 eurex_cash_eti_t7_v11_0_dissect.logon_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_logon_request = body_len - 6
+  -- Parse runtime size
+  local size_of_logon_request = eurex_cash_eti_t7_v11_0_size_of.logon_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logon_request then
@@ -19519,6 +19903,15 @@ eurex_cash_eti_t7_v11_0_dissect.user_status = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Read runtime size of: Legal Notification Broadcast
+eurex_cash_eti_t7_v11_0_size_of.legal_notification_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Legal Notification Broadcast
 eurex_cash_eti_t7_v11_0_display.legal_notification_broadcast = function(buffer, offset, size, packet, parent)
   return ""
@@ -19554,13 +19947,8 @@ end
 
 -- Dissect: Legal Notification Broadcast
 eurex_cash_eti_t7_v11_0_dissect.legal_notification_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_legal_notification_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_legal_notification_broadcast = eurex_cash_eti_t7_v11_0_size_of.legal_notification_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.legal_notification_broadcast then
@@ -19572,6 +19960,15 @@ eurex_cash_eti_t7_v11_0_dissect.legal_notification_broadcast = function(buffer, 
   eurex_cash_eti_t7_v11_0_dissect.legal_notification_broadcast_fields(buffer, offset, packet, parent, size_of_legal_notification_broadcast)
 
   return offset + size_of_legal_notification_broadcast
+end
+
+-- Read runtime size of: Issuer Security State Change Response
+eurex_cash_eti_t7_v11_0_size_of.issuer_security_state_change_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Issuer Security State Change Response
@@ -19597,13 +19994,8 @@ end
 
 -- Dissect: Issuer Security State Change Response
 eurex_cash_eti_t7_v11_0_dissect.issuer_security_state_change_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_issuer_security_state_change_response = body_len - 6
+  -- Parse runtime size
+  local size_of_issuer_security_state_change_response = eurex_cash_eti_t7_v11_0_size_of.issuer_security_state_change_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.issuer_security_state_change_response then
@@ -19792,6 +20184,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_events = function(buffer, offset, packet, par
   return offset + length, value
 end
 
+-- Read runtime size of: Issuer Security State Change Request
+eurex_cash_eti_t7_v11_0_size_of.issuer_security_state_change_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Issuer Security State Change Request
 eurex_cash_eti_t7_v11_0_display.issuer_security_state_change_request = function(buffer, offset, size, packet, parent)
   return ""
@@ -19841,13 +20242,8 @@ end
 
 -- Dissect: Issuer Security State Change Request
 eurex_cash_eti_t7_v11_0_dissect.issuer_security_state_change_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_issuer_security_state_change_request = body_len - 6
+  -- Parse runtime size
+  local size_of_issuer_security_state_change_request = eurex_cash_eti_t7_v11_0_size_of.issuer_security_state_change_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.issuer_security_state_change_request then
@@ -19940,6 +20336,15 @@ eurex_cash_eti_t7_v11_0_dissect.potential_exec_volume = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Issuer Notification
+eurex_cash_eti_t7_v11_0_size_of.issuer_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Issuer Notification
 eurex_cash_eti_t7_v11_0_display.issuer_notification = function(buffer, offset, size, packet, parent)
   return ""
@@ -19990,13 +20395,8 @@ end
 
 -- Dissect: Issuer Notification
 eurex_cash_eti_t7_v11_0_dissect.issuer_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_issuer_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_issuer_notification = eurex_cash_eti_t7_v11_0_size_of.issuer_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.issuer_notification then
@@ -20202,6 +20602,15 @@ eurex_cash_eti_t7_v11_0_dissect.last_entity_processed = function(buffer, offset,
   return offset + length, value
 end
 
+-- Read runtime size of: Inquire User Response
+eurex_cash_eti_t7_v11_0_size_of.inquire_user_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Inquire User Response
 eurex_cash_eti_t7_v11_0_display.inquire_user_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -20236,13 +20645,8 @@ end
 
 -- Dissect: Inquire User Response
 eurex_cash_eti_t7_v11_0_dissect.inquire_user_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_user_response = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_user_response = eurex_cash_eti_t7_v11_0_size_of.inquire_user_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_response then
@@ -20254,6 +20658,15 @@ eurex_cash_eti_t7_v11_0_dissect.inquire_user_response = function(buffer, offset,
   eurex_cash_eti_t7_v11_0_dissect.inquire_user_response_fields(buffer, offset, packet, parent, size_of_inquire_user_response)
 
   return offset + size_of_inquire_user_response
+end
+
+-- Read runtime size of: Inquire User Request
+eurex_cash_eti_t7_v11_0_size_of.inquire_user_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Inquire User Request
@@ -20282,13 +20695,8 @@ end
 
 -- Dissect: Inquire User Request
 eurex_cash_eti_t7_v11_0_dissect.inquire_user_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_user_request = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_user_request = eurex_cash_eti_t7_v11_0_size_of.inquire_user_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_user_request then
@@ -20434,6 +20842,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_sessions = function(buffer, offset, packet, p
   return offset + length, value
 end
 
+-- Read runtime size of: Inquire Session List Response
+eurex_cash_eti_t7_v11_0_size_of.inquire_session_list_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Inquire Session List Response
 eurex_cash_eti_t7_v11_0_display.inquire_session_list_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -20465,13 +20882,8 @@ end
 
 -- Dissect: Inquire Session List Response
 eurex_cash_eti_t7_v11_0_dissect.inquire_session_list_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_session_list_response = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_session_list_response = eurex_cash_eti_t7_v11_0_size_of.inquire_session_list_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_response then
@@ -20483,6 +20895,15 @@ eurex_cash_eti_t7_v11_0_dissect.inquire_session_list_response = function(buffer,
   eurex_cash_eti_t7_v11_0_dissect.inquire_session_list_response_fields(buffer, offset, packet, parent, size_of_inquire_session_list_response)
 
   return offset + size_of_inquire_session_list_response
+end
+
+-- Read runtime size of: Inquire Session List Request
+eurex_cash_eti_t7_v11_0_size_of.inquire_session_list_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Inquire Session List Request
@@ -20508,13 +20929,8 @@ end
 
 -- Dissect: Inquire Session List Request
 eurex_cash_eti_t7_v11_0_dissect.inquire_session_list_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_session_list_request = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_session_list_request = eurex_cash_eti_t7_v11_0_size_of.inquire_session_list_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_session_list_request then
@@ -20546,6 +20962,15 @@ eurex_cash_eti_t7_v11_0_dissect.party_executing_unit = function(buffer, offset, 
   parent:add(eurex_cash_eti_t7_v11_0.fields.party_executing_unit, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Inquire Pre Trade Risk Limits Request
+eurex_cash_eti_t7_v11_0_size_of.inquire_pre_trade_risk_limits_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Inquire Pre Trade Risk Limits Request
@@ -20583,13 +21008,8 @@ end
 
 -- Dissect: Inquire Pre Trade Risk Limits Request
 eurex_cash_eti_t7_v11_0_dissect.inquire_pre_trade_risk_limits_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_pre_trade_risk_limits_request = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_pre_trade_risk_limits_request = eurex_cash_eti_t7_v11_0_size_of.inquire_pre_trade_risk_limits_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_pre_trade_risk_limits_request then
@@ -20680,6 +21100,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_enrichment_rules = function(buffer, offset, p
   return offset + length, value
 end
 
+-- Read runtime size of: Inquire Enrichment Rule Id List Response
+eurex_cash_eti_t7_v11_0_size_of.inquire_enrichment_rule_id_list_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Inquire Enrichment Rule Id List Response
 eurex_cash_eti_t7_v11_0_display.inquire_enrichment_rule_id_list_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -20714,13 +21143,8 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Response
 eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_response = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_enrichment_rule_id_list_response = eurex_cash_eti_t7_v11_0_size_of.inquire_enrichment_rule_id_list_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_response then
@@ -20732,6 +21156,15 @@ eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_response = funct
   eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_response_fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_response)
 
   return offset + size_of_inquire_enrichment_rule_id_list_response
+end
+
+-- Read runtime size of: Inquire Enrichment Rule Id List Request
+eurex_cash_eti_t7_v11_0_size_of.inquire_enrichment_rule_id_list_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Inquire Enrichment Rule Id List Request
@@ -20760,13 +21193,8 @@ end
 
 -- Dissect: Inquire Enrichment Rule Id List Request
 eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_inquire_enrichment_rule_id_list_request = body_len - 6
+  -- Parse runtime size
+  local size_of_inquire_enrichment_rule_id_list_request = eurex_cash_eti_t7_v11_0_size_of.inquire_enrichment_rule_id_list_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.inquire_enrichment_rule_id_list_request then
@@ -20778,6 +21206,15 @@ eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_request = functi
   eurex_cash_eti_t7_v11_0_dissect.inquire_enrichment_rule_id_list_request_fields(buffer, offset, packet, parent, size_of_inquire_enrichment_rule_id_list_request)
 
   return offset + size_of_inquire_enrichment_rule_id_list_request
+end
+
+-- Read runtime size of: Heartbeat Notification
+eurex_cash_eti_t7_v11_0_size_of.heartbeat_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Heartbeat Notification
@@ -20800,13 +21237,8 @@ end
 
 -- Dissect: Heartbeat Notification
 eurex_cash_eti_t7_v11_0_dissect.heartbeat_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_heartbeat_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_heartbeat_notification = eurex_cash_eti_t7_v11_0_size_of.heartbeat_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat_notification then
@@ -20818,6 +21250,15 @@ eurex_cash_eti_t7_v11_0_dissect.heartbeat_notification = function(buffer, offset
   eurex_cash_eti_t7_v11_0_dissect.heartbeat_notification_fields(buffer, offset, packet, parent, size_of_heartbeat_notification)
 
   return offset + size_of_heartbeat_notification
+end
+
+-- Read runtime size of: Heartbeat
+eurex_cash_eti_t7_v11_0_size_of.heartbeat = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Heartbeat
@@ -20840,13 +21281,8 @@ end
 
 -- Dissect: Heartbeat
 eurex_cash_eti_t7_v11_0_dissect.heartbeat = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_heartbeat = body_len - 6
+  -- Parse runtime size
+  local size_of_heartbeat = eurex_cash_eti_t7_v11_0_size_of.heartbeat(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
@@ -20858,6 +21294,15 @@ eurex_cash_eti_t7_v11_0_dissect.heartbeat = function(buffer, offset, packet, par
   eurex_cash_eti_t7_v11_0_dissect.heartbeat_fields(buffer, offset, packet, parent, size_of_heartbeat)
 
   return offset + size_of_heartbeat
+end
+
+-- Read runtime size of: Forced User Logout Notification
+eurex_cash_eti_t7_v11_0_size_of.forced_user_logout_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Forced User Logout Notification
@@ -20895,13 +21340,8 @@ end
 
 -- Dissect: Forced User Logout Notification
 eurex_cash_eti_t7_v11_0_dissect.forced_user_logout_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_forced_user_logout_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_forced_user_logout_notification = eurex_cash_eti_t7_v11_0_size_of.forced_user_logout_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.forced_user_logout_notification then
@@ -20913,6 +21353,15 @@ eurex_cash_eti_t7_v11_0_dissect.forced_user_logout_notification = function(buffe
   eurex_cash_eti_t7_v11_0_dissect.forced_user_logout_notification_fields(buffer, offset, packet, parent, size_of_forced_user_logout_notification)
 
   return offset + size_of_forced_user_logout_notification
+end
+
+-- Read runtime size of: Forced Logout Notification
+eurex_cash_eti_t7_v11_0_size_of.forced_logout_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Forced Logout Notification
@@ -20944,13 +21393,8 @@ end
 
 -- Dissect: Forced Logout Notification
 eurex_cash_eti_t7_v11_0_dissect.forced_logout_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_forced_logout_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_forced_logout_notification = eurex_cash_eti_t7_v11_0_size_of.forced_logout_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.forced_logout_notification then
@@ -20962,6 +21406,15 @@ eurex_cash_eti_t7_v11_0_dissect.forced_logout_notification = function(buffer, of
   eurex_cash_eti_t7_v11_0_dissect.forced_logout_notification_fields(buffer, offset, packet, parent, size_of_forced_logout_notification)
 
   return offset + size_of_forced_logout_notification
+end
+
+-- Read runtime size of: Extended Deletion Report
+eurex_cash_eti_t7_v11_0_size_of.extended_deletion_report = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Extended Deletion Report
@@ -21125,13 +21578,8 @@ end
 
 -- Dissect: Extended Deletion Report
 eurex_cash_eti_t7_v11_0_dissect.extended_deletion_report = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_extended_deletion_report = body_len - 6
+  -- Parse runtime size
+  local size_of_extended_deletion_report = eurex_cash_eti_t7_v11_0_size_of.extended_deletion_report(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.extended_deletion_report then
@@ -21143,6 +21591,15 @@ eurex_cash_eti_t7_v11_0_dissect.extended_deletion_report = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.extended_deletion_report_fields(buffer, offset, packet, parent, size_of_extended_deletion_report)
 
   return offset + size_of_extended_deletion_report
+end
+
+-- Read runtime size of: Enter Tes Trade Request
+eurex_cash_eti_t7_v11_0_size_of.enter_tes_trade_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Enter Tes Trade Request
@@ -21209,13 +21666,8 @@ end
 
 -- Dissect: Enter Tes Trade Request
 eurex_cash_eti_t7_v11_0_dissect.enter_tes_trade_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_enter_tes_trade_request = body_len - 6
+  -- Parse runtime size
+  local size_of_enter_tes_trade_request = eurex_cash_eti_t7_v11_0_size_of.enter_tes_trade_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.enter_tes_trade_request then
@@ -21227,6 +21679,15 @@ eurex_cash_eti_t7_v11_0_dissect.enter_tes_trade_request = function(buffer, offse
   eurex_cash_eti_t7_v11_0_dissect.enter_tes_trade_request_fields(buffer, offset, packet, parent, size_of_enter_tes_trade_request)
 
   return offset + size_of_enter_tes_trade_request
+end
+
+-- Read runtime size of: Delete Tes Trade Request
+eurex_cash_eti_t7_v11_0_size_of.delete_tes_trade_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete Tes Trade Request
@@ -21273,13 +21734,8 @@ end
 
 -- Dissect: Delete Tes Trade Request
 eurex_cash_eti_t7_v11_0_dissect.delete_tes_trade_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_tes_trade_request = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_tes_trade_request = eurex_cash_eti_t7_v11_0_size_of.delete_tes_trade_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_tes_trade_request then
@@ -21291,6 +21747,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_tes_trade_request = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.delete_tes_trade_request_fields(buffer, offset, packet, parent, size_of_delete_tes_trade_request)
 
   return offset + size_of_delete_tes_trade_request
+end
+
+-- Read runtime size of: Delete Order Single Request
+eurex_cash_eti_t7_v11_0_size_of.delete_order_single_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete Order Single Request
@@ -21361,13 +21826,8 @@ end
 
 -- Dissect: Delete Order Single Request
 eurex_cash_eti_t7_v11_0_dissect.delete_order_single_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_order_single_request = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_order_single_request = eurex_cash_eti_t7_v11_0_size_of.delete_order_single_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_single_request then
@@ -21379,6 +21839,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_order_single_request = function(buffer, o
   eurex_cash_eti_t7_v11_0_dissect.delete_order_single_request_fields(buffer, offset, packet, parent, size_of_delete_order_single_request)
 
   return offset + size_of_delete_order_single_request
+end
+
+-- Read runtime size of: Delete Order Response
+eurex_cash_eti_t7_v11_0_size_of.delete_order_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete Order Response
@@ -21440,13 +21909,8 @@ end
 
 -- Dissect: Delete Order Response
 eurex_cash_eti_t7_v11_0_dissect.delete_order_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_order_response = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_order_response = eurex_cash_eti_t7_v11_0_size_of.delete_order_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_response then
@@ -21458,6 +21922,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_order_response = function(buffer, offset,
   eurex_cash_eti_t7_v11_0_dissect.delete_order_response_fields(buffer, offset, packet, parent, size_of_delete_order_response)
 
   return offset + size_of_delete_order_response
+end
+
+-- Read runtime size of: Delete Order Nr Response
+eurex_cash_eti_t7_v11_0_size_of.delete_order_nr_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete Order Nr Response
@@ -21519,13 +21992,8 @@ end
 
 -- Dissect: Delete Order Nr Response
 eurex_cash_eti_t7_v11_0_dissect.delete_order_nr_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_order_nr_response = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_order_nr_response = eurex_cash_eti_t7_v11_0_size_of.delete_order_nr_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_nr_response then
@@ -21537,6 +22005,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_order_nr_response = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.delete_order_nr_response_fields(buffer, offset, packet, parent, size_of_delete_order_nr_response)
 
   return offset + size_of_delete_order_nr_response
+end
+
+-- Read runtime size of: Delete Order Broadcast
+eurex_cash_eti_t7_v11_0_size_of.delete_order_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete Order Broadcast
@@ -21625,13 +22102,8 @@ end
 
 -- Dissect: Delete Order Broadcast
 eurex_cash_eti_t7_v11_0_dissect.delete_order_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_order_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_order_broadcast = eurex_cash_eti_t7_v11_0_size_of.delete_order_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_order_broadcast then
@@ -21643,6 +22115,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_order_broadcast = function(buffer, offset
   eurex_cash_eti_t7_v11_0_dissect.delete_order_broadcast_fields(buffer, offset, packet, parent, size_of_delete_order_broadcast)
 
   return offset + size_of_delete_order_broadcast
+end
+
+-- Read runtime size of: Delete All Quote Response
+eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Quote Response
@@ -21679,13 +22160,8 @@ end
 
 -- Dissect: Delete All Quote Response
 eurex_cash_eti_t7_v11_0_dissect.delete_all_quote_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_quote_response = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_quote_response = eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_response then
@@ -21697,6 +22173,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_quote_response = function(buffer, off
   eurex_cash_eti_t7_v11_0_dissect.delete_all_quote_response_fields(buffer, offset, packet, parent, size_of_delete_all_quote_response)
 
   return offset + size_of_delete_all_quote_response
+end
+
+-- Read runtime size of: Delete All Quote Request
+eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Quote Request
@@ -21743,13 +22228,8 @@ end
 
 -- Dissect: Delete All Quote Request
 eurex_cash_eti_t7_v11_0_dissect.delete_all_quote_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_quote_request = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_quote_request = eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_request then
@@ -21781,6 +22261,15 @@ eurex_cash_eti_t7_v11_0_dissect.target_party_id_desk_id = function(buffer, offse
   parent:add(eurex_cash_eti_t7_v11_0.fields.target_party_id_desk_id, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Delete All Quote Broadcast
+eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Quote Broadcast
@@ -21841,13 +22330,8 @@ end
 
 -- Dissect: Delete All Quote Broadcast
 eurex_cash_eti_t7_v11_0_dissect.delete_all_quote_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_quote_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_quote_broadcast = eurex_cash_eti_t7_v11_0_size_of.delete_all_quote_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_quote_broadcast then
@@ -21943,6 +22427,15 @@ eurex_cash_eti_t7_v11_0_dissect.no_affected_order_requests = function(buffer, of
   return offset + length, value
 end
 
+-- Read runtime size of: Delete All Order Response
+eurex_cash_eti_t7_v11_0_size_of.delete_all_order_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
+end
+
 -- Display: Delete All Order Response
 eurex_cash_eti_t7_v11_0_display.delete_all_order_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -21993,13 +22486,8 @@ end
 
 -- Dissect: Delete All Order Response
 eurex_cash_eti_t7_v11_0_dissect.delete_all_order_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_order_response = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_order_response = eurex_cash_eti_t7_v11_0_size_of.delete_all_order_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_response then
@@ -22011,6 +22499,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_order_response = function(buffer, off
   eurex_cash_eti_t7_v11_0_dissect.delete_all_order_response_fields(buffer, offset, packet, parent, size_of_delete_all_order_response)
 
   return offset + size_of_delete_all_order_response
+end
+
+-- Read runtime size of: Delete All Order Request
+eurex_cash_eti_t7_v11_0_size_of.delete_all_order_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Order Request
@@ -22069,13 +22566,8 @@ end
 
 -- Dissect: Delete All Order Request
 eurex_cash_eti_t7_v11_0_dissect.delete_all_order_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_order_request = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_order_request = eurex_cash_eti_t7_v11_0_size_of.delete_all_order_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_request then
@@ -22087,6 +22579,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_order_request = function(buffer, offs
   eurex_cash_eti_t7_v11_0_dissect.delete_all_order_request_fields(buffer, offset, packet, parent, size_of_delete_all_order_request)
 
   return offset + size_of_delete_all_order_request
+end
+
+-- Read runtime size of: Delete All Order Quote Event Broadcast
+eurex_cash_eti_t7_v11_0_size_of.delete_all_order_quote_event_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Order Quote Event Broadcast
@@ -22127,13 +22628,8 @@ end
 
 -- Dissect: Delete All Order Quote Event Broadcast
 eurex_cash_eti_t7_v11_0_dissect.delete_all_order_quote_event_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_order_quote_event_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_order_quote_event_broadcast = eurex_cash_eti_t7_v11_0_size_of.delete_all_order_quote_event_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_quote_event_broadcast then
@@ -22145,6 +22641,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_order_quote_event_broadcast = functio
   eurex_cash_eti_t7_v11_0_dissect.delete_all_order_quote_event_broadcast_fields(buffer, offset, packet, parent, size_of_delete_all_order_quote_event_broadcast)
 
   return offset + size_of_delete_all_order_quote_event_broadcast
+end
+
+-- Read runtime size of: Delete All Order Nr Response
+eurex_cash_eti_t7_v11_0_size_of.delete_all_order_nr_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Order Nr Response
@@ -22170,13 +22675,8 @@ end
 
 -- Dissect: Delete All Order Nr Response
 eurex_cash_eti_t7_v11_0_dissect.delete_all_order_nr_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_order_nr_response = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_order_nr_response = eurex_cash_eti_t7_v11_0_size_of.delete_all_order_nr_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_nr_response then
@@ -22188,6 +22688,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_order_nr_response = function(buffer, 
   eurex_cash_eti_t7_v11_0_dissect.delete_all_order_nr_response_fields(buffer, offset, packet, parent, size_of_delete_all_order_nr_response)
 
   return offset + size_of_delete_all_order_nr_response
+end
+
+-- Read runtime size of: Delete All Order Broadcast
+eurex_cash_eti_t7_v11_0_size_of.delete_all_order_broadcast = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Delete All Order Broadcast
@@ -22270,13 +22779,8 @@ end
 
 -- Dissect: Delete All Order Broadcast
 eurex_cash_eti_t7_v11_0_dissect.delete_all_order_broadcast = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_delete_all_order_broadcast = body_len - 6
+  -- Parse runtime size
+  local size_of_delete_all_order_broadcast = eurex_cash_eti_t7_v11_0_size_of.delete_all_order_broadcast(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.delete_all_order_broadcast then
@@ -22288,6 +22792,15 @@ eurex_cash_eti_t7_v11_0_dissect.delete_all_order_broadcast = function(buffer, of
   eurex_cash_eti_t7_v11_0_dissect.delete_all_order_broadcast_fields(buffer, offset, packet, parent, size_of_delete_all_order_broadcast)
 
   return offset + size_of_delete_all_order_broadcast
+end
+
+-- Read runtime size of: Cross Request Response
+eurex_cash_eti_t7_v11_0_size_of.cross_request_response = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Cross Request Response
@@ -22313,13 +22826,8 @@ end
 
 -- Dissect: Cross Request Response
 eurex_cash_eti_t7_v11_0_dissect.cross_request_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cross_request_response = body_len - 6
+  -- Parse runtime size
+  local size_of_cross_request_response = eurex_cash_eti_t7_v11_0_size_of.cross_request_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cross_request_response then
@@ -22331,6 +22839,15 @@ eurex_cash_eti_t7_v11_0_dissect.cross_request_response = function(buffer, offset
   eurex_cash_eti_t7_v11_0_dissect.cross_request_response_fields(buffer, offset, packet, parent, size_of_cross_request_response)
 
   return offset + size_of_cross_request_response
+end
+
+-- Read runtime size of: Cross Request
+eurex_cash_eti_t7_v11_0_size_of.cross_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Cross Request
@@ -22368,13 +22885,8 @@ end
 
 -- Dissect: Cross Request
 eurex_cash_eti_t7_v11_0_dissect.cross_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cross_request = body_len - 6
+  -- Parse runtime size
+  local size_of_cross_request = eurex_cash_eti_t7_v11_0_size_of.cross_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cross_request then
@@ -22410,6 +22922,15 @@ eurex_cash_eti_t7_v11_0_dissect.appl_id_status = function(buffer, offset, packet
   parent:add(eurex_cash_eti_t7_v11_0.fields.appl_id_status, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Broadcast Error Notification
+eurex_cash_eti_t7_v11_0_size_of.broadcast_error_notification = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Broadcast Error Notification
@@ -22453,13 +22974,8 @@ end
 
 -- Dissect: Broadcast Error Notification
 eurex_cash_eti_t7_v11_0_dissect.broadcast_error_notification = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_broadcast_error_notification = body_len - 6
+  -- Parse runtime size
+  local size_of_broadcast_error_notification = eurex_cash_eti_t7_v11_0_size_of.broadcast_error_notification(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.broadcast_error_notification then
@@ -22471,6 +22987,15 @@ eurex_cash_eti_t7_v11_0_dissect.broadcast_error_notification = function(buffer, 
   eurex_cash_eti_t7_v11_0_dissect.broadcast_error_notification_fields(buffer, offset, packet, parent, size_of_broadcast_error_notification)
 
   return offset + size_of_broadcast_error_notification
+end
+
+-- Read runtime size of: Approve Tes Trade Request
+eurex_cash_eti_t7_v11_0_size_of.approve_tes_trade_request = function(buffer, offset)
+
+  -- Dependency element: Body Len
+  local body_len = buffer(offset - 6, 4):le_uint()
+
+  return body_len - 6
 end
 
 -- Display: Approve Tes Trade Request
@@ -22571,13 +23096,8 @@ end
 
 -- Dissect: Approve Tes Trade Request
 eurex_cash_eti_t7_v11_0_dissect.approve_tes_trade_request = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Body Len
-  local body_len = buffer(offset - 6, 4):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_approve_tes_trade_request = body_len - 6
+  -- Parse runtime size
+  local size_of_approve_tes_trade_request = eurex_cash_eti_t7_v11_0_size_of.approve_tes_trade_request(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.approve_tes_trade_request then

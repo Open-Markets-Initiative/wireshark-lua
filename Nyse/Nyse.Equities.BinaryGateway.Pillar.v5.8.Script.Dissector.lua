@@ -9076,6 +9076,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header = function(buffer, of
   return nyse_equities_binarygateway_pillar_v5_8_dissect.msg_header_fields(buffer, offset, packet, parent)
 end
 
+-- Read runtime size of: Seq Msg
+nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Seq Msg
 nyse_equities_binarygateway_pillar_v5_8_display.seq_msg = function(buffer, offset, size, packet, parent)
   return ""
@@ -9108,13 +9117,8 @@ end
 
 -- Dissect: Seq Msg
 nyse_equities_binarygateway_pillar_v5_8_dissect.seq_msg = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_seq_msg = msg_length
+  -- Parse runtime size
+  local size_of_seq_msg = nyse_equities_binarygateway_pillar_v5_8_size_of.seq_msg(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.seq_msg then
@@ -9155,6 +9159,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.status = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Close Response
+nyse_equities_binarygateway_pillar_v5_8_size_of.close_response = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Close Response
 nyse_equities_binarygateway_pillar_v5_8_display.close_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -9178,13 +9191,8 @@ end
 
 -- Dissect: Close Response
 nyse_equities_binarygateway_pillar_v5_8_dissect.close_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_close_response = msg_length
+  -- Parse runtime size
+  local size_of_close_response = nyse_equities_binarygateway_pillar_v5_8_size_of.close_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.close_response then
@@ -9196,6 +9204,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.close_response = function(buffer
   nyse_equities_binarygateway_pillar_v5_8_dissect.close_response_fields(buffer, offset, packet, parent, size_of_close_response)
 
   return offset + size_of_close_response
+end
+
+-- Read runtime size of: Close
+nyse_equities_binarygateway_pillar_v5_8_size_of.close = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
 end
 
 -- Display: Close
@@ -9218,13 +9235,8 @@ end
 
 -- Dissect: Close
 nyse_equities_binarygateway_pillar_v5_8_dissect.close = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_close = msg_length
+  -- Parse runtime size
+  local size_of_close = nyse_equities_binarygateway_pillar_v5_8_size_of.close(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.close then
@@ -9258,6 +9270,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.access = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Open Response
+nyse_equities_binarygateway_pillar_v5_8_size_of.open_response = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Open Response
 nyse_equities_binarygateway_pillar_v5_8_display.open_response = function(buffer, offset, size, packet, parent)
   return ""
@@ -9284,13 +9305,8 @@ end
 
 -- Dissect: Open Response
 nyse_equities_binarygateway_pillar_v5_8_dissect.open_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_open_response = msg_length
+  -- Parse runtime size
+  local size_of_open_response = nyse_equities_binarygateway_pillar_v5_8_size_of.open_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.open_response then
@@ -9364,6 +9380,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.start_seq = function(buffer, off
   return offset + length, value
 end
 
+-- Read runtime size of: Open
+nyse_equities_binarygateway_pillar_v5_8_size_of.open = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Open
 nyse_equities_binarygateway_pillar_v5_8_display.open = function(buffer, offset, size, packet, parent)
   return ""
@@ -9396,13 +9421,8 @@ end
 
 -- Dissect: Open
 nyse_equities_binarygateway_pillar_v5_8_dissect.open = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_open = msg_length
+  -- Parse runtime size
+  local size_of_open = nyse_equities_binarygateway_pillar_v5_8_size_of.open(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.open then
@@ -9414,6 +9434,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.open = function(buffer, offset, 
   nyse_equities_binarygateway_pillar_v5_8_dissect.open_fields(buffer, offset, packet, parent, size_of_open)
 
   return offset + size_of_open
+end
+
+-- Read runtime size of: Heartbeat
+nyse_equities_binarygateway_pillar_v5_8_size_of.heartbeat = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
 end
 
 -- Display: Heartbeat
@@ -9433,13 +9462,8 @@ end
 
 -- Dissect: Heartbeat
 nyse_equities_binarygateway_pillar_v5_8_dissect.heartbeat = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_heartbeat = msg_length
+  -- Parse runtime size
+  local size_of_heartbeat = nyse_equities_binarygateway_pillar_v5_8_size_of.heartbeat(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.heartbeat then
@@ -9473,6 +9497,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.next_seq = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Stream Avail
+nyse_equities_binarygateway_pillar_v5_8_size_of.stream_avail = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Stream Avail
 nyse_equities_binarygateway_pillar_v5_8_display.stream_avail = function(buffer, offset, size, packet, parent)
   return ""
@@ -9499,13 +9532,8 @@ end
 
 -- Dissect: Stream Avail
 nyse_equities_binarygateway_pillar_v5_8_dissect.stream_avail = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_stream_avail = msg_length
+  -- Parse runtime size
+  local size_of_stream_avail = nyse_equities_binarygateway_pillar_v5_8_size_of.stream_avail(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.stream_avail then
@@ -9517,6 +9545,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.stream_avail = function(buffer, 
   nyse_equities_binarygateway_pillar_v5_8_dissect.stream_avail_fields(buffer, offset, packet, parent, size_of_stream_avail)
 
   return offset + size_of_stream_avail
+end
+
+-- Read runtime size of: Login Response
+nyse_equities_binarygateway_pillar_v5_8_size_of.login_response = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
 end
 
 -- Display: Login Response
@@ -9542,13 +9579,8 @@ end
 
 -- Dissect: Login Response
 nyse_equities_binarygateway_pillar_v5_8_dissect.login_response = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_login_response = msg_length
+  -- Parse runtime size
+  local size_of_login_response = nyse_equities_binarygateway_pillar_v5_8_size_of.login_response(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.login_response then
@@ -9634,6 +9666,15 @@ nyse_equities_binarygateway_pillar_v5_8_dissect.password = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Login Message
+nyse_equities_binarygateway_pillar_v5_8_size_of.login_message = function(buffer, offset)
+
+  -- Dependency element: Msg Length
+  local msg_length = buffer(index + 2, 2):le_uint()
+
+  return msg_length
+end
+
 -- Display: Login Message
 nyse_equities_binarygateway_pillar_v5_8_display.login_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -9663,13 +9704,8 @@ end
 
 -- Dissect: Login Message
 nyse_equities_binarygateway_pillar_v5_8_dissect.login_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Msg Length
-  local msg_length = buffer(index + 2, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_login_message = msg_length
+  -- Parse runtime size
+  local size_of_login_message = nyse_equities_binarygateway_pillar_v5_8_size_of.login_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.login_message then

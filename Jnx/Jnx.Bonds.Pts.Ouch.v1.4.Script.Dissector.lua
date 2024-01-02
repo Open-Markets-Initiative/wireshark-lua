@@ -944,6 +944,15 @@ jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_message_type = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Unsequenced Data Packet
+jnx_bonds_pts_ouch_v1_4_size_of.unsequenced_data_packet = function(buffer, offset)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
 -- Display: Unsequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_display.unsequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
@@ -964,13 +973,8 @@ end
 
 -- Dissect: Unsequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_dissect.unsequenced_data_packet = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_unsequenced_data_packet = packet_length - 1
+  -- Parse runtime size
+  local size_of_unsequenced_data_packet = jnx_bonds_pts_ouch_v1_4_size_of.unsequenced_data_packet(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.unsequenced_data_packet then
@@ -2130,6 +2134,15 @@ jnx_bonds_pts_ouch_v1_4_dissect.sequenced_message_type = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Sequenced Data Packet
+jnx_bonds_pts_ouch_v1_4_size_of.sequenced_data_packet = function(buffer, offset)
+
+  -- Dependency element: Packet Length
+  local packet_length = buffer(offset - 3, 2):uint()
+
+  return packet_length - 1
+end
+
 -- Display: Sequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_display.sequenced_data_packet = function(buffer, offset, size, packet, parent)
   return ""
@@ -2150,13 +2163,8 @@ end
 
 -- Dissect: Sequenced Data Packet
 jnx_bonds_pts_ouch_v1_4_dissect.sequenced_data_packet = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Packet Length
-  local packet_length = buffer(offset - 3, 2):uint()
-
-  -- Parse runtime struct size
-  local size_of_sequenced_data_packet = packet_length - 1
+  -- Parse runtime size
+  local size_of_sequenced_data_packet = jnx_bonds_pts_ouch_v1_4_size_of.sequenced_data_packet(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.sequenced_data_packet then

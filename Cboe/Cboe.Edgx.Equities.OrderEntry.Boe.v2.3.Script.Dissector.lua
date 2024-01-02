@@ -4105,6 +4105,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.transaction_time = function(buffe
   return offset + length, value
 end
 
+-- Read runtime size of: Purge Rejected Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Purge Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.purge_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4140,13 +4149,8 @@ end
 
 -- Dissect: Purge Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_rejected_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_purge_rejected_message = message_length - 8
+  -- Parse runtime size
+  local size_of_purge_rejected_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_message then
@@ -4180,6 +4184,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancelled_order_count = function(
   return offset + length, value
 end
 
+-- Read runtime size of: Mass Cancel Acknowledgment Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.mass_cancel_acknowledgment_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Mass Cancel Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.mass_cancel_acknowledgment_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -4206,13 +4219,8 @@ end
 
 -- Dissect: Mass Cancel Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.mass_cancel_acknowledgment_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_mass_cancel_acknowledgment_message = message_length - 8
+  -- Parse runtime size
+  local size_of_mass_cancel_acknowledgment_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.mass_cancel_acknowledgment_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.mass_cancel_acknowledgment_message then
@@ -6238,6 +6246,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cl_ord_id = function(buffer, offs
   return offset + length, value
 end
 
+-- Read runtime size of: Trade Cancel Or Correct Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Trade Cancel Or Correct Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.trade_cancel_or_correct_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -6300,13 +6317,8 @@ end
 
 -- Dissect: Trade Cancel Or Correct Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_trade_cancel_or_correct_message = message_length - 8
+  -- Parse runtime size
+  local size_of_trade_cancel_or_correct_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_message then
@@ -8867,6 +8879,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.exec_id = function(buffer, offset
   return offset + length, value
 end
 
+-- Read runtime size of: Order Execution Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Execution Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_execution_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -8920,13 +8941,8 @@ end
 
 -- Dissect: Order Execution Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_execution_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_execution_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_execution_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_execution_message then
@@ -10825,6 +10841,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_reject_reason = function(b
   return offset + length, value
 end
 
+-- Read runtime size of: Cancel Rejected Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Cancel Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.cancel_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -10863,13 +10888,8 @@ end
 
 -- Dissect: Cancel Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cancel_rejected_message = message_length - 8
+  -- Parse runtime size
+  local size_of_cancel_rejected_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_message then
@@ -13064,6 +13084,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.transact_time = function(buffer, 
   return offset + length, value
 end
 
+-- Read runtime size of: Order Cancelled Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Cancelled Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_cancelled_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -13099,13 +13128,8 @@ end
 
 -- Dissect: Order Cancelled Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_cancelled_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_cancelled_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_cancelled_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_message then
@@ -14908,6 +14932,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_reject_reason = function(b
   return offset + length, value
 end
 
+-- Read runtime size of: User Modify Rejected Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: User Modify Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.user_modify_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -14946,13 +14979,8 @@ end
 
 -- Dissect: User Modify Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_modify_rejected_message = message_length - 8
+  -- Parse runtime size
+  local size_of_user_modify_rejected_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_modify_rejected_message then
@@ -16952,6 +16980,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.restatement_reason = function(buf
   return offset + length, value
 end
 
+-- Read runtime size of: Order Restated Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Restated Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_restated_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -16990,13 +17027,8 @@ end
 
 -- Dissect: Order Restated Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_restated_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_restated_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_restated_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_restated_message then
@@ -18946,6 +18978,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_modified_optional_fields = 
   return offset + size_of_order_modified_optional_fields
 end
 
+-- Read runtime size of: Order Modified Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Modified Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_modified_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -18981,13 +19022,8 @@ end
 
 -- Dissect: Order Modified Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_modified_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_modified_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_modified_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_modified_message then
@@ -20998,6 +21034,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_reject_reason = function(bu
   return offset + length, value
 end
 
+-- Read runtime size of: Order Rejected Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_rejected_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -21036,13 +21081,8 @@ end
 
 -- Dissect: Order Rejected Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_rejected_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_rejected_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_rejected_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_rejected_message then
@@ -23008,6 +23048,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_optional_fie
   return offset + size_of_order_acknowledgment_optional_fields
 end
 
+-- Read runtime size of: Order Acknowledgment Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Order Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.order_acknowledgment_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -23043,13 +23092,8 @@ end
 
 -- Dissect: Order Acknowledgment Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_acknowledgment_message = message_length - 8
+  -- Parse runtime size
+  local size_of_order_acknowledgment_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgment_message then
@@ -23362,6 +23406,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_order_optional_fields = fun
   return offset + size_of_purge_order_optional_fields
 end
 
+-- Read runtime size of: Purge Order Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Purge Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.purge_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -23388,13 +23441,8 @@ end
 
 -- Dissect: Purge Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_order_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_purge_order_message = message_length - 8
+  -- Parse runtime size
+  local size_of_purge_order_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.purge_order_message then
@@ -23731,6 +23779,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_order_optional_fields = fu
   return offset + size_of_modify_order_optional_fields
 end
 
+-- Read runtime size of: Modify Order Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Modify Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.modify_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -23760,13 +23817,8 @@ end
 
 -- Dissect: Modify Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_order_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_message = message_length - 8
+  -- Parse runtime size
+  local size_of_modify_order_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_message then
@@ -24027,6 +24079,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_order_optional_fields = fu
   return offset + size_of_cancel_order_optional_fields
 end
 
+-- Read runtime size of: Cancel Order Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Cancel Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.cancel_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -24053,13 +24114,8 @@ end
 
 -- Dissect: Cancel Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_order_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cancel_order_message = message_length - 8
+  -- Parse runtime size
+  local size_of_cancel_order_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cancel_order_message then
@@ -25099,6 +25155,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.new_order_optional_fields = funct
   return offset + size_of_new_order_optional_fields
 end
 
+-- Read runtime size of: New Order Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: New Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.new_order_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -25131,13 +25196,8 @@ end
 
 -- Dissect: New Order Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.new_order_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_message = message_length - 8
+  -- Parse runtime size
+  local size_of_new_order_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_message then
@@ -25326,6 +25386,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.logout_reason = function(buffer, 
   return offset + length, value
 end
 
+-- Read runtime size of: Logout Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.logout_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Logout Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.logout_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -25357,13 +25426,8 @@ end
 
 -- Dissect: Logout Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.logout_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_logout_message = message_length - 8
+  -- Parse runtime size
+  local size_of_logout_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.logout_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.logout_message then
@@ -25375,6 +25439,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.logout_message = function(buffer,
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.logout_message_fields(buffer, offset, packet, parent, size_of_logout_message)
 
   return offset + size_of_logout_message
+end
+
+-- Read runtime size of: Purge Rejected Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Purge Rejected Bitfield Count
+  local purge_rejected_bitfield_count = buffer(offset, 1):le_uint()
+
+  return purge_rejected_bitfield_count + 1
 end
 
 -- Display: Purge Rejected Return Bitfields
@@ -25564,13 +25637,8 @@ end
 
 -- Dissect: Purge Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Purge Rejected Bitfield Count
-  local purge_rejected_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_purge_rejected_return_bitfields = purge_rejected_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_purge_rejected_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_rejected_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.purge_rejected_return_bitfields then
@@ -25582,6 +25650,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields =
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_rejected_return_bitfields)
 
   return offset + size_of_purge_rejected_return_bitfields
+end
+
+-- Read runtime size of: Trade Cancel Or Correct Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Trade Cancel Or Correct Bitfield Count
+  local trade_cancel_or_correct_bitfield_count = buffer(offset, 1):le_uint()
+
+  return trade_cancel_or_correct_bitfield_count + 1
 end
 
 -- Display: Trade Cancel Or Correct Return Bitfields
@@ -25771,13 +25848,8 @@ end
 
 -- Dissect: Trade Cancel Or Correct Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Trade Cancel Or Correct Bitfield Count
-  local trade_cancel_or_correct_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_trade_cancel_or_correct_return_bitfields = trade_cancel_or_correct_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_trade_cancel_or_correct_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.trade_cancel_or_correct_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.trade_cancel_or_correct_return_bitfields then
@@ -25789,6 +25861,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bi
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.trade_cancel_or_correct_return_bitfields_fields(buffer, offset, packet, parent, size_of_trade_cancel_or_correct_return_bitfields)
 
   return offset + size_of_trade_cancel_or_correct_return_bitfields
+end
+
+-- Read runtime size of: Order Execution Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Execution Bitfield Count
+  local order_execution_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_execution_bitfield_count + 1
 end
 
 -- Display: Order Execution Return Bitfields
@@ -25978,13 +26059,8 @@ end
 
 -- Dissect: Order Execution Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Execution Bitfield Count
-  local order_execution_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_execution_return_bitfields = order_execution_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_execution_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_execution_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_execution_return_bitfields then
@@ -25996,6 +26072,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields 
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_execution_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_execution_return_bitfields)
 
   return offset + size_of_order_execution_return_bitfields
+end
+
+-- Read runtime size of: Cancel Rejected Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Cancel Rejected Bitfield Count
+  local cancel_rejected_bitfield_count = buffer(offset, 1):le_uint()
+
+  return cancel_rejected_bitfield_count + 1
 end
 
 -- Display: Cancel Rejected Return Bitfields
@@ -26185,13 +26270,8 @@ end
 
 -- Dissect: Cancel Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Cancel Rejected Bitfield Count
-  local cancel_rejected_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cancel_rejected_return_bitfields = cancel_rejected_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_cancel_rejected_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_rejected_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cancel_rejected_return_bitfields then
@@ -26203,6 +26283,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields 
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_rejected_return_bitfields)
 
   return offset + size_of_cancel_rejected_return_bitfields
+end
+
+-- Read runtime size of: Order Cancelled Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Cancelled Bitfield Count
+  local order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_cancelled_bitfield_count + 1
 end
 
 -- Display: Order Cancelled Return Bitfields
@@ -26392,13 +26481,8 @@ end
 
 -- Dissect: Order Cancelled Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Cancelled Bitfield Count
-  local order_cancelled_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_cancelled_return_bitfields = order_cancelled_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_cancelled_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_cancelled_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_cancelled_return_bitfields then
@@ -26410,6 +26494,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields 
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_cancelled_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_cancelled_return_bitfields)
 
   return offset + size_of_order_cancelled_return_bitfields
+end
+
+-- Read runtime size of: User Modify Rejected Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: User Modify Rejected Bitfield Count
+  local user_modify_rejected_bitfield_count = buffer(offset, 1):le_uint()
+
+  return user_modify_rejected_bitfield_count + 1
 end
 
 -- Display: User Modify Rejected Return Bitfields
@@ -26599,13 +26692,8 @@ end
 
 -- Dissect: User Modify Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: User Modify Rejected Bitfield Count
-  local user_modify_rejected_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_user_modify_rejected_return_bitfields = user_modify_rejected_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_user_modify_rejected_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.user_modify_rejected_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.user_modify_rejected_return_bitfields then
@@ -26617,6 +26705,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfi
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.user_modify_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_user_modify_rejected_return_bitfields)
 
   return offset + size_of_user_modify_rejected_return_bitfields
+end
+
+-- Read runtime size of: Order Restated Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Restated Bitfield Count
+  local order_restated_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_restated_bitfield_count + 1
 end
 
 -- Display: Order Restated Return Bitfields
@@ -26806,13 +26903,8 @@ end
 
 -- Dissect: Order Restated Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Restated Bitfield Count
-  local order_restated_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_restated_return_bitfields = order_restated_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_restated_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_restated_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_restated_return_bitfields then
@@ -26824,6 +26916,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields =
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_restated_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_restated_return_bitfields)
 
   return offset + size_of_order_restated_return_bitfields
+end
+
+-- Read runtime size of: Order Modified Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Modified Bitfield Count
+  local order_modified_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_modified_bitfield_count + 1
 end
 
 -- Display: Order Modified Return Bitfields
@@ -27013,13 +27114,8 @@ end
 
 -- Dissect: Order Modified Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Modified Bitfield Count
-  local order_modified_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_modified_return_bitfields = order_modified_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_modified_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_modified_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_modified_return_bitfields then
@@ -27031,6 +27127,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields =
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_modified_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_modified_return_bitfields)
 
   return offset + size_of_order_modified_return_bitfields
+end
+
+-- Read runtime size of: Order Rejected Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Rejected Bitfield Count
+  local order_rejected_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_rejected_bitfield_count + 1
 end
 
 -- Display: Order Rejected Return Bitfields
@@ -27220,13 +27325,8 @@ end
 
 -- Dissect: Order Rejected Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Rejected Bitfield Count
-  local order_rejected_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_rejected_return_bitfields = order_rejected_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_rejected_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_rejected_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_rejected_return_bitfields then
@@ -27238,6 +27338,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields =
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_rejected_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_rejected_return_bitfields)
 
   return offset + size_of_order_rejected_return_bitfields
+end
+
+-- Read runtime size of: Order Acknowledgment Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Order Acknowledgment Bitfield Count
+  local order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
+
+  return order_acknowledgment_bitfield_count + 1
 end
 
 -- Display: Order Acknowledgment Return Bitfields
@@ -27427,13 +27536,8 @@ end
 
 -- Dissect: Order Acknowledgment Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Order Acknowledgment Bitfield Count
-  local order_acknowledgment_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_order_acknowledgment_return_bitfields = order_acknowledgment_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_order_acknowledgment_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.order_acknowledgment_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.order_acknowledgment_return_bitfields then
@@ -27445,6 +27549,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfi
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.order_acknowledgment_return_bitfields_fields(buffer, offset, packet, parent, size_of_order_acknowledgment_return_bitfields)
 
   return offset + size_of_order_acknowledgment_return_bitfields
+end
+
+-- Read runtime size of: Purge Order Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Purge Order Bitfield Count
+  local purge_order_bitfield_count = buffer(offset, 1):le_uint()
+
+  return purge_order_bitfield_count + 1
 end
 
 -- Display: Purge Order Return Bitfields
@@ -27484,13 +27597,8 @@ end
 
 -- Dissect: Purge Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Purge Order Bitfield Count
-  local purge_order_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_purge_order_return_bitfields = purge_order_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_purge_order_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.purge_order_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.purge_order_return_bitfields then
@@ -27502,6 +27610,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields = fu
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.purge_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_purge_order_return_bitfields)
 
   return offset + size_of_purge_order_return_bitfields
+end
+
+-- Read runtime size of: Modify Order Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Modify Order Bitfield Count
+  local modify_order_bitfield_count = buffer(offset, 1):le_uint()
+
+  return modify_order_bitfield_count + 1
 end
 
 -- Display: Modify Order Return Bitfields
@@ -27541,13 +27658,8 @@ end
 
 -- Dissect: Modify Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Modify Order Bitfield Count
-  local modify_order_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_modify_order_return_bitfields = modify_order_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_modify_order_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.modify_order_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.modify_order_return_bitfields then
@@ -27559,6 +27671,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields = f
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.modify_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_modify_order_return_bitfields)
 
   return offset + size_of_modify_order_return_bitfields
+end
+
+-- Read runtime size of: Cancel Order Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Cancel Order Bitfield Count
+  local cancel_order_bitfield_count = buffer(offset, 1):le_uint()
+
+  return cancel_order_bitfield_count + 1
 end
 
 -- Display: Cancel Order Return Bitfields
@@ -27598,13 +27719,8 @@ end
 
 -- Dissect: Cancel Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Cancel Order Bitfield Count
-  local cancel_order_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_cancel_order_return_bitfields = cancel_order_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_cancel_order_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.cancel_order_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.cancel_order_return_bitfields then
@@ -27616,6 +27732,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields = f
   cboe_edgx_equities_orderentry_boe_v2_3_dissect.cancel_order_return_bitfields_fields(buffer, offset, packet, parent, size_of_cancel_order_return_bitfields)
 
   return offset + size_of_cancel_order_return_bitfields
+end
+
+-- Read runtime size of: New Order Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_return_bitfields = function(buffer, offset)
+
+  -- Dependency element: New Order Bitfield Count
+  local new_order_bitfield_count = buffer(offset, 1):le_uint()
+
+  return new_order_bitfield_count + 1
 end
 
 -- Display: New Order Return Bitfields
@@ -27705,13 +27830,8 @@ end
 
 -- Dissect: New Order Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.new_order_return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: New Order Bitfield Count
-  local new_order_bitfield_count = buffer(offset, 1):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_new_order_return_bitfields = new_order_bitfield_count + 1
+  -- Parse runtime size
+  local size_of_new_order_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.new_order_return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.new_order_return_bitfields then
@@ -27937,6 +28057,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.application_message_type = functi
   return offset + length, value
 end
 
+-- Read runtime size of: Return Bitfields
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.return_bitfields = function(buffer, offset)
+
+  -- Dependency element: Param Group Length
+  local param_group_length = buffer(offset - 3, 2):le_uint()
+
+  return param_group_length - 3
+end
+
 -- Display: Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_display.return_bitfields = function(buffer, offset, size, packet, parent)
   return ""
@@ -27957,13 +28086,8 @@ end
 
 -- Dissect: Return Bitfields
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.return_bitfields = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Param Group Length
-  local param_group_length = buffer(offset - 3, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_return_bitfields = param_group_length - 3
+  -- Parse runtime size
+  local size_of_return_bitfields = cboe_edgx_equities_orderentry_boe_v2_3_size_of.return_bitfields(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.return_bitfields then
@@ -28323,6 +28447,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.login_response_status = function(
   return offset + length, value
 end
 
+-- Read runtime size of: Login Response Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_response_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Login Response Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.login_response_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -28370,13 +28503,8 @@ end
 
 -- Dissect: Login Response Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.login_response_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_login_response_message = message_length - 8
+  -- Parse runtime size
+  local size_of_login_response_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_response_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.login_response_message then
@@ -28450,6 +28578,15 @@ cboe_edgx_equities_orderentry_boe_v2_3_dissect.session_sub_id = function(buffer,
   return offset + length, value
 end
 
+-- Read runtime size of: Login Request Message
+cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_request_message = function(buffer, offset)
+
+  -- Dependency element: Message Length
+  local message_length = buffer(offset - 8, 2):le_uint()
+
+  return message_length - 8
+end
+
 -- Display: Login Request Message
 cboe_edgx_equities_orderentry_boe_v2_3_display.login_request_message = function(buffer, offset, size, packet, parent)
   return ""
@@ -28486,13 +28623,8 @@ end
 
 -- Dissect: Login Request Message
 cboe_edgx_equities_orderentry_boe_v2_3_dissect.login_request_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Dependency element: Message Length
-  local message_length = buffer(offset - 8, 2):le_uint()
-
-  -- Parse runtime struct size
-  local size_of_login_request_message = message_length - 8
+  -- Parse runtime size
+  local size_of_login_request_message = cboe_edgx_equities_orderentry_boe_v2_3_size_of.login_request_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
   if show.login_request_message then
