@@ -779,42 +779,6 @@ siac_opra_recipient_obi_v6_2_dissect.underlying_value_message = function(buffer,
   return siac_opra_recipient_obi_v6_2_dissect.underlying_value_message_fields(buffer, offset, packet, parent)
 end
 
--- Display: Message Data
-siac_opra_recipient_obi_v6_2_display.message_data = function(value)
-  return "Message Data: "..value
-end
-
--- Dissect runtime sized field: Message Data
-siac_opra_recipient_obi_v6_2_dissect.message_data = function(buffer, offset, packet, parent, size)
-  local range = buffer(offset, size)
-  local value = range:string()
-  local display = siac_opra_recipient_obi_v6_2_display.message_data(value, buffer, offset, packet, parent, size)
-
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
-
-  return offset + size
-end
-
--- Size: Message Data Length
-siac_opra_recipient_obi_v6_2_size_of.message_data_length = 2
-
--- Display: Message Data Length
-siac_opra_recipient_obi_v6_2_display.message_data_length = function(value)
-  return "Message Data Length: "..value
-end
-
--- Dissect: Message Data Length
-siac_opra_recipient_obi_v6_2_dissect.message_data_length = function(buffer, offset, packet, parent)
-  local length = siac_opra_recipient_obi_v6_2_size_of.message_data_length
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = siac_opra_recipient_obi_v6_2_display.message_data_length(value, buffer, offset, packet, parent)
-
-  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Control Message Type
 siac_opra_recipient_obi_v6_2_size_of.control_message_type = 1
 
@@ -922,7 +886,7 @@ end
 
 -- Dissect: Control Message
 siac_opra_recipient_obi_v6_2_dissect.control_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Optionally add struct element to protocol tree
   if show.control_message then
     local length = siac_opra_recipient_obi_v6_2_size_of.control_message(buffer, offset)
     local range = buffer(offset, length)
@@ -931,6 +895,42 @@ siac_opra_recipient_obi_v6_2_dissect.control_message = function(buffer, offset, 
   end
 
   return siac_opra_recipient_obi_v6_2_dissect.control_message_fields(buffer, offset, packet, parent)
+end
+
+-- Display: Message Data
+siac_opra_recipient_obi_v6_2_display.message_data = function(value)
+  return "Message Data: "..value
+end
+
+-- Dissect runtime sized field: Message Data
+siac_opra_recipient_obi_v6_2_dissect.message_data = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:string()
+  local display = siac_opra_recipient_obi_v6_2_display.message_data(value, buffer, offset, packet, parent, size)
+
+  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Message Data Length
+siac_opra_recipient_obi_v6_2_size_of.message_data_length = 2
+
+-- Display: Message Data Length
+siac_opra_recipient_obi_v6_2_display.message_data_length = function(value)
+  return "Message Data Length: "..value
+end
+
+-- Dissect: Message Data Length
+siac_opra_recipient_obi_v6_2_dissect.message_data_length = function(buffer, offset, packet, parent)
+  local length = siac_opra_recipient_obi_v6_2_size_of.message_data_length
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = siac_opra_recipient_obi_v6_2_display.message_data_length(value, buffer, offset, packet, parent)
+
+  parent:add(siac_opra_recipient_obi_v6_2.fields.message_data_length, range, value, display)
+
+  return offset + length, value
 end
 
 -- Size: Message Type
@@ -951,6 +951,15 @@ siac_opra_recipient_obi_v6_2_dissect.message_type = function(buffer, offset, pac
   parent:add(siac_opra_recipient_obi_v6_2.fields.message_type, range, value, display)
 
   return offset + length, value
+end
+
+-- Read runtime size of: Administrative Message
+siac_opra_recipient_obi_v6_2_size_of.administrative_message = function(buffer, offset)
+
+  -- Dependency element: Message Data Length
+  local message_data_length = buffer(offset + 10, 2):uint()
+
+  return message_data_length + 12
 end
 
 -- Display: Administrative Message
@@ -977,30 +986,22 @@ siac_opra_recipient_obi_v6_2_dissect.administrative_message_fields = function(bu
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = siac_opra_recipient_obi_v6_2_dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 1 Byte Ascii String
-  if message_data_length > 0 then
+  -- Runtime optional field exists: Message Data
+  local message_data_exists = message_data_length > 0
+
+  -- Runtime optional field: Message Data
+  if message_data_exists then
+
+    -- Message Data: 1 Byte Ascii String
     index = siac_opra_recipient_obi_v6_2_dissect.message_data(buffer, index, packet, parent, message_data_length)
   end
 
   return index
 end
 
--- Size of: Administrative Message
-siac_opra_recipient_obi_v6_2_size_of.administrative_message = function(buffer, offset, packet, parent)
-
-  -- Dependency element: Message Data Length
-  local message_data_length = buffer(offset + 10, 2):uint()
-
-  -- Parse runtime struct size
-  return message_data_length + 12
-end
-
-
 -- Dissect: Administrative Message
 siac_opra_recipient_obi_v6_2_dissect.administrative_message = function(buffer, offset, packet, parent)
-  local index = offset
-
-  -- Parse runtime struct size
+  -- Parse runtime size
   local size_of_administrative_message = siac_opra_recipient_obi_v6_2_size_of.administrative_message(buffer, offset)
 
   -- Optionally add struct element to protocol tree
@@ -1706,11 +1707,14 @@ siac_opra_recipient_obi_v6_2_size_of.short_equity_and_index_quote_message = func
 
   index = index + siac_opra_recipient_obi_v6_2_size_of.offer_size_short
 
-  local bbo_indicator = buffer(offset + 2, 1):string()
+  local bbo_indicator = buffer(offset + index - 26, 1):string()
+
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_bid_appendage(buffer, offset + index)
 
   end
+
+  local bbo_indicator = buffer(offset + index - 36, 1):string()
 
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_offer_appendage(buffer, offset + index)
@@ -2402,16 +2406,21 @@ siac_opra_recipient_obi_v6_2_size_of.long_equity_and_index_quote_message = funct
 
   index = index + siac_opra_recipient_obi_v6_2_size_of.offer_size
 
-  local bbo_indicator = buffer(offset + 2, 1):string()
+  local bbo_indicator = buffer(offset + index - 40, 1):string()
+
   if bbo_indicator == "M" or bbo_indicator == "N" or bbo_indicator == "P" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_bid_appendage(buffer, offset + index)
 
   end
 
+  local bbo_indicator = buffer(offset + index - 50, 1):string()
+
   if bbo_indicator == "C" or bbo_indicator == "G" or bbo_indicator == "K" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_offer_appendage(buffer, offset + index)
 
   end
+
+  local bbo_indicator = buffer(offset + index - 60, 1):string()
 
   if bbo_indicator == "O" then
     index = index + siac_opra_recipient_obi_v6_2_size_of.best_bid_and_offer_appendage(buffer, offset + index)

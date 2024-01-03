@@ -894,8 +894,13 @@ siac_opra_recipient_obi_v6_1_size_of.control_message = function(buffer, offset)
 
   index = index + siac_opra_recipient_obi_v6_1_size_of.message_data_length
 
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):uint()
+  local message_data_length = buffer(offset + index - 2, 2):uint()
+
+  if message_data_length > 0 then
+    -- Parse runtime size of: Message Data
+    index = index + buffer(offset + index - 2, 2):uint()
+
+  end
 
   return index
 end
@@ -924,8 +929,15 @@ siac_opra_recipient_obi_v6_1_dissect.control_message_fields = function(buffer, o
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = siac_opra_recipient_obi_v6_1_dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 1 Byte Ascii String
-  index = siac_opra_recipient_obi_v6_1_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  -- Runtime optional field exists: Message Data
+  local message_data_exists = message_data_length > 0
+
+  -- Runtime optional field: Message Data
+  if message_data_exists then
+
+    -- Message Data: 1 Byte Ascii String
+    index = siac_opra_recipient_obi_v6_1_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  end
 
   return index
 end
@@ -963,24 +975,13 @@ siac_opra_recipient_obi_v6_1_dissect.message_type = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Calculate size of: Administrative Message
+-- Read runtime size of: Administrative Message
 siac_opra_recipient_obi_v6_1_size_of.administrative_message = function(buffer, offset)
-  local index = 0
 
-  index = index + siac_opra_recipient_obi_v6_1_size_of.message_type
+  -- Dependency element: Message Data Length
+  local message_data_length = buffer(offset + 10, 2):uint()
 
-  index = index + siac_opra_recipient_obi_v6_1_size_of.message_indicator
-
-  index = index + siac_opra_recipient_obi_v6_1_size_of.transaction_id
-
-  index = index + siac_opra_recipient_obi_v6_1_size_of.participant_reference_number
-
-  index = index + siac_opra_recipient_obi_v6_1_size_of.message_data_length
-
-  -- Parse runtime size of: Message Data
-  index = index + buffer(offset + index - 2, 2):uint()
-
-  return index
+  return message_data_length + 12
 end
 
 -- Display: Administrative Message
@@ -989,7 +990,7 @@ siac_opra_recipient_obi_v6_1_display.administrative_message = function(buffer, o
 end
 
 -- Dissect Fields: Administrative Message
-siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields = function(buffer, offset, packet, parent)
+siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields = function(buffer, offset, packet, parent, size_of_administrative_message)
   local index = offset
 
   -- Message Type: 1 Byte Ascii String
@@ -1007,23 +1008,34 @@ siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields = function(bu
   -- Message Data Length: 2 Byte Unsigned Fixed Width Integer
   index, message_data_length = siac_opra_recipient_obi_v6_1_dissect.message_data_length(buffer, index, packet, parent)
 
-  -- Message Data: 1 Byte Ascii String
-  index = siac_opra_recipient_obi_v6_1_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  -- Runtime optional field exists: Message Data
+  local message_data_exists = message_data_length > 0
+
+  -- Runtime optional field: Message Data
+  if message_data_exists then
+
+    -- Message Data: 1 Byte Ascii String
+    index = siac_opra_recipient_obi_v6_1_dissect.message_data(buffer, index, packet, parent, message_data_length)
+  end
 
   return index
 end
 
 -- Dissect: Administrative Message
 siac_opra_recipient_obi_v6_1_dissect.administrative_message = function(buffer, offset, packet, parent)
-  -- Optionally add dynamic struct element to protocol tree
+  -- Parse runtime size
+  local size_of_administrative_message = siac_opra_recipient_obi_v6_1_size_of.administrative_message(buffer, offset)
+
+  -- Optionally add struct element to protocol tree
   if show.administrative_message then
-    local length = siac_opra_recipient_obi_v6_1_size_of.administrative_message(buffer, offset)
-    local range = buffer(offset, length)
+    local range = buffer(offset, size_of_administrative_message)
     local display = siac_opra_recipient_obi_v6_1_display.administrative_message(buffer, packet, parent)
     parent = parent:add(siac_opra_recipient_obi_v6_1.fields.administrative_message, range, display)
   end
 
-  return siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields(buffer, offset, packet, parent)
+  siac_opra_recipient_obi_v6_1_dissect.administrative_message_fields(buffer, offset, packet, parent, size_of_administrative_message)
+
+  return offset + size_of_administrative_message
 end
 
 -- Size: Price
