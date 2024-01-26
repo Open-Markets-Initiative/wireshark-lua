@@ -949,6 +949,9 @@ cme_futures_mdp3_sbe_v1_5_size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 cme_futures_mdp3_sbe_v1_5_display.aggressor_side = function(value)
+  if value == 255 then
+    return "Aggressor Side: No Value"
+  end
   if value == 0 then
     return "Aggressor Side: No Aggressor (0)"
   end
@@ -957,9 +960,6 @@ cme_futures_mdp3_sbe_v1_5_display.aggressor_side = function(value)
   end
   if value == 2 then
     return "Aggressor Side: Sell (2)"
-  end
-  if value == 255 then
-    return "Aggressor Side: No Value"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -3515,6 +3515,9 @@ cme_futures_mdp3_sbe_v1_5_size_of.md_security_trading_status = 1
 
 -- Display: Md Security Trading Status
 cme_futures_mdp3_sbe_v1_5_display.md_security_trading_status = function(value)
+  if value == 255 then
+    return "Md Security Trading Status: No Value"
+  end
   if value == 2 then
     return "Md Security Trading Status: Trading Halt (2)"
   end
@@ -3547,9 +3550,6 @@ cme_futures_mdp3_sbe_v1_5_display.md_security_trading_status = function(value)
   end
   if value == 103 then
     return "Md Security Trading Status: No Change (103)"
-  end
-  if value == 255 then
-    return "Md Security Trading Status: No Value"
   end
 
   return "Md Security Trading Status: Unknown("..value..")"
@@ -4295,14 +4295,14 @@ cme_futures_mdp3_sbe_v1_5_size_of.open_close_settl_flag = 1
 
 -- Display: Open Close Settl Flag
 cme_futures_mdp3_sbe_v1_5_display.open_close_settl_flag = function(value)
+  if value == 255 then
+    return "Open Close Settl Flag: No Value"
+  end
   if value == 0 then
     return "Open Close Settl Flag: Daily Open Price (0)"
   end
   if value == 5 then
     return "Open Close Settl Flag: Indicative Opening Price (5)"
-  end
-  if value == 255 then
-    return "Open Close Settl Flag: No Value"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -6041,6 +6041,9 @@ cme_futures_mdp3_sbe_v1_5_size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 cme_futures_mdp3_sbe_v1_5_display.security_trading_status = function(value)
+  if value == 255 then
+    return "Security Trading Status: No Value"
+  end
   if value == 2 then
     return "Security Trading Status: Trading Halt (2)"
   end
@@ -6073,9 +6076,6 @@ cme_futures_mdp3_sbe_v1_5_display.security_trading_status = function(value)
   end
   if value == 103 then
     return "Security Trading Status: No Change (103)"
-  end
-  if value == 255 then
-    return "Security Trading Status: No Value"
   end
 
   return "Security Trading Status: Unknown("..value..")"

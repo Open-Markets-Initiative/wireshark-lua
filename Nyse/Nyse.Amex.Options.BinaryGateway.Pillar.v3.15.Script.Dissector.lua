@@ -2094,6 +2094,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.threshold_breach_level = 1
 
 -- Display: Threshold Breach Level
 nyse_amex_options_binarygateway_pillar_v3_15_display.threshold_breach_level = function(value)
+  if value == 0 then
+    return "Threshold Breach Level: No Value"
+  end
   if value == 1 then
     return "Threshold Breach Level: Greater Than 50 Percent (1)"
   end
@@ -2105,9 +2108,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.threshold_breach_level = fu
   end
   if value == 4 then
     return "Threshold Breach Level: Greater Than 100 Percent (4)"
-  end
-  if value == 0 then
-    return "Threshold Breach Level: No Value"
   end
 
   return "Threshold Breach Level: Unknown("..value..")"
@@ -2130,6 +2130,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.risk_action_type = 1
 
 -- Display: Risk Action Type
 nyse_amex_options_binarygateway_pillar_v3_15_display.risk_action_type = function(value)
+  if value == 0 then
+    return "Risk Action Type: No Value"
+  end
   if value == 1 then
     return "Risk Action Type: Query Risk Entity For Current Risk Control Configscalculationsstatus (1)"
   end
@@ -2153,9 +2156,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.risk_action_type = function
   end
   if value == 8 then
     return "Risk Action Type: Risk Entity Reinstated All Necessary Reinstatement Approvals Received Reinstatement Processed (8)"
-  end
-  if value == 0 then
-    return "Risk Action Type: No Value"
   end
 
   return "Risk Action Type: Unknown("..value..")"
@@ -2278,14 +2278,14 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.ioc_attribution = 1
 
 -- Display: Ioc Attribution
 nyse_amex_options_binarygateway_pillar_v3_15_display.ioc_attribution = function(value)
+  if value == 0 then
+    return "Ioc Attribution: No Value"
+  end
   if value == 1 then
     return "Ioc Attribution: Include Ioc And Gtx Orders In Activitybased Calculations And Cancellations (1)"
   end
   if value == 2 then
     return "Ioc Attribution: Exclude Ioc And Gtx Orders From Activitybased Calculations And Cancellations (2)"
-  end
-  if value == 0 then
-    return "Ioc Attribution: No Value"
   end
 
   return "Ioc Attribution: Unknown("..value..")"
@@ -2308,6 +2308,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.breach_action_response = 1
 
 -- Display: Breach Action Response
 nyse_amex_options_binarygateway_pillar_v3_15_display.breach_action_response = function(value)
+  if value == 0 then
+    return "Breach Action Response: No Value"
+  end
   if value == 1 then
     return "Breach Action Response: Notification (1)"
   end
@@ -2316,9 +2319,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.breach_action_response = fu
   end
   if value == 3 then
     return "Breach Action Response: Block (3)"
-  end
-  if value == 0 then
-    return "Breach Action Response: No Value"
   end
 
   return "Breach Action Response: Unknown("..value..")"
@@ -2421,6 +2421,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.risk_control_type = 1
 
 -- Display: Risk Control Type
 nyse_amex_options_binarygateway_pillar_v3_15_display.risk_control_type = function(value)
+  if value == 0 then
+    return "Risk Control Type: No Value"
+  end
   if value == 1 then
     return "Risk Control Type: Single Order Max Qty (1)"
   end
@@ -2441,9 +2444,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.risk_control_type = functio
   end
   if value == 11 then
     return "Risk Control Type: Activitybased Global Risk Mitigation Protection For Transaction Volume Percentage (11)"
-  end
-  if value == 0 then
-    return "Risk Control Type: No Value"
   end
 
   return "Risk Control Type: Unknown("..value..")"
@@ -3931,14 +3931,14 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.open_close = 1
 
 -- Display: Open Close
 nyse_amex_options_binarygateway_pillar_v3_15_display.open_close = function(value)
+  if value == 0 then
+    return "Open Close: No Value"
+  end
   if value == 1 then
     return "Open Close: Open (1)"
   end
   if value == 2 then
     return "Open Close: Close (2)"
-  end
-  if value == 0 then
-    return "Open Close: No Value"
   end
 
   return "Open Close: Unknown("..value..")"
@@ -3981,14 +3981,14 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.covered_or_uncovered = 1
 
 -- Display: Covered Or Uncovered
 nyse_amex_options_binarygateway_pillar_v3_15_display.covered_or_uncovered = function(value)
+  if value == 0 then
+    return "Covered Or Uncovered: No Value"
+  end
   if value == 1 then
     return "Covered Or Uncovered: Exposed (1)"
   end
   if value == 2 then
     return "Covered Or Uncovered: Covered (2)"
-  end
-  if value == 0 then
-    return "Covered Or Uncovered: No Value"
   end
 
   return "Covered Or Uncovered: Unknown("..value..")"
@@ -4011,14 +4011,14 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.contra_covered_or_uncovered
 
 -- Display: Contra Covered Or Uncovered
 nyse_amex_options_binarygateway_pillar_v3_15_display.contra_covered_or_uncovered = function(value)
+  if value == 0 then
+    return "Contra Covered Or Uncovered: No Value"
+  end
   if value == 1 then
     return "Contra Covered Or Uncovered: Exposed (1)"
   end
   if value == 2 then
     return "Contra Covered Or Uncovered: Covered (2)"
-  end
-  if value == 0 then
-    return "Contra Covered Or Uncovered: No Value"
   end
 
   return "Contra Covered Or Uncovered: Unknown("..value..")"
@@ -4041,6 +4041,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.contra_cross_type = 2
 
 -- Display: Contra Cross Type
 nyse_amex_options_binarygateway_pillar_v3_15_display.contra_cross_type = function(value)
+  if value == 0 then
+    return "Contra Cross Type: No Value"
+  end
   if value == 5 then
     return "Contra Cross Type: Price Improvement Cube (5)"
   end
@@ -4052,9 +4055,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.contra_cross_type = functio
   end
   if value == 11 then
     return "Contra Cross Type: Customer To Customer Cross (11)"
-  end
-  if value == 0 then
-    return "Contra Cross Type: No Value"
   end
 
   return "Contra Cross Type: Unknown("..value..")"
@@ -4113,6 +4113,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.contra_customer_or_firm = 1
 
 -- Display: Contra Customer Or Firm
 nyse_amex_options_binarygateway_pillar_v3_15_display.contra_customer_or_firm = function(value)
+  if value == 0 then
+    return "Contra Customer Or Firm: No Value"
+  end
   if value == 1 then
     return "Contra Customer Or Firm: Customer (1)"
   end
@@ -4130,9 +4133,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.contra_customer_or_firm = f
   end
   if value == 6 then
     return "Contra Customer Or Firm: Prof Customer (6)"
-  end
-  if value == 0 then
-    return "Contra Customer Or Firm: No Value"
   end
 
   return "Contra Customer Or Firm: Unknown("..value..")"
@@ -4155,14 +4155,14 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.contra_open_close = 1
 
 -- Display: Contra Open Close
 nyse_amex_options_binarygateway_pillar_v3_15_display.contra_open_close = function(value)
+  if value == 0 then
+    return "Contra Open Close: No Value"
+  end
   if value == 1 then
     return "Contra Open Close: Open (1)"
   end
   if value == 2 then
     return "Contra Open Close: Close (2)"
-  end
-  if value == 0 then
-    return "Contra Open Close: No Value"
   end
 
   return "Contra Open Close: Unknown("..value..")"
@@ -4293,6 +4293,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.participant_type = 1
 
 -- Display: Participant Type
 nyse_amex_options_binarygateway_pillar_v3_15_display.participant_type = function(value)
+  if value == 0 then
+    return "Participant Type: No Value"
+  end
   if value == 1 then
     return "Participant Type: Customer (1)"
   end
@@ -4307,9 +4310,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.participant_type = function
   end
   if value == 5 then
     return "Participant Type: Nyse Floor Broker Nyse Chicago Ib (5)"
-  end
-  if value == 0 then
-    return "Participant Type: No Value"
   end
 
   return "Participant Type: Unknown("..value..")"
@@ -4399,6 +4399,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.multileg_reporting_type = 1
 
 -- Display: Multileg Reporting Type
 nyse_amex_options_binarygateway_pillar_v3_15_display.multileg_reporting_type = function(value)
+  if value == 0 then
+    return "Multileg Reporting Type: No Value"
+  end
   if value == 1 then
     return "Multileg Reporting Type: Singleleg Security (1)"
   end
@@ -4407,9 +4410,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.multileg_reporting_type = f
   end
   if value == 3 then
     return "Multileg Reporting Type: Multileg Security (3)"
-  end
-  if value == 0 then
-    return "Multileg Reporting Type: No Value"
   end
 
   return "Multileg Reporting Type: Unknown("..value..")"
@@ -5014,6 +5014,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.bulk_action = 1
 
 -- Display: Bulk Action
 nyse_amex_options_binarygateway_pillar_v3_15_display.bulk_action = function(value)
+  if value == 0 then
+    return "Bulk Action: No Value"
+  end
   if value == 1 then
     return "Bulk Action: Cancel Single Leg Only (1)"
   end
@@ -5028,9 +5031,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.bulk_action = function(valu
   end
   if value == 5 then
     return "Bulk Action: Unblock (5)"
-  end
-  if value == 0 then
-    return "Bulk Action: No Value"
   end
 
   return "Bulk Action: Unknown("..value..")"
@@ -5955,6 +5955,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.bold_designation = 1
 
 -- Display: Bold Designation
 nyse_amex_options_binarygateway_pillar_v3_15_display.bold_designation = function(value)
+  if value == 0 then
+    return "Bold Designation: No Value"
+  end
   if value == "4" then
     return "Bold Designation: Expose Order Info Only (4)"
   end
@@ -5969,9 +5972,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.bold_designation = function
   end
   if value == "8" then
     return "Bold Designation: No Bold Designation Defaulting (8)"
-  end
-  if value == 0 then
-    return "Bold Designation: No Value"
   end
 
   return "Bold Designation: Unknown("..value..")"
@@ -7689,6 +7689,9 @@ nyse_amex_options_binarygateway_pillar_v3_15_size_of.breach_action_request = 1
 
 -- Display: Breach Action Request
 nyse_amex_options_binarygateway_pillar_v3_15_display.breach_action_request = function(value)
+  if value == 0 then
+    return "Breach Action Request: No Value"
+  end
   if value == 1 then
     return "Breach Action Request: Notifications Only (1)"
   end
@@ -7697,9 +7700,6 @@ nyse_amex_options_binarygateway_pillar_v3_15_display.breach_action_request = fun
   end
   if value == 3 then
     return "Breach Action Request: Block Only (3)"
-  end
-  if value == 0 then
-    return "Breach Action Request: No Value"
   end
 
   return "Breach Action Request: Unknown("..value..")"

@@ -293,14 +293,14 @@ cme_futures_derived_sbe_v12_0_size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 cme_futures_derived_sbe_v12_0_display.aggressor_side = function(value)
+  if value == 255 then
+    return "Aggressor Side: No Value"
+  end
   if value == 1 then
     return "Aggressor Side: Buy (1)"
   end
   if value == 2 then
     return "Aggressor Side: Sell (2)"
-  end
-  if value == 255 then
-    return "Aggressor Side: No Value"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -323,6 +323,9 @@ cme_futures_derived_sbe_v12_0_size_of.trading_session_id = 1
 
 -- Display: Trading Session Id
 cme_futures_derived_sbe_v12_0_display.trading_session_id = function(value)
+  if value == 255 then
+    return "Trading Session Id: No Value"
+  end
   if value == 0 then
     return "Trading Session Id: Gl (0)"
   end
@@ -340,9 +343,6 @@ cme_futures_derived_sbe_v12_0_display.trading_session_id = function(value)
   end
   if value == 5 then
     return "Trading Session Id: Ny (5)"
-  end
-  if value == 255 then
-    return "Trading Session Id: No Value"
   end
 
   return "Trading Session Id: Unknown("..value..")"

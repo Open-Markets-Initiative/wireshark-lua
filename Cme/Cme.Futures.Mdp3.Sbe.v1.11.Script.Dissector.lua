@@ -847,6 +847,9 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_stream_id = 1
 
 -- Display: Md Stream Id
 cme_futures_mdp3_sbe_v1_11_display.md_stream_id = function(value)
+  if value == 255 then
+    return "Md Stream Id: No Value"
+  end
   if value == 0 then
     return "Md Stream Id: Market Place Assistant (0)"
   end
@@ -858,9 +861,6 @@ cme_futures_mdp3_sbe_v1_11_display.md_stream_id = function(value)
   end
   if value == 3 then
     return "Md Stream Id: Icap (3)"
-  end
-  if value == 255 then
-    return "Md Stream Id: No Value"
   end
 
   return "Md Stream Id: Unknown("..value..")"
@@ -955,14 +955,14 @@ cme_futures_mdp3_sbe_v1_11_size_of.underlying_security_alt_id_source = 1
 
 -- Display: Underlying Security Alt Id Source
 cme_futures_mdp3_sbe_v1_11_display.underlying_security_alt_id_source = function(value)
+  if value == 255 then
+    return "Underlying Security Alt Id Source: No Value"
+  end
   if value == 1 then
     return "Underlying Security Alt Id Source: Cusip (1)"
   end
   if value == 4 then
     return "Underlying Security Alt Id Source: Isin (4)"
-  end
-  if value == 255 then
-    return "Underlying Security Alt Id Source: No Value"
   end
 
   return "Underlying Security Alt Id Source: Unknown("..value..")"
@@ -1553,6 +1553,9 @@ cme_futures_mdp3_sbe_v1_11_size_of.open_close_settl_flag = 1
 
 -- Display: Open Close Settl Flag
 cme_futures_mdp3_sbe_v1_11_display.open_close_settl_flag = function(value)
+  if value == 255 then
+    return "Open Close Settl Flag: No Value"
+  end
   if value == 0 then
     return "Open Close Settl Flag: Daily Open Price (0)"
   end
@@ -1570,9 +1573,6 @@ cme_futures_mdp3_sbe_v1_11_display.open_close_settl_flag = function(value)
   end
   if value == 103 then
     return "Open Close Settl Flag: Prev Session Repo Average 10 Am (103)"
-  end
-  if value == 255 then
-    return "Open Close Settl Flag: No Value"
   end
 
   return "Open Close Settl Flag: Unknown("..value..")"
@@ -2052,14 +2052,14 @@ cme_futures_mdp3_sbe_v1_11_size_of.aggressor_indicator = 1
 
 -- Display: Aggressor Indicator
 cme_futures_mdp3_sbe_v1_11_display.aggressor_indicator = function(value)
+  if value == 255 then
+    return "Aggressor Indicator: No Value"
+  end
   if value == 0 then
     return "Aggressor Indicator: Not Aggressor (0)"
   end
   if value == 1 then
     return "Aggressor Indicator: Aggressor (1)"
-  end
-  if value == 255 then
-    return "Aggressor Indicator: No Value"
   end
 
   return "Aggressor Indicator: Unknown("..value..")"
@@ -3972,14 +3972,14 @@ cme_futures_mdp3_sbe_v1_11_size_of.money_or_par = 1
 
 -- Display: Money Or Par
 cme_futures_mdp3_sbe_v1_11_display.money_or_par = function(value)
+  if value == 255 then
+    return "Money Or Par: No Value"
+  end
   if value == 1 then
     return "Money Or Par: Money (1)"
   end
   if value == 2 then
     return "Money Or Par: Par (2)"
-  end
-  if value == 255 then
-    return "Money Or Par: No Value"
   end
 
   return "Money Or Par: Unknown("..value..")"
@@ -4773,6 +4773,9 @@ cme_futures_mdp3_sbe_v1_11_size_of.md_security_trading_status = 1
 
 -- Display: Md Security Trading Status
 cme_futures_mdp3_sbe_v1_11_display.md_security_trading_status = function(value)
+  if value == 255 then
+    return "Md Security Trading Status: No Value"
+  end
   if value == 2 then
     return "Md Security Trading Status: Trading Halt (2)"
   end
@@ -4811,9 +4814,6 @@ cme_futures_mdp3_sbe_v1_11_display.md_security_trading_status = function(value)
   end
   if value == 202 then
     return "Md Security Trading Status: Public Workup (202)"
-  end
-  if value == 255 then
-    return "Md Security Trading Status: No Value"
   end
 
   return "Md Security Trading Status: Unknown("..value..")"
@@ -5198,14 +5198,14 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_alt_id_source = 1
 
 -- Display: Security Alt Id Source
 cme_futures_mdp3_sbe_v1_11_display.security_alt_id_source = function(value)
+  if value == 255 then
+    return "Security Alt Id Source: No Value"
+  end
   if value == 1 then
     return "Security Alt Id Source: Cusip (1)"
   end
   if value == 4 then
     return "Security Alt Id Source: Isin (4)"
-  end
-  if value == 255 then
-    return "Security Alt Id Source: No Value"
   end
 
   return "Security Alt Id Source: Unknown("..value..")"
@@ -9138,6 +9138,9 @@ cme_futures_mdp3_sbe_v1_11_size_of.aggressor_side = 1
 
 -- Display: Aggressor Side
 cme_futures_mdp3_sbe_v1_11_display.aggressor_side = function(value)
+  if value == 255 then
+    return "Aggressor Side: No Value"
+  end
   if value == 0 then
     return "Aggressor Side: No Aggressor (0)"
   end
@@ -9146,9 +9149,6 @@ cme_futures_mdp3_sbe_v1_11_display.aggressor_side = function(value)
   end
   if value == 2 then
     return "Aggressor Side: Sell (2)"
-  end
-  if value == 255 then
-    return "Aggressor Side: No Value"
   end
 
   return "Aggressor Side: Unknown("..value..")"
@@ -10463,6 +10463,9 @@ cme_futures_mdp3_sbe_v1_11_size_of.security_trading_status = 1
 
 -- Display: Security Trading Status
 cme_futures_mdp3_sbe_v1_11_display.security_trading_status = function(value)
+  if value == 255 then
+    return "Security Trading Status: No Value"
+  end
   if value == 2 then
     return "Security Trading Status: Trading Halt (2)"
   end
@@ -10501,9 +10504,6 @@ cme_futures_mdp3_sbe_v1_11_display.security_trading_status = function(value)
   end
   if value == 202 then
     return "Security Trading Status: Public Workup (202)"
-  end
-  if value == 255 then
-    return "Security Trading Status: No Value"
   end
 
   return "Security Trading Status: Unknown("..value..")"
