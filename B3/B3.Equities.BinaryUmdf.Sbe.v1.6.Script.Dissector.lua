@@ -89,7 +89,6 @@ b3_equities_binaryumdf_sbe_v1_6.fields.leg_security_type = ProtoField.new("Leg S
 b3_equities_binaryumdf_sbe_v1_6.fields.leg_side = ProtoField.new("Leg Side", "b3.equities.binaryumdf.sbe.v1.6.legside", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_6.fields.leg_symbol = ProtoField.new("Leg Symbol", "b3.equities.binaryumdf.sbe.v1.6.legsymbol", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_6.fields.length = ProtoField.new("Length", "b3.equities.binaryumdf.sbe.v1.6.length", ftypes.UINT16)
-b3_equities_binaryumdf_sbe_v1_6.fields.length_text = ProtoField.new("Length Text", "b3.equities.binaryumdf.sbe.v1.6.lengthtext", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_6.fields.lot_type = ProtoField.new("Lot Type", "b3.equities.binaryumdf.sbe.v1.6.lottype", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_6.fields.low_limit_price = ProtoField.new("Low Limit Price", "b3.equities.binaryumdf.sbe.v1.6.lowlimitprice", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_6.fields.low_price_25_message = ProtoField.new("Low Price 25 Message", "b3.equities.binaryumdf.sbe.v1.6.lowprice25message", ftypes.STRING)
@@ -202,6 +201,7 @@ b3_equities_binaryumdf_sbe_v1_6.fields.strike_price = ProtoField.new("Strike Pri
 b3_equities_binaryumdf_sbe_v1_6.fields.symbol = ProtoField.new("Symbol", "b3.equities.binaryumdf.sbe.v1.6.symbol", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_6.fields.template_id = ProtoField.new("Template Id", "b3.equities.binaryumdf.sbe.v1.6.templateid", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_6.fields.text = ProtoField.new("Text", "b3.equities.binaryumdf.sbe.v1.6.text", ftypes.STRING)
+b3_equities_binaryumdf_sbe_v1_6.fields.text_length = ProtoField.new("Text Length", "b3.equities.binaryumdf.sbe.v1.6.textlength", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_6.fields.theoretical_opening_price_16_message = ProtoField.new("Theoretical Opening Price 16 Message", "b3.equities.binaryumdf.sbe.v1.6.theoreticalopeningprice16message", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_6.fields.tick_size_denominator = ProtoField.new("Tick Size Denominator", "b3.equities.binaryumdf.sbe.v1.6.ticksizedenominator", ftypes.UINT8)
 b3_equities_binaryumdf_sbe_v1_6.fields.tot_no_related_sym = ProtoField.new("Tot No Related Sym", "b3.equities.binaryumdf.sbe.v1.6.totnorelatedsym", ftypes.UINT32)
@@ -230,6 +230,7 @@ b3_equities_binaryumdf_sbe_v1_6.fields.underlying_symbol = ProtoField.new("Under
 b3_equities_binaryumdf_sbe_v1_6.fields.unused = ProtoField.new("Unused", "b3.equities.binaryumdf.sbe.v1.6.unused", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x40")
 b3_equities_binaryumdf_sbe_v1_6.fields.url_link = ProtoField.new("Url Link", "b3.equities.binaryumdf.sbe.v1.6.urllink", ftypes.STRING)
 b3_equities_binaryumdf_sbe_v1_6.fields.var_data = ProtoField.new("Var Data", "b3.equities.binaryumdf.sbe.v1.6.vardata", ftypes.BYTES)
+b3_equities_binaryumdf_sbe_v1_6.fields.var_text = ProtoField.new("Var Text", "b3.equities.binaryumdf.sbe.v1.6.vartext", ftypes.BYTES)
 b3_equities_binaryumdf_sbe_v1_6.fields.version = ProtoField.new("Version", "b3.equities.binaryumdf.sbe.v1.6.version", ftypes.UINT16)
 b3_equities_binaryumdf_sbe_v1_6.fields.vwap_px = ProtoField.new("Vwap Px", "b3.equities.binaryumdf.sbe.v1.6.vwappx", ftypes.DOUBLE)
 b3_equities_binaryumdf_sbe_v1_6.fields.week = ProtoField.new("Week", "b3.equities.binaryumdf.sbe.v1.6.week", ftypes.UINT8)
@@ -4714,22 +4715,38 @@ b3_equities_binaryumdf_sbe_v1_6_dissect.news_5_message = function(buffer, offset
   return b3_equities_binaryumdf_sbe_v1_6_dissect.news_5_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Length Text
-b3_equities_binaryumdf_sbe_v1_6_size_of.length_text = 1
-
--- Display: Length Text
-b3_equities_binaryumdf_sbe_v1_6_display.length_text = function(value)
-  return "Length Text: "..value
+-- Display: Var Text
+b3_equities_binaryumdf_sbe_v1_6_display.var_text = function(value)
+  return "Var Text: "..value
 end
 
--- Dissect: Length Text
-b3_equities_binaryumdf_sbe_v1_6_dissect.length_text = function(buffer, offset, packet, parent)
-  local length = b3_equities_binaryumdf_sbe_v1_6_size_of.length_text
+-- Dissect runtime sized field: Var Text
+b3_equities_binaryumdf_sbe_v1_6_dissect.var_text = function(buffer, offset, packet, parent, size)
+  local range = buffer(offset, size)
+  local value = range:bytes():tohex(false, " ")
+  local display = b3_equities_binaryumdf_sbe_v1_6_display.var_text(value, buffer, offset, packet, parent, size)
+
+  parent:add(b3_equities_binaryumdf_sbe_v1_6.fields.var_text, range, value, display)
+
+  return offset + size
+end
+
+-- Size: Text Length
+b3_equities_binaryumdf_sbe_v1_6_size_of.text_length = 1
+
+-- Display: Text Length
+b3_equities_binaryumdf_sbe_v1_6_display.text_length = function(value)
+  return "Text Length: "..value
+end
+
+-- Dissect: Text Length
+b3_equities_binaryumdf_sbe_v1_6_dissect.text_length = function(buffer, offset, packet, parent)
+  local length = b3_equities_binaryumdf_sbe_v1_6_size_of.text_length
   local range = buffer(offset, length)
   local value = range:le_uint()
-  local display = b3_equities_binaryumdf_sbe_v1_6_display.length_text(value, buffer, offset, packet, parent)
+  local display = b3_equities_binaryumdf_sbe_v1_6_display.text_length(value, buffer, offset, packet, parent)
 
-  parent:add(b3_equities_binaryumdf_sbe_v1_6.fields.length_text, range, value, display)
+  parent:add(b3_equities_binaryumdf_sbe_v1_6.fields.text_length, range, value, display)
 
   return offset + length, value
 end
@@ -4738,9 +4755,10 @@ end
 b3_equities_binaryumdf_sbe_v1_6_size_of.security_desc = function(buffer, offset)
   local index = 0
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6_size_of.length_text
+  index = index + b3_equities_binaryumdf_sbe_v1_6_size_of.text_length
 
-  index = index + b3_equities_binaryumdf_sbe_v1_6_size_of.var_data_char
+  -- Parse runtime size of: Var Text
+  index = index + buffer(offset + index - 1, 1):le_uint()
 
   return index
 end
@@ -4754,18 +4772,18 @@ end
 b3_equities_binaryumdf_sbe_v1_6_dissect.security_desc_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Length Text: 1 Byte Unsigned Fixed Width Integer
-  index, length_text = b3_equities_binaryumdf_sbe_v1_6_dissect.length_text(buffer, index, packet, parent)
+  -- Text Length: 1 Byte Unsigned Fixed Width Integer
+  index, text_length = b3_equities_binaryumdf_sbe_v1_6_dissect.text_length(buffer, index, packet, parent)
 
-  -- Var Data char
-  index, var_data_char = b3_equities_binaryumdf_sbe_v1_6_dissect.var_data_char(buffer, index, packet, parent)
+  -- Var Text: 0 Byte
+  index = b3_equities_binaryumdf_sbe_v1_6_dissect.var_text(buffer, index, packet, parent, text_length)
 
   return index
 end
 
 -- Dissect: Security Desc
 b3_equities_binaryumdf_sbe_v1_6_dissect.security_desc = function(buffer, offset, packet, parent)
-  -- Optionally add struct element to protocol tree
+  -- Optionally add dynamic struct element to protocol tree
   if show.security_desc then
     local length = b3_equities_binaryumdf_sbe_v1_6_size_of.security_desc(buffer, offset)
     local range = buffer(offset, length)
