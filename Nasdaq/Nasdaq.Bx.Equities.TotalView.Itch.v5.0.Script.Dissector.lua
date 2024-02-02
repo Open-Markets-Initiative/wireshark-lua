@@ -21,13 +21,13 @@ local translate = {}
 -----------------------------------------------------------------------
 
 -- Nasdaq Bx Equities TotalView Itch 5.0 Fields
-nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_mpid_attribution_message = ProtoField.new("Add Order Mpid Attribution Message", "nasdaq.bx.equities.totalview.itch.v5.0.addordermpidattributionmessage", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message = ProtoField.new("Add Order No Mpid Attribution Message", "nasdaq.bx.equities.totalview.itch.v5.0.addordernompidattributionmessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_mpid_attribution = ProtoField.new("Add Order Mpid Attribution", "nasdaq.bx.equities.totalview.itch.v5.0.addordermpidattribution", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution = ProtoField.new("Add Order No Mpid Attribution", "nasdaq.bx.equities.totalview.itch.v5.0.addordernompidattribution", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.auction_collar_extension = ProtoField.new("Auction Collar Extension", "nasdaq.bx.equities.totalview.itch.v5.0.auctioncollarextension", ftypes.UINT32)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.auction_collar_reference_price = ProtoField.new("Auction Collar Reference Price", "nasdaq.bx.equities.totalview.itch.v5.0.auctioncollarreferenceprice", ftypes.DOUBLE)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.authenticity = ProtoField.new("Authenticity", "nasdaq.bx.equities.totalview.itch.v5.0.authenticity", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.breached_level = ProtoField.new("Breached Level", "nasdaq.bx.equities.totalview.itch.v5.0.breachedlevel", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "nasdaq.bx.equities.totalview.itch.v5.0.brokentrademessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.broken_trade_order_execution_message = ProtoField.new("Broken Trade Order Execution Message", "nasdaq.bx.equities.totalview.itch.v5.0.brokentradeorderexecutionmessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.buy_sell_indicator = ProtoField.new("Buy Sell Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.buysellindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.cancelled_shares = ProtoField.new("Cancelled Shares", "nasdaq.bx.equities.totalview.itch.v5.0.cancelledshares", ftypes.UINT32)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.count = ProtoField.new("Count", "nasdaq.bx.equities.totalview.itch.v5.0.count", ftypes.UINT16)
@@ -54,12 +54,12 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.level_1 = ProtoField.new("Level 1"
 nasdaq_bx_equities_totalview_itch_v5_0.fields.level_2 = ProtoField.new("Level 2", "nasdaq.bx.equities.totalview.itch.v5.0.level2", ftypes.DOUBLE)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.level_3 = ProtoField.new("Level 3", "nasdaq.bx.equities.totalview.itch.v5.0.level3", ftypes.DOUBLE)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.lower_auction_collar_price = ProtoField.new("Lower Auction Collar Price", "nasdaq.bx.equities.totalview.itch.v5.0.lowerauctioncollarprice", ftypes.DOUBLE)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_auction_collar_message = ProtoField.new("Luld Auction Collar Message", "nasdaq.bx.equities.totalview.itch.v5.0.luldauctioncollarmessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_auction_collar = ProtoField.new("Luld Auction Collar", "nasdaq.bx.equities.totalview.itch.v5.0.luldauctioncollar", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_reference_price_tier = ProtoField.new("Luld Reference Price Tier", "nasdaq.bx.equities.totalview.itch.v5.0.luldreferencepricetier", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.market_category = ProtoField.new("Market Category", "nasdaq.bx.equities.totalview.itch.v5.0.marketcategory", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.market_code = ProtoField.new("Market Code", "nasdaq.bx.equities.totalview.itch.v5.0.marketcode", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.market_maker_mode = ProtoField.new("Market Maker Mode", "nasdaq.bx.equities.totalview.itch.v5.0.marketmakermode", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_position_message = ProtoField.new("Market Participant Position Message", "nasdaq.bx.equities.totalview.itch.v5.0.marketparticipantpositionmessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_position = ProtoField.new("Market Participant Position", "nasdaq.bx.equities.totalview.itch.v5.0.marketparticipantposition", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_state = ProtoField.new("Market Participant State", "nasdaq.bx.equities.totalview.itch.v5.0.marketparticipantstate", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.match_number = ProtoField.new("Match Number", "nasdaq.bx.equities.totalview.itch.v5.0.matchnumber", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.message = ProtoField.new("Message", "nasdaq.bx.equities.totalview.itch.v5.0.message", ftypes.STRING)
@@ -72,8 +72,8 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.near_price = ProtoField.new("Near 
 nasdaq_bx_equities_totalview_itch_v5_0.fields.net_order_imbalance_indicator_message = ProtoField.new("Net Order Imbalance Indicator Message", "nasdaq.bx.equities.totalview.itch.v5.0.netorderimbalanceindicatormessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.new_order_reference_number = ProtoField.new("New Order Reference Number", "nasdaq.bx.equities.totalview.itch.v5.0.neworderreferencenumber", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.non_cross_trade_message = ProtoField.new("Non Cross Trade Message", "nasdaq.bx.equities.totalview.itch.v5.0.noncrosstrademessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt = ProtoField.new("Operational Halt", "nasdaq.bx.equities.totalview.itch.v5.0.operationalhalt", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt_action = ProtoField.new("Operational Halt Action", "nasdaq.bx.equities.totalview.itch.v5.0.operationalhaltaction", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt_message = ProtoField.new("Operational Halt Message", "nasdaq.bx.equities.totalview.itch.v5.0.operationalhaltmessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.order_cancel_message = ProtoField.new("Order Cancel Message", "nasdaq.bx.equities.totalview.itch.v5.0.ordercancelmessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.order_delete_message = ProtoField.new("Order Delete Message", "nasdaq.bx.equities.totalview.itch.v5.0.orderdeletemessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.order_executed_message = ProtoField.new("Order Executed Message", "nasdaq.bx.equities.totalview.itch.v5.0.orderexecutedmessage", ftypes.STRING)
@@ -87,14 +87,14 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.paired_shares = ProtoField.new("Pa
 nasdaq_bx_equities_totalview_itch_v5_0.fields.payload = ProtoField.new("Payload", "nasdaq.bx.equities.totalview.itch.v5.0.payload", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.price = ProtoField.new("Price", "nasdaq.bx.equities.totalview.itch.v5.0.price", ftypes.DOUBLE)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.price_4 = ProtoField.new("Price 4", "nasdaq.bx.equities.totalview.itch.v5.0.price4", ftypes.DOUBLE)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.price_improvement_indicator = ProtoField.new("Price Improvement Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.priceimprovementindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.price_variation_indicator = ProtoField.new("Price Variation Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.pricevariationindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.primary_market_maker = ProtoField.new("Primary Market Maker", "nasdaq.bx.equities.totalview.itch.v5.0.primarymarketmaker", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.printable = ProtoField.new("Printable", "nasdaq.bx.equities.totalview.itch.v5.0.printable", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.reason = ProtoField.new("Reason", "nasdaq.bx.equities.totalview.itch.v5.0.reason", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_action = ProtoField.new("Reg Sho Action", "nasdaq.bx.equities.totalview.itch.v5.0.regshoaction", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "nasdaq.bx.equities.totalview.itch.v5.0.regshorestrictionmessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator = ProtoField.new("Reg Sho Short Sale Price Test Restricted Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.regshoshortsalepricetestrestrictedindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.reserved = ProtoField.new("Reserved", "nasdaq.bx.equities.totalview.itch.v5.0.reserved", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.retail_interest_message = ProtoField.new("Retail Interest Message", "nasdaq.bx.equities.totalview.itch.v5.0.retailinterestmessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.round_lot_size = ProtoField.new("Round Lot Size", "nasdaq.bx.equities.totalview.itch.v5.0.roundlotsize", ftypes.UINT32)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.round_lots_only = ProtoField.new("Round Lots Only", "nasdaq.bx.equities.totalview.itch.v5.0.roundlotsonly", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.sequence = ProtoField.new("Sequence", "nasdaq.bx.equities.totalview.itch.v5.0.sequence", ftypes.UINT64)
@@ -103,9 +103,9 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.shares = ProtoField.new("Shares", 
 nasdaq_bx_equities_totalview_itch_v5_0.fields.shares_long = ProtoField.new("Shares Long", "nasdaq.bx.equities.totalview.itch.v5.0.shareslong", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.short_sale_threshold_indicator = ProtoField.new("Short Sale Threshold Indicator", "nasdaq.bx.equities.totalview.itch.v5.0.shortsalethresholdindicator", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.stock = ProtoField.new("Stock", "nasdaq.bx.equities.totalview.itch.v5.0.stock", ftypes.STRING)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory_message = ProtoField.new("Stock Directory Message", "nasdaq.bx.equities.totalview.itch.v5.0.stockdirectorymessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory = ProtoField.new("Stock Directory", "nasdaq.bx.equities.totalview.itch.v5.0.stockdirectory", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_locate = ProtoField.new("Stock Locate", "nasdaq.bx.equities.totalview.itch.v5.0.stocklocate", ftypes.UINT16)
-nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_trading_action_message = ProtoField.new("Stock Trading Action Message", "nasdaq.bx.equities.totalview.itch.v5.0.stocktradingactionmessage", ftypes.STRING)
+nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_trading_action = ProtoField.new("Stock Trading Action", "nasdaq.bx.equities.totalview.itch.v5.0.stocktradingaction", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.system_event_message = ProtoField.new("System Event Message", "nasdaq.bx.equities.totalview.itch.v5.0.systemeventmessage", ftypes.STRING)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.timestamp = ProtoField.new("Timestamp", "nasdaq.bx.equities.totalview.itch.v5.0.timestamp", ftypes.UINT64)
 nasdaq_bx_equities_totalview_itch_v5_0.fields.tracking_number = ProtoField.new("Tracking Number", "nasdaq.bx.equities.totalview.itch.v5.0.trackingnumber", ftypes.UINT16)
@@ -117,19 +117,19 @@ nasdaq_bx_equities_totalview_itch_v5_0.fields.upper_auction_collar_price = Proto
 -----------------------------------------------------------------------
 
 -- Nasdaq Bx Equities TotalView Itch 5.0 Element Dissection Options
-show.add_order_mpid_attribution_message = true
-show.add_order_no_mpid_attribution_message = true
-show.broken_trade_message = true
+show.add_order_mpid_attribution = true
+show.add_order_no_mpid_attribution = true
+show.broken_trade_order_execution_message = true
 show.cross_trade_message = true
-show.luld_auction_collar_message = true
-show.market_participant_position_message = true
+show.luld_auction_collar = true
+show.market_participant_position = true
 show.message = true
 show.message_header = true
 show.mwcb_decline_level_message = true
 show.mwcb_status_message = true
 show.net_order_imbalance_indicator_message = true
 show.non_cross_trade_message = true
-show.operational_halt_message = true
+show.operational_halt = true
 show.order_cancel_message = true
 show.order_delete_message = true
 show.order_executed_message = true
@@ -137,27 +137,27 @@ show.order_executed_with_price_message = true
 show.order_replace_message = true
 show.packet = true
 show.packet_header = true
-show.reg_sho_restriction_message = true
-show.retail_interest_message = true
-show.stock_directory_message = true
-show.stock_trading_action_message = true
+show.price_improvement_indicator = true
+show.reg_sho_short_sale_price_test_restricted_indicator = true
+show.stock_directory = true
+show.stock_trading_action = true
 show.system_event_message = true
 show.payload = false
 
 -- Register Nasdaq Bx Equities TotalView Itch 5.0 Show Options
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution_message = Pref.bool("Show Add Order Mpid Attribution Message", show.add_order_mpid_attribution_message, "Parse and add Add Order Mpid Attribution Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message = Pref.bool("Show Add Order No Mpid Attribution Message", show.add_order_no_mpid_attribution_message, "Parse and add Add Order No Mpid Attribution Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_message = Pref.bool("Show Broken Trade Message", show.broken_trade_message, "Parse and add Broken Trade Message to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution = Pref.bool("Show Add Order Mpid Attribution", show.add_order_mpid_attribution, "Parse and add Add Order Mpid Attribution to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution = Pref.bool("Show Add Order No Mpid Attribution", show.add_order_no_mpid_attribution, "Parse and add Add Order No Mpid Attribution to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_order_execution_message = Pref.bool("Show Broken Trade Order Execution Message", show.broken_trade_order_execution_message, "Parse and add Broken Trade Order Execution Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_cross_trade_message = Pref.bool("Show Cross Trade Message", show.cross_trade_message, "Parse and add Cross Trade Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message = Pref.bool("Show Luld Auction Collar Message", show.luld_auction_collar_message, "Parse and add Luld Auction Collar Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message = Pref.bool("Show Market Participant Position Message", show.market_participant_position_message, "Parse and add Market Participant Position Message to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar = Pref.bool("Show Luld Auction Collar", show.luld_auction_collar, "Parse and add Luld Auction Collar to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position = Pref.bool("Show Market Participant Position", show.market_participant_position, "Parse and add Market Participant Position to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_message = Pref.bool("Show Message", show.message, "Parse and add Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_message_header = Pref.bool("Show Message Header", show.message_header, "Parse and add Message Header to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_mwcb_decline_level_message = Pref.bool("Show Mwcb Decline Level Message", show.mwcb_decline_level_message, "Parse and add Mwcb Decline Level Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_mwcb_status_message = Pref.bool("Show Mwcb Status Message", show.mwcb_status_message, "Parse and add Mwcb Status Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_net_order_imbalance_indicator_message = Pref.bool("Show Net Order Imbalance Indicator Message", show.net_order_imbalance_indicator_message, "Parse and add Net Order Imbalance Indicator Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_non_cross_trade_message = Pref.bool("Show Non Cross Trade Message", show.non_cross_trade_message, "Parse and add Non Cross Trade Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt_message = Pref.bool("Show Operational Halt Message", show.operational_halt_message, "Parse and add Operational Halt Message to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt = Pref.bool("Show Operational Halt", show.operational_halt, "Parse and add Operational Halt to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_cancel_message = Pref.bool("Show Order Cancel Message", show.order_cancel_message, "Parse and add Order Cancel Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_delete_message = Pref.bool("Show Order Delete Message", show.order_delete_message, "Parse and add Order Delete Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_executed_message = Pref.bool("Show Order Executed Message", show.order_executed_message, "Parse and add Order Executed Message to protocol tree")
@@ -165,10 +165,10 @@ nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_executed_with_price_mess
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_replace_message = Pref.bool("Show Order Replace Message", show.order_replace_message, "Parse and add Order Replace Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_packet = Pref.bool("Show Packet", show.packet, "Parse and add Packet to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_packet_header = Pref.bool("Show Packet Header", show.packet_header, "Parse and add Packet Header to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_restriction_message = Pref.bool("Show Reg Sho Restriction Message", show.reg_sho_restriction_message, "Parse and add Reg Sho Restriction Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_retail_interest_message = Pref.bool("Show Retail Interest Message", show.retail_interest_message, "Parse and add Retail Interest Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory_message = Pref.bool("Show Stock Directory Message", show.stock_directory_message, "Parse and add Stock Directory Message to protocol tree")
-nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message = Pref.bool("Show Stock Trading Action Message", show.stock_trading_action_message, "Parse and add Stock Trading Action Message to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_price_improvement_indicator = Pref.bool("Show Price Improvement Indicator", show.price_improvement_indicator, "Parse and add Price Improvement Indicator to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator = Pref.bool("Show Reg Sho Short Sale Price Test Restricted Indicator", show.reg_sho_short_sale_price_test_restricted_indicator, "Parse and add Reg Sho Short Sale Price Test Restricted Indicator to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory = Pref.bool("Show Stock Directory", show.stock_directory, "Parse and add Stock Directory to protocol tree")
+nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action = Pref.bool("Show Stock Trading Action", show.stock_trading_action, "Parse and add Stock Trading Action to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_system_event_message = Pref.bool("Show System Event Message", show.system_event_message, "Parse and add System Event Message to protocol tree")
 nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_payload = Pref.bool("Show Payload", show.payload, "Parse and add Payload to protocol tree")
 
@@ -177,28 +177,28 @@ function nasdaq_bx_equities_totalview_itch_v5_0.prefs_changed()
   local changed = false
 
   -- Check if show options have changed
-  if show.add_order_mpid_attribution_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution_message then
-    show.add_order_mpid_attribution_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution_message
+  if show.add_order_mpid_attribution ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution then
+    show.add_order_mpid_attribution = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_mpid_attribution
     changed = true
   end
-  if show.add_order_no_mpid_attribution_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message then
-    show.add_order_no_mpid_attribution_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution_message
+  if show.add_order_no_mpid_attribution ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution then
+    show.add_order_no_mpid_attribution = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_add_order_no_mpid_attribution
     changed = true
   end
-  if show.broken_trade_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_message then
-    show.broken_trade_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_message
+  if show.broken_trade_order_execution_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_order_execution_message then
+    show.broken_trade_order_execution_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_broken_trade_order_execution_message
     changed = true
   end
   if show.cross_trade_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_cross_trade_message then
     show.cross_trade_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_cross_trade_message
     changed = true
   end
-  if show.luld_auction_collar_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message then
-    show.luld_auction_collar_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar_message
+  if show.luld_auction_collar ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar then
+    show.luld_auction_collar = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_luld_auction_collar
     changed = true
   end
-  if show.market_participant_position_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message then
-    show.market_participant_position_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position_message
+  if show.market_participant_position ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position then
+    show.market_participant_position = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_market_participant_position
     changed = true
   end
   if show.message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_message then
@@ -225,8 +225,8 @@ function nasdaq_bx_equities_totalview_itch_v5_0.prefs_changed()
     show.non_cross_trade_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_non_cross_trade_message
     changed = true
   end
-  if show.operational_halt_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt_message then
-    show.operational_halt_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt_message
+  if show.operational_halt ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt then
+    show.operational_halt = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_operational_halt
     changed = true
   end
   if show.order_cancel_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_order_cancel_message then
@@ -257,20 +257,20 @@ function nasdaq_bx_equities_totalview_itch_v5_0.prefs_changed()
     show.packet_header = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_packet_header
     changed = true
   end
-  if show.reg_sho_restriction_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_restriction_message then
-    show.reg_sho_restriction_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_restriction_message
+  if show.price_improvement_indicator ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_price_improvement_indicator then
+    show.price_improvement_indicator = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_price_improvement_indicator
     changed = true
   end
-  if show.retail_interest_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_retail_interest_message then
-    show.retail_interest_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_retail_interest_message
+  if show.reg_sho_short_sale_price_test_restricted_indicator ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator then
+    show.reg_sho_short_sale_price_test_restricted_indicator = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_reg_sho_short_sale_price_test_restricted_indicator
     changed = true
   end
-  if show.stock_directory_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory_message then
-    show.stock_directory_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory_message
+  if show.stock_directory ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory then
+    show.stock_directory = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_directory
     changed = true
   end
-  if show.stock_trading_action_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message then
-    show.stock_trading_action_message = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action_message
+  if show.stock_trading_action ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action then
+    show.stock_trading_action = nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_stock_trading_action
     changed = true
   end
   if show.system_event_message ~= nasdaq_bx_equities_totalview_itch_v5_0.prefs.show_system_event_message then
@@ -344,23 +344,123 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.interest_flag = function(buffer, 
   return offset + length, value
 end
 
--- Calculate size of: Retail Interest Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.retail_interest_message = function(buffer, offset)
+-- Size: Stock
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock = 8
+
+-- Display: Stock
+nasdaq_bx_equities_totalview_itch_v5_0_display.stock = function(value)
+  return "Stock: "..value
+end
+
+-- Dissect: Stock
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock = function(buffer, offset, packet, parent)
+  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock
+  local range = buffer(offset, length)
+  local value = trim_right_spaces(range:string())
+  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Timestamp
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp = 6
+
+-- Display: Timestamp
+nasdaq_bx_equities_totalview_itch_v5_0_display.timestamp = function(value)
+  return "Timestamp: "..value
+end
+
+-- Dissect: Timestamp
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.timestamp = function(buffer, offset, packet, parent)
+  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp
+  local range = buffer(offset, length)
+  local value = range:uint64()
+  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.timestamp(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.timestamp, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Tracking Number
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.tracking_number = 2
+
+-- Display: Tracking Number
+nasdaq_bx_equities_totalview_itch_v5_0_display.tracking_number = function(value)
+  return "Tracking Number: "..value
+end
+
+-- Dissect: Tracking Number
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.tracking_number = function(buffer, offset, packet, parent)
+  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.tracking_number
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.tracking_number(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.tracking_number, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Stock Locate
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate = 2
+
+-- Display: Stock Locate
+nasdaq_bx_equities_totalview_itch_v5_0_display.stock_locate = function(value)
+  return "Stock Locate: "..value
+end
+
+-- Dissect: Stock Locate
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_locate = function(buffer, offset, packet, parent)
+  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_locate(value, buffer, offset, packet, parent)
+
+  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_locate, range, value, display)
+
+  return offset + length, value
+end
+
+-- Calculate size of: Price Improvement Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.price_improvement_indicator = function(buffer, offset)
   local index = 0
+
+  index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
+
+  index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.tracking_number
+
+  index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp
+
+  index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.interest_flag
 
   return index
 end
 
--- Display: Retail Interest Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.retail_interest_message = function(buffer, offset, size, packet, parent)
+-- Display: Price Improvement Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_display.price_improvement_indicator = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Retail Interest Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.retail_interest_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Price Improvement Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.price_improvement_indicator_fields = function(buffer, offset, packet, parent)
   local index = offset
+
+  -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
+  index, stock_locate = nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_locate(buffer, index, packet, parent)
+
+  -- Tracking Number: 2 Byte Unsigned Fixed Width Integer
+  index, tracking_number = nasdaq_bx_equities_totalview_itch_v5_0_dissect.tracking_number(buffer, index, packet, parent)
+
+  -- Timestamp: 6 Byte Unsigned Fixed Width Integer
+  index, timestamp = nasdaq_bx_equities_totalview_itch_v5_0_dissect.timestamp(buffer, index, packet, parent)
+
+  -- Stock: 8 Byte Ascii String
+  index, stock = nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock(buffer, index, packet, parent)
 
   -- Interest Flag: 1 Byte Ascii String Enum with 4 values
   index, interest_flag = nasdaq_bx_equities_totalview_itch_v5_0_dissect.interest_flag(buffer, index, packet, parent)
@@ -368,17 +468,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.retail_interest_message_fields = 
   return index
 end
 
--- Dissect: Retail Interest Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.retail_interest_message = function(buffer, offset, packet, parent)
+-- Dissect: Price Improvement Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.price_improvement_indicator = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.retail_interest_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.retail_interest_message(buffer, offset)
+  if show.price_improvement_indicator then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.price_improvement_indicator(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.retail_interest_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.retail_interest_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.price_improvement_indicator(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.price_improvement_indicator, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.retail_interest_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.price_improvement_indicator_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Price Variation Indicator
@@ -555,26 +655,6 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.far_price = function(buffer, offs
   return offset + length, value
 end
 
--- Size: Stock
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock = 8
-
--- Display: Stock
-nasdaq_bx_equities_totalview_itch_v5_0_display.stock = function(value)
-  return "Stock: "..value
-end
-
--- Dissect: Stock
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock = function(buffer, offset, packet, parent)
-  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock
-  local range = buffer(offset, length)
-  local value = trim_right_spaces(range:string())
-  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Imbalance Direction
 nasdaq_bx_equities_totalview_itch_v5_0_size_of.imbalance_direction = 1
 
@@ -644,66 +724,6 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.paired_shares = function(buffer, 
   local display = nasdaq_bx_equities_totalview_itch_v5_0_display.paired_shares(value, buffer, offset, packet, parent)
 
   parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.paired_shares, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Timestamp
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp = 6
-
--- Display: Timestamp
-nasdaq_bx_equities_totalview_itch_v5_0_display.timestamp = function(value)
-  return "Timestamp: "..value
-end
-
--- Dissect: Timestamp
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.timestamp = function(buffer, offset, packet, parent)
-  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp
-  local range = buffer(offset, length)
-  local value = range:uint64()
-  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.timestamp(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.timestamp, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Tracking Number
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.tracking_number = 2
-
--- Display: Tracking Number
-nasdaq_bx_equities_totalview_itch_v5_0_display.tracking_number = function(value)
-  return "Tracking Number: "..value
-end
-
--- Dissect: Tracking Number
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.tracking_number = function(buffer, offset, packet, parent)
-  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.tracking_number
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.tracking_number(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.tracking_number, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Stock Locate
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate = 2
-
--- Display: Stock Locate
-nasdaq_bx_equities_totalview_itch_v5_0_display.stock_locate = function(value)
-  return "Stock Locate: "..value
-end
-
--- Dissect: Stock Locate
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_locate = function(buffer, offset, packet, parent)
-  local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
-  local range = buffer(offset, length)
-  local value = range:uint()
-  local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_locate(value, buffer, offset, packet, parent)
-
-  parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_locate, range, value, display)
 
   return offset + length, value
 end
@@ -820,8 +840,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.match_number = function(buffer, o
   return offset + length, value
 end
 
--- Calculate size of: Broken Trade Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_message = function(buffer, offset)
+-- Calculate size of: Broken Trade Order Execution Message
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_order_execution_message = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -835,13 +855,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_message = function(b
   return index
 end
 
--- Display: Broken Trade Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.broken_trade_message = function(buffer, offset, size, packet, parent)
+-- Display: Broken Trade Order Execution Message
+nasdaq_bx_equities_totalview_itch_v5_0_display.broken_trade_order_execution_message = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Broken Trade Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Broken Trade Order Execution Message
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_order_execution_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -859,17 +879,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_message_fields = fun
   return index
 end
 
--- Dissect: Broken Trade Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_message = function(buffer, offset, packet, parent)
+-- Dissect: Broken Trade Order Execution Message
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_order_execution_message = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.broken_trade_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_message(buffer, offset)
+  if show.broken_trade_order_execution_message then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_order_execution_message(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.broken_trade_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.broken_trade_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.broken_trade_order_execution_message(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.broken_trade_order_execution_message, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_order_execution_message_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Cross Price
@@ -1603,8 +1623,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.order_executed_message = function
   return nasdaq_bx_equities_totalview_itch_v5_0_dissect.order_executed_message_fields(buffer, offset, packet, parent)
 end
 
--- Calculate size of: Add Order Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution_message = function(buffer, offset)
+-- Calculate size of: Add Order Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -1626,13 +1646,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution_messag
   return index
 end
 
--- Display: Add Order Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_mpid_attribution_message = function(buffer, offset, size, packet, parent)
+-- Display: Add Order Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_mpid_attribution = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Add Order Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -1662,17 +1682,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_messag
   return index
 end
 
--- Dissect: Add Order Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_message = function(buffer, offset, packet, parent)
+-- Dissect: Add Order Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.add_order_mpid_attribution_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution_message(buffer, offset)
+  if show.add_order_mpid_attribution then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_mpid_attribution_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_mpid_attribution(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_mpid_attribution, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Price 4
@@ -1701,8 +1721,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.price_4 = function(buffer, offset
   return offset + length, value
 end
 
--- Calculate size of: Add Order No Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_message = function(buffer, offset)
+-- Calculate size of: Add Order No Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -1724,13 +1744,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_mes
   return index
 end
 
--- Display: Add Order No Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message = function(buffer, offset, size, packet, parent)
+-- Display: Add Order No Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_no_mpid_attribution = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Add Order No Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Add Order No Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -1760,17 +1780,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_mes
   return index
 end
 
--- Dissect: Add Order No Mpid Attribution Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message = function(buffer, offset, packet, parent)
+-- Dissect: Add Order No Mpid Attribution
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.add_order_no_mpid_attribution_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_message(buffer, offset)
+  if show.add_order_no_mpid_attribution then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_no_mpid_attribution_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.add_order_no_mpid_attribution(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.add_order_no_mpid_attribution, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Operational Halt Action
@@ -1830,8 +1850,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_code = function(buffer, of
   return offset + length, value
 end
 
--- Calculate size of: Operational Halt Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt_message = function(buffer, offset)
+-- Calculate size of: Operational Halt
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -1849,13 +1869,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt_message = functi
   return index
 end
 
--- Display: Operational Halt Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.operational_halt_message = function(buffer, offset, size, packet, parent)
+-- Display: Operational Halt
+nasdaq_bx_equities_totalview_itch_v5_0_display.operational_halt = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Operational Halt Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Operational Halt
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -1879,17 +1899,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_message_fields =
   return index
 end
 
--- Dissect: Operational Halt Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_message = function(buffer, offset, packet, parent)
+-- Dissect: Operational Halt
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.operational_halt_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt_message(buffer, offset)
+  if show.operational_halt then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.operational_halt_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.operational_halt(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.operational_halt, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Auction Collar Extension
@@ -1990,8 +2010,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.auction_collar_reference_price = 
   return offset + length, value
 end
 
--- Calculate size of: Luld Auction Collar Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar_message = function(buffer, offset)
+-- Calculate size of: Luld Auction Collar
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -2013,13 +2033,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar_message = fun
   return index
 end
 
--- Display: Luld Auction Collar Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.luld_auction_collar_message = function(buffer, offset, size, packet, parent)
+-- Display: Luld Auction Collar
+nasdaq_bx_equities_totalview_itch_v5_0_display.luld_auction_collar = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Luld Auction Collar Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Luld Auction Collar
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -2049,17 +2069,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message_field
   return index
 end
 
--- Dissect: Luld Auction Collar Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message = function(buffer, offset, packet, parent)
+-- Dissect: Luld Auction Collar
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.luld_auction_collar_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar_message(buffer, offset)
+  if show.luld_auction_collar then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.luld_auction_collar_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_auction_collar_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.luld_auction_collar(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.luld_auction_collar, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Breached Level
@@ -2403,8 +2423,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.mpid = function(buffer, offset, p
   return offset + length, value
 end
 
--- Calculate size of: Market Participant Position Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position_message = function(buffer, offset)
+-- Calculate size of: Market Participant Position
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -2426,13 +2446,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position_messa
   return index
 end
 
--- Display: Market Participant Position Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.market_participant_position_message = function(buffer, offset, size, packet, parent)
+-- Display: Market Participant Position
+nasdaq_bx_equities_totalview_itch_v5_0_display.market_participant_position = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Market Participant Position Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Market Participant Position
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -2462,17 +2482,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_messa
   return index
 end
 
--- Dissect: Market Participant Position Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_message = function(buffer, offset, packet, parent)
+-- Dissect: Market Participant Position
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.market_participant_position_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position_message(buffer, offset)
+  if show.market_participant_position then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.market_participant_position_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_position_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.market_participant_position(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.market_participant_position, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reg Sho Action
@@ -2505,8 +2525,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_action = function(buffer,
   return offset + length, value
 end
 
--- Calculate size of: Reg Sho Restriction Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_restriction_message = function(buffer, offset)
+-- Calculate size of: Reg Sho Short Sale Price Test Restricted Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_short_sale_price_test_restricted_indicator = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.timestamp
@@ -2518,13 +2538,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_restriction_message = fun
   return index
 end
 
--- Display: Reg Sho Restriction Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.reg_sho_restriction_message = function(buffer, offset, size, packet, parent)
+-- Display: Reg Sho Short Sale Price Test Restricted Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Reg Sho Restriction Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_restriction_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Reg Sho Short Sale Price Test Restricted Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Timestamp: 6 Byte Unsigned Fixed Width Integer
@@ -2539,17 +2559,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_restriction_message_field
   return index
 end
 
--- Dissect: Reg Sho Restriction Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_restriction_message = function(buffer, offset, packet, parent)
+-- Dissect: Reg Sho Short Sale Price Test Restricted Indicator
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.reg_sho_restriction_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_restriction_message(buffer, offset)
+  if show.reg_sho_short_sale_price_test_restricted_indicator then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_short_sale_price_test_restricted_indicator(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.reg_sho_restriction_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_restriction_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.reg_sho_short_sale_price_test_restricted_indicator(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.reg_sho_short_sale_price_test_restricted_indicator, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_restriction_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Reason
@@ -2625,8 +2645,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.trading_state = function(buffer, 
   return offset + length, value
 end
 
--- Calculate size of: Stock Trading Action Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action_message = function(buffer, offset)
+-- Calculate size of: Stock Trading Action
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -2646,13 +2666,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action_message = fu
   return index
 end
 
--- Display: Stock Trading Action Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.stock_trading_action_message = function(buffer, offset, size, packet, parent)
+-- Display: Stock Trading Action
+nasdaq_bx_equities_totalview_itch_v5_0_display.stock_trading_action = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Stock Trading Action Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Stock Trading Action
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -2679,17 +2699,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_message_fiel
   return index
 end
 
--- Dissect: Stock Trading Action Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_message = function(buffer, offset, packet, parent)
+-- Dissect: Stock Trading Action
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.stock_trading_action_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action_message(buffer, offset)
+  if show.stock_trading_action then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_trading_action_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_trading_action_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_trading_action(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_trading_action, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Inverse Indicator
@@ -3072,8 +3092,8 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_category = function(buffer
   return offset + length, value
 end
 
--- Calculate size of: Stock Directory Message
-nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory_message = function(buffer, offset)
+-- Calculate size of: Stock Directory
+nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory = function(buffer, offset)
   local index = 0
 
   index = index + nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_locate
@@ -3113,13 +3133,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory_message = functio
   return index
 end
 
--- Display: Stock Directory Message
-nasdaq_bx_equities_totalview_itch_v5_0_display.stock_directory_message = function(buffer, offset, size, packet, parent)
+-- Display: Stock Directory
+nasdaq_bx_equities_totalview_itch_v5_0_display.stock_directory = function(buffer, offset, size, packet, parent)
   return ""
 end
 
--- Dissect Fields: Stock Directory Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_message_fields = function(buffer, offset, packet, parent)
+-- Dissect Fields: Stock Directory
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_fields = function(buffer, offset, packet, parent)
   local index = offset
 
   -- Stock Locate: 2 Byte Unsigned Fixed Width Integer
@@ -3176,17 +3196,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_message_fields = 
   return index
 end
 
--- Dissect: Stock Directory Message
-nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_message = function(buffer, offset, packet, parent)
+-- Dissect: Stock Directory
+nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory = function(buffer, offset, packet, parent)
   -- Optionally add struct element to protocol tree
-  if show.stock_directory_message then
-    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory_message(buffer, offset)
+  if show.stock_directory then
+    local length = nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory(buffer, offset)
     local range = buffer(offset, length)
-    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_directory_message(buffer, packet, parent)
-    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory_message, range, display)
+    local display = nasdaq_bx_equities_totalview_itch_v5_0_display.stock_directory(buffer, packet, parent)
+    parent = parent:add(nasdaq_bx_equities_totalview_itch_v5_0.fields.stock_directory, range, display)
   end
 
-  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_message_fields(buffer, offset, packet, parent)
+  return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_fields(buffer, offset, packet, parent)
 end
 
 -- Size: Event Code
@@ -3286,21 +3306,21 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.payload = function(buffer, offset
   if message_type == "S" then
     return nasdaq_bx_equities_totalview_itch_v5_0_size_of.system_event_message(buffer, offset)
   end
-  -- Size of Stock Directory Message
+  -- Size of Stock Directory
   if message_type == "R" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_directory(buffer, offset)
   end
-  -- Size of Stock Trading Action Message
+  -- Size of Stock Trading Action
   if message_type == "H" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.stock_trading_action(buffer, offset)
   end
-  -- Size of Reg Sho Restriction Message
+  -- Size of Reg Sho Short Sale Price Test Restricted Indicator
   if message_type == "Y" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_restriction_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.reg_sho_short_sale_price_test_restricted_indicator(buffer, offset)
   end
-  -- Size of Market Participant Position Message
+  -- Size of Market Participant Position
   if message_type == "L" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.market_participant_position(buffer, offset)
   end
   -- Size of Mwcb Decline Level Message
   if message_type == "V" then
@@ -3310,21 +3330,21 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.payload = function(buffer, offset
   if message_type == "W" then
     return nasdaq_bx_equities_totalview_itch_v5_0_size_of.mwcb_status_message(buffer, offset)
   end
-  -- Size of Luld Auction Collar Message
+  -- Size of Luld Auction Collar
   if message_type == "J" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.luld_auction_collar(buffer, offset)
   end
-  -- Size of Operational Halt Message
+  -- Size of Operational Halt
   if message_type == "h" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.operational_halt(buffer, offset)
   end
-  -- Size of Add Order No Mpid Attribution Message
+  -- Size of Add Order No Mpid Attribution
   if message_type == "A" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_no_mpid_attribution(buffer, offset)
   end
-  -- Size of Add Order Mpid Attribution Message
+  -- Size of Add Order Mpid Attribution
   if message_type == "F" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.add_order_mpid_attribution(buffer, offset)
   end
   -- Size of Order Executed Message
   if message_type == "E" then
@@ -3354,17 +3374,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_size_of.payload = function(buffer, offset
   if message_type == "Q" then
     return nasdaq_bx_equities_totalview_itch_v5_0_size_of.cross_trade_message(buffer, offset)
   end
-  -- Size of Broken Trade Message
+  -- Size of Broken Trade Order Execution Message
   if message_type == "B" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.broken_trade_order_execution_message(buffer, offset)
   end
   -- Size of Net Order Imbalance Indicator Message
   if message_type == "I" then
     return nasdaq_bx_equities_totalview_itch_v5_0_size_of.net_order_imbalance_indicator_message(buffer, offset)
   end
-  -- Size of Retail Interest Message
+  -- Size of Price Improvement Indicator
   if message_type == "N" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.retail_interest_message(buffer, offset)
+    return nasdaq_bx_equities_totalview_itch_v5_0_size_of.price_improvement_indicator(buffer, offset)
   end
 
   return 0
@@ -3381,21 +3401,21 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.payload_branches = function(buffe
   if message_type == "S" then
     return nasdaq_bx_equities_totalview_itch_v5_0_dissect.system_event_message(buffer, offset, packet, parent)
   end
-  -- Dissect Stock Directory Message
+  -- Dissect Stock Directory
   if message_type == "R" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_directory(buffer, offset, packet, parent)
   end
-  -- Dissect Stock Trading Action Message
+  -- Dissect Stock Trading Action
   if message_type == "H" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.stock_trading_action(buffer, offset, packet, parent)
   end
-  -- Dissect Reg Sho Restriction Message
+  -- Dissect Reg Sho Short Sale Price Test Restricted Indicator
   if message_type == "Y" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_restriction_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.reg_sho_short_sale_price_test_restricted_indicator(buffer, offset, packet, parent)
   end
-  -- Dissect Market Participant Position Message
+  -- Dissect Market Participant Position
   if message_type == "L" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.market_participant_position(buffer, offset, packet, parent)
   end
   -- Dissect Mwcb Decline Level Message
   if message_type == "V" then
@@ -3405,21 +3425,21 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.payload_branches = function(buffe
   if message_type == "W" then
     return nasdaq_bx_equities_totalview_itch_v5_0_dissect.mwcb_status_message(buffer, offset, packet, parent)
   end
-  -- Dissect Luld Auction Collar Message
+  -- Dissect Luld Auction Collar
   if message_type == "J" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.luld_auction_collar(buffer, offset, packet, parent)
   end
-  -- Dissect Operational Halt Message
+  -- Dissect Operational Halt
   if message_type == "h" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.operational_halt(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order No Mpid Attribution Message
+  -- Dissect Add Order No Mpid Attribution
   if message_type == "A" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_no_mpid_attribution(buffer, offset, packet, parent)
   end
-  -- Dissect Add Order Mpid Attribution Message
+  -- Dissect Add Order Mpid Attribution
   if message_type == "F" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.add_order_mpid_attribution(buffer, offset, packet, parent)
   end
   -- Dissect Order Executed Message
   if message_type == "E" then
@@ -3449,17 +3469,17 @@ nasdaq_bx_equities_totalview_itch_v5_0_dissect.payload_branches = function(buffe
   if message_type == "Q" then
     return nasdaq_bx_equities_totalview_itch_v5_0_dissect.cross_trade_message(buffer, offset, packet, parent)
   end
-  -- Dissect Broken Trade Message
+  -- Dissect Broken Trade Order Execution Message
   if message_type == "B" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.broken_trade_order_execution_message(buffer, offset, packet, parent)
   end
   -- Dissect Net Order Imbalance Indicator Message
   if message_type == "I" then
     return nasdaq_bx_equities_totalview_itch_v5_0_dissect.net_order_imbalance_indicator_message(buffer, offset, packet, parent)
   end
-  -- Dissect Retail Interest Message
+  -- Dissect Price Improvement Indicator
   if message_type == "N" then
-    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.retail_interest_message(buffer, offset, packet, parent)
+    return nasdaq_bx_equities_totalview_itch_v5_0_dissect.price_improvement_indicator(buffer, offset, packet, parent)
   end
 
   return offset
@@ -3494,16 +3514,16 @@ nasdaq_bx_equities_totalview_itch_v5_0_display.message_type = function(value)
     return "Message Type: System Event Message (S)"
   end
   if value == "R" then
-    return "Message Type: Stock Directory Message (R)"
+    return "Message Type: Stock Directory (R)"
   end
   if value == "H" then
-    return "Message Type: Stock Trading Action Message (H)"
+    return "Message Type: Stock Trading Action (H)"
   end
   if value == "Y" then
-    return "Message Type: Reg Sho Restriction Message (Y)"
+    return "Message Type: Reg Sho Short Sale Price Test Restricted Indicator (Y)"
   end
   if value == "L" then
-    return "Message Type: Market Participant Position Message (L)"
+    return "Message Type: Market Participant Position (L)"
   end
   if value == "V" then
     return "Message Type: Mwcb Decline Level Message (V)"
@@ -3512,16 +3532,16 @@ nasdaq_bx_equities_totalview_itch_v5_0_display.message_type = function(value)
     return "Message Type: Mwcb Status Message (W)"
   end
   if value == "J" then
-    return "Message Type: Luld Auction Collar Message (J)"
+    return "Message Type: Luld Auction Collar (J)"
   end
   if value == "h" then
-    return "Message Type: Operational Halt Message (h)"
+    return "Message Type: Operational Halt (h)"
   end
   if value == "A" then
-    return "Message Type: Add Order No Mpid Attribution Message (A)"
+    return "Message Type: Add Order No Mpid Attribution (A)"
   end
   if value == "F" then
-    return "Message Type: Add Order Mpid Attribution Message (F)"
+    return "Message Type: Add Order Mpid Attribution (F)"
   end
   if value == "E" then
     return "Message Type: Order Executed Message (E)"
@@ -3545,13 +3565,13 @@ nasdaq_bx_equities_totalview_itch_v5_0_display.message_type = function(value)
     return "Message Type: Cross Trade Message (Q)"
   end
   if value == "B" then
-    return "Message Type: Broken Trade Message (B)"
+    return "Message Type: Broken Trade Order Execution Message (B)"
   end
   if value == "I" then
     return "Message Type: Net Order Imbalance Indicator Message (I)"
   end
   if value == "N" then
-    return "Message Type: Retail Interest Message (N)"
+    return "Message Type: Price Improvement Indicator (N)"
   end
 
   return "Message Type: Unknown("..value..")"
