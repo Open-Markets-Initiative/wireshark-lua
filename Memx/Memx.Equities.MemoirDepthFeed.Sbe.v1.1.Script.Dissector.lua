@@ -55,7 +55,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1.fields.sbe_header = ProtoField.new("Sbe H
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.sbe_message = ProtoField.new("Sbe Message", "memx.equities.memoirdepthfeed.sbe.v1.1.sbemessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.schema_id = ProtoField.new("Schema Id", "memx.equities.memoirdepthfeed.sbe.v1.1.schemaid", ftypes.UINT8)
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_id = ProtoField.new("Security Id", "memx.equities.memoirdepthfeed.sbe.v1.1.securityid", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status = ProtoField.new("security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.1.securitytradingstatus", ftypes.STRING)
+memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.1.securitytradingstatus", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirdepthfeed.sbe.v1.1.securitytradingstatusmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.equities.memoirdepthfeed.sbe.v1.1.securitytradingstatusreason", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_1.fields.sequence_number = ProtoField.new("Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.1.sequencenumber", ftypes.UINT64)
@@ -1118,28 +1118,28 @@ memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_reason = 
   return offset + length, value
 end
 
--- Size: security Trading Status
+-- Size: Security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_1_size_of.security_trading_status = 1
 
--- Display: security Trading Status
+-- Display: Security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_1_display.security_trading_status = function(value)
   if value == "H" then
-    return "security Trading Status: Halted (H)"
+    return "Security Trading Status: Halted (H)"
   end
   if value == "P" then
-    return "security Trading Status: Paused (P)"
+    return "Security Trading Status: Paused (P)"
   end
   if value == "Q" then
-    return "security Trading Status: Quoting (Q)"
+    return "Security Trading Status: Quoting (Q)"
   end
   if value == "T" then
-    return "security Trading Status: Trading (T)"
+    return "Security Trading Status: Trading (T)"
   end
 
-  return "security Trading Status: Unknown("..value..")"
+  return "Security Trading Status: Unknown("..value..")"
 end
 
--- Dissect: security Trading Status
+-- Dissect: Security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_1_size_of.security_trading_status
   local range = buffer(offset, length)
@@ -1191,7 +1191,7 @@ memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status_message_f
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- security Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
   index, security_trading_status = memx_equities_memoirdepthfeed_sbe_v1_1_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
