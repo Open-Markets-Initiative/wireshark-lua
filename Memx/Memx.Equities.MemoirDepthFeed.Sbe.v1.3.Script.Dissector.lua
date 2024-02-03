@@ -14,6 +14,7 @@ local memx_equities_memoirdepthfeed_sbe_v1_3_display = {}
 local memx_equities_memoirdepthfeed_sbe_v1_3_dissect = {}
 local memx_equities_memoirdepthfeed_sbe_v1_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -25,7 +26,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3.fields.block_length = ProtoField.new("Blo
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.broken_trade_message = ProtoField.new("Broken Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.brokentrademessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.equities.memoirdepthfeed.sbe.v1.3.clearbookmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.equities.memoirdepthfeed.sbe.v1.3.commonheader", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.INT64)
+memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedprice", ftypes.DOUBLE)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedquantity", ftypes.UINT32)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.equities.memoirdepthfeed.sbe.v1.3.correctedtrademessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.equities.memoirdepthfeed.sbe.v1.3.headerlength", ftypes.UINT8)
@@ -35,17 +36,17 @@ memx_equities_memoirdepthfeed_sbe_v1_3.fields.message = ProtoField.new("Message"
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirdepthfeed.sbe.v1.3.messagecount", ftypes.UINT16)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirdepthfeed.sbe.v1.3.messagelength", ftypes.UINT16)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirdepthfeed.sbe.v1.3.messagetype", ftypes.UINT8)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirdepthfeed.sbe.v1.3.mpv", ftypes.INT64)
+memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirdepthfeed.sbe.v1.3.mpv", ftypes.DOUBLE)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_added_message = ProtoField.new("Order Added Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderaddedmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_deleted_message = ProtoField.new("Order Deleted Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderdeletedmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_executed_message = ProtoField.new("Order Executed Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderexecutedmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "memx.equities.memoirdepthfeed.sbe.v1.3.orderid", ftypes.UINT64)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.order_reduced_message = ProtoField.new("Order Reduced Message", "memx.equities.memoirdepthfeed.sbe.v1.3.orderreducedmessage", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.INT64)
+memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.equities.memoirdepthfeed.sbe.v1.3.originalprice", ftypes.DOUBLE)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.originalquantity", ftypes.UINT32)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.equities.memoirdepthfeed.sbe.v1.3.packet", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.equities.memoirdepthfeed.sbe.v1.3.payload", ftypes.STRING)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.INT64)
+memx_equities_memoirdepthfeed_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.equities.memoirdepthfeed.sbe.v1.3.price", ftypes.DOUBLE)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.equities.memoirdepthfeed.sbe.v1.3.quantity", ftypes.UINT32)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirdepthfeed.sbe.v1.3.regshorestrictionmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.reserved = ProtoField.new("Reserved", "memx.equities.memoirdepthfeed.sbe.v1.3.reserved", ftypes.UINT8)
@@ -54,7 +55,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe H
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.equities.memoirdepthfeed.sbe.v1.3.sbemessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.equities.memoirdepthfeed.sbe.v1.3.schemaid", ftypes.UINT8)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.equities.memoirdepthfeed.sbe.v1.3.securityid", ftypes.UINT16)
-memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status = ProtoField.new("Security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatus", ftypes.STRING)
+memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status = ProtoField.new("security Trading Status", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatus", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_message = ProtoField.new("Security Trading Status Message", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusmessage", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.security_trading_status_reason = ProtoField.new("Security Trading Status Reason", "memx.equities.memoirdepthfeed.sbe.v1.3.securitytradingstatusreason", ftypes.STRING)
 memx_equities_memoirdepthfeed_sbe_v1_3.fields.sequence_number = ProtoField.new("Sequence Number", "memx.equities.memoirdepthfeed.sbe.v1.3.sequencenumber", ftypes.UINT64)
@@ -250,7 +251,11 @@ memx_equities_memoirdepthfeed_sbe_v1_3_size_of.timestamp = 8
 
 -- Display: Timestamp
 memx_equities_memoirdepthfeed_sbe_v1_3_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -377,11 +382,17 @@ memx_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price = function(value)
   return "Corrected Price: "..value
 end
 
+-- Translate: Corrected Price
+translate.corrected_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Corrected Price
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.corrected_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.corrected_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.corrected_price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.corrected_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.corrected_price, range, value, display)
@@ -417,11 +428,17 @@ memx_equities_memoirdepthfeed_sbe_v1_3_display.original_price = function(value)
   return "Original Price: "..value
 end
 
+-- Translate: Original Price
+translate.original_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Original Price
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.original_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.original_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.original_price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.original_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.original_price, range, value, display)
@@ -601,11 +618,17 @@ memx_equities_memoirdepthfeed_sbe_v1_3_display.price = function(value)
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Price
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.price(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.price, range, value, display)
@@ -1095,28 +1118,28 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_reason = 
   return offset + length, value
 end
 
--- Size: Security Trading Status
+-- Size: security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status = 1
 
--- Display: Security Trading Status
+-- Display: security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_3_display.security_trading_status = function(value)
   if value == "H" then
-    return "Security Trading Status: Halted (H)"
+    return "security Trading Status: Halted (H)"
   end
   if value == "P" then
-    return "Security Trading Status: Paused (P)"
+    return "security Trading Status: Paused (P)"
   end
   if value == "Q" then
-    return "Security Trading Status: Quoting (Q)"
+    return "security Trading Status: Quoting (Q)"
   end
   if value == "T" then
-    return "Security Trading Status: Trading (T)"
+    return "security Trading Status: Trading (T)"
   end
 
-  return "Security Trading Status: Unknown("..value..")"
+  return "security Trading Status: Unknown("..value..")"
 end
 
--- Dissect: Security Trading Status
+-- Dissect: security Trading Status
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.security_trading_status
   local range = buffer(offset, length)
@@ -1168,7 +1191,7 @@ memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status_message_f
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
-  -- Security Trading Status: 1 Byte Ascii String Enum with 4 values
+  -- security Trading Status: 1 Byte Ascii String Enum with 4 values
   index, security_trading_status = memx_equities_memoirdepthfeed_sbe_v1_3_dissect.security_trading_status(buffer, index, packet, parent)
 
   -- Security Trading Status Reason: 1 Byte Ascii String Enum with 3 values
@@ -1272,11 +1295,17 @@ memx_equities_memoirdepthfeed_sbe_v1_3_display.mpv = function(value)
   return "Mpv: "..value
 end
 
+-- Translate: Mpv
+translate.mpv = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mpv
 memx_equities_memoirdepthfeed_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirdepthfeed_sbe_v1_3_size_of.mpv
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.mpv(raw)
   local display = memx_equities_memoirdepthfeed_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirdepthfeed_sbe_v1_3.fields.mpv, range, value, display)
