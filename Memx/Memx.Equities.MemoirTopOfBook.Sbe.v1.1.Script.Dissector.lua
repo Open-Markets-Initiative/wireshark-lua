@@ -14,6 +14,7 @@ local memx_equities_memoirtopofbook_sbe_v1_1_display = {}
 local memx_equities_memoirtopofbook_sbe_v1_1_dissect = {}
 local memx_equities_memoirtopofbook_sbe_v1_1_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -26,8 +27,10 @@ memx_equities_memoirtopofbook_sbe_v1_1.fields.best_bid_offer_message = ProtoFiel
 memx_equities_memoirtopofbook_sbe_v1_1.fields.best_bid_short_message = ProtoField.new("Best Bid Short Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestbidshortmessage", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.best_offer_message = ProtoField.new("Best Offer Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestoffermessage", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.best_offer_short_message = ProtoField.new("Best Offer Short Message", "memx.equities.memoirtopofbook.sbe.v1.1.bestoffershortmessage", ftypes.STRING)
-memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price = ProtoField.new("Bid Price", "memx.equities.memoirtopofbook.sbe.v1.1.bidprice", ftypes.INT64)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price = ProtoField.new("Bid Price", "memx.equities.memoirtopofbook.sbe.v1.1.bidprice", ftypes.DOUBLE)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price_short = ProtoField.new("Bid Price Short", "memx.equities.memoirtopofbook.sbe.v1.1.bidpriceshort", ftypes.DOUBLE)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_size = ProtoField.new("Bid Size", "memx.equities.memoirtopofbook.sbe.v1.1.bidsize", ftypes.UINT32)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_size_short = ProtoField.new("Bid Size Short", "memx.equities.memoirtopofbook.sbe.v1.1.bidsizeshort", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.block_length = ProtoField.new("Block Length", "memx.equities.memoirtopofbook.sbe.v1.1.blocklength", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.clear_book_message = ProtoField.new("Clear Book Message", "memx.equities.memoirtopofbook.sbe.v1.1.clearbookmessage", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.common_header = ProtoField.new("Common Header", "memx.equities.memoirtopofbook.sbe.v1.1.commonheader", ftypes.STRING)
@@ -38,9 +41,11 @@ memx_equities_memoirtopofbook_sbe_v1_1.fields.message = ProtoField.new("Message"
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirtopofbook.sbe.v1.1.messagecount", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirtopofbook.sbe.v1.1.messagelength", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirtopofbook.sbe.v1.1.messagetype", ftypes.UINT8)
-memx_equities_memoirtopofbook_sbe_v1_1.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirtopofbook.sbe.v1.1.mpv", ftypes.INT64)
-memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price = ProtoField.new("Offer Price", "memx.equities.memoirtopofbook.sbe.v1.1.offerprice", ftypes.INT64)
-memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size = ProtoField.new("Offer Size", "memx.equities.memoirtopofbook.sbe.v1.1.offersize", ftypes.UINT32)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirtopofbook.sbe.v1.1.mpv", ftypes.DOUBLE)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price = ProtoField.new("Offer Price", "memx.equities.memoirtopofbook.sbe.v1.1.offerprice", ftypes.DOUBLE)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price_short = ProtoField.new("Offer Price Short", "memx.equities.memoirtopofbook.sbe.v1.1.offerpriceshort", ftypes.DOUBLE)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size = ProtoField.new("Offer size", "memx.equities.memoirtopofbook.sbe.v1.1.offersize", ftypes.UINT32)
+memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size_uint_16 = ProtoField.new("Offer Size uint 16", "memx.equities.memoirtopofbook.sbe.v1.1.offersizeuint16", ftypes.UINT16)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.packet = ProtoField.new("Packet", "memx.equities.memoirtopofbook.sbe.v1.1.packet", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.payload = ProtoField.new("Payload", "memx.equities.memoirtopofbook.sbe.v1.1.payload", ftypes.STRING)
 memx_equities_memoirtopofbook_sbe_v1_1.fields.reg_sho_restriction_message = ProtoField.new("Reg Sho Restriction Message", "memx.equities.memoirtopofbook.sbe.v1.1.regshorestrictionmessage", ftypes.STRING)
@@ -230,7 +235,11 @@ memx_equities_memoirtopofbook_sbe_v1_1_size_of.timestamp = 8
 
 -- Display: Timestamp
 memx_equities_memoirtopofbook_sbe_v1_1_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -287,42 +296,48 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.clear_book_message = function(buf
   return memx_equities_memoirtopofbook_sbe_v1_1_dissect.clear_book_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Offer Price
-memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price = 8
+-- Size: Offer Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price_short = 2
 
--- Display: Offer Price
-memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price = function(value)
-  return "Offer Price: "..value
+-- Display: Offer Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price_short = function(value)
+  return "Offer Price Short: "..value
 end
 
--- Dissect: Offer Price
-memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_price = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price(value, buffer, offset, packet, parent)
+-- Translate: Offer Price Short
+translate.offer_price_short = function(raw)
+  return raw/100
+end
 
-  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price, range, value, display)
+-- Dissect: Offer Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_price_short = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price_short
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = translate.offer_price_short(raw)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price_short(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Offer Size
-memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size = 4
+-- Size: Offer Size uint 16
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size_uint_16 = 2
 
--- Display: Offer Size
-memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size = function(value)
-  return "Offer Size: "..value
+-- Display: Offer Size uint 16
+memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size_uint_16 = function(value)
+  return "Offer Size uint 16: "..value
 end
 
--- Dissect: Offer Size
-memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size
+-- Dissect: Offer Size uint 16
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size_uint_16 = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size_uint_16
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size(value, buffer, offset, packet, parent)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size_uint_16(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size, range, value, display)
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size_uint_16, range, value, display)
 
   return offset + length, value
 end
@@ -335,9 +350,9 @@ memx_equities_memoirtopofbook_sbe_v1_1_size_of.best_offer_short_message = functi
 
   index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.security_id
 
-  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size
+  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size_uint_16
 
-  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price
+  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price_short
 
   return index
 end
@@ -357,11 +372,11 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_short_message_fields =
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
-  index, offer_size = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size(buffer, index, packet, parent)
+  -- Offer Size uint 16: 2 Byte Unsigned Fixed Width Integer
+  index, offer_size_uint_16 = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size_uint_16(buffer, index, packet, parent)
 
-  -- Offer Price: 8 Byte Signed Fixed Width Integer
-  index, offer_price = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_price(buffer, index, packet, parent)
+  -- Offer Price Short: 2 Byte Signed Fixed Width Integer
+  index, offer_price_short = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_price_short(buffer, index, packet, parent)
 
   return index
 end
@@ -379,42 +394,48 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_short_message = functi
   return memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_short_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Bid Price
-memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price = 8
+-- Size: Bid Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price_short = 2
 
--- Display: Bid Price
-memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price = function(value)
-  return "Bid Price: "..value
+-- Display: Bid Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price_short = function(value)
+  return "Bid Price Short: "..value
 end
 
--- Dissect: Bid Price
-memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price
-  local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price(value, buffer, offset, packet, parent)
+-- Translate: Bid Price Short
+translate.bid_price_short = function(raw)
+  return raw/100
+end
 
-  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price, range, value, display)
+-- Dissect: Bid Price Short
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price_short = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price_short
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = translate.bid_price_short(raw)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price_short(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Bid Size
-memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size = 4
+-- Size: Bid Size Short
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size_short = 2
 
--- Display: Bid Size
-memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size = function(value)
-  return "Bid Size: "..value
+-- Display: Bid Size Short
+memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size_short = function(value)
+  return "Bid Size Short: "..value
 end
 
--- Dissect: Bid Size
-memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_size = function(buffer, offset, packet, parent)
-  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size
+-- Dissect: Bid Size Short
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_size_short = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size(value, buffer, offset, packet, parent)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_size, range, value, display)
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_size_short, range, value, display)
 
   return offset + length, value
 end
@@ -427,9 +448,9 @@ memx_equities_memoirtopofbook_sbe_v1_1_size_of.best_bid_short_message = function
 
   index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.security_id
 
-  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size
+  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size_short
 
-  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price
+  index = index + memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price_short
 
   return index
 end
@@ -449,11 +470,11 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_bid_short_message_fields = f
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Bid Size: 4 Byte Unsigned Fixed Width Integer
-  index, bid_size = memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_size(buffer, index, packet, parent)
+  -- Bid Size Short: 2 Byte Unsigned Fixed Width Integer
+  index, bid_size_short = memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_size_short(buffer, index, packet, parent)
 
-  -- Bid Price: 8 Byte Signed Fixed Width Integer
-  index, bid_price = memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price(buffer, index, packet, parent)
+  -- Bid Price Short: 2 Byte Signed Fixed Width Integer
+  index, bid_price_short = memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price_short(buffer, index, packet, parent)
 
   return index
 end
@@ -469,6 +490,52 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_bid_short_message = function
   end
 
   return memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_bid_short_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Offer Price
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price = 8
+
+-- Display: Offer Price
+memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price = function(value)
+  return "Offer Price: "..value
+end
+
+-- Translate: Offer Price
+translate.offer_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Offer Price
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_price = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_price
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = translate.offer_price(raw)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_price(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Offer size
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size = 4
+
+-- Display: Offer size
+memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size = function(value)
+  return "Offer size: "..value
+end
+
+-- Dissect: Offer size
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.offer_size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.offer_size(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.offer_size, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Best Offer Message
@@ -501,7 +568,7 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_message_fields = funct
   -- Security Id: 2 Byte Unsigned Fixed Width Integer
   index, security_id = memx_equities_memoirtopofbook_sbe_v1_1_dissect.security_id(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: 4 Byte Unsigned Fixed Width Integer
   index, offer_size = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size(buffer, index, packet, parent)
 
   -- Offer Price: 8 Byte Signed Fixed Width Integer
@@ -521,6 +588,52 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_message = function(buf
   end
 
   return memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_offer_message_fields(buffer, offset, packet, parent)
+end
+
+-- Size: Bid Price
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price = 8
+
+-- Display: Bid Price
+memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price = function(value)
+  return "Bid Price: "..value
+end
+
+-- Translate: Bid Price
+translate.bid_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
+-- Dissect: Bid Price
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_price
+  local range = buffer(offset, length)
+  local raw = range:int64()
+  local value = translate.bid_price(raw)
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_price(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_price, range, value, display)
+
+  return offset + length, value
+end
+
+-- Size: Bid Size
+memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size = 4
+
+-- Display: Bid Size
+memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size = function(value)
+  return "Bid Size: "..value
+end
+
+-- Dissect: Bid Size
+memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_size = function(buffer, offset, packet, parent)
+  local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.bid_size
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memoirtopofbook_sbe_v1_1_display.bid_size(value, buffer, offset, packet, parent)
+
+  parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.bid_size, range, value, display)
+
+  return offset + length, value
 end
 
 -- Calculate size of: Best Bid Message
@@ -615,7 +728,7 @@ memx_equities_memoirtopofbook_sbe_v1_1_dissect.best_bid_offer_message_fields = f
   -- Bid Price: 8 Byte Signed Fixed Width Integer
   index, bid_price = memx_equities_memoirtopofbook_sbe_v1_1_dissect.bid_price(buffer, index, packet, parent)
 
-  -- Offer Size: 4 Byte Unsigned Fixed Width Integer
+  -- Offer size: 4 Byte Unsigned Fixed Width Integer
   index, offer_size = memx_equities_memoirtopofbook_sbe_v1_1_dissect.offer_size(buffer, index, packet, parent)
 
   -- Offer Price: 8 Byte Signed Fixed Width Integer
@@ -1001,11 +1114,17 @@ memx_equities_memoirtopofbook_sbe_v1_1_display.mpv = function(value)
   return "Mpv: "..value
 end
 
+-- Translate: Mpv
+translate.mpv = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mpv
 memx_equities_memoirtopofbook_sbe_v1_1_dissect.mpv = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirtopofbook_sbe_v1_1_size_of.mpv
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.mpv(raw)
   local display = memx_equities_memoirtopofbook_sbe_v1_1_display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirtopofbook_sbe_v1_1.fields.mpv, range, value, display)
