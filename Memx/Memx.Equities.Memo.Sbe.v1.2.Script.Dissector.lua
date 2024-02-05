@@ -14,6 +14,7 @@ local memx_equities_memo_sbe_v1_2_display = {}
 local memx_equities_memo_sbe_v1_2_dissect = {}
 local memx_equities_memo_sbe_v1_2_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -23,7 +24,7 @@ local verify = {}
 memx_equities_memo_sbe_v1_2.fields.block_length = ProtoField.new("Block Length", "memx.equities.memo.sbe.v1.2.blocklength", ftypes.UINT16)
 memx_equities_memo_sbe_v1_2.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.equities.memo.sbe.v1.2.cancelgroupid", ftypes.UINT16)
 memx_equities_memo_sbe_v1_2.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.equities.memo.sbe.v1.2.cancelreason", ftypes.UINT8)
-memx_equities_memo_sbe_v1_2.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "memx.equities.memo.sbe.v1.2.clordid", ftypes.STRING)
+memx_equities_memo_sbe_v1_2.fields.clordid = ProtoField.new("ClOrdId", "memx.equities.memo.sbe.v1.2.clordid", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.common_header = ProtoField.new("Common Header", "memx.equities.memo.sbe.v1.2.commonheader", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.count = ProtoField.new("Count", "memx.equities.memo.sbe.v1.2.count", ftypes.UINT32)
 memx_equities_memo_sbe_v1_2.fields.cum_qty = ProtoField.new("Cum Qty", "memx.equities.memo.sbe.v1.2.cumqty", ftypes.UINT32)
@@ -51,11 +52,11 @@ memx_equities_memo_sbe_v1_2.fields.execution_report_trade_correction_message = P
 memx_equities_memo_sbe_v1_2.fields.execution_report_trade_message = ProtoField.new("Execution Report Trade Message", "memx.equities.memo.sbe.v1.2.executionreporttrademessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.expire_time = ProtoField.new("Expire Time", "memx.equities.memo.sbe.v1.2.expiretime", ftypes.UINT64)
 memx_equities_memo_sbe_v1_2.fields.external_routing_not_allowed = ProtoField.new("External Routing Not Allowed", "memx.equities.memo.sbe.v1.2.externalroutingnotallowed", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0004")
-memx_equities_memo_sbe_v1_2.fields.higher_than_price = ProtoField.new("Higher Than Price", "memx.equities.memo.sbe.v1.2.higherthanprice", ftypes.INT64)
+memx_equities_memo_sbe_v1_2.fields.higher_than_price = ProtoField.new("Higher Than Price", "memx.equities.memo.sbe.v1.2.higherthanprice", ftypes.DOUBLE)
 memx_equities_memo_sbe_v1_2.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.equities.memo.sbe.v1.2.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
 memx_equities_memo_sbe_v1_2.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.equities.memo.sbe.v1.2.lastliquidityind", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.last_mkt = ProtoField.new("Last Mkt", "memx.equities.memo.sbe.v1.2.lastmkt", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.last_px = ProtoField.new("Last Px", "memx.equities.memo.sbe.v1.2.lastpx", ftypes.INT64)
+memx_equities_memo_sbe_v1_2.fields.last_px = ProtoField.new("Last Px", "memx.equities.memo.sbe.v1.2.lastpx", ftypes.DOUBLE)
 memx_equities_memo_sbe_v1_2.fields.last_qty = ProtoField.new("Last Qty", "memx.equities.memo.sbe.v1.2.lastqty", ftypes.UINT32)
 memx_equities_memo_sbe_v1_2.fields.last_shares = ProtoField.new("Last Shares", "memx.equities.memo.sbe.v1.2.lastshares", ftypes.UINT32)
 memx_equities_memo_sbe_v1_2.fields.leaves_qty = ProtoField.new("Leaves Qty", "memx.equities.memo.sbe.v1.2.leavesqty", ftypes.UINT32)
@@ -64,9 +65,10 @@ memx_equities_memo_sbe_v1_2.fields.login_accepted_message = ProtoField.new("Logi
 memx_equities_memo_sbe_v1_2.fields.login_reject_code = ProtoField.new("Login Reject Code", "memx.equities.memo.sbe.v1.2.loginrejectcode", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.login_rejected_message = ProtoField.new("Login Rejected Message", "memx.equities.memo.sbe.v1.2.loginrejectedmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.login_request_message = ProtoField.new("Login Request Message", "memx.equities.memo.sbe.v1.2.loginrequestmessage", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.lower_than_price = ProtoField.new("Lower Than Price", "memx.equities.memo.sbe.v1.2.lowerthanprice", ftypes.INT64)
+memx_equities_memo_sbe_v1_2.fields.lower_than_price = ProtoField.new("Lower Than Price", "memx.equities.memo.sbe.v1.2.lowerthanprice", ftypes.DOUBLE)
 memx_equities_memo_sbe_v1_2.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "memx.equities.memo.sbe.v1.2.masscanceldonemessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "memx.equities.memo.sbe.v1.2.masscancelrejectmessage", ftypes.STRING)
+memx_equities_memo_sbe_v1_2.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.equities.memo.sbe.v1.2.masscancelrejectreason", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "memx.equities.memo.sbe.v1.2.masscancelrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.message_count = ProtoField.new("Message Count", "memx.equities.memo.sbe.v1.2.messagecount", ftypes.UINT64)
 memx_equities_memo_sbe_v1_2.fields.message_length = ProtoField.new("Message Length", "memx.equities.memo.sbe.v1.2.messagelength", ftypes.UINT16)
@@ -83,16 +85,16 @@ memx_equities_memo_sbe_v1_2.fields.order_cancel_request_message = ProtoField.new
 memx_equities_memo_sbe_v1_2.fields.order_capacity = ProtoField.new("Order Capacity", "memx.equities.memo.sbe.v1.2.ordercapacity", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.order_id = ProtoField.new("Order Id", "memx.equities.memo.sbe.v1.2.orderid", ftypes.UINT64)
 memx_equities_memo_sbe_v1_2.fields.order_qty = ProtoField.new("Order Qty", "memx.equities.memo.sbe.v1.2.orderqty", ftypes.UINT32)
-memx_equities_memo_sbe_v1_2.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "memx.equities.memo.sbe.v1.2.origclordid", ftypes.STRING)
+memx_equities_memo_sbe_v1_2.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.equities.memo.sbe.v1.2.origclordid", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.packet = ProtoField.new("Packet", "memx.equities.memo.sbe.v1.2.packet", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.equities.memo.sbe.v1.2.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
 memx_equities_memo_sbe_v1_2.fields.payload = ProtoField.new("Payload", "memx.equities.memo.sbe.v1.2.payload", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "memx.equities.memo.sbe.v1.2.pegoffsetvalue", ftypes.INT64)
+memx_equities_memo_sbe_v1_2.fields.peg_offset_value = ProtoField.new("Peg Offset Value", "memx.equities.memo.sbe.v1.2.pegoffsetvalue", ftypes.DOUBLE)
 memx_equities_memo_sbe_v1_2.fields.peg_price_type = ProtoField.new("Peg Price Type", "memx.equities.memo.sbe.v1.2.pegpricetype", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.equities.memo.sbe.v1.2.pendingmasscancelmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.equities.memo.sbe.v1.2.pendingmessagecount", ftypes.UINT32)
-memx_equities_memo_sbe_v1_2.fields.price = ProtoField.new("Price", "memx.equities.memo.sbe.v1.2.price", ftypes.INT64)
-memx_equities_memo_sbe_v1_2.fields.reject_reason = ProtoField.new("Reject Reason", "memx.equities.memo.sbe.v1.2.rejectreason", ftypes.UINT8)
+memx_equities_memo_sbe_v1_2.fields.price = ProtoField.new("Price", "memx.equities.memo.sbe.v1.2.price", ftypes.DOUBLE)
+memx_equities_memo_sbe_v1_2.fields.reject_reason_order_reject_reason_code = ProtoField.new("Reject Reason Order Reject Reason Code", "memx.equities.memo.sbe.v1.2.rejectreasonorderrejectreasoncode", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.equities.memo.sbe.v1.2.replayallrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.equities.memo.sbe.v1.2.replaybeginmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.equities.memo.sbe.v1.2.replaycompletemessage", ftypes.STRING)
@@ -120,18 +122,7 @@ memx_equities_memo_sbe_v1_2.fields.stream_reject_code = ProtoField.new("Stream R
 memx_equities_memo_sbe_v1_2.fields.stream_rejected_message = ProtoField.new("Stream Rejected Message", "memx.equities.memo.sbe.v1.2.streamrejectedmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.stream_request_message = ProtoField.new("Stream Request Message", "memx.equities.memo.sbe.v1.2.streamrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.supported_request_mode = ProtoField.new("Supported Request Mode", "memx.equities.memo.sbe.v1.2.supportedrequestmode", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_new_symbol = ProtoField.new("Symbol Execution Report New Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportnewsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_cancel_symbol = ProtoField.new("Symbol Execution Report Pending Cancel Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportpendingcancelsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_new_symbol = ProtoField.new("Symbol Execution Report Pending New Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportpendingnewsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_replace_symbol = ProtoField.new("Symbol Execution Report Pending Replace Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportpendingreplacesymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_rejected_symbol = ProtoField.new("Symbol Execution Report Rejected Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportrejectedsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_replaced_symbol = ProtoField.new("Symbol Execution Report Replaced Symbol", "memx.equities.memo.sbe.v1.2.symbolexecutionreportreplacedsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_mass_cancel_reject_symbol = ProtoField.new("Symbol Mass Cancel Reject Symbol", "memx.equities.memo.sbe.v1.2.symbolmasscancelrejectsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_mass_cancel_request_symbol = ProtoField.new("Symbol Mass Cancel Request Symbol", "memx.equities.memo.sbe.v1.2.symbolmasscancelrequestsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_new_order_single_symbol = ProtoField.new("Symbol New Order Single Symbol", "memx.equities.memo.sbe.v1.2.symbolnewordersinglesymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_order_cancel_replace_request_symbol = ProtoField.new("Symbol Order Cancel Replace Request Symbol", "memx.equities.memo.sbe.v1.2.symbolordercancelreplacerequestsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_order_cancel_request_symbol = ProtoField.new("Symbol Order Cancel Request Symbol", "memx.equities.memo.sbe.v1.2.symbolordercancelrequestsymbol", ftypes.STRING)
-memx_equities_memo_sbe_v1_2.fields.symbol_pending_mass_cancel_symbol = ProtoField.new("Symbol Pending Mass Cancel Symbol", "memx.equities.memo.sbe.v1.2.symbolpendingmasscancelsymbol", ftypes.STRING)
+memx_equities_memo_sbe_v1_2.fields.symbol = ProtoField.new("Symbol", "memx.equities.memo.sbe.v1.2.symbol", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.symbol_sfx = ProtoField.new("Symbol Sfx", "memx.equities.memo.sbe.v1.2.symbolsfx", ftypes.STRING)
 memx_equities_memo_sbe_v1_2.fields.template_id = ProtoField.new("Template Id", "memx.equities.memo.sbe.v1.2.templateid", ftypes.UINT8)
 memx_equities_memo_sbe_v1_2.fields.time_in_force = ProtoField.new("Time In Force", "memx.equities.memo.sbe.v1.2.timeinforce", ftypes.UINT8)
@@ -415,293 +406,50 @@ end
 -- Dissect Memx Equities Memo Sbe 1.2
 -----------------------------------------------------------------------
 
--- Size: Reject Reason
-memx_equities_memo_sbe_v1_2_size_of.reject_reason = 1
+-- Size: Mass Cancel Reject Reason
+memx_equities_memo_sbe_v1_2_size_of.mass_cancel_reject_reason = 1
 
--- Display: Reject Reason
-memx_equities_memo_sbe_v1_2_display.reject_reason = function(value)
+-- Display: Mass Cancel Reject Reason
+memx_equities_memo_sbe_v1_2_display.mass_cancel_reject_reason = function(value)
   if value == 0 then
-    return "Reject Reason: Other (0)"
+    return "Mass Cancel Reject Reason: Other (0)"
   end
   if value == 1 then
-    return "Reject Reason: Missing Symbol (1)"
+    return "Mass Cancel Reject Reason: Unknown Product (1)"
   end
   if value == 2 then
-    return "Reject Reason: Missing Locate (2)"
+    return "Mass Cancel Reject Reason: Unknown Side (2)"
   end
   if value == 3 then
-    return "Reject Reason: Missing Cl Ord Id (3)"
+    return "Mass Cancel Reject Reason: Unknown Group Id (3)"
   end
   if value == 4 then
-    return "Reject Reason: Missing Side (4)"
+    return "Mass Cancel Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
   end
   if value == 5 then
-    return "Reject Reason: Missing Order Quantity (5)"
+    return "Mass Cancel Reject Reason: Product Missing For Price Restriction (5)"
   end
   if value == 6 then
-    return "Reject Reason: Missing Order Type (6)"
+    return "Mass Cancel Reject Reason: Duplicate Cl Ord Id (6)"
   end
   if value == 7 then
-    return "Reject Reason: Missing Time In Force (7)"
-  end
-  if value == 8 then
-    return "Reject Reason: Missing Order Capacity (8)"
-  end
-  if value == 9 then
-    return "Reject Reason: Missing Exec Inst (9)"
-  end
-  if value == 10 then
-    return "Reject Reason: Missing Limit Price (10)"
-  end
-  if value == 11 then
-    return "Reject Reason: Missing Max Floor (11)"
-  end
-  if value == 12 then
-    return "Reject Reason: Missing Reserve Replenish Amount Type (12)"
-  end
-  if value == 13 then
-    return "Reject Reason: Missing Reserve Replenish Time Type (13)"
-  end
-  if value == 14 then
-    return "Reject Reason: Missing Random Replenish Value (14)"
-  end
-  if value == 15 then
-    return "Reject Reason: Missing Reprice Frequency Type (15)"
-  end
-  if value == 16 then
-    return "Reject Reason: Missing Reprice Behavior Type (16)"
-  end
-  if value == 17 then
-    return "Reject Reason: Missing Customer Capacity Type (17)"
-  end
-  if value == 18 then
-    return "Reject Reason: Missing Expire Time (18)"
-  end
-  if value == 19 then
-    return "Reject Reason: Missing Peg Type (19)"
-  end
-  if value == 20 then
-    return "Reject Reason: Invalid Modifier For Order Type (20)"
-  end
-  if value == 21 then
-    return "Reject Reason: Invalid Modifiers Combination (21)"
-  end
-  if value == 22 then
-    return "Reject Reason: Invalid Trading Session For Order Type (22)"
-  end
-  if value == 23 then
-    return "Reject Reason: Invalid Time In Force For Order Type (23)"
-  end
-  if value == 24 then
-    return "Reject Reason: Invalid Min Quantity (24)"
-  end
-  if value == 25 then
-    return "Reject Reason: Invalid Order Quantity (25)"
-  end
-  if value == 26 then
-    return "Reject Reason: Invalid Side (26)"
-  end
-  if value == 27 then
-    return "Reject Reason: Invalid Order Type (27)"
-  end
-  if value == 28 then
-    return "Reject Reason: Invalid Time In Force (28)"
-  end
-  if value == 29 then
-    return "Reject Reason: Invalid Order Capacity (29)"
-  end
-  if value == 30 then
-    return "Reject Reason: Invalid Customer Capacity (30)"
-  end
-  if value == 31 then
-    return "Reject Reason: Invalid Symbol (31)"
-  end
-  if value == 32 then
-    return "Reject Reason: Invalid Expire Time (32)"
-  end
-  if value == 33 then
-    return "Reject Reason: Invalid Limit Price (33)"
-  end
-  if value == 34 then
-    return "Reject Reason: Invalid Limit Price Increment (34)"
-  end
-  if value == 35 then
-    return "Reject Reason: Invalid Max Floor (35)"
-  end
-  if value == 36 then
-    return "Reject Reason: Invalid Random Replenish Value (36)"
-  end
-  if value == 37 then
-    return "Reject Reason: Invalid Random Replenish Value For Reserve Type (37)"
-  end
-  if value == 38 then
-    return "Reject Reason: Invalid Reserve Replenish Amount Type (38)"
-  end
-  if value == 39 then
-    return "Reject Reason: Invalid Reserve Replenish Time Type (39)"
-  end
-  if value == 40 then
-    return "Reject Reason: Invalid Reprice Frequency Type (40)"
-  end
-  if value == 41 then
-    return "Reject Reason: Invalid Reprice Behavior Type (41)"
-  end
-  if value == 42 then
-    return "Reject Reason: Invalid Reprice Behavior For Reprice Frequency (42)"
-  end
-  if value == 43 then
-    return "Reject Reason: Invalid Mpid Value (43)"
-  end
-  if value == 44 then
-    return "Reject Reason: Invalid Peg Type (44)"
-  end
-  if value == 45 then
-    return "Reject Reason: Invalid Modifier For Peg Type (45)"
-  end
-  if value == 46 then
-    return "Reject Reason: Invalid Locate (46)"
-  end
-  if value == 47 then
-    return "Reject Reason: Symbol Halted Or Paused (47)"
-  end
-  if value == 48 then
-    return "Reject Reason: Exchange Closed (48)"
-  end
-  if value == 49 then
-    return "Reject Reason: Duplicate Cl Ord Id (49)"
-  end
-  if value == 50 then
-    return "Reject Reason: Order Size Exceeds Limit (50)"
-  end
-  if value == 51 then
-    return "Reject Reason: Order Notional Exceeds Limit (51)"
-  end
-  if value == 52 then
-    return "Reject Reason: Block Iso Risk Rule Violated (52)"
-  end
-  if value == 53 then
-    return "Reject Reason: Block Session Risk Rule Violated (53)"
-  end
-  if value == 54 then
-    return "Reject Reason: Block Sell Short Risk Rule Violated (54)"
-  end
-  if value == 55 then
-    return "Reject Reason: Block Non Test Symbols Risk Rule Violated (55)"
-  end
-  if value == 56 then
-    return "Reject Reason: Max Shares Per Order Risk Rule Breach (56)"
-  end
-  if value == 57 then
-    return "Reject Reason: Max Notional Value Per Order Risk Rule Breach (57)"
-  end
-  if value == 58 then
-    return "Reject Reason: Price Percent Collar Risk Rule Violated (58)"
-  end
-  if value == 59 then
-    return "Reject Reason: Price Value Collar Risk Rule Violated (59)"
-  end
-  if value == 60 then
-    return "Reject Reason: Max Adv Percent Per Order Risk Rule Breach (60)"
-  end
-  if value == 61 then
-    return "Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (61)"
-  end
-  if value == 62 then
-    return "Reject Reason: Daily Net Notional Exposure Risk Rule Breach (62)"
-  end
-  if value == 63 then
-    return "Reject Reason: Max Num Duplicate Orders Risk Rule Breach (63)"
-  end
-  if value == 64 then
-    return "Reject Reason: Max Order Rate Risk Rule Breach (64)"
-  end
-  if value == 65 then
-    return "Reject Reason: Restricted Security Risk Rule Violated (65)"
-  end
-  if value == 66 then
-    return "Reject Reason: Hard To Borrow Security Risk Rule Violated (66)"
-  end
-  if value == 67 then
-    return "Reject Reason: Invalid Self Trade Prevention Configuration (67)"
-  end
-  if value == 68 then
-    return "Reject Reason: Invalid Self Trade Prevention Type (68)"
-  end
-  if value == 69 then
-    return "Reject Reason: Invalid Risk Group Id (69)"
-  end
-  if value == 70 then
-    return "Reject Reason: Firm Disabled (70)"
-  end
-  if value == 71 then
-    return "Reject Reason: Mpid Disabled (71)"
-  end
-  if value == 72 then
-    return "Reject Reason: Account Disabled (72)"
-  end
-  if value == 73 then
-    return "Reject Reason: No Nbbo Available (73)"
-  end
-  if value == 74 then
-    return "Reject Reason: Cannot Trade Non Test Symbol (74)"
-  end
-  if value == 75 then
-    return "Reject Reason: Missing Firm (75)"
-  end
-  if value == 76 then
-    return "Reject Reason: Missing Account (76)"
-  end
-  if value == 77 then
-    return "Reject Reason: Missing Mpid (77)"
-  end
-  if value == 78 then
-    return "Reject Reason: Missing Risk Group (78)"
-  end
-  if value == 79 then
-    return "Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (79)"
-  end
-  if value == 80 then
-    return "Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (80)"
-  end
-  if value == 81 then
-    return "Reject Reason: Missing Disp Method Type (81)"
+    return "Mass Cancel Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
   end
   if value == 255 then
-    return "Reject Reason: Null Value (255)"
-  end
-  if value == 1 then
-    return "Reject Reason: Unknown Product (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Unknown Side (2)"
-  end
-  if value == 3 then
-    return "Reject Reason: Unknown Group Id (3)"
-  end
-  if value == 4 then
-    return "Reject Reason: Higher Price Lower Or Equal To Lower Price (4)"
-  end
-  if value == 5 then
-    return "Reject Reason: Product Missing For Price Restriction (5)"
-  end
-  if value == 6 then
-    return "Reject Reason: Duplicate Cl Ord Id (6)"
-  end
-  if value == 7 then
-    return "Reject Reason: Malformed Request Missing Cl Ord Id Field (7)"
+    return "Mass Cancel Reject Reason: Null Value (255)"
   end
 
-  return "Reject Reason: Unknown("..value..")"
+  return "Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
--- Dissect: Reject Reason
-memx_equities_memo_sbe_v1_2_dissect.reject_reason = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.reject_reason
+-- Dissect: Mass Cancel Reject Reason
+memx_equities_memo_sbe_v1_2_dissect.mass_cancel_reject_reason = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_2_size_of.mass_cancel_reject_reason
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memo_sbe_v1_2_display.reject_reason(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_2_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_2.fields.reject_reason, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_2.fields.mass_cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -735,21 +483,32 @@ end
 memx_equities_memo_sbe_v1_2_size_of.higher_than_price = 8
 
 -- Display: Higher Than Price
-memx_equities_memo_sbe_v1_2_display.higher_than_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+memx_equities_memo_sbe_v1_2_display.higher_than_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Higher Than Price: No Value"
   end
 
   return "Higher Than Price: "..value
 end
 
+-- Translate: Higher Than Price
+translate.higher_than_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Higher Than Price
 memx_equities_memo_sbe_v1_2_dissect.higher_than_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memo_sbe_v1_2_size_of.higher_than_price
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memo_sbe_v1_2_display.higher_than_price(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = translate.higher_than_price(raw)
+  local display = memx_equities_memo_sbe_v1_2_display.higher_than_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_2.fields.higher_than_price, range, value, display)
 
@@ -760,21 +519,32 @@ end
 memx_equities_memo_sbe_v1_2_size_of.lower_than_price = 8
 
 -- Display: Lower Than Price
-memx_equities_memo_sbe_v1_2_display.lower_than_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+memx_equities_memo_sbe_v1_2_display.lower_than_price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Lower Than Price: No Value"
   end
 
   return "Lower Than Price: "..value
 end
 
+-- Translate: Lower Than Price
+translate.lower_than_price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Lower Than Price
 memx_equities_memo_sbe_v1_2_dissect.lower_than_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memo_sbe_v1_2_size_of.lower_than_price
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memo_sbe_v1_2_display.lower_than_price(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = translate.lower_than_price(raw)
+  local display = memx_equities_memo_sbe_v1_2_display.lower_than_price(raw, value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_2.fields.lower_than_price, range, value, display)
 
@@ -853,22 +623,22 @@ memx_equities_memo_sbe_v1_2_dissect.symbol_sfx = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Size: Symbol Mass Cancel Reject Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_reject_symbol = 6
+-- Size: Symbol
+memx_equities_memo_sbe_v1_2_size_of.symbol = 6
 
--- Display: Symbol Mass Cancel Reject Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_mass_cancel_reject_symbol = function(value)
+-- Display: Symbol
+memx_equities_memo_sbe_v1_2_display.symbol = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Mass Cancel Reject Symbol: No Value"
+    return "Symbol: No Value"
   end
 
-  return "Symbol Mass Cancel Reject Symbol: "..value
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol Mass Cancel Reject Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_mass_cancel_reject_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_reject_symbol
+-- Dissect: Symbol
+memx_equities_memo_sbe_v1_2_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_2_size_of.symbol
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -882,29 +652,29 @@ memx_equities_memo_sbe_v1_2_dissect.symbol_mass_cancel_reject_symbol = function(
     value = range:string()
   end
 
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_mass_cancel_reject_symbol(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_2_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_mass_cancel_reject_symbol, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Cl Ord Id
-memx_equities_memo_sbe_v1_2_size_of.cl_ord_id = 16
+-- Size: ClOrdId
+memx_equities_memo_sbe_v1_2_size_of.clordid = 16
 
--- Display: Cl Ord Id
-memx_equities_memo_sbe_v1_2_display.cl_ord_id = function(value)
+-- Display: ClOrdId
+memx_equities_memo_sbe_v1_2_display.clordid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord Id: No Value"
+    return "ClOrdId: No Value"
   end
 
-  return "Cl Ord Id: "..value
+  return "ClOrdId: "..value
 end
 
--- Dissect: Cl Ord Id
-memx_equities_memo_sbe_v1_2_dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+-- Dissect: ClOrdId
+memx_equities_memo_sbe_v1_2_dissect.clordid = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_2_size_of.clordid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -918,9 +688,9 @@ memx_equities_memo_sbe_v1_2_dissect.cl_ord_id = function(buffer, offset, packet,
     value = range:string()
   end
 
-  local display = memx_equities_memo_sbe_v1_2_display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_2_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_2.fields.cl_ord_id, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_2.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -930,7 +700,11 @@ memx_equities_memo_sbe_v1_2_size_of.sending_time = 8
 
 -- Display: Sending Time
 memx_equities_memo_sbe_v1_2_display.sending_time = function(value)
-  return "Sending Time: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Sending Time: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Sending Time
@@ -951,9 +725,9 @@ memx_equities_memo_sbe_v1_2_size_of.mass_cancel_reject_message = function(buffer
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_reject_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -965,7 +739,7 @@ memx_equities_memo_sbe_v1_2_size_of.mass_cancel_reject_message = function(buffer
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.cancel_group_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.reject_reason
+  index = index + memx_equities_memo_sbe_v1_2_size_of.mass_cancel_reject_reason
 
   return index
 end
@@ -982,11 +756,11 @@ memx_equities_memo_sbe_v1_2_dissect.mass_cancel_reject_message_fields = function
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Symbol Mass Cancel Reject Symbol: 6 Byte Ascii String
-  index, symbol_mass_cancel_reject_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_mass_cancel_reject_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -1003,8 +777,8 @@ memx_equities_memo_sbe_v1_2_dissect.mass_cancel_reject_message_fields = function
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = memx_equities_memo_sbe_v1_2_dissect.cancel_group_id(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 90 values
-  index, reject_reason = memx_equities_memo_sbe_v1_2_dissect.reject_reason(buffer, index, packet, parent)
+  -- Mass Cancel Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 9 values
+  index, mass_cancel_reject_reason = memx_equities_memo_sbe_v1_2_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
 
   return index
 end
@@ -1151,7 +925,7 @@ memx_equities_memo_sbe_v1_2_size_of.order_cancel_reject_message = function(buffe
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.cxl_rej_response_to
 
@@ -1172,8 +946,8 @@ memx_equities_memo_sbe_v1_2_dissect.order_cancel_reject_message_fields = functio
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Cxl Rej Response To: 1 Byte Unsigned Fixed Width Integer Enum with 3 values
   index, cxl_rej_response_to = memx_equities_memo_sbe_v1_2_dissect.cxl_rej_response_to(buffer, index, packet, parent)
@@ -1312,19 +1086,20 @@ memx_equities_memo_sbe_v1_2_size_of.last_px = 8
 
 -- Display: Last Px
 memx_equities_memo_sbe_v1_2_display.last_px = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Last Px: No Value"
-  end
-
   return "Last Px: "..value
+end
+
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw:tonumber()/1000000
 end
 
 -- Dissect: Last Px
 memx_equities_memo_sbe_v1_2_dissect.last_px = function(buffer, offset, packet, parent)
   local length = memx_equities_memo_sbe_v1_2_size_of.last_px
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.last_px(raw)
   local display = memx_equities_memo_sbe_v1_2_display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_2.fields.last_px, range, value, display)
@@ -1436,7 +1211,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_restatement_message = funct
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -1472,8 +1247,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_restatement_message_fields 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -1481,7 +1256,7 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_restatement_message_fields 
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = memx_equities_memo_sbe_v1_2_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1563,7 +1338,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_trade_break_message = funct
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -1595,8 +1370,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_break_message_fields 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -1637,11 +1412,6 @@ memx_equities_memo_sbe_v1_2_size_of.last_qty = 4
 
 -- Display: Last Qty
 memx_equities_memo_sbe_v1_2_display.last_qty = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Qty: No Value"
-  end
-
   return "Last Qty: "..value
 end
 
@@ -1665,7 +1435,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_trade_correction_message = 
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -1701,8 +1471,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_correction_message_fi
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -1716,10 +1486,10 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_correction_message_fi
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = memx_equities_memo_sbe_v1_2_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_equities_memo_sbe_v1_2_dissect.last_qty(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -1808,21 +1578,32 @@ end
 memx_equities_memo_sbe_v1_2_size_of.price = 8
 
 -- Display: Price
-memx_equities_memo_sbe_v1_2_display.price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+memx_equities_memo_sbe_v1_2_display.price = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Price: No Value"
   end
 
   return "Price: "..value
 end
 
+-- Translate: Price
+translate.price = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Price
 memx_equities_memo_sbe_v1_2_dissect.price = function(buffer, offset, packet, parent)
   local length = memx_equities_memo_sbe_v1_2_size_of.price
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memo_sbe_v1_2_display.price(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = translate.price(raw)
+  local display = memx_equities_memo_sbe_v1_2_display.price(raw, value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_2.fields.price, range, value, display)
 
@@ -1882,22 +1663,22 @@ memx_equities_memo_sbe_v1_2_dissect.order_qty = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Size: Symbol Execution Report Replaced Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_replaced_symbol = 6
+-- Size: OrigClOrdId
+memx_equities_memo_sbe_v1_2_size_of.origclordid = 16
 
--- Display: Symbol Execution Report Replaced Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_replaced_symbol = function(value)
+-- Display: OrigClOrdId
+memx_equities_memo_sbe_v1_2_display.origclordid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Execution Report Replaced Symbol: No Value"
+    return "OrigClOrdId: No Value"
   end
 
-  return "Symbol Execution Report Replaced Symbol: "..value
+  return "OrigClOrdId: "..value
 end
 
--- Dissect: Symbol Execution Report Replaced Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_replaced_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_replaced_symbol
+-- Dissect: OrigClOrdId
+memx_equities_memo_sbe_v1_2_dissect.origclordid = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_2_size_of.origclordid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1911,45 +1692,9 @@ memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_replaced_symbol = fu
     value = range:string()
   end
 
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_replaced_symbol(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_2_display.origclordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_replaced_symbol, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Orig Cl Ord Id
-memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id = 16
-
--- Display: Orig Cl Ord Id
-memx_equities_memo_sbe_v1_2_display.orig_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Orig Cl Ord Id: No Value"
-  end
-
-  return "Orig Cl Ord Id: "..value
-end
-
--- Dissect: Orig Cl Ord Id
-memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.orig_cl_ord_id, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_2.fields.origclordid, range, value, display)
 
   return offset + length, value
 end
@@ -1962,13 +1707,13 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_replaced_message = function
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_replaced_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -2010,17 +1755,17 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_replaced_message_fields = f
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol Execution Report Replaced Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_replaced_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_replaced_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2071,42 +1816,6 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_replaced_message = function
   return memx_equities_memo_sbe_v1_2_dissect.execution_report_replaced_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Execution Report Pending Replace Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_replace_symbol = 6
-
--- Display: Symbol Execution Report Pending Replace Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_replace_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Execution Report Pending Replace Symbol: No Value"
-  end
-
-  return "Symbol Execution Report Pending Replace Symbol: "..value
-end
-
--- Dissect: Symbol Execution Report Pending Replace Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_replace_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_replace_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_replace_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_replace_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Execution Report Pending Replace Message
 memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_replace_message = function(buffer, offset)
   local index = 0
@@ -2115,13 +1824,13 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_replace_message = f
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_replace_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -2161,17 +1870,17 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_replace_message_fie
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol Execution Report Pending Replace Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_pending_replace_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_replace_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2225,7 +1934,7 @@ memx_equities_memo_sbe_v1_2_size_of.mass_cancel_done_message = function(buffer, 
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   return index
 end
@@ -2242,8 +1951,8 @@ memx_equities_memo_sbe_v1_2_dissect.mass_cancel_done_message_fields = function(b
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   return index
 end
@@ -2339,9 +2048,9 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_canceled_message = function
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
@@ -2372,11 +2081,11 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_canceled_message_fields = f
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
@@ -2415,51 +2124,15 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_canceled_message = function
   return memx_equities_memo_sbe_v1_2_dissect.execution_report_canceled_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Pending Mass Cancel Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_pending_mass_cancel_symbol = 6
-
--- Display: Symbol Pending Mass Cancel Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_pending_mass_cancel_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Pending Mass Cancel Symbol: No Value"
-  end
-
-  return "Symbol Pending Mass Cancel Symbol: "..value
-end
-
--- Dissect: Symbol Pending Mass Cancel Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_pending_mass_cancel_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_pending_mass_cancel_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_pending_mass_cancel_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_pending_mass_cancel_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Pending Mass Cancel Message
 memx_equities_memo_sbe_v1_2_size_of.pending_mass_cancel_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_pending_mass_cancel_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -2486,11 +2159,11 @@ memx_equities_memo_sbe_v1_2_dissect.pending_mass_cancel_message_fields = functio
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Symbol Pending Mass Cancel Symbol: 6 Byte Ascii String
-  index, symbol_pending_mass_cancel_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_pending_mass_cancel_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2523,42 +2196,6 @@ memx_equities_memo_sbe_v1_2_dissect.pending_mass_cancel_message = function(buffe
   return memx_equities_memo_sbe_v1_2_dissect.pending_mass_cancel_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Execution Report Pending Cancel Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_cancel_symbol = 6
-
--- Display: Symbol Execution Report Pending Cancel Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_cancel_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Execution Report Pending Cancel Symbol: No Value"
-  end
-
-  return "Symbol Execution Report Pending Cancel Symbol: "..value
-end
-
--- Dissect: Symbol Execution Report Pending Cancel Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_cancel_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_cancel_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_cancel_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_cancel_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Execution Report Pending Cancel Message
 memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_cancel_message = function(buffer, offset)
   local index = 0
@@ -2567,13 +2204,13 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_cancel_message = fu
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_cancel_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -2601,17 +2238,17 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_cancel_message_fiel
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
 
-  -- Symbol Execution Report Pending Cancel Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_pending_cancel_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_cancel_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2796,7 +2433,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_trade_message = function(bu
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -2836,8 +2473,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_message_fields = func
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -2845,10 +2482,10 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_message_fields = func
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_equities_memo_sbe_v1_2_dissect.last_qty(buffer, index, packet, parent)
 
-  -- Last Px: 8 Byte Signed Fixed Width Integer Nullable
+  -- Last Px: 8 Byte Signed Fixed Width Integer
   index, last_px = memx_equities_memo_sbe_v1_2_dissect.last_px(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -2885,38 +2522,272 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_message = function(bu
   return memx_equities_memo_sbe_v1_2_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Execution Report Rejected Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_rejected_symbol = 6
+-- Size: Reject Reason Order Reject Reason Code
+memx_equities_memo_sbe_v1_2_size_of.reject_reason_order_reject_reason_code = 1
 
--- Display: Symbol Execution Report Rejected Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_rejected_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Execution Report Rejected Symbol: No Value"
+-- Display: Reject Reason Order Reject Reason Code
+memx_equities_memo_sbe_v1_2_display.reject_reason_order_reject_reason_code = function(value)
+  if value == 0 then
+    return "Reject Reason Order Reject Reason Code: Other (0)"
+  end
+  if value == 1 then
+    return "Reject Reason Order Reject Reason Code: Missing Symbol (1)"
+  end
+  if value == 2 then
+    return "Reject Reason Order Reject Reason Code: Missing Locate (2)"
+  end
+  if value == 3 then
+    return "Reject Reason Order Reject Reason Code: Missing Cl Ord Id (3)"
+  end
+  if value == 4 then
+    return "Reject Reason Order Reject Reason Code: Missing Side (4)"
+  end
+  if value == 5 then
+    return "Reject Reason Order Reject Reason Code: Missing Order Quantity (5)"
+  end
+  if value == 6 then
+    return "Reject Reason Order Reject Reason Code: Missing Order Type (6)"
+  end
+  if value == 7 then
+    return "Reject Reason Order Reject Reason Code: Missing Time In Force (7)"
+  end
+  if value == 8 then
+    return "Reject Reason Order Reject Reason Code: Missing Order Capacity (8)"
+  end
+  if value == 9 then
+    return "Reject Reason Order Reject Reason Code: Missing Exec Inst (9)"
+  end
+  if value == 10 then
+    return "Reject Reason Order Reject Reason Code: Missing Limit Price (10)"
+  end
+  if value == 11 then
+    return "Reject Reason Order Reject Reason Code: Missing Max Floor (11)"
+  end
+  if value == 12 then
+    return "Reject Reason Order Reject Reason Code: Missing Reserve Replenish Amount Type (12)"
+  end
+  if value == 13 then
+    return "Reject Reason Order Reject Reason Code: Missing Reserve Replenish Time Type (13)"
+  end
+  if value == 14 then
+    return "Reject Reason Order Reject Reason Code: Missing Random Replenish Value (14)"
+  end
+  if value == 15 then
+    return "Reject Reason Order Reject Reason Code: Missing Reprice Frequency Type (15)"
+  end
+  if value == 16 then
+    return "Reject Reason Order Reject Reason Code: Missing Reprice Behavior Type (16)"
+  end
+  if value == 17 then
+    return "Reject Reason Order Reject Reason Code: Missing Customer Capacity Type (17)"
+  end
+  if value == 18 then
+    return "Reject Reason Order Reject Reason Code: Missing Expire Time (18)"
+  end
+  if value == 19 then
+    return "Reject Reason Order Reject Reason Code: Missing Peg Type (19)"
+  end
+  if value == 20 then
+    return "Reject Reason Order Reject Reason Code: Invalid Modifier For Order Type (20)"
+  end
+  if value == 21 then
+    return "Reject Reason Order Reject Reason Code: Invalid Modifiers Combination (21)"
+  end
+  if value == 22 then
+    return "Reject Reason Order Reject Reason Code: Invalid Trading Session For Order Type (22)"
+  end
+  if value == 23 then
+    return "Reject Reason Order Reject Reason Code: Invalid Time In Force For Order Type (23)"
+  end
+  if value == 24 then
+    return "Reject Reason Order Reject Reason Code: Invalid Min Quantity (24)"
+  end
+  if value == 25 then
+    return "Reject Reason Order Reject Reason Code: Invalid Order Quantity (25)"
+  end
+  if value == 26 then
+    return "Reject Reason Order Reject Reason Code: Invalid Side (26)"
+  end
+  if value == 27 then
+    return "Reject Reason Order Reject Reason Code: Invalid Order Type (27)"
+  end
+  if value == 28 then
+    return "Reject Reason Order Reject Reason Code: Invalid Time In Force (28)"
+  end
+  if value == 29 then
+    return "Reject Reason Order Reject Reason Code: Invalid Order Capacity (29)"
+  end
+  if value == 30 then
+    return "Reject Reason Order Reject Reason Code: Invalid Customer Capacity (30)"
+  end
+  if value == 31 then
+    return "Reject Reason Order Reject Reason Code: Invalid Symbol (31)"
+  end
+  if value == 32 then
+    return "Reject Reason Order Reject Reason Code: Invalid Expire Time (32)"
+  end
+  if value == 33 then
+    return "Reject Reason Order Reject Reason Code: Invalid Limit Price (33)"
+  end
+  if value == 34 then
+    return "Reject Reason Order Reject Reason Code: Invalid Limit Price Increment (34)"
+  end
+  if value == 35 then
+    return "Reject Reason Order Reject Reason Code: Invalid Max Floor (35)"
+  end
+  if value == 36 then
+    return "Reject Reason Order Reject Reason Code: Invalid Random Replenish Value (36)"
+  end
+  if value == 37 then
+    return "Reject Reason Order Reject Reason Code: Invalid Random Replenish Value For Reserve Type (37)"
+  end
+  if value == 38 then
+    return "Reject Reason Order Reject Reason Code: Invalid Reserve Replenish Amount Type (38)"
+  end
+  if value == 39 then
+    return "Reject Reason Order Reject Reason Code: Invalid Reserve Replenish Time Type (39)"
+  end
+  if value == 40 then
+    return "Reject Reason Order Reject Reason Code: Invalid Reprice Frequency Type (40)"
+  end
+  if value == 41 then
+    return "Reject Reason Order Reject Reason Code: Invalid Reprice Behavior Type (41)"
+  end
+  if value == 42 then
+    return "Reject Reason Order Reject Reason Code: Invalid Reprice Behavior For Reprice Frequency (42)"
+  end
+  if value == 43 then
+    return "Reject Reason Order Reject Reason Code: Invalid Mpid Value (43)"
+  end
+  if value == 44 then
+    return "Reject Reason Order Reject Reason Code: Invalid Peg Type (44)"
+  end
+  if value == 45 then
+    return "Reject Reason Order Reject Reason Code: Invalid Modifier For Peg Type (45)"
+  end
+  if value == 46 then
+    return "Reject Reason Order Reject Reason Code: Invalid Locate (46)"
+  end
+  if value == 47 then
+    return "Reject Reason Order Reject Reason Code: Symbol Halted Or Paused (47)"
+  end
+  if value == 48 then
+    return "Reject Reason Order Reject Reason Code: Exchange Closed (48)"
+  end
+  if value == 49 then
+    return "Reject Reason Order Reject Reason Code: Duplicate Cl Ord Id (49)"
+  end
+  if value == 50 then
+    return "Reject Reason Order Reject Reason Code: Order Size Exceeds Limit (50)"
+  end
+  if value == 51 then
+    return "Reject Reason Order Reject Reason Code: Order Notional Exceeds Limit (51)"
+  end
+  if value == 52 then
+    return "Reject Reason Order Reject Reason Code: Block Iso Risk Rule Violated (52)"
+  end
+  if value == 53 then
+    return "Reject Reason Order Reject Reason Code: Block Session Risk Rule Violated (53)"
+  end
+  if value == 54 then
+    return "Reject Reason Order Reject Reason Code: Block Sell Short Risk Rule Violated (54)"
+  end
+  if value == 55 then
+    return "Reject Reason Order Reject Reason Code: Block Non Test Symbols Risk Rule Violated (55)"
+  end
+  if value == 56 then
+    return "Reject Reason Order Reject Reason Code: Max Shares Per Order Risk Rule Breach (56)"
+  end
+  if value == 57 then
+    return "Reject Reason Order Reject Reason Code: Max Notional Value Per Order Risk Rule Breach (57)"
+  end
+  if value == 58 then
+    return "Reject Reason Order Reject Reason Code: Price Percent Collar Risk Rule Violated (58)"
+  end
+  if value == 59 then
+    return "Reject Reason Order Reject Reason Code: Price Value Collar Risk Rule Violated (59)"
+  end
+  if value == 60 then
+    return "Reject Reason Order Reject Reason Code: Max Adv Percent Per Order Risk Rule Breach (60)"
+  end
+  if value == 61 then
+    return "Reject Reason Order Reject Reason Code: Daily Gross Notional Exposure Risk Rule Breach (61)"
+  end
+  if value == 62 then
+    return "Reject Reason Order Reject Reason Code: Daily Net Notional Exposure Risk Rule Breach (62)"
+  end
+  if value == 63 then
+    return "Reject Reason Order Reject Reason Code: Max Num Duplicate Orders Risk Rule Breach (63)"
+  end
+  if value == 64 then
+    return "Reject Reason Order Reject Reason Code: Max Order Rate Risk Rule Breach (64)"
+  end
+  if value == 65 then
+    return "Reject Reason Order Reject Reason Code: Restricted Security Risk Rule Violated (65)"
+  end
+  if value == 66 then
+    return "Reject Reason Order Reject Reason Code: Hard To Borrow Security Risk Rule Violated (66)"
+  end
+  if value == 67 then
+    return "Reject Reason Order Reject Reason Code: Invalid Self Trade Prevention Configuration (67)"
+  end
+  if value == 68 then
+    return "Reject Reason Order Reject Reason Code: Invalid Self Trade Prevention Type (68)"
+  end
+  if value == 69 then
+    return "Reject Reason Order Reject Reason Code: Invalid Risk Group Id (69)"
+  end
+  if value == 70 then
+    return "Reject Reason Order Reject Reason Code: Firm Disabled (70)"
+  end
+  if value == 71 then
+    return "Reject Reason Order Reject Reason Code: Mpid Disabled (71)"
+  end
+  if value == 72 then
+    return "Reject Reason Order Reject Reason Code: Account Disabled (72)"
+  end
+  if value == 73 then
+    return "Reject Reason Order Reject Reason Code: No Nbbo Available (73)"
+  end
+  if value == 74 then
+    return "Reject Reason Order Reject Reason Code: Cannot Trade Non Test Symbol (74)"
+  end
+  if value == 75 then
+    return "Reject Reason Order Reject Reason Code: Missing Firm (75)"
+  end
+  if value == 76 then
+    return "Reject Reason Order Reject Reason Code: Missing Account (76)"
+  end
+  if value == 77 then
+    return "Reject Reason Order Reject Reason Code: Missing Mpid (77)"
+  end
+  if value == 78 then
+    return "Reject Reason Order Reject Reason Code: Missing Risk Group (78)"
+  end
+  if value == 79 then
+    return "Reject Reason Order Reject Reason Code: Daily Market Order Gross Notional Exposure Risk Rule Breach (79)"
+  end
+  if value == 80 then
+    return "Reject Reason Order Reject Reason Code: Daily Market Order Net Notional Exposure Risk Rule Breach (80)"
+  end
+  if value == 81 then
+    return "Reject Reason Order Reject Reason Code: Missing Disp Method Type (81)"
+  end
+  if value == 255 then
+    return "Reject Reason Order Reject Reason Code: Null Value (255)"
   end
 
-  return "Symbol Execution Report Rejected Symbol: "..value
+  return "Reject Reason Order Reject Reason Code: Unknown("..value..")"
 end
 
--- Dissect: Symbol Execution Report Rejected Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_rejected_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_rejected_symbol
+-- Dissect: Reject Reason Order Reject Reason Code
+memx_equities_memo_sbe_v1_2_dissect.reject_reason_order_reject_reason_code = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_2_size_of.reject_reason_order_reject_reason_code
   local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_equities_memo_sbe_v1_2_display.reject_reason_order_reject_reason_code(value, buffer, offset, packet, parent)
 
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_rejected_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_rejected_symbol, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_2.fields.reject_reason_order_reject_reason_code, range, value, display)
 
   return offset + length, value
 end
@@ -2927,13 +2798,13 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_rejected_message = function
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.sending_time
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.ord_status
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_rejected_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -2941,7 +2812,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_rejected_message = function
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.cum_qty
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.reject_reason
+  index = index + memx_equities_memo_sbe_v1_2_size_of.reject_reason_order_reject_reason_code
 
   return index
 end
@@ -2958,8 +2829,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_rejected_message_fields = f
   -- Sending Time: 8 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_equities_memo_sbe_v1_2_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -2967,8 +2838,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_rejected_message_fields = f
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol Execution Report Rejected Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_rejected_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_rejected_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -2979,8 +2850,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_rejected_message_fields = f
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_2_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 90 values
-  index, reject_reason = memx_equities_memo_sbe_v1_2_dissect.reject_reason(buffer, index, packet, parent)
+  -- Reject Reason Order Reject Reason Code: 1 Byte Unsigned Fixed Width Integer Enum with 83 values
+  index, reject_reason_order_reject_reason_code = memx_equities_memo_sbe_v1_2_dissect.reject_reason_order_reject_reason_code(buffer, index, packet, parent)
 
   return index
 end
@@ -3340,21 +3211,32 @@ end
 memx_equities_memo_sbe_v1_2_size_of.peg_offset_value = 8
 
 -- Display: Peg Offset Value
-memx_equities_memo_sbe_v1_2_display.peg_offset_value = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
+memx_equities_memo_sbe_v1_2_display.peg_offset_value = function(raw, value)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
     return "Peg Offset Value: No Value"
   end
 
   return "Peg Offset Value: "..value
 end
 
+-- Translate: Peg Offset Value
+translate.peg_offset_value = function(raw)
+  -- Check null sentinel value
+  if raw == Int64(0x00000000, 0x80000000) then
+    return 0/0
+  end
+
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Peg Offset Value
 memx_equities_memo_sbe_v1_2_dissect.peg_offset_value = function(buffer, offset, packet, parent)
   local length = memx_equities_memo_sbe_v1_2_size_of.peg_offset_value
   local range = buffer(offset, length)
-  local value = range:int64()
-  local display = memx_equities_memo_sbe_v1_2_display.peg_offset_value(value, buffer, offset, packet, parent)
+  local raw = range:int64()
+  local value = translate.peg_offset_value(raw)
+  local display = memx_equities_memo_sbe_v1_2_display.peg_offset_value(raw, value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memo_sbe_v1_2.fields.peg_offset_value, range, value, display)
 
@@ -3513,42 +3395,6 @@ memx_equities_memo_sbe_v1_2_dissect.time_in_force = function(buffer, offset, pac
   return offset + length, value
 end
 
--- Size: Symbol Execution Report New Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_new_symbol = 6
-
--- Display: Symbol Execution Report New Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_new_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Execution Report New Symbol: No Value"
-  end
-
-  return "Symbol Execution Report New Symbol: "..value
-end
-
--- Dissect: Symbol Execution Report New Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_new_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_new_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_new_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_new_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Mpid
 memx_equities_memo_sbe_v1_2_size_of.mpid = 4
 
@@ -3593,7 +3439,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_new_message = function(buff
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -3601,7 +3447,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_new_message = function(buff
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.ord_status
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_new_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -3675,8 +3521,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_new_message_fields = functi
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -3687,8 +3533,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_new_message_fields = functi
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol Execution Report New Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_new_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_new_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -3787,42 +3633,6 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_new_message = function(buff
   return memx_equities_memo_sbe_v1_2_dissect.execution_report_new_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Execution Report Pending New Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_new_symbol = 6
-
--- Display: Symbol Execution Report Pending New Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_new_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Execution Report Pending New Symbol: No Value"
-  end
-
-  return "Symbol Execution Report Pending New Symbol: "..value
-end
-
--- Dissect: Symbol Execution Report Pending New Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_new_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_new_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_execution_report_pending_new_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_execution_report_pending_new_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Execution Report Pending New Message
 memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_new_message = function(buffer, offset)
   local index = 0
@@ -3831,7 +3641,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_new_message = funct
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.exec_id
 
@@ -3839,7 +3649,7 @@ memx_equities_memo_sbe_v1_2_size_of.execution_report_pending_new_message = funct
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.ord_status
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_execution_report_pending_new_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -3911,8 +3721,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_new_message_fields 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_equities_memo_sbe_v1_2_dissect.exec_id(buffer, index, packet, parent)
@@ -3923,8 +3733,8 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_new_message_fields 
   -- Ord Status: 1 Byte Unsigned Fixed Width Integer Enum with 10 values
   index, ord_status = memx_equities_memo_sbe_v1_2_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Symbol Execution Report Pending New Symbol: 6 Byte Ascii String
-  index, symbol_execution_report_pending_new_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_execution_report_pending_new_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -4020,49 +3830,13 @@ memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_new_message = funct
   return memx_equities_memo_sbe_v1_2_dissect.execution_report_pending_new_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Mass Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_request_symbol = 6
-
--- Display: Symbol Mass Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_mass_cancel_request_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Mass Cancel Request Symbol: No Value"
-  end
-
-  return "Symbol Mass Cancel Request Symbol: "..value
-end
-
--- Dissect: Symbol Mass Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_mass_cancel_request_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_request_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_mass_cancel_request_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_mass_cancel_request_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Mass Cancel Request Message
 memx_equities_memo_sbe_v1_2_size_of.mass_cancel_request_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_mass_cancel_request_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -4086,11 +3860,11 @@ end
 memx_equities_memo_sbe_v1_2_dissect.mass_cancel_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Symbol Mass Cancel Request Symbol: 6 Byte Ascii String
-  index, symbol_mass_cancel_request_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_mass_cancel_request_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -4123,53 +3897,17 @@ memx_equities_memo_sbe_v1_2_dissect.mass_cancel_request_message = function(buffe
   return memx_equities_memo_sbe_v1_2_dissect.mass_cancel_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Order Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_request_symbol = 6
-
--- Display: Symbol Order Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_order_cancel_request_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Cancel Request Symbol: No Value"
-  end
-
-  return "Symbol Order Cancel Request Symbol: "..value
-end
-
--- Dissect: Symbol Order Cancel Request Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_order_cancel_request_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_request_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_order_cancel_request_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_order_cancel_request_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Cancel Request Message
 memx_equities_memo_sbe_v1_2_size_of.order_cancel_request_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.order_id
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_request_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -4185,17 +3923,17 @@ end
 memx_equities_memo_sbe_v1_2_dissect.order_cancel_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_equities_memo_sbe_v1_2_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Symbol Order Cancel Request Symbol: 6 Byte Ascii String
-  index, symbol_order_cancel_request_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_order_cancel_request_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -4216,51 +3954,15 @@ memx_equities_memo_sbe_v1_2_dissect.order_cancel_request_message = function(buff
   return memx_equities_memo_sbe_v1_2_dissect.order_cancel_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Order Cancel Replace Request Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_replace_request_symbol = 6
-
--- Display: Symbol Order Cancel Replace Request Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_order_cancel_replace_request_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Cancel Replace Request Symbol: No Value"
-  end
-
-  return "Symbol Order Cancel Replace Request Symbol: "..value
-end
-
--- Dissect: Symbol Order Cancel Replace Request Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_order_cancel_replace_request_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_replace_request_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_order_cancel_replace_request_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_order_cancel_replace_request_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Cancel Replace Request Message
 memx_equities_memo_sbe_v1_2_size_of.order_cancel_replace_request_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.orig_cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.origclordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_order_cancel_replace_request_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -4288,14 +3990,14 @@ end
 memx_equities_memo_sbe_v1_2_dissect.order_cancel_replace_request_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Orig Cl Ord Id: 16 Byte Ascii String
-  index, orig_cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 16 Byte Ascii String
+  index, origclordid = memx_equities_memo_sbe_v1_2_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
-  -- Symbol Order Cancel Replace Request Symbol: 6 Byte Ascii String
-  index, symbol_order_cancel_replace_request_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_order_cancel_replace_request_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
@@ -4334,51 +4036,15 @@ memx_equities_memo_sbe_v1_2_dissect.order_cancel_replace_request_message = funct
   return memx_equities_memo_sbe_v1_2_dissect.order_cancel_replace_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol New Order Single Symbol
-memx_equities_memo_sbe_v1_2_size_of.symbol_new_order_single_symbol = 6
-
--- Display: Symbol New Order Single Symbol
-memx_equities_memo_sbe_v1_2_display.symbol_new_order_single_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol New Order Single Symbol: No Value"
-  end
-
-  return "Symbol New Order Single Symbol: "..value
-end
-
--- Dissect: Symbol New Order Single Symbol
-memx_equities_memo_sbe_v1_2_dissect.symbol_new_order_single_symbol = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_2_size_of.symbol_new_order_single_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_equities_memo_sbe_v1_2_display.symbol_new_order_single_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_equities_memo_sbe_v1_2.fields.symbol_new_order_single_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: New Order Single Message
 memx_equities_memo_sbe_v1_2_size_of.new_order_single_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.cl_ord_id
+  index = index + memx_equities_memo_sbe_v1_2_size_of.clordid
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.mpid
 
-  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_new_order_single_symbol
+  index = index + memx_equities_memo_sbe_v1_2_size_of.symbol
 
   index = index + memx_equities_memo_sbe_v1_2_size_of.symbol_sfx
 
@@ -4440,14 +4106,14 @@ end
 memx_equities_memo_sbe_v1_2_dissect.new_order_single_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 16 Byte Ascii String
-  index, cl_ord_id = memx_equities_memo_sbe_v1_2_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 16 Byte Ascii String
+  index, clordid = memx_equities_memo_sbe_v1_2_dissect.clordid(buffer, index, packet, parent)
 
   -- Mpid: 4 Byte Ascii String
   index, mpid = memx_equities_memo_sbe_v1_2_dissect.mpid(buffer, index, packet, parent)
 
-  -- Symbol New Order Single Symbol: 6 Byte Ascii String
-  index, symbol_new_order_single_symbol = memx_equities_memo_sbe_v1_2_dissect.symbol_new_order_single_symbol(buffer, index, packet, parent)
+  -- Symbol: 6 Byte Ascii String
+  index, symbol = memx_equities_memo_sbe_v1_2_dissect.symbol(buffer, index, packet, parent)
 
   -- Symbol Sfx: 6 Byte Ascii String
   index, symbol_sfx = memx_equities_memo_sbe_v1_2_dissect.symbol_sfx(buffer, index, packet, parent)
