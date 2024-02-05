@@ -14,6 +14,7 @@ local memx_equities_memoirlastsale_sbe_v1_3_display = {}
 local memx_equities_memoirlastsale_sbe_v1_3_dissect = {}
 local memx_equities_memoirlastsale_sbe_v1_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -26,22 +27,22 @@ memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_1 = ProtoF
 memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_2 = ProtoField.new("Corrected Sale Condition 2", "memx.equities.memoirlastsale.sbe.v1.3.correctedsalecondition2", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_3 = ProtoField.new("Corrected Sale Condition 3", "memx.equities.memoirlastsale.sbe.v1.3.correctedsalecondition3", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_sale_condition_4 = ProtoField.new("Corrected Sale Condition 4", "memx.equities.memoirlastsale.sbe.v1.3.correctedsalecondition4", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.correctedtradeprice", ftypes.INT64)
+memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price = ProtoField.new("Corrected Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.correctedtradeprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_qty = ProtoField.new("Corrected Trade Qty", "memx.equities.memoirlastsale.sbe.v1.3.correctedtradeqty", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.equities.memoirlastsale.sbe.v1.3.headerlength", ftypes.UINT8)
 memx_equities_memoirlastsale_sbe_v1_3.fields.instrument_directory_message = ProtoField.new("Instrument Directory Message", "memx.equities.memoirlastsale.sbe.v1.3.instrumentdirectorymessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.is_test_symbol = ProtoField.new("Is Test Symbol", "memx.equities.memoirlastsale.sbe.v1.3.istestsymbol", ftypes.UINT8)
-memx_equities_memoirlastsale_sbe_v1_3.fields.last_price = ProtoField.new("Last Price", "memx.equities.memoirlastsale.sbe.v1.3.lastprice", ftypes.INT64)
+memx_equities_memoirlastsale_sbe_v1_3.fields.last_price = ProtoField.new("Last Price", "memx.equities.memoirlastsale.sbe.v1.3.lastprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_3.fields.message = ProtoField.new("Message", "memx.equities.memoirlastsale.sbe.v1.3.message", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.equities.memoirlastsale.sbe.v1.3.messagecount", ftypes.UINT16)
 memx_equities_memoirlastsale_sbe_v1_3.fields.message_length = ProtoField.new("Message Length", "memx.equities.memoirlastsale.sbe.v1.3.messagelength", ftypes.UINT16)
 memx_equities_memoirlastsale_sbe_v1_3.fields.message_type = ProtoField.new("Message Type", "memx.equities.memoirlastsale.sbe.v1.3.messagetype", ftypes.UINT8)
-memx_equities_memoirlastsale_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirlastsale.sbe.v1.3.mpv", ftypes.INT64)
+memx_equities_memoirlastsale_sbe_v1_3.fields.mpv = ProtoField.new("Mpv", "memx.equities.memoirlastsale.sbe.v1.3.mpv", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_1 = ProtoField.new("Original Sale Condition 1", "memx.equities.memoirlastsale.sbe.v1.3.originalsalecondition1", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_2 = ProtoField.new("Original Sale Condition 2", "memx.equities.memoirlastsale.sbe.v1.3.originalsalecondition2", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_3 = ProtoField.new("Original Sale Condition 3", "memx.equities.memoirlastsale.sbe.v1.3.originalsalecondition3", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.original_sale_condition_4 = ProtoField.new("Original Sale Condition 4", "memx.equities.memoirlastsale.sbe.v1.3.originalsalecondition4", ftypes.STRING)
-memx_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.INT64)
+memx_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price = ProtoField.new("Original Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.originaltradeprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_3.fields.original_trade_qty = ProtoField.new("Original Trade Qty", "memx.equities.memoirlastsale.sbe.v1.3.originaltradeqty", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.equities.memoirlastsale.sbe.v1.3.packet", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.equities.memoirlastsale.sbe.v1.3.payload", ftypes.STRING)
@@ -70,7 +71,7 @@ memx_equities_memoirlastsale_sbe_v1_3.fields.timestamp = ProtoField.new("Timesta
 memx_equities_memoirlastsale_sbe_v1_3.fields.trade_cancel_message = ProtoField.new("Trade Cancel Message", "memx.equities.memoirlastsale.sbe.v1.3.tradecancelmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.trade_correct_message = ProtoField.new("Trade Correct Message", "memx.equities.memoirlastsale.sbe.v1.3.tradecorrectmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.trade_id = ProtoField.new("Trade Id", "memx.equities.memoirlastsale.sbe.v1.3.tradeid", ftypes.UINT64)
-memx_equities_memoirlastsale_sbe_v1_3.fields.trade_price = ProtoField.new("Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.tradeprice", ftypes.INT64)
+memx_equities_memoirlastsale_sbe_v1_3.fields.trade_price = ProtoField.new("Trade Price", "memx.equities.memoirlastsale.sbe.v1.3.tradeprice", ftypes.DOUBLE)
 memx_equities_memoirlastsale_sbe_v1_3.fields.trade_qty = ProtoField.new("Trade Qty", "memx.equities.memoirlastsale.sbe.v1.3.tradeqty", ftypes.UINT32)
 memx_equities_memoirlastsale_sbe_v1_3.fields.trade_report_message = ProtoField.new("Trade Report Message", "memx.equities.memoirlastsale.sbe.v1.3.tradereportmessage", ftypes.STRING)
 memx_equities_memoirlastsale_sbe_v1_3.fields.trading_session = ProtoField.new("Trading Session", "memx.equities.memoirlastsale.sbe.v1.3.tradingsession", ftypes.STRING)
@@ -351,11 +352,17 @@ memx_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price = function(v
   return "Corrected Trade Price: "..value
 end
 
+-- Translate: Corrected Trade Price
+translate.corrected_trade_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Corrected Trade Price
 memx_equities_memoirlastsale_sbe_v1_3_dissect.corrected_trade_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirlastsale_sbe_v1_3_size_of.corrected_trade_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.corrected_trade_price(raw)
   local display = memx_equities_memoirlastsale_sbe_v1_3_display.corrected_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirlastsale_sbe_v1_3.fields.corrected_trade_price, range, value, display)
@@ -542,11 +549,17 @@ memx_equities_memoirlastsale_sbe_v1_3_display.original_trade_price = function(va
   return "Original Trade Price: "..value
 end
 
+-- Translate: Original Trade Price
+translate.original_trade_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Original Trade Price
 memx_equities_memoirlastsale_sbe_v1_3_dissect.original_trade_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirlastsale_sbe_v1_3_size_of.original_trade_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.original_trade_price(raw)
   local display = memx_equities_memoirlastsale_sbe_v1_3_display.original_trade_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirlastsale_sbe_v1_3.fields.original_trade_price, range, value, display)
@@ -619,7 +632,11 @@ memx_equities_memoirlastsale_sbe_v1_3_size_of.timestamp = 8
 
 -- Display: Timestamp
 memx_equities_memoirlastsale_sbe_v1_3_display.timestamp = function(value)
-  return "Timestamp: "..value
+  -- Parse unix timestamp
+  local seconds = value:tonumber()/1000000000
+  local nanoseconds = value:tonumber()%1000000000
+
+  return "Timestamp: "..os.date("%x %H:%M:%S.", seconds)..string.format("%09d", nanoseconds)
 end
 
 -- Dissect: Timestamp
@@ -900,11 +917,17 @@ memx_equities_memoirlastsale_sbe_v1_3_display.last_price = function(value)
   return "Last Price: "..value
 end
 
+-- Translate: Last Price
+translate.last_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Last Price
 memx_equities_memoirlastsale_sbe_v1_3_dissect.last_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirlastsale_sbe_v1_3_size_of.last_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.last_price(raw)
   local display = memx_equities_memoirlastsale_sbe_v1_3_display.last_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirlastsale_sbe_v1_3.fields.last_price, range, value, display)
@@ -1017,11 +1040,17 @@ memx_equities_memoirlastsale_sbe_v1_3_display.trade_price = function(value)
   return "Trade Price: "..value
 end
 
+-- Translate: Trade Price
+translate.trade_price = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Trade Price
 memx_equities_memoirlastsale_sbe_v1_3_dissect.trade_price = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirlastsale_sbe_v1_3_size_of.trade_price
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.trade_price(raw)
   local display = memx_equities_memoirlastsale_sbe_v1_3_display.trade_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirlastsale_sbe_v1_3.fields.trade_price, range, value, display)
@@ -1408,11 +1437,17 @@ memx_equities_memoirlastsale_sbe_v1_3_display.mpv = function(value)
   return "Mpv: "..value
 end
 
+-- Translate: Mpv
+translate.mpv = function(raw)
+  return raw:tonumber()/1000000
+end
+
 -- Dissect: Mpv
 memx_equities_memoirlastsale_sbe_v1_3_dissect.mpv = function(buffer, offset, packet, parent)
   local length = memx_equities_memoirlastsale_sbe_v1_3_size_of.mpv
   local range = buffer(offset, length)
-  local value = range:int64()
+  local raw = range:int64()
+  local value = translate.mpv(raw)
   local display = memx_equities_memoirlastsale_sbe_v1_3_display.mpv(value, buffer, offset, packet, parent)
 
   parent:add(memx_equities_memoirlastsale_sbe_v1_3.fields.mpv, range, value, display)
