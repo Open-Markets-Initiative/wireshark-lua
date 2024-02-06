@@ -14,6 +14,7 @@ local memx_options_memoirdepth_sbe_v1_3_display = {}
 local memx_options_memoirdepth_sbe_v1_3_dissect = {}
 local memx_options_memoirdepth_sbe_v1_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -27,7 +28,7 @@ memx_options_memoirdepth_sbe_v1_3.fields.clear_book_message = ProtoField.new("Cl
 memx_options_memoirdepth_sbe_v1_3.fields.closing_only = ProtoField.new("Closing Only", "memx.options.memoirdepth.sbe.v1.3.closingonly", ftypes.UINT8)
 memx_options_memoirdepth_sbe_v1_3.fields.closing_time = ProtoField.new("Closing Time", "memx.options.memoirdepth.sbe.v1.3.closingtime", ftypes.UINT8)
 memx_options_memoirdepth_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.options.memoirdepth.sbe.v1.3.commonheader", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.options.memoirdepth.sbe.v1.3.correctedprice", ftypes.INT8)
+memx_options_memoirdepth_sbe_v1_3.fields.corrected_price = ProtoField.new("Corrected Price", "memx.options.memoirdepth.sbe.v1.3.correctedprice", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.corrected_quantity = ProtoField.new("Corrected Quantity", "memx.options.memoirdepth.sbe.v1.3.correctedquantity", ftypes.UINT32)
 memx_options_memoirdepth_sbe_v1_3.fields.corrected_trade_message = ProtoField.new("Corrected Trade Message", "memx.options.memoirdepth.sbe.v1.3.correctedtrademessage", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.header_length = ProtoField.new("Header Length", "memx.options.memoirdepth.sbe.v1.3.headerlength", ftypes.UINT8)
@@ -51,13 +52,13 @@ memx_options_memoirdepth_sbe_v1_3.fields.order_deleted_message = ProtoField.new(
 memx_options_memoirdepth_sbe_v1_3.fields.order_executed_message = ProtoField.new("Order Executed Message", "memx.options.memoirdepth.sbe.v1.3.orderexecutedmessage", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "memx.options.memoirdepth.sbe.v1.3.orderid", ftypes.UINT64)
 memx_options_memoirdepth_sbe_v1_3.fields.order_reduced_message = ProtoField.new("Order Reduced Message", "memx.options.memoirdepth.sbe.v1.3.orderreducedmessage", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.options.memoirdepth.sbe.v1.3.originalprice", ftypes.INT8)
+memx_options_memoirdepth_sbe_v1_3.fields.original_price = ProtoField.new("Original Price", "memx.options.memoirdepth.sbe.v1.3.originalprice", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.original_quantity = ProtoField.new("Original Quantity", "memx.options.memoirdepth.sbe.v1.3.originalquantity", ftypes.UINT32)
 memx_options_memoirdepth_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirdepth.sbe.v1.3.osiroot", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.options.memoirdepth.sbe.v1.3.packet", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.options.memoirdepth.sbe.v1.3.payload", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.price_price_type = ProtoField.new("Price Price Type", "memx.options.memoirdepth.sbe.v1.3.pricepricetype", ftypes.INT8)
-memx_options_memoirdepth_sbe_v1_3.fields.price_short_price_type = ProtoField.new("Price Short Price Type", "memx.options.memoirdepth.sbe.v1.3.priceshortpricetype", ftypes.INT8)
+memx_options_memoirdepth_sbe_v1_3.fields.price_price_type = ProtoField.new("Price Price Type", "memx.options.memoirdepth.sbe.v1.3.pricepricetype", ftypes.DOUBLE)
+memx_options_memoirdepth_sbe_v1_3.fields.price_short_price_type = ProtoField.new("Price Short Price Type", "memx.options.memoirdepth.sbe.v1.3.priceshortpricetype", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.quantity_reduced = ProtoField.new("Quantity Reduced", "memx.options.memoirdepth.sbe.v1.3.quantityreduced", ftypes.UINT32)
 memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_16 = ProtoField.new("Quantity uint 16", "memx.options.memoirdepth.sbe.v1.3.quantityuint16", ftypes.UINT16)
 memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_32 = ProtoField.new("Quantity uint 32", "memx.options.memoirdepth.sbe.v1.3.quantityuint32", ftypes.UINT32)
@@ -71,7 +72,7 @@ memx_options_memoirdepth_sbe_v1_3.fields.sequenced_messages = ProtoField.new("Se
 memx_options_memoirdepth_sbe_v1_3.fields.session_id = ProtoField.new("Session Id", "memx.options.memoirdepth.sbe.v1.3.sessionid", ftypes.UINT64)
 memx_options_memoirdepth_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.options.memoirdepth.sbe.v1.3.side", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.options.memoirdepth.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirdepth.sbe.v1.3.strikeprice", ftypes.INT8)
+memx_options_memoirdepth_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirdepth.sbe.v1.3.strikeprice", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.options.memoirdepth.sbe.v1.3.strikeputorcall", ftypes.UINT8)
 memx_options_memoirdepth_sbe_v1_3.fields.symbol_broken_trade_symbol = ProtoField.new("Symbol Broken Trade Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolbrokentradesymbol", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.symbol_clear_book_symbol = ProtoField.new("Symbol Clear Book Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolclearbooksymbol", ftypes.STRING)
@@ -361,11 +362,17 @@ memx_options_memoirdepth_sbe_v1_3_display.price_price_type = function(value)
   return "Price Price Type: "..value
 end
 
+-- Translate: Price Price Type
+translate.price_price_type = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Price Price Type
 memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type = function(buffer, offset, packet, parent)
   local length = memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.price_price_type(raw)
   local display = memx_options_memoirdepth_sbe_v1_3_display.price_price_type(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price_price_type, range, value, display)
@@ -1104,11 +1111,17 @@ memx_options_memoirdepth_sbe_v1_3_display.price_short_price_type = function(valu
   return "Price Short Price Type: "..value
 end
 
+-- Translate: Price Short Price Type
+translate.price_short_price_type = function(raw)
+  return raw/100
+end
+
 -- Dissect: Price Short Price Type
 memx_options_memoirdepth_sbe_v1_3_dissect.price_short_price_type = function(buffer, offset, packet, parent)
   local length = memx_options_memoirdepth_sbe_v1_3_size_of.price_short_price_type
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.price_short_price_type(raw)
   local display = memx_options_memoirdepth_sbe_v1_3_display.price_short_price_type(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price_short_price_type, range, value, display)
@@ -1314,11 +1327,17 @@ memx_options_memoirdepth_sbe_v1_3_display.corrected_price = function(value)
   return "Corrected Price: "..value
 end
 
+-- Translate: Corrected Price
+translate.corrected_price = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Corrected Price
 memx_options_memoirdepth_sbe_v1_3_dissect.corrected_price = function(buffer, offset, packet, parent)
   local length = memx_options_memoirdepth_sbe_v1_3_size_of.corrected_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.corrected_price(raw)
   local display = memx_options_memoirdepth_sbe_v1_3_display.corrected_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memoirdepth_sbe_v1_3.fields.corrected_price, range, value, display)
@@ -1354,11 +1373,17 @@ memx_options_memoirdepth_sbe_v1_3_display.original_price = function(value)
   return "Original Price: "..value
 end
 
+-- Translate: Original Price
+translate.original_price = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Original Price
 memx_options_memoirdepth_sbe_v1_3_dissect.original_price = function(buffer, offset, packet, parent)
   local length = memx_options_memoirdepth_sbe_v1_3_size_of.original_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.original_price(raw)
   local display = memx_options_memoirdepth_sbe_v1_3_display.original_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memoirdepth_sbe_v1_3.fields.original_price, range, value, display)
@@ -1925,11 +1950,17 @@ memx_options_memoirdepth_sbe_v1_3_display.strike_price = function(value)
   return "Strike Price: "..value
 end
 
+-- Translate: Strike Price
+translate.strike_price = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Strike Price
 memx_options_memoirdepth_sbe_v1_3_dissect.strike_price = function(buffer, offset, packet, parent)
   local length = memx_options_memoirdepth_sbe_v1_3_size_of.strike_price
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.strike_price(raw)
   local display = memx_options_memoirdepth_sbe_v1_3_display.strike_price(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memoirdepth_sbe_v1_3.fields.strike_price, range, value, display)
