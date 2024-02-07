@@ -77,17 +77,7 @@ memx_options_memoirtop_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.optio
 memx_options_memoirtop_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.options.memoirtop.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 memx_options_memoirtop_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirtop.sbe.v1.3.strikeprice", ftypes.DOUBLE)
 memx_options_memoirtop_sbe_v1_3.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.options.memoirtop.sbe.v1.3.strikeputorcall", ftypes.UINT8)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_offer_symbol = ProtoField.new("Symbol Best Bid Offer Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbestbidoffersymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_short_symbol = ProtoField.new("Symbol Best Bid Short Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbestbidshortsymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_symbol = ProtoField.new("Symbol Best Bid Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbestbidsymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_best_offer_short_symbol = ProtoField.new("Symbol Best Offer Short Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbestoffershortsymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_best_offer_symbol = ProtoField.new("Symbol Best Offer Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbestoffersymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_broken_trade_symbol = ProtoField.new("Symbol Broken Trade Symbol", "memx.options.memoirtop.sbe.v1.3.symbolbrokentradesymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_clear_book_symbol = ProtoField.new("Symbol Clear Book Symbol", "memx.options.memoirtop.sbe.v1.3.symbolclearbooksymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_corrected_trade_symbol = ProtoField.new("Symbol Corrected Trade Symbol", "memx.options.memoirtop.sbe.v1.3.symbolcorrectedtradesymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_instrument_directory_symbol = ProtoField.new("Symbol Instrument Directory Symbol", "memx.options.memoirtop.sbe.v1.3.symbolinstrumentdirectorysymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_instrument_trading_status_symbol = ProtoField.new("Symbol Instrument Trading Status Symbol", "memx.options.memoirtop.sbe.v1.3.symbolinstrumenttradingstatussymbol", ftypes.STRING)
-memx_options_memoirtop_sbe_v1_3.fields.symbol_trade_symbol = ProtoField.new("Symbol Trade Symbol", "memx.options.memoirtop.sbe.v1.3.symboltradesymbol", ftypes.STRING)
+memx_options_memoirtop_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.options.memoirtop.sbe.v1.3.symbol", ftypes.STRING)
 memx_options_memoirtop_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.options.memoirtop.sbe.v1.3.templateid", ftypes.UINT8)
 memx_options_memoirtop_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.options.memoirtop.sbe.v1.3.timestamp", ftypes.UINT8)
 memx_options_memoirtop_sbe_v1_3.fields.total_bid_size = ProtoField.new("Total Bid Size", "memx.options.memoirtop.sbe.v1.3.totalbidsize", ftypes.UINT32)
@@ -258,22 +248,22 @@ end
 -- Dissect Memx Options MemoirTop Sbe 1.3
 -----------------------------------------------------------------------
 
--- Size: Symbol Clear Book Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_clear_book_symbol = 8
+-- Size: Symbol
+memx_options_memoirtop_sbe_v1_3_size_of.symbol = 8
 
--- Display: Symbol Clear Book Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_clear_book_symbol = function(value)
+-- Display: Symbol
+memx_options_memoirtop_sbe_v1_3_display.symbol = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Clear Book Symbol: No Value"
+    return "Symbol: No Value"
   end
 
-  return "Symbol Clear Book Symbol: "..value
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol Clear Book Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_clear_book_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_clear_book_symbol
+-- Dissect: Symbol
+memx_options_memoirtop_sbe_v1_3_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -287,9 +277,9 @@ memx_options_memoirtop_sbe_v1_3_dissect.symbol_clear_book_symbol = function(buff
     value = range:string()
   end
 
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_clear_book_symbol(value, buffer, offset, packet, parent)
+  local display = memx_options_memoirtop_sbe_v1_3_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_clear_book_symbol, range, value, display)
+  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -320,7 +310,7 @@ memx_options_memoirtop_sbe_v1_3_size_of.clear_book_message = function(buffer, of
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_clear_book_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.padding_7
 
@@ -339,8 +329,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.clear_book_message_fields = function(buf
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Clear Book Symbol: 8 Byte Ascii String
-  index, symbol_clear_book_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_clear_book_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Padding 7
   index, padding_7 = memx_options_memoirtop_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
@@ -560,49 +550,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.trade_id = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Size: Symbol Trade Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_trade_symbol = 8
-
--- Display: Symbol Trade Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_trade_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Trade Symbol: No Value"
-  end
-
-  return "Symbol Trade Symbol: "..value
-end
-
--- Dissect: Symbol Trade Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_trade_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_trade_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_trade_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_trade_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Trade Message
 memx_options_memoirtop_sbe_v1_3_size_of.trade_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_trade_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.trade_id
 
@@ -635,8 +589,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.trade_message_fields = function(buffer, 
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Trade Symbol: 8 Byte Ascii String
-  index, symbol_trade_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_trade_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirtop_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
@@ -724,49 +678,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.cust_bid_size_short = function(buffer, o
   return offset + length, value
 end
 
--- Size: Symbol Best Offer Short Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_short_symbol = 8
-
--- Display: Symbol Best Offer Short Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_best_offer_short_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Best Offer Short Symbol: No Value"
-  end
-
-  return "Symbol Best Offer Short Symbol: "..value
-end
-
--- Dissect: Symbol Best Offer Short Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_offer_short_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_short_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_best_offer_short_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_best_offer_short_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Best Offer Short Message
 memx_options_memoirtop_sbe_v1_3_size_of.best_offer_short_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_short_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.cust_bid_size_short
 
@@ -791,8 +709,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_offer_short_message_fields = functi
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Best Offer Short Symbol: 8 Byte Ascii String
-  index, symbol_best_offer_short_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_offer_short_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Cust Bid Size Short: 2 Byte Unsigned Fixed Width Integer
   index, cust_bid_size_short = memx_options_memoirtop_sbe_v1_3_dissect.cust_bid_size_short(buffer, index, packet, parent)
@@ -868,49 +786,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.total_bid_size_short = function(buffer, 
   return offset + length, value
 end
 
--- Size: Symbol Best Bid Short Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_short_symbol = 8
-
--- Display: Symbol Best Bid Short Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_short_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Best Bid Short Symbol: No Value"
-  end
-
-  return "Symbol Best Bid Short Symbol: "..value
-end
-
--- Dissect: Symbol Best Bid Short Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_short_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_short_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_short_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_short_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Best Bid Short Message
 memx_options_memoirtop_sbe_v1_3_size_of.best_bid_short_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_short_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.total_bid_size_short
 
@@ -935,8 +817,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_bid_short_message_fields = function
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Best Bid Short Symbol: 8 Byte Ascii String
-  index, symbol_best_bid_short_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_short_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Total Bid Size Short: 2 Byte Unsigned Fixed Width Integer
   index, total_bid_size_short = memx_options_memoirtop_sbe_v1_3_dissect.total_bid_size_short(buffer, index, packet, parent)
@@ -1032,49 +914,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.total_offer_size = function(buffer, offs
   return offset + length, value
 end
 
--- Size: Symbol Best Offer Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_symbol = 8
-
--- Display: Symbol Best Offer Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_best_offer_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Best Offer Symbol: No Value"
-  end
-
-  return "Symbol Best Offer Symbol: "..value
-end
-
--- Dissect: Symbol Best Offer Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_offer_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_best_offer_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_best_offer_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Best Offer Message
 memx_options_memoirtop_sbe_v1_3_size_of.best_offer_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_offer_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.total_offer_size
 
@@ -1099,8 +945,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_offer_message_fields = function(buf
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Best Offer Symbol: 8 Byte Ascii String
-  index, symbol_best_offer_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_offer_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Total Offer Size: 4 Byte Unsigned Fixed Width Integer
   index, total_offer_size = memx_options_memoirtop_sbe_v1_3_dissect.total_offer_size(buffer, index, packet, parent)
@@ -1196,49 +1042,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.total_bid_size = function(buffer, offset
   return offset + length, value
 end
 
--- Size: Symbol Best Bid Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_symbol = 8
-
--- Display: Symbol Best Bid Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Best Bid Symbol: No Value"
-  end
-
-  return "Symbol Best Bid Symbol: "..value
-end
-
--- Dissect: Symbol Best Bid Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Best Bid Message
 memx_options_memoirtop_sbe_v1_3_size_of.best_bid_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.total_bid_size
 
@@ -1263,8 +1073,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields = function(buffe
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Best Bid Symbol: 8 Byte Ascii String
-  index, symbol_best_bid_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Total Bid Size: 4 Byte Unsigned Fixed Width Integer
   index, total_bid_size = memx_options_memoirtop_sbe_v1_3_dissect.total_bid_size(buffer, index, packet, parent)
@@ -1294,49 +1104,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message = function(buffer, offs
   return memx_options_memoirtop_sbe_v1_3_dissect.best_bid_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Best Bid Offer Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_offer_symbol = 8
-
--- Display: Symbol Best Bid Offer Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_offer_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Best Bid Offer Symbol: No Value"
-  end
-
-  return "Symbol Best Bid Offer Symbol: "..value
-end
-
--- Dissect: Symbol Best Bid Offer Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_offer_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_offer_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_best_bid_offer_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_best_bid_offer_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Best Bid Offer Message
 memx_options_memoirtop_sbe_v1_3_size_of.best_bid_offer_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_best_bid_offer_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.total_bid_size
 
@@ -1367,8 +1141,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.best_bid_offer_message_fields = function
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Best Bid Offer Symbol: 8 Byte Ascii String
-  index, symbol_best_bid_offer_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_best_bid_offer_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Total Bid Size: 4 Byte Unsigned Fixed Width Integer
   index, total_bid_size = memx_options_memoirtop_sbe_v1_3_dissect.total_bid_size(buffer, index, packet, parent)
@@ -1566,49 +1340,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.original_quantity = function(buffer, off
   return offset + length, value
 end
 
--- Size: Symbol Corrected Trade Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_corrected_trade_symbol = 8
-
--- Display: Symbol Corrected Trade Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_corrected_trade_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Corrected Trade Symbol: No Value"
-  end
-
-  return "Symbol Corrected Trade Symbol: "..value
-end
-
--- Dissect: Symbol Corrected Trade Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_corrected_trade_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_corrected_trade_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_corrected_trade_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_corrected_trade_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Corrected Trade Message
 memx_options_memoirtop_sbe_v1_3_size_of.corrected_trade_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_corrected_trade_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.trade_id
 
@@ -1637,8 +1375,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields = functio
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Corrected Trade Symbol: 8 Byte Ascii String
-  index, symbol_corrected_trade_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_corrected_trade_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirtop_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
@@ -1674,49 +1412,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message = function(buffe
   return memx_options_memoirtop_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Broken Trade Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_broken_trade_symbol = 8
-
--- Display: Symbol Broken Trade Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_broken_trade_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Broken Trade Symbol: No Value"
-  end
-
-  return "Symbol Broken Trade Symbol: "..value
-end
-
--- Dissect: Symbol Broken Trade Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_broken_trade_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_broken_trade_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_broken_trade_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_broken_trade_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Broken Trade Message
 memx_options_memoirtop_sbe_v1_3_size_of.broken_trade_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_broken_trade_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.trade_id
 
@@ -1741,8 +1443,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.broken_trade_message_fields = function(b
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Broken Trade Symbol: 8 Byte Ascii String
-  index, symbol_broken_trade_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_broken_trade_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirtop_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
@@ -1930,49 +1632,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status = function(buf
   return offset + length, value
 end
 
--- Size: Symbol Instrument Trading Status Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol = 8
-
--- Display: Symbol Instrument Trading Status Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_instrument_trading_status_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Instrument Trading Status Symbol: No Value"
-  end
-
-  return "Symbol Instrument Trading Status Symbol: "..value
-end
-
--- Dissect: Symbol Instrument Trading Status Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_instrument_trading_status_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_instrument_trading_status_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_instrument_trading_status_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Instrument Trading Status Message
 memx_options_memoirtop_sbe_v1_3_size_of.instrument_trading_status_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.instrument_trading_status
 
@@ -1995,8 +1661,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status_message_fields
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Instrument Trading Status Symbol: 8 Byte Ascii String
-  index, symbol_instrument_trading_status_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_instrument_trading_status_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 2 values
   index, instrument_trading_status = memx_options_memoirtop_sbe_v1_3_dissect.instrument_trading_status(buffer, index, packet, parent)
@@ -2285,49 +1951,13 @@ memx_options_memoirtop_sbe_v1_3_dissect.options_product_type = function(buffer, 
   return offset + length, value
 end
 
--- Size: Symbol Instrument Directory Symbol
-memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_directory_symbol = 8
-
--- Display: Symbol Instrument Directory Symbol
-memx_options_memoirtop_sbe_v1_3_display.symbol_instrument_directory_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Instrument Directory Symbol: No Value"
-  end
-
-  return "Symbol Instrument Directory Symbol: "..value
-end
-
--- Dissect: Symbol Instrument Directory Symbol
-memx_options_memoirtop_sbe_v1_3_dissect.symbol_instrument_directory_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_directory_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirtop_sbe_v1_3_display.symbol_instrument_directory_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirtop_sbe_v1_3.fields.symbol_instrument_directory_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Instrument Directory Message
 memx_options_memoirtop_sbe_v1_3_size_of.instrument_directory_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol_instrument_directory_symbol
+  index = index + memx_options_memoirtop_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirtop_sbe_v1_3_size_of.options_product_type
 
@@ -2364,8 +1994,8 @@ memx_options_memoirtop_sbe_v1_3_dissect.instrument_directory_message_fields = fu
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirtop_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Instrument Directory Symbol: 8 Byte Ascii String
-  index, symbol_instrument_directory_symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol_instrument_directory_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirtop_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Options Product Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, options_product_type = memx_options_memoirtop_sbe_v1_3_dissect.options_product_type(buffer, index, packet, parent)

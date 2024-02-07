@@ -57,11 +57,11 @@ memx_options_memoirdepth_sbe_v1_3.fields.original_quantity = ProtoField.new("Ori
 memx_options_memoirdepth_sbe_v1_3.fields.osi_root = ProtoField.new("Osi Root", "memx.options.memoirdepth.sbe.v1.3.osiroot", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.options.memoirdepth.sbe.v1.3.packet", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.options.memoirdepth.sbe.v1.3.payload", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.price_price_type = ProtoField.new("Price Price Type", "memx.options.memoirdepth.sbe.v1.3.pricepricetype", ftypes.DOUBLE)
-memx_options_memoirdepth_sbe_v1_3.fields.price_short_price_type = ProtoField.new("Price Short Price Type", "memx.options.memoirdepth.sbe.v1.3.priceshortpricetype", ftypes.DOUBLE)
+memx_options_memoirdepth_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.options.memoirdepth.sbe.v1.3.price", ftypes.DOUBLE)
+memx_options_memoirdepth_sbe_v1_3.fields.price_short = ProtoField.new("Price Short", "memx.options.memoirdepth.sbe.v1.3.priceshort", ftypes.DOUBLE)
+memx_options_memoirdepth_sbe_v1_3.fields.quantity = ProtoField.new("Quantity", "memx.options.memoirdepth.sbe.v1.3.quantity", ftypes.UINT32)
 memx_options_memoirdepth_sbe_v1_3.fields.quantity_reduced = ProtoField.new("Quantity Reduced", "memx.options.memoirdepth.sbe.v1.3.quantityreduced", ftypes.UINT32)
-memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_16 = ProtoField.new("Quantity uint 16", "memx.options.memoirdepth.sbe.v1.3.quantityuint16", ftypes.UINT16)
-memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_32 = ProtoField.new("Quantity uint 32", "memx.options.memoirdepth.sbe.v1.3.quantityuint32", ftypes.UINT32)
+memx_options_memoirdepth_sbe_v1_3.fields.quantity_short = ProtoField.new("Quantity Short", "memx.options.memoirdepth.sbe.v1.3.quantityshort", ftypes.UINT16)
 memx_options_memoirdepth_sbe_v1_3.fields.reserved_7 = ProtoField.new("Reserved 7", "memx.options.memoirdepth.sbe.v1.3.reserved7", ftypes.UINT8, nil, base.DEC, "0xFE")
 memx_options_memoirdepth_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memoirdepth.sbe.v1.3.sbeheader", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memoirdepth.sbe.v1.3.sbemessage", ftypes.STRING)
@@ -74,17 +74,7 @@ memx_options_memoirdepth_sbe_v1_3.fields.side = ProtoField.new("Side", "memx.opt
 memx_options_memoirdepth_sbe_v1_3.fields.snapshot_complete_message = ProtoField.new("Snapshot Complete Message", "memx.options.memoirdepth.sbe.v1.3.snapshotcompletemessage", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.strike_price = ProtoField.new("Strike Price", "memx.options.memoirdepth.sbe.v1.3.strikeprice", ftypes.DOUBLE)
 memx_options_memoirdepth_sbe_v1_3.fields.strike_put_or_call = ProtoField.new("Strike Put Or Call", "memx.options.memoirdepth.sbe.v1.3.strikeputorcall", ftypes.UINT8)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_broken_trade_symbol = ProtoField.new("Symbol Broken Trade Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolbrokentradesymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_clear_book_symbol = ProtoField.new("Symbol Clear Book Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolclearbooksymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_corrected_trade_symbol = ProtoField.new("Symbol Corrected Trade Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolcorrectedtradesymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_instrument_directory_symbol = ProtoField.new("Symbol Instrument Directory Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolinstrumentdirectorysymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_instrument_trading_status_symbol = ProtoField.new("Symbol Instrument Trading Status Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolinstrumenttradingstatussymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_extended_symbol = ProtoField.new("Symbol Order Added Extended Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderaddedextendedsymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_long_symbol = ProtoField.new("Symbol Order Added Long Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderaddedlongsymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_short_symbol = ProtoField.new("Symbol Order Added Short Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderaddedshortsymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_deleted_symbol = ProtoField.new("Symbol Order Deleted Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderdeletedsymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_executed_symbol = ProtoField.new("Symbol Order Executed Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderexecutedsymbol", ftypes.STRING)
-memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_reduced_symbol = ProtoField.new("Symbol Order Reduced Symbol", "memx.options.memoirdepth.sbe.v1.3.symbolorderreducedsymbol", ftypes.STRING)
+memx_options_memoirdepth_sbe_v1_3.fields.symbol = ProtoField.new("Symbol", "memx.options.memoirdepth.sbe.v1.3.symbol", ftypes.STRING)
 memx_options_memoirdepth_sbe_v1_3.fields.template_id = ProtoField.new("Template Id", "memx.options.memoirdepth.sbe.v1.3.templateid", ftypes.UINT8)
 memx_options_memoirdepth_sbe_v1_3.fields.timestamp = ProtoField.new("Timestamp", "memx.options.memoirdepth.sbe.v1.3.timestamp", ftypes.UINT8)
 memx_options_memoirdepth_sbe_v1_3.fields.trade_conditions = ProtoField.new("Trade Conditions", "memx.options.memoirdepth.sbe.v1.3.tradeconditions", ftypes.STRING)
@@ -251,22 +241,22 @@ end
 -- Dissect Memx Options MemoirDepth Sbe 1.3
 -----------------------------------------------------------------------
 
--- Size: Symbol Clear Book Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_clear_book_symbol = 8
+-- Size: Symbol
+memx_options_memoirdepth_sbe_v1_3_size_of.symbol = 8
 
--- Display: Symbol Clear Book Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_clear_book_symbol = function(value)
+-- Display: Symbol
+memx_options_memoirdepth_sbe_v1_3_display.symbol = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Symbol Clear Book Symbol: No Value"
+    return "Symbol: No Value"
   end
 
-  return "Symbol Clear Book Symbol: "..value
+  return "Symbol: "..value
 end
 
--- Dissect: Symbol Clear Book Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_clear_book_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_clear_book_symbol
+-- Dissect: Symbol
+memx_options_memoirdepth_sbe_v1_3_dissect.symbol = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -280,9 +270,9 @@ memx_options_memoirdepth_sbe_v1_3_dissect.symbol_clear_book_symbol = function(bu
     value = range:string()
   end
 
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_clear_book_symbol(value, buffer, offset, packet, parent)
+  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_clear_book_symbol, range, value, display)
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol, range, value, display)
 
   return offset + length, value
 end
@@ -313,7 +303,7 @@ memx_options_memoirdepth_sbe_v1_3_size_of.clear_book_message = function(buffer, 
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_clear_book_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.padding_7
 
@@ -332,8 +322,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message_fields = function(b
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Clear Book Symbol: 8 Byte Ascii String
-  index, symbol_clear_book_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_clear_book_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Padding 7
   index, padding_7 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_7(buffer, index, packet, parent)
@@ -354,48 +344,48 @@ memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message = function(buffer, 
   return memx_options_memoirdepth_sbe_v1_3_dissect.clear_book_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Price Type
-memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type = 1
+-- Size: Price
+memx_options_memoirdepth_sbe_v1_3_size_of.price = 1
 
--- Display: Price Price Type
-memx_options_memoirdepth_sbe_v1_3_display.price_price_type = function(value)
-  return "Price Price Type: "..value
+-- Display: Price
+memx_options_memoirdepth_sbe_v1_3_display.price = function(value)
+  return "Price: "..value
 end
 
--- Translate: Price Price Type
-translate.price_price_type = function(raw)
+-- Translate: Price
+translate.price = function(raw)
   return raw/100000000
 end
 
--- Dissect: Price Price Type
-memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
+-- Dissect: Price
+memx_options_memoirdepth_sbe_v1_3_dissect.price = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.price
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price_price_type(raw)
-  local display = memx_options_memoirdepth_sbe_v1_3_display.price_price_type(value, buffer, offset, packet, parent)
+  local value = translate.price(raw)
+  local display = memx_options_memoirdepth_sbe_v1_3_display.price(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price_price_type, range, value, display)
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Quantity uint 32
-memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32 = 4
+-- Size: Quantity
+memx_options_memoirdepth_sbe_v1_3_size_of.quantity = 4
 
--- Display: Quantity uint 32
-memx_options_memoirdepth_sbe_v1_3_display.quantity_uint_32 = function(value)
-  return "Quantity uint 32: "..value
+-- Display: Quantity
+memx_options_memoirdepth_sbe_v1_3_display.quantity = function(value)
+  return "Quantity: "..value
 end
 
--- Dissect: Quantity uint 32
-memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_32 = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32
+-- Dissect: Quantity
+memx_options_memoirdepth_sbe_v1_3_dissect.quantity = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.quantity
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memoirdepth_sbe_v1_3_display.quantity_uint_32(value, buffer, offset, packet, parent)
+  local display = memx_options_memoirdepth_sbe_v1_3_display.quantity(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_32, range, value, display)
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.quantity, range, value, display)
 
   return offset + length, value
 end
@@ -516,49 +506,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_capacity = function(buffer, offs
   return offset + length, value
 end
 
--- Size: Symbol Order Executed Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_executed_symbol = 8
-
--- Display: Symbol Order Executed Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_executed_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Executed Symbol: No Value"
-  end
-
-  return "Symbol Order Executed Symbol: "..value
-end
-
--- Dissect: Symbol Order Executed Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_executed_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_executed_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_executed_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_executed_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Executed Message
 memx_options_memoirdepth_sbe_v1_3_size_of.order_executed_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_executed_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_capacity
 
@@ -568,9 +522,9 @@ memx_options_memoirdepth_sbe_v1_3_size_of.order_executed_message = function(buff
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.trade_id
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.padding_14
 
@@ -589,8 +543,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_executed_message_fields = functi
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Executed Symbol: 8 Byte Ascii String
-  index, symbol_order_executed_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_executed_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 2 values
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3_dissect.order_capacity(buffer, index, packet, parent)
@@ -604,11 +558,11 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_executed_message_fields = functi
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirdepth_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
 
-  -- Quantity uint 32: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_uint_32 = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_32(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = memx_options_memoirdepth_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer
-  index, price_price_type = memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer
+  index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Padding 14
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
@@ -686,49 +640,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.side = function(buffer, offset, packet
   return offset + length, value
 end
 
--- Size: Symbol Order Reduced Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_reduced_symbol = 8
-
--- Display: Symbol Order Reduced Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_reduced_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Reduced Symbol: No Value"
-  end
-
-  return "Symbol Order Reduced Symbol: "..value
-end
-
--- Dissect: Symbol Order Reduced Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_reduced_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_reduced_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_reduced_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_reduced_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Reduced Message
 memx_options_memoirdepth_sbe_v1_3_size_of.order_reduced_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_reduced_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_capacity
 
@@ -736,9 +654,9 @@ memx_options_memoirdepth_sbe_v1_3_size_of.order_reduced_message = function(buffe
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.side
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_reduced
 
@@ -759,8 +677,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_reduced_message_fields = functio
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Reduced Symbol: 8 Byte Ascii String
-  index, symbol_order_reduced_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_reduced_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 2 values
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3_dissect.order_capacity(buffer, index, packet, parent)
@@ -771,11 +689,11 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_reduced_message_fields = functio
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = memx_options_memoirdepth_sbe_v1_3_dissect.side(buffer, index, packet, parent)
 
-  -- Quantity uint 32: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_uint_32 = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_32(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = memx_options_memoirdepth_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer
-  index, price_price_type = memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer
+  index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Quantity Reduced: 4 Byte Unsigned Fixed Width Integer
   index, quantity_reduced = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_reduced(buffer, index, packet, parent)
@@ -799,49 +717,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_reduced_message = function(buffe
   return memx_options_memoirdepth_sbe_v1_3_dissect.order_reduced_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Order Deleted Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_deleted_symbol = 8
-
--- Display: Symbol Order Deleted Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_deleted_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Deleted Symbol: No Value"
-  end
-
-  return "Symbol Order Deleted Symbol: "..value
-end
-
--- Dissect: Symbol Order Deleted Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_deleted_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_deleted_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_deleted_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_deleted_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Deleted Message
 memx_options_memoirdepth_sbe_v1_3_size_of.order_deleted_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_deleted_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_capacity
 
@@ -864,8 +746,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_deleted_message_fields = functio
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Deleted Symbol: 8 Byte Ascii String
-  index, symbol_order_deleted_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_deleted_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 2 values
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3_dissect.order_capacity(buffer, index, packet, parent)
@@ -892,49 +774,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_deleted_message = function(buffe
   return memx_options_memoirdepth_sbe_v1_3_dissect.order_deleted_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Order Added Extended Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_extended_symbol = 8
-
--- Display: Symbol Order Added Extended Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_extended_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Added Extended Symbol: No Value"
-  end
-
-  return "Symbol Order Added Extended Symbol: "..value
-end
-
--- Dissect: Symbol Order Added Extended Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_extended_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_extended_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_extended_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_extended_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Added Extended Message
 memx_options_memoirdepth_sbe_v1_3_size_of.order_added_extended_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_extended_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_capacity
 
@@ -942,9 +788,9 @@ memx_options_memoirdepth_sbe_v1_3_size_of.order_added_extended_message = functio
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.side
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.padding_14
 
@@ -963,8 +809,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_extended_message_fields = 
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Added Extended Symbol: 8 Byte Ascii String
-  index, symbol_order_added_extended_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_extended_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Capacity: 1 Byte Ascii String Enum with 2 values
   index, order_capacity = memx_options_memoirdepth_sbe_v1_3_dissect.order_capacity(buffer, index, packet, parent)
@@ -975,11 +821,11 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_extended_message_fields = 
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = memx_options_memoirdepth_sbe_v1_3_dissect.side(buffer, index, packet, parent)
 
-  -- Quantity uint 32: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_uint_32 = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_32(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = memx_options_memoirdepth_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer
-  index, price_price_type = memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer
+  index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Padding 14
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
@@ -1000,57 +846,21 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_extended_message = functio
   return memx_options_memoirdepth_sbe_v1_3_dissect.order_added_extended_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Order Added Long Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_long_symbol = 8
-
--- Display: Symbol Order Added Long Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_long_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Added Long Symbol: No Value"
-  end
-
-  return "Symbol Order Added Long Symbol: "..value
-end
-
--- Dissect: Symbol Order Added Long Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_long_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_long_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_long_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_long_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Order Added Long Message
 memx_options_memoirdepth_sbe_v1_3_size_of.order_added_long_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_long_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_id
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.side
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_32
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.padding_14
 
@@ -1069,8 +879,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message_fields = func
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Added Long Symbol: 8 Byte Ascii String
-  index, symbol_order_added_long_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_long_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_options_memoirdepth_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
@@ -1078,11 +888,11 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message_fields = func
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = memx_options_memoirdepth_sbe_v1_3_dissect.side(buffer, index, packet, parent)
 
-  -- Quantity uint 32: 4 Byte Unsigned Fixed Width Integer
-  index, quantity_uint_32 = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_32(buffer, index, packet, parent)
+  -- Quantity: 4 Byte Unsigned Fixed Width Integer
+  index, quantity = memx_options_memoirdepth_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer
-  index, price_price_type = memx_options_memoirdepth_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer
+  index, price = memx_options_memoirdepth_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Padding 14
   index, padding_14 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
@@ -1103,84 +913,48 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message = function(bu
   return memx_options_memoirdepth_sbe_v1_3_dissect.order_added_long_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Short Price Type
-memx_options_memoirdepth_sbe_v1_3_size_of.price_short_price_type = 1
+-- Size: Price Short
+memx_options_memoirdepth_sbe_v1_3_size_of.price_short = 1
 
--- Display: Price Short Price Type
-memx_options_memoirdepth_sbe_v1_3_display.price_short_price_type = function(value)
-  return "Price Short Price Type: "..value
+-- Display: Price Short
+memx_options_memoirdepth_sbe_v1_3_display.price_short = function(value)
+  return "Price Short: "..value
 end
 
--- Translate: Price Short Price Type
-translate.price_short_price_type = function(raw)
+-- Translate: Price Short
+translate.price_short = function(raw)
   return raw/100
 end
 
--- Dissect: Price Short Price Type
-memx_options_memoirdepth_sbe_v1_3_dissect.price_short_price_type = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.price_short_price_type
+-- Dissect: Price Short
+memx_options_memoirdepth_sbe_v1_3_dissect.price_short = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.price_short
   local range = buffer(offset, length)
   local raw = range:int()
-  local value = translate.price_short_price_type(raw)
-  local display = memx_options_memoirdepth_sbe_v1_3_display.price_short_price_type(value, buffer, offset, packet, parent)
+  local value = translate.price_short(raw)
+  local display = memx_options_memoirdepth_sbe_v1_3_display.price_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price_short_price_type, range, value, display)
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.price_short, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Quantity uint 16
-memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_16 = 2
+-- Size: Quantity Short
+memx_options_memoirdepth_sbe_v1_3_size_of.quantity_short = 2
 
--- Display: Quantity uint 16
-memx_options_memoirdepth_sbe_v1_3_display.quantity_uint_16 = function(value)
-  return "Quantity uint 16: "..value
+-- Display: Quantity Short
+memx_options_memoirdepth_sbe_v1_3_display.quantity_short = function(value)
+  return "Quantity Short: "..value
 end
 
--- Dissect: Quantity uint 16
-memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_16 = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_16
+-- Dissect: Quantity Short
+memx_options_memoirdepth_sbe_v1_3_dissect.quantity_short = function(buffer, offset, packet, parent)
+  local length = memx_options_memoirdepth_sbe_v1_3_size_of.quantity_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memoirdepth_sbe_v1_3_display.quantity_uint_16(value, buffer, offset, packet, parent)
+  local display = memx_options_memoirdepth_sbe_v1_3_display.quantity_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.quantity_uint_16, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Symbol Order Added Short Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_short_symbol = 8
-
--- Display: Symbol Order Added Short Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_short_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Order Added Short Symbol: No Value"
-  end
-
-  return "Symbol Order Added Short Symbol: "..value
-end
-
--- Dissect: Symbol Order Added Short Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_short_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_short_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_order_added_short_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_order_added_short_symbol, range, value, display)
+  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.quantity_short, range, value, display)
 
   return offset + length, value
 end
@@ -1191,15 +965,15 @@ memx_options_memoirdepth_sbe_v1_3_size_of.order_added_short_message = function(b
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_order_added_short_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.order_id
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.side
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_uint_16
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.quantity_short
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_short_price_type
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.price_short
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.padding_8
 
@@ -1218,8 +992,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_short_message_fields = fun
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Order Added Short Symbol: 8 Byte Ascii String
-  index, symbol_order_added_short_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_order_added_short_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Order Id: 8 Byte Unsigned Fixed Width Integer
   index, order_id = memx_options_memoirdepth_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
@@ -1227,11 +1001,11 @@ memx_options_memoirdepth_sbe_v1_3_dissect.order_added_short_message_fields = fun
   -- Side: 1 Byte Ascii String Enum with 2 values
   index, side = memx_options_memoirdepth_sbe_v1_3_dissect.side(buffer, index, packet, parent)
 
-  -- Quantity uint 16: 2 Byte Unsigned Fixed Width Integer
-  index, quantity_uint_16 = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_uint_16(buffer, index, packet, parent)
+  -- Quantity Short: 2 Byte Unsigned Fixed Width Integer
+  index, quantity_short = memx_options_memoirdepth_sbe_v1_3_dissect.quantity_short(buffer, index, packet, parent)
 
-  -- Price Short Price Type: 1 Byte Signed Fixed Width Integer
-  index, price_short_price_type = memx_options_memoirdepth_sbe_v1_3_dissect.price_short_price_type(buffer, index, packet, parent)
+  -- Price Short: 1 Byte Signed Fixed Width Integer
+  index, price_short = memx_options_memoirdepth_sbe_v1_3_dissect.price_short(buffer, index, packet, parent)
 
   -- Padding 8
   index, padding_8 = memx_options_memoirdepth_sbe_v1_3_dissect.padding_8(buffer, index, packet, parent)
@@ -1411,49 +1185,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.original_quantity = function(buffer, o
   return offset + length, value
 end
 
--- Size: Symbol Corrected Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_corrected_trade_symbol = 8
-
--- Display: Symbol Corrected Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_corrected_trade_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Corrected Trade Symbol: No Value"
-  end
-
-  return "Symbol Corrected Trade Symbol: "..value
-end
-
--- Dissect: Symbol Corrected Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_corrected_trade_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_corrected_trade_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_corrected_trade_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_corrected_trade_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Corrected Trade Message
 memx_options_memoirdepth_sbe_v1_3_size_of.corrected_trade_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_corrected_trade_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.trade_id
 
@@ -1482,8 +1220,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.corrected_trade_message_fields = funct
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Corrected Trade Symbol: 8 Byte Ascii String
-  index, symbol_corrected_trade_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_corrected_trade_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirdepth_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
@@ -1519,49 +1257,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.corrected_trade_message = function(buf
   return memx_options_memoirdepth_sbe_v1_3_dissect.corrected_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Symbol Broken Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_broken_trade_symbol = 8
-
--- Display: Symbol Broken Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_broken_trade_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Broken Trade Symbol: No Value"
-  end
-
-  return "Symbol Broken Trade Symbol: "..value
-end
-
--- Dissect: Symbol Broken Trade Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_broken_trade_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_broken_trade_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_broken_trade_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_broken_trade_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Broken Trade Message
 memx_options_memoirdepth_sbe_v1_3_size_of.broken_trade_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_broken_trade_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.trade_id
 
@@ -1586,8 +1288,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.broken_trade_message_fields = function
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Broken Trade Symbol: 8 Byte Ascii String
-  index, symbol_broken_trade_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_broken_trade_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Trade Id: 8 Byte Unsigned Fixed Width Integer
   index, trade_id = memx_options_memoirdepth_sbe_v1_3_dissect.trade_id(buffer, index, packet, parent)
@@ -1775,49 +1477,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.instrument_trading_status = function(b
   return offset + length, value
 end
 
--- Size: Symbol Instrument Trading Status Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol = 8
-
--- Display: Symbol Instrument Trading Status Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_instrument_trading_status_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Instrument Trading Status Symbol: No Value"
-  end
-
-  return "Symbol Instrument Trading Status Symbol: "..value
-end
-
--- Dissect: Symbol Instrument Trading Status Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_instrument_trading_status_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_instrument_trading_status_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_instrument_trading_status_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Instrument Trading Status Message
 memx_options_memoirdepth_sbe_v1_3_size_of.instrument_trading_status_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_trading_status_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.instrument_trading_status
 
@@ -1840,8 +1506,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.instrument_trading_status_message_fiel
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Instrument Trading Status Symbol: 8 Byte Ascii String
-  index, symbol_instrument_trading_status_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_instrument_trading_status_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Instrument Trading Status: 1 Byte Ascii String Enum with 2 values
   index, instrument_trading_status = memx_options_memoirdepth_sbe_v1_3_dissect.instrument_trading_status(buffer, index, packet, parent)
@@ -2130,49 +1796,13 @@ memx_options_memoirdepth_sbe_v1_3_dissect.options_product_type = function(buffer
   return offset + length, value
 end
 
--- Size: Symbol Instrument Directory Symbol
-memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_directory_symbol = 8
-
--- Display: Symbol Instrument Directory Symbol
-memx_options_memoirdepth_sbe_v1_3_display.symbol_instrument_directory_symbol = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Symbol Instrument Directory Symbol: No Value"
-  end
-
-  return "Symbol Instrument Directory Symbol: "..value
-end
-
--- Dissect: Symbol Instrument Directory Symbol
-memx_options_memoirdepth_sbe_v1_3_dissect.symbol_instrument_directory_symbol = function(buffer, offset, packet, parent)
-  local length = memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_directory_symbol
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memoirdepth_sbe_v1_3_display.symbol_instrument_directory_symbol(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memoirdepth_sbe_v1_3.fields.symbol_instrument_directory_symbol, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Instrument Directory Message
 memx_options_memoirdepth_sbe_v1_3_size_of.instrument_directory_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.timestamp
 
-  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol_instrument_directory_symbol
+  index = index + memx_options_memoirdepth_sbe_v1_3_size_of.symbol
 
   index = index + memx_options_memoirdepth_sbe_v1_3_size_of.options_product_type
 
@@ -2209,8 +1839,8 @@ memx_options_memoirdepth_sbe_v1_3_dissect.instrument_directory_message_fields = 
   -- Timestamp: 1 Byte Unsigned Fixed Width Integer
   index, timestamp = memx_options_memoirdepth_sbe_v1_3_dissect.timestamp(buffer, index, packet, parent)
 
-  -- Symbol Instrument Directory Symbol: 8 Byte Ascii String
-  index, symbol_instrument_directory_symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol_instrument_directory_symbol(buffer, index, packet, parent)
+  -- Symbol: 8 Byte Ascii String
+  index, symbol = memx_options_memoirdepth_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
 
   -- Options Product Type: 1 Byte Unsigned Fixed Width Integer Enum with 2 values
   index, options_product_type = memx_options_memoirdepth_sbe_v1_3_dissect.options_product_type(buffer, index, packet, parent)
