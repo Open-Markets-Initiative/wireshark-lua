@@ -85,6 +85,7 @@ memx_equities_memo_sbe_v1_6.fields.order_cancel_request_message = ProtoField.new
 memx_equities_memo_sbe_v1_6.fields.order_capacity = ProtoField.new("Order Capacity", "memx.equities.memo.sbe.v1.6.ordercapacity", ftypes.UINT8)
 memx_equities_memo_sbe_v1_6.fields.order_id = ProtoField.new("Order Id", "memx.equities.memo.sbe.v1.6.orderid", ftypes.UINT64)
 memx_equities_memo_sbe_v1_6.fields.order_qty = ProtoField.new("Order Qty", "memx.equities.memo.sbe.v1.6.orderqty", ftypes.UINT32)
+memx_equities_memo_sbe_v1_6.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.equities.memo.sbe.v1.6.orderrejectreason", ftypes.UINT8)
 memx_equities_memo_sbe_v1_6.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.equities.memo.sbe.v1.6.origclordid", ftypes.STRING)
 memx_equities_memo_sbe_v1_6.fields.packet = ProtoField.new("Packet", "memx.equities.memo.sbe.v1.6.packet", ftypes.STRING)
 memx_equities_memo_sbe_v1_6.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.equities.memo.sbe.v1.6.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
@@ -94,7 +95,6 @@ memx_equities_memo_sbe_v1_6.fields.peg_price_type = ProtoField.new("Peg Price Ty
 memx_equities_memo_sbe_v1_6.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.equities.memo.sbe.v1.6.pendingmasscancelmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_6.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.equities.memo.sbe.v1.6.pendingmessagecount", ftypes.UINT32)
 memx_equities_memo_sbe_v1_6.fields.price = ProtoField.new("Price", "memx.equities.memo.sbe.v1.6.price", ftypes.DOUBLE)
-memx_equities_memo_sbe_v1_6.fields.reject_reason_order_reject_reason_code = ProtoField.new("Reject Reason Order Reject Reason Code", "memx.equities.memo.sbe.v1.6.rejectreasonorderrejectreasoncode", ftypes.UINT8)
 memx_equities_memo_sbe_v1_6.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.equities.memo.sbe.v1.6.replayallrequestmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_6.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.equities.memo.sbe.v1.6.replaybeginmessage", ftypes.STRING)
 memx_equities_memo_sbe_v1_6.fields.replay_complete_message = ProtoField.new("Replay Complete Message", "memx.equities.memo.sbe.v1.6.replaycompletemessage", ftypes.STRING)
@@ -2605,296 +2605,296 @@ memx_equities_memo_sbe_v1_6_dissect.execution_report_trade_message = function(bu
   return memx_equities_memo_sbe_v1_6_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Reject Reason Order Reject Reason Code
-memx_equities_memo_sbe_v1_6_size_of.reject_reason_order_reject_reason_code = 1
+-- Size: Order Reject Reason
+memx_equities_memo_sbe_v1_6_size_of.order_reject_reason = 1
 
--- Display: Reject Reason Order Reject Reason Code
-memx_equities_memo_sbe_v1_6_display.reject_reason_order_reject_reason_code = function(value)
+-- Display: Order Reject Reason
+memx_equities_memo_sbe_v1_6_display.order_reject_reason = function(value)
   if value == 0 then
-    return "Reject Reason Order Reject Reason Code: Other (0)"
+    return "Order Reject Reason: Other (0)"
   end
   if value == 1 then
-    return "Reject Reason Order Reject Reason Code: Missing Symbol (1)"
+    return "Order Reject Reason: Missing Symbol (1)"
   end
   if value == 2 then
-    return "Reject Reason Order Reject Reason Code: Missing Locate (2)"
+    return "Order Reject Reason: Missing Locate (2)"
   end
   if value == 3 then
-    return "Reject Reason Order Reject Reason Code: Missing Cl Ord Id (3)"
+    return "Order Reject Reason: Missing Cl Ord Id (3)"
   end
   if value == 4 then
-    return "Reject Reason Order Reject Reason Code: Missing Side (4)"
+    return "Order Reject Reason: Missing Side (4)"
   end
   if value == 5 then
-    return "Reject Reason Order Reject Reason Code: Missing Order Quantity (5)"
+    return "Order Reject Reason: Missing Order Quantity (5)"
   end
   if value == 6 then
-    return "Reject Reason Order Reject Reason Code: Missing Order Type (6)"
+    return "Order Reject Reason: Missing Order Type (6)"
   end
   if value == 7 then
-    return "Reject Reason Order Reject Reason Code: Missing Time In Force (7)"
+    return "Order Reject Reason: Missing Time In Force (7)"
   end
   if value == 8 then
-    return "Reject Reason Order Reject Reason Code: Missing Order Capacity (8)"
+    return "Order Reject Reason: Missing Order Capacity (8)"
   end
   if value == 9 then
-    return "Reject Reason Order Reject Reason Code: Missing Exec Inst (9)"
+    return "Order Reject Reason: Missing Exec Inst (9)"
   end
   if value == 10 then
-    return "Reject Reason Order Reject Reason Code: Missing Limit Price (10)"
+    return "Order Reject Reason: Missing Limit Price (10)"
   end
   if value == 11 then
-    return "Reject Reason Order Reject Reason Code: Missing Max Floor (11)"
+    return "Order Reject Reason: Missing Max Floor (11)"
   end
   if value == 12 then
-    return "Reject Reason Order Reject Reason Code: Missing Reserve Replenish Amount Type (12)"
+    return "Order Reject Reason: Missing Reserve Replenish Amount Type (12)"
   end
   if value == 13 then
-    return "Reject Reason Order Reject Reason Code: Missing Reserve Replenish Time Type (13)"
+    return "Order Reject Reason: Missing Reserve Replenish Time Type (13)"
   end
   if value == 14 then
-    return "Reject Reason Order Reject Reason Code: Missing Random Replenish Value (14)"
+    return "Order Reject Reason: Missing Random Replenish Value (14)"
   end
   if value == 15 then
-    return "Reject Reason Order Reject Reason Code: Missing Reprice Frequency Type (15)"
+    return "Order Reject Reason: Missing Reprice Frequency Type (15)"
   end
   if value == 16 then
-    return "Reject Reason Order Reject Reason Code: Missing Reprice Behavior Type (16)"
+    return "Order Reject Reason: Missing Reprice Behavior Type (16)"
   end
   if value == 17 then
-    return "Reject Reason Order Reject Reason Code: Missing Customer Capacity Type (17)"
+    return "Order Reject Reason: Missing Customer Capacity Type (17)"
   end
   if value == 18 then
-    return "Reject Reason Order Reject Reason Code: Missing Expire Time (18)"
+    return "Order Reject Reason: Missing Expire Time (18)"
   end
   if value == 19 then
-    return "Reject Reason Order Reject Reason Code: Missing Peg Type (19)"
+    return "Order Reject Reason: Missing Peg Type (19)"
   end
   if value == 20 then
-    return "Reject Reason Order Reject Reason Code: Invalid Modifier For Order Type (20)"
+    return "Order Reject Reason: Invalid Modifier For Order Type (20)"
   end
   if value == 21 then
-    return "Reject Reason Order Reject Reason Code: Invalid Modifiers Combination (21)"
+    return "Order Reject Reason: Invalid Modifiers Combination (21)"
   end
   if value == 22 then
-    return "Reject Reason Order Reject Reason Code: Invalid Trading Session For Order Type (22)"
+    return "Order Reject Reason: Invalid Trading Session For Order Type (22)"
   end
   if value == 23 then
-    return "Reject Reason Order Reject Reason Code: Invalid Time In Force For Order Type (23)"
+    return "Order Reject Reason: Invalid Time In Force For Order Type (23)"
   end
   if value == 24 then
-    return "Reject Reason Order Reject Reason Code: Invalid Min Quantity (24)"
+    return "Order Reject Reason: Invalid Min Quantity (24)"
   end
   if value == 25 then
-    return "Reject Reason Order Reject Reason Code: Invalid Order Quantity (25)"
+    return "Order Reject Reason: Invalid Order Quantity (25)"
   end
   if value == 26 then
-    return "Reject Reason Order Reject Reason Code: Invalid Side (26)"
+    return "Order Reject Reason: Invalid Side (26)"
   end
   if value == 27 then
-    return "Reject Reason Order Reject Reason Code: Invalid Order Type (27)"
+    return "Order Reject Reason: Invalid Order Type (27)"
   end
   if value == 28 then
-    return "Reject Reason Order Reject Reason Code: Invalid Time In Force (28)"
+    return "Order Reject Reason: Invalid Time In Force (28)"
   end
   if value == 29 then
-    return "Reject Reason Order Reject Reason Code: Invalid Order Capacity (29)"
+    return "Order Reject Reason: Invalid Order Capacity (29)"
   end
   if value == 30 then
-    return "Reject Reason Order Reject Reason Code: Invalid Customer Capacity (30)"
+    return "Order Reject Reason: Invalid Customer Capacity (30)"
   end
   if value == 31 then
-    return "Reject Reason Order Reject Reason Code: Invalid Symbol (31)"
+    return "Order Reject Reason: Invalid Symbol (31)"
   end
   if value == 32 then
-    return "Reject Reason Order Reject Reason Code: Invalid Expire Time (32)"
+    return "Order Reject Reason: Invalid Expire Time (32)"
   end
   if value == 33 then
-    return "Reject Reason Order Reject Reason Code: Invalid Limit Price (33)"
+    return "Order Reject Reason: Invalid Limit Price (33)"
   end
   if value == 34 then
-    return "Reject Reason Order Reject Reason Code: Invalid Limit Price Increment (34)"
+    return "Order Reject Reason: Invalid Limit Price Increment (34)"
   end
   if value == 35 then
-    return "Reject Reason Order Reject Reason Code: Invalid Max Floor (35)"
+    return "Order Reject Reason: Invalid Max Floor (35)"
   end
   if value == 36 then
-    return "Reject Reason Order Reject Reason Code: Invalid Random Replenish Value (36)"
+    return "Order Reject Reason: Invalid Random Replenish Value (36)"
   end
   if value == 37 then
-    return "Reject Reason Order Reject Reason Code: Invalid Random Replenish Value For Reserve Type (37)"
+    return "Order Reject Reason: Invalid Random Replenish Value For Reserve Type (37)"
   end
   if value == 38 then
-    return "Reject Reason Order Reject Reason Code: Invalid Reserve Replenish Amount Type (38)"
+    return "Order Reject Reason: Invalid Reserve Replenish Amount Type (38)"
   end
   if value == 39 then
-    return "Reject Reason Order Reject Reason Code: Invalid Reserve Replenish Time Type (39)"
+    return "Order Reject Reason: Invalid Reserve Replenish Time Type (39)"
   end
   if value == 40 then
-    return "Reject Reason Order Reject Reason Code: Invalid Reprice Frequency Type (40)"
+    return "Order Reject Reason: Invalid Reprice Frequency Type (40)"
   end
   if value == 41 then
-    return "Reject Reason Order Reject Reason Code: Invalid Reprice Behavior Type (41)"
+    return "Order Reject Reason: Invalid Reprice Behavior Type (41)"
   end
   if value == 42 then
-    return "Reject Reason Order Reject Reason Code: Invalid Reprice Behavior For Reprice Frequency (42)"
+    return "Order Reject Reason: Invalid Reprice Behavior For Reprice Frequency (42)"
   end
   if value == 43 then
-    return "Reject Reason Order Reject Reason Code: Invalid Mpid Value (43)"
+    return "Order Reject Reason: Invalid Mpid Value (43)"
   end
   if value == 44 then
-    return "Reject Reason Order Reject Reason Code: Invalid Peg Type (44)"
+    return "Order Reject Reason: Invalid Peg Type (44)"
   end
   if value == 45 then
-    return "Reject Reason Order Reject Reason Code: Invalid Modifier For Peg Type (45)"
+    return "Order Reject Reason: Invalid Modifier For Peg Type (45)"
   end
   if value == 46 then
-    return "Reject Reason Order Reject Reason Code: Invalid Locate (46)"
+    return "Order Reject Reason: Invalid Locate (46)"
   end
   if value == 47 then
-    return "Reject Reason Order Reject Reason Code: Symbol Halted Or Paused (47)"
+    return "Order Reject Reason: Symbol Halted Or Paused (47)"
   end
   if value == 48 then
-    return "Reject Reason Order Reject Reason Code: Exchange Closed (48)"
+    return "Order Reject Reason: Exchange Closed (48)"
   end
   if value == 49 then
-    return "Reject Reason Order Reject Reason Code: Duplicate Cl Ord Id (49)"
+    return "Order Reject Reason: Duplicate Cl Ord Id (49)"
   end
   if value == 50 then
-    return "Reject Reason Order Reject Reason Code: Order Size Exceeds Limit (50)"
+    return "Order Reject Reason: Order Size Exceeds Limit (50)"
   end
   if value == 51 then
-    return "Reject Reason Order Reject Reason Code: Order Notional Exceeds Limit (51)"
+    return "Order Reject Reason: Order Notional Exceeds Limit (51)"
   end
   if value == 52 then
-    return "Reject Reason Order Reject Reason Code: Block Iso Risk Rule Violated (52)"
+    return "Order Reject Reason: Block Iso Risk Rule Violated (52)"
   end
   if value == 53 then
-    return "Reject Reason Order Reject Reason Code: Block Session Risk Rule Violated (53)"
+    return "Order Reject Reason: Block Session Risk Rule Violated (53)"
   end
   if value == 54 then
-    return "Reject Reason Order Reject Reason Code: Block Sell Short Risk Rule Violated (54)"
+    return "Order Reject Reason: Block Sell Short Risk Rule Violated (54)"
   end
   if value == 55 then
-    return "Reject Reason Order Reject Reason Code: Block Non Test Symbols Risk Rule Violated (55)"
+    return "Order Reject Reason: Block Non Test Symbols Risk Rule Violated (55)"
   end
   if value == 56 then
-    return "Reject Reason Order Reject Reason Code: Max Shares Per Order Risk Rule Breach (56)"
+    return "Order Reject Reason: Max Shares Per Order Risk Rule Breach (56)"
   end
   if value == 57 then
-    return "Reject Reason Order Reject Reason Code: Max Notional Value Per Order Risk Rule Breach (57)"
+    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (57)"
   end
   if value == 58 then
-    return "Reject Reason Order Reject Reason Code: Price Percent Collar Risk Rule Violated (58)"
+    return "Order Reject Reason: Price Percent Collar Risk Rule Violated (58)"
   end
   if value == 59 then
-    return "Reject Reason Order Reject Reason Code: Price Value Collar Risk Rule Violated (59)"
+    return "Order Reject Reason: Price Value Collar Risk Rule Violated (59)"
   end
   if value == 60 then
-    return "Reject Reason Order Reject Reason Code: Max Adv Percent Per Order Risk Rule Breach (60)"
+    return "Order Reject Reason: Max Adv Percent Per Order Risk Rule Breach (60)"
   end
   if value == 61 then
-    return "Reject Reason Order Reject Reason Code: Daily Gross Notional Exposure Risk Rule Breach (61)"
+    return "Order Reject Reason: Daily Gross Notional Exposure Risk Rule Breach (61)"
   end
   if value == 62 then
-    return "Reject Reason Order Reject Reason Code: Daily Net Notional Exposure Risk Rule Breach (62)"
+    return "Order Reject Reason: Daily Net Notional Exposure Risk Rule Breach (62)"
   end
   if value == 63 then
-    return "Reject Reason Order Reject Reason Code: Max Num Duplicate Orders Risk Rule Breach (63)"
+    return "Order Reject Reason: Max Num Duplicate Orders Risk Rule Breach (63)"
   end
   if value == 64 then
-    return "Reject Reason Order Reject Reason Code: Max Order Rate Risk Rule Breach (64)"
+    return "Order Reject Reason: Max Order Rate Risk Rule Breach (64)"
   end
   if value == 65 then
-    return "Reject Reason Order Reject Reason Code: Restricted Security Risk Rule Violated (65)"
+    return "Order Reject Reason: Restricted Security Risk Rule Violated (65)"
   end
   if value == 66 then
-    return "Reject Reason Order Reject Reason Code: Hard To Borrow Security Risk Rule Violated (66)"
+    return "Order Reject Reason: Hard To Borrow Security Risk Rule Violated (66)"
   end
   if value == 67 then
-    return "Reject Reason Order Reject Reason Code: Invalid Self Trade Prevention Configuration (67)"
+    return "Order Reject Reason: Invalid Self Trade Prevention Configuration (67)"
   end
   if value == 68 then
-    return "Reject Reason Order Reject Reason Code: Invalid Self Trade Prevention Type (68)"
+    return "Order Reject Reason: Invalid Self Trade Prevention Type (68)"
   end
   if value == 69 then
-    return "Reject Reason Order Reject Reason Code: Invalid Risk Group Id (69)"
+    return "Order Reject Reason: Invalid Risk Group Id (69)"
   end
   if value == 70 then
-    return "Reject Reason Order Reject Reason Code: Firm Disabled (70)"
+    return "Order Reject Reason: Firm Disabled (70)"
   end
   if value == 71 then
-    return "Reject Reason Order Reject Reason Code: Mpid Disabled (71)"
+    return "Order Reject Reason: Mpid Disabled (71)"
   end
   if value == 72 then
-    return "Reject Reason Order Reject Reason Code: Account Disabled (72)"
+    return "Order Reject Reason: Account Disabled (72)"
   end
   if value == 73 then
-    return "Reject Reason Order Reject Reason Code: No Nbbo Available (73)"
+    return "Order Reject Reason: No Nbbo Available (73)"
   end
   if value == 74 then
-    return "Reject Reason Order Reject Reason Code: Cannot Trade Non Test Symbol (74)"
+    return "Order Reject Reason: Cannot Trade Non Test Symbol (74)"
   end
   if value == 75 then
-    return "Reject Reason Order Reject Reason Code: Missing Firm (75)"
+    return "Order Reject Reason: Missing Firm (75)"
   end
   if value == 76 then
-    return "Reject Reason Order Reject Reason Code: Missing Account (76)"
+    return "Order Reject Reason: Missing Account (76)"
   end
   if value == 77 then
-    return "Reject Reason Order Reject Reason Code: Missing Mpid (77)"
+    return "Order Reject Reason: Missing Mpid (77)"
   end
   if value == 78 then
-    return "Reject Reason Order Reject Reason Code: Missing Risk Group (78)"
+    return "Order Reject Reason: Missing Risk Group (78)"
   end
   if value == 79 then
-    return "Reject Reason Order Reject Reason Code: Daily Market Order Gross Notional Exposure Risk Rule Breach (79)"
+    return "Order Reject Reason: Daily Market Order Gross Notional Exposure Risk Rule Breach (79)"
   end
   if value == 80 then
-    return "Reject Reason Order Reject Reason Code: Daily Market Order Net Notional Exposure Risk Rule Breach (80)"
+    return "Order Reject Reason: Daily Market Order Net Notional Exposure Risk Rule Breach (80)"
   end
   if value == 81 then
-    return "Reject Reason Order Reject Reason Code: Missing Disp Method Type (81)"
+    return "Order Reject Reason: Missing Disp Method Type (81)"
   end
   if value == 82 then
-    return "Reject Reason Order Reject Reason Code: Missing Firm Risk Setting (82)"
+    return "Order Reject Reason: Missing Firm Risk Setting (82)"
   end
   if value == 83 then
-    return "Reject Reason Order Reject Reason Code: Invalid Account Mpid To Firm (83)"
+    return "Order Reject Reason: Invalid Account Mpid To Firm (83)"
   end
   if value == 84 then
-    return "Reject Reason Order Reject Reason Code: Invalid Peg Offset Value (84)"
+    return "Order Reject Reason: Invalid Peg Offset Value (84)"
   end
   if value == 85 then
-    return "Reject Reason Order Reject Reason Code: Invalid Disp Method Type (85)"
+    return "Order Reject Reason: Invalid Disp Method Type (85)"
   end
   if value == 86 then
-    return "Reject Reason Order Reject Reason Code: Missing Cancel Group Id (86)"
+    return "Order Reject Reason: Missing Cancel Group Id (86)"
   end
   if value == 87 then
-    return "Reject Reason Order Reject Reason Code: Invalid Cancel Group Id (87)"
+    return "Order Reject Reason: Invalid Cancel Group Id (87)"
   end
   if value == 88 then
-    return "Reject Reason Order Reject Reason Code: Missing Stp Group Id (88)"
+    return "Order Reject Reason: Missing Stp Group Id (88)"
   end
   if value == 89 then
-    return "Reject Reason Order Reject Reason Code: Invalid Stp Group Id (89)"
+    return "Order Reject Reason: Invalid Stp Group Id (89)"
   end
   if value == 255 then
-    return "Reject Reason Order Reject Reason Code: Null Value (255)"
+    return "Order Reject Reason: Null Value (255)"
   end
 
-  return "Reject Reason Order Reject Reason Code: Unknown("..value..")"
+  return "Order Reject Reason: Unknown("..value..")"
 end
 
--- Dissect: Reject Reason Order Reject Reason Code
-memx_equities_memo_sbe_v1_6_dissect.reject_reason_order_reject_reason_code = function(buffer, offset, packet, parent)
-  local length = memx_equities_memo_sbe_v1_6_size_of.reject_reason_order_reject_reason_code
+-- Dissect: Order Reject Reason
+memx_equities_memo_sbe_v1_6_dissect.order_reject_reason = function(buffer, offset, packet, parent)
+  local length = memx_equities_memo_sbe_v1_6_size_of.order_reject_reason
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_equities_memo_sbe_v1_6_display.reject_reason_order_reject_reason_code(value, buffer, offset, packet, parent)
+  local display = memx_equities_memo_sbe_v1_6_display.order_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_equities_memo_sbe_v1_6.fields.reject_reason_order_reject_reason_code, range, value, display)
+  parent:add(memx_equities_memo_sbe_v1_6.fields.order_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2919,7 +2919,7 @@ memx_equities_memo_sbe_v1_6_size_of.execution_report_rejected_message = function
 
   index = index + memx_equities_memo_sbe_v1_6_size_of.cum_qty
 
-  index = index + memx_equities_memo_sbe_v1_6_size_of.reject_reason_order_reject_reason_code
+  index = index + memx_equities_memo_sbe_v1_6_size_of.order_reject_reason
 
   return index
 end
@@ -2957,8 +2957,8 @@ memx_equities_memo_sbe_v1_6_dissect.execution_report_rejected_message_fields = f
   -- Cum Qty: 4 Byte Unsigned Fixed Width Integer
   index, cum_qty = memx_equities_memo_sbe_v1_6_dissect.cum_qty(buffer, index, packet, parent)
 
-  -- Reject Reason Order Reject Reason Code: 1 Byte Unsigned Fixed Width Integer Enum with 91 values
-  index, reject_reason_order_reject_reason_code = memx_equities_memo_sbe_v1_6_dissect.reject_reason_order_reject_reason_code(buffer, index, packet, parent)
+  -- Order Reject Reason: 1 Byte Unsigned Fixed Width Integer Enum with 91 values
+  index, order_reject_reason = memx_equities_memo_sbe_v1_6_dissect.order_reject_reason(buffer, index, packet, parent)
 
   return index
 end

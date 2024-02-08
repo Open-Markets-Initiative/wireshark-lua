@@ -14,6 +14,7 @@ local memx_options_memo_sbe_v1_3_display = {}
 local memx_options_memo_sbe_v1_3_dissect = {}
 local memx_options_memo_sbe_v1_3_size_of = {}
 local verify = {}
+local translate = {}
 
 -----------------------------------------------------------------------
 -- Declare Protocol Fields
@@ -32,14 +33,14 @@ memx_options_memo_sbe_v1_3.fields.allocation_instruction_message = ProtoField.ne
 memx_options_memo_sbe_v1_3.fields.allocation_report_message = ProtoField.new("Allocation Report Message", "memx.options.memo.sbe.v1.3.allocationreportmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.allocations_group = ProtoField.new("Allocations Group", "memx.options.memo.sbe.v1.3.allocationsgroup", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.allocations_groups = ProtoField.new("Allocations Groups", "memx.options.memo.sbe.v1.3.allocationsgroups", ftypes.STRING)
-memx_options_memo_sbe_v1_3.fields.bid_px = ProtoField.new("Bid Px", "memx.options.memo.sbe.v1.3.bidpx", ftypes.INT8)
+memx_options_memo_sbe_v1_3.fields.bid_px = ProtoField.new("Bid Px", "memx.options.memo.sbe.v1.3.bidpx", ftypes.DOUBLE)
 memx_options_memo_sbe_v1_3.fields.bid_size = ProtoField.new("Bid Size", "memx.options.memo.sbe.v1.3.bidsize", ftypes.UINT16)
 memx_options_memo_sbe_v1_3.fields.block_length = ProtoField.new("Block Length", "memx.options.memo.sbe.v1.3.blocklength", ftypes.UINT16)
-memx_options_memo_sbe_v1_3.fields.block_length_uint_8 = ProtoField.new("Block Length uint 8", "memx.options.memo.sbe.v1.3.blocklengthuint8", ftypes.UINT8)
+memx_options_memo_sbe_v1_3.fields.block_length_short = ProtoField.new("Block Length Short", "memx.options.memo.sbe.v1.3.blocklengthshort", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.cancel_group_id = ProtoField.new("Cancel Group Id", "memx.options.memo.sbe.v1.3.cancelgroupid", ftypes.UINT16)
 memx_options_memo_sbe_v1_3.fields.cancel_orders_from_this_port_only = ProtoField.new("Cancel Orders From This Port Only", "memx.options.memo.sbe.v1.3.cancelordersfromthisportonly", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x04")
 memx_options_memo_sbe_v1_3.fields.cancel_reason = ProtoField.new("Cancel Reason", "memx.options.memo.sbe.v1.3.cancelreason", ftypes.UINT8)
-memx_options_memo_sbe_v1_3.fields.cl_ord_id = ProtoField.new("Cl Ord Id", "memx.options.memo.sbe.v1.3.clordid", ftypes.STRING)
+memx_options_memo_sbe_v1_3.fields.clordid = ProtoField.new("ClOrdId", "memx.options.memo.sbe.v1.3.clordid", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.options.memo.sbe.v1.3.commonheader", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.contra_trading_capacity = ProtoField.new("Contra Trading Capacity", "memx.options.memo.sbe.v1.3.contratradingcapacity", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.count = ProtoField.new("Count", "memx.options.memo.sbe.v1.3.count", ftypes.UINT32)
@@ -69,7 +70,7 @@ memx_options_memo_sbe_v1_3.fields.external_routing_not_allowed = ProtoField.new(
 memx_options_memo_sbe_v1_3.fields.intermarket_sweep = ProtoField.new("Intermarket Sweep", "memx.options.memo.sbe.v1.3.intermarketsweep", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0002")
 memx_options_memo_sbe_v1_3.fields.last_liquidity_ind = ProtoField.new("Last Liquidity Ind", "memx.options.memo.sbe.v1.3.lastliquidityind", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.last_mkt = ProtoField.new("Last Mkt", "memx.options.memo.sbe.v1.3.lastmkt", ftypes.STRING)
-memx_options_memo_sbe_v1_3.fields.last_px = ProtoField.new("Last Px", "memx.options.memo.sbe.v1.3.lastpx", ftypes.INT8)
+memx_options_memo_sbe_v1_3.fields.last_px = ProtoField.new("Last Px", "memx.options.memo.sbe.v1.3.lastpx", ftypes.DOUBLE)
 memx_options_memo_sbe_v1_3.fields.last_qty = ProtoField.new("Last Qty", "memx.options.memo.sbe.v1.3.lastqty", ftypes.UINT32)
 memx_options_memo_sbe_v1_3.fields.leaves_qty = ProtoField.new("Leaves Qty", "memx.options.memo.sbe.v1.3.leavesqty", ftypes.UINT32)
 memx_options_memo_sbe_v1_3.fields.list_seq_no = ProtoField.new("List Seq No", "memx.options.memo.sbe.v1.3.listseqno", ftypes.UINT8)
@@ -87,6 +88,7 @@ memx_options_memo_sbe_v1_3.fields.mass_cancel_clear_lockout_request_message = Pr
 memx_options_memo_sbe_v1_3.fields.mass_cancel_done_message = ProtoField.new("Mass Cancel Done Message", "memx.options.memo.sbe.v1.3.masscanceldonemessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.mass_cancel_inst = ProtoField.new("Mass Cancel Inst", "memx.options.memo.sbe.v1.3.masscancelinst", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.mass_cancel_reject_message = ProtoField.new("Mass Cancel Reject Message", "memx.options.memo.sbe.v1.3.masscancelrejectmessage", ftypes.STRING)
+memx_options_memo_sbe_v1_3.fields.mass_cancel_reject_reason = ProtoField.new("Mass Cancel Reject Reason", "memx.options.memo.sbe.v1.3.masscancelrejectreason", ftypes.UINT16)
 memx_options_memo_sbe_v1_3.fields.mass_cancel_request_message = ProtoField.new("Mass Cancel Request Message", "memx.options.memo.sbe.v1.3.masscancelrequestmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.match_trade_prevention = ProtoField.new("Match Trade Prevention", "memx.options.memo.sbe.v1.3.matchtradeprevention", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.message_count = ProtoField.new("Message Count", "memx.options.memo.sbe.v1.3.messagecount", ftypes.UINT64)
@@ -97,10 +99,9 @@ memx_options_memo_sbe_v1_3.fields.new_order_single_message = ProtoField.new("New
 memx_options_memo_sbe_v1_3.fields.next_sequence_number = ProtoField.new("Next Sequence Number", "memx.options.memo.sbe.v1.3.nextsequencenumber", ftypes.UINT64)
 memx_options_memo_sbe_v1_3.fields.num_in_group = ProtoField.new("Num In Group", "memx.options.memo.sbe.v1.3.numingroup", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.number_of_orders = ProtoField.new("Number Of Orders", "memx.options.memo.sbe.v1.3.numberoforders", ftypes.UINT8)
-memx_options_memo_sbe_v1_3.fields.offer_px = ProtoField.new("Offer Px", "memx.options.memo.sbe.v1.3.offerpx", ftypes.INT8)
+memx_options_memo_sbe_v1_3.fields.offer_px = ProtoField.new("Offer Px", "memx.options.memo.sbe.v1.3.offerpx", ftypes.DOUBLE)
 memx_options_memo_sbe_v1_3.fields.offer_size = ProtoField.new("Offer Size", "memx.options.memo.sbe.v1.3.offersize", ftypes.UINT16)
 memx_options_memo_sbe_v1_3.fields.open_or_close = ProtoField.new("Open Or Close", "memx.options.memo.sbe.v1.3.openorclose", ftypes.STRING)
-memx_options_memo_sbe_v1_3.fields.options_security_id = ProtoField.new("Options Security Id", "memx.options.memo.sbe.v1.3.optionssecurityid", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.ord_status = ProtoField.new("Ord Status", "memx.options.memo.sbe.v1.3.ordstatus", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.ord_type = ProtoField.new("Ord Type", "memx.options.memo.sbe.v1.3.ordtype", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.order_cancel_reject_message = ProtoField.new("Order Cancel Reject Message", "memx.options.memo.sbe.v1.3.ordercancelrejectmessage", ftypes.STRING)
@@ -108,7 +109,8 @@ memx_options_memo_sbe_v1_3.fields.order_cancel_replace_request_message = ProtoFi
 memx_options_memo_sbe_v1_3.fields.order_cancel_request_message = ProtoField.new("Order Cancel Request Message", "memx.options.memo.sbe.v1.3.ordercancelrequestmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.order_id = ProtoField.new("Order Id", "memx.options.memo.sbe.v1.3.orderid", ftypes.UINT64)
 memx_options_memo_sbe_v1_3.fields.order_qty = ProtoField.new("Order Qty", "memx.options.memo.sbe.v1.3.orderqty", ftypes.UINT32)
-memx_options_memo_sbe_v1_3.fields.orig_cl_ord_id = ProtoField.new("Orig Cl Ord Id", "memx.options.memo.sbe.v1.3.origclordid", ftypes.STRING)
+memx_options_memo_sbe_v1_3.fields.order_reject_reason = ProtoField.new("Order Reject Reason", "memx.options.memo.sbe.v1.3.orderrejectreason", ftypes.UINT16)
+memx_options_memo_sbe_v1_3.fields.origclordid = ProtoField.new("OrigClOrdId", "memx.options.memo.sbe.v1.3.origclordid", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.packet = ProtoField.new("Packet", "memx.options.memo.sbe.v1.3.packet", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.participate_do_not_initiate = ProtoField.new("Participate Do Not Initiate", "memx.options.memo.sbe.v1.3.participatedonotinitiate", ftypes.UINT16, {[1]="Yes",[0]="No"}, base.DEC, "0x0001")
 memx_options_memo_sbe_v1_3.fields.parties_group = ProtoField.new("Parties Group", "memx.options.memo.sbe.v1.3.partiesgroup", ftypes.STRING)
@@ -119,13 +121,12 @@ memx_options_memo_sbe_v1_3.fields.party_role = ProtoField.new("Party Role", "mem
 memx_options_memo_sbe_v1_3.fields.payload = ProtoField.new("Payload", "memx.options.memo.sbe.v1.3.payload", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.pending_mass_cancel_message = ProtoField.new("Pending Mass Cancel Message", "memx.options.memo.sbe.v1.3.pendingmasscancelmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.pending_message_count = ProtoField.new("Pending Message Count", "memx.options.memo.sbe.v1.3.pendingmessagecount", ftypes.UINT32)
-memx_options_memo_sbe_v1_3.fields.price_price_type = ProtoField.new("Price Price Type", "memx.options.memo.sbe.v1.3.pricepricetype", ftypes.INT8)
+memx_options_memo_sbe_v1_3.fields.price = ProtoField.new("Price", "memx.options.memo.sbe.v1.3.price", ftypes.DOUBLE)
 memx_options_memo_sbe_v1_3.fields.quantity_uint_32 = ProtoField.new("Quantity uint 32", "memx.options.memo.sbe.v1.3.quantityuint32", ftypes.UINT32)
 memx_options_memo_sbe_v1_3.fields.quotes_group = ProtoField.new("Quotes Group", "memx.options.memo.sbe.v1.3.quotesgroup", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.quotes_groups = ProtoField.new("Quotes Groups", "memx.options.memo.sbe.v1.3.quotesgroups", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.ref_alloc_report_id = ProtoField.new("Ref Alloc Report Id", "memx.options.memo.sbe.v1.3.refallocreportid", ftypes.UINT64)
 memx_options_memo_sbe_v1_3.fields.rej_reason = ProtoField.new("Rej Reason", "memx.options.memo.sbe.v1.3.rejreason", ftypes.UINT16)
-memx_options_memo_sbe_v1_3.fields.reject_reason = ProtoField.new("Reject Reason", "memx.options.memo.sbe.v1.3.rejectreason", ftypes.UINT16)
 memx_options_memo_sbe_v1_3.fields.repeating_group_dimensions = ProtoField.new("Repeating Group Dimensions", "memx.options.memo.sbe.v1.3.repeatinggroupdimensions", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.replay_all_request_message = ProtoField.new("Replay All Request Message", "memx.options.memo.sbe.v1.3.replayallrequestmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.replay_begin_message = ProtoField.new("Replay Begin Message", "memx.options.memo.sbe.v1.3.replaybeginmessage", ftypes.STRING)
@@ -141,6 +142,7 @@ memx_options_memo_sbe_v1_3.fields.risk_group_id = ProtoField.new("Risk Group Id"
 memx_options_memo_sbe_v1_3.fields.sbe_header = ProtoField.new("Sbe Header", "memx.options.memo.sbe.v1.3.sbeheader", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.sbe_message = ProtoField.new("Sbe Message", "memx.options.memo.sbe.v1.3.sbemessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.schema_id = ProtoField.new("Schema Id", "memx.options.memo.sbe.v1.3.schemaid", ftypes.UINT8)
+memx_options_memo_sbe_v1_3.fields.security_id = ProtoField.new("Security Id", "memx.options.memo.sbe.v1.3.securityid", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.send_cancels = ProtoField.new("Send Cancels", "memx.options.memo.sbe.v1.3.sendcancels", ftypes.UINT8, {[1]="Yes",[0]="No"}, base.DEC, "0x02")
 memx_options_memo_sbe_v1_3.fields.sending_time = ProtoField.new("Sending Time", "memx.options.memo.sbe.v1.3.sendingtime", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.sequenced_message = ProtoField.new("Sequenced Message", "memx.options.memo.sbe.v1.3.sequencedmessage", ftypes.STRING)
@@ -166,9 +168,7 @@ memx_options_memo_sbe_v1_3.fields.trade_date = ProtoField.new("Trade Date", "mem
 memx_options_memo_sbe_v1_3.fields.trading_capacity = ProtoField.new("Trading Capacity", "memx.options.memo.sbe.v1.3.tradingcapacity", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.options.memo.sbe.v1.3.transacttime", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.memo.sbe.v1.3.trdmatchid", ftypes.UINT64)
-memx_options_memo_sbe_v1_3.fields.underlier_mass_cancel_reject_underlier = ProtoField.new("Underlier Mass Cancel Reject Underlier", "memx.options.memo.sbe.v1.3.underliermasscancelrejectunderlier", ftypes.STRING)
-memx_options_memo_sbe_v1_3.fields.underlier_mass_cancel_request_underlier = ProtoField.new("Underlier Mass Cancel Request Underlier", "memx.options.memo.sbe.v1.3.underliermasscancelrequestunderlier", ftypes.STRING)
-memx_options_memo_sbe_v1_3.fields.underlier_pending_mass_cancel_underlier = ProtoField.new("Underlier Pending Mass Cancel Underlier", "memx.options.memo.sbe.v1.3.underlierpendingmasscancelunderlier", ftypes.STRING)
+memx_options_memo_sbe_v1_3.fields.underlier = ProtoField.new("Underlier", "memx.options.memo.sbe.v1.3.underlier", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.underlying_or_series = ProtoField.new("Underlying Or Series", "memx.options.memo.sbe.v1.3.underlyingorseries", ftypes.UINT8)
 memx_options_memo_sbe_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.memo.sbe.v1.3.unsequencedmessage", ftypes.STRING)
 memx_options_memo_sbe_v1_3.fields.user_notification_message = ProtoField.new("User Notification Message", "memx.options.memo.sbe.v1.3.usernotificationmessage", ftypes.STRING)
@@ -591,11 +591,6 @@ memx_options_memo_sbe_v1_3_size_of.lockout_id = 8
 
 -- Display: Lockout Id
 memx_options_memo_sbe_v1_3_display.lockout_id = function(value)
-  -- Check if field has value
-  if value == UInt64(0xFFFFFFFF, 0xFFFFFFFF) then
-    return "Lockout Id: No Value"
-  end
-
   return "Lockout Id: "..value
 end
 
@@ -611,22 +606,22 @@ memx_options_memo_sbe_v1_3_dissect.lockout_id = function(buffer, offset, packet,
   return offset + length, value
 end
 
--- Size: Cl Ord Id
-memx_options_memo_sbe_v1_3_size_of.cl_ord_id = 20
+-- Size: ClOrdId
+memx_options_memo_sbe_v1_3_size_of.clordid = 20
 
--- Display: Cl Ord Id
-memx_options_memo_sbe_v1_3_display.cl_ord_id = function(value)
+-- Display: ClOrdId
+memx_options_memo_sbe_v1_3_display.clordid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord Id: No Value"
+    return "ClOrdId: No Value"
   end
 
-  return "Cl Ord Id: "..value
+  return "ClOrdId: "..value
 end
 
--- Dissect: Cl Ord Id
-memx_options_memo_sbe_v1_3_dissect.cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+-- Dissect: ClOrdId
+memx_options_memo_sbe_v1_3_dissect.clordid = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.clordid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -640,9 +635,9 @@ memx_options_memo_sbe_v1_3_dissect.cl_ord_id = function(buffer, offset, packet, 
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_3_display.cl_ord_id(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.cl_ord_id, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -651,7 +646,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.mass_cancel_clear_lockout_done_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.lockout_id
 
@@ -671,10 +666,10 @@ end
 memx_options_memo_sbe_v1_3_dissect.mass_cancel_clear_lockout_done_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_3_dissect.lockout_id(buffer, index, packet, parent)
 
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
@@ -742,7 +737,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.mass_cancel_clear_lockout_reject_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.lockout_id
 
@@ -764,10 +759,10 @@ end
 memx_options_memo_sbe_v1_3_dissect.mass_cancel_clear_lockout_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_3_dissect.lockout_id(buffer, index, packet, parent)
 
   -- Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 6 values
@@ -1047,22 +1042,22 @@ memx_options_memo_sbe_v1_3_dissect.num_in_group = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Size: Block Length uint 8
-memx_options_memo_sbe_v1_3_size_of.block_length_uint_8 = 1
+-- Size: Block Length Short
+memx_options_memo_sbe_v1_3_size_of.block_length_short = 1
 
--- Display: Block Length uint 8
-memx_options_memo_sbe_v1_3_display.block_length_uint_8 = function(value)
-  return "Block Length uint 8: "..value
+-- Display: Block Length Short
+memx_options_memo_sbe_v1_3_display.block_length_short = function(value)
+  return "Block Length Short: "..value
 end
 
--- Dissect: Block Length uint 8
-memx_options_memo_sbe_v1_3_dissect.block_length_uint_8 = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.block_length_uint_8
+-- Dissect: Block Length Short
+memx_options_memo_sbe_v1_3_dissect.block_length_short = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.block_length_short
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3_display.block_length_uint_8(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.block_length_short(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.block_length_uint_8, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.block_length_short, range, value, display)
 
   return offset + length, value
 end
@@ -1071,7 +1066,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.repeating_group_dimensions = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.block_length_uint_8
+  index = index + memx_options_memo_sbe_v1_3_size_of.block_length_short
 
   index = index + memx_options_memo_sbe_v1_3_size_of.num_in_group
 
@@ -1087,8 +1082,8 @@ end
 memx_options_memo_sbe_v1_3_dissect.repeating_group_dimensions_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Block Length uint 8: 1 Byte Unsigned Fixed Width Integer
-  index, block_length_uint_8 = memx_options_memo_sbe_v1_3_dissect.block_length_uint_8(buffer, index, packet, parent)
+  -- Block Length Short: 1 Byte Unsigned Fixed Width Integer
+  index, block_length_short = memx_options_memo_sbe_v1_3_dissect.block_length_short(buffer, index, packet, parent)
 
   -- Num In Group: 1 Byte Unsigned Fixed Width Integer
   index, num_in_group = memx_options_memo_sbe_v1_3_dissect.num_in_group(buffer, index, packet, parent)
@@ -1257,22 +1252,22 @@ memx_options_memo_sbe_v1_3_dissect.side = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
--- Size: Options Security Id
-memx_options_memo_sbe_v1_3_size_of.options_security_id = 8
+-- Size: Security Id
+memx_options_memo_sbe_v1_3_size_of.security_id = 8
 
--- Display: Options Security Id
-memx_options_memo_sbe_v1_3_display.options_security_id = function(value)
+-- Display: Security Id
+memx_options_memo_sbe_v1_3_display.security_id = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Options Security Id: No Value"
+    return "Security Id: No Value"
   end
 
-  return "Options Security Id: "..value
+  return "Security Id: "..value
 end
 
--- Dissect: Options Security Id
-memx_options_memo_sbe_v1_3_dissect.options_security_id = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.options_security_id
+-- Dissect: Security Id
+memx_options_memo_sbe_v1_3_dissect.security_id = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.security_id
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -1286,9 +1281,9 @@ memx_options_memo_sbe_v1_3_dissect.options_security_id = function(buffer, offset
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_3_display.options_security_id(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.security_id(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.options_security_id, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.security_id, range, value, display)
 
   return offset + length, value
 end
@@ -1502,7 +1497,7 @@ memx_options_memo_sbe_v1_3_size_of.allocation_report_message = function(buffer, 
 
   index = index + memx_options_memo_sbe_v1_3_size_of.trd_match_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -1549,8 +1544,8 @@ memx_options_memo_sbe_v1_3_dissect.allocation_report_message_fields = function(b
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = memx_options_memo_sbe_v1_3_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -1985,7 +1980,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.order_cancel_reject_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -1993,7 +1988,7 @@ memx_options_memo_sbe_v1_3_size_of.order_cancel_reject_message = function(buffer
 
   index = index + memx_options_memo_sbe_v1_3_size_of.cxl_rej_reason
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -2013,8 +2008,8 @@ end
 memx_options_memo_sbe_v1_3_dissect.order_cancel_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -2025,8 +2020,8 @@ memx_options_memo_sbe_v1_3_dissect.order_cancel_reject_message_fields = function
   -- Cxl Rej Reason: 2 Byte Unsigned Fixed Width Integer Enum with 61 values
   index, cxl_rej_reason = memx_options_memo_sbe_v1_3_dissect.cxl_rej_reason(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -2077,7 +2072,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.mass_cancel_done_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.total_affected_orders
 
@@ -2097,8 +2092,8 @@ end
 memx_options_memo_sbe_v1_3_dissect.mass_cancel_done_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Total Affected Orders: 4 Byte Unsigned Fixed Width Integer
   index, total_affected_orders = memx_options_memo_sbe_v1_3_dissect.total_affected_orders(buffer, index, packet, parent)
@@ -2203,22 +2198,22 @@ memx_options_memo_sbe_v1_3_dissect.cancel_group_id = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Underlier Mass Cancel Reject Underlier
-memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_reject_underlier = 6
+-- Size: Underlier
+memx_options_memo_sbe_v1_3_size_of.underlier = 6
 
--- Display: Underlier Mass Cancel Reject Underlier
-memx_options_memo_sbe_v1_3_display.underlier_mass_cancel_reject_underlier = function(value)
+-- Display: Underlier
+memx_options_memo_sbe_v1_3_display.underlier = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Underlier Mass Cancel Reject Underlier: No Value"
+    return "Underlier: No Value"
   end
 
-  return "Underlier Mass Cancel Reject Underlier: "..value
+  return "Underlier: "..value
 end
 
--- Dissect: Underlier Mass Cancel Reject Underlier
-memx_options_memo_sbe_v1_3_dissect.underlier_mass_cancel_reject_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_reject_underlier
+-- Dissect: Underlier
+memx_options_memo_sbe_v1_3_dissect.underlier = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.underlier
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -2232,9 +2227,9 @@ memx_options_memo_sbe_v1_3_dissect.underlier_mass_cancel_reject_underlier = func
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_3_display.underlier_mass_cancel_reject_underlier(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.underlier(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.underlier_mass_cancel_reject_underlier, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.underlier, range, value, display)
 
   return offset + length, value
 end
@@ -2308,341 +2303,77 @@ memx_options_memo_sbe_v1_3_dissect.efid = function(buffer, offset, packet, paren
   return offset + length, value
 end
 
--- Size: Reject Reason
-memx_options_memo_sbe_v1_3_size_of.reject_reason = 2
+-- Size: Mass Cancel Reject Reason
+memx_options_memo_sbe_v1_3_size_of.mass_cancel_reject_reason = 2
 
--- Display: Reject Reason
-memx_options_memo_sbe_v1_3_display.reject_reason = function(value)
-  if value == 1 then
-    return "Reject Reason: Unknown Symbol (1)"
-  end
-  if value == 2 then
-    return "Reject Reason: Exchange Closed (2)"
-  end
-  if value == 6 then
-    return "Reject Reason: Duplicate Order (6)"
-  end
-  if value == 16 then
-    return "Reject Reason: Price Exceeds Current Price Band (16)"
-  end
-  if value == 18 then
-    return "Reject Reason: Invalid Price Increment (18)"
-  end
-  if value == 27 then
-    return "Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)"
-  end
-  if value == 99 then
-    return "Reject Reason: Other (99)"
-  end
-  if value == 100 then
-    return "Reject Reason: Missing Symbol (100)"
-  end
-  if value == 101 then
-    return "Reject Reason: Invalid Symbol (101)"
-  end
-  if value == 102 then
-    return "Reject Reason: Missing Cl Ord Id (102)"
-  end
-  if value == 103 then
-    return "Reject Reason: Invalid Cl Ord Id (103)"
-  end
-  if value == 104 then
-    return "Reject Reason: Missing Side (104)"
-  end
-  if value == 105 then
-    return "Reject Reason: Invalid Side (105)"
-  end
-  if value == 106 then
-    return "Reject Reason: Missing Order Qty (106)"
-  end
-  if value == 107 then
-    return "Reject Reason: Invalid Order Qty (107)"
-  end
-  if value == 108 then
-    return "Reject Reason: Missing Order Type (108)"
-  end
-  if value == 109 then
-    return "Reject Reason: Invalid Order Type (109)"
-  end
-  if value == 110 then
-    return "Reject Reason: Missing Time In Force (110)"
-  end
-  if value == 111 then
-    return "Reject Reason: Invalid Time In Force (111)"
-  end
-  if value == 112 then
-    return "Reject Reason: Missing Trading Capacity (112)"
-  end
-  if value == 113 then
-    return "Reject Reason: Invalid Trading Capacity (113)"
-  end
-  if value == 114 then
-    return "Reject Reason: Missing Exec Inst (114)"
-  end
-  if value == 115 then
-    return "Reject Reason: Invalid Exec Inst (115)"
-  end
-  if value == 118 then
-    return "Reject Reason: Missing Limit Price (118)"
-  end
-  if value == 119 then
-    return "Reject Reason: Invalid Limit Price (119)"
-  end
-  if value == 124 then
-    return "Reject Reason: Missing Match Trade Prevention Type (124)"
-  end
-  if value == 125 then
-    return "Reject Reason: Invalid Match Trade Prevention Type (125)"
-  end
-  if value == 126 then
-    return "Reject Reason: Missing Cancel Group Id (126)"
-  end
-  if value == 127 then
-    return "Reject Reason: Invalid Cancel Group Id (127)"
-  end
-  if value == 128 then
-    return "Reject Reason: Missing Mtp Group Id (128)"
-  end
-  if value == 129 then
-    return "Reject Reason: Invalid Mtp Group Id (129)"
-  end
-  if value == 134 then
-    return "Reject Reason: Missing Risk Group Id (134)"
-  end
-  if value == 135 then
-    return "Reject Reason: Invalid Risk Group Id (135)"
-  end
-  if value == 136 then
-    return "Reject Reason: Missing Efid (136)"
-  end
-  if value == 137 then
-    return "Reject Reason: Invalid Efid (137)"
-  end
-  if value == 138 then
-    return "Reject Reason: Missing List Seq No (138)"
-  end
-  if value == 139 then
-    return "Reject Reason: Invalid List Seq No (139)"
-  end
-  if value == 140 then
-    return "Reject Reason: Quotes Have Different Underliers (140)"
-  end
-  if value == 141 then
-    return "Reject Reason: Two Sided Quotes Cross (141)"
-  end
-  if value == 142 then
-    return "Reject Reason: Missing Open Or Close (142)"
-  end
-  if value == 143 then
-    return "Reject Reason: Invalid Open Or Close (143)"
-  end
-  if value == 144 then
-    return "Reject Reason: Missing Reprice Behavior Type (144)"
-  end
-  if value == 145 then
-    return "Reject Reason: Invalid Reprice Behavior Type (145)"
-  end
-  if value == 146 then
-    return "Reject Reason: Missing Reprice Frequency Type (146)"
-  end
-  if value == 147 then
-    return "Reject Reason: Invalid Reprice Frequency Type (147)"
-  end
-  if value == 148 then
-    return "Reject Reason: Missing Party Role Type (148)"
-  end
-  if value == 149 then
-    return "Reject Reason: Invalid Party Role Type (149)"
-  end
-  if value == 150 then
-    return "Reject Reason: Missing Party Id (150)"
-  end
-  if value == 151 then
-    return "Reject Reason: Invalid Party Id (151)"
-  end
-  if value == 152 then
-    return "Reject Reason: Missing Party Id Source (152)"
-  end
-  if value == 153 then
-    return "Reject Reason: Invalid Party Id Source (153)"
-  end
-  if value == 200 then
-    return "Reject Reason: Halted (200)"
-  end
-  if value == 201 then
-    return "Reject Reason: Firm Disabled (201)"
-  end
-  if value == 202 then
-    return "Reject Reason: Efid Disabled (202)"
-  end
-  if value == 203 then
-    return "Reject Reason: Account Disabled (203)"
-  end
-  if value == 204 then
-    return "Reject Reason: Invalid Modifier For Order Type (204)"
-  end
-  if value == 205 then
-    return "Reject Reason: Invalid Time In Force For Order Type (205)"
-  end
-  if value == 207 then
-    return "Reject Reason: Post Only Not Allowed (207)"
-  end
-  if value == 208 then
-    return "Reject Reason: Quote Modify Rejected (208)"
-  end
-  if value == 209 then
-    return "Reject Reason: Quoting Disabled (209)"
-  end
-  if value == 210 then
-    return "Reject Reason: Invalid Quote Component Count (210)"
-  end
-  if value == 300 then
-    return "Reject Reason: Non Test Symbols Blocked (300)"
-  end
-  if value == 301 then
-    return "Reject Reason: Notional Value Exceeds Threshold (301)"
-  end
-  if value == 302 then
-    return "Reject Reason: Max Notional Value Per Order Risk Rule Violated (302)"
-  end
-  if value == 303 then
-    return "Reject Reason: Block Non Test Symbol Risk Rule Violated (303)"
-  end
-  if value == 304 then
-    return "Reject Reason: Max Contracts Per Order Risk Rule Violated (304)"
-  end
-  if value == 305 then
-    return "Reject Reason: Nbbo Width Exceeds Threshold (305)"
-  end
-  if value == 306 then
-    return "Reject Reason: Exchange Price Value Collar Risk Rule Violated (306)"
-  end
-  if value == 307 then
-    return "Reject Reason: Execution Price Higher Than Strike Price (307)"
-  end
-  if value == 308 then
-    return "Reject Reason: Market Buy When Nbo Is Zero (308)"
-  end
-  if value == 309 then
-    return "Reject Reason: Market Sell When Nbb Greater Than Threshold (309)"
-  end
-  if value == 310 then
-    return "Reject Reason: Quote Price Outside Exchange Threshold (310)"
-  end
-  if value == 312 then
-    return "Reject Reason: Num Contracts Executed Exceeds Threshold (312)"
-  end
-  if value == 313 then
-    return "Reject Reason: Notional Value Of Executions Exceeds Threshold (313)"
-  end
-  if value == 314 then
-    return "Reject Reason: Count Of Executions Exceeds Threshold (314)"
-  end
-  if value == 315 then
-    return "Reject Reason: Outstanding Percentage Threshold Exceeded (315)"
-  end
-  if value == 316 then
-    return "Reject Reason: Trips Threshold Exceeded (316)"
-  end
-  if value == 317 then
-    return "Reject Reason: Iso Orders Not Allowed (317)"
-  end
-  if value == 318 then
-    return "Reject Reason: Market Is Crossed (318)"
-  end
-  if value == 319 then
-    return "Reject Reason: Active Risk Breach (319)"
-  end
-  if value == 320 then
-    return "Reject Reason: Manual Risk Breach (320)"
-  end
-  if value == 321 then
-    return "Reject Reason: Gross Notional Value Exceeds Threshold (321)"
-  end
-  if value == 322 then
-    return "Reject Reason: Net Notional Value Exceeds Threshold (322)"
-  end
-  if value == 323 then
-    return "Reject Reason: Duplicate Order Threshold Exceeded (323)"
-  end
-  if value == 324 then
-    return "Reject Reason: Order Rate Threshold Exceeded (324)"
-  end
-  if value == 325 then
-    return "Reject Reason: Mass Cancel Lockout In Effect (325)"
-  end
-  if value == 326 then
-    return "Reject Reason: Market Order Gross Notional Value Exceeds Threshold (326)"
-  end
-  if value == 327 then
-    return "Reject Reason: Market Order Net Notional Value Exceeds Threshold (327)"
-  end
-  if value == 65535 then
-    return "Reject Reason: Null Value (65535)"
-  end
+-- Display: Mass Cancel Reject Reason
+memx_options_memo_sbe_v1_3_display.mass_cancel_reject_reason = function(value)
   if value == 0 then
-    return "Reject Reason: Other (0)"
+    return "Mass Cancel Reject Reason: Other (0)"
   end
   if value == 1 then
-    return "Reject Reason: Duplicate Cl Ord Id (1)"
+    return "Mass Cancel Reject Reason: Duplicate Cl Ord Id (1)"
   end
   if value == 2 then
-    return "Reject Reason: Missing Cl Ord Id (2)"
+    return "Mass Cancel Reject Reason: Missing Cl Ord Id (2)"
   end
   if value == 3 then
-    return "Reject Reason: Invalid Cl Ord Id (3)"
+    return "Mass Cancel Reject Reason: Invalid Cl Ord Id (3)"
   end
   if value == 4 then
-    return "Reject Reason: Missing Efid (4)"
+    return "Mass Cancel Reject Reason: Missing Efid (4)"
   end
   if value == 5 then
-    return "Reject Reason: Invalid Efid (5)"
+    return "Mass Cancel Reject Reason: Invalid Efid (5)"
   end
   if value == 6 then
-    return "Reject Reason: Missing Underlying Or Series (6)"
+    return "Mass Cancel Reject Reason: Missing Underlying Or Series (6)"
   end
   if value == 7 then
-    return "Reject Reason: Invalid Underlying Or Series (7)"
+    return "Mass Cancel Reject Reason: Invalid Underlying Or Series (7)"
   end
   if value == 8 then
-    return "Reject Reason: Missing Underlier (8)"
+    return "Mass Cancel Reject Reason: Missing Underlier (8)"
   end
   if value == 9 then
-    return "Reject Reason: Invalid Underlier (9)"
+    return "Mass Cancel Reject Reason: Invalid Underlier (9)"
   end
   if value == 10 then
-    return "Reject Reason: Missing Options Security Id (10)"
+    return "Mass Cancel Reject Reason: Missing Options Security Id (10)"
   end
   if value == 11 then
-    return "Reject Reason: Invalid Options Security Id (11)"
+    return "Mass Cancel Reject Reason: Invalid Options Security Id (11)"
   end
   if value == 12 then
-    return "Reject Reason: Missing Cancel Group Id (12)"
+    return "Mass Cancel Reject Reason: Missing Cancel Group Id (12)"
   end
   if value == 13 then
-    return "Reject Reason: Invalid Cancel Group Id (13)"
+    return "Mass Cancel Reject Reason: Invalid Cancel Group Id (13)"
   end
   if value == 14 then
-    return "Reject Reason: Missing Mass Cancel Inst (14)"
+    return "Mass Cancel Reject Reason: Missing Mass Cancel Inst (14)"
   end
   if value == 15 then
-    return "Reject Reason: Invalid Mass Cancel Inst (15)"
+    return "Mass Cancel Reject Reason: Invalid Mass Cancel Inst (15)"
   end
   if value == 17 then
-    return "Reject Reason: Mass Cancel In Progress (17)"
+    return "Mass Cancel Reject Reason: Mass Cancel In Progress (17)"
+  end
+  if value == 65535 then
+    return "Mass Cancel Reject Reason: Null Value (65535)"
   end
 
-  return "Reject Reason: Unknown("..value..")"
+  return "Mass Cancel Reject Reason: Unknown("..value..")"
 end
 
--- Dissect: Reject Reason
-memx_options_memo_sbe_v1_3_dissect.reject_reason = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.reject_reason
+-- Dissect: Mass Cancel Reject Reason
+memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_reason = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.mass_cancel_reject_reason
   local range = buffer(offset, length)
   local value = range:uint()
-  local display = memx_options_memo_sbe_v1_3_display.reject_reason(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.mass_cancel_reject_reason(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.reject_reason, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.mass_cancel_reject_reason, range, value, display)
 
   return offset + length, value
 end
@@ -2651,17 +2382,17 @@ end
 memx_options_memo_sbe_v1_3_size_of.mass_cancel_reject_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.reject_reason
+  index = index + memx_options_memo_sbe_v1_3_size_of.mass_cancel_reject_reason
 
   index = index + memx_options_memo_sbe_v1_3_size_of.efid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.underlying_or_series
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_reject_underlier
+  index = index + memx_options_memo_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.cancel_group_id
 
@@ -2683,11 +2414,11 @@ end
 memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 106 values
-  index, reject_reason = memx_options_memo_sbe_v1_3_dissect.reject_reason(buffer, index, packet, parent)
+  -- Mass Cancel Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 18 values
+  index, mass_cancel_reject_reason = memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_reason(buffer, index, packet, parent)
 
   -- Efid: 4 Byte Ascii String Nullable
   index, efid = memx_options_memo_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
@@ -2695,11 +2426,11 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_message_fields = function(
   -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, underlying_or_series = memx_options_memo_sbe_v1_3_dissect.underlying_or_series(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Reject Underlier: 6 Byte Ascii String Nullable
-  index, underlier_mass_cancel_reject_underlier = memx_options_memo_sbe_v1_3_dissect.underlier_mass_cancel_reject_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String Nullable
+  index, underlier = memx_options_memo_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = memx_options_memo_sbe_v1_3_dissect.cancel_group_id(buffer, index, packet, parent)
@@ -2729,47 +2460,11 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_message = function(buffer,
   return memx_options_memo_sbe_v1_3_dissect.mass_cancel_reject_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Underlier Pending Mass Cancel Underlier
-memx_options_memo_sbe_v1_3_size_of.underlier_pending_mass_cancel_underlier = 6
-
--- Display: Underlier Pending Mass Cancel Underlier
-memx_options_memo_sbe_v1_3_display.underlier_pending_mass_cancel_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Pending Mass Cancel Underlier: No Value"
-  end
-
-  return "Underlier Pending Mass Cancel Underlier: "..value
-end
-
--- Dissect: Underlier Pending Mass Cancel Underlier
-memx_options_memo_sbe_v1_3_dissect.underlier_pending_mass_cancel_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.underlier_pending_mass_cancel_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3_display.underlier_pending_mass_cancel_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_3.fields.underlier_pending_mass_cancel_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Pending Mass Cancel Message
 memx_options_memo_sbe_v1_3_size_of.pending_mass_cancel_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.mass_cancel_inst
 
@@ -2779,9 +2474,9 @@ memx_options_memo_sbe_v1_3_size_of.pending_mass_cancel_message = function(buffer
 
   index = index + memx_options_memo_sbe_v1_3_size_of.underlying_or_series
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.underlier_pending_mass_cancel_underlier
+  index = index + memx_options_memo_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.cancel_group_id
 
@@ -2801,13 +2496,13 @@ end
 memx_options_memo_sbe_v1_3_dissect.pending_mass_cancel_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Mass Cancel Inst: Struct of 4 fields
   index, mass_cancel_inst = memx_options_memo_sbe_v1_3_dissect.mass_cancel_inst(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_3_dissect.lockout_id(buffer, index, packet, parent)
 
   -- Efid: 4 Byte Ascii String Nullable
@@ -2816,11 +2511,11 @@ memx_options_memo_sbe_v1_3_dissect.pending_mass_cancel_message_fields = function
   -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, underlying_or_series = memx_options_memo_sbe_v1_3_dissect.underlying_or_series(buffer, index, packet, parent)
 
-  -- Underlier Pending Mass Cancel Underlier: 6 Byte Ascii String Nullable
-  index, underlier_pending_mass_cancel_underlier = memx_options_memo_sbe_v1_3_dissect.underlier_pending_mass_cancel_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String Nullable
+  index, underlier = memx_options_memo_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = memx_options_memo_sbe_v1_3_dissect.cancel_group_id(buffer, index, packet, parent)
@@ -2912,11 +2607,6 @@ memx_options_memo_sbe_v1_3_size_of.last_qty = 4
 
 -- Display: Last Qty
 memx_options_memo_sbe_v1_3_display.last_qty = function(value)
-  -- Check if field has value
-  if value == 4294967295 then
-    return "Last Qty: No Value"
-  end
-
   return "Last Qty: "..value
 end
 
@@ -2940,11 +2630,17 @@ memx_options_memo_sbe_v1_3_display.last_px = function(value)
   return "Last Px: "..value
 end
 
+-- Translate: Last Px
+translate.last_px = function(raw)
+  return raw/100000000
+end
+
 -- Dissect: Last Px
 memx_options_memo_sbe_v1_3_dissect.last_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_3_size_of.last_px
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.last_px(raw)
   local display = memx_options_memo_sbe_v1_3_display.last_px(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memo_sbe_v1_3.fields.last_px, range, value, display)
@@ -3130,7 +2826,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_restatement_message = functi
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -3138,7 +2834,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_restatement_message = functi
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.exec_restatement_reason
 
@@ -3175,8 +2871,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_restatement_message_fields =
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -3187,8 +2883,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_restatement_message_fields =
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Exec Restatement Reason: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, exec_restatement_reason = memx_options_memo_sbe_v1_3_dissect.exec_restatement_reason(buffer, index, packet, parent)
@@ -3202,7 +2898,7 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_restatement_message_fields =
   -- Last Px: 1 Byte Signed Fixed Width Integer
   index, last_px = memx_options_memo_sbe_v1_3_dissect.last_px(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_3_dissect.last_qty(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
@@ -3242,7 +2938,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_trade_break_message = functi
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.trd_match_id
 
@@ -3275,8 +2971,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_break_message_fields =
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = memx_options_memo_sbe_v1_3_dissect.trd_match_id(buffer, index, packet, parent)
@@ -3324,7 +3020,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_trade_correction_message = f
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.trd_match_id
 
@@ -3334,7 +3030,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_trade_correction_message = f
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.last_qty
 
@@ -3363,8 +3059,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_correction_message_fie
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = memx_options_memo_sbe_v1_3_dissect.trd_match_id(buffer, index, packet, parent)
@@ -3378,10 +3074,10 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_correction_message_fie
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_3_dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 1 Byte Signed Fixed Width Integer
@@ -3415,27 +3111,38 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_correction_message = f
   return memx_options_memo_sbe_v1_3_dissect.execution_report_trade_correction_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Price Price Type
-memx_options_memo_sbe_v1_3_size_of.price_price_type = 1
+-- Size: Price
+memx_options_memo_sbe_v1_3_size_of.price = 1
 
--- Display: Price Price Type
-memx_options_memo_sbe_v1_3_display.price_price_type = function(value)
-  -- Check if field has value
-  if value == 128 then
-    return "Price Price Type: No Value"
+-- Display: Price
+memx_options_memo_sbe_v1_3_display.price = function(raw, value)
+  -- Check null sentinel value
+  if raw == 128 then
+    return "Price: No Value"
   end
 
-  return "Price Price Type: "..value
+  return "Price: "..value
 end
 
--- Dissect: Price Price Type
-memx_options_memo_sbe_v1_3_dissect.price_price_type = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.price_price_type
-  local range = buffer(offset, length)
-  local value = range:int()
-  local display = memx_options_memo_sbe_v1_3_display.price_price_type(value, buffer, offset, packet, parent)
+-- Translate: Price
+translate.price = function(raw)
+  -- Check null sentinel value
+  if raw == 128 then
+    return 0/0
+  end
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.price_price_type, range, value, display)
+  return raw/100000000
+end
+
+-- Dissect: Price
+memx_options_memo_sbe_v1_3_dissect.price = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.price
+  local range = buffer(offset, length)
+  local raw = range:int()
+  local value = translate.price(raw)
+  local display = memx_options_memo_sbe_v1_3_display.price(raw, value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memo_sbe_v1_3.fields.price, range, value, display)
 
   return offset + length, value
 end
@@ -3497,22 +3204,22 @@ memx_options_memo_sbe_v1_3_dissect.order_qty = function(buffer, offset, packet, 
   return offset + length, value
 end
 
--- Size: Orig Cl Ord Id
-memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id = 20
+-- Size: OrigClOrdId
+memx_options_memo_sbe_v1_3_size_of.origclordid = 20
 
--- Display: Orig Cl Ord Id
-memx_options_memo_sbe_v1_3_display.orig_cl_ord_id = function(value)
+-- Display: OrigClOrdId
+memx_options_memo_sbe_v1_3_display.origclordid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Orig Cl Ord Id: No Value"
+    return "OrigClOrdId: No Value"
   end
 
-  return "Orig Cl Ord Id: "..value
+  return "OrigClOrdId: "..value
 end
 
--- Dissect: Orig Cl Ord Id
-memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+-- Dissect: OrigClOrdId
+memx_options_memo_sbe_v1_3_dissect.origclordid = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.origclordid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -3526,9 +3233,9 @@ memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id = function(buffer, offset, pac
     value = range:string()
   end
 
-  local display = memx_options_memo_sbe_v1_3_display.orig_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = memx_options_memo_sbe_v1_3_display.origclordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_memo_sbe_v1_3.fields.orig_cl_ord_id, range, value, display)
+  parent:add(memx_options_memo_sbe_v1_3.fields.origclordid, range, value, display)
 
   return offset + length, value
 end
@@ -3539,17 +3246,17 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_replaced_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.exec_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -3557,7 +3264,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_replaced_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_type
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.leaves_qty
 
@@ -3584,14 +3291,14 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_replaced_message_fields = fu
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_options_memo_sbe_v1_3_dissect.exec_id(buffer, index, packet, parent)
@@ -3599,8 +3306,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_replaced_message_fields = fu
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -3611,8 +3318,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_replaced_message_fields = fu
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_3_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = memx_options_memo_sbe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
@@ -3651,17 +3358,17 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_pending_replace_message = fu
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.exec_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -3669,7 +3376,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_pending_replace_message = fu
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_type
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.leaves_qty
 
@@ -3694,14 +3401,14 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_pending_replace_message_fiel
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_options_memo_sbe_v1_3_dissect.exec_id(buffer, index, packet, parent)
@@ -3709,8 +3416,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_pending_replace_message_fiel
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -3721,8 +3428,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_pending_replace_message_fiel
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_3_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = memx_options_memo_sbe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
@@ -3860,11 +3567,11 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_canceled_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.exec_id
 
@@ -3872,7 +3579,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_canceled_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.cancel_reason
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -3901,14 +3608,14 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_canceled_message_fields = fu
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
   -- Exec Id: 8 Byte Unsigned Fixed Width Integer
   index, exec_id = memx_options_memo_sbe_v1_3_dissect.exec_id(buffer, index, packet, parent)
@@ -3919,8 +3626,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_canceled_message_fields = fu
   -- Cancel Reason: 1 Byte Unsigned Fixed Width Integer Enum with 27 values
   index, cancel_reason = memx_options_memo_sbe_v1_3_dissect.cancel_reason(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -3962,15 +3669,15 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_pending_cancel_message = fun
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -3997,20 +3704,20 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_pending_cancel_message_field
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -4378,7 +4085,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_trade_message = function(buf
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -4388,7 +4095,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_trade_message = function(buf
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -4433,8 +4140,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_message_fields = funct
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -4448,13 +4155,13 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_message_fields = funct
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
 
-  -- Last Qty: 4 Byte Unsigned Fixed Width Integer Nullable
+  -- Last Qty: 4 Byte Unsigned Fixed Width Integer
   index, last_qty = memx_options_memo_sbe_v1_3_dissect.last_qty(buffer, index, packet, parent)
 
   -- Last Px: 1 Byte Signed Fixed Width Integer
@@ -4509,11 +4216,299 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_trade_message = function(buf
   return memx_options_memo_sbe_v1_3_dissect.execution_report_trade_message_fields(buffer, offset, packet, parent)
 end
 
+-- Size: Order Reject Reason
+memx_options_memo_sbe_v1_3_size_of.order_reject_reason = 2
+
+-- Display: Order Reject Reason
+memx_options_memo_sbe_v1_3_display.order_reject_reason = function(value)
+  if value == 1 then
+    return "Order Reject Reason: Unknown Symbol (1)"
+  end
+  if value == 2 then
+    return "Order Reject Reason: Exchange Closed (2)"
+  end
+  if value == 6 then
+    return "Order Reject Reason: Duplicate Order (6)"
+  end
+  if value == 16 then
+    return "Order Reject Reason: Price Exceeds Current Price Band (16)"
+  end
+  if value == 18 then
+    return "Order Reject Reason: Invalid Price Increment (18)"
+  end
+  if value == 27 then
+    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Breach (27)"
+  end
+  if value == 99 then
+    return "Order Reject Reason: Other (99)"
+  end
+  if value == 100 then
+    return "Order Reject Reason: Missing Symbol (100)"
+  end
+  if value == 101 then
+    return "Order Reject Reason: Invalid Symbol (101)"
+  end
+  if value == 102 then
+    return "Order Reject Reason: Missing Cl Ord Id (102)"
+  end
+  if value == 103 then
+    return "Order Reject Reason: Invalid Cl Ord Id (103)"
+  end
+  if value == 104 then
+    return "Order Reject Reason: Missing Side (104)"
+  end
+  if value == 105 then
+    return "Order Reject Reason: Invalid Side (105)"
+  end
+  if value == 106 then
+    return "Order Reject Reason: Missing Order Qty (106)"
+  end
+  if value == 107 then
+    return "Order Reject Reason: Invalid Order Qty (107)"
+  end
+  if value == 108 then
+    return "Order Reject Reason: Missing Order Type (108)"
+  end
+  if value == 109 then
+    return "Order Reject Reason: Invalid Order Type (109)"
+  end
+  if value == 110 then
+    return "Order Reject Reason: Missing Time In Force (110)"
+  end
+  if value == 111 then
+    return "Order Reject Reason: Invalid Time In Force (111)"
+  end
+  if value == 112 then
+    return "Order Reject Reason: Missing Trading Capacity (112)"
+  end
+  if value == 113 then
+    return "Order Reject Reason: Invalid Trading Capacity (113)"
+  end
+  if value == 114 then
+    return "Order Reject Reason: Missing Exec Inst (114)"
+  end
+  if value == 115 then
+    return "Order Reject Reason: Invalid Exec Inst (115)"
+  end
+  if value == 118 then
+    return "Order Reject Reason: Missing Limit Price (118)"
+  end
+  if value == 119 then
+    return "Order Reject Reason: Invalid Limit Price (119)"
+  end
+  if value == 124 then
+    return "Order Reject Reason: Missing Match Trade Prevention Type (124)"
+  end
+  if value == 125 then
+    return "Order Reject Reason: Invalid Match Trade Prevention Type (125)"
+  end
+  if value == 126 then
+    return "Order Reject Reason: Missing Cancel Group Id (126)"
+  end
+  if value == 127 then
+    return "Order Reject Reason: Invalid Cancel Group Id (127)"
+  end
+  if value == 128 then
+    return "Order Reject Reason: Missing Mtp Group Id (128)"
+  end
+  if value == 129 then
+    return "Order Reject Reason: Invalid Mtp Group Id (129)"
+  end
+  if value == 134 then
+    return "Order Reject Reason: Missing Risk Group Id (134)"
+  end
+  if value == 135 then
+    return "Order Reject Reason: Invalid Risk Group Id (135)"
+  end
+  if value == 136 then
+    return "Order Reject Reason: Missing Efid (136)"
+  end
+  if value == 137 then
+    return "Order Reject Reason: Invalid Efid (137)"
+  end
+  if value == 138 then
+    return "Order Reject Reason: Missing List Seq No (138)"
+  end
+  if value == 139 then
+    return "Order Reject Reason: Invalid List Seq No (139)"
+  end
+  if value == 140 then
+    return "Order Reject Reason: Quotes Have Different Underliers (140)"
+  end
+  if value == 141 then
+    return "Order Reject Reason: Two Sided Quotes Cross (141)"
+  end
+  if value == 142 then
+    return "Order Reject Reason: Missing Open Or Close (142)"
+  end
+  if value == 143 then
+    return "Order Reject Reason: Invalid Open Or Close (143)"
+  end
+  if value == 144 then
+    return "Order Reject Reason: Missing Reprice Behavior Type (144)"
+  end
+  if value == 145 then
+    return "Order Reject Reason: Invalid Reprice Behavior Type (145)"
+  end
+  if value == 146 then
+    return "Order Reject Reason: Missing Reprice Frequency Type (146)"
+  end
+  if value == 147 then
+    return "Order Reject Reason: Invalid Reprice Frequency Type (147)"
+  end
+  if value == 148 then
+    return "Order Reject Reason: Missing Party Role Type (148)"
+  end
+  if value == 149 then
+    return "Order Reject Reason: Invalid Party Role Type (149)"
+  end
+  if value == 150 then
+    return "Order Reject Reason: Missing Party Id (150)"
+  end
+  if value == 151 then
+    return "Order Reject Reason: Invalid Party Id (151)"
+  end
+  if value == 152 then
+    return "Order Reject Reason: Missing Party Id Source (152)"
+  end
+  if value == 153 then
+    return "Order Reject Reason: Invalid Party Id Source (153)"
+  end
+  if value == 200 then
+    return "Order Reject Reason: Halted (200)"
+  end
+  if value == 201 then
+    return "Order Reject Reason: Firm Disabled (201)"
+  end
+  if value == 202 then
+    return "Order Reject Reason: Efid Disabled (202)"
+  end
+  if value == 203 then
+    return "Order Reject Reason: Account Disabled (203)"
+  end
+  if value == 204 then
+    return "Order Reject Reason: Invalid Modifier For Order Type (204)"
+  end
+  if value == 205 then
+    return "Order Reject Reason: Invalid Time In Force For Order Type (205)"
+  end
+  if value == 207 then
+    return "Order Reject Reason: Post Only Not Allowed (207)"
+  end
+  if value == 208 then
+    return "Order Reject Reason: Quote Modify Rejected (208)"
+  end
+  if value == 209 then
+    return "Order Reject Reason: Quoting Disabled (209)"
+  end
+  if value == 210 then
+    return "Order Reject Reason: Invalid Quote Component Count (210)"
+  end
+  if value == 300 then
+    return "Order Reject Reason: Non Test Symbols Blocked (300)"
+  end
+  if value == 301 then
+    return "Order Reject Reason: Notional Value Exceeds Threshold (301)"
+  end
+  if value == 302 then
+    return "Order Reject Reason: Max Notional Value Per Order Risk Rule Violated (302)"
+  end
+  if value == 303 then
+    return "Order Reject Reason: Block Non Test Symbol Risk Rule Violated (303)"
+  end
+  if value == 304 then
+    return "Order Reject Reason: Max Contracts Per Order Risk Rule Violated (304)"
+  end
+  if value == 305 then
+    return "Order Reject Reason: Nbbo Width Exceeds Threshold (305)"
+  end
+  if value == 306 then
+    return "Order Reject Reason: Exchange Price Value Collar Risk Rule Violated (306)"
+  end
+  if value == 307 then
+    return "Order Reject Reason: Execution Price Higher Than Strike Price (307)"
+  end
+  if value == 308 then
+    return "Order Reject Reason: Market Buy When Nbo Is Zero (308)"
+  end
+  if value == 309 then
+    return "Order Reject Reason: Market Sell When Nbb Greater Than Threshold (309)"
+  end
+  if value == 310 then
+    return "Order Reject Reason: Quote Price Outside Exchange Threshold (310)"
+  end
+  if value == 312 then
+    return "Order Reject Reason: Num Contracts Executed Exceeds Threshold (312)"
+  end
+  if value == 313 then
+    return "Order Reject Reason: Notional Value Of Executions Exceeds Threshold (313)"
+  end
+  if value == 314 then
+    return "Order Reject Reason: Count Of Executions Exceeds Threshold (314)"
+  end
+  if value == 315 then
+    return "Order Reject Reason: Outstanding Percentage Threshold Exceeded (315)"
+  end
+  if value == 316 then
+    return "Order Reject Reason: Trips Threshold Exceeded (316)"
+  end
+  if value == 317 then
+    return "Order Reject Reason: Iso Orders Not Allowed (317)"
+  end
+  if value == 318 then
+    return "Order Reject Reason: Market Is Crossed (318)"
+  end
+  if value == 319 then
+    return "Order Reject Reason: Active Risk Breach (319)"
+  end
+  if value == 320 then
+    return "Order Reject Reason: Manual Risk Breach (320)"
+  end
+  if value == 321 then
+    return "Order Reject Reason: Gross Notional Value Exceeds Threshold (321)"
+  end
+  if value == 322 then
+    return "Order Reject Reason: Net Notional Value Exceeds Threshold (322)"
+  end
+  if value == 323 then
+    return "Order Reject Reason: Duplicate Order Threshold Exceeded (323)"
+  end
+  if value == 324 then
+    return "Order Reject Reason: Order Rate Threshold Exceeded (324)"
+  end
+  if value == 325 then
+    return "Order Reject Reason: Mass Cancel Lockout In Effect (325)"
+  end
+  if value == 326 then
+    return "Order Reject Reason: Market Order Gross Notional Value Exceeds Threshold (326)"
+  end
+  if value == 327 then
+    return "Order Reject Reason: Market Order Net Notional Value Exceeds Threshold (327)"
+  end
+  if value == 65535 then
+    return "Order Reject Reason: Null Value (65535)"
+  end
+
+  return "Order Reject Reason: Unknown("..value..")"
+end
+
+-- Dissect: Order Reject Reason
+memx_options_memo_sbe_v1_3_dissect.order_reject_reason = function(buffer, offset, packet, parent)
+  local length = memx_options_memo_sbe_v1_3_size_of.order_reject_reason
+  local range = buffer(offset, length)
+  local value = range:uint()
+  local display = memx_options_memo_sbe_v1_3_display.order_reject_reason(value, buffer, offset, packet, parent)
+
+  parent:add(memx_options_memo_sbe_v1_3.fields.order_reject_reason, range, value, display)
+
+  return offset + length, value
+end
+
 -- Calculate size of: Execution Report Rejected Message
 memx_options_memo_sbe_v1_3_size_of.execution_report_rejected_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -4521,9 +4516,9 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_rejected_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.reject_reason
+  index = index + memx_options_memo_sbe_v1_3_size_of.order_reject_reason
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -4547,8 +4542,8 @@ end
 memx_options_memo_sbe_v1_3_dissect.execution_report_rejected_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -4559,11 +4554,11 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_rejected_message_fields = fu
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 106 values
-  index, reject_reason = memx_options_memo_sbe_v1_3_dissect.reject_reason(buffer, index, packet, parent)
+  -- Order Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 89 values
+  index, order_reject_reason = memx_options_memo_sbe_v1_3_dissect.order_reject_reason(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -4602,7 +4597,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_bulk_quote_component_new_mes
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -4610,13 +4605,13 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_bulk_quote_component_new_mes
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_qty
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.leaves_qty
 
@@ -4643,8 +4638,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_bulk_quote_component_new_mes
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -4655,8 +4650,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_bulk_quote_component_new_mes
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -4664,8 +4659,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_bulk_quote_component_new_mes
   -- Order Qty: 4 Byte Unsigned Fixed Width Integer
   index, order_qty = memx_options_memo_sbe_v1_3_dissect.order_qty(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Leaves Qty: 4 Byte Unsigned Fixed Width Integer
   index, leaves_qty = memx_options_memo_sbe_v1_3_dissect.leaves_qty(buffer, index, packet, parent)
@@ -4934,7 +4929,7 @@ end
 memx_options_memo_sbe_v1_3_size_of.execution_report_bulk_quote_pending_new_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.symbol
 
@@ -4974,8 +4969,8 @@ end
 memx_options_memo_sbe_v1_3_dissect.execution_report_bulk_quote_pending_new_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Symbol: 6 Byte Ascii String
   index, symbol = memx_options_memo_sbe_v1_3_dissect.symbol(buffer, index, packet, parent)
@@ -5107,7 +5102,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_new_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
@@ -5115,7 +5110,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_new_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_status
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -5123,7 +5118,7 @@ memx_options_memo_sbe_v1_3_size_of.execution_report_new_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_type
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -5172,8 +5167,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_new_message_fields = functio
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
@@ -5184,8 +5179,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_new_message_fields = functio
   -- Ord Status: 1 Byte Ascii String Enum with 8 values
   index, ord_status = memx_options_memo_sbe_v1_3_dissect.ord_status(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -5196,8 +5191,8 @@ memx_options_memo_sbe_v1_3_dissect.execution_report_new_message_fields = functio
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_3_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
@@ -5306,7 +5301,7 @@ memx_options_memo_sbe_v1_3_size_of.allocation_instruction_message = function(buf
 
   index = index + memx_options_memo_sbe_v1_3_size_of.trd_match_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -5351,8 +5346,8 @@ memx_options_memo_sbe_v1_3_dissect.allocation_instruction_message_fields = funct
   -- Trd Match Id: 8 Byte Unsigned Fixed Width Integer
   index, trd_match_id = memx_options_memo_sbe_v1_3_dissect.trd_match_id(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -5391,7 +5386,7 @@ memx_options_memo_sbe_v1_3_size_of.mass_cancel_clear_lockout_request_message = f
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.lockout_id
 
@@ -5412,10 +5407,10 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_clear_lockout_request_message_fie
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer Nullable
+  -- Lockout Id: 8 Byte Unsigned Fixed Width Integer
   index, lockout_id = memx_options_memo_sbe_v1_3_dissect.lockout_id(buffer, index, packet, parent)
 
   -- Padding 7
@@ -5437,57 +5432,21 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_clear_lockout_request_message = f
   return memx_options_memo_sbe_v1_3_dissect.mass_cancel_clear_lockout_request_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Underlier Mass Cancel Request Underlier
-memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_request_underlier = 6
-
--- Display: Underlier Mass Cancel Request Underlier
-memx_options_memo_sbe_v1_3_display.underlier_mass_cancel_request_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Mass Cancel Request Underlier: No Value"
-  end
-
-  return "Underlier Mass Cancel Request Underlier: "..value
-end
-
--- Dissect: Underlier Mass Cancel Request Underlier
-memx_options_memo_sbe_v1_3_dissect.underlier_mass_cancel_request_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_request_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_memo_sbe_v1_3_display.underlier_mass_cancel_request_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_memo_sbe_v1_3.fields.underlier_mass_cancel_request_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Mass Cancel Request Message
 memx_options_memo_sbe_v1_3_size_of.mass_cancel_request_message = function(buffer, offset)
   local index = 0
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.efid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.underlying_or_series
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.underlier_mass_cancel_request_underlier
+  index = index + memx_options_memo_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.cancel_group_id
 
@@ -5510,8 +5469,8 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_request_message_fields = function
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Efid: 4 Byte Ascii String Nullable
   index, efid = memx_options_memo_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
@@ -5519,11 +5478,11 @@ memx_options_memo_sbe_v1_3_dissect.mass_cancel_request_message_fields = function
   -- Underlying Or Series: 1 Byte Unsigned Fixed Width Integer Enum with 4 values
   index, underlying_or_series = memx_options_memo_sbe_v1_3_dissect.underlying_or_series(buffer, index, packet, parent)
 
-  -- Underlier Mass Cancel Request Underlier: 6 Byte Ascii String Nullable
-  index, underlier_mass_cancel_request_underlier = memx_options_memo_sbe_v1_3_dissect.underlier_mass_cancel_request_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String Nullable
+  index, underlier = memx_options_memo_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Cancel Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, cancel_group_id = memx_options_memo_sbe_v1_3_dissect.cancel_group_id(buffer, index, packet, parent)
@@ -5558,13 +5517,13 @@ memx_options_memo_sbe_v1_3_size_of.order_cancel_request_message = function(buffe
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -5588,17 +5547,17 @@ memx_options_memo_sbe_v1_3_dissect.order_cancel_request_message_fields = functio
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -5630,13 +5589,13 @@ memx_options_memo_sbe_v1_3_size_of.order_cancel_replace_request_message = functi
 
   index = index + memx_options_memo_sbe_v1_3_size_of.order_id
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.orig_cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.origclordid
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -5644,7 +5603,7 @@ memx_options_memo_sbe_v1_3_size_of.order_cancel_replace_request_message = functi
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_type
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.padding_14
 
@@ -5666,17 +5625,17 @@ memx_options_memo_sbe_v1_3_dissect.order_cancel_replace_request_message_fields =
   -- Order Id: 8 Byte Unsigned Fixed Width Integer Nullable
   index, order_id = memx_options_memo_sbe_v1_3_dissect.order_id(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Orig Cl Ord Id: 20 Byte Ascii String Nullable
-  index, orig_cl_ord_id = memx_options_memo_sbe_v1_3_dissect.orig_cl_ord_id(buffer, index, packet, parent)
+  -- OrigClOrdId: 20 Byte Ascii String Nullable
+  index, origclordid = memx_options_memo_sbe_v1_3_dissect.origclordid(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -5687,8 +5646,8 @@ memx_options_memo_sbe_v1_3_dissect.order_cancel_replace_request_message_fields =
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_3_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Padding 14
   index, padding_14 = memx_options_memo_sbe_v1_3_dissect.padding_14(buffer, index, packet, parent)
@@ -5717,11 +5676,17 @@ memx_options_memo_sbe_v1_3_display.offer_px = function(value)
   return "Offer Px: "..value
 end
 
+-- Translate: Offer Px
+translate.offer_px = function(raw)
+  return raw/100
+end
+
 -- Dissect: Offer Px
 memx_options_memo_sbe_v1_3_dissect.offer_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_3_size_of.offer_px
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.offer_px(raw)
   local display = memx_options_memo_sbe_v1_3_display.offer_px(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memo_sbe_v1_3.fields.offer_px, range, value, display)
@@ -5757,11 +5722,17 @@ memx_options_memo_sbe_v1_3_display.bid_px = function(value)
   return "Bid Px: "..value
 end
 
+-- Translate: Bid Px
+translate.bid_px = function(raw)
+  return raw/100
+end
+
 -- Dissect: Bid Px
 memx_options_memo_sbe_v1_3_dissect.bid_px = function(buffer, offset, packet, parent)
   local length = memx_options_memo_sbe_v1_3_size_of.bid_px
   local range = buffer(offset, length)
-  local value = range:int()
+  local raw = range:int()
+  local value = translate.bid_px(raw)
   local display = memx_options_memo_sbe_v1_3_display.bid_px(value, buffer, offset, packet, parent)
 
   parent:add(memx_options_memo_sbe_v1_3.fields.bid_px, range, value, display)
@@ -5795,7 +5766,7 @@ memx_options_memo_sbe_v1_3_size_of.quotes_group = function(buffer, offset)
 
   index = index + memx_options_memo_sbe_v1_3_size_of.list_seq_no
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.bid_size
 
@@ -5820,8 +5791,8 @@ memx_options_memo_sbe_v1_3_dissect.quotes_group_fields = function(buffer, offset
   -- List Seq No: 1 Byte Unsigned Fixed Width Integer
   index, list_seq_no = memx_options_memo_sbe_v1_3_dissect.list_seq_no(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Bid Size: 2 Byte Unsigned Fixed Width Integer
   index, bid_size = memx_options_memo_sbe_v1_3_dissect.bid_size(buffer, index, packet, parent)
@@ -5906,7 +5877,7 @@ memx_options_memo_sbe_v1_3_size_of.long_one_sided_bulk_quote_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -5943,8 +5914,8 @@ memx_options_memo_sbe_v1_3_dissect.long_one_sided_bulk_quote_message_fields = fu
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
@@ -5998,7 +5969,7 @@ memx_options_memo_sbe_v1_3_size_of.short_one_sided_bulk_quote_message = function
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -6035,8 +6006,8 @@ memx_options_memo_sbe_v1_3_dissect.short_one_sided_bulk_quote_message_fields = f
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
@@ -6090,7 +6061,7 @@ memx_options_memo_sbe_v1_3_size_of.long_two_sided_bulk_quote_message = function(
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -6127,8 +6098,8 @@ memx_options_memo_sbe_v1_3_dissect.long_two_sided_bulk_quote_message_fields = fu
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
@@ -6182,7 +6153,7 @@ memx_options_memo_sbe_v1_3_size_of.short_two_sided_bulk_quote_message = function
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -6219,8 +6190,8 @@ memx_options_memo_sbe_v1_3_dissect.short_two_sided_bulk_quote_message_fields = f
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
@@ -6274,9 +6245,9 @@ memx_options_memo_sbe_v1_3_size_of.new_order_single_message = function(buffer, o
 
   index = index + memx_options_memo_sbe_v1_3_size_of.sending_time
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.cl_ord_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.options_security_id
+  index = index + memx_options_memo_sbe_v1_3_size_of.security_id
 
   index = index + memx_options_memo_sbe_v1_3_size_of.side
 
@@ -6284,7 +6255,7 @@ memx_options_memo_sbe_v1_3_size_of.new_order_single_message = function(buffer, o
 
   index = index + memx_options_memo_sbe_v1_3_size_of.ord_type
 
-  index = index + memx_options_memo_sbe_v1_3_size_of.price_price_type
+  index = index + memx_options_memo_sbe_v1_3_size_of.price
 
   index = index + memx_options_memo_sbe_v1_3_size_of.time_in_force
 
@@ -6325,11 +6296,11 @@ memx_options_memo_sbe_v1_3_dissect.new_order_single_message_fields = function(bu
   -- Sending Time: 1 Byte Unsigned Fixed Width Integer
   index, sending_time = memx_options_memo_sbe_v1_3_dissect.sending_time(buffer, index, packet, parent)
 
-  -- Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_id = memx_options_memo_sbe_v1_3_dissect.cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_memo_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Options Security Id: 8 Byte Ascii String Nullable
-  index, options_security_id = memx_options_memo_sbe_v1_3_dissect.options_security_id(buffer, index, packet, parent)
+  -- Security Id: 8 Byte Ascii String
+  index, security_id = memx_options_memo_sbe_v1_3_dissect.security_id(buffer, index, packet, parent)
 
   -- Side: 1 Byte Ascii String Enum with 4 values
   index, side = memx_options_memo_sbe_v1_3_dissect.side(buffer, index, packet, parent)
@@ -6340,8 +6311,8 @@ memx_options_memo_sbe_v1_3_dissect.new_order_single_message_fields = function(bu
   -- Ord Type: 1 Byte Ascii String Enum with 2 values
   index, ord_type = memx_options_memo_sbe_v1_3_dissect.ord_type(buffer, index, packet, parent)
 
-  -- Price Price Type: 1 Byte Signed Fixed Width Integer Nullable
-  index, price_price_type = memx_options_memo_sbe_v1_3_dissect.price_price_type(buffer, index, packet, parent)
+  -- Price: 1 Byte Signed Fixed Width Integer Nullable
+  index, price = memx_options_memo_sbe_v1_3_dissect.price(buffer, index, packet, parent)
 
   -- Time In Force: 1 Byte Ascii String Enum with 2 values
   index, time_in_force = memx_options_memo_sbe_v1_3_dissect.time_in_force(buffer, index, packet, parent)
