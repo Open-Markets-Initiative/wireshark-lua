@@ -34,53 +34,7 @@ memx_options_riskcontrol_sbe_v1_3.fields.block_length = ProtoField.new("Block Le
 memx_options_riskcontrol_sbe_v1_3.fields.breach_clear_rej_message = ProtoField.new("Breach Clear Rej Message", "memx.options.riskcontrol.sbe.v1.3.breachclearrejmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.breach_cleared_message = ProtoField.new("Breach Cleared Message", "memx.options.riskcontrol.sbe.v1.3.breachclearedmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.breach_id = ProtoField.new("Breach Id", "memx.options.riskcontrol.sbe.v1.3.breachid", ftypes.UINT64)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskacknowledgerejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledged_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledged Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskacknowledgedclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskacknowledgementreqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskthresholdchangerejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Active Risk Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidactiveriskthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_breach_clear_rej_cl_ord_id = ProtoField.new("Cl Ord I D Breach Clear Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidbreachclearrejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_breach_cleared_cl_ord_id = ProtoField.new("Cl Ord I D Breach Cleared Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidbreachclearedclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpbreachcountthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Breach Count Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpbreachcountthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_clear_breach_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Clear Breach Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpclearbreachreqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpduplicateorderthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpduplicateorderthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpexecutednotionalthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpexecutednotionalthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpgrossnotionalthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpgrossnotionalthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpmarketordergrossnotionalthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpmarketordergrossnotionalthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpmarketordernetnotionalthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpmarketordernetnotionalthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpnetnotionalthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Net Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpnetnotionalthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcporderratethresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Order Rate Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcporderratethresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcppercentoutstandingcontractsthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcppercentoutstandingcontractsthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcptotalexecutionsthresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Total Executions Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcptotalexecutionsthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpvolumethresholdchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Cp Volume Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidcpvolumethresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidmanualcpbreachtriggerdoneclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidmanualcpbreachtriggerpendingclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidmanualcpbreachtriggerrejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id = ProtoField.new("Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidmanualcpbreachtriggerreqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_cl_ord_id = ProtoField.new("Cl Ord I D Risk Settings Query Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidrisksettingsqueryclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_done_cl_ord_id = ProtoField.new("Cl Ord I D Risk Settings Query Done Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidrisksettingsquerydoneclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_rej_cl_ord_id = ProtoField.new("Cl Ord I D Risk Settings Query Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidrisksettingsqueryrejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id = ProtoField.new("Cl Ord I D Risk Threshold Update Rej Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidriskthresholdupdaterejclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleorderallowisoorderschangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleorderallowisoordersstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleorderallowordersincrossedmarketchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleorderallowordersincrossedmarketstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleordermaxcontractschangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleordermaxcontractsthresholdstateclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Notional Change Req Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleordermaxnotionalchangereqclordid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id = ProtoField.new("Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id", "memx.options.riskcontrol.sbe.v1.3.clordidsingleordermaxnotionalthresholdstateclordid", ftypes.STRING)
+memx_options_riskcontrol_sbe_v1_3.fields.clordid = ProtoField.new("ClOrdId", "memx.options.riskcontrol.sbe.v1.3.clordid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.common_header = ProtoField.new("Common Header", "memx.options.riskcontrol.sbe.v1.3.commonheader", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.count = ProtoField.new("Count", "memx.options.riskcontrol.sbe.v1.3.count", ftypes.UINT32)
 memx_options_riskcontrol_sbe_v1_3.fields.cp_breach_count_threshold_change_req_message = ProtoField.new("Cp Breach Count Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.3.cpbreachcountthresholdchangereqmessage", ftypes.STRING)
@@ -107,48 +61,9 @@ memx_options_riskcontrol_sbe_v1_3.fields.cp_total_executions_threshold_state_mes
 memx_options_riskcontrol_sbe_v1_3.fields.cp_volume_threshold_change_req_message = ProtoField.new("Cp Volume Threshold Change Req Message", "memx.options.riskcontrol.sbe.v1.3.cpvolumethresholdchangereqmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.cp_volume_threshold_state_message = ProtoField.new("Cp Volume Threshold State Message", "memx.options.riskcontrol.sbe.v1.3.cpvolumethresholdstatemessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.data = ProtoField.new("Data", "memx.options.riskcontrol.sbe.v1.3.data", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledge_rej_efid = ProtoField.new("Efi D Active Risk Acknowledge Rej Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskacknowledgerejefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledged_efid = ProtoField.new("Efi D Active Risk Acknowledged Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskacknowledgedefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledgement_req_efid = ProtoField.new("Efi D Active Risk Acknowledgement Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskacknowledgementreqefid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_quantity_update_notification_efid = ProtoField.new("Efi D Active Risk Quantity Update Notification Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskquantityupdatenotificationefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_change_rej_efid = ProtoField.new("Efi D Active Risk Threshold Change Rej Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskthresholdchangerejefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_change_req_efid = ProtoField.new("Efi D Active Risk Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_state_efid = ProtoField.new("Efi D Active Risk Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidactiveriskthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_breach_count_threshold_change_req_efid = ProtoField.new("Efi D Cp Breach Count Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpbreachcountthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_breach_count_threshold_state_efid = ProtoField.new("Efi D Cp Breach Count Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpbreachcountthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_duplicate_order_threshold_change_req_efid = ProtoField.new("Efi D Cp Duplicate Order Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpduplicateorderthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_duplicate_order_threshold_state_efid = ProtoField.new("Efi D Cp Duplicate Order Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpduplicateorderthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_executed_notional_threshold_change_req_efid = ProtoField.new("Efi D Cp Executed Notional Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpexecutednotionalthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_executed_notional_threshold_state_efid = ProtoField.new("Efi D Cp Executed Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpexecutednotionalthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_gross_notional_threshold_change_req_efid = ProtoField.new("Efi D Cp Gross Notional Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpgrossnotionalthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_gross_notional_threshold_state_efid = ProtoField.new("Efi D Cp Gross Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpgrossnotionalthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_gross_notional_threshold_change_req_efid = ProtoField.new("Efi D Cp Market Order Gross Notional Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpmarketordergrossnotionalthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_gross_notional_threshold_state_efid = ProtoField.new("Efi D Cp Market Order Gross Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpmarketordergrossnotionalthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_net_notional_threshold_change_req_efid = ProtoField.new("Efi D Cp Market Order Net Notional Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpmarketordernetnotionalthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_net_notional_threshold_state_efid = ProtoField.new("Efi D Cp Market Order Net Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpmarketordernetnotionalthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_net_notional_threshold_change_req_efid = ProtoField.new("Efi D Cp Net Notional Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpnetnotionalthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_net_notional_threshold_state_efid = ProtoField.new("Efi D Cp Net Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpnetnotionalthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_order_rate_threshold_change_req_efid = ProtoField.new("Efi D Cp Order Rate Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcporderratethresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_order_rate_threshold_state_efid = ProtoField.new("Efi D Cp Order Rate Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcporderratethresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid = ProtoField.new("Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcppercentoutstandingcontractsthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_percent_outstanding_contracts_threshold_state_efid = ProtoField.new("Efi D Cp Percent Outstanding Contracts Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcppercentoutstandingcontractsthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_total_executions_threshold_change_req_efid = ProtoField.new("Efi D Cp Total Executions Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcptotalexecutionsthresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_total_executions_threshold_state_efid = ProtoField.new("Efi D Cp Total Executions Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcptotalexecutionsthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_volume_threshold_change_req_efid = ProtoField.new("Efi D Cp Volume Threshold Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpvolumethresholdchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_volume_threshold_state_efid = ProtoField.new("Efi D Cp Volume Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidcpvolumethresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_done_efid = ProtoField.new("Efi D Manual Cp Breach Trigger Done Efid", "memx.options.riskcontrol.sbe.v1.3.efidmanualcpbreachtriggerdoneefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_pending_efid = ProtoField.new("Efi D Manual Cp Breach Trigger Pending Efid", "memx.options.riskcontrol.sbe.v1.3.efidmanualcpbreachtriggerpendingefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_rej_efid = ProtoField.new("Efi D Manual Cp Breach Trigger Rej Efid", "memx.options.riskcontrol.sbe.v1.3.efidmanualcpbreachtriggerrejefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_req_efid = ProtoField.new("Efi D Manual Cp Breach Trigger Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidmanualcpbreachtriggerreqefid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.efi_d_passive_risk_threshold_notification_efid = ProtoField.new("Efi D Passive Risk Threshold Notification Efid", "memx.options.riskcontrol.sbe.v1.3.efidpassiveriskthresholdnotificationefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_iso_orders_change_req_efid = ProtoField.new("Efi D Single Order Allow Iso Orders Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleorderallowisoorderschangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_iso_orders_state_efid = ProtoField.new("Efi D Single Order Allow Iso Orders State Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleorderallowisoordersstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid = ProtoField.new("Efi D Single Order Allow Orders In Crossed Market Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleorderallowordersincrossedmarketchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_orders_in_crossed_market_state_efid = ProtoField.new("Efi D Single Order Allow Orders In Crossed Market State Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleorderallowordersincrossedmarketstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_contracts_change_req_efid = ProtoField.new("Efi D Single Order Max Contracts Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleordermaxcontractschangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_contracts_threshold_state_efid = ProtoField.new("Efi D Single Order Max Contracts Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleordermaxcontractsthresholdstateefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_notional_change_req_efid = ProtoField.new("Efi D Single Order Max Notional Change Req Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleordermaxnotionalchangereqefid", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_notional_threshold_state_efid = ProtoField.new("Efi D Single Order Max Notional Threshold State Efid", "memx.options.riskcontrol.sbe.v1.3.efidsingleordermaxnotionalthresholdstateefid", ftypes.STRING)
+memx_options_riskcontrol_sbe_v1_3.fields.efid = ProtoField.new("Efid", "memx.options.riskcontrol.sbe.v1.3.efid", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.last_px = ProtoField.new("Last Px", "memx.options.riskcontrol.sbe.v1.3.lastpx", ftypes.DOUBLE)
 memx_options_riskcontrol_sbe_v1_3.fields.last_qty = ProtoField.new("Last Qty", "memx.options.riskcontrol.sbe.v1.3.lastqty", ftypes.UINT32)
 memx_options_riskcontrol_sbe_v1_3.fields.latest_percentage = ProtoField.new("Latest Percentage", "memx.options.riskcontrol.sbe.v1.3.latestpercentage", ftypes.UINT8)
@@ -227,48 +142,7 @@ memx_options_riskcontrol_sbe_v1_3.fields.total_sequence_count = ProtoField.new("
 memx_options_riskcontrol_sbe_v1_3.fields.transact_time = ProtoField.new("Transact Time", "memx.options.riskcontrol.sbe.v1.3.transacttime", ftypes.UINT8)
 memx_options_riskcontrol_sbe_v1_3.fields.trd_match_id = ProtoField.new("Trd Match Id", "memx.options.riskcontrol.sbe.v1.3.trdmatchid", ftypes.UINT64)
 memx_options_riskcontrol_sbe_v1_3.fields.un_acked_quantity = ProtoField.new("Un Acked Quantity", "memx.options.riskcontrol.sbe.v1.3.unackedquantity", ftypes.UINT32)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledge_rej_underlier = ProtoField.new("Underlier Active Risk Acknowledge Rej Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskacknowledgerejunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledged_underlier = ProtoField.new("Underlier Active Risk Acknowledged Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskacknowledgedunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledgement_req_underlier = ProtoField.new("Underlier Active Risk Acknowledgement Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskacknowledgementrequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_quantity_update_notification_underlier = ProtoField.new("Underlier Active Risk Quantity Update Notification Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskquantityupdatenotificationunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_rej_underlier = ProtoField.new("Underlier Active Risk Threshold Change Rej Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerejunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_req_underlier = ProtoField.new("Underlier Active Risk Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_state_underlier = ProtoField.new("Underlier Active Risk Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underlieractiveriskthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_breach_count_threshold_change_req_underlier = ProtoField.new("Underlier Cp Breach Count Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpbreachcountthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_breach_count_threshold_state_underlier = ProtoField.new("Underlier Cp Breach Count Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpbreachcountthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_duplicate_order_threshold_change_req_underlier = ProtoField.new("Underlier Cp Duplicate Order Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpduplicateorderthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_duplicate_order_threshold_state_underlier = ProtoField.new("Underlier Cp Duplicate Order Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpduplicateorderthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_executed_notional_threshold_change_req_underlier = ProtoField.new("Underlier Cp Executed Notional Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpexecutednotionalthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_executed_notional_threshold_state_underlier = ProtoField.new("Underlier Cp Executed Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpexecutednotionalthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_gross_notional_threshold_change_req_underlier = ProtoField.new("Underlier Cp Gross Notional Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpgrossnotionalthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_gross_notional_threshold_state_underlier = ProtoField.new("Underlier Cp Gross Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpgrossnotionalthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_gross_notional_threshold_change_req_underlier = ProtoField.new("Underlier Cp Market Order Gross Notional Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpmarketordergrossnotionalthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_gross_notional_threshold_state_underlier = ProtoField.new("Underlier Cp Market Order Gross Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpmarketordergrossnotionalthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_net_notional_threshold_change_req_underlier = ProtoField.new("Underlier Cp Market Order Net Notional Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpmarketordernetnotionalthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_net_notional_threshold_state_underlier = ProtoField.new("Underlier Cp Market Order Net Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpmarketordernetnotionalthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_net_notional_threshold_change_req_underlier = ProtoField.new("Underlier Cp Net Notional Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpnetnotionalthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_net_notional_threshold_state_underlier = ProtoField.new("Underlier Cp Net Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpnetnotionalthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_order_rate_threshold_change_req_underlier = ProtoField.new("Underlier Cp Order Rate Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercporderratethresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_order_rate_threshold_state_underlier = ProtoField.new("Underlier Cp Order Rate Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercporderratethresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier = ProtoField.new("Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercppercentoutstandingcontractsthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_percent_outstanding_contracts_threshold_state_underlier = ProtoField.new("Underlier Cp Percent Outstanding Contracts Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercppercentoutstandingcontractsthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_total_executions_threshold_change_req_underlier = ProtoField.new("Underlier Cp Total Executions Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercptotalexecutionsthresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_total_executions_threshold_state_underlier = ProtoField.new("Underlier Cp Total Executions Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercptotalexecutionsthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_volume_threshold_change_req_underlier = ProtoField.new("Underlier Cp Volume Threshold Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpvolumethresholdchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_volume_threshold_state_underlier = ProtoField.new("Underlier Cp Volume Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliercpvolumethresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_done_underlier = ProtoField.new("Underlier Manual Cp Breach Trigger Done Underlier", "memx.options.riskcontrol.sbe.v1.3.underliermanualcpbreachtriggerdoneunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_pending_underlier = ProtoField.new("Underlier Manual Cp Breach Trigger Pending Underlier", "memx.options.riskcontrol.sbe.v1.3.underliermanualcpbreachtriggerpendingunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_rej_underlier = ProtoField.new("Underlier Manual Cp Breach Trigger Rej Underlier", "memx.options.riskcontrol.sbe.v1.3.underliermanualcpbreachtriggerrejunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_req_underlier = ProtoField.new("Underlier Manual Cp Breach Trigger Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliermanualcpbreachtriggerrequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_passive_risk_threshold_notification_underlier = ProtoField.new("Underlier Passive Risk Threshold Notification Underlier", "memx.options.riskcontrol.sbe.v1.3.underlierpassiveriskthresholdnotificationunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_iso_orders_change_req_underlier = ProtoField.new("Underlier Single Order Allow Iso Orders Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleorderallowisoorderschangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_iso_orders_state_underlier = ProtoField.new("Underlier Single Order Allow Iso Orders State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleorderallowisoordersstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier = ProtoField.new("Underlier Single Order Allow Orders In Crossed Market Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleorderallowordersincrossedmarketchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_orders_in_crossed_market_state_underlier = ProtoField.new("Underlier Single Order Allow Orders In Crossed Market State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleorderallowordersincrossedmarketstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_contracts_change_req_underlier = ProtoField.new("Underlier Single Order Max Contracts Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleordermaxcontractschangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_contracts_threshold_state_underlier = ProtoField.new("Underlier Single Order Max Contracts Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleordermaxcontractsthresholdstateunderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_notional_change_req_underlier = ProtoField.new("Underlier Single Order Max Notional Change Req Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleordermaxnotionalchangerequnderlier", ftypes.STRING)
-memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_notional_threshold_state_underlier = ProtoField.new("Underlier Single Order Max Notional Threshold State Underlier", "memx.options.riskcontrol.sbe.v1.3.underliersingleordermaxnotionalthresholdstateunderlier", ftypes.STRING)
+memx_options_riskcontrol_sbe_v1_3.fields.underlier = ProtoField.new("Underlier", "memx.options.riskcontrol.sbe.v1.3.underlier", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.unsequenced_message = ProtoField.new("Unsequenced Message", "memx.options.riskcontrol.sbe.v1.3.unsequencedmessage", ftypes.STRING)
 memx_options_riskcontrol_sbe_v1_3.fields.use_order_price_in_dup_check = ProtoField.new("Use Order Price In Dup Check", "memx.options.riskcontrol.sbe.v1.3.useorderpriceindupcheck", ftypes.UINT8)
 memx_options_riskcontrol_sbe_v1_3.fields.version = ProtoField.new("Version", "memx.options.riskcontrol.sbe.v1.3.version", ftypes.UINT16)
@@ -784,22 +658,22 @@ memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id = function(buffer, offse
   return offset + length, value
 end
 
--- Size: Efi D Cp Order Rate Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_state_efid = 4
+-- Size: Efid
+memx_options_riskcontrol_sbe_v1_3_size_of.efid = 4
 
--- Display: Efi D Cp Order Rate Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_order_rate_threshold_state_efid = function(value)
+-- Display: Efid
+memx_options_riskcontrol_sbe_v1_3_display.efid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Efi D Cp Order Rate Threshold State Efid: No Value"
+    return "Efid: No Value"
   end
 
-  return "Efi D Cp Order Rate Threshold State Efid: "..value
+  return "Efid: "..value
 end
 
--- Dissect: Efi D Cp Order Rate Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_order_rate_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_state_efid
+-- Dissect: Efid
+memx_options_riskcontrol_sbe_v1_3_dissect.efid = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -813,29 +687,29 @@ memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_order_rate_threshold_state_ef
     value = range:string()
   end
 
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_order_rate_threshold_state_efid(value, buffer, offset, packet, parent)
+  local display = memx_options_riskcontrol_sbe_v1_3_display.efid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_order_rate_threshold_state_efid, range, value, display)
+  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efid, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Underlier Cp Order Rate Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_state_underlier = 6
+-- Size: Underlier
+memx_options_riskcontrol_sbe_v1_3_size_of.underlier = 6
 
--- Display: Underlier Cp Order Rate Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_order_rate_threshold_state_underlier = function(value)
+-- Display: Underlier
+memx_options_riskcontrol_sbe_v1_3_display.underlier = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Underlier Cp Order Rate Threshold State Underlier: No Value"
+    return "Underlier: No Value"
   end
 
-  return "Underlier Cp Order Rate Threshold State Underlier: "..value
+  return "Underlier: "..value
 end
 
--- Dissect: Underlier Cp Order Rate Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_order_rate_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_state_underlier
+-- Dissect: Underlier
+memx_options_riskcontrol_sbe_v1_3_dissect.underlier = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -849,29 +723,29 @@ memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_order_rate_threshold_stat
     value = range:string()
   end
 
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_order_rate_threshold_state_underlier(value, buffer, offset, packet, parent)
+  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_order_rate_threshold_state_underlier, range, value, display)
+  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier, range, value, display)
 
   return offset + length, value
 end
 
--- Size: Cl Ord I D Cp Order Rate Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id = 20
+-- Size: ClOrdId
+memx_options_riskcontrol_sbe_v1_3_size_of.clordid = 20
 
--- Display: Cl Ord I D Cp Order Rate Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id = function(value)
+-- Display: ClOrdId
+memx_options_riskcontrol_sbe_v1_3_display.clordid = function(value)
   -- Check if field has value
   if value == nil or value == '' then
-    return "Cl Ord I D Cp Order Rate Threshold State Cl Ord Id: No Value"
+    return "ClOrdId: No Value"
   end
 
-  return "Cl Ord I D Cp Order Rate Threshold State Cl Ord Id: "..value
+  return "ClOrdId: "..value
 end
 
--- Dissect: Cl Ord I D Cp Order Rate Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id
+-- Dissect: ClOrdId
+memx_options_riskcontrol_sbe_v1_3_dissect.clordid = function(buffer, offset, packet, parent)
+  local length = memx_options_riskcontrol_sbe_v1_3_size_of.clordid
   local range = buffer(offset, length)
 
   -- parse last octet
@@ -885,9 +759,9 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_order_rate_threshold_sta
     value = range:string()
   end
 
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
+  local display = memx_options_riskcontrol_sbe_v1_3_display.clordid(value, buffer, offset, packet, parent)
 
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id, range, value, display)
+  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.clordid, range, value, display)
 
   return offset + length, value
 end
@@ -896,11 +770,11 @@ end
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_order_rate_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -920,14 +794,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_order_rate_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Order Rate Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_order_rate_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Order Rate Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_order_rate_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_order_rate_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Order Rate Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_order_rate_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_order_rate_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1004,123 +878,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.max_dup_orders = function(buffer, offs
   return offset + length, value
 end
 
--- Size: Efi D Cp Duplicate Order Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_state_efid = 4
-
--- Display: Efi D Cp Duplicate Order Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_duplicate_order_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Duplicate Order Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Duplicate Order Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Duplicate Order Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_duplicate_order_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_duplicate_order_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_duplicate_order_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Duplicate Order Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_state_underlier = 6
-
--- Display: Underlier Cp Duplicate Order Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_duplicate_order_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Duplicate Order Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Duplicate Order Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Duplicate Order Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_duplicate_order_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_duplicate_order_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_duplicate_order_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Duplicate Order Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_duplicate_order_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -1142,14 +908,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_duplicate_order_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Duplicate Order Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_duplicate_order_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Duplicate Order Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_duplicate_order_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_duplicate_order_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Duplicate Order Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_duplicate_order_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_duplicate_order_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1199,123 +965,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.price_in_dollars = function(buffer, of
   return offset + length, value
 end
 
--- Size: Efi D Cp Market Order Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_state_efid = 4
-
--- Display: Efi D Cp Market Order Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_net_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Net Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Market Order Net Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Market Order Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_net_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_net_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_net_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Market Order Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_state_underlier = 6
-
--- Display: Underlier Cp Market Order Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_net_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Market Order Net Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Market Order Net Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Market Order Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_net_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_net_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_net_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Market Order Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_market_order_net_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -1333,14 +991,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Net Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_net_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Market Order Net Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_market_order_net_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_net_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Net Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_market_order_net_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_net_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1364,123 +1022,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_state_efid = 4
-
--- Display: Efi D Cp Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_net_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Net Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Net Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Net Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_net_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_net_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_net_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_state_underlier = 6
-
--- Display: Underlier Cp Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_net_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Net Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Net Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Net Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_net_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_net_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_net_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Net Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Net Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Net Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Net Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_net_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -1498,14 +1048,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Net Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_net_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Net Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_net_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_net_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Net Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_net_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_net_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1529,123 +1079,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_state_messag
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Market Order Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_state_efid = 4
-
--- Display: Efi D Cp Market Order Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_gross_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Gross Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Market Order Gross Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Market Order Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_gross_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_gross_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_gross_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Market Order Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_state_underlier = 6
-
--- Display: Underlier Cp Market Order Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_gross_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Market Order Gross Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Market Order Gross Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Market Order Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_gross_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_gross_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_gross_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Market Order Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_market_order_gross_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -1663,14 +1105,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Gross Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_gross_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Market Order Gross Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_market_order_gross_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_gross_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Gross Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_market_order_gross_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_gross_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1694,123 +1136,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_thresho
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_state_efid = 4
-
--- Display: Efi D Cp Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_gross_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Gross Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Gross Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Gross Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_gross_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_gross_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_gross_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_state_underlier = 6
-
--- Display: Underlier Cp Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_gross_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Gross Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Gross Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Gross Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_gross_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_gross_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_gross_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Gross Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_gross_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -1828,14 +1162,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_gross_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Gross Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_gross_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Gross Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_gross_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_gross_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Gross Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_gross_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_gross_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -1879,47 +1213,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.breach_id = function(buffer, offset, p
   return offset + length, value
 end
 
--- Size: Cl Ord I D Breach Cleared Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_cleared_cl_ord_id = 20
-
--- Display: Cl Ord I D Breach Cleared Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_breach_cleared_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Breach Cleared Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Breach Cleared Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Breach Cleared Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_breach_cleared_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_cleared_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_breach_cleared_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_breach_cleared_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Breach Cleared Message
 memx_options_riskcontrol_sbe_v1_3_size_of.breach_cleared_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_cleared_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.breach_id
 
@@ -1935,8 +1233,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.breach_cleared_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Cleared Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_breach_cleared_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_breach_cleared_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Breach Id: 8 Byte Unsigned Fixed Width Integer
   index, breach_id = memx_options_riskcontrol_sbe_v1_3_dissect.breach_id(buffer, index, packet, parent)
@@ -2122,47 +1420,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.reject_reason = function(buffer, offse
   return offset + length, value
 end
 
--- Size: Cl Ord I D Breach Clear Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_clear_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Breach Clear Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_breach_clear_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Breach Clear Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Breach Clear Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Breach Clear Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_breach_clear_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_clear_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_breach_clear_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_breach_clear_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Breach Clear Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.breach_clear_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_breach_clear_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.breach_id
 
@@ -2180,8 +1442,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.breach_clear_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Breach Clear Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_breach_clear_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_breach_clear_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Breach Id: 8 Byte Unsigned Fixed Width Integer
   index, breach_id = memx_options_riskcontrol_sbe_v1_3_dissect.breach_id(buffer, index, packet, parent)
@@ -2205,123 +1467,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.breach_clear_rej_message = function(bu
   return memx_options_riskcontrol_sbe_v1_3_dissect.breach_clear_rej_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Manual Cp Breach Trigger Rej Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_rej_efid = 4
-
--- Display: Efi D Manual Cp Breach Trigger Rej Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_rej_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Rej Efid: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Rej Efid: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Rej Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_rej_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_rej_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_rej_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_rej_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Manual Cp Breach Trigger Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_rej_underlier = 6
-
--- Display: Underlier Manual Cp Breach Trigger Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_rej_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Manual Cp Breach Trigger Rej Underlier: No Value"
-  end
-
-  return "Underlier Manual Cp Breach Trigger Rej Underlier: "..value
-end
-
--- Dissect: Underlier Manual Cp Breach Trigger Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_rej_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_rej_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_rej_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_rej_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Manual Cp Breach Trigger Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.manual_cp_breach_trigger_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_rej_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_rej_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -2339,14 +1493,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Manual Cp Breach Trigger Rej Underlier: 6 Byte Ascii String Nullable
-  index, underlier_manual_cp_breach_trigger_rej_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_rej_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Rej Efid: 4 Byte Ascii String Nullable
-  index, efi_d_manual_cp_breach_trigger_rej_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_rej_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -2370,47 +1524,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_rej_message =
   return memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_rej_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Cl Ord I D Risk Settings Query Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Risk Settings Query Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Risk Settings Query Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Risk Settings Query Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Risk Settings Query Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Risk Settings Query Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.risk_settings_query_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.reject_reason
 
@@ -2426,8 +1544,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.risk_settings_query_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Settings Query Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_risk_settings_query_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Reject Reason: 2 Byte Unsigned Fixed Width Integer Enum with 48 values
   index, reject_reason = memx_options_riskcontrol_sbe_v1_3_dissect.reject_reason(buffer, index, packet, parent)
@@ -2468,47 +1586,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.number_msgs_sent = function(buffer, of
   return offset + length, value
 end
 
--- Size: Cl Ord I D Risk Settings Query Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_done_cl_ord_id = 20
-
--- Display: Cl Ord I D Risk Settings Query Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_done_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Risk Settings Query Done Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Risk Settings Query Done Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Risk Settings Query Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_done_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_done_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_done_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_done_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Risk Settings Query Done Message
 memx_options_riskcontrol_sbe_v1_3_size_of.risk_settings_query_done_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_done_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.number_msgs_sent
 
@@ -2524,8 +1606,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.risk_settings_query_done_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Settings Query Done Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_risk_settings_query_done_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_done_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Number Msgs Sent: 4 Byte Unsigned Fixed Width Integer
   index, number_msgs_sent = memx_options_riskcontrol_sbe_v1_3_dissect.number_msgs_sent(buffer, index, packet, parent)
@@ -2566,123 +1648,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.max_contracts = function(buffer, offse
   return offset + length, value
 end
 
--- Size: Efi D Single Order Max Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_threshold_state_efid = 4
-
--- Display: Efi D Single Order Max Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_contracts_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Contracts Threshold State Efid: No Value"
-  end
-
-  return "Efi D Single Order Max Contracts Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Single Order Max Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_contracts_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_contracts_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_contracts_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Max Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_threshold_state_underlier = 6
-
--- Display: Underlier Single Order Max Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_contracts_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Max Contracts Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Single Order Max Contracts Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Max Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_contracts_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_contracts_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_contracts_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Max Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_max_contracts_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -2700,14 +1674,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_contracts_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Contracts Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_contracts_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Max Contracts Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_max_contracts_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_contracts_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Contracts Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_max_contracts_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_contracts_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -2751,123 +1725,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.max_notional_in_dollars = function(buf
   return offset + length, value
 end
 
--- Size: Efi D Single Order Max Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_threshold_state_efid = 4
-
--- Display: Efi D Single Order Max Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Single Order Max Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Single Order Max Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Max Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_threshold_state_underlier = 6
-
--- Display: Underlier Single Order Max Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Max Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Single Order Max Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Max Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Max Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_max_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -2885,14 +1751,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Max Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_max_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_max_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -2943,123 +1809,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.allow_orders = function(buffer, offset
   return offset + length, value
 end
 
--- Size: Efi D Single Order Allow Orders In Crossed Market State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_state_efid = 4
-
--- Display: Efi D Single Order Allow Orders In Crossed Market State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_orders_in_crossed_market_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Orders In Crossed Market State Efid: No Value"
-  end
-
-  return "Efi D Single Order Allow Orders In Crossed Market State Efid: "..value
-end
-
--- Dissect: Efi D Single Order Allow Orders In Crossed Market State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_orders_in_crossed_market_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_orders_in_crossed_market_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_orders_in_crossed_market_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Allow Orders In Crossed Market State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_state_underlier = 6
-
--- Display: Underlier Single Order Allow Orders In Crossed Market State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_orders_in_crossed_market_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Allow Orders In Crossed Market State Underlier: No Value"
-  end
-
-  return "Underlier Single Order Allow Orders In Crossed Market State Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Allow Orders In Crossed Market State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_orders_in_crossed_market_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_orders_in_crossed_market_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_orders_in_crossed_market_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Allow Orders In Crossed Market State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_allow_orders_in_crossed_market_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -3077,14 +1835,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_orders_in_crossed_market_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Orders In Crossed Market State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_orders_in_crossed_market_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Allow Orders In Crossed Market State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_allow_orders_in_crossed_market_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_orders_in_crossed_market_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Orders In Crossed Market State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_allow_orders_in_crossed_market_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_orders_in_crossed_market_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -3135,123 +1893,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.allow_iso_orders = function(buffer, of
   return offset + length, value
 end
 
--- Size: Efi D Single Order Allow Iso Orders State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_state_efid = 4
-
--- Display: Efi D Single Order Allow Iso Orders State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_iso_orders_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Iso Orders State Efid: No Value"
-  end
-
-  return "Efi D Single Order Allow Iso Orders State Efid: "..value
-end
-
--- Dissect: Efi D Single Order Allow Iso Orders State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_iso_orders_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_iso_orders_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_iso_orders_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Allow Iso Orders State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_state_underlier = 6
-
--- Display: Underlier Single Order Allow Iso Orders State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_iso_orders_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Allow Iso Orders State Underlier: No Value"
-  end
-
-  return "Underlier Single Order Allow Iso Orders State Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Allow Iso Orders State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_iso_orders_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_iso_orders_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_iso_orders_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Allow Iso Orders State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_allow_iso_orders_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -3269,14 +1919,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_iso_orders_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Iso Orders State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_iso_orders_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Allow Iso Orders State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_allow_iso_orders_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_iso_orders_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Iso Orders State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_allow_iso_orders_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_iso_orders_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -3445,47 +2095,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_passive_risk_threshold_notificat
   return offset + length, value
 end
 
--- Size: Underlier Passive Risk Threshold Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_passive_risk_threshold_notification_underlier = 6
-
--- Display: Underlier Passive Risk Threshold Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_passive_risk_threshold_notification_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Passive Risk Threshold Notification Underlier: No Value"
-  end
-
-  return "Underlier Passive Risk Threshold Notification Underlier: "..value
-end
-
--- Dissect: Underlier Passive Risk Threshold Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_passive_risk_threshold_notification_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_passive_risk_threshold_notification_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_passive_risk_threshold_notification_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_passive_risk_threshold_notification_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Passive Risk Threshold Notification Message
 memx_options_riskcontrol_sbe_v1_3_size_of.passive_risk_threshold_notification_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_passive_risk_threshold_notification_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_passive_risk_threshold_notification_efid
 
@@ -3513,8 +2127,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.passive_risk_threshold_notification_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Underlier Passive Risk Threshold Notification Underlier: 6 Byte Ascii String Nullable
-  index, underlier_passive_risk_threshold_notification_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_passive_risk_threshold_notification_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
   -- Efi D Passive Risk Threshold Notification Efid: 4 Byte Ascii String Nullable
   index, efi_d_passive_risk_threshold_notification_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_passive_risk_threshold_notification_efid(buffer, index, packet, parent)
@@ -3622,47 +2236,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.risk_type = function(buffer, offset, p
   return offset + length, value
 end
 
--- Size: Cl Ord I D Risk Threshold Update Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Risk Threshold Update Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Risk Threshold Update Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Risk Threshold Update Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Risk Threshold Update Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Risk Threshold Update Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.risk_threshold_update_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_type
 
@@ -3680,8 +2258,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.risk_threshold_update_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Threshold Update Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_risk_threshold_update_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_threshold_update_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Risk Type: 1 Byte Unsigned Fixed Width Integer Enum with 16 values
   index, risk_type = memx_options_riskcontrol_sbe_v1_3_dissect.risk_type(buffer, index, packet, parent)
@@ -3725,123 +2303,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.total_affected_orders = function(buffe
   return offset + length, value
 end
 
--- Size: Efi D Manual Cp Breach Trigger Done Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_done_efid = 4
-
--- Display: Efi D Manual Cp Breach Trigger Done Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_done_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Done Efid: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Done Efid: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Done Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_done_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_done_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_done_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_done_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Manual Cp Breach Trigger Done Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_done_underlier = 6
-
--- Display: Underlier Manual Cp Breach Trigger Done Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_done_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Manual Cp Breach Trigger Done Underlier: No Value"
-  end
-
-  return "Underlier Manual Cp Breach Trigger Done Underlier: "..value
-end
-
--- Dissect: Underlier Manual Cp Breach Trigger Done Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_done_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_done_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_done_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_done_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id = 20
-
--- Display: Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Manual Cp Breach Trigger Done Message
 memx_options_riskcontrol_sbe_v1_3_size_of.manual_cp_breach_trigger_done_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_done_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_done_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -3861,14 +2331,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_done_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Done Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_done_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Manual Cp Breach Trigger Done Underlier: 6 Byte Ascii String Nullable
-  index, underlier_manual_cp_breach_trigger_done_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_done_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Done Efid: 4 Byte Ascii String Nullable
-  index, efi_d_manual_cp_breach_trigger_done_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_done_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -3895,123 +2365,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_done_message 
   return memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_done_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Manual Cp Breach Trigger Pending Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_pending_efid = 4
-
--- Display: Efi D Manual Cp Breach Trigger Pending Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_pending_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Pending Efid: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Pending Efid: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Pending Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_pending_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_pending_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_pending_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_pending_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Manual Cp Breach Trigger Pending Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_pending_underlier = 6
-
--- Display: Underlier Manual Cp Breach Trigger Pending Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_pending_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Manual Cp Breach Trigger Pending Underlier: No Value"
-  end
-
-  return "Underlier Manual Cp Breach Trigger Pending Underlier: "..value
-end
-
--- Dissect: Underlier Manual Cp Breach Trigger Pending Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_pending_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_pending_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_pending_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_pending_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id = 20
-
--- Display: Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Manual Cp Breach Trigger Pending Message
 memx_options_riskcontrol_sbe_v1_3_size_of.manual_cp_breach_trigger_pending_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_pending_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_pending_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -4029,14 +2391,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_pending_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Pending Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_pending_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Manual Cp Breach Trigger Pending Underlier: 6 Byte Ascii String Nullable
-  index, underlier_manual_cp_breach_trigger_pending_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_pending_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Pending Efid: 4 Byte Ascii String Nullable
-  index, efi_d_manual_cp_breach_trigger_pending_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_pending_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -4080,123 +2442,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.count = function(buffer, offset, packe
   return offset + length, value
 end
 
--- Size: Efi D Cp Breach Count Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_state_efid = 4
-
--- Display: Efi D Cp Breach Count Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_breach_count_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Breach Count Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Breach Count Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Breach Count Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_breach_count_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_breach_count_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_breach_count_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Breach Count Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_state_underlier = 6
-
--- Display: Underlier Cp Breach Count Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_breach_count_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Breach Count Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Breach Count Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Breach Count Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_breach_count_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_breach_count_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_breach_count_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Breach Count Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Breach Count Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Breach Count Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Breach Count Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Breach Count Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Breach Count Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_breach_count_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -4216,14 +2470,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_breach_count_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Breach Count Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_breach_count_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Breach Count Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_breach_count_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_breach_count_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Breach Count Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_breach_count_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_breach_count_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -4270,123 +2524,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.percent_uint_32 = function(buffer, off
   return offset + length, value
 end
 
--- Size: Efi D Cp Percent Outstanding Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_state_efid = 4
-
--- Display: Efi D Cp Percent Outstanding Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_percent_outstanding_contracts_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Percent Outstanding Contracts Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Percent Outstanding Contracts Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Percent Outstanding Contracts Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_percent_outstanding_contracts_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_percent_outstanding_contracts_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_percent_outstanding_contracts_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Percent Outstanding Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_state_underlier = 6
-
--- Display: Underlier Cp Percent Outstanding Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_percent_outstanding_contracts_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Percent Outstanding Contracts Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Percent Outstanding Contracts Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Percent Outstanding Contracts Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_percent_outstanding_contracts_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_percent_outstanding_contracts_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_percent_outstanding_contracts_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Percent Outstanding Contracts Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_percent_outstanding_contracts_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.percent_uint_32
 
@@ -4404,14 +2550,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_percent_outstanding_contracts_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Percent Outstanding Contracts Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Percent Outstanding Contracts Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_percent_outstanding_contracts_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_percent_outstanding_contracts_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Percent Outstanding Contracts Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_percent_outstanding_contracts_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_percent_outstanding_contracts_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Percent uint 32: 4 Byte Unsigned Fixed Width Integer
   index, percent_uint_32 = memx_options_riskcontrol_sbe_v1_3_dissect.percent_uint_32(buffer, index, packet, parent)
@@ -4455,123 +2601,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.total_executions = function(buffer, of
   return offset + length, value
 end
 
--- Size: Efi D Cp Total Executions Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_state_efid = 4
-
--- Display: Efi D Cp Total Executions Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_total_executions_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Total Executions Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Total Executions Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Total Executions Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_total_executions_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_total_executions_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_total_executions_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Total Executions Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_state_underlier = 6
-
--- Display: Underlier Cp Total Executions Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_total_executions_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Total Executions Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Total Executions Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Total Executions Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_total_executions_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_total_executions_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_total_executions_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Total Executions Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Total Executions Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Total Executions Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Total Executions Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Total Executions Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Total Executions Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_total_executions_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -4591,14 +2629,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Total Executions Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_total_executions_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Total Executions Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_total_executions_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_total_executions_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Total Executions Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_total_executions_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_total_executions_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -4625,123 +2663,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_state_me
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Executed Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_state_efid = 4
-
--- Display: Efi D Cp Executed Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_executed_notional_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Executed Notional Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Executed Notional Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Executed Notional Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_executed_notional_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_executed_notional_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_executed_notional_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Executed Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_state_underlier = 6
-
--- Display: Underlier Cp Executed Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_executed_notional_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Executed Notional Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Executed Notional Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Executed Notional Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_executed_notional_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_executed_notional_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_executed_notional_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Executed Notional Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_executed_notional_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -4761,14 +2691,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_executed_notional_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Executed Notional Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_executed_notional_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Executed Notional Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_executed_notional_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_executed_notional_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Executed Notional Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_executed_notional_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_executed_notional_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -4815,123 +2745,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.volume = function(buffer, offset, pack
   return offset + length, value
 end
 
--- Size: Efi D Cp Volume Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_state_efid = 4
-
--- Display: Efi D Cp Volume Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_volume_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Volume Threshold State Efid: No Value"
-  end
-
-  return "Efi D Cp Volume Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Cp Volume Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_volume_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_volume_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_volume_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Volume Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_state_underlier = 6
-
--- Display: Underlier Cp Volume Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_volume_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Volume Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Cp Volume Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Cp Volume Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_volume_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_volume_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_volume_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Volume Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Volume Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Volume Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Volume Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Volume Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Volume Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_volume_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -4951,14 +2773,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_volume_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Volume Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_cp_volume_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_volume_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Volume Threshold State Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_volume_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_volume_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Volume Threshold State Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_volume_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_volume_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -5124,42 +2946,6 @@ memx_options_riskcontrol_sbe_v1_3_dissect.option_security_id = function(buffer, 
   return offset + length, value
 end
 
--- Size: Underlier Active Risk Quantity Update Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_quantity_update_notification_underlier = 6
-
--- Display: Underlier Active Risk Quantity Update Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_quantity_update_notification_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Quantity Update Notification Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Quantity Update Notification Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Quantity Update Notification Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_quantity_update_notification_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_quantity_update_notification_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_quantity_update_notification_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_quantity_update_notification_underlier, range, value, display)
-
-  return offset + length, value
-end
-
 -- Size: Efi D Active Risk Quantity Update Notification Efid
 memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_quantity_update_notification_efid = 4
 
@@ -5270,7 +3056,7 @@ memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_quantity_update_notificati
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_quantity_update_notification_efid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_quantity_update_notification_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.option_security_id
 
@@ -5311,8 +3097,8 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_quantity_update_notificati
   -- Efi D Active Risk Quantity Update Notification Efid: 4 Byte Ascii String
   index, efi_d_active_risk_quantity_update_notification_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_quantity_update_notification_efid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Quantity Update Notification Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_quantity_update_notification_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_quantity_update_notification_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
   -- Option Security Id: 8 Byte Ascii String
   index, option_security_id = memx_options_riskcontrol_sbe_v1_3_dissect.option_security_id(buffer, index, packet, parent)
@@ -5368,123 +3154,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.threshold_quantity = function(buffer, 
   return offset + length, value
 end
 
--- Size: Efi D Active Risk Acknowledge Rej Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledge_rej_efid = 4
-
--- Display: Efi D Active Risk Acknowledge Rej Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledge_rej_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledge Rej Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledge Rej Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledge Rej Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledge_rej_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledge_rej_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledge_rej_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledge_rej_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Acknowledge Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledge_rej_underlier = 6
-
--- Display: Underlier Active Risk Acknowledge Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledge_rej_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Acknowledge Rej Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Acknowledge Rej Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Acknowledge Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledge_rej_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledge_rej_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledge_rej_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledge_rej_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Acknowledge Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_acknowledge_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledge_rej_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledge_rej_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.threshold_quantity
 
@@ -5502,14 +3180,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledge_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledge Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledge_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Acknowledge Rej Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_acknowledge_rej_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledge_rej_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledge Rej Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_acknowledge_rej_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledge_rej_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_3_dissect.threshold_quantity(buffer, index, packet, parent)
@@ -5553,123 +3231,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.quantity = function(buffer, offset, pa
   return offset + length, value
 end
 
--- Size: Efi D Active Risk Acknowledged Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledged_efid = 4
-
--- Display: Efi D Active Risk Acknowledged Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledged_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledged Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledged Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledged Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledged_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledged_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledged_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledged_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Acknowledged Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledged_underlier = 6
-
--- Display: Underlier Active Risk Acknowledged Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledged_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Acknowledged Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Acknowledged Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Acknowledged Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledged_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledged_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledged_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledged_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Acknowledged Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledged_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Acknowledged Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledged_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledged Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Acknowledged Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Acknowledged Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledged_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledged_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledged_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledged_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Acknowledged Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_acknowledged_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledged_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledged_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledged_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.quantity
 
@@ -5687,14 +3257,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledged_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledged Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_active_risk_acknowledged_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledged_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Acknowledged Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_acknowledged_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledged_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledged Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_acknowledged_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledged_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = memx_options_riskcontrol_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
@@ -5718,123 +3288,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledged_message = fun
   return memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledged_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Active Risk Threshold Change Rej Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_rej_efid = 4
-
--- Display: Efi D Active Risk Threshold Change Rej Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_change_rej_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Threshold Change Rej Efid: No Value"
-  end
-
-  return "Efi D Active Risk Threshold Change Rej Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Threshold Change Rej Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_change_rej_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_rej_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_change_rej_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_change_rej_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Threshold Change Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_rej_underlier = 6
-
--- Display: Underlier Active Risk Threshold Change Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_change_rej_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Threshold Change Rej Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Threshold Change Rej Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Threshold Change Rej Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_change_rej_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_rej_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_change_rej_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_rej_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Threshold Change Rej Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_threshold_change_rej_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_rej_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_rej_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.threshold_quantity
 
@@ -5852,14 +3314,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_rej_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Threshold Change Rej Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_change_rej_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Threshold Change Rej Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_threshold_change_rej_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_change_rej_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Threshold Change Rej Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_threshold_change_rej_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_change_rej_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_3_dissect.threshold_quantity(buffer, index, packet, parent)
@@ -5883,123 +3345,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_rej_messa
   return memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_rej_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Active Risk Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_state_efid = 4
-
--- Display: Efi D Active Risk Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_state_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Threshold State Efid: No Value"
-  end
-
-  return "Efi D Active Risk Threshold State Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Threshold State Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_state_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_state_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_state_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_state_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_state_underlier = 6
-
--- Display: Underlier Active Risk Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_state_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Threshold State Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Threshold State Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Threshold State Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_state_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_state_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_state_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_state_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_state_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_state_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Threshold State Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Threshold State Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Threshold State Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_state_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_state_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_state_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_state_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Threshold State Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_threshold_state_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_state_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_state_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_state_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.threshold_quantity
 
@@ -6015,14 +3369,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_state_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Threshold State Cl Ord Id: 20 Byte Ascii String Nullable
-  index, cl_ord_i_d_active_risk_threshold_state_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_state_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Threshold State Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_threshold_state_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_state_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Threshold State Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_threshold_state_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_state_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_3_dissect.threshold_quantity(buffer, index, packet, parent)
@@ -6043,123 +3397,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_state_message = 
   return memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_state_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Order Rate Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Order Rate Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_order_rate_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Order Rate Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Order Rate Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Order Rate Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_order_rate_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_order_rate_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_order_rate_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Order Rate Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Order Rate Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_order_rate_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Order Rate Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Order Rate Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Order Rate Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_order_rate_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_order_rate_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_order_rate_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Order Rate Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_order_rate_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_order_rate_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_order_rate_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -6179,14 +3425,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_order_rate_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Order Rate Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_order_rate_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Order Rate Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_order_rate_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_order_rate_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Order Rate Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_order_rate_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_order_rate_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -6213,123 +3459,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_order_rate_threshold_change_req_mes
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_order_rate_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Duplicate Order Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Duplicate Order Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_duplicate_order_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Duplicate Order Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Duplicate Order Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Duplicate Order Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_duplicate_order_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_duplicate_order_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_duplicate_order_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Duplicate Order Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Duplicate Order Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_duplicate_order_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Duplicate Order Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Duplicate Order Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Duplicate Order Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_duplicate_order_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_duplicate_order_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_duplicate_order_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Duplicate Order Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_duplicate_order_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_duplicate_order_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_duplicate_order_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -6351,14 +3489,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_duplicate_order_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Duplicate Order Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_duplicate_order_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Duplicate Order Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_duplicate_order_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_duplicate_order_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Duplicate Order Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_duplicate_order_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_duplicate_order_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -6388,123 +3526,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_duplicate_order_threshold_change_re
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_duplicate_order_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Market Order Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Market Order Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_net_notional_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Net Notional Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Market Order Net Notional Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Market Order Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_net_notional_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_net_notional_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_net_notional_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Market Order Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Market Order Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_net_notional_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Market Order Net Notional Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Market Order Net Notional Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Market Order Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_net_notional_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_net_notional_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_net_notional_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Market Order Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_market_order_net_notional_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_net_notional_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_net_notional_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -6522,14 +3552,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Net Notional Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_net_notional_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Market Order Net Notional Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_market_order_net_notional_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_net_notional_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Net Notional Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_market_order_net_notional_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_net_notional_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -6553,123 +3583,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_net_notional_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Net Notional Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Net Notional Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Net Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_net_notional_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_net_notional_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_net_notional_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_net_notional_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Net Notional Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Net Notional Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Net Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_net_notional_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_net_notional_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_net_notional_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Net Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_net_notional_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_net_notional_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_net_notional_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -6687,14 +3609,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Net Notional Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_net_notional_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Net Notional Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_net_notional_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_net_notional_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Net Notional Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_net_notional_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_net_notional_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -6718,123 +3640,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_change_req_m
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_net_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Market Order Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Market Order Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_gross_notional_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Market Order Gross Notional Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Market Order Gross Notional Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Market Order Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_gross_notional_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_market_order_gross_notional_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_market_order_gross_notional_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Market Order Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Market Order Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_gross_notional_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Market Order Gross Notional Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Market Order Gross Notional Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Market Order Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_gross_notional_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_market_order_gross_notional_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_market_order_gross_notional_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Market Order Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_market_order_gross_notional_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_market_order_gross_notional_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_market_order_gross_notional_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -6852,14 +3666,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Market Order Gross Notional Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_market_order_gross_notional_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Market Order Gross Notional Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_market_order_gross_notional_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_market_order_gross_notional_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Market Order Gross Notional Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_market_order_gross_notional_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_market_order_gross_notional_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -6883,123 +3697,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_thresho
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_market_order_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_gross_notional_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Gross Notional Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Gross Notional Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Gross Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_gross_notional_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_gross_notional_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_gross_notional_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_gross_notional_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Gross Notional Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Gross Notional Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Gross Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_gross_notional_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_gross_notional_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_gross_notional_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Gross Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_gross_notional_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_gross_notional_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_gross_notional_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7017,14 +3723,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_gross_notional_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Gross Notional Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_gross_notional_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Gross Notional Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_gross_notional_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_gross_notional_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Gross Notional Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_gross_notional_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_gross_notional_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7048,123 +3754,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_gross_notional_threshold_change_req
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_gross_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Single Order Max Contracts Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_change_req_efid = 4
-
--- Display: Efi D Single Order Max Contracts Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_contracts_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Contracts Change Req Efid: No Value"
-  end
-
-  return "Efi D Single Order Max Contracts Change Req Efid: "..value
-end
-
--- Dissect: Efi D Single Order Max Contracts Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_contracts_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_contracts_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_contracts_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Max Contracts Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_change_req_underlier = 6
-
--- Display: Underlier Single Order Max Contracts Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_contracts_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Max Contracts Change Req Underlier: No Value"
-  end
-
-  return "Underlier Single Order Max Contracts Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Max Contracts Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_contracts_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_contracts_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_contracts_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Max Contracts Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_max_contracts_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_contracts_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_contracts_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7182,14 +3780,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_contracts_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Contracts Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_contracts_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Max Contracts Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_max_contracts_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_contracts_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Contracts Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_max_contracts_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_contracts_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7213,123 +3811,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_contracts_change_req_
   return memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_contracts_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Single Order Max Notional Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_change_req_efid = 4
-
--- Display: Efi D Single Order Max Notional Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_notional_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Max Notional Change Req Efid: No Value"
-  end
-
-  return "Efi D Single Order Max Notional Change Req Efid: "..value
-end
-
--- Dissect: Efi D Single Order Max Notional Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_notional_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_max_notional_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_max_notional_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Max Notional Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_change_req_underlier = 6
-
--- Display: Underlier Single Order Max Notional Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_notional_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Max Notional Change Req Underlier: No Value"
-  end
-
-  return "Underlier Single Order Max Notional Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Max Notional Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_notional_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_max_notional_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_max_notional_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Max Notional Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Max Notional Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Max Notional Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Max Notional Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Max Notional Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Max Notional Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_max_notional_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_max_notional_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_max_notional_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7347,14 +3837,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_notional_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Max Notional Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_max_notional_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Max Notional Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_max_notional_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_max_notional_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Max Notional Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_max_notional_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_max_notional_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7378,123 +3868,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_notional_change_req_m
   return memx_options_riskcontrol_sbe_v1_3_dissect.single_order_max_notional_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Single Order Allow Orders In Crossed Market Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid = 4
-
--- Display: Efi D Single Order Allow Orders In Crossed Market Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Orders In Crossed Market Change Req Efid: No Value"
-  end
-
-  return "Efi D Single Order Allow Orders In Crossed Market Change Req Efid: "..value
-end
-
--- Dissect: Efi D Single Order Allow Orders In Crossed Market Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Allow Orders In Crossed Market Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier = 6
-
--- Display: Underlier Single Order Allow Orders In Crossed Market Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Allow Orders In Crossed Market Change Req Underlier: No Value"
-  end
-
-  return "Underlier Single Order Allow Orders In Crossed Market Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Allow Orders In Crossed Market Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Allow Orders In Crossed Market Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_allow_orders_in_crossed_market_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7512,14 +3894,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Orders In Crossed Market Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_orders_in_crossed_market_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Allow Orders In Crossed Market Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_allow_orders_in_crossed_market_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_orders_in_crossed_market_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Orders In Crossed Market Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_allow_orders_in_crossed_market_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_orders_in_crossed_market_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7543,123 +3925,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_orders_in_crossed_m
   return memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_orders_in_crossed_market_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Single Order Allow Iso Orders Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_change_req_efid = 4
-
--- Display: Efi D Single Order Allow Iso Orders Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_iso_orders_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Single Order Allow Iso Orders Change Req Efid: No Value"
-  end
-
-  return "Efi D Single Order Allow Iso Orders Change Req Efid: "..value
-end
-
--- Dissect: Efi D Single Order Allow Iso Orders Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_iso_orders_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_single_order_allow_iso_orders_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_single_order_allow_iso_orders_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Single Order Allow Iso Orders Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_change_req_underlier = 6
-
--- Display: Underlier Single Order Allow Iso Orders Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_iso_orders_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Single Order Allow Iso Orders Change Req Underlier: No Value"
-  end
-
-  return "Underlier Single Order Allow Iso Orders Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Single Order Allow Iso Orders Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_iso_orders_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_single_order_allow_iso_orders_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_single_order_allow_iso_orders_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Single Order Allow Iso Orders Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.single_order_allow_iso_orders_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_single_order_allow_iso_orders_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_single_order_allow_iso_orders_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7677,14 +3951,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_iso_orders_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Single Order Allow Iso Orders Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_single_order_allow_iso_orders_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Single Order Allow Iso Orders Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_single_order_allow_iso_orders_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_single_order_allow_iso_orders_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Single Order Allow Iso Orders Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_single_order_allow_iso_orders_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_single_order_allow_iso_orders_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7708,47 +3982,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_iso_orders_change_r
   return memx_options_riskcontrol_sbe_v1_3_dissect.single_order_allow_iso_orders_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Cl Ord I D Cp Clear Breach Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_clear_breach_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Clear Breach Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_clear_breach_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Clear Breach Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Clear Breach Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Clear Breach Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_clear_breach_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_clear_breach_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_clear_breach_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_clear_breach_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Clear Breach Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_clear_breach_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_clear_breach_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.breach_id
 
@@ -7764,8 +4002,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_clear_breach_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Clear Breach Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_clear_breach_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_clear_breach_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   -- Breach Id: 8 Byte Unsigned Fixed Width Integer
   index, breach_id = memx_options_riskcontrol_sbe_v1_3_dissect.breach_id(buffer, index, packet, parent)
@@ -7816,123 +4054,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.send_cancels = function(buffer, offset
   return offset + length, value
 end
 
--- Size: Efi D Manual Cp Breach Trigger Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_req_efid = 4
-
--- Display: Efi D Manual Cp Breach Trigger Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Manual Cp Breach Trigger Req Efid: No Value"
-  end
-
-  return "Efi D Manual Cp Breach Trigger Req Efid: "..value
-end
-
--- Dissect: Efi D Manual Cp Breach Trigger Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_manual_cp_breach_trigger_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_manual_cp_breach_trigger_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Manual Cp Breach Trigger Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_req_underlier = 6
-
--- Display: Underlier Manual Cp Breach Trigger Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Manual Cp Breach Trigger Req Underlier: No Value"
-  end
-
-  return "Underlier Manual Cp Breach Trigger Req Underlier: "..value
-end
-
--- Dissect: Underlier Manual Cp Breach Trigger Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_manual_cp_breach_trigger_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_manual_cp_breach_trigger_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Manual Cp Breach Trigger Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.manual_cp_breach_trigger_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_manual_cp_breach_trigger_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_manual_cp_breach_trigger_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -7950,14 +4080,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Manual Cp Breach Trigger Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_manual_cp_breach_trigger_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Manual Cp Breach Trigger Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_manual_cp_breach_trigger_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_manual_cp_breach_trigger_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Manual Cp Breach Trigger Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_manual_cp_breach_trigger_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_manual_cp_breach_trigger_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -7981,123 +4111,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_req_message =
   return memx_options_riskcontrol_sbe_v1_3_dissect.manual_cp_breach_trigger_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Breach Count Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Breach Count Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_breach_count_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Breach Count Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Breach Count Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Breach Count Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_breach_count_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_breach_count_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_breach_count_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Breach Count Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Breach Count Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_breach_count_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Breach Count Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Breach Count Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Breach Count Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_breach_count_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_breach_count_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_breach_count_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Breach Count Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_breach_count_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_breach_count_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_breach_count_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -8117,14 +4139,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_breach_count_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Breach Count Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_breach_count_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Breach Count Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_breach_count_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_breach_count_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Breach Count Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_breach_count_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_breach_count_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -8171,123 +4193,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.percent_int_32 = function(buffer, offs
   return offset + length, value
 end
 
--- Size: Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Percent Outstanding Contracts Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_percent_outstanding_contracts_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.percent_int_32
 
@@ -8305,14 +4219,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Percent Outstanding Contracts Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_percent_outstanding_contracts_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Percent Outstanding Contracts Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_percent_outstanding_contracts_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Percent Outstanding Contracts Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_percent_outstanding_contracts_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Percent int 32: 4 Byte Signed Fixed Width Integer
   index, percent_int_32 = memx_options_riskcontrol_sbe_v1_3_dissect.percent_int_32(buffer, index, packet, parent)
@@ -8336,123 +4250,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_percent_outstanding_contracts_thres
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_percent_outstanding_contracts_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Total Executions Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Total Executions Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_total_executions_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Total Executions Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Total Executions Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Total Executions Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_total_executions_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_total_executions_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_total_executions_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Total Executions Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Total Executions Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_total_executions_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Total Executions Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Total Executions Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Total Executions Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_total_executions_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_total_executions_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_total_executions_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Total Executions Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_total_executions_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_total_executions_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_total_executions_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -8472,14 +4278,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Total Executions Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_total_executions_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Total Executions Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_total_executions_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_total_executions_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Total Executions Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_total_executions_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_total_executions_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -8506,123 +4312,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_change_r
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_total_executions_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Executed Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Executed Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_executed_notional_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Executed Notional Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Executed Notional Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Executed Notional Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_executed_notional_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_executed_notional_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_executed_notional_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Executed Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Executed Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_executed_notional_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Executed Notional Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Executed Notional Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Executed Notional Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_executed_notional_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_executed_notional_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_executed_notional_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Executed Notional Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_executed_notional_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_executed_notional_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_executed_notional_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -8642,14 +4340,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_executed_notional_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Executed Notional Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_executed_notional_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Executed Notional Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_executed_notional_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_executed_notional_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Executed Notional Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_executed_notional_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_executed_notional_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -8676,123 +4374,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_executed_notional_threshold_change_
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_executed_notional_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Cp Volume Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_change_req_efid = 4
-
--- Display: Efi D Cp Volume Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_volume_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Cp Volume Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Cp Volume Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Cp Volume Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_volume_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_cp_volume_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_cp_volume_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Cp Volume Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_change_req_underlier = 6
-
--- Display: Underlier Cp Volume Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_volume_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Cp Volume Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Cp Volume Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Cp Volume Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_volume_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_cp_volume_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_cp_volume_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Cp Volume Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.cp_volume_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_cp_volume_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_cp_volume_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.risk_group_id
 
@@ -8812,14 +4402,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.cp_volume_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Cp Volume Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_cp_volume_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Cp Volume Threshold Change Req Underlier: 6 Byte Ascii String Nullable
-  index, underlier_cp_volume_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_cp_volume_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Cp Volume Threshold Change Req Efid: 4 Byte Ascii String Nullable
-  index, efi_d_cp_volume_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_cp_volume_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Risk Group Id: 2 Byte Unsigned Fixed Width Integer Nullable
   index, risk_group_id = memx_options_riskcontrol_sbe_v1_3_dissect.risk_group_id(buffer, index, packet, parent)
@@ -8846,123 +4436,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.cp_volume_threshold_change_req_message
   return memx_options_riskcontrol_sbe_v1_3_dissect.cp_volume_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Active Risk Acknowledgement Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledgement_req_efid = 4
-
--- Display: Efi D Active Risk Acknowledgement Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledgement_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Acknowledgement Req Efid: No Value"
-  end
-
-  return "Efi D Active Risk Acknowledgement Req Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Acknowledgement Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledgement_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledgement_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_acknowledgement_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_acknowledgement_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Acknowledgement Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledgement_req_underlier = 6
-
--- Display: Underlier Active Risk Acknowledgement Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledgement_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Acknowledgement Req Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Acknowledgement Req Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Acknowledgement Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledgement_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledgement_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_acknowledgement_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_acknowledgement_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Acknowledgement Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_acknowledgement_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_acknowledgement_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_acknowledgement_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.quantity
 
@@ -8978,14 +4460,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledgement_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Acknowledgement Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_acknowledgement_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Acknowledgement Req Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_acknowledgement_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_acknowledgement_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Acknowledgement Req Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_acknowledgement_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_acknowledgement_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Quantity: 4 Byte Unsigned Fixed Width Integer
   index, quantity = memx_options_riskcontrol_sbe_v1_3_dissect.quantity(buffer, index, packet, parent)
@@ -9006,123 +4488,15 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledgement_req_messag
   return memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_acknowledgement_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Efi D Active Risk Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_req_efid = 4
-
--- Display: Efi D Active Risk Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_change_req_efid = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Efi D Active Risk Threshold Change Req Efid: No Value"
-  end
-
-  return "Efi D Active Risk Threshold Change Req Efid: "..value
-end
-
--- Dissect: Efi D Active Risk Threshold Change Req Efid
-memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_change_req_efid = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_req_efid
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.efi_d_active_risk_threshold_change_req_efid(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.efi_d_active_risk_threshold_change_req_efid, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Underlier Active Risk Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_req_underlier = 6
-
--- Display: Underlier Active Risk Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_change_req_underlier = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Underlier Active Risk Threshold Change Req Underlier: No Value"
-  end
-
-  return "Underlier Active Risk Threshold Change Req Underlier: "..value
-end
-
--- Dissect: Underlier Active Risk Threshold Change Req Underlier
-memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_change_req_underlier = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_req_underlier
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.underlier_active_risk_threshold_change_req_underlier(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.underlier_active_risk_threshold_change_req_underlier, range, value, display)
-
-  return offset + length, value
-end
-
--- Size: Cl Ord I D Active Risk Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id = 20
-
--- Display: Cl Ord I D Active Risk Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Active Risk Threshold Change Req Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Active Risk Threshold Change Req Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Active Risk Threshold Change Req Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Active Risk Threshold Change Req Message
 memx_options_riskcontrol_sbe_v1_3_size_of.active_risk_threshold_change_req_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier_active_risk_threshold_change_req_underlier
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.underlier
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efi_d_active_risk_threshold_change_req_efid
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.efid
 
   index = index + memx_options_riskcontrol_sbe_v1_3_size_of.threshold_quantity
 
@@ -9138,14 +4512,14 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_req_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Active Risk Threshold Change Req Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_active_risk_threshold_change_req_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
-  -- Underlier Active Risk Threshold Change Req Underlier: 6 Byte Ascii String
-  index, underlier_active_risk_threshold_change_req_underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier_active_risk_threshold_change_req_underlier(buffer, index, packet, parent)
+  -- Underlier: 6 Byte Ascii String
+  index, underlier = memx_options_riskcontrol_sbe_v1_3_dissect.underlier(buffer, index, packet, parent)
 
-  -- Efi D Active Risk Threshold Change Req Efid: 4 Byte Ascii String
-  index, efi_d_active_risk_threshold_change_req_efid = memx_options_riskcontrol_sbe_v1_3_dissect.efi_d_active_risk_threshold_change_req_efid(buffer, index, packet, parent)
+  -- Efid: 4 Byte Ascii String
+  index, efid = memx_options_riskcontrol_sbe_v1_3_dissect.efid(buffer, index, packet, parent)
 
   -- Threshold Quantity: 4 Byte Unsigned Fixed Width Integer
   index, threshold_quantity = memx_options_riskcontrol_sbe_v1_3_dissect.threshold_quantity(buffer, index, packet, parent)
@@ -9166,47 +4540,11 @@ memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_req_messa
   return memx_options_riskcontrol_sbe_v1_3_dissect.active_risk_threshold_change_req_message_fields(buffer, offset, packet, parent)
 end
 
--- Size: Cl Ord I D Risk Settings Query Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_cl_ord_id = 20
-
--- Display: Cl Ord I D Risk Settings Query Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_cl_ord_id = function(value)
-  -- Check if field has value
-  if value == nil or value == '' then
-    return "Cl Ord I D Risk Settings Query Cl Ord Id: No Value"
-  end
-
-  return "Cl Ord I D Risk Settings Query Cl Ord Id: "..value
-end
-
--- Dissect: Cl Ord I D Risk Settings Query Cl Ord Id
-memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_cl_ord_id = function(buffer, offset, packet, parent)
-  local length = memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_cl_ord_id
-  local range = buffer(offset, length)
-
-  -- parse last octet
-  local last = buffer(offset + length - 1, 1):uint()
-
-  -- read full string or up to first zero
-  local value = ''
-  if last == 0 then
-    value = range:stringz()
-  else
-    value = range:string()
-  end
-
-  local display = memx_options_riskcontrol_sbe_v1_3_display.cl_ord_i_d_risk_settings_query_cl_ord_id(value, buffer, offset, packet, parent)
-
-  parent:add(memx_options_riskcontrol_sbe_v1_3.fields.cl_ord_i_d_risk_settings_query_cl_ord_id, range, value, display)
-
-  return offset + length, value
-end
-
 -- Calculate size of: Risk Settings Query Message
 memx_options_riskcontrol_sbe_v1_3_size_of.risk_settings_query_message = function(buffer, offset)
   local index = 0
 
-  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.cl_ord_i_d_risk_settings_query_cl_ord_id
+  index = index + memx_options_riskcontrol_sbe_v1_3_size_of.clordid
 
   return index
 end
@@ -9220,8 +4558,8 @@ end
 memx_options_riskcontrol_sbe_v1_3_dissect.risk_settings_query_message_fields = function(buffer, offset, packet, parent)
   local index = offset
 
-  -- Cl Ord I D Risk Settings Query Cl Ord Id: 20 Byte Ascii String
-  index, cl_ord_i_d_risk_settings_query_cl_ord_id = memx_options_riskcontrol_sbe_v1_3_dissect.cl_ord_i_d_risk_settings_query_cl_ord_id(buffer, index, packet, parent)
+  -- ClOrdId: 20 Byte Ascii String
+  index, clordid = memx_options_riskcontrol_sbe_v1_3_dissect.clordid(buffer, index, packet, parent)
 
   return index
 end

@@ -27,7 +27,8 @@
 | Options | [MemoirDepth][Memx.Options.MemoirDepth.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Options.MemoirDepth.Sbe.v1.3.Dissector] | 6/29/2023 | 2681 | [Active][Omi.Glossary.Status.Active] | [Verified][Omi.Glossary.Testing.Verified] | [url][Memx.Options.MemoirDepth.Sbe.v1.3.Url] - [pdf][Memx.Options.MemoirDepth.Sbe.v1.3.Pdf] - [xml][Memx.Options.MemoirDepth.Sbe.v1.3.Xml] |
 | Options | [MemoirTop][Memx.Options.MemoirTop.Sbe.v1.6.a.Dissector] | Sbe | [1.6.a][Memx.Options.MemoirTop.Sbe.v1.6.a.Dissector] | 11/13/2023 | 2846 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Memx.Options.MemoirTop.Sbe.v1.6.a.Url] - [pdf][Memx.Options.MemoirTop.Sbe.v1.6.a.Pdf] - [xml][Memx.Options.MemoirTop.Sbe.v1.6.a.Xml] |
 | Options | [MemoirTop][Memx.Options.MemoirTop.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Options.MemoirTop.Sbe.v1.3.Dissector] | 6/29/2023 | 2836 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Options.MemoirTop.Sbe.v1.3.Url] - [pdf][Memx.Options.MemoirTop.Sbe.v1.3.Pdf] - [xml][Memx.Options.MemoirTop.Sbe.v1.3.Xml] |
-| Options | [RiskControl][Memx.Options.RiskControl.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Options.RiskControl.Sbe.v1.3.Dissector] | 6/29/2023 | 11285 | [Active][Omi.Glossary.Status.Active] | [Beta][Omi.Glossary.Testing.Beta] | [url][Memx.Options.RiskControl.Sbe.v1.3.Url] - [pdf][Memx.Options.RiskControl.Sbe.v1.3.Pdf] - [xml][Memx.Options.RiskControl.Sbe.v1.3.Xml] |
+| Options | [RiskControl][Memx.Options.RiskControl.Sbe.v1.6.Dissector] | Sbe | [1.6][Memx.Options.RiskControl.Sbe.v1.6.Dissector] | 11/15/2023 | 6639 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Memx.Options.RiskControl.Sbe.v1.6.Url] - [pdf][Memx.Options.RiskControl.Sbe.v1.6.Pdf] - [xml][Memx.Options.RiskControl.Sbe.v1.6.Xml] |
+| Options | [RiskControl][Memx.Options.RiskControl.Sbe.v1.3.Dissector] | Sbe | [1.3][Memx.Options.RiskControl.Sbe.v1.3.Dissector] | 6/29/2023 | 6623 | [Active][Omi.Glossary.Status.Active] | [Untested][Omi.Glossary.Testing.Untested] | [url][Memx.Options.RiskControl.Sbe.v1.3.Url] - [pdf][Memx.Options.RiskControl.Sbe.v1.3.Pdf] - [xml][Memx.Options.RiskControl.Sbe.v1.3.Xml] |
 
 
 Memx: [website](https://memx.com "Go to Members Exchange")
@@ -117,10 +118,6 @@ Memx: [website](https://memx.com "Go to Members Exchange")
 [Memx.Options.MemoirDepth.Sbe.v1.6.a.Url]: https://memxtrading.com/ "Members Exchange 1.6.a Url"
 [Memx.Options.MemoirDepth.Sbe.v1.6.a.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.MemoirDepth.Sbe.v1.6.a.pdf "Members Exchange 1.6.a Pdf"
 [Memx.Options.MemoirDepth.Sbe.v1.6.a.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.MemoirDepth.Sbe.v1.6.a.xml "Members Exchange 1.6.a Xml"
-[Memx.Options.RiskControl.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Options.RiskControl.Sbe.v1.3.Script.Dissector.lua "Memx Options RiskControl Sbe v1.3 Wireshark Dissector"
-[Memx.Options.RiskControl.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
-[Memx.Options.RiskControl.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
-[Memx.Options.RiskControl.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.3.xml "Members Exchange 1.3 Xml"
 [Memx.Options.Memo.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Options.Memo.Sbe.v1.3.Script.Dissector.lua "Memx Options Memo Sbe v1.3 Wireshark Dissector"
 [Memx.Options.Memo.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
 [Memx.Options.Memo.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.Memo.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
@@ -137,3 +134,11 @@ Memx: [website](https://memx.com "Go to Members Exchange")
 [Memx.Options.Memo.Sbe.v1.6.b.Url]: https://memxtrading.com/ "Members Exchange 1.6.b Url"
 [Memx.Options.Memo.Sbe.v1.6.b.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.Memo.Sbe.v1.6.b.pdf "Members Exchange 1.6.b Pdf"
 [Memx.Options.Memo.Sbe.v1.6.b.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.Memo.Sbe.v1.6.b.xml "Members Exchange 1.6.b Xml"
+[Memx.Options.RiskControl.Sbe.v1.3.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Options.RiskControl.Sbe.v1.3.Script.Dissector.lua "Memx Options RiskControl Sbe v1.3 Wireshark Dissector"
+[Memx.Options.RiskControl.Sbe.v1.3.Url]: https://memxtrading.com/ "Members Exchange 1.3 Url"
+[Memx.Options.RiskControl.Sbe.v1.3.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.3.pdf "Members Exchange 1.3 Pdf"
+[Memx.Options.RiskControl.Sbe.v1.3.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.3.xml "Members Exchange 1.3 Xml"
+[Memx.Options.RiskControl.Sbe.v1.6.Dissector]: https://github.com/Open-Markets-Initiative/wireshark-lua/blob/main/Memx/Memx.Options.RiskControl.Sbe.v1.6.Script.Dissector.lua "Memx Options RiskControl Sbe v1.6 Wireshark Dissector"
+[Memx.Options.RiskControl.Sbe.v1.6.Url]: https://memxtrading.com/ "Members Exchange 1.6 Url"
+[Memx.Options.RiskControl.Sbe.v1.6.Pdf]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.6.pdf "Members Exchange 1.6 Pdf"
+[Memx.Options.RiskControl.Sbe.v1.6.Xml]: https://github.com/Open-Markets-Initiative/Directory/blob/main/Organizations/Memx/Specifications/Memx.Options.RiskControl.Sbe.v1.6.xml "Members Exchange 1.6 Xml"
