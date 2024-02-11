@@ -902,14 +902,14 @@ cme_futures_settlements_sbe_v7_0_size_of.put_or_call = 1
 
 -- Display: Put Or Call
 cme_futures_settlements_sbe_v7_0_display.put_or_call = function(value)
+  if value == 255 then
+    return "Put Or Call: No Value"
+  end
   if value == 0 then
     return "Put Or Call: Put (0)"
   end
   if value == 1 then
     return "Put Or Call: Call (1)"
-  end
-  if value == 255 then
-    return "Put Or Call: No Value"
   end
 
   return "Put Or Call: Unknown("..value..")"
