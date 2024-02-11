@@ -1083,22 +1083,12 @@ end
 coinbase_derivatives_marketdataapi_sbe_v1_3_size_of.vwap_price = 8
 
 -- Display: Vwap Price
-coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price = function(raw, value)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return "Vwap Price: No Value"
-  end
-
+coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price = function(value)
   return "Vwap Price: "..value
 end
 
 -- Translate: Vwap Price
 translate.vwap_price = function(raw)
-  -- Check null sentinel value
-  if raw == Int64(0x00000000, 0x80000000) then
-    return 0/0
-  end
-
   return raw:tonumber()/1000000000
 end
 
@@ -1108,7 +1098,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price = function(buffer
   local range = buffer(offset, length)
   local raw = range:le_int64()
   local value = translate.vwap_price(raw)
-  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price(raw, value, buffer, offset, packet, parent)
+  local display = coinbase_derivatives_marketdataapi_sbe_v1_3_display.vwap_price(value, buffer, offset, packet, parent)
 
   parent:add(coinbase_derivatives_marketdataapi_sbe_v1_3.fields.vwap_price, range, value, display)
 
@@ -1422,7 +1412,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.end_of_snapshot_message_fiel
   -- High Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.high_price(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
@@ -2853,7 +2843,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.trade_session_volume_message
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.instr_header(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Signed Fixed Width Integer
@@ -3561,7 +3551,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.trade_summary_message_fields
   -- Aggressor Receive Time: 8 Byte Signed Fixed Width Integer
   index, aggressor_receive_time = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.aggressor_receive_time(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_3_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Deepest Price: 8 Byte Signed Fixed Width Integer

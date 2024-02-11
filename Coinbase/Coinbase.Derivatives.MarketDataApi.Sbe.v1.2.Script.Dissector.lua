@@ -959,11 +959,6 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_size_of.vwap_price = 8
 
 -- Display: Vwap Price
 coinbase_derivatives_marketdataapi_sbe_v1_2_display.vwap_price = function(value)
-  -- Check if field has value
-  if value == Int64(0x00000000, 0x80000000) then
-    return "Vwap Price: No Value"
-  end
-
   return "Vwap Price: "..value
 end
 
@@ -1231,7 +1226,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.end_of_snapshot_message_fiel
   -- High Price: 8 Byte Signed Fixed Width Integer Nullable
   index, high_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.high_price(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Settlement Price: 8 Byte Signed Fixed Width Integer Nullable
@@ -2399,7 +2394,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.trade_session_volume_message
   -- Instr Header: Struct of 7 fields
   index, instr_header = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.instr_header(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Trade Volume: 4 Byte Signed Fixed Width Integer
@@ -3065,7 +3060,7 @@ coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.trade_summary_message_fields
   -- Aggressor Receive Time: 8 Byte Signed Fixed Width Integer
   index, aggressor_receive_time = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.aggressor_receive_time(buffer, index, packet, parent)
 
-  -- Vwap Price: 8 Byte Signed Fixed Width Integer Nullable
+  -- Vwap Price: 8 Byte Signed Fixed Width Integer
   index, vwap_price = coinbase_derivatives_marketdataapi_sbe_v1_2_dissect.vwap_price(buffer, index, packet, parent)
 
   -- Deepest Price: 8 Byte Signed Fixed Width Integer
